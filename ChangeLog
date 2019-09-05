@@ -1,3 +1,1028 @@
+6.3.0 08/09/2019
+
+2019-09-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: export dmessagebox.h
+
+2019-09-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/CMakeLists.txt,
+	core/showfoto/thumbbar/itemviewshowfotodelegate.cpp: remove
+	itemscanner.h dependency in Showfoto
+
+2019-09-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: polish
+
+2019-09-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_gmicqt/CMakeLists.txt,
+	project/scripts/bootstrap-gmicqt.sh: polish
+
+2019-09-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: missing header to export
+
+2019-09-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* bootstrap.tarball: 6.3.0
+
+2019-09-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-09-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/CMakeLists.txt: prepare 6.3.0
+
+2019-09-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_gmicqt/CMakeLists.txt,
+	project/scripts/bootstrap-gmicqt.sh: enable fftw3 with gmicqt when
+	it's possible
+
+2019-09-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/CMakeLists.txt: these packages are REQUIRED
+
+2019-09-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: add link to DPlugins demo from github
+
+
+2019-09-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: add note about non KF5 headers to
+	export from DK API
+
+2019-09-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/collection/collectionscanner_scan.cpp: polish
+
+2019-09-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/collection/collectionscanner_p.h,
+	core/libs/database/collection/collectionscanner_utils.cpp: 
+	QDirIterator is a little faster
+
+2019-09-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: 2 more files to export for external
+	plugins
+
+2019-09-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/main.cpp, core/app/views/stack/itemiconview.cpp,
+	core/libs/album/manager/albummanager_database.cpp,
+	core/libs/album/widgets/albumselectors.cpp,
+	core/libs/album/widgets/albumselecttabs.cpp,
+	core/libs/album/widgets/albumselectwidget.cpp,
+	core/libs/database/coredb/coredbschemaupdater.cpp,
+	core/libs/database/engine/dbengineaccess.cpp,
+	core/libs/database/engine/dbengineparameters.cpp,
+	core/libs/database/engine/dbengineparameters.h,
+	core/libs/database/utils/ifaces/dbinfoiface.cpp,
+	core/libs/settings/applicationsettings_p.h,
+	core/libs/tags/manager/taglist.cpp,
+	core/showfoto/thumbbar/showfotothumbnailmodel.cpp,
+	core/tests/facesengine/demo/main.cpp,
+	core/tests/facesengine/recognize.cpp,
+	core/tests/facesengine/traindb.cpp,
+	core/utilities/advancedrename/advancedrenamedialog.cpp,
+	core/utilities/advancedrename/advancedrenameinput.cpp,
+	core/utilities/advancedrename/advancedrenamewidget.cpp,
+	core/utilities/advancedrename/parser/options/dateoption.h,
+	core/utilities/firstrun/databasepage.cpp,
+	core/utilities/firstrun/migratefromdigikam4page.cpp,
+	core/utilities/firstrun/openfilepage.cpp,
+	core/utilities/import/backend/umscamera.cpp,
+	core/utilities/import/views/importview.cpp,
+	core/utilities/import/widgets/renamecustomizer.cpp,
+	core/utilities/maintenance/facesdetector.cpp,
+	core/utilities/maintenance/fingerprintsgenerator.cpp,
+	core/utilities/maintenance/maintenancedlg.cpp,
+	core/utilities/searchwindow/searchtabheader.cpp,
+	core/utilities/setup/album/setupalbumview.cpp,
+	core/utilities/setup/camera/setupcamera.cpp,
+	core/utilities/setup/setup.cpp, core/utilities/setup/setupicc.cpp: 
+	External plugins API: reduce KF5 header exported in digiKam header
+	dbengineparameters.h KSharedConfig::openConfig() is always used
+	everywhere, so the argument to customize the KSharedConfig::Ptr
+	instance is never used.
+
+2019-09-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: fix headers to install
+
+2019-09-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake,
+	core/libs/database/coredb/coredburl.h,
+	core/libs/widgets/files/filesaveconflictbox.cpp,
+	core/libs/widgets/files/filesaveconflictbox.h: Do not export KF5
+	headers polish API more DK headers exported for BQM plugins
+
+2019-09-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/containers/iteminfo.h: polish
+
+2019-09-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: polish
+
+2019-09-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_gmicqt/CMakeLists.txt: add new gmicqt
+	option
+
+2019-09-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/bootstrap-gmicqt.sh: new options to compile gmicqt
+
+
+2019-09-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp: remove includes
+
+2019-09-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp,
+	core/libs/database/coredb/coredb.h: remove this old unused code, we
+	really do not need it anymore
+
+2019-09-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamapp_config.cpp: fix typo
+
+2019-08-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamapp_config.cpp,
+	core/libs/settings/applicationsettings_miscs.cpp: mpove this
+	function from ApplicationSettings
+
+2019-08-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/settings/applicationsettings_miscs.cpp: 
+	automatically choose the right icon theme for the color scheme BUGS:
+	411289 BUGS: 374091 BUGS: 409084 FIXED-IN: 6.3.0
+
+2019-08-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/tests/dimg/CMakeLists.txt, core/tests/dimg/magickloader.cpp: 
+	check if defined magick_module CCBUGS: 411429
+
+2019-08-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/tests/dimg/magickloader.cpp: polish
+
+2019-08-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/tests/dimg/CMakeLists.txt,
+	core/tests/dimg/magickloader.cpp: do not compile the ImageMagick
+	test module for version 7.0.8 BUGS: 411429 FIXED-IN: 6.3.0
+
+2019-08-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/tests/dimg/magickloader.cpp: replace C++20 keyword module
+
+2019-08-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/tests/dimg/CMakeLists.txt, core/tests/dimg/magickloader.cpp: 
+	disable compiling ImageMagick test modul until version 7.0.9 CCBUGS:
+	411429
+
+2019-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/bootstrap-gmicqt.sh: add bootstrap for gmic
+
+2019-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_gmicqt/CMakeLists.txt: polish
+
+2019-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_gmicqt/CMakeLists.txt: wrong name
+
+2019-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/03-build-digikam.sh,
+	project/bundles/mxe/03-build-digikam.sh: install GmicQt
+
+2019-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_gmicqt/CMakeLists.txt: add mingw
+	support
+
+2019-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_gmicqt/CMakeLists.txt: do not build
+	gmic
+
+2019-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/03-build-digikam.sh: typo
+
+2019-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/CMakeLists.txt,
+	project/bundles/3rdparty/ext_gmicqt/CMakeLists.txt,
+	project/bundles/appimage/03-build-digikam.sh: add gmicqt extra
+	plugin
+
+2019-08-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/cmake/modules/FindDigikam.cmake: this file is obsolete
+
+2019-08-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/greycstoration/cimg/CImg.h,
+	core/libs/dimg/filters/greycstoration/cimg/greycstoration.h,
+	core/libs/dimg/filters/greycstoration/greycstorationfilter.cpp: Wrap
+	old CImg header with digiKam namespace to prevent violent crash from
+	new experimental GMic-Qt plugin due to more than One Definition Rule
+	of CImg instance shared between digiKamcore and Gimc-Qt. digiKam as
+	an very older CImg internally, and GMic-Qt a more recent one. This
+	conflict is not detected at compilation time because digikamcore is
+	created and shared before and the GMic-Qt plugin is compiled at a
+	second stage outside digiKam.
+
+2019-08-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp: polish
+
+2019-08-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/preview/previewtask.cpp: polish cancel
+	preview task
+
+2019-08-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp: polish
+
+2019-08-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailtask.cpp: add check to
+	m_usedProcess
+
+2019-08-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp: Revert "check for
+	zero pointer already done"
+
+2019-08-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/qimageloader.cpp: remove blacklist from
+	QImage loader
+
+2019-08-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp: check for zero
+	pointer already done
+
+2019-08-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/engine/managedloadsavethread.cpp,
+	core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp,
+	core/libs/threadimageio/thumb/thumbnailtask.cpp: restore cache
+	lock/unlock #2
+
+2019-08-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/preview/previewtask.cpp: Revert "disable
+	the communication between threads for a test"
+
+2019-08-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp,
+	core/libs/threadimageio/thumb/thumbnailtask.cpp: Revert "restore
+	cache lock/unlock"
+
+2019-08-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/engine/sharedloadsavethread.cpp,
+	core/libs/threadimageio/engine/sharedloadsavethread.h: remove this
+	unused function
+
+2019-08-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp,
+	core/libs/threadimageio/thumb/thumbnailtask.cpp: restore cache
+	lock/unlock
+
+2019-08-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/bootstrap-exiv2.linux.sh,
+	project/scripts/bootstrap-lensfun.sh,
+	project/scripts/bootstrap-marble.sh,
+	project/scripts/bootstrap-qtav.sh,
+	project/scripts/bootstrap.opencv-minimal-linux.sh,
+	project/scripts/build-mxe-exiv2.sh,
+	project/scripts/dropextraspaces.sh,
+	project/scripts/git-rename-remote-branch.sh,
+	project/scripts/rm_git_mergetool_leftovers.sh,
+	project/scripts/scankdedep.sh, project/scripts/tabs2spaces.sh: sh =>
+	bash
+
+2019-08-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamCoreTarget.cmake,
+	core/app/DigikamGuiTarget.cmake, core/libs/database/CMakeLists.txt: 
+	exported interface was not installed at the right place on the
+	system...
+
+2019-08-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_imagemagick/CMakeLists.txt: enable IM
+	large file support CCBUGS: 411214
+
+2019-08-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/drawdecodersettings.h: revert
+
+2019-08-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/drawdecodersettings.h: this header is missing
+	to prevent broken compilation in an external dplugin
+
+2019-08-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: missing to export this header
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: missing to export this header
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamCoreTarget.cmake,
+	core/app/DigikamGuiTarget.cmake, core/libs/database/CMakeLists.txt: 
+	Add rules to export the digiKam version for external plugin. This
+	permit to force to use the right DK version when a plugin need to be
+	compiled outside the core and will limit the risk of crash due to
+	broken API/ABI
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamTarget.cmake,
+	core/dplugins/generic/tools/mediaserver/tests/CMakeLists.txt,
+	core/tests/CMakeLists.txt: fix MacOS linking
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/cmake/modules/MacroDPlugins.cmake: fix MacOS linking
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/cmake/modules/MacroDPlugins.cmake: fix MacOS linking
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/CMakeLists.txt: fix MacOS linking
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/cmake/modules/MacroDPlugins.cmake: these variables are empty
+
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/cmake/modules/MacroDPlugins.cmake: typo
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake, core/libs/dimg/drawdecoding.h: more
+	header export to be able to build an external Image Editor plugin
+	(aka GmicQt)
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/editor/imageiface.h: this header is not
+	used here
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/editor/imageiface.cpp,
+	core/utilities/imageeditor/editor/imageiface.h: less exported header
+
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake, core/app/DigikamTarget.cmake,
+	core/cmake/modules/MacroDPlugins.cmake,
+	core/dplugins/bqm/custom/userscript/CMakeLists.txt,
+	core/libs/database/CMakeLists.txt,
+	core/tests/albummodel/CMakeLists.txt,
+	core/tests/database/CMakeLists.txt,
+	core/tests/facesengine/CMakeLists.txt: digikamgui library, used with
+	BQM Dplugins do not export all eternal dependencies now
+
+2019-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/CMakeLists.txt, core/DigikamExportAPI.cmake,
+	core/app/CMakeLists.txt, core/app/DigikamCoreTarget.cmake,
+	core/app/DigikamGuiTarget.cmake, core/libs/dplugins/CMakeLists.txt,
+	core/utilities/geolocation/geoiface/CMakeLists.txt: factoring list
+	of all headers to install to one cmake file for a more easy
+	maintainance
+
+2019-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/CMakeLists.txt,
+	core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetail
+	s.cpp,
+	core/dplugins/generic/metadata/geolocationedit/searches/searchbacke
+	nd.cpp, core/utilities/geolocation/geoiface/CMakeLists.txt,
+	core/utilities/geolocation/geoiface/bookmark/gpsbookmarkmodelhelper
+	.cpp,
+	core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp,
+	core/utilities/geolocation/geoiface/items/gpsitemcontainer.h: 
+	install right headers for external dplugins code cleanup
+
+2019-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamCoreTarget.cmake,
+	core/app/DigikamGuiTarget.cmake,
+	core/cmake/modules/MacroDPlugins.cmake,
+	core/dplugins/generic/tools/mediaserver/tests/CMakeLists.txt,
+	core/dplugins/generic/tools/panorama/tests/CMakeLists.txt,
+	core/dplugins/generic/webservices/mediawiki/tests/CMakeLists.txt,
+	core/dplugins/generic/webservices/mediawiki/tests/examples/editsamp
+	le/CMakeLists.txt,
+	core/dplugins/generic/webservices/mediawiki/tests/examples/uploadsa
+	mple/CMakeLists.txt, core/libs/database/CMakeLists.txt,
+	core/showfoto/CMakeLists.txt, core/tests/CMakeLists.txt,
+	core/tests/advancedrename/CMakeLists.txt,
+	core/tests/albummodel/CMakeLists.txt,
+	core/tests/database/CMakeLists.txt,
+	core/tests/dialogs/CMakeLists.txt, core/tests/dimg/CMakeLists.txt,
+	core/tests/dngwriter/CMakeLists.txt,
+	core/tests/dplugins/CMakeLists.txt,
+	core/tests/facesengine/CMakeLists.txt,
+	core/tests/fileio/CMakeLists.txt,
+	core/tests/filters/CMakeLists.txt,
+	core/tests/geolocation/editor/CMakeLists.txt,
+	core/tests/geolocation/geoiface/CMakeLists.txt,
+	core/tests/geolocation/geoiface/calibrator/CMakeLists.txt,
+	core/tests/geolocation/geoiface/demo/CMakeLists.txt,
+	core/tests/geolocation/kmlexport/CMakeLists.txt,
+	core/tests/imgqsort/CMakeLists.txt,
+	core/tests/iojobs/CMakeLists.txt,
+	core/tests/metadataengine/CMakeLists.txt,
+	core/tests/multithreading/CMakeLists.txt,
+	core/tests/rawengine/CMakeLists.txt,
+	core/tests/timestampupdate/CMakeLists.txt,
+	core/tests/video/CMakeLists.txt,
+	core/tests/webservices/o2/fbdemo/CMakeLists.txt,
+	core/tests/webservices/o2/fbinter/CMakeLists.txt,
+	core/tests/webservices/o2/sialis/CMakeLists.txt,
+	core/tests/webservices/o2/twdemo/CMakeLists.txt,
+	core/tests/widgets/CMakeLists.txt: last stage to remove all external
+	dependencies exported by Cmake to simplify extra DPlugin
+	contribution
+
+2019-08-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailbasic.cpp: use
+	QFile::encodeName()
+
+2019-08-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailbasic.cpp: fix PNG
+	thumbnail loader to load thumbnails from from XDG cache
+
+2019-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamCoreTarget.cmake,
+	core/dplugins/generic/tools/videoslideshow/CMakeLists.txt,
+	core/dplugins/generic/view/presentation/CMakeLists.txt,
+	core/tests/video/CMakeLists.txt: less external public dependencies
+
+2019-08-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailbasic.cpp: fix path to
+	current XDG thumbnail cache location
+
+2019-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/main/main.cpp: store new or changed DB parameters
+	to the application settings BUGS: 411279 FIXED-IN: 6.3.0
+
+2019-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamCoreTarget.cmake, core/app/DigikamTarget.cmake,
+	core/dplugins/editor/file/print/CMakeLists.txt,
+	core/dplugins/generic/metadata/geolocationedit/CMakeLists.txt,
+	core/dplugins/generic/tools/calendar/CMakeLists.txt,
+	core/dplugins/generic/tools/htmlgallery/CMakeLists.txt,
+	core/dplugins/generic/tools/jalbum/CMakeLists.txt,
+	core/dplugins/generic/tools/jalbum/generator/jalbumgenerator.cpp,
+	core/dplugins/generic/tools/printcreator/CMakeLists.txt,
+	core/dplugins/generic/webservices/CMakeLists.txt,
+	core/dplugins/generic/webservices/filetransfer/CMakeLists.txt,
+	core/dplugins/generic/webservices/onedrive/CMakeLists.txt,
+	core/dplugins/generic/webservices/pinterest/CMakeLists.txt,
+	core/showfoto/CMakeLists.txt, core/tests/dimg/CMakeLists.txt: more
+	external dependencies as private to simplify extranal dplugin build
+	and link
+
+2019-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamCoreTarget.cmake: start to reduce dependencies
+	export rules from cmake interface. The goal is to be able to write
+	easily an external dplugin with a reduced list of dependencies from
+	DK core
+
+2019-08-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/date/ddateedit.cpp: fix get correct QScreen pointer
+	from widget BUGS: 411271 BUGS: 6.3.0
+
+2019-08-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/magickloader.cpp,
+	core/libs/dimg/loaders/magickloader.h: load image in real bit depth
+	with the ImageMagick loader CCBUGS: 411214
+
+2019-08-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/preview/previewtask.cpp: disable the
+	communication between threads for a test CCBUGS: 399923
+
+2019-08-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp,
+	core/libs/threadimageio/thumb/thumbnailtask.cpp: Revert "add dynamic
+	cast"
+
+2019-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qtwebkit/CMakeLists.txt: new QtWebkit
+	version available
+
+2019-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: Include zlib in
+	AppImage bundle CCBUGS: 411053
+
+2019-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* README.md: update build status
+
+2019-08-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/qimageloader.cpp: polish debug
+
+2019-08-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/qimageloader.cpp: do not block mime type
+	application Krita
+
+2019-08-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/qimageloader.cpp: polish
+
+2019-08-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/dimg/loaders/qimageloader.cpp: add black list to
+	the QImage loader first mime type is XCF BUGS: 411214 FIXED-IN:
+	6.3.0
+
+2019-08-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp,
+	core/libs/threadimageio/thumb/thumbnailtask.cpp: add dynamic cast
+	CCBUGS: 399923
+
+2019-08-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.h: remove destructor
+
+2019-08-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.h: polish
+	SharedLoadingTask
+
+2019-08-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.h: use volatile here
+
+2019-08-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dtrash/dtrashitemmodel.cpp, core/libs/iojobs/iojob.cpp: 
+	when rename with overwrite, move images into the trash
+
+2019-08-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-08-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/libs/rawengine/libraw/Changelog.txt,
+	core/libs/rawengine/libraw/internal/dcraw_common.cpp,
+	core/libs/rawengine/libraw/libraw/libraw_version.h: Update internal
+	libraw to last stable 0.19.5
+	https://www.libraw.org/news/libraw-0-19-5-release
+
+2019-08-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/lister/itemlister_falbum.cpp,
+	core/libs/database/item/lister/itemlister_salbum.cpp,
+	core/libs/database/item/lister/itemlister_talbum.cpp: polish unlock
+	CoreDbAccess
+
+2019-08-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/metadata/advancedmetadatatab.cpp,
+	core/utilities/setup/metadata/advancedmetadatatab.h,
+	core/utilities/setup/metadata/namespacelistview.cpp,
+	core/utilities/setup/metadata/namespacelistview.h: fix container
+	when delete item
+
+2019-08-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/metadata/namespacelistview.cpp: this can be
+	programmed shorter
+
+2019-08-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/metadata/advancedmetadatatab.cpp,
+	core/utilities/setup/metadata/advancedmetadatatab.h,
+	core/utilities/setup/metadata/namespacelistview.cpp,
+	core/utilities/setup/metadata/namespacelistview.h: fix wrong
+	namespace container in editor after move CCBUGS: 402288
+
+2019-08-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/album/treeview/albumselectiontreeview.cpp: reset only
+	hidden grouped items
+
+2019-08-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/tasks/copyfilestask.cpp,
+	core/dplugins/generic/tools/panorama/tasks/huginexecutortask.cpp: 
+	polish
+
+2019-08-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/tasks/copyfilestask.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panolastpage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panopreprocesspage.cpp: 
+	fix update host application
+
+2019-08-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS,
+	core/dplugins/generic/tools/panorama/manager/panoactionthread.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panooptimizepage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panopreprocesspage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp: fix
+	deadlock from Panorama plugin BUGS: 410973 FIXED-IN: 6.3.0
+
+2019-08-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/yandexfotki/yfwindow.cpp: fix
+	typo
+
+2019-08-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/wallpaper/TODO: update
+
+2019-08-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/wallpaper/TODO: add more TODO
+
+2019-08-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/wallpaper/TODO: add TODO list for
+	wallpaper plugin
+
+2019-08-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp: polish
+
+
+2019-08-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/google/gdrive/gdtalker.cpp,
+	core/dplugins/generic/webservices/google/gdrive/gdtalker.h,
+	core/dplugins/generic/webservices/google/gphoto/gptalker.cpp,
+	core/dplugins/generic/webservices/google/gphoto/gptalker.h,
+	core/dplugins/generic/webservices/google/gswidget.cpp,
+	core/dplugins/generic/webservices/google/gswindow.cpp: add upload
+	original option to GPhoto and GDrive uploader BUGS: 411013 FIXED-IN:
+	6.3.0
+
+2019-08-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/jpegloader.cpp,
+	core/libs/dimg/loaders/pngloader.cpp: polish
+
+2019-08-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/dimg/loaders/pngloader.cpp: add support for
+	loading broken images to the PNG loader BUGS: 411011 BUGS: 411013
+	FIXED-IN: 6.3.0
+
+2019-08-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp: 
+	Revert "try it here with a process event"
+
+2019-08-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-08-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/album/widgets/albumselectwidget.cpp: signal is emitted
+	from the tree view
+
+2019-08-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dplugins/core/dplugin.h: polish brief
+
+2019-08-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/presentation/presentationplugin.cpp,
+	core/dplugins/generic/view/presentation/presentationplugin.h: delete
+	presentation manager
+
+2019-08-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp: 
+	try it here with a process event CCBUGS: 410973
+
+2019-08-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/import/dscanner/dscannerplugin.cpp,
+	core/dplugins/generic/import/dscanner/dscannerplugin.h,
+	core/dplugins/generic/tools/calendar/calendarplugin.cpp,
+	core/dplugins/generic/tools/expoblending/expoblendingplugin.cpp,
+	core/dplugins/generic/tools/expoblending/expoblendingplugin.h,
+	core/dplugins/generic/tools/mediaserver/mediaserverplugin.cpp,
+	core/dplugins/generic/tools/mediaserver/mediaserverplugin.h,
+	core/dplugins/generic/tools/panorama/panoramaplugin.cpp,
+	core/dplugins/generic/tools/panorama/panoramaplugin.h,
+	core/dplugins/generic/webservices/box/boxplugin.cpp,
+	core/dplugins/generic/webservices/box/boxplugin.h,
+	core/dplugins/generic/webservices/debianscreenshots/dsplugin.cpp,
+	core/dplugins/generic/webservices/debianscreenshots/dsplugin.h,
+	core/dplugins/generic/webservices/dropbox/dbplugin.cpp,
+	core/dplugins/generic/webservices/dropbox/dbplugin.h,
+	core/dplugins/generic/webservices/facebook/fbplugin.cpp,
+	core/dplugins/generic/webservices/facebook/fbplugin.h,
+	core/dplugins/generic/webservices/filecopy/fcplugin.cpp,
+	core/dplugins/generic/webservices/filecopy/fcplugin.h,
+	core/dplugins/generic/webservices/filetransfer/ftplugin.cpp,
+	core/dplugins/generic/webservices/filetransfer/ftplugin.h,
+	core/dplugins/generic/webservices/flickr/flickrplugin.cpp,
+	core/dplugins/generic/webservices/flickr/flickrplugin.h,
+	core/dplugins/generic/webservices/google/gsplugin.cpp,
+	core/dplugins/generic/webservices/google/gsplugin.h,
+	core/dplugins/generic/webservices/imageshack/imageshackplugin.cpp,
+	core/dplugins/generic/webservices/imageshack/imageshackplugin.h,
+	core/dplugins/generic/webservices/imgur/imgurplugin.cpp,
+	core/dplugins/generic/webservices/imgur/imgurplugin.h,
+	core/dplugins/generic/webservices/ipfs/ipfsplugin.cpp,
+	core/dplugins/generic/webservices/ipfs/ipfsplugin.h,
+	core/dplugins/generic/webservices/mediawiki/mediawikiplugin.cpp,
+	core/dplugins/generic/webservices/mediawiki/mediawikiplugin.h,
+	core/dplugins/generic/webservices/onedrive/odplugin.cpp,
+	core/dplugins/generic/webservices/onedrive/odplugin.h,
+	core/dplugins/generic/webservices/pinterest/pplugin.cpp,
+	core/dplugins/generic/webservices/pinterest/pplugin.h,
+	core/dplugins/generic/webservices/piwigo/piwigoplugin.cpp,
+	core/dplugins/generic/webservices/piwigo/piwigoplugin.h,
+	core/dplugins/generic/webservices/rajce/rajceplugin.cpp,
+	core/dplugins/generic/webservices/rajce/rajceplugin.h,
+	core/dplugins/generic/webservices/smugmug/smugplugin.cpp,
+	core/dplugins/generic/webservices/smugmug/smugplugin.h,
+	core/dplugins/generic/webservices/twitter/twitterplugin.cpp,
+	core/dplugins/generic/webservices/twitter/twitterplugin.h,
+	core/dplugins/generic/webservices/unified/unifiedplugin.cpp,
+	core/dplugins/generic/webservices/unified/unifiedplugin.h,
+	core/dplugins/generic/webservices/vkontakte/vkplugin.cpp,
+	core/dplugins/generic/webservices/vkontakte/vkplugin.h,
+	core/dplugins/generic/webservices/yandexfotki/yfplugin.cpp,
+	core/dplugins/generic/webservices/yandexfotki/yfplugin.h,
+	core/libs/dplugins/core/dplugin.cpp,
+	core/libs/dplugins/core/dplugin.h,
+	core/libs/dplugins/setup/dpluginloader.cpp,
+	core/libs/dplugins/setup/dpluginloader_p.cpp,
+	core/libs/dplugins/setup/dpluginloader_p.h: expand the DPlugin API
+	with a cleanUp() function CCBUGS: 407235
+
+2019-08-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamapp.cpp: prevent QXcbConnection errors at end
+
+
+2019-08-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamapp.cpp,
+	core/utilities/queuemanager/dplugins/dpluginbqm.cpp,
+	core/utilities/queuemanager/views/toolsettingsview.cpp: Revert
+	"after deep debugging this should fix the crash"
+
+2019-08-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/album/widgets/albumselectdialog.cpp,
+	core/libs/album/widgets/albumselectwidget.cpp,
+	core/libs/album/widgets/albumselectwidget.h,
+	core/libs/widgets/common/modelcompleter.cpp,
+	core/libs/widgets/common/modelcompleter.h,
+	core/libs/widgets/common/searchtextbar.cpp,
+	core/libs/widgets/common/searchtextbar.h: add selection from
+	completer to the album tree view BUGS: 410912 FIXED-IN: 6.3.0
+
+2019-08-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/common/searchtextbar.cpp: polish
+
+2019-08-15  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2019-08-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* AUTHORS, core/data/about/images/body-background.jpg,
+	core/data/about/main.html,
+	core/data/pics/digikam/splash-digikam.png,
+	core/data/pics/digikam/splash-digikam.svgz,
+	core/data/pics/showfoto/splash-showfoto.png,
+	core/data/pics/showfoto/splash-showfoto.svgz: Update 6.3.0
+	splash-screens and welcome page background image with photo taken by
+	Lapadu-Hargues Matthieu CCMAIL: m.lapaduhargues@free.fr
+
+2019-08-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/items/delegate/itemdelegate.cpp: always draw the
+	modification date when it is activated The fact that the
+	modification date is not displayed if it is identical to the
+	creation date results in confusion for users.
+
+2019-08-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/bootstrap.opencv-minimal-linux.sh: update
+
+2019-08-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/items/views/itemcategorizedview.cpp: polish and const
+
+2019-08-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/main/digikamapp.cpp: fix crash in new function when
+	the album list is empty BUGS: 410862 FIXED-IN: 6.3.0
+
+2019-08-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp,
+	core/libs/threadimageio/thumb/thumbnailtask.cpp,
+	core/libs/threadimageio/thumb/thumbnailtask.h: polish code
+
+2019-08-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp: Revert "a new
+	interesting attempt to fix the crash"
+
+2019-08-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamapp.cpp,
+	core/libs/database/coredb/coredb.cpp,
+	core/libs/database/coredb/coredb.h: new faster function to calculate
+	item count in the album
+
+2019-08-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-08-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_opencv/CMakeLists.txt: backport this
+	patch in master
+
 6.2.0 04/08/2019
 
 2019-07-31  Gilles Caulier <caulier.gilles@gmail.com>
