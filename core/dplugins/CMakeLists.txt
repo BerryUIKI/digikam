@@ -7,3 +7,4 @@
 add_subdirectory(generic)
 add_subdirectory(editor)
 add_subdirectory(bqm)
+add_subdirectory(rawimport)
