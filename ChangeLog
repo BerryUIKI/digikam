@@ -1,3 +1,4356 @@
+6.4.0 02/11/2019
+
+2019-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/CMakeLists.txt: prepare 6.4.0 release
+
+2019-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: prepare 6.4.0 release
+
+2019-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/haar/haariface.cpp,
+	core/libs/database/haar/haariface.h: Try to fix garbage results in
+	multiple test operands reported by Clang static analyzer fix coding
+	style and polish
+
+2019-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/core/undomanager.cpp: it's probably a
+	false alarm from clang static analyzer, but in case of it's true,
+	add guard to prevent to use null pointer
+
+2019-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/server/databaseserver.cpp: add guard to prevent
+	null pointer use reported by clang static analyzer
+
+2019-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/geolocation/geoiface/core/geocoordinates.h,
+	core/utilities/geolocation/geoiface/core/geoifacecommon.h: disable
+	these wrong cppcheck reports
+
+2019-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/scanstatefilter.cpp,
+	core/utilities/facemanagement/scanstatefilter.h: Cppcheck is right
+	here : we have 2 declarations of "send" shadow outter function. With
+	recent compiler, this must be fine, but with older? CCBUGS: 399923
+
+2019-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/faceutils.cpp,
+	core/utilities/facemanagement/faceutils.h: Cppcheck is right here :
+	we have 2 decalration of i shadow variables. With recent compiler,
+	this must be fine, but with older? CCBUGS: 399923
+
+2019-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/facegroup.cpp: fix shadow variable
+	and fix coding style in large test conditions list
+
+2019-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/fileactionmanager/fileworkeriface.cpp: Local variable
+	format shadows outer variable reported by cppcheck
+
+2019-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/facedb/facedb.cpp: fix out of bound index
+	reported by cppcheck CCBUGS: 399923
+
+2019-10-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/import/main/importui.cpp,
+	core/utilities/import/main/importui_p.h: fix compile
+	ImportFilerCombobox
+
+2019-10-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/preview/previewtask.cpp,
+	core/libs/threadimageio/preview/previewtask.h: Revert "move these
+	two static functions for a test in PreviewLoadingTask"
+
+2019-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/CMakeLists.txt,
+	core/utilities/import/models/importfiltermodel.cpp,
+	core/utilities/import/widgets/{filtercombo.cpp =>
+	importfiltercombobox.cpp},
+	core/utilities/import/widgets/{filtercombo.h =>
+	importfiltercombobox.h},
+	core/utilities/setup/camera/importfilterdlg.cpp,
+	core/utilities/setup/camera/importfilterdlg.h,
+	core/utilities/setup/camera/setupcamera.cpp: rename class
+
+2019-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/widgets/filtercombo.cpp,
+	core/utilities/setup/CMakeLists.txt,
+	core/utilities/setup/camera/{importfilters.cpp =>
+	importfilterdlg.cpp}, core/utilities/setup/camera/{importfilters.h
+	=> importfilterdlg.h}, core/utilities/setup/camera/setupcamera.cpp: 
+	rename class
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/widgets/scriptingsettings.cpp: krazy++
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/utils/digikam_version.cpp: krazy++
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: fix MinGW warning
+
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/CMakeLists.txt: fix MinGW warnings
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/lens/lensfunfilter.cpp: fix clang warnings
+	under MacOS
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/mainview/thememanager_p.h: sync with 7.0.0
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/lens/lensfuncameraselector.cpp,
+	core/libs/dimg/filters/lens/lensfuniface.cpp,
+	core/libs/dimg/filters/lens/lensfuniface.h,
+	project/bundles/mxe/config.sh: fix clang warnings under MacOS
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/main.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/showfoto/main/main.cpp, project/bundles/mxe/config.sh: fix
+	clang warning under MacOS
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp,
+	core/libs/dimg/filters/lens/lensfuniface.h: fix GCC and clang
+	warnings under MacOS
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/flickr/CMakeLists.txt,
+	core/dplugins/generic/webservices/google/CMakeLists.txt,
+	core/dplugins/generic/webservices/imageshack/CMakeLists.txt,
+	core/dplugins/generic/webservices/imgur/CMakeLists.txt,
+	core/dplugins/generic/webservices/ipfs/CMakeLists.txt,
+	core/dplugins/generic/webservices/onedrive/CMakeLists.txt,
+	core/dplugins/generic/webservices/piwigo/CMakeLists.txt,
+	core/dplugins/generic/webservices/rajce/CMakeLists.txt,
+	core/dplugins/generic/webservices/smugmug/CMakeLists.txt,
+	core/dplugins/generic/webservices/twitter/CMakeLists.txt,
+	core/dplugins/generic/webservices/unified/CMakeLists.txt,
+	core/dplugins/generic/webservices/yandexfotki/CMakeLists.txt: fix
+	compilation of unified webservice plugin even if it's not finalized.
+	plugin still disabled
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/box/CMakeLists.txt,
+	core/dplugins/generic/webservices/debianscreenshots/CMakeLists.txt,
+	core/dplugins/generic/webservices/debianscreenshots/dstalker.h,
+	core/dplugins/generic/webservices/debianscreenshots/dswindow.cpp,
+	core/dplugins/generic/webservices/dropbox/CMakeLists.txt,
+	core/dplugins/generic/webservices/facebook/CMakeLists.txt,
+	core/dplugins/generic/webservices/filecopy/CMakeLists.txt: fix
+	compilation of debianscreenshot plugin even if it's not finalized.
+	It still disabled
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/CMakeLists.txt,
+	core/libs/widgets/mainview/thememanager.cpp,
+	core/libs/widgets/mainview/{schememanager.cpp =>
+	thememanager_p.cpp}, core/libs/widgets/mainview/{schememanager.h =>
+	thememanager_p.h}: use backward definition of KSharedConfig to not
+	export KF5 dependency
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/mainview/schememanager.cpp,
+	core/libs/widgets/mainview/schememanager.h: polish
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/digikamapp_p.h,
+	core/dplugins/generic/webservices/debianscreenshots/dstalker.h,
+	core/libs/widgets/mainview/dxmlguiwindow.cpp,
+	core/libs/widgets/mainview/dxmlguiwindow.h,
+	core/libs/widgets/mainview/thememanager.cpp,
+	core/libs/widgets/mainview/thememanager.h,
+	core/showfoto/main/showfoto_p.h,
+	core/utilities/imageeditor/editor/editorwindow_p.h,
+	core/utilities/imageeditor/main/imagewindow_p.h,
+	core/utilities/import/main/importui.cpp,
+	core/utilities/lighttable/lighttablewindow_p.h,
+	core/utilities/queuemanager/main/queuemgrwindow.cpp: use backward
+	definition of KSharedConfig to not export KF5 dependency
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/digikamapp.cpp,
+	core/app/main/digikamapp_camera.cpp,
+	core/app/main/digikamapp_config.cpp,
+	core/app/main/digikamapp_import.cpp, core/app/main/digikamapp_p.h,
+	core/app/main/digikamapp_setup.cpp,
+	core/app/main/digikamapp_solid.cpp,
+	core/app/main/digikamapp_tools.cpp,
+	core/app/views/tableview/tableview.cpp,
+	core/app/views/tableview/tableview_columnfactory.cpp,
+	core/app/views/tableview/tableview_columnfactory.h,
+	core/dplugins/editor/colors/adjustcurves/adjustcurvestool.cpp,
+	core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp,
+	core/dplugins/editor/colors/autocorrection/autocorrectiontool.cpp,
+	core/dplugins/editor/colors/bcg/bcgtool.cpp,
+	core/dplugins/editor/colors/bwsepia/bwsepiatool.cpp,
+	core/dplugins/editor/colors/channelmixer/channelmixertool.cpp,
+	core/dplugins/editor/colors/colorbalance/cbtool.cpp,
+	core/dplugins/editor/colors/film/filmtool.cpp,
+	core/dplugins/editor/colors/hsl/hsltool.cpp,
+	core/dplugins/editor/colors/profileconversion/profileconversiontool
+	.cpp,
+	core/dplugins/editor/colors/whitebalance/whitebalancetool.cpp,
+	core/dplugins/editor/decorate/border/bordertool.cpp,
+	core/dplugins/editor/decorate/inserttext/inserttexttool.cpp,
+	core/dplugins/editor/decorate/texture/texturetool.cpp,
+	core/dplugins/editor/enhance/antivignetting/antivignettingtool.cpp,
+	core/dplugins/editor/enhance/blur/blurtool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/hotpixels/hotpixelstool.cpp,
+	core/dplugins/editor/enhance/lensautofix/lensautofixtool.cpp,
+	core/dplugins/editor/enhance/localcontrast/localcontrasttool.cpp,
+	core/dplugins/editor/enhance/noisereduction/noisereductiontool.cpp,
+	core/dplugins/editor/enhance/redeye/redeyetool.cpp,
+	core/dplugins/editor/enhance/restoration/restorationtool.cpp,
+	core/dplugins/editor/enhance/sharpen/sharpentool.cpp,
+	core/dplugins/editor/transform/contentawareresize/contentawareresiz
+	etool.cpp,
+	core/dplugins/editor/transform/freerotation/freerotationtool.cpp,
+	core/dplugins/editor/transform/perspective/perspectivetool.cpp,
+	core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp,
+	core/dplugins/editor/transform/resize/resizetool.cpp,
+	core/dplugins/generic/webservices/mediawiki/mediawikiwidget.cpp,
+	core/dplugins/generic/webservices/mediawiki/mediawikiwidget.h,
+	core/showfoto/main/showfoto.cpp,
+	core/showfoto/main/showfoto_config.cpp,
+	core/showfoto/main/showfoto_import.cpp,
+	core/showfoto/main/showfoto_p.h,
+	core/showfoto/main/showfoto_setup.cpp,
+	core/showfoto/main/showfoto_tools.cpp,
+	core/utilities/imageeditor/editor/editortool.cpp,
+	core/utilities/imageeditor/main/imagewindow.cpp,
+	core/utilities/imageeditor/main/imagewindow_config.cpp,
+	core/utilities/imageeditor/main/imagewindow_import.cpp,
+	core/utilities/imageeditor/main/imagewindow_p.h,
+	core/utilities/imageeditor/main/imagewindow_setup.cpp,
+	core/utilities/imageeditor/main/imagewindow_tools.cpp,
+	core/utilities/imageeditor/widgets/previewtoolbar.cpp,
+	core/utilities/imageeditor/widgets/previewtoolbar.h,
+	core/utilities/import/main/importui.cpp,
+	core/utilities/import/widgets/advancedsettings.h,
+	core/utilities/import/widgets/albumcustomizer.h,
+	core/utilities/import/widgets/dngconvertsettings.cpp,
+	core/utilities/import/widgets/dngconvertsettings.h,
+	core/utilities/import/widgets/scriptingsettings.cpp,
+	core/utilities/import/widgets/scriptingsettings.h,
+	core/utilities/lighttable/lighttablewindow.cpp,
+	core/utilities/lighttable/lighttablewindow_config.cpp,
+	core/utilities/lighttable/lighttablewindow_import.cpp,
+	core/utilities/lighttable/lighttablewindow_p.h,
+	core/utilities/lighttable/lighttablewindow_setup.cpp,
+	core/utilities/lighttable/lighttablewindow_tools.cpp,
+	core/utilities/queuemanager/main/queuemgrwindow.cpp: use backward
+	definition of KConfigGroup to not export KF5 dependency
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/stack/mapwidgetview.cpp,
+	core/libs/threadimageio/thumb/thumbnailsize.cpp,
+	core/libs/threadimageio/thumb/thumbnailsize.h,
+	core/showfoto/thumbbar/showfotodelegate.cpp,
+	core/showfoto/thumbbar/showfotothumbnailmodel.cpp,
+	core/utilities/fuzzysearch/fuzzysearchview.cpp,
+	core/utilities/geolocation/mapsearches/gpssearchview.cpp,
+	core/utilities/import/views/importview.cpp,
+	core/utilities/setup/album/setupalbumview.cpp: use backward
+	definition of KConfigGroup to not export KF5 dependency
+
+2019-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/filters/filtersidebarwidget.cpp, core/app/main/main.cpp,
+	core/dplugins/generic/metadata/geolocationedit/dialog/geolocationed
+	it.cpp,
+	core/dplugins/generic/tools/expoblending/blendingdlg/expoblendingdl
+	g.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingintropa
+	ge.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingitemspa
+	ge.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendinglastpag
+	e.cpp, core/dplugins/rawimport/native/rawsettingsbox.cpp,
+	core/libs/album/manager/albummanager_database.cpp,
+	core/libs/album/treeview/abstractalbumtreeview.cpp,
+	core/libs/album/treeview/abstractcheckablealbumtreeview.cpp,
+	core/libs/album/treeview/labelstreeview.cpp,
+	core/libs/album/widgets/albumselectors.cpp,
+	core/libs/album/widgets/albumselecttabs.cpp,
+	core/libs/album/widgets/albumselectwidget.cpp,
+	core/libs/database/models/itemfiltersettings.h,
+	core/libs/dialogs/webbrowserdlg.cpp,
+	core/libs/dplugins/widgets/dplugindialog.cpp,
+	core/libs/dplugins/widgets/dsavesettingswidget.h,
+	core/libs/dplugins/widgets/dwizarddlg.cpp,
+	core/libs/properties/captions/itemdescedittab.cpp,
+	core/libs/rawengine/drawdecoderwidget.cpp,
+	core/libs/rawengine/drawdecoderwidget.h,
+	core/libs/tags/manager/taglist.cpp,
+	core/libs/tags/manager/tagsmanager.cpp,
+	core/libs/tags/widgets/tagcheckview.cpp,
+	core/libs/timeadjust/clockphotodialog.cpp,
+	core/libs/widgets/layout/statesavingobject.cpp,
+	core/libs/widgets/layout/statesavingobject.h,
+	core/libs/widgets/mainview/dxmlguiwindow.cpp,
+	core/libs/widgets/mainview/dxmlguiwindow.h,
+	core/libs/widgets/mainview/fullscreensettings.cpp,
+	core/libs/widgets/mainview/fullscreensettings.h,
+	core/libs/widgets/mainview/sidebar.cpp,
+	core/libs/widgets/mainview/sidebar.h,
+	core/utilities/facemanagement/facescandialog.cpp,
+	core/utilities/import/dialogs/capturedlg.cpp,
+	core/utilities/maintenance/maintenancedlg.cpp,
+	core/utilities/setup/camera/setupcamera.cpp,
+	core/utilities/setup/editor/setupeditoriface.cpp,
+	core/utilities/setup/editor/setupraw.cpp,
+	core/utilities/setup/setup.cpp, core/utilities/setup/setupicc.cpp,
+	core/utilities/setup/setuplighttable.cpp: use backward definition of
+	KConfigGroup to not export KF5 dependency
+
+2019-10-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/preview/previewtask.cpp,
+	core/libs/threadimageio/preview/previewtask.h: move these two static
+	functions for a test in PreviewLoadingTask CCBUGS: 399923
+
+2019-10-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/settings/applicationsettings.cpp,
+	core/libs/settings/applicationsettings.h,
+	core/libs/settings/applicationsettings_p.h: use backward definition
+	of KConfigGroup to not export KF5 dependency
+
+2019-10-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/bcg/bcgsettings.cpp,
+	core/libs/dimg/filters/bcg/bcgsettings.h,
+	core/libs/dimg/filters/bw/bwsepiasettings.cpp,
+	core/libs/dimg/filters/bw/bwsepiasettings.h,
+	core/libs/dimg/filters/bw/mixersettings.cpp,
+	core/libs/dimg/filters/bw/mixersettings.h,
+	core/libs/dimg/filters/cb/cbsettings.cpp,
+	core/libs/dimg/filters/cb/cbsettings.h,
+	core/libs/dimg/filters/curves/curvessettings.cpp,
+	core/libs/dimg/filters/curves/curvessettings.h,
+	core/libs/dimg/filters/curves/curveswidget.cpp,
+	core/libs/dimg/filters/curves/curveswidget.h,
+	core/libs/dimg/filters/decorate/bordersettings.cpp,
+	core/libs/dimg/filters/decorate/bordersettings.h,
+	core/libs/dimg/filters/fx/colorfxsettings.cpp,
+	core/libs/dimg/filters/fx/colorfxsettings.h,
+	core/libs/dimg/filters/fx/filmgrainsettings.cpp,
+	core/libs/dimg/filters/fx/filmgrainsettings.h,
+	core/libs/dimg/filters/hsl/hslsettings.cpp,
+	core/libs/dimg/filters/hsl/hslsettings.h,
+	core/libs/dimg/filters/icc/iccprofilesettings.cpp,
+	core/libs/dimg/filters/icc/iccprofilesettings.h,
+	core/libs/dimg/filters/lc/localcontrastsettings.cpp,
+	core/libs/dimg/filters/lc/localcontrastsettings.h,
+	core/libs/dimg/filters/nr/nrsettings.cpp,
+	core/libs/dimg/filters/nr/nrsettings.h,
+	core/libs/dimg/filters/redeye/redeyecorrectionsettings.cpp,
+	core/libs/dimg/filters/redeye/redeyecorrectionsettings.h,
+	core/libs/dimg/filters/sharp/refocusmatrix.h,
+	core/libs/dimg/filters/sharp/sharpsettings.cpp,
+	core/libs/dimg/filters/sharp/sharpsettings.h,
+	core/libs/dimg/filters/transform/freerotationsettings.cpp,
+	core/libs/dimg/filters/transform/freerotationsettings.h,
+	core/libs/dimg/filters/wb/wbsettings.cpp,
+	core/libs/dimg/filters/wb/wbsettings.h: use backward definition of
+	KConfigGroup to not export KF5 dependency
+
+2019-10-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/lens/antivignettingsettings.cpp,
+	core/libs/dimg/filters/lens/antivignettingsettings.h,
+	core/libs/dimg/filters/lens/lensfuncameraselector.cpp,
+	core/libs/dimg/filters/lens/lensfuncameraselector.h,
+	core/libs/dimg/filters/lens/lensfunfilter.cpp,
+	core/libs/dimg/filters/lens/lensfunfilter.h,
+	core/libs/dimg/filters/lens/lensfuniface.cpp,
+	core/libs/dimg/filters/lens/lensfuniface.h,
+	core/libs/dimg/filters/lens/lensfunsettings.h: add comments use
+	backward definition of KConfigGroup to not export KF5 dependency fix
+	coding style
+
+2019-10-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/lens/lensfuniface.h: polish
+
+2019-10-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/lens/lensfuniface.h: fix deprecated gcc
+	warnings with new Lensfun API. code is not ported and still TODO
+
+2019-10-28  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2019-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/lens/lensfuniface.h: fix clang warnings
+	under MacOS
+
+2019-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/lens/lensfuniface.h: fix clang warnings
+	under MacOS
+
+2019-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/utils/digikam_version.cpp: fix clang warning under MacOS
+
+
+2019-10-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-10-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-10-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/maintenance/databasetask.cpp,
+	core/utilities/maintenance/dbcleaner.cpp: fix possible crash in
+	QList in the clean up database task CCBUGS: 413488
+
+2019-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/03-build-digikam.sh: compile lensfun
+	while updating digiKam
+
+2019-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_lensfun/CMakeLists.txt: add rules to
+	compile lensfun with macports: goal is to not use official macports
+	package as it's out-dated
+
+2019-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_lensfun/lensfun0.3.2-regex-mxe.patch: 
+	obsolete
+
+2019-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt: typo
+
+2019-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt: disable icu for
+	the moment
+
+2019-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/03-build-digikam.sh: polish
+
+2019-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/01-build-mxe.sh,
+	project/bundles/mxe/03-build-digikam.sh: build outdated lensfun
+	library with digiKam compilation process
+
+2019-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/01-build-host.sh,
+	project/bundles/appimage/03-build-digikam.sh: AppImage : rebuild and
+	install lensfun library while recompiling digiKam core, to use last
+	implementation/database from github
+
+2019-10-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamapp.cpp: polish comment
+
+2019-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qtwebkit/CMakeLists.txt: use last
+	qtwebkit for Qt 5.13.1
+
+2019-10-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamapp.cpp: correct menu actions enabled state
+	with non physical albums CCBUGS: 413488
+
+2019-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/sidebar/sidebarwidget.h: less kconfig dependency in
+	digiKam header if possible
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* AUTHORS, core/data/pics/showfoto/splash-showfoto.png,
+	core/data/pics/showfoto/splash-showfoto.svgz: Showfoto 6.4.0 : new
+	splashscreen from Marcel Vos CCMAIL: mac@lesareymond.com
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* AUTHORS, core/data/pics/digikam/splash-digikam.png,
+	core/data/pics/digikam/splash-digikam.svgz: digiKam 6.4.0 : new
+	splashscreen from Marcel Vos CCMAIL: mac@lesareymond.com
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* AUTHORS, core/data/about/images/body-background.jpg,
+	core/data/about/main.html: digiKam 6.4.0 : new welcome page about
+	photo taken at Château d'Azay-le-Rideau, France by LAPADU-HARGUES
+	Matthieu CCMAIL: m.lapaduhargues@free.fr
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/facesengine/demo/button.h,
+	core/tests/facesengine/demo/marquee.h: fix clang override warnings
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifplugin.h,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.h,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.h,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.h,
+	core/dplugins/dimg/pgf/dimgpgfplugin.h,
+	core/dplugins/dimg/png/dimgpngplugin.h,
+	core/dplugins/dimg/qimage/dimgqimageplugin.h,
+	core/dplugins/dimg/raw/dimgrawplugin.h,
+	core/dplugins/dimg/tiff/dimgtiffplugin.h: fix clang override
+	warnings
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/darktable/rawimportdarktableplugin.h,
+	core/dplugins/rawimport/native/rawimportnativeplugin.h,
+	core/dplugins/rawimport/rawtherapee/rawimportrawtherapeeplugin.h,
+	core/dplugins/rawimport/ufraw/rawimportufrawplugin.h: fix clang
+	override warnings
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/view/glviewer/glviewerwidget.h: fix clang
+	override warnings
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/view/presentation/opengl/presentationgl.h,
+	core/dplugins/generic/view/presentation/opengl/presentationkb.h,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	h: fix clang override warnings
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/printcreator/wizard/advprintcropframe.h: 
+	fix clang override warnings
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/date/monthwidget.h,
+	core/app/items/overlays/groupindicatoroverlay.h,
+	core/app/items/overlays/itemratingoverlay.h,
+	core/app/items/views/digikamitemview.h,
+	core/app/views/sidebar/leftsidebarwidgets.cpp,
+	core/app/views/sidebar/leftsidebarwidgets.h,
+	core/app/views/tableview/tableview_treeview.h,
+	core/libs/tags/widgets/tagslineeditoverlay.h: fix clang override
+	warnings
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/thumbbar/showfotodelegate.h,
+	core/showfoto/thumbbar/showfotothumbnailbar.h: fix clang override
+	warnings
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/thumbbar/showfotocategorizedview.h,
+	core/showfoto/thumbbar/showfotofiltermodel.h,
+	core/showfoto/thumbbar/showfotoimagemodel.h,
+	core/showfoto/thumbbar/showfotothumbnailmodel.h: fix clang override
+	warnings
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/itemview/itemdelegateoverlay.h,
+	core/utilities/import/items/importoverlays.h: fix clang override
+	warnings
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/items/importdelegate.h,
+	core/utilities/import/items/importoverlays.h,
+	core/utilities/import/views/importthumbnailbar.h: fix clang override
+	warnings
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/queuemanager/main/queuemgrwindow.h,
+	core/utilities/queuemanager/views/assignedlist.h,
+	core/utilities/queuemanager/views/queuelist.h: fix clang override
+	warnings
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/lighttable/lighttablethumbbar.h: fix clang override
+	warnings
+
+2019-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/main/importui.h,
+	core/utilities/import/models/importthumbnailmodel.h,
+	core/utilities/import/views/importcategorizedview.h,
+	core/utilities/import/views/importiconview.h: fix clang override
+	warnings
+
+2019-10-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailcreator_engine.cpp: check
+	DImg::load() return state
+
+2019-10-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-10-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_fileio.cpp: remove test debug
+
+2019-10-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailloadthread.cpp,
+	core/libs/threadimageio/thumb/thumbnailloadthread.h: thumbnailBar
+	thread is created but unused
+
+2019-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/models/importfiltermodel.h,
+	core/utilities/import/models/importimagemodel.h: fix clang override
+	warnings
+
+2019-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/setup/collections/setupcollectionview.h: fix clang
+	override warnings
+
+2019-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/date/ddateedit.h: fix clang override warnings
+
+2019-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/views/itemcategorizedview.h: fix clang override
+	warnings
+
+2019-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/fuzzysearch/fuzzysearchview.h: fix clang override
+	warnings
+
+2019-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/CMakeLists.txt: fix clang override warnings
+
+
+2019-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/tags/manager/tagmngrtreeview.h,
+	core/utilities/imageeditor/main/imagewindow.h,
+	core/utilities/lighttable/lighttablewindow.h: fix clang override
+	warnings
+
+2019-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/pgfutils/libpgf/PGFplatform.h: fix clang warnings
+
+2019-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/itempropertiessidebardb.h,
+	core/libs/tags/widgets/tagcheckview.h: fix clang override warnings
+
+2019-10-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threads/parallelworkers.h: fix clang override warnings
+
+2019-10-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/CMakeLists.txt: fix clang warnings
+
+2019-10-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/greycstoration/greycstorationfilter.cpp,
+	core/utilities/searchwindow/searchutilities.h: fix clang warnings
+
+2019-10-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/glviewer/glviewerwidget.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationgl.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationkb.cpp,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	cpp: simplify get screen size
+
+2019-10-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/widgets/albumselectcombobox.h: fix clang override
+	warnings
+
+2019-10-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.h: terminate
+	ImageMagick in cleanUp()
+
+2019-10-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/utils/digikam_opencv.h.cmake.in,
+	core/app/utils/digikam_version.cpp: reduce Clang warnings
+
+2019-10-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/firstrun/firstrundlg.cpp,
+	core/utilities/firstrun/migratefromdigikam4page.cpp,
+	core/utilities/firstrun/migratefromdigikam4page.h: move KDE4support
+	migration code in same class. Later, with Qt6/KF6, this rules will
+	be removed.
+
+2019-10-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/digikamapp.h, core/app/main/digikamapp_camera.cpp,
+	core/app/main/digikamapp_solid.cpp: move all codes relevant of
+	KF5::Solid to digikamapp_solid.cpp
+
+2019-10-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/digikamapp.h, core/app/main/digikamapp_solid.cpp: do
+	not expose whole digiKam to KF5::Solid API. use 2 new static private
+	functions plus a lambda method to replace an internal slot
+
+2019-10-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/utils/itemviewutilities.cpp,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/stackedview.cpp,
+	core/libs/database/CMakeLists.txt,
+	core/libs/database/utils/widgets/mysqlinitbinary.cpp,
+	core/libs/database/utils/widgets/mysqlinitbinary.h,
+	core/libs/database/utils/widgets/mysqlservbinary.cpp,
+	core/libs/database/utils/widgets/mysqlservbinary.h,
+	core/libs/dimg/filters/rawprocessingfilter.h,
+	core/libs/widgets/mainview/thumbbardock.cpp,
+	core/libs/widgets/mainview/thumbbardock.h,
+	core/tests/dimg/dimgabstracthistorytest.cpp,
+	core/utilities/imageeditor/editor/editortooliface.cpp,
+	core/utilities/import/views/importstackedview.cpp: KF5::i18n private
+
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/filters/filtersidebarwidget.cpp,
+	core/app/filters/tagfilterview.cpp,
+	core/app/items/delegate/itemdelegate.cpp,
+	core/app/views/tableview/tableview.cpp,
+	core/app/views/tableview/tableview_treeview.cpp,
+	core/libs/album/treeview/abstractalbumtreeview_p.h,
+	core/libs/album/treeview/albumselectiontreeview.cpp,
+	core/libs/album/treeview/labelstreeview.cpp,
+	core/libs/properties/captions/itemdescedittab.cpp,
+	core/libs/tags/manager/taglist.cpp,
+	core/libs/tags/manager/tagmngrtreeview.cpp,
+	core/libs/tags/manager/tagpropwidget.cpp,
+	core/libs/tags/widgets/tagcheckview.cpp,
+	core/libs/widgets/common/searchtextbar.cpp,
+	core/libs/widgets/common/searchtextbar.h,
+	core/showfoto/setup/showfotosetupplugins.cpp,
+	core/utilities/facemanagement/assignnamewidget.cpp,
+	core/utilities/geolocation/geoiface/bookmark/gpsbookmarkowner.cpp,
+	core/utilities/geolocation/mapsearches/gpssearchview.cpp,
+	core/utilities/searchwindow/editablesearchtreeview.cpp,
+	core/utilities/searchwindow/searchfolderview.cpp,
+	core/utilities/setup/setupplugins.cpp: KF5::i18n private
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/core/undoaction.cpp,
+	core/utilities/imageeditor/core/undoaction.h: KF5:i18n private
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/flickr/flickrtalker.cpp,
+	core/dplugins/generic/webservices/flickr/flickrwidget_p.h,
+	core/libs/dplugins/webservices/wscomboboxintermediate.cpp,
+	core/libs/dplugins/webservices/wscomboboxintermediate.h: KF5::i18n
+	private
+
+2019-10-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/main.cpp: set Qt::AA_ShareOpenGLContexts if use
+	QWebEngine
+
+2019-10-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/metadataengine/dmetadata/dmetadata_labels.cpp: 
+	Give "Xmp.xmp.Label" a higher priority than "Xmp.photoshop.Urgency"
+	BUGS: 405472 FIXED-IN: 6.4.0
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/hotpixels/hotpixelfixer.cpp,
+	core/dplugins/editor/enhance/hotpixels/hotpixelfixer.h,
+	core/dplugins/editor/transform/perspective/perspectivewidget.cpp,
+	core/libs/dimg/filters/dimgthreadedfilter.h,
+	core/libs/dimg/filters/fx/colorfxsettings.cpp: now DImg image filter
+	headers are now free of KF5::i18n dependencies
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/levels/levelsfilter.cpp,
+	core/libs/dimg/filters/levels/levelsfilter.h,
+	core/libs/dimg/filters/redeye/redeyecorrectionfilter.cpp,
+	core/libs/dimg/filters/redeye/redeyecorrectionfilter.h,
+	core/libs/dimg/filters/transform/contentawarefilter.cpp,
+	core/libs/dimg/filters/transform/contentawarefilter.h,
+	core/libs/dimg/filters/transform/freerotationfilter.cpp,
+	core/libs/dimg/filters/transform/freerotationfilter.h,
+	core/libs/dimg/filters/transform/shearfilter.cpp,
+	core/libs/dimg/filters/transform/shearfilter.h,
+	core/libs/dimg/filters/wb/wbfilter.cpp,
+	core/libs/dimg/filters/wb/wbfilter.h: --i18n
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/hotpixels/CMakeLists.txt,
+	core/dplugins/editor/enhance/hotpixels/hotpixelfixer.cpp,
+	core/dplugins/editor/enhance/hotpixels/hotpixelfixer.h,
+	core/dplugins/editor/enhance/hotpixels/hotpixelstoolplugin.h,
+	core/dplugins/editor/enhance/hotpixels/{weights.cpp =>
+	hotpixelsweights.cpp},
+	core/dplugins/editor/enhance/hotpixels/{weights.h =>
+	hotpixelsweights.h}: rename class
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/transform/ratiocrop/CMakeLists.txt,
+	core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp,
+	core/dplugins/editor/transform/ratiocrop/{imageselectionwidget.cpp
+	=> ratiocropwidget.cpp},
+	core/dplugins/editor/transform/ratiocrop/{imageselectionwidget.h =>
+	ratiocropwidget.h}: rename class
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/transform/perspective/CMakeLists.txt,
+	core/dplugins/editor/transform/perspective/{matrix.cpp =>
+	perspectivematrix.cpp},
+	core/dplugins/editor/transform/perspective/{matrix.h =>
+	perspectivematrix.h},
+	core/dplugins/editor/transform/perspective/{triangle.cpp =>
+	perspectivetriangle.cpp},
+	core/dplugins/editor/transform/perspective/{triangle.h =>
+	perspectivetriangle.h},
+	core/dplugins/editor/transform/perspective/perspectivewidget.cpp,
+	core/dplugins/editor/transform/perspective/perspectivewidget.h: 
+	rename classes to prevent compilation conflicts
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/transform/perspective/perspectivewidget.cpp,
+	core/libs/dimg/CMakeLists.txt,
+	core/libs/dimg/filters/{fx/pixelsaliasfilter.cpp =>
+	dpixelsaliasfilter.cpp},
+	core/libs/dimg/filters/dpixelsaliasfilter.h,
+	core/libs/dimg/filters/fx/blurfilter.cpp,
+	core/libs/dimg/filters/fx/blurfilter.h,
+	core/libs/dimg/filters/fx/blurfxfilter.cpp,
+	core/libs/dimg/filters/fx/blurfxfilter.h,
+	core/libs/dimg/filters/fx/charcoalfilter.cpp,
+	core/libs/dimg/filters/fx/charcoalfilter.h,
+	core/libs/dimg/filters/fx/colorfxfilter.cpp,
+	core/libs/dimg/filters/fx/colorfxfilter.h,
+	core/libs/dimg/filters/fx/distortionfxfilter.cpp,
+	core/libs/dimg/filters/fx/distortionfxfilter.h,
+	core/libs/dimg/filters/fx/embossfilter.cpp,
+	core/libs/dimg/filters/fx/embossfilter.h,
+	core/libs/dimg/filters/fx/filmgrainfilter.cpp,
+	core/libs/dimg/filters/fx/filmgrainfilter.h,
+	core/libs/dimg/filters/fx/invertfilter.cpp,
+	core/libs/dimg/filters/fx/invertfilter.h,
+	core/libs/dimg/filters/fx/oilpaintfilter.cpp,
+	core/libs/dimg/filters/fx/oilpaintfilter.h,
+	core/libs/dimg/filters/fx/pixelsaliasfilter.h,
+	core/libs/dimg/filters/fx/raindropfilter.cpp,
+	core/libs/dimg/filters/fx/raindropfilter.h,
+	core/libs/dimg/filters/transform/freerotationfilter.cpp,
+	core/libs/dimg/filters/transform/shearfilter.cpp: --i18n
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/auto/autoexpofilter.cpp,
+	core/libs/dimg/filters/auto/autolevelsfilter.cpp,
+	core/libs/dimg/filters/auto/equalizefilter.cpp,
+	core/libs/dimg/filters/auto/normalizefilter.cpp,
+	core/libs/dimg/filters/auto/stretchfilter.cpp,
+	core/libs/dimg/filters/bcg/bcgfilter.cpp,
+	core/libs/dimg/filters/bw/bwsepiafilter.cpp,
+	core/libs/dimg/filters/bw/infraredfilter.cpp,
+	core/libs/dimg/filters/bw/mixerfilter.cpp,
+	core/libs/dimg/filters/bw/tonalityfilter.cpp,
+	core/libs/dimg/filters/cb/cbfilter.cpp,
+	core/libs/dimg/filters/curves/curvesfilter.cpp,
+	core/libs/dimg/filters/decorate/borderfilter.cpp,
+	core/libs/dimg/filters/decorate/texturefilter.cpp,
+	core/libs/dimg/filters/film/filmfilter.cpp,
+	core/libs/dimg/filters/greycstoration/greycstorationfilter.cpp,
+	core/libs/dimg/filters/hsl/hslfilter.cpp,
+	core/libs/dimg/filters/icc/icctransformfilter.cpp,
+	core/libs/dimg/filters/lc/localcontrastfilter.cpp,
+	core/libs/dimg/filters/lens/antivignettingfilter.cpp,
+	core/libs/dimg/filters/lens/lensdistortionfilter.cpp,
+	core/libs/dimg/filters/lens/lensfunfilter.cpp,
+	core/libs/dimg/filters/rawprocessingfilter.cpp,
+	core/libs/dimg/filters/sharp/refocusfilter.cpp,
+	core/libs/dimg/filters/sharp/sharpenfilter.cpp,
+	core/libs/dimg/filters/sharp/unsharpmaskfilter.cpp: use I18N_NOOPS
+	macro
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp: 
+	use I18N_NOOPS macro here
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/scankdedep.sh: polish
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/CMakeLists.txt,
+	core/libs/dimg/filters/sharp/refocusfilter.cpp,
+	core/libs/dimg/filters/sharp/refocusfilter.h,
+	core/libs/dimg/filters/sharp/{matrix.cpp => refocusmatrix.cpp},
+	core/libs/dimg/filters/sharp/{matrix.h => refocusmatrix.h},
+	core/libs/dimg/filters/sharp/sharpenfilter.cpp,
+	core/libs/dimg/filters/sharp/sharpenfilter.h,
+	core/libs/dimg/filters/sharp/unsharpmaskfilter.cpp,
+	core/libs/dimg/filters/sharp/unsharpmaskfilter.h: --i18n
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/CMakeLists.txt,
+	core/libs/dimg/filters/lens/antivignettingfilter.cpp,
+	core/libs/dimg/filters/lens/antivignettingfilter.h,
+	core/libs/dimg/filters/lens/lensdistortionfilter.cpp,
+	core/libs/dimg/filters/lens/lensdistortionfilter.h,
+	core/libs/dimg/filters/lens/{pixelaccess.cpp =>
+	lensdistortionpixelaccess.cpp},
+	core/libs/dimg/filters/lens/{pixelaccess.h =>
+	lensdistortionpixelaccess.h},
+	core/libs/dimg/filters/lens/lensfunfilter.cpp,
+	core/libs/dimg/filters/lens/lensfunfilter.h: --18n
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/fx/blurfilter.cpp,
+	core/libs/dimg/filters/fx/blurfxfilter.cpp,
+	core/libs/dimg/filters/fx/charcoalfilter.cpp,
+	core/libs/dimg/filters/fx/colorfxfilter.cpp,
+	core/libs/dimg/filters/fx/distortionfxfilter.cpp,
+	core/libs/dimg/filters/fx/embossfilter.cpp,
+	core/libs/dimg/filters/fx/filmgrainfilter.cpp,
+	core/libs/dimg/filters/fx/invertfilter.cpp,
+	core/libs/dimg/filters/fx/oilpaintfilter.cpp,
+	core/libs/dimg/filters/fx/raindropfilter.cpp,
+	core/libs/dimg/filters/lens/antivignettingfilter.cpp,
+	core/libs/dimg/filters/lens/lensdistortionfilter.cpp,
+	core/libs/dimg/filters/lens/lensfunfilter.cpp,
+	core/libs/dimg/filters/levels/levelsfilter.cpp,
+	core/libs/dimg/filters/nr/nrfilter.cpp,
+	core/libs/dimg/filters/rawprocessingfilter.cpp,
+	core/libs/dimg/filters/rawprocessingfilter.h,
+	core/libs/dimg/filters/redeye/redeyecorrectionfilter.cpp,
+	core/libs/dimg/filters/sharp/refocusfilter.cpp,
+	core/libs/dimg/filters/sharp/sharpenfilter.cpp,
+	core/libs/dimg/filters/sharp/unsharpmaskfilter.cpp,
+	core/libs/dimg/filters/transform/contentawarefilter.cpp,
+	core/libs/dimg/filters/transform/freerotationfilter.cpp,
+	core/libs/dimg/filters/transform/shearfilter.cpp,
+	core/libs/dimg/filters/wb/wbfilter.cpp: --i18n
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hsl/hslfilter.cpp,
+	core/libs/dimg/filters/hsl/hslfilter.h,
+	core/libs/dimg/filters/icc/icctransformfilter.cpp,
+	core/libs/dimg/filters/icc/icctransformfilter.h,
+	core/libs/dimg/filters/lc/localcontrastfilter.cpp,
+	core/libs/dimg/filters/lc/localcontrastfilter.h: --i18n
+
+2019-10-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-10-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-10-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-10-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-10-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/dropbox/dbwindow.cpp: polish
+
+2019-10-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/dropbox/dbtalker.cpp,
+	core/dplugins/generic/webservices/dropbox/dbtalker.h,
+	core/dplugins/generic/webservices/dropbox/dbwidget.cpp,
+	core/dplugins/generic/webservices/dropbox/dbwindow.cpp: add upload
+	original option to Dropbox plugin
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/film/filmfilter.cpp,
+	core/libs/dimg/filters/film/filmfilter.h,
+	core/libs/dimg/filters/greycstoration/greycstorationfilter.cpp,
+	core/libs/dimg/filters/greycstoration/greycstorationfilter.h: --i18n
+
+
+2019-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/curves/curvesfilter.cpp,
+	core/libs/dimg/filters/curves/curvesfilter.h,
+	core/libs/dimg/filters/decorate/borderfilter.cpp,
+	core/libs/dimg/filters/decorate/borderfilter.h,
+	core/libs/dimg/filters/decorate/texturefilter.cpp,
+	core/libs/dimg/filters/decorate/texturefilter.h: --i18n
+
+2019-10-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/views/stack/itemiconview.cpp: fix preview mode
+	after trash view BUGS: 400433 FIXED-IN: 6.4.0
+
+2019-10-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-10-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/stack/trashview.cpp: disable delete action if no
+	item selected
+
+2019-10-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamapp.cpp: set text also as tool tip
+
+2019-10-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/main/digikamapp.cpp, core/app/main/digikamapp.h,
+	core/app/main/digikamapp_setup.cpp,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview.h,
+	core/app/views/stack/trashview.cpp,
+	core/app/views/stack/trashview.h: add simple status bar text for the
+	trash view BUGS: 413189 FIXED-IN: 6.4.0
+
+2019-10-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/bw/bwsepiafilter.cpp,
+	core/libs/dimg/filters/bw/bwsepiafilter.h,
+	core/libs/dimg/filters/bw/infraredfilter.cpp,
+	core/libs/dimg/filters/bw/infraredfilter.h,
+	core/libs/dimg/filters/bw/mixerfilter.cpp,
+	core/libs/dimg/filters/bw/mixerfilter.h,
+	core/libs/dimg/filters/bw/tonalityfilter.cpp,
+	core/libs/dimg/filters/bw/tonalityfilter.h: --i18n
+
+2019-10-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/box/boxwindow.cpp,
+	core/dplugins/generic/webservices/dropbox/dbwindow.cpp,
+	core/dplugins/generic/webservices/onedrive/odwindow.cpp,
+	core/dplugins/generic/webservices/pinterest/pwindow.cpp,
+	core/dplugins/generic/webservices/twitter/twitterwindow.cpp: select
+	album in another plugins and fixes
+
+2019-10-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/dplugins/generic/webservices/onedrive/odwindow.cpp: 
+	select created album in the OneDrive plugin BUGS: 413197 FIXED-IN:
+	6.4.0
+
+2019-10-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/dropbox/dbtalker.cpp,
+	core/dplugins/generic/webservices/google/gdrive/gdtalker.cpp,
+	core/dplugins/generic/webservices/google/gphoto/gptalker.cpp,
+	core/dplugins/generic/webservices/onedrive/odtalker.cpp: add video
+	support up to 4MB CCBUGS: 413199
+
+2019-10-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp,
+	core/libs/threadimageio/thumb/thumbnailcreator_engine.cpp,
+	core/libs/threadimageio/thumb/thumbnailtask.cpp: review loading
+	tasks CCBUGS: 406019 CCBUGS: 399923
+
+2019-10-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/auto/autoexpofilter.cpp,
+	core/libs/dimg/filters/auto/autolevelsfilter.cpp,
+	core/libs/dimg/filters/auto/equalizefilter.cpp,
+	core/libs/dimg/filters/auto/normalizefilter.cpp,
+	core/libs/dimg/filters/auto/stretchfilter.cpp,
+	core/libs/dimg/filters/bcg/bcgfilter.cpp,
+	core/libs/dimg/filters/bcg/bcgfilter.h,
+	core/libs/dimg/filters/cb/cbfilter.cpp,
+	core/libs/dimg/filters/cb/cbfilter.h: i18n--
+
+2019-10-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/auto/autoexpofilter.cpp,
+	core/libs/dimg/filters/auto/autoexpofilter.h,
+	core/libs/dimg/filters/auto/autolevelsfilter.cpp,
+	core/libs/dimg/filters/auto/autolevelsfilter.h,
+	core/libs/dimg/filters/auto/equalizefilter.cpp,
+	core/libs/dimg/filters/auto/equalizefilter.h,
+	core/libs/dimg/filters/auto/normalizefilter.cpp,
+	core/libs/dimg/filters/auto/normalizefilter.h,
+	core/libs/dimg/filters/auto/stretchfilter.cpp,
+	core/libs/dimg/filters/auto/stretchfilter.h: kf5::i18n --
+
+2019-10-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/box/boxtalker.cpp,
+	core/dplugins/generic/webservices/dropbox/dbtalker.cpp,
+	core/dplugins/generic/webservices/google/gdrive/gdtalker.cpp,
+	core/dplugins/generic/webservices/onedrive/odtalker.cpp,
+	core/dplugins/generic/webservices/pinterest/ptalker.cpp,
+	core/dplugins/generic/webservices/twitter/twittertalker.cpp,
+	core/libs/database/utils/ifaces/dio.cpp, core/libs/dimg/dimg_p.h,
+	core/libs/dplugins/iface/dmetainfoiface.cpp,
+	core/libs/fileactionmanager/metadatahubmngr.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_comments.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_generic.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_labels.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_tags.cpp,
+	core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp,
+	core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.h,
+	core/tests/metadataengine/commentreadwritetest.cpp,
+	core/tests/metadataengine/ratingreadwritetest.cpp,
+	core/tests/metadataengine/tagsreadwritetest.cpp,
+	core/utilities/geolocation/geoiface/core/gpscommon.cpp,
+	core/utilities/setup/metadata/advancedmetadatatab.cpp: do not expose
+	digiKam core to KF5::i18n headers. Only internal implementation must
+	use it. Shared headers used to develop plugins must be Qt only
+	dependant
+
+2019-10-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/geolocationedit/kmlexport/geodatacon
+	tainer.h: fix Wdeprecated-copy compile warnings
+
+2019-10-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/rawengine/drawdecodersettings.cpp: typo class name
+
+2019-10-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/rawengine/drawdecodersettings.h: polish
+
+2019-10-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/rawengine/drawdecodersettings.cpp,
+	core/libs/rawengine/drawdecodersettings.h: fix many Wdeprecated-copy
+	compile warnings
+
+2019-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/piwigo/piwigoplugin.cpp,
+	core/dplugins/generic/webservices/piwigo/piwigotalker.cpp,
+	core/dplugins/generic/webservices/piwigo/piwigotalker.h: apply patch
+	from Frederic Coiffier about Piwigo version check in digiKam plugin
+	BUGS: 412944
+
+2019-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/printcreator/manager/advprintphoto.cpp,
+	core/dplugins/generic/tools/printcreator/manager/advprintsettings.h: 
+	i18n--
+
+2019-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/scankdedep.sh: polish
+
+2019-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamCoreTarget.cmake,
+	core/app/utils/digikam_version.cpp,
+	core/app/utils/digikam_version.h.cmake.in,
+	core/dplugins/generic/tools/mediaserver/server/dmediaserver.cpp,
+	core/dplugins/generic/webservices/imageshack/imageshacktalker.cpp,
+	core/dplugins/generic/webservices/smugmug/smugtalker.cpp,
+	core/dplugins/generic/webservices/vkontakte/vkwindow.cpp: do not
+	expose all digiKam code with KF5::i1_n header from digikam_version.h
+	limite clang warnings about __DATE__ API
+
+2019-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt: libde265 need pthread API.
+	be sure that linking stage will be completed
+
+2019-10-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp: use static cast
+	here
+
+2019-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/webservices/o2/src/o1.h: remove extra ;
+	reported by clang
+
+2019-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* bootstrap.linux, core/CMakeLists.txt: typo
+
+2019-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-10-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailcreator_engine.cpp: do not
+	try video thumbnail from image type CCBUGS: 406019
+
+2019-10-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/engine/managedloadsavethread.cpp,
+	core/libs/threadimageio/thumb/thumbnailtask.h: polish
+	ManagedLoadSaveThread
+
+2019-10-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_photo.cpp: polish
+
+2019-10-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_photo.cpp: polish
+
+2019-10-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/metadataengine/dmetadata/dmetadata_photo.cpp: 
+	ignore wrong value from Exif.Photo.LensModel BUGS: 413017 FIXED-IN:
+	6.4.0
+
+2019-10-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_fileio.cpp: add test debug CCBUGS: 406019
+
+2019-10-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/utilities/slideshow/slideosd.cpp,
+	core/utilities/slideshow/slideosd.h,
+	core/utilities/slideshow/slideshow.cpp: fix skip images when the
+	image loading is not ready BUGS: 412909 FIXED-IN: 6.4.0
+
+2019-10-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-10-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/album/treeview/albumselectiontreeview.cpp,
+	core/libs/album/treeview/albumselectiontreeview.h: add repair
+	function for hidden versioned items CCBUGS: 412948
+
+2019-10-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/utils/ifaces/dio.cpp: show original image
+	after deleting a derived image and mark original image for the next
+	initial scan to resolve the history BUGS: 412948 FIXED-IN: 6.4.0
+
+2019-10-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/engine/managedloadsavethread.cpp: try
+	revert a older commit CCBUGS: 406019
+
+2019-10-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailcreator_engine.cpp: return
+	must be true to use the preview image
+
+2019-10-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-10-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/piwigo/piwigotalker.cpp: fix
+	wrong piwigo version parsed by talker BUGS: 412944 FIXED-IN: 6.4.0
+
+2019-10-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/libheif/README: polish
+
+2019-10-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/libheif/README,
+	core/dplugins/dimg/heif/libheif/heif_emscripten.h: this file is for
+	compiling for webassembly
+
+2019-10-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/libheif/README: polish
+
+2019-10-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/libheif/box_fuzzer.cc,
+	core/dplugins/dimg/heif/libheif/encoder_fuzzer.cc,
+	core/dplugins/dimg/heif/libheif/file_fuzzer.cc: unsused files for
+	fuzzy tests only
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/metadataengine/dmetadata/dmetadata_labels.cpp: 
+	remove Xmp.xmp.Label if color not exist BUGS: 412922 FIXED-IN: 6.4.0
+
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-10-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/loaders/dimgloader.h: krazy++
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifplugin.cpp: correct magic bytes of
+	HEIF
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/dropbox/dbplugin.cpp,
+	core/dplugins/generic/webservices/dropbox/dbplugin.h: DropBox =>
+	Dropbox
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/facebook/fbplugin.cpp,
+	core/dplugins/generic/webservices/facebook/fbplugin.h: FaceBook =>
+	Facebook
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp: polish
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.h: reduce
+	duplicate code
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickloader.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageloader.cpp: we check the image
+	formats in the canRead() function
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_fileio.cpp: fix format detection
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/dimgloader.h: revert last commit
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/dimgloader.h: fix LoadFlags, LoadAll was 64
+	== LoadPreview
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_fileio.cpp: polish debug
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifplugin.cpp: do not check for
+	"ftype", MP4 video also contains it
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/tiff/dimgtiffplugin.cpp,
+	core/libs/dimg/dimg_fileio.cpp: polish
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifplugin.cpp,
+	core/dplugins/dimg/heif/dimgheifplugin.h,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.h,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.h,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.h,
+	core/dplugins/dimg/pgf/dimgpgfplugin.cpp,
+	core/dplugins/dimg/pgf/dimgpgfplugin.h,
+	core/dplugins/dimg/png/dimgpngplugin.cpp,
+	core/dplugins/dimg/png/dimgpngplugin.h,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.h,
+	core/dplugins/dimg/raw/dimgrawplugin.cpp,
+	core/dplugins/dimg/raw/dimgrawplugin.h,
+	core/dplugins/dimg/tiff/dimgtiffplugin.cpp,
+	core/dplugins/dimg/tiff/dimgtiffplugin.h,
+	core/libs/dimg/dimg_fileio.cpp, core/libs/dimg/dimg_p.h,
+	core/libs/dplugins/core/dplugindimg.h: use QFileInfo
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/libs/dplugins/core/dplugindimg.h: change loader priority
+
+2019-10-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/libs/dimg/dimg_fileio.cpp,
+	core/libs/dplugins/core/dplugindimg.h: polish
+
+2019-10-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/libs/dimg/dimg_p.h: loader priority++
+
+2019-10-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/libs/dimg/dimg_fileio.cpp, core/libs/dimg/dimg_p.h: loader
+	priority++
+
+2019-10-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_fileio.cpp, core/libs/dimg/dimg_p.h: loader
+	priority++
+
+2019-10-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifplugin.cpp,
+	core/dplugins/dimg/heif/dimgheifplugin.h,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.h,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.h,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.h,
+	core/dplugins/dimg/pgf/dimgpgfplugin.cpp,
+	core/dplugins/dimg/pgf/dimgpgfplugin.h,
+	core/dplugins/dimg/png/dimgpngplugin.cpp,
+	core/dplugins/dimg/png/dimgpngplugin.h,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.h,
+	core/dplugins/dimg/raw/dimgrawplugin.cpp,
+	core/dplugins/dimg/raw/dimgrawplugin.h,
+	core/dplugins/dimg/tiff/dimgtiffplugin.cpp,
+	core/dplugins/dimg/tiff/dimgtiffplugin.h, core/libs/dimg/dimg_p.h,
+	core/libs/dplugins/core/dplugindimg.h: first step to add loader
+	priority
+
+2019-10-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/threadimageio/video/videodecoder.cpp,
+	core/libs/threadimageio/video/videothumbnailer.cpp: fix seek in
+	GoPro 4k video and disable workaround h264 flag CCBUGS: 406981 BUGS:
+	412880 FIXED-IN: 6.4.0
+
+2019-10-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/bootstrap-exiv2.linux.sh: update
+
+2019-10-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_load.cpp,
+	core/dplugins/dimg/heif/dimgheifplugin.cpp: fix iptc loading stage
+
+2019-10-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_load.cpp: check also if
+	iptc ba is not empty
+
+2019-10-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/libheif/heif_context.cc,
+	core/dplugins/dimg/heif/libheif/heif_file.cc: backport commit
+
+	https://github.com/strukturag/libheif/commit/8280cecc4243f17db795cfd3b8574aeb08a31626 from libheif
+
+2019-10-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_load.cpp,
+	core/dplugins/dimg/heif/dimgheifloader_save.cpp,
+	project/bundles/mxe/config.sh: code to load/save IPTC chunk with
+	HEIF image
+
+2019-10-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-10-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-10-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/libheif/heif.cc,
+	core/dplugins/dimg/heif/libheif/heif.h,
+	core/dplugins/dimg/heif/libheif/heif_context.cc,
+	core/dplugins/dimg/heif/libheif/heif_context.h: Update libheif code
+	following IPTC devel branch to be able to store custom metadata
+	bytes-array See the reports for details:
+
+	https://github.com/strukturag/libheif/issues/124#issuecomment-541102329
+
+2019-10-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp,
+	core/dplugins/dimg/tiff/dimgtiffloader_load.cpp: fix cppcheck
+
+2019-10-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/metadata/setupmetadata.cpp: hint for
+	Darktable
+
+2019-10-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/dimg_metadata.cpp: polish
+
+2019-10-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/dimg_metadata.cpp: remove XMP preview before to
+	prepare metadata to save. Add debug trace and code cleanup
+
+2019-10-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/dimg_metadata.cpp,
+	core/tests/metadataengine/data/Luftbild_H6_7.tif,
+	core/tests/metadataengine/setiptcpreviewtest.cpp: Setting a preview
+	to JPEG do not work if size exceed 65535 bytes, for Exif and XMP
+	chunk. Use a TIFF file to run this unit test
+
+2019-10-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_item.cpp: for file
+	format which do not support IPTC, store JPEG preview image in a XMP
+	tag from digiKam namespace as base64
+
+2019-10-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-10-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/editor/editorwindow.cpp: use
+	sidecarPath()
+
+2019-10-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/metadata/setupmetadata.cpp: enable checkbox
+	only if writing is active
+
+2019-10-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/metadata/setupmetadata.cpp: i18n++
+
+2019-10-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/metadata/setupmetadata.cpp: polish whats this
+
+
+2019-10-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/metadata/setupmetadata.cpp: polish i18n
+
+2019-10-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata.cpp,
+	core/libs/metadataengine/engine/metaengine.cpp,
+	core/libs/metadataengine/engine/metaengine.h,
+	core/libs/metadataengine/engine/metaengine_fileio.cpp,
+	core/libs/metadataengine/engine/metaengine_p.cpp,
+	core/libs/metadataengine/engine/metaengine_p.h,
+	core/libs/metadataengine/engine/metaenginesettingscontainer.cpp,
+	core/libs/metadataengine/engine/metaenginesettingscontainer.h,
+	core/utilities/setup/metadata/setupmetadata.cpp: add new Option to
+	use compatible file name for sidecar files CCBUGS: 278935
+
+2019-10-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-10-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-10-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_libicu/CMakeLists.txt,
+	project/bundles/3rdparty/ext_qt/CMakeLists.txt: ICU++
+
+2019-10-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_libicu/CMakeLists.txt: use more
+	recent release
+
+2019-10-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt,
+	project/bundles/appimage/01-build-host.sh: add icu deps
+
+2019-10-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_load.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000loader_load.cpp,
+	core/dplugins/dimg/png/dimgpngloader_load.cpp,
+	core/dplugins/dimg/png/dimgpngloader_save.cpp: polish
+
+2019-10-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/jpeg2000/dimgjpeg2000loader_load.cpp: polish
+
+2019-10-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/loaders/dimgloaderobserver.h: polish
+
+2019-10-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/loaders/dimgloader.h: API doc
+
+2019-10-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_libicu/CMakeLists.txt: AppImage :
+	first try to fix broken ICU data handling at runtime. use same
+	Mageia6 version of libicu and configure with option to store ICU
+	data in shared libs instead file data
+
+2019-10-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadingcache.cpp,
+	core/libs/threadimageio/fileio/loadingcache.h: this signal is unused
+
+
+2019-10-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadingcache.cpp,
+	core/libs/threadimageio/fileio/loadingcache.h: polish
+	ClassicLoadingCacheFileWatch
+
+2019-10-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/fileactionmanager/fileworkeriface.cpp,
+	core/libs/threadimageio/fileio/loadingcache.cpp,
+	core/libs/threadimageio/fileio/loadingcache.h,
+	core/libs/threadimageio/fileio/loadingcacheinterface.cpp,
+	core/libs/threadimageio/fileio/loadingcacheinterface.h: prevent
+	wrong thumbnails after rotation, because the QFileSystemWatcher is
+	too fast from the loading cache.
+
+2019-10-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-10-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/utils/digikam_globals.cpp,
+	core/dplugins/dimg/heif/dimgheifloader.cpp,
+	core/dplugins/dimg/heif/dimgheifloader_load.cpp,
+	core/dplugins/dimg/heif/dimgheifloader_save.cpp,
+	core/dplugins/dimg/heif/dimgheifplugin.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/libs/database/coredb/coredbschemaupdater.cpp,
+	core/libs/widgets/files/filesaveoptionsbox.cpp,
+	core/showfoto/main/showfoto.cpp: Following specification from Nokia,
+	HEIF is also a valid extension as HEIC
+
+2019-10-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_fileio.cpp: add preview check to the second
+	load attempt
+
+2019-10-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/preview/previewtask.cpp: add
+	DImgLoaderObserver parameter
+
+2019-10-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifplugin.cpp: polish
+
+2019-10-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_load.cpp: HEIF HDR image
+	need special treatements to be imported as DImg 16 bits. Check bits
+	range by color components from HEIF, and apply a 2x multiplier to
+	process bits rotation
+
+2019-10-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifplugin.cpp,
+	core/dplugins/dimg/heif/dimgheifplugin.h,
+	core/libs/dimg/dimg_fileio.cpp,
+	core/libs/dplugins/core/dplugindimg.h: expand DPluginDimg API wit
+	previewSupported()
+
+2019-10-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_load.cpp: Fix color channel
+	inversion with 8 bits color depth image
+
+2019-10-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-10-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader.h: add link to spec
+
+2019-10-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-10-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_load.cpp: fix destination
+	NULL pointer
+
+2019-10-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/tiff/dimgtiffloader_load.cpp: Fix 2 0 division
+	reported by clang
+
+2019-10-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/jpeg2000/dimgjpeg2000loader.cpp: cleanup
+
+2019-10-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/jpeg2000/dimgjpeg2000loader.h,
+	project/bundles/mxe/config.sh: another link
+
+2019-10-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/jpeg2000/dimgjpeg2000loader.h: add new links to
+	JPEG2000 codec using openjpeg
+
+2019-10-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/CMakeLists.txt,
+	core/libs/threadimageio/thumb/thumbnailloadthread.cpp,
+	core/libs/threadimageio/thumb/thumbnailloadthread_p.cpp,
+	core/libs/threadimageio/thumb/thumbnailloadthread_p.h: 
+	ThumbnailLoadThread : separate private container as possibleto
+	simplify complexity of classes
+
+2019-10-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/CMakeLists.txt,
+	core/libs/threadimageio/thumb/thumbnailcreator.cpp,
+	core/libs/threadimageio/thumb/thumbnailcreator.h,
+	core/libs/threadimageio/thumb/thumbnailcreator_database.cpp,
+	core/libs/threadimageio/thumb/thumbnailcreator_engine.cpp,
+	core/libs/threadimageio/thumb/thumbnailcreator_freedesktop.cpp,
+	core/libs/threadimageio/thumb/thumbnailcreator_p.h,
+	core/libs/threadimageio/thumb/thumbnailtask.cpp: HEIF: use DImg
+	preview to render thumbnails if possible. As we recored a preview
+	image of 1280x1280 in thubnail version of HEIC main image, this will
+	speed up rendering of icon view item for all file generated by
+	digiKam core. Separete ThumbnailCreator methods by categories for
+	better readability and maintenance.
+
+2019-10-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/preview/previewtask.cpp: add debug trace
+
+2019-10-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/dimg.h,
+	core/libs/threadimageio/preview/previewtask.cpp: We are now able to
+	extract HEIF preview HEVC version with F3 action
+
+2019-10-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader.h,
+	core/dplugins/dimg/heif/dimgheifloader_load.cpp,
+	core/libs/dimg/loaders/dimgloader.h: add DImgLoader loading flag to
+	extract preview add code in HEIC to extract and decode preview
+	instead lead image. DIlg Preview loading is not yet used.
+
+2019-10-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_load.cpp,
+	core/libs/dimg/loaders/dimgloader.h: we have a loading flag for
+	metadata
+
+2019-10-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/utils/digikam_globals.cpp,
+	core/dplugins/dimg/heif/CMakeLists.txt,
+	core/dplugins/dimg/heif/dimgheifloader_save.cpp,
+	core/libs/dimg/dimg.cpp,
+	core/libs/metadataengine/engine/metaengine_previews.cpp: HEIC: save
+	extra preview image for large main image. HEIC do not support IPTC,
+	so not preview tag can be used here. HEIC can store more than one
+	version of an image, and especially a "thumbnail" can be assigned to
+	a main image. Thumbnail is not a very smaller version of image (aka
+	256x256 for exif thumbnail), but just a reduced version always
+	smaller than original. So we use the same rules than IPTC preview as
+	we render a 1280x1280 version of image if main image size is greater
+	than thumbnail.
+
+2019-10-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader.h,
+	core/dplugins/dimg/heif/dimgheifloader_load.cpp: check the profile
+	type at loading type and ignore extra profile not suitbale
+
+2019-10-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_fileio.cpp: polish debug
+
+2019-10-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_fileio.cpp: fix memory leak from loader
+
+2019-10-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_fileio.cpp: now we can load pictures without
+	extension or with wrong extension
+
+2019-10-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifplugin.cpp,
+	core/dplugins/dimg/heif/dimgheifplugin.h,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.h,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.h,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.h,
+	core/dplugins/dimg/pgf/dimgpgfplugin.cpp,
+	core/dplugins/dimg/pgf/dimgpgfplugin.h,
+	core/dplugins/dimg/png/dimgpngplugin.cpp,
+	core/dplugins/dimg/png/dimgpngplugin.h,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.h,
+	core/dplugins/dimg/raw/dimgrawplugin.cpp,
+	core/dplugins/dimg/raw/dimgrawplugin.h,
+	core/dplugins/dimg/tiff/dimgtiffplugin.cpp,
+	core/dplugins/dimg/tiff/dimgtiffplugin.h,
+	core/libs/dimg/dimg_fileio.cpp, core/libs/dimg/dimg_p.h,
+	core/libs/dplugins/core/dplugindimg.h: first step change DPluginDImg
+	API
+
+2019-10-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-10-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifplugin.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.cpp,
+	core/dplugins/dimg/pgf/dimgpgfplugin.cpp,
+	core/dplugins/dimg/png/dimgpngplugin.cpp: check only more the
+	extension if present
+
+2019-10-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/tiff/dimgtiffplugin.cpp: for TIF files check
+	only for extension, Magic bytes only if there is no extension.
+	Otherwise many RAW formats (NEF, CR2, RW2) can not be recognize.
+
+2019-10-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/utils/digikam_globals.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/raw/dimgrawplugin.cpp,
+	core/libs/properties/itempropertiessidebar.cpp,
+	core/libs/rawengine/drawdecoder.cpp,
+	core/libs/rawengine/drawdecoder.h,
+	core/utilities/queuemanager/manager/batchtool.cpp: return rawFiles()
+	as QString
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/setup/dpluginaboutdlg.cpp: polish
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifplugin.cpp,
+	core/dplugins/dimg/heif/dimgheifplugin.h,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.h,
+	core/dplugins/dimg/pgf/dimgpgfplugin.cpp,
+	core/dplugins/dimg/pgf/dimgpgfplugin.h,
+	core/libs/rawengine/drawfiles.cpp: use i18n and setup mime
+	descriptions for unrecognized formats by QMimeDatabase
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/drawdecoder.cpp,
+	core/libs/rawengine/drawfiles.cpp, core/libs/rawengine/drawfiles.h,
+	core/tests/multithreading/main.cpp: typo
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/raw/dimgrawplugin.cpp,
+	core/dplugins/dimg/raw/dimgrawplugin.h,
+	core/libs/rawengine/CMakeLists.txt,
+	core/libs/rawengine/drawdecoder.cpp,
+	core/libs/rawengine/drawfiles.cpp, core/libs/rawengine/drawfiles.h,
+	core/tests/multithreading/main.cpp: add new method to return a map
+	of RAW file extentions supported with a descriptions
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.h: USe
+	ImageMAgick type mime description instead QMimeDatabase
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/pgf/dimgpgfplugin.cpp,
+	core/dplugins/dimg/pgf/dimgpgfplugin.h,
+	core/dplugins/dimg/tiff/CMakeLists.txt,
+	core/dplugins/dimg/tiff/dimgtiffloader.cpp,
+	core/dplugins/dimg/tiff/dimgtiffloader.h,
+	core/dplugins/dimg/tiff/dimgtiffloader_load.cpp,
+	core/dplugins/dimg/tiff/dimgtiffloader_save.cpp,
+	core/libs/dplugins/setup/dpluginaboutdlg.cpp: hide header of list
+	view from about dialog hardcode mime description of PGF
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/png/CMakeLists.txt,
+	core/dplugins/dimg/png/dimgpngloader.cpp,
+	core/dplugins/dimg/png/dimgpngloader.h,
+	core/dplugins/dimg/png/dimgpngloader_load.cpp,
+	core/dplugins/dimg/png/dimgpngloader_save.cpp: separate load and
+	save operations
+
+2019-10-03  Yuri Chornoivan <yurchor@ukr.net>
+
+	* core/dplugins/dimg/heif/dimgheifplugin.cpp: Fix minor typo
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader.h,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000loader.h: polish
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/jpeg/CMakeLists.txt,
+	core/dplugins/dimg/jpeg/dimgjpegloader.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegloader.h,
+	core/dplugins/dimg/jpeg/dimgjpegloader_load.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegloader_save.cpp: separate load and
+	save operations
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/pgf/dimgpgfloader.h: these function can be
+	private
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/qimage/dimgqimageloader.cpp,
+	core/dplugins/dimg/qimage/dimgqimageloader.h: polish
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickloader.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickloader.h: polish
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/raw/dimgrawloader.cpp,
+	core/dplugins/dimg/raw/dimgrawloader.h: polish
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/pgf/CMakeLists.txt,
+	core/dplugins/dimg/pgf/dimgpgfloader.cpp,
+	core/dplugins/dimg/pgf/dimgpgfloader.h,
+	core/dplugins/dimg/pgf/dimgpgfloader_load.cpp,
+	core/dplugins/dimg/pgf/dimgpgfloader_save.cpp: separate load ans
+	save operations
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader.cpp,
+	core/dplugins/dimg/heif/dimgheifloader.h,
+	core/dplugins/dimg/jpeg2000/CMakeLists.txt,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000loader.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000loader.h,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000loader_load.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000loader_save.cpp: separate
+	load ans save operations
+
+2019-10-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt,
+	core/dplugins/dimg/heif/{dimgheifloader_read.cpp =>
+	dimgheifloader_load.cpp},
+	core/dplugins/dimg/heif/dimgheifloader_save.cpp: polish
+
+2019-10-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine.cpp,
+	core/libs/metadataengine/engine/metaengine_comments.cpp,
+	core/libs/metadataengine/engine/metaengine_data_p.cpp,
+	core/libs/metadataengine/engine/metaengine_exif.cpp,
+	core/libs/metadataengine/engine/metaengine_fileio.cpp,
+	core/libs/metadataengine/engine/metaengine_gps.cpp,
+	core/libs/metadataengine/engine/metaengine_iptc.cpp,
+	core/libs/metadataengine/engine/metaengine_item.cpp,
+	core/libs/metadataengine/engine/metaengine_p.cpp,
+	core/libs/metadataengine/engine/metaengine_p.h,
+	core/libs/metadataengine/engine/metaengine_previews.cpp,
+	core/libs/metadataengine/engine/metaengine_xmp.cpp: replace
+	Exiv2::Error with Exiv2::AnyError CCBUGS: 412539
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/README: add todo
+
+2019-10-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/collections/setupcollectionview.cpp: fix
+	update location if part of the same path is used
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/convert/converttoheif/converttoheifplugin.cpp,
+	core/dplugins/bqm/convert/converttojp2/converttojp2plugin.cpp,
+	core/dplugins/bqm/convert/converttopgf/converttopgfplugin.cpp,
+	core/libs/database/models/itemfiltersettings.cpp,
+	core/libs/filters/mimefilter.cpp, core/libs/filters/mimefilter.h,
+	core/utilities/queuemanager/views/queuesettingsview.cpp: polish
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/convert/converttoheif/converttoheif.cpp: fix
+	file suffix for this convert tool
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* Mainpage.dox, NEWS, core/CMakeLists.txt,
+	core/app/utils/digikam_config.h.cmake.in,
+	core/app/utils/digikam_globals.cpp, core/{dplugins/dimg/heif =>
+	}/cmake/modules/FindX265.cmake,
+	core/dplugins/bqm/convert/CMakeLists.txt,
+	core/dplugins/bqm/convert/converttoheif/CMakeLists.txt,
+	core/dplugins/bqm/convert/converttoheif/converttoheif.cpp,
+	core/dplugins/bqm/convert/converttoheif/converttoheif.h,
+	core/dplugins/bqm/convert/converttoheif/converttoheifplugin.cpp,
+	core/dplugins/bqm/convert/converttoheif/converttoheifplugin.h,
+	core/dplugins/dimg/README, core/dplugins/dimg/heif/CMakeLists.txt,
+	core/dplugins/dimg/heif/dimgheifloader.cpp,
+	core/dplugins/dimg/heif/dimgheifloader_read.cpp,
+	core/dplugins/dimg/heif/dimgheifloader_save.cpp,
+	core/dplugins/dimg/heif/dimgheifplugin.cpp,
+	core/libs/database/item/scanner/itemscanner_photo.cpp,
+	core/libs/dialogs/libsinfodlg.cpp, core/libs/dimg/CMakeLists.txt,
+	core/libs/dimg/dimg.h, core/libs/dimg/dimg_p.h,
+	core/libs/dimg/loaders/heifsettings.cpp,
+	core/libs/dimg/loaders/heifsettings.h,
+	core/libs/dimg/loaders/jp2ksettings.cpp,
+	core/libs/dimg/loaders/pgfsettings.cpp,
+	core/libs/dimg/loaders/pngsettings.cpp,
+	core/libs/dimg/loaders/tiffsettings.cpp,
+	core/libs/fileactionmanager/fileworkeriface.cpp,
+	core/libs/widgets/files/filesaveoptionsbox.cpp,
+	core/tests/fileio/filesaveoptionsboxtest.cpp,
+	core/utilities/imageeditor/core/iofilesettings.h,
+	core/utilities/imageeditor/editor/editorwindow.cpp,
+	core/utilities/import/widgets/advancedsettings.cpp,
+	core/utilities/queuemanager/views/queuesettingsview.cpp,
+	core/utilities/setup/editor/setupiofiles.cpp: HEIF support: - Add
+	setting widget - Add HEIF in setup dialog page - Add BQM convert
+	tool and in BQM queue settings. - Add Import post processing tool to
+	convert to lossless HEIF while downloading. - Patch collection
+	scanner to identify HEIF in database.
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_read.cpp,
+	core/dplugins/dimg/heif/dimgheifloader_save.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickloader.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegloader.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000loader.cpp,
+	core/dplugins/dimg/pgf/dimgpgfloader.cpp,
+	core/dplugins/dimg/png/dimgpngloader.cpp,
+	core/dplugins/dimg/qimage/dimgqimageloader.cpp,
+	core/dplugins/dimg/raw/dimgrawloader.cpp,
+	core/dplugins/dimg/tiff/dimgtiffloader.cpp,
+	core/libs/dimg/loaders/dimgloader.cpp,
+	core/libs/dimg/loaders/dimgloader.h: this argument is not used
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader.h,
+	core/dplugins/dimg/heif/dimgheifloader_save.cpp,
+	core/dplugins/dimg/heif/dimgheifplugin.cpp: add more information in
+	about dialog of HEIC plugin about encoding support with libx265
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* Mainpage.dox: add libx265 dependency in the list
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: now storing Exif
+	and Xmp metadata work as expected
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: polish
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_read.cpp,
+	core/dplugins/dimg/heif/dimgheifloader_save.cpp: polish
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: Et voilà :
+	converting from DImg 16 bits to 8, 10, 12, etc... bits HEIC work as
+	expected
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: Writting DImg 8
+	bits to HEIC 8 bits work as expected now. We need to use byte per
+	lines to store image data in RGBA.
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_read.cpp,
+	core/dplugins/dimg/heif/dimgheifloader_save.cpp: polish
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_read.cpp: fix loading
+	panorama HEIC files generated by iPhone. use bytes per line to
+	switch from one line to another one.
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_read.cpp: if data
+	information from decoder are valid
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader.cpp,
+	core/dplugins/dimg/heif/dimgheifloader.h,
+	core/dplugins/dimg/heif/dimgheifloader_save.cpp: revert partially
+	previous commit
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader.cpp,
+	core/dplugins/dimg/heif/dimgheifloader.h,
+	core/dplugins/dimg/heif/dimgheifloader_save.cpp: version to separate
+	8 bits and hdr save operations
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: polish
+
+2019-10-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: polish
+
+2019-10-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: polish
+
+2019-10-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: detect HEVC
+	encoder bit depth support and choose max value for better
+	performance. input 16 bits color depth image start to be converted
+	but it's not yet perfect.
+
+2019-10-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/showfoto/main/showfoto.cpp: polish
+
+2019-10-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/showfoto/main/showfoto.cpp: use canonical file url is better
+
+
+2019-10-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/showfoto/main/showfoto.cpp: add extra check of the image
+	extensions
+
+2019-10-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/showfoto/main/showfoto.cpp: Revert "add test debug to
+	showfoto"
+
+2019-10-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: First version of
+	HEIC operation with 16 bits color depth support. It do not work yet
+	properly :  digikam.dimg: Saving to  "CANON-EOS350D-01.heic"  with
+	format:  "heic" HEIC number of bits per pixels: 48 HEIC plane
+	details: ptr= 0x7f2788d34010  stride= 62544 Error while processing
+	HEIC image: Encoder plugin generated an error: Unsupported bit
+	depth: Bit depth not supported by x265  I suspect that libx265 only
+	support 12 bits color depth
+
+2019-10-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/showfoto/main/showfoto.cpp: add test debug to showfoto
+
+2019-10-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: polish
+
+2019-10-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt,
+	core/dplugins/dimg/heif/dimgheifloader.cpp,
+	core/dplugins/dimg/heif/dimgheifloader.h,
+	core/dplugins/dimg/heif/dimgheifloader_read.cpp,
+	core/dplugins/dimg/heif/dimgheifloader_save.cpp: separate read /
+	save operation implementations
+
+2019-10-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader.cpp: first version of HEIC
+	encoder working properly with 8 bits color depth image
+
+2019-10-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamCoreTarget.cmake,
+	core/app/DigikamGuiTarget.cmake,
+	core/utilities/geolocation/geoiface/CMakeLists.txt: restore marble
+	include/link rules
+
+2019-10-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/cmake/modules/FindMarble.cmake: restore Find Marble cmake
+	script as cmake config files are not generated and installed under
+	Windows and MacOS... Why?
+
+2019-10-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp: check
+	for null pointers
+
+2019-10-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: fix crash under
+	MacOS with ImageMagick due to missing configuration file in /etc
+
+2019-09-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/tiff/dimgtiffplugin.cpp: add check for Cr2 file
+	to the TIF loader
+
+2019-09-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/tiff/dimgtiffplugin.cpp: fix detection RW2 as
+	TIF
+
+2019-09-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/stack/stackedview.cpp,
+	core/app/views/stack/stackedview.h: add QMap to fix the wrong view
+	if Marble or MediaPlayer are missing
+
+2019-09-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifplugin.h,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.h,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.h,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000loader.h,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.h,
+	core/dplugins/dimg/pgf/dimgpgfplugin.h,
+	core/dplugins/dimg/png/dimgpngplugin.h,
+	core/dplugins/dimg/qimage/dimgqimageplugin.h,
+	core/dplugins/dimg/raw/dimgrawplugin.h,
+	core/dplugins/dimg/tiff/dimgtiffplugin.h,
+	core/dplugins/rawimport/rawtherapee/rawimportrawtherapeeplugin.h,
+	core/dplugins/rawimport/ufraw/rawimportufrawplugin.h: krazy++
+
+2019-09-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.cp
+	p,
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.h: 
+	krazy++
+
+2019-09-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/01-build-mxe.sh: typo
+
+2019-09-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/dimg/testdimgloader.cpp: use this CLI tool to test HEIC
+	encoding
+
+2019-09-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader.cpp: first version of HEIC
+	encoder. It do not work yet due to wrong colorspace conversion
+
+2019-09-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/utils/digikam_globals.cpp: add HEIC as available native
+	format
+
+2019-09-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/jpeg2000/dimgjpeg2000loader.cpp: polish
+
+2019-09-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader.cpp: print non decoded
+	image size
+
+2019-09-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/tests/dimg/magickloader.cpp: fix crash if ImageMagick coders
+	are compiled as separated module loaded at run time and if system
+	objects are not installed properly in the system
+
+2019-09-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/cmake/modules/MacroDPlugins.cmake,
+	core/dplugins/dimg/heif/dimgheifloader.cpp,
+	core/dplugins/dimg/heif/dimgheifplugin.cpp: prepare code to
+	implement HEIF save operation
+
+2019-09-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh: add libx265 and
+	ImageMAgick in macports build
+
+2019-09-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/01-build-mxe.sh: add libx265 in MXE build
+
+2019-09-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_fileio.cpp: debug message only if loading not
+	canceled
+
+2019-09-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dplugins/core/dplugin.cpp,
+	core/libs/dplugins/core/dplugin.h: polish
+
+2019-09-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt,
+	core/dplugins/dimg/heif/dimgheifloader.cpp: fix broken compilation
+	if libx265 is not found. fix progress observer loop
+
+2019-09-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader.cpp: implement observer
+	support with progress listener and cancel loading implement loading
+	metadata only
+
+2019-09-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt,
+	core/dplugins/dimg/heif/cmake/modules/FindX265.cmake: add rules to
+	detect external libx265 shared lib and compile and link HEIC encoder
+
+
+2019-09-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/coredb/coredbschemaupdater.cpp: add heic
+	support and increase filter version
+
+2019-09-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-09-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_fileio.cpp: plugin can be null pointer
+
+2019-09-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/01-build-host.sh: install ImageMagick in
+	main stream and do not compile coustomozed HEIF and ImageMagick
+
+2019-09-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/01-build-mxe.sh: do not install heif libs and
+	compile ImageMAgick in main stream with MXE build
+
+2019-09-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh: remove Heif build
+	in MAcOS bundle and install ImageMagick in main stream
+
+2019-09-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: install
+	imagemagick loader system objects in the bundle
+
+2019-09-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt,
+	core/dplugins/dimg/heif/libde265/x86/sse-dct.cc,
+	core/dplugins/dimg/heif/libde265/x86/sse-dct.h,
+	core/dplugins/dimg/heif/libde265/x86/sse-motion.cc,
+	core/dplugins/dimg/heif/libde265/x86/sse-motion.h,
+	core/dplugins/dimg/heif/libde265/x86/sse.cc,
+	core/dplugins/dimg/heif/libde265/x86/sse.h: remove sse optimization
+	which crash with AMD cpu and do not introduce any speed up at
+	loading time
+
+2019-09-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dngwriter/CMakeLists.txt,
+	core/libs/dngwriter/extra/md5/{MD5.cpp => XMP_MD5.cpp},
+	core/libs/dngwriter/extra/md5/{MD5.h => XMP_MD5.h},
+	core/libs/dngwriter/extra/xmp_sdk/XMPCore/XMPUtils.cpp: compile
+	under MacOS. As FS is uncase-sensitive, MD5.h from XMP sdk is in
+	conflict with md5.h from libde265
+
+2019-09-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_p.h: fix DImg format detection
+
+2019-09-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader.cpp: polish
+
+2019-09-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt,
+	core/dplugins/dimg/heif/libde265/extra/{win32cond.c =>
+	win32cond.cc}: polish
+
+2019-09-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt: polish
+
+2019-09-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader.cpp: polish
+
+2019-09-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt: polish
+
+2019-09-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt: polish
+
+2019-09-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt: fix mxe build
+
+2019-09-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt: polish
+
+2019-09-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt: compile
+
+2019-09-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt,
+	core/dplugins/dimg/heif/libde265/extra/win32cond.c,
+	core/dplugins/dimg/heif/libde265/extra/win32cond.h: try to fix
+	compilation under MXE
+
+2019-09-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/CMakeLists.txt,
+	core/dplugins/dimg/heif/libde265/x86/sse-dct.cc,
+	core/dplugins/dimg/heif/libde265/x86/sse-dct.h,
+	core/dplugins/dimg/heif/libde265/x86/sse-motion.cc,
+	core/dplugins/dimg/heif/libde265/x86/sse-motion.h,
+	core/dplugins/dimg/heif/libde265/x86/sse.cc,
+	core/dplugins/dimg/heif/libde265/x86/sse.h: lide265 : add X86 sse
+	support to speedup decoding
+
+2019-09-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* .krazy: do not parse 3rdParty libs
+
+2019-09-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/dplugins/dimg/CMakeLists.txt,
+	core/dplugins/dimg/README, core/dplugins/dimg/heif/CMakeLists.txt,
+	core/dplugins/dimg/heif/dimgheifloader.cpp,
+	core/dplugins/dimg/heif/dimgheifloader.h,
+	core/dplugins/dimg/heif/dimgheifplugin.cpp,
+	core/dplugins/dimg/heif/dimgheifplugin.h,
+	core/dplugins/dimg/heif/libde265/README,
+	core/dplugins/dimg/heif/libde265/acceleration.h,
+	core/dplugins/dimg/heif/libde265/alloc_pool.cc,
+	core/dplugins/dimg/heif/libde265/alloc_pool.h,
+	core/dplugins/dimg/heif/libde265/bitstream.cc,
+	core/dplugins/dimg/heif/libde265/bitstream.h,
+	core/dplugins/dimg/heif/libde265/cabac.cc,
+	core/dplugins/dimg/heif/libde265/cabac.h,
+	core/dplugins/dimg/heif/libde265/configparam.cc,
+	core/dplugins/dimg/heif/libde265/configparam.h,
+	core/dplugins/dimg/heif/libde265/contextmodel.cc,
+	core/dplugins/dimg/heif/libde265/contextmodel.h,
+	core/dplugins/dimg/heif/libde265/de265-version.h.in,
+	core/dplugins/dimg/heif/libde265/de265.cc,
+	core/dplugins/dimg/heif/libde265/de265.h,
+	core/dplugins/dimg/heif/libde265/deblock.cc,
+	core/dplugins/dimg/heif/libde265/deblock.h,
+	core/dplugins/dimg/heif/libde265/decctx.cc,
+	core/dplugins/dimg/heif/libde265/decctx.h,
+	core/dplugins/dimg/heif/libde265/dpb.cc,
+	core/dplugins/dimg/heif/libde265/dpb.h,
+	core/dplugins/dimg/heif/libde265/en265.cc,
+	core/dplugins/dimg/heif/libde265/en265.h,
+	core/dplugins/dimg/heif/libde265/encoder/algo/algo.cc,
+	core/dplugins/dimg/heif/libde265/encoder/algo/algo.h,
+	core/dplugins/dimg/heif/libde265/encoder/algo/cb-interpartmode.cc,
+	core/dplugins/dimg/heif/libde265/encoder/algo/cb-interpartmode.h,
+	core/dplugins/dimg/heif/libde265/encoder/algo/cb-intra-inter.cc,
+	core/dplugins/dimg/heif/libde265/encoder/algo/cb-intra-inter.h,
+	core/dplugins/dimg/heif/libde265/encoder/algo/cb-intrapartmode.cc,
+	core/dplugins/dimg/heif/libde265/encoder/algo/cb-intrapartmode.h,
+	core/dplugins/dimg/heif/libde265/encoder/algo/cb-mergeindex.cc,
+	core/dplugins/dimg/heif/libde265/encoder/algo/cb-mergeindex.h,
+	core/dplugins/dimg/heif/libde265/encoder/algo/cb-skip.cc,
+	core/dplugins/dimg/heif/libde265/encoder/algo/cb-skip.h,
+	core/dplugins/dimg/heif/libde265/encoder/algo/cb-split.cc,
+	core/dplugins/dimg/heif/libde265/encoder/algo/cb-split.h,
+	core/dplugins/dimg/heif/libde265/encoder/algo/coding-options.cc,
+	core/dplugins/dimg/heif/libde265/encoder/algo/coding-options.h,
+	core/dplugins/dimg/heif/libde265/encoder/algo/ctb-qscale.cc,
+	core/dplugins/dimg/heif/libde265/encoder/algo/ctb-qscale.h,
+	core/dplugins/dimg/heif/libde265/encoder/algo/pb-mv.cc,
+	core/dplugins/dimg/heif/libde265/encoder/algo/pb-mv.h,
+	core/dplugins/dimg/heif/libde265/encoder/algo/tb-intrapredmode.cc,
+	core/dplugins/dimg/heif/libde265/encoder/algo/tb-intrapredmode.h,
+	core/dplugins/dimg/heif/libde265/encoder/algo/tb-rateestim.cc,
+	core/dplugins/dimg/heif/libde265/encoder/algo/tb-rateestim.h,
+	core/dplugins/dimg/heif/libde265/encoder/algo/tb-split.cc,
+	core/dplugins/dimg/heif/libde265/encoder/algo/tb-split.h,
+	core/dplugins/dimg/heif/libde265/encoder/algo/tb-transform.cc,
+	core/dplugins/dimg/heif/libde265/encoder/algo/tb-transform.h,
+	core/dplugins/dimg/heif/libde265/encoder/encoder-context.cc,
+	core/dplugins/dimg/heif/libde265/encoder/encoder-context.h,
+	core/dplugins/dimg/heif/libde265/encoder/encoder-core.cc,
+	core/dplugins/dimg/heif/libde265/encoder/encoder-core.h,
+	core/dplugins/dimg/heif/libde265/encoder/encoder-intrapred.cc,
+	core/dplugins/dimg/heif/libde265/encoder/encoder-intrapred.h,
+	core/dplugins/dimg/heif/libde265/encoder/encoder-motion.cc,
+	core/dplugins/dimg/heif/libde265/encoder/encoder-motion.h,
+	core/dplugins/dimg/heif/libde265/encoder/encoder-params.cc,
+	core/dplugins/dimg/heif/libde265/encoder/encoder-params.h,
+	core/dplugins/dimg/heif/libde265/encoder/encoder-syntax.cc,
+	core/dplugins/dimg/heif/libde265/encoder/encoder-syntax.h,
+	core/dplugins/dimg/heif/libde265/encoder/encoder-types.cc,
+	core/dplugins/dimg/heif/libde265/encoder/encoder-types.h,
+	core/dplugins/dimg/heif/libde265/encoder/encpicbuf.cc,
+	core/dplugins/dimg/heif/libde265/encoder/encpicbuf.h,
+	core/dplugins/dimg/heif/libde265/encoder/sop.cc,
+	core/dplugins/dimg/heif/libde265/encoder/sop.h,
+	core/dplugins/dimg/heif/libde265/fallback-dct.cc,
+	core/dplugins/dimg/heif/libde265/fallback-dct.h,
+	core/dplugins/dimg/heif/libde265/fallback-motion.cc,
+	core/dplugins/dimg/heif/libde265/fallback-motion.h,
+	core/dplugins/dimg/heif/libde265/fallback.cc,
+	core/dplugins/dimg/heif/libde265/fallback.h,
+	core/dplugins/dimg/heif/libde265/image-io.cc,
+	core/dplugins/dimg/heif/libde265/image-io.h,
+	core/dplugins/dimg/heif/libde265/image.cc,
+	core/dplugins/dimg/heif/libde265/image.h,
+	core/dplugins/dimg/heif/libde265/intrapred.cc,
+	core/dplugins/dimg/heif/libde265/intrapred.h,
+	core/dplugins/dimg/heif/libde265/md5.cc,
+	core/dplugins/dimg/heif/libde265/md5.h,
+	core/dplugins/dimg/heif/libde265/motion.cc,
+	core/dplugins/dimg/heif/libde265/motion.h,
+	core/dplugins/dimg/heif/libde265/nal-parser.cc,
+	core/dplugins/dimg/heif/libde265/nal-parser.h,
+	core/dplugins/dimg/heif/libde265/nal.cc,
+	core/dplugins/dimg/heif/libde265/nal.h,
+	core/dplugins/dimg/heif/libde265/pps.cc,
+	core/dplugins/dimg/heif/libde265/pps.h,
+	core/dplugins/dimg/heif/libde265/quality.cc,
+	core/dplugins/dimg/heif/libde265/quality.h,
+	core/dplugins/dimg/heif/libde265/refpic.cc,
+	core/dplugins/dimg/heif/libde265/refpic.h,
+	core/dplugins/dimg/heif/libde265/sao.cc,
+	core/dplugins/dimg/heif/libde265/sao.h,
+	core/dplugins/dimg/heif/libde265/scan.cc,
+	core/dplugins/dimg/heif/libde265/scan.h,
+	core/dplugins/dimg/heif/libde265/sei.cc,
+	core/dplugins/dimg/heif/libde265/sei.h,
+	core/dplugins/dimg/heif/libde265/slice.cc,
+	core/dplugins/dimg/heif/libde265/slice.h,
+	core/dplugins/dimg/heif/libde265/sps.cc,
+	core/dplugins/dimg/heif/libde265/sps.h,
+	core/dplugins/dimg/heif/libde265/threads.cc,
+	core/dplugins/dimg/heif/libde265/threads.h,
+	core/dplugins/dimg/heif/libde265/transform.cc,
+	core/dplugins/dimg/heif/libde265/transform.h,
+	core/dplugins/dimg/heif/libde265/util.cc,
+	core/dplugins/dimg/heif/libde265/util.h,
+	core/dplugins/dimg/heif/libde265/visualize.cc,
+	core/dplugins/dimg/heif/libde265/visualize.h,
+	core/dplugins/dimg/heif/libde265/vps.cc,
+	core/dplugins/dimg/heif/libde265/vps.h,
+	core/dplugins/dimg/heif/libde265/vui.cc,
+	core/dplugins/dimg/heif/libde265/vui.h,
+	core/dplugins/dimg/heif/libheif/README,
+	core/dplugins/dimg/heif/libheif/bitstream.cc,
+	core/dplugins/dimg/heif/libheif/bitstream.h,
+	core/dplugins/dimg/heif/libheif/box.cc,
+	core/dplugins/dimg/heif/libheif/box.h,
+	core/dplugins/dimg/heif/libheif/box_fuzzer.cc,
+	core/dplugins/dimg/heif/libheif/encoder_fuzzer.cc,
+	core/dplugins/dimg/heif/libheif/error.cc,
+	core/dplugins/dimg/heif/libheif/error.h,
+	core/dplugins/dimg/heif/libheif/file_fuzzer.cc,
+	core/dplugins/dimg/heif/libheif/heif.cc,
+	core/dplugins/dimg/heif/libheif/heif.h,
+	core/dplugins/dimg/heif/libheif/heif_api_structs.h,
+	core/dplugins/dimg/heif/libheif/heif_colorconversion.cc,
+	core/dplugins/dimg/heif/libheif/heif_colorconversion.h,
+	core/dplugins/dimg/heif/libheif/heif_context.cc,
+	core/dplugins/dimg/heif/libheif/heif_context.h,
+	core/dplugins/dimg/heif/libheif/heif_cxx.h,
+	core/dplugins/dimg/heif/libheif/heif_decoder_libde265.cc,
+	core/dplugins/dimg/heif/libheif/heif_decoder_libde265.h,
+	core/dplugins/dimg/heif/libheif/heif_emscripten.h,
+	core/dplugins/dimg/heif/libheif/heif_encoder_x265.cc,
+	core/dplugins/dimg/heif/libheif/heif_encoder_x265.h,
+	core/dplugins/dimg/heif/libheif/heif_file.cc,
+	core/dplugins/dimg/heif/libheif/heif_file.h,
+	core/dplugins/dimg/heif/libheif/heif_hevc.cc,
+	core/dplugins/dimg/heif/libheif/heif_hevc.h,
+	core/dplugins/dimg/heif/libheif/heif_image.cc,
+	core/dplugins/dimg/heif/libheif/heif_image.h,
+	core/dplugins/dimg/heif/libheif/heif_limits.h,
+	core/dplugins/dimg/heif/libheif/heif_plugin.cc,
+	core/dplugins/dimg/heif/libheif/heif_plugin.h,
+	core/dplugins/dimg/heif/libheif/heif_plugin_registry.cc,
+	core/dplugins/dimg/heif/libheif/heif_plugin_registry.h,
+	core/dplugins/dimg/heif/libheif/heif_version.h.in,
+	core/dplugins/dimg/heif/libheif/logging.h,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/libs/dimg/dimg_p.h, core/tests/dimg/testdimgloader.cpp: First
+	stage to support HEIC images from Apple devices.  New image loader
+	based on libheif+libde265. Only loading image is supported for the
+	moment. Writing image requires libx265 dependency and is not yet
+	implemented. HEIC loader support ICC color profile, Exif, and XMP
+	metadata handling. Code is not yet optimized. Still TODO  * add
+	progress observer * load metadata stage without to decode full
+	image.  HEIC is now a native format, blacklisted with ImageMagick
+	and QImage loader  CCBUGS: 411027 CCBUGS: 393408
+
+2019-09-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/filters/lens/lensfuncameraselector.cpp: workaround
+	for layout problem with long lens names
+
+2019-09-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/editor/editortoolsettings.cpp: fix
+	minimumSizeHint()
+
+2019-09-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/utilities/imageeditor/editor/editortooliface.cpp,
+	core/utilities/imageeditor/editor/editorwindow.cpp,
+	core/utilities/imageeditor/editor/editorwindow.h: restore last
+	sidebar size after use a editor tool BUGS: 412293 FIXED-IN: 6.4.0
+
+2019-09-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-09-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/libs/dialogs/infodlg.cpp, core/libs/dplugins/core/dplugin.h,
+	core/libs/dplugins/core/dplugindimg.cpp,
+	core/libs/dplugins/core/dplugindimg.h,
+	core/libs/dplugins/setup/dpluginaboutdlg.cpp: add type mime
+	descriptions from QMimeDatabase in DPlugin about dialog
+
+2019-09-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_heif/CMakeLists.txt,
+	project/bundles/3rdparty/ext_heif/libde265.pc.in_cmake,
+	project/bundles/3rdparty/ext_heif/libheif.pc.in_cmake: use same
+	prefix everywhere, else libde265 cannot be found silently by IM
+	codec at run time CCBUGS: 411027
+
+2019-09-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: missing to scan
+	DImg plugins dir
+
+2019-09-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/setup/dpluginloader_p.cpp: ùnder MacOS .dlyb
+	and .so can be used for shared plugin libraries
+
+2019-09-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/tests/dimg/magickloader.cpp: compile
+
+2019-09-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/tests/dimg/magickloader.cpp: init and close IM instance
+
+2019-09-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp: polish
+
+2019-09-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp: polish
+
+2019-09-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.cp
+	p: healing clone tool++
+
+2019-09-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.cpp,
+	core/dplugins/dimg/pgf/dimgpgfplugin.cpp,
+	core/dplugins/dimg/png/dimgpngplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/raw/dimgrawplugin.cpp,
+	core/dplugins/dimg/tiff/dimgtiffplugin.cpp: polish
+
+2019-09-24  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp: 
+	healing clone tool++
+
+2019-09-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-09-24  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dplugins/setup/dpluginloader_p.cpp,
+	core/tests/dimg/dimghistorytest.cpp: filter plugins in the directory
+
+
+2019-09-24  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/tests/dimg/dimgfilteractiontest.cpp: We also need the PNG
+	loader This gives a lot of error messages because we also parse
+	source files.
+
+2019-09-24  Yuri Chornoivan <yurchor@ukr.net>
+
+	* core/dplugins/rawimport/darktable/rawimportdarktableplugin.cpp,
+	core/dplugins/rawimport/darktable/rawimportdarktableplugin.h: Fix
+	minor EBN issues
+
+2019-09-24  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/tests/dimg/dimgfilteractiontest.cpp,
+	core/tests/dimg/dimghistorytest.cpp: hack env variable to load JPEG
+	plugin for test
+
+2019-09-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.cpp,
+	core/dplugins/dimg/pgf/dimgpgfplugin.cpp,
+	core/dplugins/dimg/png/dimgpngplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/raw/dimgrawplugin.cpp,
+	core/dplugins/dimg/tiff/dimgtiffplugin.cpp,
+	core/libs/dplugins/core/dplugin.h,
+	core/libs/dplugins/core/dplugindimg.cpp,
+	core/libs/dplugins/core/dplugindimg.h,
+	core/libs/dplugins/setup/dpluginaboutdlg.cpp: add new tab in DImg
+	DPlugins dialog about type mimes supported
+
+2019-09-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/raw/dimgrawplugin.cpp: polish
+
+2019-09-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/setup/dpluginconfview.cpp,
+	core/libs/dplugins/setup/dpluginconfview.h,
+	core/libs/dplugins/setup/dpluginconfviewdimg.cpp: show type mime on
+	DImg plugins list view
+
+2019-09-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/tests/dimg/dimgfilteractiontest.cpp,
+	core/tests/dimg/dimghistorytest.cpp: fix DImg test
+
+2019-09-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/pgf/dimgpgfplugin.cpp: pgf icon not exists
+
+2019-09-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/core/dplugindimg.h: DImg plugins are not
+	configurable.
+
+2019-09-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.cpp,
+	core/dplugins/dimg/pgf/dimgpgfplugin.cpp,
+	core/dplugins/dimg/png/dimgpngplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/raw/dimgrawplugin.cpp,
+	core/dplugins/dimg/tiff/dimgtiffplugin.cpp: polish
+
+2019-09-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/raw/dimgrawplugin.cpp,
+	core/libs/dplugins/setup/dpluginconfviewdimg.cpp: polish
+
+2019-09-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/libs/dplugins/setup/dpluginconfview.h: polish
+
+2019-09-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-09-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/CMakeLists.txt,
+	core/libs/dplugins/setup/dpluginconfviewdimg.cpp,
+	core/libs/dplugins/setup/dpluginconfviewdimg.h,
+	core/showfoto/setup/showfotosetupplugins.cpp,
+	core/showfoto/setup/showfotosetupplugins.h,
+	core/utilities/setup/setupplugins.cpp,
+	core/utilities/setup/setupplugins.h: add new configuration view for
+	DImg plugins
+
+2019-09-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/imagemagick/CMakeLists.txt,
+	core/dplugins/dimg/imagemagick/dimgimagemagickloader.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickloader.h,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.h: this
+	directory is missing
+
+2019-09-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/loaders/jp2kloader.cpp,
+	core/libs/dimg/loaders/jp2kloader.h,
+	core/libs/dimg/loaders/jpegloader.cpp,
+	core/libs/dimg/loaders/jpegloader.h,
+	core/libs/dimg/loaders/magickloader.cpp,
+	core/libs/dimg/loaders/magickloader.h,
+	core/libs/dimg/loaders/pgfloader.cpp,
+	core/libs/dimg/loaders/pgfloader.h,
+	core/libs/dimg/loaders/pngloader.cpp,
+	core/libs/dimg/loaders/pngloader.h,
+	core/libs/dimg/loaders/qimageloader.cpp,
+	core/libs/dimg/loaders/qimageloader.h,
+	core/libs/dimg/loaders/rawloader.cpp,
+	core/libs/dimg/loaders/rawloader.h,
+	core/libs/dimg/loaders/tiffloader.cpp,
+	core/libs/dimg/loaders/tiffloader.h: delete all older image loaders
+	from DImg core
+
+2019-09-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/CMakeLists.txt, core/dplugins/dimg/CMakeLists.txt,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.h,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.h,
+	core/dplugins/dimg/pgf/dimgpgfplugin.cpp,
+	core/dplugins/dimg/pgf/dimgpgfplugin.h,
+	core/dplugins/dimg/png/dimgpngplugin.cpp,
+	core/dplugins/dimg/png/dimgpngplugin.h,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.h,
+	core/dplugins/dimg/raw/CMakeLists.txt,
+	core/dplugins/dimg/raw/dimgrawloader.cpp,
+	core/dplugins/dimg/raw/dimgrawloader.h,
+	core/dplugins/dimg/raw/dimgrawplugin.cpp,
+	core/dplugins/dimg/raw/dimgrawplugin.h,
+	core/dplugins/dimg/tiff/dimgtiffplugin.cpp,
+	core/dplugins/dimg/tiff/dimgtiffplugin.h,
+	core/libs/dimg/CMakeLists.txt, core/libs/dimg/dimg_fileio.cpp,
+	core/libs/dimg/dimg_p.h, core/libs/dplugins/core/dplugindimg.h: Port
+	RAW loader to DImg Dplugin API Use plugin interface in DImg core
+	instead direct calls to native image loader.
+
+2019-09-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/qimage/dimgqimageplugin.cpp: port ImageMagick
+	loader to DImg Dplugin API
+
+2019-09-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/dimg/magickloader.cpp: polish
+
+2019-09-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/CMakeLists.txt, core/dplugins/dimg/README,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.cpp,
+	core/dplugins/dimg/pgf/CMakeLists.txt,
+	core/dplugins/dimg/pgf/dimgpgfloader.cpp,
+	core/dplugins/dimg/pgf/dimgpgfloader.h,
+	core/dplugins/dimg/pgf/dimgpgfplugin.cpp,
+	core/dplugins/dimg/pgf/dimgpgfplugin.h,
+	core/dplugins/dimg/png/dimgpngplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageloader.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/tiff/dimgtiffplugin.cpp: port PGF image loader to
+	DImg DPlugin API
+
+2019-09-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/loaders/README: move this file on dplugins/dimg
+
+2019-09-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetool.h,
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.cp
+	p,
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.h: 
+	healing clone tool++
+
+2019-09-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/CMakeLists.txt,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg2000/CMakeLists.txt,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000loader.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000loader.h,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.h,
+	core/dplugins/dimg/png/dimgpngplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/tiff/dimgtiffplugin.cpp: port JPEG2000 to DImg
+	DPlugin API
+
+2019-09-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/CMakeLists.txt,
+	core/dplugins/dimg/jpeg/dimgjpegloader.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/png/dimgpngloader.cpp,
+	core/dplugins/dimg/png/dimgpngplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/tiff/CMakeLists.txt,
+	core/dplugins/dimg/tiff/dimgtiffloader.cpp,
+	core/dplugins/dimg/tiff/dimgtiffloader.h,
+	core/dplugins/dimg/tiff/dimgtiffplugin.cpp,
+	core/dplugins/dimg/tiff/dimgtiffplugin.h: port tiff loader to DImg
+	DPlugin
+
+2019-09-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.cp
+	p,
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.h: 
+	healing clone tool++
+
+2019-09-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/CMakeLists.txt,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/png/CMakeLists.txt,
+	core/dplugins/dimg/png/dimgpngloader.cpp,
+	core/dplugins/dimg/png/dimgpngloader.h,
+	core/dplugins/dimg/png/dimgpngplugin.cpp,
+	core/dplugins/dimg/png/dimgpngplugin.h,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp: port PNg image
+	loader to DImg DPlugin
+
+2019-09-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/jpeg/dimgjpegplugin.cpp: polish
+
+2019-09-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/qimage/dimgqimageplugin.cpp: polish
+
+2019-09-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/darktable/rawimportdarktableplugin.cpp: 
+	krazy++
+
+2019-09-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/dimg_p.h: 2 new static private methods to get DImg
+	Dplugin instance for read and write operations
+
+2019-09-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.h,
+	core/dplugins/dimg/qimage/dimgqimageloader.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.h: Adjust QImage and JPEG
+	DImg plugin to last API changes
+
+2019-09-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/core/dplugindimg.h: Adjust Dplugin DImg API to
+	list type mime supported by image loaders in read and write modes.
+	This permit to set a blacklist in both operations
+
+2019-09-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.cp
+	p: healing clone tool++
+
+2019-09-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.cp
+	p,
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.h: 
+	first step to optimize the healing clone tool - zoom source and
+	cursor - use a scene item cursor
+
+2019-09-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/data/filters/CMakeLists.txt,
+	core/data/filters/healingclonetool/CMakeLists.txt,
+	core/data/filters/healingclonetool/healing_clone_LASSO.png,
+	core/data/filters/healingclonetool/healing_clone_LASSO_PEN.png,
+	core/data/filters/healingclonetool/healing_clone_MOVE.png,
+	core/data/filters/healingclonetool/healing_clone_REDO.png,
+	core/data/filters/healingclonetool/healing_clone_SRC.png,
+	core/data/filters/healingclonetool/healing_clone_UNDO.png,
+	core/data/filters/healingclonetool/readme.txt: remove icon pixmap
+	files
+
+2019-09-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.cp
+	p: use breeze icons and cursor for the healing clone tool
+
+2019-09-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/common.sh, project/scripts/exportapi.sh: use
+	gitlab repository
+
+2019-09-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt: fix compile option
+	and disable icu for the moment.
+
+2019-09-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/jpeg/CMakeLists.txt,
+	core/dplugins/dimg/jpeg/dimgjpegloader.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegloader.h,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.h: port jpeg loader to
+	dplugin
+
+2019-09-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.h: no need internal
+	container
+
+2019-09-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt,
+	project/bundles/3rdparty/ext_qt/qt-appimage-glibc.patch: restore
+	appimage patch and remove glib one
+
+2019-09-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.cp
+	p, core/utilities/imageeditor/widgets/imageregionitem.cpp,
+	core/utilities/imageeditor/widgets/imageregionitem.h,
+	core/utilities/imageeditor/widgets/imageregionwidget.cpp,
+	core/utilities/imageeditor/widgets/imageregionwidget.h: do not draw
+	extra data in the healing clone tool
+
+2019-09-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/tags/manager/tagsmanager.cpp: simplify get screen
+	geometry
+
+2019-09-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-09-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/tags/manager/tagsmanager.cpp,
+	core/libs/tags/manager/tagsmanager.h: Do not embed KMainWindow in a
+	KMainWindow just to create a layout and plug KToolBar as well.
+	KMainWindow => QMainWindow => it's not the main parent dialog
+	everywhere. KToolBar => QToolBar Code cleanup, simplifications, and
+	optimisations  CCBUGS: 411612
+
+2019-09-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/tags/manager/tagsmanager.cpp,
+	core/libs/tags/manager/tagsmanager.h: no need to use sidebars on Tag
+	Manager. There is only one tab to shaow and it's important to set
+	this view always visible CCBUGS: 411612
+
+2019-09-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/cmake/modules/MacroDPlugins.cmake,
+	core/dplugins/dimg/CMakeLists.txt,
+	core/dplugins/dimg/qimage/CMakeLists.txt,
+	core/dplugins/dimg/qimage/{qimageloader.cpp =>
+	dimgqimageloader.cpp}, core/dplugins/dimg/qimage/{qimageloader.h =>
+	dimgqimageloader.h},
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.h,
+	core/libs/dplugins/core/dplugindimg.h: Fix API agai, more simple and
+	without to try to export setting widgets which are not yet factored
+
+
+2019-09-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/makeall.sh, project/bundles/mxe/update.sh: 
+	revert 64 to 32 when these scripts are completed.
+
+2019-09-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/tags/manager/tagsmanager.cpp: add parent to DMultiTabBar
+	CCBUGS: 411612
+
+2019-09-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.h: use new API
+
+2019-09-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/core/dplugindimg.h: fix API
+
+2019-09-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* bootstrap.macports, project/bundles/macports/03-build-digikam.sh,
+	project/bundles/macports/04-build-installer.sh: fix type with cmake
+	build type. Do not drop debug symbols in PKG
+
+2019-09-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/stack/welcomepageview.cpp,
+	core/utilities/geolocation/geoiface/widgets/htmlwidget_qwebengine.c
+	pp: set QWebEngine settings after new page CCBUGS: 412113
+
+2019-09-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/widgets/imageregionitem.cpp: polish
+
+2019-09-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/graphicsview/graphicsdimgitem.cpp,
+	core/utilities/imageeditor/widgets/imagepreviewitem.cpp,
+	core/utilities/imageeditor/widgets/imageregionitem.cpp: polish
+
+2019-09-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/widgets/imageregionitem.cpp,
+	core/utilities/imageeditor/widgets/imageregionwidget.cpp: fix get
+	capture points CCBUGS: 412083
+
+2019-09-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/qimage/CMakeLists.txt,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.h,
+	core/dplugins/dimg/qimage/qimageloader.cpp,
+	core/dplugins/dimg/qimage/qimageloader.h: plug QImageLoader to the
+	plugin
+
+2019-09-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/CMakeLists.txt, core/dplugins/dimg/CMakeLists.txt,
+	core/dplugins/dimg/qimage/CMakeLists.txt,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.h: add first DImg plugin
+	to handle QImage IO. Not yet used
+
+2019-09-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/core/dplugindimg.h: new function to return
+	settings widget for the write operation supported by the loader.
+
+2019-09-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/core/dplugindimg.h: new method to check magick
+	number with image loader
+
+2019-09-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/widgets/graphicsview/imagezoomsettings.cpp,
+	core/libs/widgets/graphicsview/imagezoomsettings.h,
+	core/libs/widgets/graphicsview/previewlayout.cpp,
+	core/libs/widgets/graphicsview/previewlayout.h,
+	core/utilities/imageeditor/widgets/canvas.cpp,
+	core/utilities/imageeditor/widgets/imageregionwidget.cpp: fix use
+	correct zoom value  dependent on device pixel ratio BUGS: 412083
+	FIXED-IN: 6.4.0
+
+2019-09-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/cmake/modules/MacroDPlugins.cmake: compile
+
+2019-09-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/cmake/modules/MacroDPlugins.cmake,
+	core/libs/dplugins/core/dplugindimg.h,
+	core/libs/dplugins/core/dpluginrawimport.h: add new cmake macro to
+	compile future DImg dplugins add new virtual functions for DImg
+	dplugin
+
+2019-09-20  Yuri Chornoivan <yurchor@ukr.net>
+
+	* core/dplugins/rawimport/native/rawimportnativeplugin.cpp: Fix
+	minor typo
+
+2019-09-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/darktable/rawimportdarktableplugin.cpp,
+	core/dplugins/rawimport/rawtherapee/rawimportrawtherapeeplugin.cpp,
+	core/dplugins/rawimport/ufraw/rawimportufrawplugin.cpp: set env for
+	appimage with QProcess
+
+2019-09-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/CMakeLists.txt,
+	core/libs/dplugins/core/dplugin.h,
+	core/libs/dplugins/core/dplugindimg.cpp,
+	core/libs/dplugins/core/dplugindimg.h: first stage to implement a
+	DPlugin interface for DImg image loader. Not yet used...
+
+2019-09-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_libicu/CMakeLists.txt: update to last
+	stable
+
+2019-09-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/darktable/rawimportdarktableplugin.cpp,
+	core/dplugins/rawimport/native/rawimportnativeplugin.cpp,
+	core/dplugins/rawimport/rawtherapee/rawimportrawtherapeeplugin.cpp,
+	core/dplugins/rawimport/ufraw/rawimportufrawplugin.cpp,
+	core/libs/dplugins/setup/dpluginsetup.cpp,
+	core/utilities/imageeditor/editor/editortoolsettings.cpp,
+	core/utilities/setup/editor/setupraw.cpp,
+	core/utilities/setup/editor/setupraw.h: Image Editor Setup/Raw page:
+	add about button to show dplugin info dialog for current selected
+	tool. Add web site page url about all external raw engine suported
+	by DPlugin RawImport
+
+2019-09-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/darktable/rawimportdarktableplugin.cpp,
+	core/dplugins/rawimport/darktable/rawimportdarktableplugin.h,
+	core/dplugins/rawimport/rawtherapee/rawimportrawtherapeeplugin.cpp,
+	core/dplugins/rawimport/rawtherapee/rawimportrawtherapeeplugin.h: 
+	use d private internal container
+
+2019-09-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/darktable/rawimportdarktableplugin.cpp,
+	core/dplugins/rawimport/darktable/rawimportdarktableplugin.h: use d
+	private internal container
+
+2019-09-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/ufraw/rawimportufrawplugin.cpp,
+	core/dplugins/rawimport/ufraw/rawimportufrawplugin.h: use d private
+	internal container
+
+2019-09-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/dplugins/rawimport/CMakeLists.txt,
+	core/dplugins/rawimport/darktable/CMakeLists.txt,
+	core/dplugins/rawimport/darktable/rawimportdarktableplugin.cpp,
+	core/dplugins/rawimport/darktable/rawimportdarktableplugin.h,
+	core/dplugins/rawimport/rawtherapee/rawimportrawtherapeeplugin.h,
+	core/dplugins/rawimport/ufraw/rawimportufrawplugin.h: RAW Import
+	tool: new plugin to import RAW files using DarkTable in Image
+	Editor. BUGS: 341186 FIXED-IN: 6.4.0
+
+2019-09-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/tags/manager/models/tagmngrlistitem.cpp,
+	core/libs/tags/manager/models/tagmngrlistmodel.cpp,
+	core/libs/tags/manager/models/tagmngrlistview.cpp,
+	core/libs/tags/manager/taglist.cpp,
+	core/libs/tags/manager/tagmngrtreeview.cpp,
+	core/libs/tags/manager/tagsmanager.cpp,
+	core/libs/tags/manager/tagsmanager.h: polish and fix memory leaks
+	CCBUGS: 411612
+
+2019-09-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/rawtherapee/CMakeLists.txt: polish
+
+2019-09-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/dplugins/rawimport/CMakeLists.txt,
+	core/dplugins/rawimport/rawtherapee/CMakeLists.txt,
+	core/dplugins/rawimport/rawtherapee/rawimportrawtherapeeplugin.cpp,
+	core/dplugins/rawimport/rawtherapee/rawimportrawtherapeeplugin.h: 
+	RAW Import tool: new plugin to import RAW files using RawTherapee in
+	Image Editor. BUGS: 221571 FIXED-IN: 6.4.0
+
+2019-09-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/ufraw/rawimportufrawplugin.cpp: polish
+
+2019-09-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/ufraw/rawimportufrawplugin.cpp: polish
+
+2019-09-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/ufraw/rawimportufrawplugin.cpp: saving in
+	PNG instead TIFF, as UFRaw save multilayer tiff with first one is a
+	small preview
+
+2019-09-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/ufraw/rawimportufrawplugin.cpp: polish
+
+2019-09-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/ufraw/rawimportufrawplugin.cpp: polish
+
+2019-09-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/dplugins/rawimport/ufraw/rawimportufrawplugin.cpp: 
+	Finalization of UFRaw import plugin for image editor BUGS: 15011
+	FIXED-IN: 6.4.0
+
+2019-09-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/CMakeLists.txt,
+	core/dplugins/rawimport/ufraw/CMakeLists.txt,
+	core/dplugins/rawimport/ufraw/rawimportufrawplugin.cpp,
+	core/dplugins/rawimport/ufraw/rawimportufrawplugin.h: RAW Import
+	tool : new plugin to import RAW files using Ufraw in Image Editor.
+	CCBUGS: 150161
+
+2019-09-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp: 
+	polish layour on settings widget
+
+2019-09-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/core/editorcore.cpp: fix loading the
+	right RAW plugin
+
+2019-09-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt,
+	project/bundles/3rdparty/ext_qt/qt-icu-hack.patch: add patch to hack
+	UCI support under AppImage
+
+2019-09-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp: 
+	compile
+
+2019-09-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/CMakeLists.txt,
+	core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/{imagebrushguidewidget.cp
+	p => healingclonetoolwidget.cpp},
+	core/dplugins/editor/enhance/healingclone/{imagebrushguidewidget.h
+	=> healingclonetoolwidget.h}: rename class
+
+2019-09-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-09-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/CMakeLists.txt: add exiv2 version check
+
+2019-09-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/CMakeLists.txt: add REQUIRED
+
+2019-09-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* Mainpage.dox, core/CMakeLists.txt,
+	core/libs/metadataengine/CMakeLists.txt: Exiv2 cmake export script
+	are bugous with minimal version check.
+
+2019-09-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* Mainpage.dox, core/CMakeLists.txt,
+	core/app/DigikamCoreTarget.cmake,
+	core/cmake/modules/FindExiv2.cmake,
+	core/libs/metadataengine/CMakeLists.txt: Exiv2 is now released with
+	exported targets using cmake rules. No need to have a dedicated find
+	exiv2 cmake script. Bump minimal version to 0.27.1
+
+2019-09-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamCoreTarget.cmake,
+	core/app/DigikamGuiTarget.cmake,
+	core/cmake/modules/FindMarble.cmake,
+	core/utilities/geolocation/geoiface/CMakeLists.txt: Marble is now
+	released with exported targets using cmake rules. No need to have a
+	dedicated fin marble cmake script
+
+2019-09-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/tags/manager/taglist.cpp: fix possible double delete in
+	the Tags Manager CCBUGS: 411612
+
+2019-09-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.h: 
+	polish
+
+2019-09-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetool.h: fix
+	coding style fix capitalized strings in i18n
+
+2019-09-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetoolplugin.h,
+	core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.cpp
+	, core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.h: 
+	contify, polish, store member and const values in d private
+	container, use dynamic cast
+
+2019-09-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.cpp
+	, core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.h: 
+	constify
+
+2019-09-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.cpp
+	, core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.h: 
+	constify
+
+2019-09-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/magickloader.cpp,
+	core/libs/dimg/loaders/qimageloader.cpp: polish debug
+
+2019-09-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/coredb/coredbchecker.cpp: cleanup the
+	table for the rights check at startup BUGS: 330168 FIXED-IN: 6.4.0
+
+2019-09-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt: disable patch
+
+2019-09-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt: update skip
+	options for 5.13.1
+
+2019-09-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/{config_help-5.12.5.txt =>
+	config_help-5.13.1.txt}: add config trace
+
+2019-09-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt: try with Qt 5.13.1
+
+
+2019-09-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt,
+	project/bundles/appimage/04-build-appimage.sh: add more file for
+	AppImage in root directory
+
+2019-09-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: add libpango in
+	bundle
+
+2019-09-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/magickloader.cpp: debug as warning
+
+2019-09-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/magickloader.cpp: add mime type video and
+	audio to the blacklist
+
+2019-09-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/magickloader.cpp: add blacklist to
+	ImageMagick loader, first mime type is XCF CCBUGS: 411214
+
+2019-09-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.cpp
+	, core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.h: 
+	use d private internal container
+
+2019-09-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp: 
+	variables unused
+
+2019-09-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetool.h: use d
+	private internal container
+
+2019-09-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* .github/CONTRIBUTING.md, .github/PULL_REQUEST_TEMPLATE.md: github
+	-> gitlab
+
+2019-09-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, project/bundles/macports/01-build-macports.sh,
+	project/bundles/macports/config.sh: Under MacOS, use now Qt 5.12 LTS
+	instead 5.11 which has a bug with Hdpi support Note: Due to Qt
+	requirements to compile, the minimal MacOS version supported is
+	10.12 (Sierra) BUGS: 411902
+
+2019-09-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/metadataengine/engine/metaengine_exif.cpp: prevent
+	possible NULL pointer from QTextCodec BUGS: 411946 FIXED-IN: 6.4.0
+
+2019-09-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp: polish
+
+2019-09-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp: polish
+
+2019-09-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/utilities/imageeditor/core/editorcore.cpp,
+	core/utilities/imageeditor/core/iofilesettings.h,
+	core/utilities/imageeditor/editor/editorwindow.cpp,
+	core/utilities/imageeditor/editor/editorwindow_p.h: ImageEditor :
+	add new setup configuration to select right Raw Import plugin when
+	Use Raw Import tool option is enabled. CCBUGS: 150161 CCBUGS: 341186
+
+
+2019-09-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/setup/editor/setupraw.cpp: Setup Image Editor : add
+	setting in RAW pannel to be able to select right Raw Import plugin
+
+2019-09-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/setup/dpluginloader.cpp,
+	core/libs/dplugins/setup/dpluginloader.h: polish
+
+2019-09-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/video/player/mediaplayerview.cpp,
+	core/libs/video/player/slidevideo.cpp: close video file after stop
+	BUGS: 411929 FIXED-IN: 6.4.0
+
+2019-09-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/collection/collectionscanner_scan.cpp: 
+	less locked database during the initial scan CCBUGS: 411927 BUGS:
+	389652 BUGS: 389949 FIXED-IN: 6.4.0
+
+2019-09-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamapp.cpp,
+	core/libs/database/coredb/coredb.cpp,
+	core/libs/database/coredb/coredb.h: move this check
+
+2019-09-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp,
+	core/libs/database/coredb/coredb.h: this function has a low
+	priority, check if there is a running transaction CCBUGS: 411927
+
+2019-09-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/coredb/coredb.cpp,
+	core/libs/database/coredb/coredb.h: check the return value of the
+	SQL query BUGS: 411927 FIXED-IN: 6.4.0
+
+2019-09-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/01-build-host.sh: add libcurl dependency
+
+
+2019-09-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/01-build-host.sh: add libfftw3 dependency
+
+
+2019-09-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/mediaserver/CMakeLists.txt: try to fix
+	linking stage on new AppImage
+
+2019-09-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/stack/welcomepageview.cpp,
+	core/dplugins/generic/webservices/unified/wizard/wsauthenticationpa
+	ge.cpp, core/libs/dplugins/webservices/webwidget_qwebengine.cpp,
+	core/utilities/geolocation/geoiface/widgets/htmlwidget_qwebengine.c
+	pp: QWebEngine should work with the proprietary driver, enable the
+	disabled option again because of Nouveau driver CCBUGS: 411891
+
+2019-09-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/config.sh: add 5.13
+
+2019-09-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	project/bundles/3rdparty/ext_kf5_frameworks/knotifications-drop-pho
+	non.patch: master is not the same than 5.61...
+
+2019-09-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	project/bundles/3rdparty/ext_kf5_frameworks/knotifications-drop-pho
+	non.patch: update patch for KF5 5.61
+
+2019-09-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_gmicqt/CMakeLists.txt: something is
+	wrong with the original repository of gmicqt and last git tag. the
+	fftw3 script that i patch is not the last one and do not wok under
+	MAcOS
+
+2019-09-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/core/editorcore.cpp: better check if
+	the RAW plugin has been changed
+
+2019-09-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/core/editorcore.cpp: fix RAW file
+	loading
+
+2019-09-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/core/editorcore.cpp,
+	core/utilities/imageeditor/core/editorcore_p.h: fix multiple
+	signal/slot connection to DPluginRawImport
+
+2019-09-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt,
+	project/bundles/appimage/01-build-host.sh: fix xkbcommon
+
+2019-09-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt: typo
+
+2019-09-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/config_help-5.12.5.txt: add
+	configure trace
+
+2019-09-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/attic/CMakeLists.txt,
+	project/bundles/3rdparty/ext_qt/attic/config-5.10.1-linux.cmake,
+	project/bundles/3rdparty/ext_qt/attic/config-5.11.3-linux.cmake,
+	project/bundles/3rdparty/ext_qt/attic/config-5.12.2-linux.cmake,
+	project/bundles/3rdparty/ext_qt/attic/config-5.6.3-linux.cmake,
+	project/bundles/3rdparty/ext_qt/attic/config-5.9.7-linux.cmake,
+	project/bundles/3rdparty/ext_qt/attic/configure-5.10.1-linux.txt,
+	project/bundles/3rdparty/ext_qt/attic/configure-5.11.3-linux.txt,
+	project/bundles/3rdparty/ext_qt/attic/configure-5.12.2-linux.txt,
+	project/bundles/3rdparty/ext_qt/attic/configure-5.6.3-linux.txt,
+	project/bundles/3rdparty/ext_qt/attic/configure-5.9.7-linux.txt,
+	project/bundles/3rdparty/ext_qt/attic/qt5101-appimage-support.patch
+	,
+	project/bundles/3rdparty/ext_qt/attic/qt5113-appimage-support.patch
+	,
+	project/bundles/3rdparty/ext_qt/attic/qt5122-appimage-support.patch
+	,
+	project/bundles/3rdparty/ext_qt/attic/qt563-appimage-support.patch,
+	project/bundles/3rdparty/ext_qt/attic/qt597-appimage-support.patch: 
+	obsolete
+
+2019-09-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/README: update
+
+2019-09-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/01-build-host.sh: remove IM default
+	packages
+
+2019-09-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt: First step to
+	switch from Qt 5.11 to Qt 5.12.5 LTS
+
+2019-09-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qtwebkit/CMakeLists.txt: do not check
+	the MD5sum here
+
+2019-09-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_gmicqt/CMakeLists.txt: factoring the
+	right gmic* version to use everywhere. Thanks to make the puzzle
+	here... sic
+
+2019-09-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_gmicqt/CMakeLists.txt: use v.2.7.1
+	for the moment
+
+2019-09-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/editor/colors/whitebalance/whitebalancetool.cpp: 
+	remove unused variables
+
+2019-09-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_kf5_frameworks/CMakeLists.txt,
+	project/bundles/mxe/config.sh: We don't need kdewebkit for all
+	bundles. Also this components is not released anymore with KF5
+
+2019-09-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh: revert
+
+2019-09-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh: install IM7 with
+	CMake
+
+2019-09-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-09-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	project/bundles/3rdparty/ext_kf5_frameworks/kxmlgui-drop-ktextwidge
+	ts.patch: adjust patch for KF5 5.61
+
+2019-09-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_kcalcore/CMakeLists.txt,
+	project/bundles/3rdparty/ext_kf5_frameworks/CMakeLists.txt,
+	project/bundles/3rdparty/ext_libksane/CMakeLists.txt,
+	project/bundles/3rdparty/ext_marble/CMakeLists.txt: bump KF5 version
+	to last stable
+
+2019-09-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: export DHistoryView
+
+2019-09-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_heif/CMakeLists.txt,
+	project/bundles/3rdparty/ext_heif/de265-lib-linux.patch: add patch
+	to compile under Linux 32 bits
+
+2019-09-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_heif/de265-sse-centos6.patch: 
+	obsolete
+
+2019-09-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_heif/heif-lib-mxe.patch: no warning
+	as error
+
+2019-09-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_heif/heif-lib-mxe.patch: file missing
+
+
+2019-09-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/queuemanager/manager/batchtoolsfactory.cpp: 
+	unnecessary
+
+2019-09-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_heif/CMakeLists.txt: add note about
+	MAcOS
+
+2019-09-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_imagemagick/CMakeLists.txt,
+	project/bundles/appimage/01-build-host.sh: add IM7 build rules for
+	AppImage with HEIF dependency
+
+2019-09-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/dimg/magickloader.cpp: This check can be done with IM
+	version 6.9, at least. This fix broken compilation under Mageia6
+	using IM 6.9.10.62 CCBUGS:411429
+
+2019-09-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh: This is odd :
+	/opt/digikam need to be renamed before to be removed under new MacOS
+
+
+2019-09-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_heif/CMakeLists.txt,
+	project/bundles/3rdparty/ext_heif/heif-lib-macports.patch: compile
+	and link heif and de265 under MAcports for IM
+
+2019-09-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_heif/CMakeLists.txt,
+	project/bundles/macports/01-build-macports.sh: prepare to install
+	Heif under Macports for IM
+
+2019-09-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredburl.cpp,
+	core/libs/database/coredb/coredburl.h: cppcheck++
+
+2019-09-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp: use of DbEngineSqlQuery is a
+	little faster
+
+2019-09-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/data/database/dbconfig.xml.cmake.in: we need here with MySQL
+	case sensitive compare when rename album
+
+2019-09-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp: this SQL code is faster to
+	count images or tags
+
+2019-09-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/album/manager/albummanager_palbum.cpp: remove album scan
+
+
+2019-09-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: typo
+
+2019-09-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: export DProgressDlg
+
+2019-09-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/dprogressdlg.cpp,
+	core/libs/dialogs/dprogressdlg.h: polish
+
+2019-09-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/core/dpluginrawimport.h,
+	core/utilities/imageeditor/core/editorcore.cpp,
+	project/bundles/mxe/config.sh: polish API
+
+2019-09-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_heif/CMakeLists.txt,
+	project/bundles/3rdparty/ext_heif/{de265-sse-mxe.patch =>
+	de265-lib-mxe.patch}, project/bundles/mxe/config.sh: fix lib names
+	under MXE, else linking stage with DK will fail
+
+2019-09-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp: Revert "this is no longer
+	necessary, QSql driver returns date as QVariant::DateTime" SQLite
+	returns QString
+
+2019-09-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp: this is no longer necessary,
+	QSql driver returns date as QVariant::DateTime
+
+2019-09-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/album/manager/albummanager_palbum.cpp: scan album after
+	renaming
+
+2019-09-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/collection/collectionscanner_scan.cpp: 
+	fix detection of directory names of Windows file systems BUGS:
+	387768 FIXED-IN: 6.4.0
+
+2019-09-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp: prevent possible crash in
+	getImagesFields() CCBUGS: 411763
+
+2019-09-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/core/dpluginrawimport.h,
+	core/utilities/imageeditor/core/editorcore.cpp: fix API for DPlugin
+	Raw Import for CLI pre-process
+
+2019-09-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/native/rawimportnativeplugin.h: typo in
+	IID
+
+2019-09-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_heif/CMakeLists.txt,
+	project/bundles/3rdparty/ext_heif/{libde265.pc =>
+	libde265.pc.in_cmake},
+	project/bundles/3rdparty/ext_heif/{libheif.pc =>
+	libheif.pc.in_cmake}: Compile and link ImageMagick 7.x with HEIF
+	libraries under MXE for Windows targets CCBUGS: 411027 CCBUGS:
+	393408
+
+2019-09-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_heif/CMakeLists.txt,
+	project/bundles/3rdparty/ext_heif/de265-sse-mxe.patch: compile and
+	link de265 under MXE
+
+2019-09-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/filters/wb/wbfilter.cpp: fix apply green multiplier
+	in the WBFilter
+
+2019-09-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_heif/CMakeLists.txt: compile libde265
+
+
+2019-09-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/core/editorcore.cpp: fix Jenkins
+
+2019-09-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-09-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_heif/CMakeLists.txt: fix Heif library
+	configuration for MXE
+
+2019-09-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/DigikamExportAPI.cmake,
+	core/cmake/modules/MacroDPlugins.cmake,
+	core/dplugins/CMakeLists.txt,
+	core/dplugins/rawimport/CMakeLists.txt,
+	core/dplugins/rawimport/native/CMakeLists.txt,
+	core/{utilities/imageeditor/rawimport =>
+	dplugins/rawimport/native}/rawimport.cpp,
+	core/{utilities/imageeditor/rawimport =>
+	dplugins/rawimport/native}/rawimport.h,
+	core/dplugins/rawimport/native/rawimportnativeplugin.cpp,
+	core/dplugins/rawimport/native/rawimportnativeplugin.h,
+	core/{utilities/imageeditor/rawimport =>
+	dplugins/rawimport/native}/rawpostprocessing.cpp,
+	core/{utilities/imageeditor/rawimport =>
+	dplugins/rawimport/native}/rawpostprocessing.h,
+	core/{utilities/imageeditor/rawimport =>
+	dplugins/rawimport/native}/rawpreview.cpp,
+	core/{utilities/imageeditor/rawimport =>
+	dplugins/rawimport/native}/rawpreview.h,
+	core/{utilities/imageeditor/rawimport =>
+	dplugins/rawimport/native}/rawsettingsbox.cpp,
+	core/{utilities/imageeditor/rawimport =>
+	dplugins/rawimport/native}/rawsettingsbox.h,
+	core/libs/dplugins/CMakeLists.txt,
+	core/libs/dplugins/core/dplugin.h,
+	core/libs/dplugins/core/dpluginrawimport.cpp,
+	core/libs/dplugins/core/dpluginrawimport.h,
+	core/libs/dplugins/setup/dpluginloader.cpp,
+	core/libs/dplugins/setup/dpluginloader.h,
+	core/utilities/imageeditor/CMakeLists.txt,
+	core/utilities/imageeditor/core/editorcore.cpp,
+	core/utilities/imageeditor/core/editorcore.h,
+	core/utilities/imageeditor/core/editorcore_p.h,
+	core/utilities/imageeditor/editor/editorwindow.cpp: DPlugins: new
+	RawImport plugin type to be able to delegate Raw Engine to external
+	component, as UFraw or DarkTable for ex. Native Image Editor
+	RawImport tool based on Libraw is ported as this kind of plugin and
+	used in ImageEditor and Showfoto. CCBUGS: 150161 CCBUGS: 341186
+
+2019-09-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/tags/manager/taglist.cpp,
+	core/libs/tags/manager/tagsmanager.cpp: polish parents
+
+2019-09-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/tags/manager/tagsmanager.cpp: add parent to QSplitter
+	CCBUGS: 411612
+
+2019-09-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/filters/wb/wbfilter.cpp,
+	core/libs/dimg/filters/wb/wbfilter.h: polish WBFilter
+
+2019-09-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/filters/wb/wbfilter.cpp,
+	core/libs/dimg/filters/wb/wbfilter.h: remove obsolete variables
+
+2019-09-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-09-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS,
+	core/dplugins/editor/colors/whitebalance/whitebalancetool.cpp,
+	core/libs/dimg/filters/wb/wbcontainer.cpp,
+	core/libs/dimg/filters/wb/wbcontainer.h,
+	core/libs/dimg/filters/wb/wbfilter.cpp,
+	core/libs/dimg/filters/wb/wbfilter.h: implement temperature to RGB
+	code from Tanner Helland BUGS: 411578 FIXED-IN: 6.4.0
+
+2019-09-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.cpp: 
+	fix coding style
+
+2019-09-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.cpp
+	, core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.h: 
+	fix coding style
+
+2019-09-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.cpp
+	, core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.h: 
+	fix coding style
+
+2019-09-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.h: 
+	these methods are not slots and can be private
+
+2019-09-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp: 
+	fix coding style and code polish
+
+2019-09-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp: 
+	remove unused headers constify fix coding style code polish
+
+2019-09-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/mainview/daboutdata.cpp: give new credits and
+	migrate G+ links to Linkedin
+
+2019-09-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: typo
+
+2019-09-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: add more header to export for editor
+	tool based plugins
+
+2019-09-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake,
+	core/libs/dimg/filters/icc/icctransform.cpp: more exported header to
+	build Editor plugins with ImageRegionWidget
+
+2019-09-06  Ahmed Fathi Shaban <ahmed.fathi.abdelmageed@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp: 
+	Added Short Description In Label
+
+2019-09-06  Ahmed Fathi Shaban <ahmed.fathi.abdelmageed@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.cpp
+	, core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.h: 
+	Changed Source Brush Shape to be similar to gimp
+
+2019-09-06  Ahmed Fathi Shaban <ahmed.fathi.abdelmageed@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.cpp
+	, core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.h: 
+	Code cleanup
+
+2019-09-06  Ahmed Fathi Shaban <ahmed.fathi.abdelmageed@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.cpp
+	, core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.h: 
+	Cursor now switches to arrow when It comes on the scrollbar. Added a
+	small [target] point at the center of the cursor
+
+2019-09-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.cpp
+	, core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.h: 
+	fix coding style
+
+2019-09-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.cpp: 
+	polish
+
+2019-09-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetool.h,
+	core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.cpp
+	, core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.h: 
+	fix coding style
+
+2019-09-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/CMakeLists.txt,
+	core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetool.h,
+	core/dplugins/editor/enhance/healingclone/healingclonetoolplugin.cp
+	p,
+	core/dplugins/editor/enhance/healingclone/healingclonetoolplugin.h,
+	core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.cpp
+	, core/dplugins/editor/enhance/healingclone/imagebrushguidewidget.h: 
+	give credit to Ahmed
+
+2019-09-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetool.h: fix
+	coding style
+
+2019-09-06  Ahmed Fathi Shaban <ahmed.fathi.abdelmageed@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetool.cpp.auto
+	save: remove autosave
+
+2019-09-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/healingclonetool.cpp.auto
+	save: this file has nothing to do in git
+
+2019-09-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/mainview/thumbbardock.cpp: polish
+
+2019-09-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/NEWS.6.3.0: polish
+
+2019-09-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* PACKAGING: polish
+
+2019-09-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-09-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/CMakeLists.txt, project/NEWS.6.3.0: 6.4.0 is now open
+	for new adventure
+
+2019-09-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS,
+	core/dplugins/generic/webservices/google/gphoto/gptalker.cpp,
+	core/dplugins/generic/webservices/google/gswindow.cpp: fix crash
+	when close/reopen Google import window BUGS: 411587 FIXED-IN: 6.3.0
+
+2019-09-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* ChangeLog: update for 6.3.0 release
+
 6.3.0 08/09/2019
 
 2019-09-04  Gilles Caulier <caulier.gilles@gmail.com>
