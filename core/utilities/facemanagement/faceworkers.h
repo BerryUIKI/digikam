@@ -33,45 +33,6 @@
 namespace Digikam
 {
 
-class Q_DECL_HIDDEN RecognitionWorker : public WorkerObject
-{
-    Q_OBJECT
-
-public:
-
-    explicit RecognitionWorker(FacePipeline::Private* const d);
-    ~RecognitionWorker()
-    {
-        wait();    // protect database
-    }
-
-    /**
-     * Set the face recognition algorithm type
-     */
-    void activeFaceRecognizer(RecognitionDatabase::RecognizeAlgorithm  algorithmType);
-
-public Q_SLOTS:
-
-    void process(FacePipelineExtendedPackage::Ptr package);
-    void setThreshold(double threshold);
-
-protected:
-
-    virtual void aboutToDeactivate() override;
-
-Q_SIGNALS:
-
-    void processed(FacePipelineExtendedPackage::Ptr package);
-
-protected:
-
-    FaceItemRetriever            imageRetriever;
-    RecognitionDatabase          database;
-    FacePipeline::Private* const d;
-};
-
-// ----------------------------------------------------------------------------------------
-
 class Q_DECL_HIDDEN DatabaseWriter : public WorkerObject
 {
     Q_OBJECT
