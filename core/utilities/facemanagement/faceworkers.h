@@ -33,31 +33,6 @@
 namespace Digikam
 {
 
-class Q_DECL_HIDDEN DatabaseWriter : public WorkerObject
-{
-    Q_OBJECT
-
-public:
-
-    DatabaseWriter(FacePipeline::WriteMode mode, FacePipeline::Private* const d);
-
-public Q_SLOTS:
-
-    void process(FacePipelineExtendedPackage::Ptr package);
-
-Q_SIGNALS:
-
-    void processed(FacePipelineExtendedPackage::Ptr package);
-
-protected:
-
-    FacePipeline::WriteMode      mode;
-    ThumbnailLoadThread*         thumbnailLoadThread;
-    FacePipeline::Private* const d;
-};
-
-// ----------------------------------------------------------------------------------------
-
 class Q_DECL_HIDDEN TrainerWorker : public WorkerObject
 {
     Q_OBJECT
