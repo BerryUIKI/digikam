@@ -31,13 +31,14 @@
 
 // Local includes
 
-#include "regionframeitem.h"
 #include "facetagsiface.h"
 #include "assignnamewidget.h"
-#include "itemvisibilitycontroller.h"
+#include "regionframeitem.h"
 
 namespace Digikam
 {
+
+class HidingStateChanger;
 
 class Q_DECL_HIDDEN FaceItem : public RegionFrameItem
 {
@@ -58,21 +59,6 @@ protected:
     FaceTagsIface       m_face;
     AssignNameWidget*   m_widget;
     HidingStateChanger* m_changer;
-};
-
-// ------------------------------------------------------------------------
-
-class AssignNameWidgetHidingStateChanger : public HidingStateChanger
-{
-    Q_OBJECT
-
-public:
-
-    explicit AssignNameWidgetHidingStateChanger(FaceItem* const item);
-
-protected Q_SLOTS:
-
-    void slotStateChanged();
 };
 
 } // namespace Digikam
