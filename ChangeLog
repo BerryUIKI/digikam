@@ -1,3 +1,4337 @@
+
+7.0.0-beta2 26/01/2020
+
+2020-01-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: typo
+
+2020-01-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* bootstrap.tarball: 7.0.0-beta2
+
+2020-01-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* bootstrap.tarball: we only need sha256 for tarball release
+
+2020-01-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/CMakeLists.txt: try to fix MSVC build again
+
+2020-01-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp,
+	core/dplugins/generic/view/glviewer/glviewertimer.cpp,
+	core/libs/database/collection/collectionscanner_p.h,
+	core/libs/database/collection/collectionscanner_scan.cpp,
+	core/libs/database/coredb/coredboperationgroup.cpp,
+	core/libs/database/item/scanner/itemscanner.cpp,
+	core/libs/database/item/scanner/itemscanner_database.cpp,
+	core/libs/database/item/scanner/itemscanner_p.cpp,
+	core/libs/database/item/scanner/itemscanner_p.h,
+	core/libs/dplugins/setup/dpluginloader_p.cpp,
+	core/libs/facesengine/facedb/facedboperationgroup.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/dnnfaceextractor.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/opencvdnnfacerecognize
+	r.cpp, core/tests/facesengine/align.cpp,
+	core/tests/facesengine/demo/demomainwindow.cpp,
+	core/tests/facesengine/detect.cpp,
+	core/tests/facesengine/face_cluster.cpp,
+	core/tests/facesengine/face_rec.cpp,
+	core/tests/facesengine/preprocess.cpp,
+	core/tests/facesengine/recognize.cpp,
+	core/utilities/fuzzysearch/findduplicatesview.cpp,
+	core/utilities/maintenance/maintenancemngr.cpp,
+	core/utilities/maintenance/maintenancetool.cpp: replace deprecated
+	warnings from QTime.elapsed()
+
+2020-01-26  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/digikam.notifyrc: SVN_SILENT made messages (.desktop
+	file) - always resolve ours  In case of conflict in i18n, keep the
+	version of the branch "ours" To resolve a particular conflict, "git
+	checkout --ours path/to/file.desktop"
+
+2020-01-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/CMakeLists.txt, core/libs/facesengine/TODO,
+	core/libs/facesengine/facedb/facedb.h,
+	core/libs/facesengine/facedb/facedb_eigen.cpp,
+	core/libs/facesengine/facedb/facedb_p.h,
+	core/libs/facesengine/facedb/facedboperationgroup.cpp,
+	core/libs/facesengine/facedb/facedbschemaupdater.cpp,
+	core/libs/facesengine/recognition/recognitiondatabase_backend.cpp,
+	core/libs/facesengine/recognition/recognitiondatabase_p.cpp,
+	core/libs/facesengine/recognition/recognitiondatabase_p.h,
+	core/libs/facesengine/recognition/recognitiondatabase_recognize.cpp
+	,
+	core/libs/facesengine/recognition/recognitiondatabase_training.cpp: 
+	faceengine : disable now the opencv face recognition based on
+	Fisher, Lbph, and Eigen methods. there is a switch in Cmake to
+	re-enable LBPH code even if it deprecated. DNN is the default method
+	now. Note : as opencv face detection code is really not compiled, it
+	cannot have side effect with DNN engine.
+
+2020-01-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-01-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/CMakeLists.txt,
+	core/libs/facesengine/detection/README,
+	core/libs/facesengine/detection/facedetector.cpp,
+	project/bundles/mxe/config.sh: faceengine : disable now the opencv
+	face detection based on Haar method. there is a switch in Cmake to
+	reenable this code even if it deprecated. SNN is the default method
+	now. Note : as opencv face detection code is really not compiled, it
+	cannot have side effect with DNN engine.
+
+2020-01-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-01-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/CMakeLists.txt: try to fix MSVC build
+
+2020-01-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/recognition/opencv-dnn/dnndbscan.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/dnnfaceextractor.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/dnnfacemodel.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/dnnfacemodel.h,
+	core/libs/facesengine/recognition/opencv-dnn/facerec_dnnborrowed.cp
+	p,
+	core/libs/facesengine/recognition/opencv-dnn/facerec_dnnborrowed.h,
+	core/libs/facesengine/recognition/opencv-dnn/opencvdnnfacerecognize
+	r.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/opencvdnnfacerecognize
+	r.h, project/bundles/mxe/config.sh: fix cding style
+
+2020-01-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS,
+	core/dplugins/generic/tools/panorama/manager/panoactionthread.cpp,
+	core/dplugins/generic/tools/panorama/tasks/preprocesstask.cpp: add a
+	working directory for hugin in temp, otherwise hugin cuts the path
+	to the files BUGS: 416492 FIXED-IN: 7.0.0
+
+2020-01-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/thumbbar/itemviewshowfotodelegate.cpp,
+	core/showfoto/thumbbar/itemviewshowfotodelegate.h,
+	core/showfoto/thumbbar/itemviewshowfotodelegate_p.h,
+	core/showfoto/thumbbar/showfotocategorizedview.cpp,
+	core/showfoto/thumbbar/showfotocategorizedview.h,
+	core/showfoto/thumbbar/showfotocoordinatesoverlay.cpp,
+	core/showfoto/thumbbar/showfotocoordinatesoverlay.h,
+	core/showfoto/thumbbar/showfotodelegate.cpp,
+	core/showfoto/thumbbar/showfotodelegate.h,
+	core/showfoto/thumbbar/showfotodelegate_p.h,
+	core/showfoto/thumbbar/showfotodragdrophandler.h,
+	core/showfoto/thumbbar/showfotofiltermodel.cpp,
+	core/showfoto/thumbbar/showfotofiltermodel.h,
+	core/showfoto/thumbbar/showfotoimagemodel.cpp,
+	core/showfoto/thumbbar/showfotoimagemodel.h,
+	core/showfoto/thumbbar/showfotoiteminfo.cpp,
+	core/showfoto/thumbbar/showfotoiteminfo.h,
+	core/showfoto/thumbbar/showfotoitemsortsettings.cpp,
+	core/showfoto/thumbbar/showfotoitemsortsettings.h,
+	core/showfoto/thumbbar/showfotokineticscroller.cpp,
+	core/showfoto/thumbbar/showfotokineticscroller.h,
+	core/showfoto/thumbbar/showfotothumbnailbar.cpp,
+	core/showfoto/thumbbar/showfotothumbnailmodel.cpp,
+	core/showfoto/thumbbar/showfotothumbnailmodel.h,
+	core/showfoto/thumbbar/showfototooltipfiller.cpp: fix coding style
+	cppcheck++
+
+2020-01-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/setup/showfotosetup.cpp,
+	core/showfoto/setup/showfotosetup.h,
+	core/showfoto/setup/showfotosetupmetadata.cpp,
+	core/showfoto/setup/showfotosetupmisc.cpp,
+	core/showfoto/setup/showfotosetupplugins.cpp,
+	core/showfoto/setup/showfotosetuptooltip.cpp: fix coding style
+
+2020-01-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/main/imagewindow.cpp,
+	core/utilities/imageeditor/main/imagewindow.h,
+	core/utilities/imageeditor/main/imagewindow_p.h,
+	core/utilities/imageeditor/main/imagewindow_setup.cpp: fix coding
+	style
+
+2020-01-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/digikamapp.cpp, core/app/main/digikamapp.h,
+	core/app/main/digikamapp_camera.cpp,
+	core/app/main/digikamapp_config.cpp,
+	core/app/main/digikamapp_import.cpp, core/app/main/digikamapp_p.h,
+	core/app/main/digikamapp_setup.cpp,
+	core/app/main/digikamapp_solid.cpp,
+	core/app/main/digikamapp_tools.cpp, core/app/main/main.cpp: fix
+	coding style
+
+2020-01-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/main/main.cpp, core/showfoto/main/showfoto.cpp,
+	core/showfoto/main/showfoto_config.cpp,
+	core/showfoto/main/showfoto_p.h,
+	core/showfoto/main/showfoto_setup.cpp,
+	core/showfoto/main/showfoto_tools.cpp,
+	core/showfoto/main/showfotosettings.cpp: fix coding style
+
+2020-01-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/geolocation/geoiface/CMakeLists.txt,
+	core/utilities/geolocation/geoiface/tracks/trackmanager.cpp,
+	core/utilities/geolocation/geoiface/tracks/trackmanager.h,
+	core/utilities/geolocation/geoiface/tracks/trackreader.cpp,
+	core/utilities/geolocation/geoiface/tracks/trackreader.h,
+	core/utilities/geolocation/geoiface/widgets/htmlwidget.cpp,
+	core/utilities/geolocation/geoiface/widgets/htmlwidget.h,
+	core/utilities/geolocation/geoiface/widgets/htmlwidget_qwebengine.c
+	pp, core/utilities/geolocation/geoiface/widgets/mapwidget.cpp,
+	core/utilities/geolocation/geoiface/widgets/mapwidget.h,
+	core/utilities/geolocation/geoiface/widgets/placeholderwidget.cpp: 
+	fix coding style cppcheck++
+
+2020-01-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/utilities/geolocation/geoiface/tiles/abstractmarkertiler.cpp,
+	core/utilities/geolocation/geoiface/tiles/abstractmarkertiler.h,
+	core/utilities/geolocation/geoiface/tiles/itemmarkertiler.cpp,
+	core/utilities/geolocation/geoiface/tiles/itemmarkertiler.h,
+	core/utilities/geolocation/geoiface/tiles/tilegrouper.cpp,
+	core/utilities/geolocation/geoiface/tiles/tileindex.cpp,
+	core/utilities/geolocation/geoiface/tiles/tileindex.h: fix coding
+	style
+
+2020-01-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/geolocation/geoiface/lookup/lookupaltitude.h,
+	core/utilities/geolocation/geoiface/lookup/lookupaltitudegeonames.c
+	pp,
+	core/utilities/geolocation/geoiface/lookup/lookupaltitudegeonames.h
+	, core/utilities/geolocation/geoiface/lookup/lookupfactory.cpp,
+	core/utilities/geolocation/geoiface/reversegeocoding/parsetagstring
+	.h, core/utilities/geolocation/geoiface/reversegeocoding/rginfo.h,
+	core/utilities/geolocation/geoiface/reversegeocoding/rgtagmodel.cpp
+	,
+	core/utilities/geolocation/geoiface/reversegeocoding/rgtagmodel.h,
+	core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp,
+	core/utilities/geolocation/geoiface/reversegeocoding/simpletreemode
+	l.cpp,
+	core/utilities/geolocation/geoiface/reversegeocoding/simpletreemode
+	l.h: fix coding style
+
+2020-01-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/utilities/geolocation/geoiface/dragdrop/mapdragdrophandler.cpp
+	,
+	core/utilities/geolocation/geoiface/dragdrop/mapdragdrophandler.h,
+	core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp,
+	core/utilities/geolocation/geoiface/items/gpsitemdelegate.cpp,
+	core/utilities/geolocation/geoiface/items/gpsitemlist.cpp,
+	core/utilities/geolocation/geoiface/items/gpsitemlistcontextmenu.cp
+	p,
+	core/utilities/geolocation/geoiface/items/gpsitemlistcontextmenu.h,
+	core/utilities/geolocation/geoiface/items/gpsitemmodel.cpp,
+	core/utilities/geolocation/geoiface/items/gpsitemsortproxymodel.cpp
+	, core/utilities/geolocation/geoiface/items/gpsitemsortproxymodel.h: 
+	fix coding style cppcheck++
+
+2020-01-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/utilities/geolocation/geoiface/correlator/track_listmodel.cpp: 
+	the boost dependency in this source code is not used anymore
+
+2020-01-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.
+	cpp,
+	core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.
+	h,
+	core/utilities/geolocation/geoiface/correlator/gpsdatacontainer.h,
+	core/utilities/geolocation/geoiface/correlator/track_correlator.h,
+	core/utilities/geolocation/geoiface/correlator/track_correlator_thr
+	ead.cpp,
+	core/utilities/geolocation/geoiface/correlator/track_listmodel.cpp,
+	core/utilities/geolocation/geoiface/correlator/track_listmodel.h: 
+	fix coding style cppcheck++
+
+2020-01-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/facedb/facedbschemaupdater.cpp: fix broken
+	compilation
+
+2020-01-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/facedb/facedb.cpp,
+	core/libs/facesengine/facedb/facedb_eigen.cpp,
+	core/libs/facesengine/facedb/facedb_fisher.cpp,
+	core/libs/facesengine/facedb/facedb_identity.cpp,
+	core/libs/facesengine/facedb/facedb_lbph.cpp,
+	core/libs/facesengine/facedb/facedbaccess.cpp,
+	core/libs/facesengine/facedb/facedbaccess.h,
+	core/libs/facesengine/facedb/facedbschemaupdater.cpp,
+	core/libs/facesengine/recognition/recognitiondatabase_identity.cpp,
+	core/libs/facesengine/recognition/recognitiondatabase_recognize.cpp
+	,
+	core/libs/facesengine/recognition/recognitiondatabase_training.cpp,
+	core/libs/facesengine/recognition/recognitiontrainingprovider.cpp,
+	core/utilities/geolocation/geoiface/core/geocoordinates.cpp,
+	core/utilities/geolocation/geoiface/core/geocoordinates.h,
+	core/utilities/geolocation/geoiface/core/geodragdrophandler.h,
+	core/utilities/geolocation/geoiface/core/geoifacecommon.cpp,
+	core/utilities/geolocation/geoiface/core/geoifacecommon.h,
+	core/utilities/geolocation/geoiface/core/geomodelhelper.cpp,
+	core/utilities/geolocation/geoiface/core/geomodelhelper.h,
+	core/utilities/geolocation/geoiface/core/gpscommon.cpp,
+	core/utilities/geolocation/geoiface/core/gpscommon.h,
+	core/utilities/geolocation/geoiface/core/gpsgeoifacemodelhelper.cpp
+	,
+	core/utilities/geolocation/geoiface/core/gpsgeoifacemodelhelper.h,
+	core/utilities/geolocation/geoiface/core/gpsundocommand.cpp,
+	core/utilities/geolocation/geoiface/core/gpsundocommand.h,
+	core/utilities/geolocation/geoiface/core/groupstatecomputer.cpp: fix
+	coding style cppcheck++
+
+2020-01-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/data/database/dbconfig.xml.cmake.in: add doc about face
+	database tables
+
+2020-01-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/geolocation/geoiface/bookmark/bookmarknode.cpp,
+	core/utilities/geolocation/geoiface/bookmark/bookmarksdlg.cpp,
+	core/utilities/geolocation/geoiface/bookmark/bookmarksmenu.cpp,
+	core/utilities/geolocation/geoiface/bookmark/bookmarksmenu.h,
+	core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp,
+	core/utilities/geolocation/geoiface/bookmark/gpsbookmarkmodelhelper
+	.cpp,
+	core/utilities/geolocation/geoiface/bookmark/gpsbookmarkowner.cpp: 
+	fix coding style
+
+2020-01-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/utilities/geolocation/geoiface/backends/backend-geonames-rg.cp
+	p,
+	core/utilities/geolocation/geoiface/backends/backend-geonames-rg.h,
+	core/utilities/geolocation/geoiface/backends/backend-geonamesUS-rg.
+	cpp,
+	core/utilities/geolocation/geoiface/backends/backend-geonamesUS-rg.
+	h, core/utilities/geolocation/geoiface/backends/backend-osm-rg.cpp,
+	core/utilities/geolocation/geoiface/backends/backend-osm-rg.h,
+	core/utilities/geolocation/geoiface/backends/backend-rg.h,
+	core/utilities/geolocation/geoiface/backends/backendgooglemaps.cpp,
+	core/utilities/geolocation/geoiface/backends/backendgooglemaps.h,
+	core/utilities/geolocation/geoiface/backends/backendmarble.cpp,
+	core/utilities/geolocation/geoiface/backends/backendmarble.h,
+	core/utilities/geolocation/geoiface/backends/backendmarblelayer.cpp
+	, core/utilities/geolocation/geoiface/backends/mapbackend.h,
+	core/utilities/geolocation/geomapwrapper/gpsiteminfo.h,
+	core/utilities/geolocation/geomapwrapper/gpsiteminfosorter.cpp,
+	core/utilities/geolocation/geomapwrapper/gpsiteminfosorter.h: fix
+	coding style cppcheck++
+
+2020-01-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/geolocation/mapsearches/gpsmarkertiler.cpp,
+	core/utilities/geolocation/mapsearches/gpsmarkertiler.h,
+	core/utilities/geolocation/mapsearches/gpssearchview.cpp: fix coding
+	style
+
+2020-01-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt,
+	project/bundles/appimage/01-build-host.sh,
+	project/bundles/appimage/config.sh: add Wayland support to AppImage
+	bundle CCBUGS: 416524
+
+2020-01-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/backend/dkcamera.cpp: fix gcc warning
+
+2020-01-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/setup/editor/setupiofiles.cpp,
+	core/utilities/setup/editor/setupraw.cpp,
+	core/utilities/setup/editor/setupversioning.cpp,
+	core/utilities/setup/metadata/advancedmetadatatab.cpp,
+	core/utilities/setup/metadata/advancedmetadatatab.h,
+	core/utilities/setup/metadata/namespaceeditdlg.cpp,
+	core/utilities/setup/metadata/namespacelistview.cpp,
+	core/utilities/setup/metadata/namespacelistview.h,
+	core/utilities/setup/metadata/setupmetadata.cpp: fix coding style
+	cppcheck++
+
+2020-01-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/setup/collections/dwitemdelegate.cpp,
+	core/utilities/setup/collections/dwitemdelegate.h,
+	core/utilities/setup/collections/dwitemdelegate_p.cpp,
+	core/utilities/setup/collections/dwitemdelegate_p.h,
+	core/utilities/setup/collections/dwitemdelegatepool.cpp,
+	core/utilities/setup/collections/dwitemdelegatepool.h,
+	core/utilities/setup/collections/setupcollections.cpp,
+	core/utilities/setup/collections/setupcollectionview.cpp,
+	core/utilities/setup/collections/setupcollectionview.h: fix coding
+	style cppcheck++
+
+2020-01-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/setup/album/setupalbumview.cpp,
+	core/utilities/setup/album/setupcategory.cpp,
+	core/utilities/setup/album/setupmime.cpp,
+	core/utilities/setup/camera/cameralist.cpp,
+	core/utilities/setup/camera/cameralist.h,
+	core/utilities/setup/camera/cameraselection.cpp,
+	core/utilities/setup/camera/importfilterdlg.cpp,
+	core/utilities/setup/camera/setupcamera.cpp,
+	core/utilities/setup/setupicc.cpp,
+	core/utilities/setup/setuplighttable.cpp,
+	core/utilities/setup/setupmisc.cpp,
+	core/utilities/setup/setupmisc.h,
+	core/utilities/setup/setupplugins.cpp,
+	core/utilities/setup/setupslideshow.cpp,
+	core/utilities/setup/setuptemplate.cpp,
+	core/utilities/setup/setuptooltip.cpp: fix coding style cppcheck++
+
+2020-01-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/setup/setup.cpp, core/utilities/setup/setup.h,
+	core/utilities/setup/setupdatabase.cpp: fix coding style
+
+2020-01-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/04-build-installer.sh: fix path where tar must
+	be started to build portable archive
+
+2020-01-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fctask.cpp: add "lnk"
+	extension under windows for symlinks
+
+2020-01-22  Ben Cooksley <bcooksley@kde.org>
+
+	* core/cmake/templates/gitscript.cmake.in: Let's try repositioning
+	the quotes to make this work
+
+2020-01-22  Ben Cooksley <bcooksley@kde.org>
+
+	* core/cmake/templates/gitscript.cmake.in: Quote the path to the
+	.git directory to ensure we don't fail if there is a space somewhere
+	in the path
+
+2020-01-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/slideshow/slideimage.cpp,
+	core/utilities/slideshow/slideosd.cpp,
+	core/utilities/slideshow/slideosd.h,
+	core/utilities/slideshow/slideproperties.cpp,
+	core/utilities/slideshow/slideshow.cpp,
+	core/utilities/slideshow/slideshow.h,
+	core/utilities/slideshow/slideshowsettings.h,
+	core/utilities/slideshow/slidetoolbar.cpp: fix coding style
+
+2020-01-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS,
+	core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp,
+	core/dplugins/generic/webservices/filecopy/fcexportwidget.h,
+	core/dplugins/generic/webservices/filecopy/fcexportwindow.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.h,
+	core/dplugins/generic/webservices/filecopy/fcthread.cpp,
+	core/dplugins/generic/webservices/filecopy/fcthread.h: add symlinks
+	functionality to the local file copy plugin BUGS: 416551 FIXED-IN:
+	7.0.0
+
+2020-01-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/mainview/dxmlguiwindow.cpp: fix order
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/lighttable/lighttablepreview.cpp,
+	core/utilities/lighttable/lighttablepreview.h,
+	core/utilities/lighttable/lighttablethumbbar.cpp,
+	core/utilities/lighttable/lighttableview.cpp,
+	core/utilities/lighttable/lighttablewindow.cpp,
+	core/utilities/lighttable/lighttablewindow_config.cpp,
+	core/utilities/lighttable/lighttablewindow_p.h,
+	core/utilities/lighttable/lighttablewindow_setup.cpp,
+	core/utilities/lighttable/lighttablewindow_tools.cpp: fix coding
+	style
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/firstrun/collectionpage.cpp,
+	core/utilities/firstrun/databasepage.cpp,
+	core/utilities/firstrun/firstrundlg.cpp,
+	core/utilities/firstrun/metadatapage.cpp,
+	core/utilities/firstrun/migratefromdigikam4page.cpp,
+	core/utilities/firstrun/migratefromdigikam4page.h,
+	core/utilities/firstrun/openfilepage.cpp,
+	core/utilities/firstrun/previewpage.cpp,
+	core/utilities/firstrun/rawpage.cpp,
+	core/utilities/firstrun/tooltipspage.cpp,
+	core/utilities/firstrun/welcomepage.cpp: fix coding style
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/editor/editorwindow_p.h: krazy++
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/CMakeLists.txt: fix broken compilation
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/CMakeLists.txt: polish
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/settings/applicationsettings.cpp,
+	core/libs/settings/applicationsettings.h,
+	core/libs/settings/applicationsettings_albums.cpp,
+	core/libs/settings/applicationsettings_database.cpp,
+	core/libs/settings/applicationsettings_iconview.cpp,
+	core/libs/settings/applicationsettings_mime.cpp,
+	core/libs/settings/applicationsettings_miscs.cpp,
+	core/libs/settings/applicationsettings_p.cpp,
+	core/libs/settings/applicationsettings_p.h,
+	core/libs/settings/applicationsettings_tooltips.cpp: fix coding
+	style cppcheck++
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/CMakeLists.txt: polish
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/CMakeLists.txt: try to fix MSVC compilation error
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/fx/colorfxfilter.cpp,
+	core/libs/dimg/filters/fx/colorfxfilter.h: fix MSVC compilation
+	error
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/rawengine/CMakeLists.txt: polish
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/widgets/advancedsettings.cpp,
+	core/utilities/import/widgets/albumcustomizer.cpp,
+	core/utilities/import/widgets/capturewidget.h,
+	core/utilities/import/widgets/filter.cpp,
+	core/utilities/import/widgets/freespacewidget.cpp,
+	core/utilities/import/widgets/freespacewidget.h,
+	core/utilities/import/widgets/importcontextmenu.cpp,
+	core/utilities/import/widgets/importcontextmenu.h,
+	core/utilities/import/widgets/importfiltercombobox.cpp,
+	core/utilities/import/widgets/importfiltercombobox.h,
+	core/utilities/import/widgets/renamecustomizer.h: fix coding style
+	cppcheck++
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/views/importpreviewview.cpp,
+	core/utilities/import/views/importpreviewview.h,
+	core/utilities/import/views/importstackedview.cpp,
+	core/utilities/import/views/importstackedview.h,
+	core/utilities/import/views/importthumbnailbar.cpp,
+	core/utilities/import/views/importthumbnailbar.h,
+	core/utilities/import/views/importview.cpp,
+	core/utilities/import/views/importview.h: fix coding style
+	cppcheck++
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/models/importimagemodel.cpp,
+	core/utilities/import/views/camerafolderview.cpp,
+	core/utilities/import/views/camerafolderview.h,
+	core/utilities/import/views/cameranamehelper.cpp,
+	core/utilities/import/views/freespacetooltip.cpp,
+	core/utilities/import/views/importcategorizedview.cpp,
+	core/utilities/import/views/importcategorizedview.h,
+	core/utilities/import/views/importiconview.cpp,
+	core/utilities/import/views/importiconview.h,
+	core/utilities/import/views/importiconview_p.cpp,
+	core/utilities/import/views/importiconview_p.h,
+	core/utilities/import/views/importpreviewview.cpp,
+	core/utilities/import/views/importpreviewview.h: fix coding style
+	cppcheck++
+
+2020-01-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/installer/releasenotes.html,
+	project/bundles/mxe/data/releasenotes.html: polish
+
+2020-01-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/models/camitemsortsettings.cpp,
+	core/utilities/import/models/camitemsortsettings.h,
+	core/utilities/import/models/importfiltermodel.cpp,
+	core/utilities/import/models/importfiltermodel.h,
+	core/utilities/import/models/importimagemodel.cpp,
+	core/utilities/import/models/importimagemodel.h,
+	core/utilities/import/models/importthumbnailmodel.cpp,
+	project/bundles/mxe/config.sh: fix coding style cppcheck++
+
+2020-01-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/searchwindow/searchfolderview.cpp,
+	core/utilities/searchwindow/searchfolderview.h,
+	core/utilities/searchwindow/searchgroup.cpp,
+	core/utilities/searchwindow/searchmodificationhelper.cpp,
+	core/utilities/searchwindow/searchtabheader.cpp,
+	core/utilities/searchwindow/searchutilities.cpp,
+	core/utilities/searchwindow/searchutilities.h,
+	core/utilities/searchwindow/searchview.cpp,
+	core/utilities/searchwindow/searchview.h,
+	core/utilities/searchwindow/searchwindow.cpp,
+	core/utilities/searchwindow/visibilitycontroller.cpp,
+	core/utilities/searchwindow/visibilitycontroller.h: fix coding style
+	cppcheck++
+
+2020-01-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/searchwindow/searchfieldgroup.cpp,
+	core/utilities/searchwindow/searchfields.cpp,
+	core/utilities/searchwindow/searchfields.h: fix coding style
+	cppcheck++
+
+2020-01-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/searchwindow/choicesearchutilities.cpp,
+	core/utilities/searchwindow/choicesearchutilities.h,
+	core/utilities/searchwindow/editablesearchtreeview.cpp,
+	core/utilities/searchwindow/editablesearchtreeview.h,
+	core/utilities/searchwindow/ratingsearchutilities.cpp,
+	core/utilities/searchwindow/ratingsearchutilities.h: fix coding
+	style cppcheck++
+
+2020-01-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/widgets/canvas.cpp,
+	core/utilities/imageeditor/widgets/canvas.h,
+	core/utilities/imageeditor/widgets/imageguidewidget.cpp,
+	core/utilities/imageeditor/widgets/imageguidewidget.h,
+	core/utilities/imageeditor/widgets/imagepreviewitem.cpp,
+	core/utilities/imageeditor/widgets/imageregionitem.cpp,
+	core/utilities/imageeditor/widgets/imageregionitem.h,
+	core/utilities/imageeditor/widgets/imageregionwidget.cpp,
+	core/utilities/imageeditor/widgets/imageregionwidget.h,
+	core/utilities/imageeditor/widgets/previewlist.cpp,
+	core/utilities/imageeditor/widgets/previewtoolbar.cpp,
+	core/utilities/imageeditor/widgets/previewtoolbar.h,
+	core/utilities/imageeditor/widgets/rubberitem.cpp,
+	core/utilities/imageeditor/widgets/rubberitem.h: fix coding style
+	cppcheck++
+
+2020-01-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/editor/editorstackview.cpp,
+	core/utilities/imageeditor/editor/editorstackview.h,
+	core/utilities/imageeditor/editor/editortool.cpp,
+	core/utilities/imageeditor/editor/editortool.h,
+	core/utilities/imageeditor/editor/editortooliface.cpp,
+	core/utilities/imageeditor/editor/editorwindow.cpp,
+	core/utilities/imageeditor/editor/editorwindow.h,
+	core/utilities/imageeditor/editor/editorwindow_p.h,
+	core/utilities/imageeditor/editor/imageiface.cpp,
+	core/utilities/imageeditor/editor/imageiface.h: fix coding style
+
+2020-01-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/dialogs/colorcorrectiondlg.cpp,
+	core/utilities/imageeditor/dialogs/colorcorrectiondlg.h,
+	core/utilities/imageeditor/dialogs/softproofdialog.cpp,
+	core/utilities/imageeditor/dialogs/versioningpromptusersavedlg.cpp: 
+	fix coding style
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/core/editorcore.cpp,
+	core/utilities/imageeditor/core/editorcore.h,
+	core/utilities/imageeditor/core/editorcore_p.h,
+	core/utilities/imageeditor/core/iccpostloadingmanager.cpp,
+	core/utilities/imageeditor/core/iofilesettings.h,
+	core/utilities/imageeditor/core/savingcontext.h,
+	core/utilities/imageeditor/core/undoaction.cpp,
+	core/utilities/imageeditor/core/undoaction.h,
+	core/utilities/imageeditor/core/undocache.cpp,
+	core/utilities/imageeditor/core/undomanager.cpp: fix coding style
+	cppchaeck++
+
+2020-01-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/items/facegroup.cpp: apply geometry
+	changes only when face rectangles exists
+
+2020-01-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/items/facegroup.cpp,
+	core/utilities/facemanagement/items/facegroup_p.cpp,
+	core/utilities/facemanagement/items/facegroup_p.h: handle manual
+	face rectangles correctly when imageview to Exif orientation is
+	disabled
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp,
+	core/utilities/geolocation/geoiface/items/gpsitemcontainer.h,
+	core/utilities/geolocation/geoiface/items/gpsitemdelegate.cpp,
+	core/utilities/geolocation/geoiface/items/gpsitemdelegate.h,
+	core/utilities/geolocation/geoiface/items/gpsitemlist.cpp,
+	core/utilities/geolocation/geoiface/items/gpsitemlist.h,
+	core/utilities/geolocation/geoiface/items/gpsitemlistcontextmenu.cp
+	p, core/utilities/geolocation/geoiface/items/gpsitemmodel.cpp,
+	core/utilities/geolocation/geoiface/items/gpsitemmodel.h,
+	core/utilities/geolocation/geoiface/items/gpsitemsortproxymodel.cpp: 
+	fix coding style cppcheck++
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/containers/iteminfo.cpp: disable cppcheck
+	warnings here
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, project/bundles/mxe/config.sh: update
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/item/scanner/itemscanner_photo.cpp,
+	core/libs/fileactionmanager/metadatahub.cpp,
+	core/libs/fileactionmanager/metadatahub.h,
+	core/utilities/imageeditor/main/imagewindow.cpp: read and write not
+	aligned face metadata from image BUGS: 372340 FIXED-IN: 7.0.0
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/containers/template.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_template.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_video.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_xmp.cpp,
+	core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp,
+	core/libs/metadataengine/dmetadata/geodetictools.cpp: fix coding
+	style
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata.h,
+	core/libs/metadataengine/dmetadata/dmetadata_comments.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_exif.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_faces.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_fileio.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_generic.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_history.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_labels.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_photo.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_tags.cpp: fix coding
+	style
+
+2020-01-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_mergehelper.h,
+	core/libs/metadataengine/engine/metaengine_p.cpp,
+	core/libs/metadataengine/engine/metaengine_p.h,
+	core/libs/metadataengine/engine/metaengine_previews.cpp,
+	core/libs/metadataengine/engine/metaengine_rotation.cpp,
+	core/libs/metadataengine/engine/metaengine_xmp.cpp,
+	core/libs/metadataengine/engine/metaenginesettings.cpp: fix coding
+	style
+
+2020-01-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg.h, core/libs/dimg/dimg_p.h,
+	core/libs/dimg/dimg_transform.cpp: returns current
+	DMetadata::Orientation from DImg
+
+2020-01-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/dplugins/generic/webservices/flickr/CMakeLists.txt,
+	core/dplugins/generic/webservices/flickr/flickrtalker.cpp,
+	core/dplugins/generic/webservices/google/gstalkerbase.cpp,
+	core/dplugins/generic/webservices/google/gstalkerbase.h,
+	core/dplugins/generic/webservices/onedrive/CMakeLists.txt,
+	core/dplugins/generic/webservices/pinterest/CMakeLists.txt: use
+	internal web browser to close the window At the moment we are still
+	using the current callback address to get compatible with older
+	plugin versions. BUGS: 404901 FIXED-IN: 7.0.0
+
+2020-01-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamapp_setup.cpp,
+	core/app/views/stack/itemiconview_albums.cpp: add Ctrl + F5 to
+	update the album without thumbnails
+
+2020-01-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_exif.cpp,
+	core/libs/metadataengine/engine/metaengine_fileio.cpp,
+	core/libs/metadataengine/engine/metaengine_gps.cpp,
+	core/libs/metadataengine/engine/metaengine_iptc.cpp,
+	core/libs/metadataengine/engine/metaengine_item.cpp: fix coding
+	style
+
+2020-01-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dtrash/dtrash.cpp,
+	core/libs/dtrash/dtrashitemmodel.cpp, core/libs/iojobs/iojob.cpp,
+	core/libs/metadataengine/engine/metaengine_data.cpp,
+	core/libs/metadataengine/engine/metaengine_data_p.cpp,
+	core/libs/metadataengine/engine/metaengine_data_p.h,
+	core/libs/metadataengine/engine/metaengine_exif.cpp: fix coding
+	style
+
+2020-01-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dngwriter/CMakeLists.txt,
+	core/libs/dngwriter/dngwriter.cpp,
+	core/libs/dngwriter/dngwriter_convert.cpp,
+	core/libs/dngwriter/dngwriter_p.h: separate convert method from the
+	rest of DNGWriter class
+
+2020-01-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dngwriter/dngsettings.cpp,
+	core/libs/dngwriter/dngsettings.h,
+	core/libs/dngwriter/dngwriter.cpp, core/libs/dngwriter/dngwriter.h,
+	core/libs/dngwriter/dngwriter_p.cpp,
+	core/libs/dngwriter/dngwriter_p.h: fix coding style cppcheck++
+
+2020-01-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/dconfigdlg.cpp, core/libs/dialogs/dconfigdlg.h,
+	core/libs/dialogs/dconfigdlgmodels.cpp,
+	core/libs/dialogs/dconfigdlgmodels.h,
+	core/libs/dialogs/dconfigdlgmodels_p.h,
+	core/libs/dialogs/dconfigdlgview.cpp,
+	core/libs/dialogs/dconfigdlgview_p.cpp,
+	core/libs/dialogs/dconfigdlgview_p.h,
+	core/libs/dialogs/dconfigdlgwidgets.cpp,
+	core/libs/dialogs/dconfigdlgwidgets.h,
+	core/libs/dialogs/dconfigdlgwidgets_p.h,
+	core/libs/dialogs/deletedialog.cpp,
+	core/libs/dialogs/deletedialog.h,
+	core/libs/dialogs/dmessagebox.cpp, core/libs/dialogs/dmessagebox.h,
+	core/libs/dialogs/dsplashscreen.cpp,
+	core/libs/dialogs/filesaveoptionsdlg.cpp,
+	core/libs/dialogs/filesaveoptionsdlg.h,
+	core/libs/dialogs/iccprofileinfodlg.cpp,
+	core/libs/dialogs/imagedialog.cpp, core/libs/dialogs/infodlg.cpp,
+	core/libs/dialogs/libsinfodlg.cpp,
+	core/libs/dialogs/webbrowserdlg.cpp: fix coding style cppcheck++
+
+2020-01-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/icc/digikam-lcms.h: API doc
+
+2020-01-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/models/albumfiltermodel.cpp: fix album sorting
+	order BUGS: 416371 FIXED-IN: 7.0.0
+
+2020-01-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/icc/digikam-lcms.cpp,
+	core/utilities/queuemanager/dplugins/dpluginbqm.cpp,
+	core/utilities/queuemanager/dplugins/dpluginconfviewbqm.cpp,
+	core/utilities/queuemanager/main/queuemgrwindow.cpp,
+	core/utilities/queuemanager/main/queuemgrwindow.h,
+	project/bundles/macports/config.sh: fix coding style
+
+2020-01-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/queuemanager/views/assignedlist.cpp,
+	core/utilities/queuemanager/views/assignedlist.h,
+	core/utilities/queuemanager/views/queuelist.cpp,
+	core/utilities/queuemanager/views/queuelist.h,
+	core/utilities/queuemanager/views/queuepool.cpp,
+	core/utilities/queuemanager/views/queuepool.h,
+	core/utilities/queuemanager/views/queuesettingsview.cpp,
+	core/utilities/queuemanager/views/toolsettingsview.cpp,
+	core/utilities/queuemanager/views/toolslistview.cpp,
+	core/utilities/queuemanager/views/toolslistview.h,
+	core/utilities/queuemanager/views/toolsview.cpp,
+	core/utilities/queuemanager/views/toolsview.h,
+	core/utilities/queuemanager/views/workflowdlg.cpp,
+	core/utilities/queuemanager/views/workflowlist.cpp,
+	core/utilities/queuemanager/views/workflowlist.h: fix coding style
+	cppcheck++
+
+2020-01-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/04-build-installer.sh,
+	project/bundles/mxe/config.sh: do not store full path in portable
+	archive
+
+2020-01-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/dialogs/camerafolderdialog.cpp,
+	core/utilities/import/dialogs/camerainfodialog.cpp,
+	core/utilities/import/dialogs/cameramessagebox.cpp,
+	core/utilities/import/dialogs/cameramessagebox.h,
+	core/utilities/import/dialogs/capturedlg.cpp,
+	core/utilities/import/items/camerafolderitem.h,
+	core/utilities/import/items/importcategorydrawer.cpp,
+	core/utilities/import/items/importcategorydrawer.h,
+	core/utilities/import/items/importdelegate.cpp,
+	core/utilities/import/items/importdelegate.h,
+	core/utilities/import/items/importdelegate_p.h,
+	core/utilities/import/items/importoverlays.cpp,
+	core/utilities/import/items/importoverlays.h,
+	core/utilities/import/items/importtooltipfiller.cpp,
+	core/utilities/import/items/itemviewimportdelegate.cpp,
+	core/utilities/import/items/itemviewimportdelegate.h,
+	core/utilities/import/items/itemviewimportdelegate_p.h: fix coding
+	style cppcheck++
+
+2020-01-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* Mainpage.dox, NEWS, core/CMakeLists.txt,
+	core/cmake/modules/MacroOpenCV.cmake: check for opencv 3.3 as
+	minimal version as DNN module was introduced with this release BUGS:
+	416345 FIXED_IN: 7.0.0
+
+2020-01-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS,
+	core/utilities/geolocation/geoiface/bookmark/bookmarknode.cpp: fix
+	delete order from the bookmark nodes BUGS: 416289 FIXED-IN: 7.0.0
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/queuemanager/manager/actionthread.cpp,
+	core/utilities/queuemanager/manager/actionthread.h,
+	core/utilities/queuemanager/manager/batchtool.cpp,
+	core/utilities/queuemanager/manager/batchtool.h,
+	core/utilities/queuemanager/manager/batchtoolsfactory.cpp,
+	core/utilities/queuemanager/manager/batchtoolutils.cpp,
+	core/utilities/queuemanager/manager/batchtoolutils.h,
+	core/utilities/queuemanager/manager/iteminfoset.h,
+	core/utilities/queuemanager/manager/queuesettings.h,
+	core/utilities/queuemanager/manager/task.cpp,
+	core/utilities/queuemanager/manager/workflowmanager.cpp,
+	core/utilities/queuemanager/manager/workflowmanager.h: fix coding
+	style cppcheck++
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/04-build-installer.sh: Only embed gdb.exe with
+	bundle including debug symbols CCBUGS: 385953
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: AppImage : no debug
+	version => strip all symbols
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: fix link to ssl
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: polish
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/backend/cameracontroller.h,
+	core/utilities/import/backend/camerathumbsctrl.cpp,
+	core/utilities/import/backend/camerathumbsctrl.h,
+	core/utilities/import/backend/camiteminfo.cpp,
+	core/utilities/import/backend/camiteminfo.h,
+	core/utilities/import/backend/dkcamera.cpp,
+	core/utilities/import/backend/downloadsettings.h,
+	core/utilities/import/backend/gpcamera.cpp,
+	core/utilities/import/backend/gpcamera.h,
+	core/utilities/import/backend/umscamera.cpp: fix coding style
+	cppcheck++
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh,
+	project/bundles/macports/04-build-installer.sh,
+	project/bundles/mxe/04-build-installer.sh: polish
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: progcess debug
+	cleanup an use suffix
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: missing to use
+	debug suffix with appimage
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/makeall.sh,
+	project/bundles/macports/update.sh: Build an MacOS PKG without debug
+	symbold to reduce bundle fingerprints. A debug version is compiled
+	also in the workflow deployement (this one use '-debug' prefix). Non
+	debug version will be published officially on KDE download mirrors,
+	and debug will be only published on weekly build area.
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/makeall.sh,
+	project/bundles/appimage/update.sh: Build an AppImage bundle without
+	debug symbold to reduce bundle fingerprints. A debug version is
+	compiled also in the workflow deployement (this one use '-debug'
+	prefix). Non debug version will be published officially on KDE
+	download mirrors, and debug will be only published on weekly build
+	area.
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/04-build-installer.sh,
+	project/bundles/mxe/makeall.sh, project/bundles/mxe/update.sh: Build
+	a Windows installer without debug symbold to reduce bundle
+	fingerprints A debug version is compiled also in the workflow
+	deployement (this one use '-debug' prefix). Non debug version will
+	be published officially on KDE download mirrors, and debug will be
+	only published on weekly build area. CCBUGS: 385953
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/04-build-installer.sh: we only need SHA256
+	sums
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: we only need
+	sha256 suls
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: we only need SHA256
+	sums
+
+2020-01-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/notificationmanager/dnotificationpopup.cpp,
+	core/libs/notificationmanager/dnotificationpopup.h,
+	core/libs/notificationmanager/dnotificationwidget.cpp,
+	core/libs/notificationmanager/dnotificationwidget_p.cpp,
+	core/libs/notificationmanager/dnotificationwrapper.cpp,
+	core/libs/notificationmanager/macnotification.mm: fix conding style
+
+
+2020-01-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/geolocationedit/dialog/geolocationed
+	it.cpp,
+	core/utilities/geolocation/geoiface/bookmark/gpsbookmarkowner.cpp: 
+	try to fix crash under OSX CCBUGS: 416289
+
+2020-01-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/containers/iteminfo.cpp: move create
+	m_data back to the constructor body CCBUGS: 415685
+
+2020-01-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/icc/digikam-lcms.cpp: disable this error
+	handler for the moment
+
+2020-01-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/history/filtershistorywidget.cpp,
+	core/libs/widgets/itemview/ditemtooltip.cpp,
+	core/libs/widgets/mainview/thememanager_p.cpp,
+	core/utilities/advancedrename/advancedrenamedialog.cpp,
+	core/utilities/advancedrename/advancedrenameinput.cpp,
+	core/utilities/advancedrename/advancedrenamemanager.cpp,
+	core/utilities/advancedrename/advancedrenameprocessdialog.cpp,
+	core/utilities/advancedrename/advancedrenamewidget.cpp,
+	core/utilities/advancedrename/advancedrenamewidget.h,
+	core/utilities/advancedrename/common/dynamiclayout.cpp,
+	core/utilities/advancedrename/common/highlighter.cpp,
+	core/utilities/advancedrename/common/parser.cpp,
+	core/utilities/advancedrename/common/parseresults.cpp,
+	core/utilities/advancedrename/common/parseresults.h,
+	core/utilities/advancedrename/common/parsesettings.h,
+	core/utilities/advancedrename/common/rule.cpp,
+	core/utilities/advancedrename/common/rule.h,
+	core/utilities/advancedrename/common/ruledialog.cpp,
+	core/utilities/advancedrename/common/tooltipcreator.cpp,
+	core/utilities/advancedrename/common/tooltipcreator.h,
+	core/utilities/advancedrename/common/tooltipdialog.cpp,
+	core/utilities/advancedrename/parser/importrenameparser.cpp,
+	core/utilities/advancedrename/parser/modifiers/casemodifier.cpp,
+	core/utilities/advancedrename/parser/modifiers/defaultvaluemodifier
+	.cpp,
+	core/utilities/advancedrename/parser/modifiers/rangemodifier.cpp,
+	core/utilities/advancedrename/parser/modifiers/replacemodifier.cpp,
+	core/utilities/advancedrename/parser/modifiers/uniquemodifier.cpp,
+	core/utilities/advancedrename/parser/modifiers/uniquemodifier.h,
+	core/utilities/advancedrename/parser/options/cameranameoption.cpp,
+	core/utilities/advancedrename/parser/options/database/databaseoptio
+	n.cpp,
+	core/utilities/advancedrename/parser/options/database/dbheaderlisti
+	tem.cpp,
+	core/utilities/advancedrename/parser/options/database/dbkeyscollect
+	ion.cpp,
+	core/utilities/advancedrename/parser/options/database/dbkeyscollect
+	ion.h,
+	core/utilities/advancedrename/parser/options/database/dbkeyselector
+	.cpp,
+	core/utilities/advancedrename/parser/options/database/keys/commonke
+	ys.cpp,
+	core/utilities/advancedrename/parser/options/database/keys/metadata
+	keys.cpp,
+	core/utilities/advancedrename/parser/options/database/keys/position
+	keys.cpp,
+	core/utilities/advancedrename/parser/options/dateoption.cpp,
+	core/utilities/advancedrename/parser/options/filepropertiesoption.c
+	pp,
+	core/utilities/advancedrename/parser/options/metadataoption.cpp,
+	core/utilities/advancedrename/parser/options/sequencenumberoption.c
+	pp: fix coding style cppcheck++
+
+2020-01-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/metadata/altlangstredit.cpp,
+	core/libs/widgets/metadata/altlangstredit.h,
+	core/libs/widgets/metadata/colorlabelwidget.cpp,
+	core/libs/widgets/metadata/countryselector.cpp,
+	core/libs/widgets/metadata/exifwidget.cpp,
+	core/libs/widgets/metadata/exifwidget.h,
+	core/libs/widgets/metadata/iptcwidget.cpp,
+	core/libs/widgets/metadata/iptcwidget.h,
+	core/libs/widgets/metadata/makernotewidget.cpp,
+	core/libs/widgets/metadata/makernotewidget.h,
+	core/libs/widgets/metadata/mdkeylistviewitem.cpp,
+	core/libs/widgets/metadata/mdkeylistviewitem.h,
+	core/libs/widgets/metadata/metadatalistview.cpp,
+	core/libs/widgets/metadata/metadatapanel.cpp,
+	core/libs/widgets/metadata/metadataselector.cpp,
+	core/libs/widgets/metadata/metadatawidget.cpp,
+	core/libs/widgets/metadata/picklabelwidget.cpp,
+	core/libs/widgets/metadata/ratingwidget.cpp,
+	core/libs/widgets/metadata/ratingwidget.h,
+	core/libs/widgets/metadata/subjectwidget.cpp,
+	core/libs/widgets/metadata/subjectwidget.h,
+	core/libs/widgets/metadata/xmpwidget.cpp: fix coding style
+	cppcheck++
+
+2020-01-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/models/abstractalbummodel.cpp,
+	core/libs/models/abstractalbummodel.h,
+	core/libs/models/albumfiltermodel.cpp,
+	core/libs/models/albumfiltermodel.h,
+	core/libs/models/albummodel.cpp, core/libs/models/albummodel.h,
+	core/libs/models/albummodeldragdrophandler.cpp,
+	core/libs/models/albummodeldragdrophandler.h,
+	core/libs/models/categorizeditemmodel.cpp,
+	core/libs/models/itemalbumfiltermodel.cpp,
+	core/libs/models/itemalbumfiltermodel.h,
+	core/libs/models/itemalbummodel.cpp,
+	core/libs/models/itemalbummodel.h: fix coding style cppcheck++
+
+2020-01-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/jpegutils/iccjpeg.c, core/libs/jpegutils/iccjpeg.h,
+	core/libs/jpegutils/jpegutils.cpp, core/libs/jpegutils/jpegutils.h,
+	core/libs/jpegutils/jpegwin.cpp,
+	core/libs/kmemoryinfo/kmemoryinfo.cpp,
+	core/libs/kmemoryinfo/kmemoryinfo.h,
+	core/libs/metadataengine/engine/metaengine_p.cpp,
+	core/libs/metadataengine/engine/metaengine_rotation.cpp,
+	core/libs/metadataengine/engine/metaengine_rotation.h,
+	core/libs/metadataengine/engine/metaenginesettings.cpp: fix coding
+	style cppcheck++
+
+2020-01-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/template/subjectedit.cpp,
+	core/libs/template/templatemanager.cpp,
+	core/libs/template/templatepanel.cpp,
+	core/libs/template/templateselector.cpp,
+	core/libs/template/templateviewer.cpp: fix coding style cppcheck++
+
+2020-01-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/video/videodecoder.cpp,
+	core/libs/threadimageio/video/videodecoder_p.cpp,
+	core/libs/threadimageio/video/videostripfilter.cpp,
+	core/libs/threadimageio/video/videothumbnailer.cpp,
+	core/libs/threadimageio/video/videothumbwriter.cpp: fix coding style
+	cppcheck++
+
+2020-01-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailbasic.cpp,
+	core/libs/threadimageio/thumb/thumbnailcreator.cpp,
+	core/libs/threadimageio/thumb/thumbnailcreator.h,
+	core/libs/threadimageio/thumb/thumbnailcreator_database.cpp,
+	core/libs/threadimageio/thumb/thumbnailcreator_engine.cpp,
+	core/libs/threadimageio/thumb/thumbnailcreator_freedesktop.cpp,
+	core/libs/threadimageio/thumb/thumbnailcreator_p.h,
+	core/libs/threadimageio/thumb/thumbnailinfo.h,
+	core/libs/threadimageio/thumb/thumbnailloadthread.cpp,
+	core/libs/threadimageio/thumb/thumbnailloadthread.h,
+	core/libs/threadimageio/thumb/thumbnailloadthread_p.cpp,
+	core/libs/threadimageio/thumb/thumbnailloadthread_p.h,
+	core/libs/threadimageio/thumb/thumbnailsize.cpp,
+	core/libs/threadimageio/thumb/thumbnailsize.h,
+	core/libs/threadimageio/thumb/thumbnailtask.cpp: fix coding style
+	cppcheck++
+
+2020-01-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/preview/previewloadthread.cpp,
+	core/libs/threadimageio/preview/previewloadthread.h,
+	core/libs/threadimageio/preview/previewsettings.cpp,
+	core/libs/threadimageio/preview/previewsettings.h,
+	core/libs/threadimageio/preview/previewtask.cpp: fix coding style
+	cppcheck++
+
+2020-01-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadingcache.cpp,
+	core/libs/threadimageio/fileio/loadingcache.h,
+	core/libs/threadimageio/fileio/loadingcacheinterface.cpp,
+	core/libs/threadimageio/fileio/loadingcacheinterface.h,
+	core/libs/threadimageio/fileio/loadingdescription.cpp,
+	core/libs/threadimageio/fileio/loadingdescription.h,
+	core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/fileio/loadsavetask.h,
+	core/libs/threadimageio/fileio/loadsavethread.cpp,
+	core/libs/threadimageio/fileio/loadsavethread.h: fix coding style
+	cppcheck++
+
+2020-01-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/engine/dfileoperations.cpp,
+	core/libs/threadimageio/engine/dfileoperations.h,
+	core/libs/threadimageio/engine/filereadwritelock.cpp,
+	core/libs/threadimageio/engine/managedloadsavethread.cpp,
+	core/libs/threadimageio/engine/managedloadsavethread.h,
+	core/libs/threadimageio/engine/sharedloadsavethread.cpp,
+	core/libs/threadimageio/engine/sharedloadsavethread.h: fix coding
+	style cppcheck++
+
+2020-01-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/mainview/dcursortracker.cpp,
+	core/libs/widgets/mainview/dcursortracker.h,
+	core/libs/widgets/mainview/dxmlguiwindow.cpp,
+	core/libs/widgets/mainview/dxmlguiwindow.h,
+	core/libs/widgets/mainview/dzoombar.cpp,
+	core/libs/widgets/mainview/dzoombar.h,
+	core/libs/widgets/mainview/fullscreensettings.cpp,
+	core/libs/widgets/mainview/sidebar.cpp,
+	core/libs/widgets/mainview/sidebar.h,
+	core/libs/widgets/mainview/thememanager.cpp,
+	core/libs/widgets/mainview/thememanager_p.cpp,
+	core/libs/widgets/mainview/thumbbardock.cpp,
+	core/libs/widgets/mainview/thumbbardock.h: fix coding style
+	cppcheck++
+
+2020-01-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/tags/manager/tagsmanager.cpp: do not delete the unknown
+	and unconfirmed tags in the Tag Manager cleanup
+
+2020-01-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/range/dnuminput.cpp,
+	core/libs/widgets/range/drangebox.cpp,
+	core/libs/widgets/range/drangebox.h,
+	core/libs/widgets/range/dsliderspinbox.cpp,
+	core/libs/widgets/range/dsliderspinbox.h: fix coding style
+	cppcheck++
+
+2020-01-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/layout/dexpanderbox.cpp,
+	core/libs/widgets/layout/dexpanderbox.h,
+	core/libs/widgets/layout/dlayoutbox.cpp,
+	core/libs/widgets/layout/dlayoutbox.h,
+	core/libs/widgets/layout/statesavingobject.cpp: fix coding style
+	cppcheck++
+
+2020-01-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/01-build-host.sh: Add new QtWebEngine
+	dependencies for 5.14.0
+
+2020-01-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/itemview/actioncategorizedview.cpp,
+	core/libs/widgets/itemview/actioncategorizedview.h,
+	core/libs/widgets/itemview/dcategorizedsortfilterproxymodel.cpp,
+	core/libs/widgets/itemview/dcategorizedsortfilterproxymodel.h,
+	core/libs/widgets/itemview/dcategorizedsortfilterproxymodel_p.h,
+	core/libs/widgets/itemview/dcategorizedview.cpp,
+	core/libs/widgets/itemview/dcategorizedview.h,
+	core/libs/widgets/itemview/dcategorizedview_p.h,
+	core/libs/widgets/itemview/dcategorydrawer.h,
+	core/libs/widgets/itemview/ditemdelegate.cpp,
+	core/libs/widgets/itemview/ditemdelegate.h,
+	core/libs/widgets/itemview/ditemtooltip.cpp,
+	core/libs/widgets/itemview/ditemtooltip.h,
+	core/libs/widgets/itemview/itemdelegateoverlay.cpp,
+	core/libs/widgets/itemview/itemdelegateoverlay.h,
+	core/libs/widgets/itemview/itemviewcategorized.cpp,
+	core/libs/widgets/itemview/itemviewcategorized.h,
+	core/libs/widgets/itemview/itemviewdelegate.cpp,
+	core/libs/widgets/itemview/itemviewdelegate.h,
+	core/libs/widgets/itemview/itemviewdelegate_p.h,
+	core/libs/widgets/itemview/itemviewhoverbutton.cpp,
+	core/libs/widgets/itemview/itemviewhoverbutton.h,
+	core/libs/widgets/itemview/itemviewtooltip.cpp,
+	core/libs/widgets/itemview/itemviewtooltip.h: fix coding style
+	cppcheck++
+
+2020-01-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/iccprofiles/cietonguewidget.cpp,
+	core/libs/widgets/iccprofiles/cietonguewidget.h,
+	core/libs/widgets/iccprofiles/iccprofilescombobox.cpp,
+	core/libs/widgets/iccprofiles/iccprofilescombobox.h,
+	core/libs/widgets/iccprofiles/iccprofilewidget.cpp,
+	core/libs/widgets/iccprofiles/iccprofilewidget.h: fix coding style
+	cppcheck++
+
+2020-01-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/history/filtershistorywidget.cpp,
+	core/libs/widgets/history/itemfiltershistoryitemdelegate.cpp,
+	core/libs/widgets/history/itemfiltershistoryitemdelegate.h,
+	core/libs/widgets/history/itemfiltershistorymodel.cpp,
+	core/libs/widgets/history/itemfiltershistorytreeitem.cpp,
+	core/libs/widgets/history/itemfiltershistorytreeitem.h,
+	core/libs/widgets/history/versionswidget.cpp: fix coding style
+	cppcheck++
+
+2020-01-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/graphicsview/clickdragreleaseitem.cpp,
+	core/libs/widgets/graphicsview/clickdragreleaseitem.h,
+	core/libs/widgets/graphicsview/dimgchilditem.cpp,
+	core/libs/widgets/graphicsview/dimgpreviewitem.cpp,
+	core/libs/widgets/graphicsview/dimgpreviewitem.h,
+	core/libs/widgets/graphicsview/graphicsdimgitem.cpp,
+	core/libs/widgets/graphicsview/graphicsdimgitem.h,
+	core/libs/widgets/graphicsview/graphicsdimgview.cpp,
+	core/libs/widgets/graphicsview/graphicsdimgview.h,
+	core/libs/widgets/graphicsview/imagezoomsettings.cpp,
+	core/libs/widgets/graphicsview/imagezoomsettings.h,
+	core/libs/widgets/graphicsview/itemvisibilitycontroller.cpp,
+	core/libs/widgets/graphicsview/itemvisibilitycontroller.h,
+	core/libs/widgets/graphicsview/paniconwidget.cpp,
+	core/libs/widgets/graphicsview/paniconwidget.h,
+	core/libs/widgets/graphicsview/previewlayout.cpp,
+	core/libs/widgets/graphicsview/previewlayout.h,
+	core/libs/widgets/graphicsview/regionframeitem.cpp,
+	core/libs/widgets/graphicsview/regionframeitem.h: fix coding style
+	cppcheck++
+
+2020-01-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp: we need the tag ID and not
+	the image ID CCBUGS: 416213
+
+2020-01-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh,
+	project/bundles/appimage/config.sh: switch appimage to qtwebengine
+	as for MacOS PKG since we use Qt 5.14.0
+
+2020-01-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/nr/nrfilter.h,
+	core/libs/widgets/fonts/dfontproperties.cpp,
+	core/libs/widgets/fonts/dfontselect.h: fix coding style cppcheck++
+
+2020-01-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/files/dbinaryiface.cpp,
+	core/libs/widgets/files/dbinarysearch.cpp,
+	core/libs/widgets/files/dfiledialog.cpp,
+	core/libs/widgets/files/dfiledialog.h,
+	core/libs/widgets/files/dfileselector.cpp,
+	core/libs/widgets/files/dfileselector.h,
+	core/libs/widgets/files/filesaveconflictbox.cpp,
+	core/libs/widgets/files/filesaveoptionsbox.cpp: fix coding style
+	cppcheck++
+
+2020-01-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/common/abstractitemdragdrophandler.cpp,
+	core/libs/widgets/common/abstractitemdragdrophandler.h,
+	core/libs/widgets/common/dragdropimplementations.cpp,
+	core/libs/widgets/common/dragdropimplementations.h,
+	core/libs/widgets/common/modelcompleter.cpp,
+	core/libs/widgets/common/modelcompleter.h,
+	core/libs/widgets/common/searchtextbar.cpp,
+	core/libs/widgets/common/searchtextbar.h: fix coding style
+	cppcheck++
+
+2020-01-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/combo/comboboxutilities.cpp,
+	core/libs/widgets/combo/comboboxutilities.h,
+	core/libs/widgets/combo/dcombobox.cpp,
+	core/libs/widgets/combo/dcombobox.h,
+	core/libs/widgets/combo/squeezedcombobox.cpp,
+	core/libs/widgets/combo/squeezedcombobox.h,
+	core/libs/widgets/combo/timezonecombobox.cpp: fix coding style
+	cppcheck++
+
+2020-01-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/colors/colorgradientwidget.cpp,
+	core/libs/widgets/colors/dcolorchoosermode.cpp,
+	core/libs/widgets/colors/dcolorchoosermode_p.h,
+	core/libs/widgets/colors/dcolorselector.h,
+	core/libs/widgets/colors/dcolorvalueselector.cpp,
+	core/libs/widgets/colors/dcolorvalueselector.h,
+	core/libs/widgets/colors/dgradientslider.cpp,
+	core/libs/widgets/colors/dhuesaturationselect.cpp,
+	core/libs/widgets/colors/dhuesaturationselect.h: fix coding style
+	cppcheck++
+
+2020-01-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/wb/wbcontainer.cpp,
+	core/libs/dimg/filters/wb/wbcontainer.h,
+	core/libs/dimg/filters/wb/wbfilter.cpp,
+	core/libs/dimg/filters/wb/wbfilter.h,
+	core/libs/dimg/filters/wb/wbsettings.cpp,
+	core/libs/dimg/filters/wb/wbsettings.h: fix coding style cppcheck++
+
+
+2020-01-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/transform/autocrop.cpp,
+	core/libs/dimg/filters/transform/autocrop.h,
+	core/libs/dimg/filters/transform/contentawarefilter.cpp,
+	core/libs/dimg/filters/transform/contentawarefilter.h,
+	core/libs/dimg/filters/transform/freerotationfilter.cpp,
+	core/libs/dimg/filters/transform/freerotationfilter.h,
+	core/libs/dimg/filters/transform/freerotationsettings.cpp,
+	core/libs/dimg/filters/transform/freerotationsettings.h,
+	core/libs/dimg/filters/transform/shearfilter.cpp,
+	core/libs/dimg/filters/transform/shearfilter.h: fix coding style
+	cppcheck++
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/cb/cbfilter.cpp,
+	core/libs/dimg/filters/cb/cbfilter.h,
+	core/libs/dimg/filters/curves/curvesbox.h,
+	core/libs/dimg/filters/curves/curvescontainer.cpp,
+	core/libs/dimg/filters/curves/curvescontainer.h,
+	core/libs/dimg/filters/curves/curvesfilter.cpp,
+	core/libs/dimg/filters/curves/curvesfilter.h,
+	core/libs/dimg/filters/curves/curvessettings.cpp,
+	core/libs/dimg/filters/curves/curvessettings.h,
+	core/libs/dimg/filters/curves/curveswidget.cpp,
+	core/libs/dimg/filters/curves/curveswidget.h,
+	core/libs/dimg/filters/curves/imagecurves.cpp,
+	core/libs/dimg/filters/curves/imagecurves.h: fix coding style
+	cppcheck++
+
+2020-01-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* bootstrap.macports: qtwebengine is turned on by default under
+	MacOS
+
+2020-01-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/lens/lensdistortionfilter.cpp,
+	core/libs/dimg/filters/redeye/redeyecorrectioncontainer.h,
+	core/libs/dimg/filters/redeye/redeyecorrectionfilter.cpp,
+	core/libs/dimg/filters/redeye/redeyecorrectionfilter.h,
+	core/libs/dimg/filters/redeye/redeyecorrectionsettings.cpp,
+	core/libs/dimg/filters/redeye/redeyecorrectionsettings.h,
+	core/libs/dimg/filters/sharp/refocusfilter.cpp,
+	core/libs/dimg/filters/sharp/refocusfilter.h,
+	core/libs/dimg/filters/sharp/refocusmatrix.cpp,
+	core/libs/dimg/filters/sharp/refocusmatrix.h,
+	core/libs/dimg/filters/sharp/sharpenfilter.cpp,
+	core/libs/dimg/filters/sharp/sharpenfilter.h,
+	core/libs/dimg/filters/sharp/sharpsettings.cpp,
+	core/libs/dimg/filters/sharp/sharpsettings.h,
+	core/libs/dimg/filters/sharp/unsharpmaskfilter.cpp,
+	core/libs/dimg/filters/sharp/unsharpmaskfilter.h: fix coding style
+	cppcheck++
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/nr/nrestimate.cpp,
+	core/libs/dimg/filters/nr/nrestimate.h,
+	core/libs/dimg/filters/nr/nrfilter.cpp,
+	core/libs/dimg/filters/nr/nrfilter.h,
+	core/libs/dimg/filters/nr/nrsettings.cpp,
+	core/libs/dimg/filters/nr/nrsettings.h: fix coding style cppcheck++
+
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/levels/histogrambox.cpp,
+	core/libs/dimg/filters/levels/histogrambox.h,
+	core/libs/dimg/filters/levels/histogrampainter.cpp,
+	core/libs/dimg/filters/levels/histogramwidget.cpp,
+	core/libs/dimg/filters/levels/histogramwidget.h,
+	core/libs/dimg/filters/levels/imagehistogram.cpp,
+	core/libs/dimg/filters/levels/imagehistogram.h,
+	core/libs/dimg/filters/levels/imagelevels.cpp,
+	core/libs/dimg/filters/levels/imagelevels.h,
+	core/libs/dimg/filters/levels/levelsfilter.cpp: fix conding style
+	cppcheck++
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/lens/antivignettingfilter.cpp,
+	core/libs/dimg/filters/lens/antivignettingfilter.h,
+	core/libs/dimg/filters/lens/antivignettingsettings.cpp,
+	core/libs/dimg/filters/lens/antivignettingsettings.h,
+	core/libs/dimg/filters/lens/lensdistortionfilter.cpp,
+	core/libs/dimg/filters/lens/lensdistortionfilter.h,
+	core/libs/dimg/filters/lens/lensdistortionpixelaccess.cpp,
+	core/libs/dimg/filters/lens/lensdistortionpixelaccess.h,
+	core/libs/dimg/filters/lens/lensfuncameraselector.cpp,
+	core/libs/dimg/filters/lens/lensfuncameraselector.h,
+	core/libs/dimg/filters/lens/lensfunfilter.cpp,
+	core/libs/dimg/filters/lens/lensfunfilter.h,
+	core/libs/dimg/filters/lens/lensfuniface.cpp: fix coding style
+	cppcheck++
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/libs/dimg/filters/lc/localcontrastcontainer.cpp,
+	core/libs/dimg/filters/lc/localcontrastfilter.cpp,
+	core/libs/dimg/filters/lc/localcontrastfilter.h,
+	core/libs/dimg/filters/lc/localcontrastsettings.cpp,
+	core/libs/dimg/filters/lc/localcontrastsettings.h: fix coding style
+	cppcheck++
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/imgqsort/imagequalitycontainer.cpp,
+	core/libs/dimg/filters/imgqsort/imagequalitycontainer.h,
+	core/libs/dimg/filters/imgqsort/imagequalityparser.cpp,
+	core/libs/dimg/filters/imgqsort/imagequalityparser.h,
+	core/libs/dimg/filters/imgqsort/imagequalityparser_blur.cpp,
+	core/libs/dimg/filters/imgqsort/imagequalityparser_compression.cpp,
+	core/libs/dimg/filters/imgqsort/imagequalityparser_noise.cpp,
+	core/libs/dimg/filters/imgqsort/imagequalityparser_p.h: fix coding
+	style cppcheck++
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/detectnonasciifiles.sh: new script to detect non
+	ascii encoded source code files
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/dimgbuiltinfilter.cpp: polish
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/containers/iteminfo_p.h: krazy++
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/greycstoration/greycstorationfilter.cpp,
+	core/libs/dimg/filters/greycstoration/greycstorationfilter.h,
+	core/libs/dimg/filters/greycstoration/greycstorationsettings.cpp,
+	core/libs/dimg/filters/hsl/hslfilter.cpp,
+	core/libs/dimg/filters/hsl/hslfilter.h,
+	core/libs/dimg/filters/hsl/hslsettings.cpp,
+	core/libs/dimg/filters/hsl/hslsettings.h,
+	core/libs/dimg/filters/hsl/hspreviewwidget.h,
+	core/libs/dimg/filters/icc/digikam-lcms.cpp,
+	core/libs/dimg/filters/icc/digikam-lcms.h,
+	core/libs/dimg/filters/icc/iccmanager.h,
+	core/libs/dimg/filters/icc/iccprofile.cpp,
+	core/libs/dimg/filters/icc/iccprofile.h,
+	core/libs/dimg/filters/icc/iccsettings.cpp,
+	core/libs/dimg/filters/icc/iccsettings.h,
+	core/libs/dimg/filters/icc/iccsettingscontainer.cpp,
+	core/libs/dimg/filters/icc/iccsettingscontainer.h,
+	core/libs/dimg/filters/icc/icctransform.cpp,
+	core/libs/dimg/filters/icc/icctransform.h,
+	core/libs/dimg/filters/icc/icctransformfilter.cpp,
+	core/libs/dimg/filters/icc/icctransformfilter.h: fix coding style
+	cppcheck++
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/fx/blurfilter.cpp,
+	core/libs/dimg/filters/fx/blurfilter.h,
+	core/libs/dimg/filters/fx/blurfxfilter.cpp,
+	core/libs/dimg/filters/fx/blurfxfilter.h,
+	core/libs/dimg/filters/fx/charcoalfilter.cpp,
+	core/libs/dimg/filters/fx/charcoalfilter.h,
+	core/libs/dimg/filters/fx/colorfxfilter.h,
+	core/libs/dimg/filters/fx/colorfxsettings.cpp,
+	core/libs/dimg/filters/fx/colorfxsettings.h,
+	core/libs/dimg/filters/fx/distortionfxfilter.cpp,
+	core/libs/dimg/filters/fx/distortionfxfilter.h,
+	core/libs/dimg/filters/fx/embossfilter.cpp,
+	core/libs/dimg/filters/fx/embossfilter.h,
+	core/libs/dimg/filters/fx/filmgrainfilter.cpp,
+	core/libs/dimg/filters/fx/filmgrainfilter.h,
+	core/libs/dimg/filters/fx/filmgrainsettings.cpp,
+	core/libs/dimg/filters/fx/filmgrainsettings.h,
+	core/libs/dimg/filters/fx/invertfilter.cpp,
+	core/libs/dimg/filters/fx/invertfilter.h,
+	core/libs/dimg/filters/fx/oilpaintfilter.cpp,
+	core/libs/dimg/filters/fx/oilpaintfilter.h,
+	core/libs/dimg/filters/fx/raindropfilter.cpp,
+	core/libs/dimg/filters/fx/raindropfilter.h: fix coding style
+	cppcheck++
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/film/filmfilter.cpp,
+	core/libs/dimg/filters/film/filmfilter.h,
+	core/libs/dimg/filters/film/filmfilter_p.h: fix coding style
+	cppcheck++
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/decorate/borderfilter.cpp,
+	core/libs/dimg/filters/decorate/borderfilter.h,
+	core/libs/dimg/filters/decorate/bordersettings.h,
+	core/libs/dimg/filters/decorate/texturefilter.cpp,
+	core/libs/dimg/filters/decorate/texturefilter.h,
+	project/bundles/mxe/config.sh: fix coding style cppcheck++
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/DigikamExportAPI.cmake: fix install paths
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/03-build-digikam.sh: fix config for qmake
+	detection
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/03-build-digikam.sh: fix PATH for qmake
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh,
+	project/bundles/macports/config.sh: qtwebengine resources file are
+	already incuded in framework component
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/bw/bwsepiafilter.cpp,
+	core/libs/dimg/filters/bw/bwsepiafilter.h,
+	core/libs/dimg/filters/bw/bwsepiasettings.cpp,
+	core/libs/dimg/filters/bw/bwsepiasettings.h,
+	core/libs/dimg/filters/bw/infraredfilter.cpp,
+	core/libs/dimg/filters/bw/infraredfilter.h,
+	core/libs/dimg/filters/bw/mixerfilter.cpp,
+	core/libs/dimg/filters/bw/mixerfilter.h,
+	core/libs/dimg/filters/bw/mixersettings.cpp,
+	core/libs/dimg/filters/bw/mixersettings.h,
+	core/libs/dimg/filters/bw/tonalityfilter.cpp,
+	core/libs/dimg/filters/bw/tonalityfilter.h,
+	core/libs/dimg/filters/dpixelsaliasfilter.cpp: fix coding style
+	cppcheck++
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/CMakeLists.txt, core/libs/dimg/{ =>
+	color}/dcolor.cpp, core/libs/dimg/{ => color}/dcolor.h,
+	core/libs/dimg/{ => color}/dcolorblend.h, core/libs/dimg/{ =>
+	color}/dcolorcomposer.cpp, core/libs/dimg/{ =>
+	color}/dcolorcomposer.h, core/libs/dimg/{ =>
+	color}/dcolorpixelaccess.h, core/libs/dimg/filters/README,
+	core/libs/dimg/{ => filters/raw}/drawdecoding.cpp, core/libs/dimg/{
+	=> filters/raw}/drawdecoding.h, core/libs/dimg/filters/{ =>
+	raw}/rawprocessingfilter.cpp, core/libs/dimg/filters/{ =>
+	raw}/rawprocessingfilter.h: dimg::raw => ./filters/raw dcolor =>
+	./color
+
+2020-01-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qtav/CMakeLists.txt,
+	project/bundles/appimage/01-build-host.sh,
+	project/bundles/appimage/03-build-digikam.sh,
+	project/bundles/macports/01-build-macports.sh,
+	project/bundles/macports/03-build-digikam.sh,
+	project/bundles/mxe/01-build-mxe.sh,
+	project/bundles/mxe/03-build-digikam.sh: build qtav from master at
+	digiKam bundle updates, as it contains important fixes CCBUGS:
+	382582, 414572, 386522
+
+2020-01-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/dplugins/generic/webservices/google/gswindow.cpp: 
+	disable interaction with the image list BUGS: 416120 FIXED-IN: 7.0.0
+
+
+2020-01-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/auto/autoexpofilter.h,
+	core/libs/dimg/filters/auto/autolevelsfilter.cpp,
+	core/libs/dimg/filters/auto/autolevelsfilter.h,
+	core/libs/dimg/filters/auto/equalizefilter.cpp,
+	core/libs/dimg/filters/auto/equalizefilter.h,
+	core/libs/dimg/filters/auto/normalizefilter.cpp,
+	core/libs/dimg/filters/auto/normalizefilter.h,
+	core/libs/dimg/filters/auto/stretchfilter.cpp,
+	core/libs/dimg/filters/auto/stretchfilter.h,
+	core/libs/dimg/filters/bcg/bcgcontainer.h,
+	core/libs/dimg/filters/bcg/bcgfilter.cpp,
+	core/libs/dimg/filters/bcg/bcgfilter.h,
+	core/libs/dimg/filters/bcg/bcgsettings.cpp,
+	core/libs/dimg/filters/bcg/bcgsettings.h,
+	project/bundles/mxe/config.sh: fix coding style cppcheck++
+
+2020-01-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/transitionmngr/effectmngr_p.h: fix order
+
+2020-01-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dialogs/webbrowserdlg.cpp: fix compile with QWebEngine
+
+2020-01-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/dimgbuiltinfilter.cpp,
+	core/libs/dimg/filters/dimgbuiltinfilter.h,
+	core/libs/dimg/filters/dimgfiltergenerator.h,
+	core/libs/dimg/filters/dimgfiltermanager.cpp,
+	core/libs/dimg/filters/dimgfiltermanager.h,
+	core/libs/dimg/filters/dimgthreadedanalyser.h,
+	core/libs/dimg/filters/dimgthreadedfilter.cpp,
+	core/libs/dimg/filters/dimgthreadedfilter.h,
+	core/libs/dimg/filters/dpixelsaliasfilter.cpp,
+	core/libs/dimg/filters/filteractionfilter.cpp,
+	core/libs/dimg/filters/filteractionfilter.h,
+	core/libs/dimg/filters/randomnumbergenerator.cpp,
+	core/libs/dimg/filters/rawprocessingfilter.cpp,
+	core/libs/dimg/filters/rawprocessingfilter.h: fix coding style
+	cppcheck++
+
+2020-01-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dplugins/CMakeLists.txt: disable compile WebWidget
+
+2020-01-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/facebook/fbtalker.cpp,
+	core/dplugins/generic/webservices/facebook/fbtalker.h,
+	core/dplugins/generic/webservices/flickr/flickrtalker.cpp,
+	core/dplugins/generic/webservices/onedrive/odtalker.cpp,
+	core/dplugins/generic/webservices/pinterest/ptalker.cpp: port
+	inactive Facebook plugin to the WebBrowserDlg
+
+2020-01-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/tests/dialogs/browser.cpp: fix compile test
+
+2020-01-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/flickr/flickrtalker.cpp,
+	core/dplugins/generic/webservices/onedrive/odtalker.cpp,
+	core/dplugins/generic/webservices/pinterest/ptalker.cpp,
+	core/libs/dialogs/webbrowserdlg.cpp,
+	core/libs/dialogs/webbrowserdlg.h: port active web plugins to the
+	WebBrowserDlg fix Flickr login problem, QWebView requires
+	QWebSettings::LocalStorageEnabled
+
+2020-01-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/data/geolocation/geoiface/backend-googlemaps.html: use https
+	for google maps
+
+2020-01-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/loaders/dimgloader.cpp,
+	core/libs/dimg/loaders/dimgloader.h,
+	core/libs/dimg/loaders/heifsettings.cpp,
+	core/libs/dimg/loaders/heifsettings.h,
+	core/libs/dimg/loaders/jp2ksettings.cpp,
+	core/libs/dimg/loaders/jp2ksettings.h,
+	core/libs/dimg/loaders/jpegsettings.cpp,
+	core/libs/dimg/loaders/pgfsettings.cpp,
+	core/libs/dimg/loaders/pgfsettings.h,
+	core/libs/dimg/loaders/pngsettings.cpp,
+	core/libs/dimg/loaders/tiffsettings.cpp: fix coding style cppcheck++
+
+
+2020-01-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/history/dimagehistory.cpp,
+	core/libs/dimg/history/dimagehistory.h,
+	core/libs/dimg/history/filteraction.cpp,
+	core/libs/dimg/history/filteraction.h,
+	core/libs/dimg/history/historyimageid.cpp,
+	core/libs/dimg/history/historyimageid.h,
+	project/bundles/mxe/config.sh: fix coding style cppcheck++
+
+2020-01-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh,
+	project/bundles/macports/02-build-extralibs.sh,
+	project/bundles/macports/03-build-digikam.sh,
+	project/bundles/macports/04-build-installer.sh,
+	project/bundles/macports/config.sh: add QtWebEngine support
+
+2020-01-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qtwebkit/CMakeLists.txt: next stage
+	to try to fix linking under MacOS. Factoring
+
+2020-01-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/dimg.cpp, core/libs/dimg/dimg_bitsops.cpp,
+	core/libs/dimg/dimg_colors.cpp, core/libs/dimg/dimg_copy.cpp,
+	core/libs/dimg/dimg_data.cpp, core/libs/dimg/dimg_fileio.cpp,
+	core/libs/dimg/dimg_metadata.cpp, core/libs/dimg/dimg_props.cpp,
+	core/libs/dimg/dimg_qimage.cpp, core/libs/dimg/dimg_qpixmap.cpp,
+	core/libs/dimg/dimg_scale.cpp, core/libs/dimg/dimg_transform.cpp,
+	project/bundles/mxe/config.sh: fix coding style cppcheck++
+
+2020-01-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/dcolor.cpp, core/libs/dimg/dcolor.h,
+	core/libs/dimg/dcolorblend.h, core/libs/dimg/dimg.h,
+	core/libs/dimg/dimg_p.h: fix coding style cppcheck++
+
+2020-01-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/dshareddata.h: this class do not be used in the
+	future. Mark as deprecated. QSharedData must be used instead
+
+2020-01-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/dcolorcomposer.cpp,
+	core/libs/dimg/dcolorcomposer.h,
+	core/libs/dimg/dcolorpixelaccess.h,
+	core/libs/dimg/drawdecoding.cpp, core/libs/dimg/drawdecoding.h,
+	core/libs/dimg/dshareddata.h, core/libs/dimg/exposurecontainer.h: 
+	fix codingstyle cppcheck++
+
+2020-01-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/history/itempropertieshistorytab.cpp,
+	core/libs/properties/itempropertiessidebar.cpp: cppcheck++
+
+2020-01-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dplugins/widgets/ditemslist.cpp: fix order
+
+2020-01-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dplugins/widgets/ditemslist.cpp: fix order
+
+2020-01-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: polish
+
+2020-01-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: Install QtWebKit
+	run time process to handle web browser request with AppImage.
+	CCBUGS: 413196 CCBUGS: 413855 CCBUGS: 397856
+
+2020-01-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/04-build-installer.sh: QtWebKit under Windows
+	provide now 3 binrary used in background as gateway when browser is
+	used in client application. Without these binaries, logging to cloud
+	services cannot work as expected CCBUGS: 386141 CCBUGS: 401389
+
+2020-01-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg.h, core/libs/dimg/dimg_metadata.cpp: fix
+	compile
+
+2020-01-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg.h, core/libs/dimg/dimg_metadata.cpp: try to
+	fix the crash in getUniqueHashV2() CCBUGS: 415685
+
+2020-01-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: polish
+
+2020-01-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/maintenance/facesdetector.cpp: polish
+
+2020-01-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/libs/facesengine/recognition/recognitiondatabase_training.cpp: 
+	clear only DNN
+
+2020-01-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp,
+	core/libs/database/coredb/coredb.h,
+	core/utilities/maintenance/facesdetector.cpp: faster image selection
+	for face training mode
+
+2020-01-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/maintenance/facesdetector.cpp,
+	core/utilities/maintenance/facesdetector.h: create ItemInfos in the
+	thread from Ids
+
+2020-01-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/maintenance/facesdetector.cpp: call slotDone() if
+	item list empty
+
+2020-01-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescanwidget.cpp: disable
+	album selector if face recognition selected
+
+2020-01-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/utilities/facemanagement/widgets/facescanwidget.cpp,
+	core/utilities/maintenance/facesdetector.cpp: fix wrong item
+	selection for face recognition BUGS: 416018 BUGS: 416028 CCBUGS:
+	415782 CCBUGS: 415867 CCBUGS: 415895
+
+2020-01-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: typo
+
+2020-01-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/iface/dmetainfoiface.cpp,
+	core/libs/dplugins/setup/dpluginloader.cpp,
+	core/libs/dplugins/setup/dpluginloader_p.cpp,
+	core/libs/dplugins/setup/dpluginloader_p.h,
+	core/libs/dplugins/setup/dpluginsetup.cpp,
+	core/libs/dplugins/webservices/wscomboboxdelegate.cpp,
+	core/libs/dplugins/webservices/wscomboboxintermediate.cpp,
+	core/libs/dplugins/webservices/wsnewalbumdialog.cpp,
+	core/libs/dplugins/webservices/wsselectuserdlg.cpp,
+	core/libs/dplugins/webservices/wssettings.cpp,
+	core/libs/dplugins/webservices/wssettingswidget.cpp,
+	core/libs/dplugins/webservices/wstooldialog.cpp,
+	core/libs/dplugins/widgets/ditemslist.cpp,
+	core/libs/dplugins/widgets/dplugindialog.cpp,
+	core/libs/dplugins/widgets/dpreviewimage.cpp,
+	core/libs/dplugins/widgets/dpreviewimage.h,
+	core/libs/dplugins/widgets/dpreviewmanager.cpp,
+	core/libs/dplugins/widgets/dsavesettingswidget.cpp,
+	core/libs/dplugins/widgets/dsavesettingswidget.h,
+	core/libs/dplugins/widgets/dwizarddlg.cpp,
+	core/libs/dplugins/widgets/dwizardpage.cpp,
+	core/libs/dplugins/widgets/dwizardpage.h: fix coding style
+	cppcheck++
+
+2020-01-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	project/bundles/3rdparty/ext_qtwebkit/qtwebkit-fixrpath-macports.pa
+	tch: add patch for macports
+
+2020-01-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qtwebkit/CMakeLists.txt,
+	project/bundles/3rdparty/ext_qtwebkit/{qtwebkit-fixdeps.patch =>
+	qtwebkit-fixdeps-linux.patch}: separate linux and macos rules
+
+2020-01-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: cleanup
+
+2020-01-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/03-build-digikam.sh: move gmicqt plugin
+	to the right target directory under MacOS BUGS:414115 FIXED-IN:7.0.0
+
+
+2020-01-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescanwidget.cpp: disable
+	"Clear unconfirmed results and rescan" option Because face detection
+	and recognition are currently deactivated CCBUGS: 416018
+
+2020-01-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh: disable temporary
+	this links creation
+
+2020-01-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qtwebkit/CMakeLists.txt: install
+	Qtwebkit in Qt install dir
+
+2020-01-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/facesengine/facedb/facedb_dnn.cpp: leave the last 100
+	face matrices in the db for a test CCBUGS: 415782
+
+2020-01-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/itempropertiestab.cpp: optimize image
+	properties layout : now prop.item name and value are not centered,
+	with a prior to the value string. Name use an adjustable label to be
+	reduced
+
+2020-01-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/CMakeLists.txt,
+	core/libs/properties/itempropertiestxtlabel.cpp,
+	core/libs/properties/itempropertiestxtlabel.h: separate def and impl
+
+
+2020-01-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/transitionmngr/transitionmngr_p_squares.cpp,
+	core/libs/transitionmngr/transitionmngr_p_swap.cpp: fix broken
+	compilation
+
+2020-01-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threads/actionthreadbase.cpp,
+	core/libs/threads/actionthreadbase.h,
+	core/libs/threads/dynamicthread.cpp,
+	core/libs/threads/dynamicthread.h,
+	core/libs/threads/parallelworkers.h,
+	core/libs/threads/threadmanager.cpp,
+	core/libs/threads/workerobject.cpp,
+	core/libs/threads/workerobject.h: fix coding style cppcheck++
+
+2020-01-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/timeadjust/clockphotodialog.cpp,
+	core/libs/timeadjust/clockphotodialog.h,
+	core/libs/timeadjust/detbyclockphotobutton.cpp,
+	core/libs/timeadjust/detbyclockphotobutton.h,
+	core/libs/timeadjust/timeadjustcontainer.cpp,
+	core/libs/timeadjust/timeadjustcontainer.h,
+	core/libs/timeadjust/timeadjustsettings.cpp: fix coding style
+	cppcheck++
+
+2020-01-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/transitionmngr/effectmngr.cpp,
+	core/libs/transitionmngr/effectmngr.h,
+	core/libs/transitionmngr/effectmngr_p.cpp,
+	core/libs/transitionmngr/effectmngr_p.h,
+	core/libs/transitionmngr/effectmngr_p_pan.cpp,
+	core/libs/transitionmngr/effectmngr_p_zoom.cpp,
+	core/libs/transitionmngr/effectpreview.cpp,
+	core/libs/transitionmngr/frameutils.h,
+	core/libs/transitionmngr/transitionmngr.cpp,
+	core/libs/transitionmngr/transitionmngr_p.h,
+	core/libs/transitionmngr/transitionmngr_p_abstract.cpp,
+	core/libs/transitionmngr/transitionmngr_p_blur.cpp,
+	core/libs/transitionmngr/transitionmngr_p_lines.cpp,
+	core/libs/transitionmngr/transitionmngr_p_push.cpp,
+	core/libs/transitionmngr/transitionmngr_p_slide.cpp,
+	core/libs/transitionmngr/transitionmngr_p_squares.cpp,
+	core/libs/transitionmngr/transitionmngr_p_swap.cpp,
+	core/libs/transitionmngr/transitionpreview.cpp: fix coding style
+	cppcheck++
+
+2020-01-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/video/manager/vidslidesettings.cpp,
+	core/libs/video/manager/vidslidesettings.h,
+	core/libs/video/manager/vidslidetask.cpp,
+	core/libs/video/player/mediaplayerview.cpp,
+	core/libs/video/player/slidevideo.cpp,
+	core/libs/video/player/slidevideo.h,
+	core/libs/video/player/vidplayerdlg.cpp: fix coding style cppcheck++
+
+
+2020-01-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/data/AppRun: This is a mess: some
+	qWarning(), qInfo(), qCritical() messages are not wrapped in
+	litteral debug spaces as expected and are printed as "unknown". To
+	disable these messages, the right keyword is "default" (it's logic
+	of course!) Now AppImage do not export the huge warning strings from
+	Qt core in log files. ouf... BUGS: 415882 BUGS: 414028 BUGS: 414016
+
+
+2020-01-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/rll.py: directx dxgi.dll must be blacklisted
+	while bundle compilation
+
+2020-01-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: missing bearer Qt
+	plugin to emebed in MacOS package
+
+2020-01-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/01-build-mxe.sh: restore
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: fix Qt 5.14.0
+	directories to bundle
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/01-build-mxe.sh: restore
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_gmicqt/CMakeLists.txt: CImg.h hve
+	been moved to github
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh: 2 other links again
+	for qtwebkit
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh: 2 other links for
+	qtwebkit
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh: With compiled
+	Qt5WebKitWidgets outside macports packages, we need this link to see
+	this component detected by Cmake
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh: Under Macports and
+	Qt5.14.0, we needs xmlpatterns modules
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/mediaserver/CMakeLists.txt: polish
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/mediaserver/CMakeLists.txt: try to fix
+	linking stage under Windows
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/captions/captionedit.cpp,
+	core/libs/properties/captions/captionedit.h,
+	core/libs/properties/captions/disjointmetadata.cpp,
+	core/libs/properties/captions/disjointmetadata.h,
+	core/libs/properties/captions/itemdescedittab.cpp,
+	core/libs/properties/geolocation/itemgpsmodelhelper.cpp,
+	core/libs/properties/geolocation/itemgpsmodelhelper.h,
+	core/libs/properties/geolocation/itempropertiesgpstab.cpp,
+	core/libs/properties/history/itempropertieshistorytab.cpp,
+	core/libs/properties/history/itempropertiesversionstab.cpp,
+	core/libs/properties/history/versionsdelegate.cpp,
+	core/libs/properties/history/versionsdelegate.h,
+	core/libs/properties/history/versionsoverlays.h,
+	core/libs/properties/history/versionstreeview.cpp,
+	core/libs/properties/history/versionstreeview.h,
+	core/libs/properties/import/importitempropertiessidebar.cpp,
+	core/libs/properties/import/importitempropertiestab.cpp,
+	core/libs/properties/itempropertiescolorstab.cpp,
+	core/libs/properties/itempropertiesmetadatatab.cpp,
+	core/libs/properties/itempropertiessidebar.cpp,
+	core/libs/properties/itempropertiessidebardb.cpp,
+	core/libs/properties/itempropertiestab.cpp,
+	core/libs/properties/itempropertiestab.h,
+	project/bundles/mxe/01-build-mxe.sh: fix coding style cppcheck++
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qtav/CMakeLists.txt: We need to
+	switch to QtAV from git/master as Qt 5.14.0 is used everywhere
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/data/AppRun: digiKam AppImage: Drop Qt
+	core debug traces dispatched by Qt Logging categories CCBUGS: 414016
+	CCBUGS: 414028 CCBUGS: 415882
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_opencv/CMakeLists.txt: update to
+	laste opencv 3.4.9
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_opencv/CMakeLists.txt: update to last
+	opencv 3.4.9
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/{config_help-5.13.2.txt =>
+	config_help-5.14.0.txt}: update with 5.14.0
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt: switch AppImage to
+	Qt 5.14.0
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_kf5_frameworks/CMakeLists.txt,
+	project/bundles/3rdparty/ext_kf5_frameworks/kxmlgui-drop-ktextwidge
+	ts.patch: one patch is no more necessary with KF5.65
+
+2020-01-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_kcalcore/CMakeLists.txt,
+	project/bundles/3rdparty/ext_kf5_frameworks/CMakeLists.txt,
+	project/bundles/3rdparty/ext_libksane/CMakeLists.txt,
+	project/bundles/3rdparty/ext_marble/CMakeLists.txt: Switch to last
+	KF5 5.65 and Kapp 19.08.3
+
+2020-01-07  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/simplerounded/simple
+	rounded.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/simpleslides/simples
+	lides.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/vanilla/vanilla.desk
+	top: SVN_SILENT made messages (.desktop file) - always resolve ours
+	In case of conflict in i18n, keep the version of the branch "ours"
+	To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qtav/CMakeLists.txt: Under MacOS, we
+	switch to Qt 5.14, and we need to compile QtAV from git/master, else
+	compilation is broken
+
+2020-01-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS,
+	core/dplugins/generic/metadata/geolocationedit/dialog/geolocationed
+	it.cpp,
+	core/utilities/geolocation/geoiface/bookmark/bookmarknode.cpp,
+	core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp: fix
+	memory leak from BookmarkNodes BUGS: 415944 FIXED-IN: 7.0.0
+
+2020-01-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/geolocation/geoiface/bookmark/bookmarknode.cpp: 
+	revert using QSharedPointer for BookmarkNode CCBUGS: 415944
+
+2020-01-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg.h, core/libs/dimg/dimg_p.h,
+	core/libs/dimg/dimg_transform.cpp: we need the orientation from DImg
+	for later CCBUGS: 372340
+
+2020-01-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/album/manager/albummanager_falbum.cpp,
+	core/libs/album/manager/albummanager_talbum.cpp: show always
+	unconfirmed face count BUGS: 415920 FIXED-IN: 7.0.0
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/versionmanager/CMakeLists.txt,
+	core/libs/versionmanager/versionfileoperation.cpp,
+	core/libs/versionmanager/versionmanager.cpp,
+	core/libs/versionmanager/versionmanagersettings.cpp,
+	core/libs/versionmanager/versionnamingscheme.cpp,
+	core/libs/versionmanager/versionnamingscheme.h: split VersionManager
+	class
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/utils/scan/scancontroller.cpp,
+	core/libs/database/utils/scan/scancontroller.h,
+	core/libs/database/utils/scan/scancontroller_p.cpp,
+	core/libs/database/utils/scan/scancontroller_progress.cpp,
+	core/libs/database/utils/scan/scancontroller_start.cpp,
+	core/libs/database/utils/scan/scancontroller_stop.cpp,
+	core/libs/database/utils/widgets/dbmigrationdlg.cpp,
+	core/libs/database/utils/widgets/dbmigrationdlg.h,
+	core/libs/database/utils/widgets/dbstatdlg.cpp: fix coding style
+	cppcheck++
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/utils/widgets/dbsettingswidget.cpp,
+	core/libs/database/utils/widgets/dbsettingswidget.h,
+	core/libs/database/utils/widgets/dbsettingswidget_p.h: separate
+	private container
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/utils/ifaces/dio.cpp: cleanup
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/CMakeLists.txt,
+	core/libs/database/utils/ifaces/dio.cpp,
+	core/libs/database/utils/ifaces/dio.h,
+	core/libs/database/utils/ifaces/diofinders.cpp,
+	core/libs/database/utils/ifaces/diofinders.h: separates DIO finders
+	classes
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/CMakeLists.txt,
+	core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/containers/iteminfo_properties.cpp: separate
+	ItemInfo Properties
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/CMakeLists.txt,
+	core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/containers/iteminfo.h,
+	core/libs/database/item/containers/iteminfo_geolocation.cpp: 
+	separate ItemInfo Geolocation
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/CMakeLists.txt,
+	core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/containers/iteminfo_history.cpp: separate
+	ItemInfo History
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/CMakeLists.txt,
+	core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/containers/iteminfo.h,
+	core/libs/database/item/containers/iteminfo_groups.cpp: separate
+	ItemInfo Groups
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/CMakeLists.txt,
+	core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/containers/iteminfo_containers.cpp: separate
+	ItemInfo Containers
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/CMakeLists.txt,
+	core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/containers/iteminfo.h,
+	core/libs/database/item/containers/iteminfo_tags.cpp: separate
+	ItemInfo tags
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/CMakeLists.txt,
+	core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/containers/iteminfo_labels.cpp: separate
+	ItemInfo Labels
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/containers/iteminfo_similarity.cpp: file
+	missing
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/CMakeLists.txt,
+	core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/containers/iteminfo.h,
+	core/libs/database/item/containers/iteminfo_p.h: separate ItemInfo
+	similarity
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/CMakeLists.txt,
+	core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/containers/iteminfo.h,
+	core/libs/database/item/containers/iteminfo_thumbnail.cpp: separate
+	ItemInfo thumbnail
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/CMakeLists.txt,
+	core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/containers/iteminfo_p.cpp,
+	core/libs/database/item/containers/iteminfo_p.h: separate private
+	implementation from ItemInfo
+
+2020-01-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/containers/iteminfo.h: prepare to split
+	huge ItemInfo class
+
+2020-01-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/README,
+	project/bundles/macports/01-build-macports.sh,
+	project/bundles/macports/04-build-installer.sh,
+	project/bundles/macports/README, project/bundles/mxe/README: polish
+
+
+2020-01-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/drawdecoderwidget.cpp: cppcheck++
+
+2020-01-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/mainview/dxmlguiwindow.cpp: revert change to
+	fullscreen action
+
+2020-01-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.h,
+	core/libs/rawengine/drawdecoder.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawdecodersettings.cpp,
+	core/libs/rawengine/drawdecodersettings.h,
+	core/libs/rawengine/drawdecoderwidget.cpp,
+	core/libs/rawengine/drawdecoderwidget.h: fix coding style cppcheck++
+
+
+2020-01-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/progressmanager/dhistoryview.cpp,
+	core/libs/progressmanager/dlogoaction.cpp,
+	core/libs/progressmanager/dprogresswdg.cpp,
+	core/libs/progressmanager/dprogresswdg.h,
+	core/libs/progressmanager/dworkingpixmap.cpp,
+	core/libs/progressmanager/overlaywidget.cpp,
+	core/libs/progressmanager/overlaywidget.h,
+	core/libs/progressmanager/progressmanager.cpp,
+	core/libs/progressmanager/progressmanager.h,
+	core/libs/progressmanager/progressview.cpp,
+	core/libs/progressmanager/statusbarprogresswidget.cpp,
+	core/libs/progressmanager/statusprogressbar.cpp,
+	core/libs/progressmanager/statusprogressbar.h,
+	core/libs/progressmanager/workingwidget.cpp: fix coding style
+	cppcheck++
+
+2020-01-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/containers/captionvalues.cpp,
+	core/libs/metadataengine/containers/captionvalues.h,
+	core/libs/metadataengine/containers/metadatainfo.cpp,
+	core/libs/metadataengine/containers/metadatainfo.h,
+	core/libs/metadataengine/containers/photoinfocontainer.cpp,
+	core/libs/metadataengine/containers/photoinfocontainer.h,
+	core/libs/metadataengine/containers/template.cpp,
+	core/libs/metadataengine/containers/template.h,
+	core/libs/metadataengine/containers/videoinfocontainer.cpp,
+	core/libs/metadataengine/containers/videoinfocontainer.h: fix coding
+	style cppcheck++
+
+2020-01-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine.h,
+	core/libs/metadataengine/engine/metaengine_data.cpp,
+	core/libs/metadataengine/engine/metaengine_p.cpp,
+	core/libs/metadataengine/engine/metaengine_p.h: fix coding style
+	cppcheck++
+
+2020-01-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/fileactionmanager/databaseworkeriface.cpp,
+	core/libs/fileactionmanager/databaseworkeriface.h,
+	core/libs/fileactionmanager/fileactionimageinfolist.cpp,
+	core/libs/fileactionmanager/fileactionimageinfolist.h,
+	core/libs/fileactionmanager/fileactionmngr.cpp,
+	core/libs/fileactionmanager/fileactionmngr.h,
+	core/libs/fileactionmanager/fileactionmngr_p.cpp,
+	core/libs/fileactionmanager/fileactionmngr_p.h,
+	core/libs/fileactionmanager/fileworkeriface.cpp,
+	core/libs/fileactionmanager/fileworkeriface.h,
+	core/libs/fileactionmanager/iteminfotasksplitter.cpp,
+	core/libs/fileactionmanager/metadatahub.cpp,
+	core/libs/fileactionmanager/metadatahub.h,
+	core/libs/fileactionmanager/metadatahubmngr.cpp,
+	core/libs/fileactionmanager/metadatastatusbar.cpp,
+	core/libs/iojobs/iojob.cpp, core/libs/iojobs/iojobdata.cpp,
+	core/libs/iojobs/iojobsmanager.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata.h,
+	core/libs/metadataengine/dmetadata/dmetadatasettings.cpp,
+	core/libs/metadataengine/dmetadata/dmetadatasettings.h,
+	core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp,
+	core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.h,
+	core/libs/metadataengine/dmetadata/geodetictools.cpp,
+	core/libs/metadataengine/dmetadata/geodetictools.h: fix coding style
+	cppcheck++
+
+2020-01-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/config.sh: polish
+
+2020-01-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/main.cpp, core/app/utils/digikam_debug.cpp,
+	core/app/utils/digikam_debug.h, core/showfoto/main/main.cpp: Add new
+	static method to customized a force list of debug space at run time
+	if necessary. By default all traces are enabled under Windows, as
+	messages are caugth by an extra application as DebugView Under Linux
+	and MacOS, message are dispatched automatically to the console and
+	can be tune with QT_LOGGING_RULES env. var. CCBUGS: 414028
+
+2020-01-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/data/AppRun: add note to AppImage start
+	script about to enbale all debug traces on the console CCBUGS:
+	414028
+
+2020-01-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/utils/digikam_debug.cpp: log all debug messages as info
+	types by default to not bloat log files under linux system with
+	qt/syslog re-routed categories CCBUGS: 414028
+
+2020-01-05  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/html5responsive/html
+	5responsive.desktop: SVN_SILENT made messages (.desktop file) -
+	always resolve ours  In case of conflict in i18n, keep the version
+	of the branch "ours" To resolve a particular conflict, "git checkout
+	--ours path/to/file.desktop"
+
+2020-01-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/haar/haar.cpp, core/libs/database/haar/haar.h,
+	core/libs/database/haar/haariface.cpp,
+	core/libs/database/haar/haariface_p.cpp,
+	core/libs/dtrash/dtrash.cpp, core/libs/dtrash/dtrashiteminfo.cpp,
+	core/libs/dtrash/dtrashitemmodel.cpp,
+	core/libs/dtrash/dtrashitemmodel.h: fix coding style cppcheck++
+
+2020-01-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/engine/dbenginebackend.cpp: use nullptr
+
+2020-01-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/engine/managedloadsavethread.cpp,
+	core/libs/threadimageio/fileio/loadingcacheinterface.cpp,
+	core/libs/threadimageio/fileio/loadsavethread.cpp: polish and
+	cppcheck++
+
+2020-01-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadingcache.cpp: cppcheck++
+
+2020-01-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp,
+	core/libs/threadimageio/thumb/thumbnailtask.cpp: set m_completed
+	after set result image
+
+2020-01-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/tags/manager/tagpropwidget.cpp: fix reset tag icon
+	BUGS: 415877 FIXED-IN: 7.0.0
+
+2020-01-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp,
+	core/libs/threadimageio/thumb/thumbnailtask.cpp: set used Process
+	before wake up all to null
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/models/albumfiltermodel.cpp,
+	core/libs/models/albumfiltermodel.h: fix coding style cppcheck++
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/tags/facetags.cpp,
+	core/libs/database/tags/facetagseditor.cpp,
+	core/libs/database/tags/facetagseditor.h,
+	core/libs/database/tags/facetagsiface.cpp,
+	core/libs/database/tags/facetagsiface.h,
+	core/libs/database/tags/tagproperties.cpp,
+	core/libs/database/tags/tagproperties.h,
+	core/libs/database/tags/tagregion.cpp,
+	core/libs/database/tags/tagregion.h,
+	core/libs/database/tags/tagscache.cpp,
+	core/libs/database/tags/tagscache.h: fix coding style cppcheck++
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: polish
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/history/itemhistorygraph.cpp,
+	core/libs/database/history/itemhistorygraph.h,
+	core/libs/database/history/itemhistorygraphdata.h,
+	core/libs/database/history/itemhistorygraphmodel.cpp,
+	core/libs/database/history/itemhistorygraphmodel.h: fix coding style
+	cppcheck++
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/server/databaseserver.cpp,
+	core/libs/database/server/databaseserver.h,
+	core/libs/database/server/databaseservererror.cpp: fix coding style
+	cppcheck++
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/models/itemversionsmodel.cpp: compile
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/models/itemfiltersettings.h,
+	core/libs/database/models/itemlistmodel.cpp,
+	core/libs/database/models/itemthumbnailmodel.cpp,
+	core/libs/database/models/itemthumbnailmodel.h,
+	core/libs/database/models/itemversionsmodel.cpp,
+	core/libs/database/models/itemversionsmodel.h: fix coding style
+	cppcheck++
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/models/itemfiltermodel.cpp,
+	core/libs/database/models/itemfiltermodel.h,
+	core/libs/database/models/itemfiltermodel_p.cpp,
+	core/libs/database/models/itemfiltermodel_p.h,
+	core/libs/database/models/itemfiltermodelthreads.cpp,
+	core/libs/database/models/itemfiltermodelthreads.h,
+	core/libs/database/models/itemmodel.cpp: fix coding style cppcheck++
+
+
+2020-01-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_p.h: use recursive QMutex in DImg
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/models/itemfiltersettings.cpp,
+	core/libs/database/models/itemfiltersettings.h,
+	core/libs/database/models/itemmodel.cpp,
+	core/libs/database/models/itemmodel.h,
+	core/libs/database/models/itemsortsettings.cpp,
+	core/libs/database/models/itemsortsettings.h: fix coding style
+	cppcheck++
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/coredb/coredbfields.h,
+	core/libs/database/item/containers/iteminfodata.cpp: polish
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/containers/itemcopyright.cpp,
+	core/libs/database/item/containers/itemcopyright.h,
+	core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/containers/itemposition.cpp,
+	core/libs/database/item/containers/itemtagpair.cpp: cppcheck++
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: add debug trace
+	to print elapsed time to encode as HEIF CCBUGS: 415719
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/scanner/itemscanner.cpp,
+	core/libs/database/item/scanner/itemscanner_baloo.cpp,
+	core/libs/database/item/scanner/itemscanner_database.cpp,
+	core/libs/database/item/scanner/itemscanner_file.cpp,
+	core/libs/database/item/scanner/itemscanner_history.cpp,
+	core/libs/database/item/scanner/itemscanner_p.cpp,
+	core/libs/database/item/scanner/itemscanner_photo.cpp,
+	core/libs/database/item/scanner/itemscanner_video.cpp: fix coding
+	style cppcheck++
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/query/itemquerybuilder.cpp,
+	core/libs/database/item/query/itemquerybuilder_p.cpp: fix coding
+	style cppcheck++
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/lister/itemattributeswatch.cpp,
+	core/libs/database/item/lister/itemattributeswatch.h,
+	core/libs/database/item/lister/itemlister.cpp,
+	core/libs/database/item/lister/itemlister_p.h,
+	core/libs/database/item/lister/itemlisterreceiver.cpp,
+	core/libs/database/item/lister/itemlisterreceiver.h,
+	core/libs/database/item/lister/itemlisterrecord.cpp: fix coding
+	style cppcheck++
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/containers/itemcomments.h,
+	core/libs/database/item/containers/itemcopyright.h,
+	core/libs/database/item/containers/itemextendedproperties.cpp,
+	core/libs/database/item/containers/itemextendedproperties.h,
+	core/libs/database/item/containers/iteminfolist.h,
+	core/libs/database/item/containers/itemposition.h,
+	core/libs/database/item/containers/itemtagpair.h: fix api doc
+
+2020-01-04  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/vanilla/vanilla.desk
+	top: SVN_SILENT made messages (.desktop file) - always resolve ours
+	In case of conflict in i18n, keep the version of the branch "ours"
+	To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/containers/iteminfodata.cpp: cppcheck++
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/CMakeLists.txt,
+	core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/containers/iteminfodata.cpp,
+	core/libs/database/item/containers/iteminfodata.h: separate
+	ItemInfoData from ItemInfo
+
+2020-01-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/containers/iteminfo.h: fix coding style
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/containers/iteminfocache.cpp,
+	core/libs/database/item/containers/iteminfocache.h,
+	core/libs/database/item/containers/iteminfodata.h,
+	core/libs/database/item/containers/iteminfolist.cpp,
+	core/libs/database/item/containers/iteminfolist.h,
+	core/libs/database/item/containers/itemposition.cpp,
+	core/libs/database/item/containers/itemposition.h,
+	core/libs/database/item/containers/itemtagpair.cpp: fix coding style
+	cppcheck++
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/colors/autocorrection/autocorrectionplugin.cpp,
+	core/dplugins/bqm/colors/bcgcorrection/bcgcorrectionplugin.cpp,
+	core/dplugins/bqm/colors/bwconvert/bwconvertplugin.cpp,
+	core/dplugins/bqm/colors/channelmixer/channelmixerplugin.cpp,
+	core/dplugins/bqm/colors/colorbalance/colorbalanceplugin.cpp,
+	core/dplugins/bqm/colors/convert16to8/convert16to8plugin.cpp,
+	core/dplugins/bqm/colors/convert8to16/convert8to16plugin.cpp,
+	core/dplugins/bqm/colors/curvesadjust/curvesadjustplugin.cpp,
+	core/dplugins/bqm/colors/hslcorrection/hslcorrectionplugin.cpp,
+	core/dplugins/bqm/colors/iccconvert/iccconvertplugin.cpp,
+	core/dplugins/bqm/colors/invert/invertplugin.cpp,
+	core/dplugins/bqm/colors/whitebalance/whitebalanceplugin.cpp,
+	core/dplugins/bqm/convert/converttodng/converttodngplugin.cpp,
+	core/dplugins/bqm/convert/converttojp2/converttojp2plugin.cpp,
+	core/dplugins/bqm/convert/converttojpeg/converttojpegplugin.cpp,
+	core/dplugins/bqm/convert/converttopgf/converttopgfplugin.cpp,
+	core/dplugins/bqm/convert/converttopng/converttopngplugin.cpp,
+	core/dplugins/bqm/convert/converttotiff/converttotiffplugin.cpp,
+	core/dplugins/bqm/decorate/border/borderplugin.cpp,
+	core/dplugins/bqm/decorate/watermark/watermarkplugin.cpp,
+	core/dplugins/bqm/enhance/antivignetting/antivignettingplugin.cpp,
+	core/dplugins/bqm/enhance/blur/blurplugin.cpp,
+	core/dplugins/bqm/enhance/lensautofix/lensautofixplugin.cpp,
+	core/dplugins/bqm/enhance/localcontrast/localcontrastplugin.cpp,
+	core/dplugins/bqm/enhance/noisereduction/noisereductionplugin.cpp,
+	core/dplugins/bqm/enhance/restoration/restorationplugin.cpp,
+	core/dplugins/bqm/enhance/sharpen/sharpenplugin.cpp,
+	core/dplugins/bqm/filters/filmgrain/filmgrainplugin.cpp,
+	core/dplugins/bqm/metadata/assigntemplate/assigntemplateplugin.cpp,
+	core/dplugins/bqm/metadata/removemetadata/removemetadataplugin.cpp,
+	core/dplugins/bqm/metadata/timeadjust/timeadjustplugin.cpp,
+	core/dplugins/bqm/transform/crop/cropplugin.cpp,
+	core/dplugins/bqm/transform/flip/flipplugin.cpp,
+	core/dplugins/bqm/transform/resize/resizeplugin.cpp,
+	core/dplugins/bqm/transform/rotate/rotateplugin.cpp,
+	core/dplugins/dimg/heif/dimgheifplugin.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.cpp,
+	core/dplugins/dimg/pgf/dimgpgfplugin.cpp,
+	core/dplugins/dimg/png/dimgpngplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/raw/dimgrawplugin.cpp,
+	core/dplugins/dimg/tiff/dimgtiffplugin.cpp,
+	core/dplugins/editor/colors/adjustcurves/adjustcurvestoolplugin.cpp
+	,
+	core/dplugins/editor/colors/adjustlevels/adjustlevelstoolplugin.cpp
+	,
+	core/dplugins/editor/colors/autocorrection/autocorrectiontoolplugin
+	.cpp, core/dplugins/editor/colors/bcg/bcgtoolplugin.cpp,
+	core/dplugins/editor/colors/bwsepia/bwsepiatoolplugin.cpp,
+	core/dplugins/editor/colors/channelmixer/channelmixertoolplugin.cpp
+	, core/dplugins/editor/colors/colorbalance/cbtoolplugin.cpp,
+	core/dplugins/editor/colors/convert16to8/convert16to8toolplugin.cpp
+	,
+	core/dplugins/editor/colors/convert8to16/convert8to16toolplugin.cpp
+	, core/dplugins/editor/colors/hsl/hsltoolplugin.cpp,
+	core/dplugins/editor/colors/invert/inverttoolplugin.cpp,
+	core/dplugins/editor/colors/profileconversion/profileconversiontool
+	plugin.cpp,
+	core/dplugins/editor/colors/whitebalance/whitebalancetoolplugin.cpp
+	, core/dplugins/editor/decorate/border/bordertoolplugin.cpp,
+	core/dplugins/editor/decorate/inserttext/inserttexttoolplugin.cpp,
+	core/dplugins/editor/decorate/texture/texturetoolplugin.cpp,
+	core/dplugins/editor/enhance/antivignetting/antivignettingtoolplugi
+	n.cpp, core/dplugins/editor/enhance/blur/blurtoolplugin.cpp,
+	core/dplugins/editor/enhance/hotpixels/hotpixelstoolplugin.cpp,
+	core/dplugins/editor/enhance/lensautofix/lensautofixtoolplugin.cpp,
+	core/dplugins/editor/enhance/lensdistortion/lensdistortiontoolplugi
+	n.cpp,
+	core/dplugins/editor/enhance/localcontrast/localcontrasttoolplugin.
+	cpp,
+	core/dplugins/editor/enhance/noisereduction/noisereductiontoolplugi
+	n.cpp, core/dplugins/editor/enhance/redeye/redeyetoolplugin.cpp,
+	core/dplugins/editor/enhance/restoration/restorationtoolplugin.cpp,
+	core/dplugins/editor/enhance/sharpen/sharpentoolplugin.cpp,
+	core/dplugins/editor/file/print/printplugin.cpp,
+	core/dplugins/editor/filters/blurfx/blurfxtoolplugin.cpp,
+	core/dplugins/editor/filters/charcoal/charcoaltoolplugin.cpp,
+	core/dplugins/editor/filters/colorfx/colorfxtoolplugin.cpp,
+	core/dplugins/editor/filters/distortionfx/distortionfxtoolplugin.cp
+	p, core/dplugins/editor/filters/emboss/embosstoolplugin.cpp,
+	core/dplugins/editor/filters/filmgrain/filmgraintoolplugin.cpp,
+	core/dplugins/editor/filters/oilpaint/oilpainttoolplugin.cpp,
+	core/dplugins/editor/filters/raindrop/raindroptoolplugin.cpp,
+	core/dplugins/editor/transform/autocrop/autocroptoolplugin.cpp,
+	core/dplugins/editor/transform/contentawareresize/contentawareresiz
+	etoolplugin.cpp,
+	core/dplugins/editor/transform/freerotation/freerotationtoolplugin.
+	cpp,
+	core/dplugins/editor/transform/perspective/perspectivetoolplugin.cp
+	p,
+	core/dplugins/editor/transform/ratiocrop/ratiocroptoolplugin.cpp,
+	core/dplugins/editor/transform/resize/resizetoolplugin.cpp,
+	core/dplugins/editor/transform/shear/sheartoolplugin.cpp,
+	core/dplugins/generic/import/dscanner/dscannerplugin.cpp,
+	core/dplugins/generic/metadata/geolocationedit/geolocationeditplugi
+	n.cpp,
+	core/dplugins/generic/metadata/metadataedit/metadataeditplugin.cpp,
+	core/dplugins/generic/metadata/timeadjust/timeadjustplugin.cpp,
+	core/dplugins/generic/tools/calendar/calendarplugin.cpp,
+	core/dplugins/generic/tools/expoblending/expoblendingplugin.cpp,
+	core/dplugins/generic/tools/htmlgallery/htmlgalleryplugin.cpp,
+	core/dplugins/generic/tools/jalbum/jalbumplugin.cpp,
+	core/dplugins/generic/tools/mediaserver/mediaserverplugin.cpp,
+	core/dplugins/generic/tools/panorama/panoramaplugin.cpp,
+	core/dplugins/generic/tools/printcreator/printcreatorplugin.cpp,
+	core/dplugins/generic/tools/sendbymail/sendbymailplugin.cpp,
+	core/dplugins/generic/tools/videoslideshow/videoslideshowplugin.cpp
+	, core/dplugins/generic/view/glviewer/glviewerplugin.cpp,
+	core/dplugins/generic/view/presentation/presentationplugin.cpp,
+	core/dplugins/generic/view/slideshow/slideshowplugin.cpp,
+	core/dplugins/generic/webservices/dropbox/dbplugin.cpp,
+	core/dplugins/generic/webservices/facebook/fbplugin.cpp,
+	core/dplugins/generic/webservices/filecopy/fcplugin.cpp,
+	core/dplugins/generic/webservices/filetransfer/ftplugin.cpp,
+	core/dplugins/generic/webservices/flickr/flickrplugin.cpp,
+	core/dplugins/generic/webservices/google/gsplugin.cpp,
+	core/dplugins/generic/webservices/imgur/imgurplugin.cpp,
+	core/dplugins/generic/webservices/mediawiki/mediawikiplugin.cpp,
+	core/dplugins/generic/webservices/piwigo/piwigoplugin.cpp,
+	core/dplugins/generic/webservices/smugmug/smugplugin.cpp,
+	core/dplugins/generic/webservices/unified/unifiedplugin.cpp,
+	core/dplugins/generic/webservices/yandexfotki/yfplugin.cpp,
+	core/dplugins/rawimport/native/rawimportnativeplugin.cpp: fix (c)
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/dragdrop/tagdragdrop.cpp,
+	core/libs/album/manager/albummanager.h,
+	core/libs/tags/engine/taggingactionfactory.cpp,
+	project/bundles/mxe/config.sh: polish
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/overlays/assignnameoverlay.cpp,
+	core/app/items/overlays/groupindicatoroverlay.cpp,
+	core/app/items/overlays/itemcoordinatesoverlay.cpp,
+	core/app/items/overlays/itemfullscreenoverlay.cpp,
+	core/app/items/overlays/itemratingoverlay.cpp,
+	core/app/items/overlays/itemrotationoverlay.cpp,
+	core/app/items/overlays/itemselectionoverlay.cpp: polish
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/views/itemcategorizedview.cpp,
+	core/libs/widgets/itemview/itemdelegateoverlay.cpp: polish
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/libs/widgets/itemview/itemdelegateoverlay.cpp,
+	core/libs/widgets/itemview/itemdelegateoverlay.h: polish
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/overlays/assignnameoverlay.cpp,
+	core/libs/widgets/itemview/itemdelegateoverlay.cpp,
+	core/utilities/facemanagement/widgets/assignnamewidget.cpp,
+	core/utilities/facemanagement/widgets/assignnamewidget_p.cpp,
+	core/utilities/facemanagement/widgets/facescanwidget.cpp: Add tootip
+	over face name editor buttons for better usability. CCBUGS: 366551
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/CMakeLists.txt: switch to 7.0.0-beta2
+
+2020-01-03  Thanh Trung Dinh <thanh-trung.dinh@etu.utc.fr>
+
+	* core/cmake/modules/MacroOpenCV.cmake: Changes in MacroOpenCV cmake
+	module  Hard-coded path to allow cmake to find OpenCV (version built
+	from source) when compiling digiKam
+
+2020-01-03  Thanh Trung Dinh <thanh-trung.dinh@etu.utc.fr>
+
+	* core/libs/facesengine/facedb/facedb_dnn.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/opencvdnnfacerecognize
+	r.cpp, core/utilities/facemanagement/workers/trainerworker.cpp: 
+	Ensure using DNN by default  - (trainerworker.cpp) Change default
+	algorithm used for face recognition to DNN, when reading from
+	kconfiggroup - (facedb_dnn.cpp & opencvdnnfacerecognizer.cpp) Add
+	debug log to console
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescanwidget_p.h,
+	core/utilities/facemanagement/workers/trainerworker.cpp: Rename
+	"Face Detection Dialog" settings group from RC config file as "Face
+	Management Settings". This will force to reset all settings to
+	default, prevent all conflict with previous settings, and will be
+	more explicit as face scan dialog do not exists anymore...
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/jpegutils/iccjpeg.c, core/libs/jpegutils/iccjpeg.h,
+	core/libs/jpegutils/jpegutils.cpp: api doc, polish , and fix coding
+	style
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/jpegutils/jpegutils.cpp: fix CR #1456647 : if source and
+	target file are different with QFile::copy(), always return the
+	boolean value from Qt API
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/models/albummodel.cpp, core/libs/models/albummodel.h: 
+	polish
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/thumbbar/itemthumbnaildelegate_p.h,
+	core/libs/database/coredb/coredbaccess.cpp,
+	core/libs/database/coredb/coredbchecker.cpp,
+	core/libs/database/dbjobs/dbjobinfo.cpp,
+	core/libs/database/engine/dbengineparameters.cpp,
+	core/libs/database/item/containers/itemcomments.cpp,
+	core/libs/database/item/containers/itemcopyright.cpp: fix coding
+	style cppcheck++
+
+2020-01-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/recognition/opencv-dnn/dnndbscan.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/dnnfaceextractor.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/opencvdnnfacerecognize
+	r.cpp,
+	core/libs/facesengine/recognition/opencv-eigenfaces/eigenfacemodel.
+	cpp,
+	core/libs/facesengine/recognition/opencv-eigenfaces/facerec_eigenbo
+	rrowed.cpp,
+	core/libs/facesengine/recognition/opencv-eigenfaces/opencveigenface
+	recognizer.cpp,
+	core/libs/facesengine/recognition/opencv-face/opencv_face.h,
+	core/libs/facesengine/recognition/opencv-fisherfaces/facerec_fisher
+	borrowed.cpp,
+	core/libs/facesengine/recognition/opencv-fisherfaces/fisherfacemode
+	l.cpp,
+	core/libs/facesengine/recognition/opencv-fisherfaces/opencvfisherfa
+	cerecognizer.cpp,
+	core/libs/facesengine/recognition/opencv-lbph/facerec_borrowed.cpp,
+	core/libs/facesengine/recognition/opencv-lbph/lbphfacemodel.cpp,
+	core/libs/facesengine/recognition/opencv-lbph/opencvlbphfacerecogni
+	zer.cpp,
+	core/libs/facesengine/recognition/recognitiondatabase_backend.cpp,
+	core/libs/facesengine/recognition/recognitiondatabase_identity.cpp,
+	core/libs/facesengine/recognition/recognitiondatabase_recognize.cpp: 
+	polish
+
+2020-01-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectorbase.cpp,
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectorssd.cpp,
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectoryolo.h,
+	core/libs/facesengine/detection/opencv-face/opencvfacedetector.cpp,
+	core/libs/facesengine/facedb/facedb.cpp,
+	core/libs/facesengine/facedb/facedb.h,
+	core/libs/facesengine/preprocessing/recognition/openfacepreprocesso
+	r.cpp,
+	core/libs/facesengine/preprocessing/recognition/recognitionpreproce
+	ssor.cpp,
+	core/libs/facesengine/preprocessing/shape-predictor/fullobjectdetec
+	tion.cpp,
+	core/libs/facesengine/preprocessing/shape-predictor/fullobjectdetec
+	tion.h,
+	core/libs/facesengine/preprocessing/shape-predictor/matrixoperation
+	s.cpp,
+	core/libs/facesengine/preprocessing/shape-predictor/pointtransforma
+	ffine.cpp,
+	core/libs/facesengine/preprocessing/shape-predictor/shapepredictor.
+	cpp: polish
+
+2020-01-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/maintenance/maintenancedlg.cpp: use only this
+	variable
+
+2020-01-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/sidebar/peoplesidebarwidget.cpp,
+	core/utilities/facemanagement/widgets/facescanwidget.cpp,
+	core/utilities/facemanagement/widgets/facescanwidget.h,
+	core/utilities/facemanagement/widgets/facescanwidget_p.h,
+	core/utilities/maintenance/maintenancedlg.cpp: move "clear and
+	rebuild training data" to the Maintenance tool CCBUGS: 415557
+
+2020-01-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/items/delegate/itemfacedelegate.cpp,
+	core/utilities/facemanagement/database/faceutils.cpp,
+	core/utilities/facemanagement/database/faceutils.h: change face
+	thumbnail zoom level BUGS: 415796 FIXED-IN: 7.0.0
+
+2020-01-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/utilities/maintenance/maintenancetool.cpp: use the old
+	signal/slot method for Windows BUGS: 415702 FIXED-IN: 7.0.0
+
+2020-01-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-01-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS,
+	core/dplugins/generic/metadata/timeadjust/timeadjustdialog.cpp,
+	core/dplugins/generic/metadata/timeadjust/timeadjustdialog.h: add
+	timer to prevent double button activation BUGS: 415791 FIXED-IN:
+	7.0.0
+
+2020-01-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/engine/album.cpp, core/libs/album/engine/album.h: 
+	fix coding style cppcheck++
+
+2020-01-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/engine/albumthumbnailloader.cpp,
+	core/libs/album/widgets/albumselectcombobox.cpp,
+	core/libs/album/widgets/albumselectdialog.cpp,
+	core/libs/album/widgets/albumselectwidget.cpp: fix coding style
+	cppcheck++
+
+2020-01-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/widgets/albumselectors.cpp,
+	core/libs/album/widgets/albumselectors.h,
+	core/utilities/facemanagement/widgets/facescanwidget.cpp,
+	core/utilities/facemanagement/widgets/facescanwidget.h,
+	core/utilities/facemanagement/widgets/facescanwidget_p.h: People
+	sidebar layout optimization for small screen : host Workflow
+	settings in tab widget as existing "Search in" and "Settings" tabs.
+	CCBUGS;398376
+
+2020-01-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/sidebar/peoplesidebarwidget.cpp,
+	core/utilities/facemanagement/widgets/facescanwidget.cpp: remove
+	icon and text on header of people sidebar to optimize space
+	CCBUGS:398376
+
+2020-01-02  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/simpleslides/simples
+	lides.desktop: SVN_SILENT made messages (.desktop file) - always
+	resolve ours  In case of conflict in i18n, keep the version of the
+	branch "ours" To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2020-01-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/queuemanager/manager/actions.h,
+	core/utilities/queuemanager/manager/actionthread.cpp,
+	core/utilities/queuemanager/manager/batchtool.cpp,
+	core/utilities/queuemanager/manager/batchtool.h: fix coding style
+
+2020-01-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/maintenance/maintenancemngr.cpp,
+	core/utilities/maintenance/metadatasynchronizer.cpp,
+	core/utilities/maintenance/newitemsfinder.cpp,
+	core/utilities/maintenance/newitemsfinder.h,
+	core/utilities/maintenance/thumbsgenerator.cpp,
+	core/utilities/maintenance/thumbsgenerator.h,
+	core/utilities/maintenance/thumbstask.h,
+	core/utilities/queuemanager/main/queuemgrwindow.cpp,
+	core/utilities/queuemanager/main/queuemgrwindow.h,
+	core/utilities/queuemanager/main/queuemgrwindow_p.h: fix coding
+	style cppcheck++
+
+2020-01-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/lighttable/lighttablethumbbar.cpp,
+	core/utilities/lighttable/lighttableview.h,
+	core/utilities/lighttable/lighttablewindow.cpp,
+	core/utilities/maintenance/dbcleaner.cpp,
+	core/utilities/maintenance/duplicatesfinder.cpp,
+	core/utilities/maintenance/fingerprintsgenerator.h,
+	core/utilities/maintenance/fingerprintstask.cpp,
+	core/utilities/maintenance/fingerprintstask.h,
+	core/utilities/maintenance/imagequalitysorter.h,
+	core/utilities/maintenance/imagequalitytask.cpp,
+	core/utilities/maintenance/imagequalitytask.h,
+	core/utilities/maintenance/iteminfojob.cpp,
+	core/utilities/maintenance/maintenancedata.cpp,
+	project/bundles/mxe/config.sh: fix coding style cppcheck++
+
+2020-01-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/sidebar/peoplesidebarwidget.cpp: fix layout
+
+2020-01-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/items/facegroup_p.cpp: cppcheck++
+
+2020-01-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesalbumitem.h,
+	core/utilities/fuzzysearch/findduplicatesview.cpp,
+	core/utilities/fuzzysearch/fuzzysearchview.h,
+	core/utilities/fuzzysearch/sketchwidget.cpp,
+	core/utilities/fuzzysearch/sketchwidget.h: fix coding style
+	cppcheck++
+
+2020-01-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/preview/itempreviewcanvas.cpp,
+	core/app/views/preview/itempreviewcanvas.h,
+	core/app/views/preview/itempreviewview.cpp,
+	core/app/views/preview/itempreviewview.h,
+	core/app/views/stack/mapwidgetview.cpp,
+	core/app/views/stack/mapwidgetview.h,
+	core/app/views/stack/stackedview.cpp,
+	core/app/views/stack/stackedview.h,
+	core/app/views/stack/trashview.cpp,
+	core/app/views/stack/trashview.h,
+	core/app/views/stack/welcomepageview.cpp,
+	core/app/views/stack/welcomepageview.h,
+	core/app/views/utils/dmodelfactory.cpp,
+	core/app/views/utils/slideshowbuilder.cpp,
+	core/app/views/utils/slideshowbuilder.h: fix coding style cppcheck++
+
+
+2020-01-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/fuzzysearch/CMakeLists.txt,
+	core/utilities/fuzzysearch/fuzzysearchview.cpp,
+	core/utilities/fuzzysearch/fuzzysearchview_p.h,
+	core/utilities/fuzzysearch/fuzzysearchview_similar.cpp,
+	core/utilities/fuzzysearch/fuzzysearchview_sketch.cpp: separate
+	fuzzy search view by features
+
+2020-01-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-01-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: fail back to
+	default 8 bits encoding if max byte depth is not valid CCBUGS:
+	415719
+
+2020-01-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/sidebar/peoplesidebarwidget.cpp,
+	core/utilities/facemanagement/widgets/facescanwidget.cpp,
+	core/utilities/facemanagement/widgets/facescanwidget.h: reset
+	retrain all button automatically after run
+
+2020-01-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/settings/applicationsettings.cpp,
+	core/libs/settings/applicationsettings_p.cpp: change the default
+	face accuracy to 0.7
+
+2020-01-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/import/models/importimagemodel.cpp: polish
+
+2020-01-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/import/models/importimagemodel.cpp: polish
+
+2020-01-01  Yuri Chornoivan <yurchor@ukr.net>
+
+	* core/app/views/stack/welcomepageview.cpp: Fix minor typos
+
+2020-01-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/import/items/importcategorydrawer.cpp,
+	core/utilities/import/items/importdelegate.cpp,
+	core/utilities/import/models/importfiltermodel.cpp: polish
+
+2020-01-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/maintenance/maintenancetool.cpp: next try to fix
+	signal/slot in the maintenance tool CCBUGS: 415702
+
+2020-01-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview.h,
+	core/app/views/stack/itemiconview_views.cpp: separate views
+	management methods. Now item icon view is fully splitted
+
+2020-01-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview.h,
+	core/app/views/stack/itemiconview_items.cpp,
+	core/app/views/stack/itemiconview_p.h,
+	core/app/views/stack/itemiconview_sidebars.cpp,
+	core/app/views/stack/itemiconview_zoom.cpp: separate items
+	management methods
+
+2019-12-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview.h,
+	core/app/views/stack/itemiconview_albums.cpp,
+	core/app/views/stack/itemiconview_search.cpp: separate album methods
+
+
+2019-12-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-12-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview_tags.cpp: separate tag methods
+
+2019-12-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview_sidebars.cpp: separate sidebar
+	methods
+
+2019-12-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview.h,
+	core/app/views/stack/itemiconview_search.cpp: separate search
+	methods
+
+2019-12-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview_zoom.cpp: separate zoom methods
+
+2019-12-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/views/stack/itemiconview.cpp,
+	core/libs/album/treeview/albumselectiontreeview.cpp: enable face
+	recognition after detection BUGS: 415603 FIXED-IN: 7.0.0
+
+2019-12-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview_groups.cpp: separate group methods
+
+
+2019-12-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview_slideshow.cpp,
+	core/app/views/stack/itemiconview_tools.cpp: separate slideshow
+	methods
+
+2019-12-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/facesengine/facedb/facedb.h,
+	core/libs/facesengine/facedb/facedb_identity.cpp,
+	core/libs/facesengine/recognition/recognitiondatabase_training.cpp: 
+	clear identities, a clean trainings data rebuild is now possible
+	BUGS: 415566 FIXED-IN: 7.0.0
+
+2019-12-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/server/databaseserver.cpp: change order from
+	the "--defaults-file" option CCBUGS: 379959
+
+2019-12-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview.h: prepare for split by features
+
+2019-12-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/maintenance/maintenancetool.cpp: try with add
+	namespace to ProgressItem CCBUGS: 415702
+
+2019-12-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: use max bit depth
+	returned by x265 API instead to loop over possible value. BUGS:
+	415719 FIXED-IN: 7.0.0
+
+2019-12-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescanwidget.cpp: reset
+	settings conflict, face settings widget is now not new created
+
+2019-12-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview.h,
+	core/app/views/stack/itemiconview_p.h,
+	core/app/views/stack/itemiconview_tools.cpp: split tools from
+	itemiconview
+
+2019-12-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/stack/itemiconview.h: API doc
+
+2019-12-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/digikamapp.h: API doc
+
+2019-12-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/app/views/stack/welcomepageview.cpp: polish
+
+2019-12-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview.h,
+	core/app/views/stack/itemiconview_p.h: first stage to separate this
+	huge class into small part for a better readability/maintenance
+
+2019-12-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamui5.rc,
+	core/libs/widgets/mainview/dxmlguiwindow.cpp,
+	core/utilities/imageeditor/main/imageeditorui5.rc,
+	core/utilities/import/main/importui5.rc,
+	core/utilities/lighttable/lighttablewindowui5.rc,
+	core/utilities/queuemanager/main/queuemgrwindowui5.rc: Revert "next
+	try to fix fullscreen translation" CCBUGS: 415605
+
+2019-12-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamui5.rc,
+	core/libs/widgets/mainview/dxmlguiwindow.cpp,
+	core/utilities/imageeditor/main/imageeditorui5.rc,
+	core/utilities/import/main/importui5.rc,
+	core/utilities/lighttable/lighttablewindowui5.rc,
+	core/utilities/queuemanager/main/queuemgrwindowui5.rc: next try to
+	fix fullscreen translation CCBUGS: 415605
+
+2019-12-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/stack/welcomepageview.cpp: change compared to
+	digiKam 6.x BUGS: 415700 FIXED-IN: 7.0.0
+
+2019-12-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/CMakeLists.txt: try to enable C++11 support for MinGW
+	(untested) CCBUGS: 415702
+
+2019-12-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/engine/managedloadsavethread.cpp: use
+	QList::at()
+
+2019-12-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-12-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/sidebar/peoplesidebarwidget.cpp,
+	core/app/views/sidebar/tagviewsidebarwidget.cpp,
+	core/app/views/sidebar/tagviewsidebarwidget_p.h: do not share
+	private container between tag and people sidebar widget use
+	scrollarea in people view to prevent broken layout with large string
+	translations
+
+2019-12-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/engine/managedloadsavethread.cpp: delete
+	loading task from the todo list CCBUGS: 415643
+
+2019-12-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-29  Simon Frei <freisim93@gmail.com>
+
+	* core/libs/album/treeview/albumselectiontreeview.cpp: Reword scan
+	sub-albums question
+
+2019-12-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/facesengine/facedb/facedb.h,
+	core/libs/facesengine/facedb/facedb_dnn.cpp,
+	core/libs/facesengine/facedb/facedb_eigen.cpp,
+	core/libs/facesengine/facedb/facedb_lbph.cpp,
+	core/libs/facesengine/recognition/recognitiondatabase_recognize.cpp: 
+	implement clear training DNN face matrices
+
+2019-12-29  Simon Frei <freisim93@gmail.com>
+
+	* core/app/views/stack/itemiconview.cpp: missing signal slot
+	connection for people widget error  This is a regression introduced
+	in 8f10dfccf4777db04daa571aa497f3a2ac5f9620
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/sidebar/peoplesidebarwidget.cpp,
+	core/app/views/sidebar/peoplesidebarwidget.h,
+	core/app/views/sidebar/{leftsidebarwidgets.cpp =>
+	tagviewsidebarwidget.cpp},
+	core/app/views/sidebar/{leftsidebarwidgets.h =>
+	tagviewsidebarwidget.h},
+	core/app/views/sidebar/tagviewsidebarwidget_p.h,
+	core/app/views/stack/itemiconview.cpp: Now leftsidebarwidgets is
+	fully splitted
+
+2019-12-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_copy.cpp: fix code edit error
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/sidebar/leftsidebarwidgets.cpp,
+	core/app/views/sidebar/tagviewsidebarwidget_p.h: separate
+	tagviewsidebarwidget private container
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/sidebar/{labelssidebarwidgets.cpp =>
+	labelssidebarwidget.cpp},
+	core/app/views/sidebar/{labelssidebarwidgets.h =>
+	labelssidebarwidget.h},
+	core/app/views/sidebar/leftsidebarwidgets.cpp,
+	core/app/views/sidebar/leftsidebarwidgets.h,
+	core/app/views/stack/itemiconview.cpp: separate labelssidebarwidget
+	than leftsidebarwidgets
+
+2019-12-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_data.cpp: we do not reset width and height
+	after a memory error
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/sidebar/gpssearchsidebarwidget.cpp,
+	core/app/views/sidebar/gpssearchsidebarwidget.h,
+	core/app/views/sidebar/leftsidebarwidgets.cpp,
+	core/app/views/sidebar/leftsidebarwidgets.h,
+	core/app/views/stack/itemiconview.cpp: split gpssearchsidebarwidget
+	from leftsidebarwidgets
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/sidebar/fuzzysearchsidebarwidget.cpp,
+	core/app/views/sidebar/fuzzysearchsidebarwidget.h,
+	core/app/views/sidebar/leftsidebarwidgets.cpp,
+	core/app/views/sidebar/leftsidebarwidgets.h,
+	core/app/views/stack/itemiconview.cpp: split
+	fuzzysearchsidebarwidget from leftsidebarwidgets
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/sidebar/leftsidebarwidgets.cpp,
+	core/app/views/sidebar/leftsidebarwidgets.h,
+	core/app/views/sidebar/searchsidebarwidget.cpp,
+	core/app/views/sidebar/searchsidebarwidget.h,
+	core/app/views/stack/itemiconview.cpp: split searchsidebarwidget
+	from leftsidebarwidgets
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/sidebar/leftsidebarwidgets.cpp,
+	core/app/views/sidebar/leftsidebarwidgets.h,
+	core/app/views/sidebar/timelinesidebarwidget.cpp,
+	core/app/views/sidebar/timelinesidebarwidget.h,
+	core/app/views/stack/itemiconview.cpp: split timelinesidebarwidget
+	from leftsidebarwidgets
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/sidebar/datefolderviewsidebarwidget.cpp,
+	core/app/views/sidebar/datefolderviewsidebarwidget.h: add new files
+
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/sidebar/leftsidebarwidgets.cpp,
+	core/app/views/sidebar/leftsidebarwidgets.h,
+	core/app/views/stack/itemiconview.cpp: split
+	datefolderviewsidebarwidget from leftsidebarwidgets
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/sidebar/labelssidebarwidgets.cpp,
+	core/app/views/sidebar/labelssidebarwidgets.h,
+	core/app/views/stack/itemiconview.cpp: preparing split of left
+	sidebar widgets
+
+2019-12-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/dimgloader.h: use std::nothrow to check of
+	nullptr
+
+2019-12-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_p.h, core/libs/dimg/dimg_scale.cpp: polish
+
+2019-12-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_p.h, core/libs/dimg/dimg_scale.cpp: polish and
+	const
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/sidebar/albumfolderviewsidebarwidget.cpp,
+	core/app/views/sidebar/albumfolderviewsidebarwidget.h,
+	core/app/views/sidebar/leftsidebarwidgets.cpp,
+	core/app/views/sidebar/leftsidebarwidgets.h,
+	core/app/views/stack/itemiconview.cpp: Start to separated all left
+	sidebar widget in dedicated implmentations. First one is
+	AlbumFolderViewSideBarWidget. The rest is more complicated and must
+	do step by step as we have an inbricated puzzle here which break
+	linking stage with libdigikamdatabase. It's very strange, but in all
+	cases it's always a bad ised to group different classes in same
+	implementation as this hide low level problems.
+
+2019-12-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/threads/facepipeline_p.cpp: revert
+	this change, we have compiler warnings
+
+2019-12-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg.h, core/libs/dimg/dimg_bitsops.cpp,
+	core/libs/dimg/dimg_data.cpp: use const
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamGuiTarget.cmake,
+	core/app/views/sidebar/leftsidebarwidgets.cpp,
+	core/app/views/sidebar/leftsidebarwidgets.h,
+	core/app/views/sidebar/sidebarwidget.cpp,
+	core/app/views/sidebar/sidebarwidget.h: polish
+
+2019-12-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/notificationmanager/dnotificationwidget.cpp,
+	core/libs/notificationmanager/dnotificationwidget_p.cpp,
+	core/libs/notificationmanager/dnotificationwidget_p.h: show delay in
+	seconds while timer is running to give a feedback to end user
+
+2019-12-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/maintenance/iteminfoalbumsjob.cpp,
+	core/utilities/maintenance/maintenancedata.cpp,
+	core/utilities/maintenance/maintenancedata.h,
+	core/utilities/maintenance/maintenancedlg.cpp,
+	core/utilities/maintenance/maintenancemngr.cpp,
+	core/utilities/maintenance/maintenancemngr.h,
+	core/utilities/maintenance/maintenancesettings.cpp,
+	core/utilities/maintenance/maintenancethread.h,
+	core/utilities/maintenance/maintenancetool.cpp: polish and cppcheck
+
+
+2019-12-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg.h, core/libs/dimg/dimg_copy.cpp,
+	core/libs/dimg/dimg_p.h, core/libs/dimg/dimg_scale.cpp: remove
+	further static functions in DImg CCBUGS: 415643
+
+2019-12-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/app/views/sidebar/leftsidebarwidgets.cpp: optimize
+	layout
+
+2019-12-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescanwidget.cpp: optimize
+	layout
+
+2019-12-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/lighttable/lighttablewindowui5.rc: fullscreen
+	action has the same button order
+
+2019-12-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/mainview/dxmlguiwindow.cpp: try to fix
+	translation domain from KStandardAction::fullScreen() CCBUGS: 415605
+
+
+2019-12-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/tags/widgets/addtagscombobox.cpp: try with set combobox
+	max view items to 10 CCBUGS: 380336 CCBUGS: 413923
+
+2019-12-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/app/views/stack/welcomepageview.cpp: update Welcome
+	page view
+
+2019-12-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/stack/itemiconview.cpp,
+	core/libs/notificationmanager/dnotificationwidget.cpp,
+	core/libs/notificationmanager/dnotificationwidget.h: Add new option
+	to close automatically the DNotificationWidget. Turn off
+	notification from left sidebar after 15s
+
+2019-12-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/sidebar/leftsidebarwidgets.cpp: use icon-view
+	DNotificationWidget instead DMessageBox for Face Management
+
+2019-12-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-12-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-12-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/sidebar/leftsidebarwidgets.cpp,
+	core/app/views/sidebar/sidebarwidget.h,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview.h,
+	core/libs/notificationmanager/dnotificationwidget.cpp,
+	core/libs/notificationmanager/dnotificationwidget_p.cpp,
+	core/libs/widgets/mainview/sidebar.h,
+	core/utilities/facemanagement/widgets/assignnamewidget_p.cpp,
+	core/utilities/fuzzysearch/fuzzysearchview.cpp,
+	core/utilities/fuzzysearch/fuzzysearchview.h,
+	core/utilities/import/main/importui_p.h: IconView and Left Sidebar
+	notifications:  host a DNotificationWidget over icon-view to popup a
+	non-blocking GUI notification message instead a non modal dialog
+	box. The first left side-bar tab using this notification stream is
+	Similarities Search as this one force user to validate a dialog box
+	at each session of digiKam until Similarities finger-prints are
+	computed. Other left side-bars will use this notification stream
+	later, as Face Management for ex.  Notes:   - the notification
+	widget disapear automatically when user select another left side-bar
+	tab (or if he click on close button of course).  - the message and
+	type are passed as arguments of signal emitted from left side-bar
+	tab.
+
+2019-12-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp,
+	core/libs/database/dbjobs/dbjob.cpp: move the code outside of the
+	CoreDB
+
+2019-12-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/filters/filtersidebarwidget.cpp: use FaceTags
+
+2019-12-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescanwidget.cpp: clear
+	contents margins from face scan widget
+
+2019-12-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/dbjobs/dbjob.cpp,
+	core/libs/tags/engine/tagmodificationhelper.cpp: remove namespace
+
+2019-12-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/coredb/coredb.cpp: fix face tag count to
+	zero BUGS: 415582 FIXED-IN: 7.0.0
+
+2019-12-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/threads/facepipeline_p.cpp,
+	core/utilities/facemanagement/widgets/assignnamewidget.h,
+	core/utilities/facemanagement/widgets/facescanwidget.cpp: polish
+	i18n + cppcheck++
+
+2019-12-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/sidebar/leftsidebarwidgets.cpp,
+	core/app/views/sidebar/leftsidebarwidgets.h,
+	core/utilities/facemanagement/CMakeLists.txt,
+	core/utilities/facemanagement/widgets/{facescandialog.cpp =>
+	facescanwidget.cpp},
+	core/utilities/facemanagement/widgets/{facescandialog.h =>
+	facescanwidget.h},
+	core/utilities/facemanagement/widgets/{facescandialog_p.h =>
+	facescanwidget_p.h}, core/utilities/maintenance/facesdetector.cpp,
+	core/utilities/maintenance/facesdetector.h,
+	core/utilities/maintenance/maintenancetool.cpp,
+	core/utilities/maintenance/maintenancetool.h: Faces Workflow
+	simplication and improvements: remove face scan dialog and embed
+	Face scan settings in People left sidebar. disable settings view
+	while a face job is running. Catch face detector tool
+	complete/cancelled signal to re-enable settings view. By this way,
+	this will prevent to run 2 concurrent face jobs at the same time.
+	CCBUGS: 398376 CCBUGS: 412168 CCBUGS: 380336
+
+2019-12-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/sidebar/leftsidebarwidgets.cpp,
+	core/utilities/facemanagement/widgets/facescandialog.cpp: polish
+
+2019-12-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescandialog.cpp: optimize
+	layout
+
+2019-12-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescandialog.cpp,
+	core/utilities/facemanagement/widgets/facescandialog_p.h: optimize
+	layout
+
+2019-12-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescandialog.cpp: optimize
+	layout stage3
+
+2019-12-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescandialog.cpp,
+	core/utilities/facemanagement/widgets/facescandialog_p.h: add ne
+	preprocessor option here to enable/disable detect and recognize
+	option
+
+2019-12-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescandialog.cpp,
+	core/utilities/facemanagement/widgets/facescandialog.h,
+	core/utilities/facemanagement/widgets/facescandialog_p.h: optimize
+	layout stage2
+
+2019-12-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescandialog.cpp: optimize
+	layout stage1
+
+2019-12-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/assignnamewidget.cpp,
+	core/utilities/facemanagement/widgets/assignnamewidget.h,
+	core/utilities/facemanagement/widgets/assignnamewidget_p.cpp,
+	core/utilities/facemanagement/widgets/facescandialog.cpp,
+	core/utilities/facemanagement/widgets/facescandialog_p.h: Prepare to
+	host face scan dialog contents to People left sidebar, as other left
+	sidebar tab (search, similarity, geolocation, etc... Fix coding
+	style and cppcheck++
+
+2019-12-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescandialog.cpp: fix i18n
+	: remove experimental
+
+2019-12-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS,
+	core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp: 
+	set Exif orientation to normal because DImg was loaded aligned BUGS:
+	415460 FIXED-IN: 7.0.0
+
+2019-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescandialog.cpp: set
+	detection button if we have old config BUGS: 415560 FIXED-IN: 7.0.0
+
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/assignnamewidget.h,
+	core/utilities/facemanagement/widgets/facescandialog.cpp: remove
+	"experimental" from FaceScan dialog. polish API doc
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/dimgloader.h: try to fix crash on preview
+	image CCBUGS: 415489
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-24  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/containers/iteminfocache.cpp,
+	core/libs/database/item/containers/iteminfocache.h: polish
+
+2019-12-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-24  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/containers/iteminfocache.cpp,
+	core/libs/database/item/containers/iteminfocache.h: polish itemInfo
+
+
+2019-12-24  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp,
+	core/libs/database/coredb/coredb.h,
+	core/libs/database/similaritydb/similaritydb.cpp,
+	core/libs/database/similaritydb/similaritydb.h: polish
+
+2019-12-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2019-12-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/filters/filtersidebarwidget.cpp: polish
+
+2019-12-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/filters/filtersidebarwidget.cpp: implement show without
+	face tag filter
+
+2019-12-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/utils/dmodelfactory.cpp: polish
+
+2019-12-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/CMakeLists.txt,
+	core/libs/rawengine/drawdecoder.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/libraw/crlf2lf.sh: polish
+
+2019-12-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/album/treeview/albumtreeview.cpp: this can be removed
+	with the new workaround
+
+2019-12-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/models/albumfiltermodel.cpp: polish
+
+2019-12-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/sidebar/leftsidebarwidgets.cpp,
+	core/libs/database/coredb/coredb.cpp,
+	core/utilities/geolocation/mapsearches/gpssearchview.cpp: polish
+
+2019-12-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/models/albumfiltermodel.cpp: fix sorting order of the
+	saved searches
+
+2019-12-21  Antonio Rojas <arojas@archlinux.org>
+
+	* core/app/main/main.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/showfoto/main/main.cpp, core/tests/dimg/magickloader.cpp: Fix
+	build with Qt 5.14  The 'using namespace Magick;' line causes a
+	conflict between ImageMagick's WarningType and Qt's one with Qt
+	5.14, so move it after the Qt imports.  Differential Revision:
+	https://phabricator.kde.org/D26144
+
+2019-12-21  Antonio Rojas <arojas@archlinux.org>
+
+	*
+	core/libs/facesengine/detection/opencv-face/opencvfacedetector_p.cp
+	p,
+	core/libs/facesengine/detection/opencv-face/opencvfacedetector_p.h: 
+	Fix build with opencv 4.2  Port away from old API which is removed
+	in 4.2  Differential Revision: https://phabricator.kde.org/D26143
+
+2019-12-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* ChangeLog: prepare 7.0.0-beta1
+
 7.0.0-beta1 22/12/2019
 
 2019-12-21  l10n daemon script <scripty@kde.org>
