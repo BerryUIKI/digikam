@@ -36,7 +36,7 @@
 namespace Digikam
 {
 
-class DIGIKAM_EXPORT DPluginConfViewBqm : public DPluginConfView
+class DIGIKAM_GUI_EXPORT DPluginConfViewBqm : public DPluginConfView
 {
     Q_OBJECT
 
