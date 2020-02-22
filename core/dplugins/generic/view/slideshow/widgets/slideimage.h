@@ -35,6 +35,7 @@
 #include "digikam_export.h"
 #include "loadingdescription.h"
 #include "previewsettings.h"
+#include "dimg.h"
 
 using namespace Digikam;
 
