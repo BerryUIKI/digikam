@@ -588,7 +588,20 @@ void DigikamItemView::slotFullscreen(const QList<QModelIndex>& indexes)
    // Just fullscreen the first.
    const ItemInfo& info = infos.at(0);
 
-   emit fullscreenRequested(info);
+   QList<DPluginAction*> actions = DPluginLoader::instance()->pluginActions(QLatin1String("org.kde.digikam.SlideShow"), qApp);
+
+   qDebug() << "DigikamItemView::slotFullscreen triggered";
+
+   if (actions.isEmpty())
+   {
+       qDebug() << "DigikamItemView::slotFullscreen action slideshow is empty";
+       return;
+   }
+
+   //set current image to SlideShow Plugin
+   actions[0]->setData(info.fileUrl());
+
+   actions[0]->trigger();
 }
 
 void DigikamItemView::slotInitProgressIndicator()
