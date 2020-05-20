@@ -289,6 +289,7 @@ void MainWindow::extractFaces(const QImage& img, QImage& imgScaled, const QList<
     {
         QLabel* const label = new QLabel;
         label->setScaledContents(false);
+
         QRect rectDraw      = FaceDetector::toAbsoluteRect(rr, imgScaled.size());
         QRect r             = FaceDetector::toAbsoluteRect(rr, img.size());
         QImage part         = img.copy(r);
