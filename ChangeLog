@@ -1,3 +1,1227 @@
+2020-07-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, bootstrap.tarball: prepare 7.0.0 release
+
+2020-07-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/scanner/itemscanner_photo.cpp: polish
+	debug
+
+2020-07-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/app/views/stack/welcomepageview.cpp,
+	core/app/views/stack/welcomepageview.h: update 7.0.0 welcome page
+	contents. Fix typo in NEWS files, in order to prepare release
+	announcement.
+
+2020-07-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/maintenance/fingerprintstask.cpp: check for empty
+	file path (offline locations)
+
+2020-07-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/common.sh: create parent dir with mkdir
+
+2020-07-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_load.cpp: fix create
+	fingerprints from HEIF image without preview
+
+2020-07-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/maintenance/fingerprintstask.cpp: fix missing icon
+	on Windows
+
+2020-07-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/clangscan.sh: enable qtwebengine with clang scan
+	analyzer
+
+2020-07-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/libs/rawengine/libraw/Changelog.txt,
+	core/libs/rawengine/libraw/internal/libraw_internal_funcs.h,
+	core/libs/rawengine/libraw/libraw/libraw_const.h,
+	core/libs/rawengine/libraw/libraw/libraw_types.h,
+	core/libs/rawengine/libraw/libraw/libraw_version.h,
+	core/libs/rawengine/libraw/src/metadata/canon.cpp,
+	core/libs/rawengine/libraw/src/metadata/ciff.cpp,
+	core/libs/rawengine/libraw/src/metadata/fuji.cpp,
+	core/libs/rawengine/libraw/src/metadata/identify.cpp,
+	core/libs/rawengine/libraw/src/metadata/nikon.cpp,
+	core/libs/rawengine/libraw/src/metadata/pentax.cpp,
+	core/libs/rawengine/libraw/src/metadata/tiff.cpp,
+	core/libs/rawengine/libraw/src/postprocessing/postprocessing_utils_
+	dcrdefs.cpp, core/libs/rawengine/libraw/src/tables/wblists.cpp,
+	core/libs/rawengine/libraw/src/utils/open.cpp,
+	core/libs/rawengine/libraw/src/write/file_write.cpp: update internal
+	Libraw to last 0.20-RC2
+
+2020-07-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fcexportwindow.cpp,
+	core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp: 
+	window size is saved/restored in the base class
+
+2020-07-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libheif.cpp: fix CID
+	#1465268
+
+2020-07-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_load.cpp: fix CID #1465269
+
+
+2020-07-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fcexportwindow.cpp: fix
+	CID #1465266
+
+2020-07-13  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml,
+	core/showfoto/main/org.kde.showfoto.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-07-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/mainview/dactivelabel.cpp,
+	core/libs/widgets/mainview/dactivelabel.h: fix empty file name
+	QWarning message from Qt
+
+2020-07-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/fileactionmanager/metadatahub.cpp: polish
+
+2020-07-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/main.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingintropa
+	ge.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panointropage.cpp,
+	core/dplugins/generic/tools/printcreator/tools/gimpbinary.h,
+	core/dplugins/generic/tools/printcreator/wizard/advprintintropage.c
+	pp,
+	core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp,
+	core/libs/database/utils/widgets/dbsettingswidget.cpp,
+	core/libs/dimg/filters/icc/iccprofile.cpp,
+	core/libs/dimg/filters/icc/iccsettings.cpp,
+	core/libs/dplugins/setup/dpluginloader_p.cpp,
+	core/libs/kmemoryinfo/libstatgrab/kmemoryinfo_backend.cpp,
+	core/libs/settings/applicationsettings.cpp,
+	core/libs/threadimageio/engine/dfileoperations.cpp,
+	core/libs/widgets/files/dbinaryiface.cpp,
+	core/libs/widgets/files/dfiledialog.cpp,
+	core/libs/widgets/itemview/itemviewtooltip.cpp,
+	core/libs/widgets/mainview/dxmlguiwindow.cpp,
+	core/showfoto/main/main.cpp,
+	core/showfoto/main/showfotosettings.cpp,
+	core/utilities/firstrun/welcomepage.cpp,
+	core/utilities/setup/setupicc.cpp: deprecated Q_OS_OSX ==>
+	Q_OS_MACOS
+
+2020-07-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/main.cpp: polish code comment
+
+2020-07-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbcopymanager.cpp: cppcheck++
+
+2020-07-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/main.cpp, project/bundles/appimage/data/AppRun: 
+	disable OpenCL for everyone An analysis with Heaptrack shows that we
+	have a big memory leak with active OpenCL. CCBUGS: 423632 CCBUGS:
+	421043 CCBUGS: 416266 CCBUGS: 420411
+
+2020-07-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp: 
+	polish
+
+2020-07-10  Marcel Mathis <maeseee@gmail.com>
+
+	*
+	core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp,
+	core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.h,
+	core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp: edit
+	formatting
+
+2020-07-07  Marcel Mathis <maeseee@gmail.com>
+
+	*
+	core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp,
+	core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.h: 
+	rename some variables in sendbymail plugin
+
+2020-07-07  Marcel Mathis <maeseee@gmail.com>
+
+	* core/libs/database/item/scanner/itemscanner.h,
+	core/libs/database/item/scanner/itemscanner_photo.cpp: remove an
+	unused function
+
+2020-07-07  Marcel Mathis <maeseee@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp: 
+	rename some variables in file copy plugin
+
+2020-07-11  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml,
+	core/showfoto/main/org.kde.showfoto.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-07-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-07-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbcopymanager.h: use volatile for
+	the stop flag CCBUGS: 383204
+
+2020-07-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbcopymanager.cpp: polish
+
+2020-07-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbcopymanager.cpp,
+	core/libs/database/coredb/coredbcopymanager.h: it is better not to
+	skip the loop CCBUGS: 383204
+
+2020-07-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbcopymanager.cpp: fix logic for
+	stop processing in the for loop CCBUGS: 383204
+
+2020-07-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/slideshow/common/slideshowloader.cpp,
+	core/dplugins/generic/view/slideshow/common/slideshowsettings.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slideosd.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp: fix
+	shuffle mode in the slideshow
+
+2020-07-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-07-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-07-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/data/AppRun: disable opencl runtime
+	support for OpenCV in AppImage CCBUGS: 423632
+
+2020-07-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/utilities/maintenance/maintenancemngr.cpp: update album
+	und tags list after scan for new items BUGS: 423965 FXED-IN: 7.0.0
+
+2020-07-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update release date
+
+2020-07-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fctask.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.h: polish
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fctask.cpp: polish
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/showfoto/thumbbar/showfotothumbnailmodel.cpp: fix crash at
+	end if showFoto loading thumbnails
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailcreator_freedesktop.cpp,
+	core/showfoto/main/showfoto.cpp: fix thumbnail loading from PGF
+	image in showFoto
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fctask.cpp,
+	core/showfoto/main/showfoto.cpp: the HEIF suffix is unknown in older
+	Qt versions
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fcexportwindow.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.cpp: change debug
+
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fctask.cpp: copy the
+	modification time if the image size is changed
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fctask.cpp: restore
+	modification time only when copy file
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fctask.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.h: translated
+	error messages are not required here
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.cpp: shorter code
+	for image scaling
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fctask.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.h: delete the
+	right target file
+
+2020-07-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/CMakeLists.txt,
+	core/libs/metadataengine/dmetadata/dmetadata_fileio.cpp,
+	core/libs/metadataengine/dmetadata/{dmetadata_heif.cpp =>
+	dmetadata_libheif.cpp},
+	core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawfiles.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	Separate well libraw metadata processing. APi doc and fix coding
+	style in raw engine
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp,
+	core/dplugins/generic/webservices/filecopy/fcexportwidget.h,
+	core/dplugins/generic/webservices/filecopy/fcexportwindow.cpp: 
+	polish includes
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp,
+	core/dplugins/generic/webservices/filecopy/fcexportwidget.h,
+	core/dplugins/generic/webservices/filecopy/fcexportwindow.cpp,
+	core/dplugins/generic/webservices/filecopy/fcexportwindow.h,
+	core/dplugins/generic/webservices/filecopy/fcplugin.cpp,
+	core/dplugins/generic/webservices/filecopy/fcplugin.h,
+	core/dplugins/generic/webservices/filecopy/fctask.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.h,
+	core/dplugins/generic/webservices/filecopy/fcthread.cpp,
+	core/dplugins/generic/webservices/filecopy/fcthread.h: update date
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fccontainer.h,
+	core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp,
+	core/dplugins/generic/webservices/filecopy/fcexportwindow.cpp: 
+	polish
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fccontainer.h,
+	core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp,
+	core/dplugins/generic/webservices/filecopy/fcexportwidget.h,
+	core/dplugins/generic/webservices/filecopy/fcexportwindow.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.h,
+	core/dplugins/generic/webservices/filecopy/fcthread.cpp,
+	core/dplugins/generic/webservices/filecopy/fcthread.h: add file copy
+	settings container
+
+2020-07-05  Luigi Toscano <luigi.toscano@tiscali.it>
+
+	* core/app/views/stack/welcomepageview.cpp,
+	core/libs/widgets/mainview/dxmlguiwindow.cpp,
+	project/bundles/macports/installer/releasenotes.html,
+	project/bundles/mxe/data/releasenotes.html: Use the canonical
+	docs.kde.org URLs  Without namespace, which is not needed, and it is
+	going to be removed or at least change.
+
+2020-07-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_heif.cpp: Fix
+	cppcheck warning about hidden declarations
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp: 
+	polish
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp: no
+	row stretch to the image change box
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fctask.cpp: change
+	image properties only for the image mime type
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp,
+	core/dplugins/generic/webservices/filecopy/fcexportwidget.h,
+	core/dplugins/generic/webservices/filecopy/fcexportwindow.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.h,
+	core/dplugins/generic/webservices/filecopy/fcthread.cpp,
+	core/dplugins/generic/webservices/filecopy/fcthread.h: polish
+
+2020-07-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fctask.cpp: fix file
+	extension for images with changed size
+
+2020-07-02  Marcel Mathis <maeseee@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp,
+	core/dplugins/generic/webservices/filecopy/fcexportwidget.h,
+	core/dplugins/generic/webservices/filecopy/fcexportwindow.cpp,
+	core/dplugins/generic/webservices/filecopy/fcsettings.h,
+	core/dplugins/generic/webservices/filecopy/fctask.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.h,
+	core/dplugins/generic/webservices/filecopy/fcthread.cpp,
+	core/dplugins/generic/webservices/filecopy/fcthread.h: Use
+	KSharedConfig for filecopy plugin
+
+2020-07-02  Marcel Mathis <maeseee@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.h: Fix
+	changeImagesProp enabling
+
+2020-06-27  Marcel Mathis <maeseee@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp,
+	core/dplugins/generic/webservices/filecopy/fcexportwidget.h,
+	core/dplugins/generic/webservices/filecopy/fcexportwindow.cpp,
+	core/dplugins/generic/webservices/filecopy/fcplugin.cpp,
+	core/dplugins/generic/webservices/filecopy/fcsettings.h,
+	core/dplugins/generic/webservices/filecopy/fctask.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.h,
+	core/dplugins/generic/webservices/filecopy/fcthread.cpp,
+	core/dplugins/generic/webservices/filecopy/fcthread.h: Add image
+	adjusting options in export plugin to local storage
+
+2020-07-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/items/delegate/itemfacedelegate.cpp,
+	core/app/items/delegate/itemfacedelegate.h: make
+	ItemFaceDelegate::face() static Fixes #7
+
+2020-07-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/editor/editorwindow.cpp,
+	core/utilities/imageeditor/editor/editorwindow_p.h: fix apply
+	quality settings to HEIF image
+
+2020-07-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/album/treeview/albumselectiontreeview.cpp: this terminal
+	action no longer exists
+
+2020-07-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/album/treeview/albumselectiontreeview.cpp: add
+	refresh option to the album root context menu BUGS: 423847 FIXED-IN:
+	7.0.0
+
+2020-07-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/queuemanager/views/queuesettingsview.cpp: change
+	save format order
+
+2020-07-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/heifsettings.cpp: fix value range for HEIF
+	compression
+
+2020-07-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/queuemanager/CMakeLists.txt,
+	core/utilities/queuemanager/manager/queuesettings.cpp,
+	core/utilities/queuemanager/manager/queuesettings.h,
+	core/utilities/queuemanager/views/queuesettingsview.cpp: BQM use now
+	the default IO settings from editor
+
+2020-07-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-06-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/slideshow/widgets/slideosd.cpp: polish
+
+
+2020-06-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/slideshow/widgets/slideosd.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slideosd.h,
+	core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slidetoolbar.h: better
+	update of slideshow settings after changes
+
+2020-06-30  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/blueframes/blueframe
+	s.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/html5responsive/html
+	5responsive.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/simpleslides/simples
+	lides.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/vanilla/vanilla.desk
+	top: SVN_SILENT made messages (.desktop file) - always resolve ours
+	In case of conflict in i18n, keep the version of the branch "ours"
+	To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2020-06-30  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-06-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/dplugins/generic/view/slideshow/widgets/slideosd.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slideproperties.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slideproperties.h: fix
+	slideshow OSD position depending on screen geometry BUGS: 423618
+	BUGS: 422258 FIXED-IN: 7.0.0
+
+2020-06-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/common.sh,
+	project/bundles/macports/common.sh, project/bundles/mxe/common.sh,
+	project/bundles/mxe/config.sh: git.kde.org => invent.kde.org
+
+2020-06-29  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/simpleslides/simples
+	lides.desktop: SVN_SILENT made messages (.desktop file) - always
+	resolve ours  In case of conflict in i18n, keep the version of the
+	branch "ours" To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2020-06-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/libraw/libraw/libraw.h,
+	core/libs/rawengine/libraw/libraw/libraw_types.h: fix broken
+	compilation
+
+2020-06-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/libs/rawengine/CMakeLists.txt,
+	core/libs/rawengine/libraw/internal/libraw_cxx_defs.h,
+	core/libs/rawengine/libraw/libraw/libraw.h,
+	core/libs/rawengine/libraw/libraw/libraw_const.h,
+	core/libs/rawengine/libraw/libraw/libraw_types.h,
+	core/libs/rawengine/libraw/samples/openbayer_sample.cpp,
+	core/libs/rawengine/libraw/src/decoders/crx.cpp,
+	core/libs/rawengine/libraw/src/decoders/decoders_dcraw.cpp,
+	core/libs/rawengine/libraw/src/decoders/generic.cpp,
+	core/libs/rawengine/libraw/src/decoders/unpack_thumb.cpp,
+	core/libs/rawengine/libraw/src/demosaic/misc_demosaic.cpp,
+	core/libs/rawengine/libraw/src/demosaic/xtrans_demosaic.cpp,
+	core/libs/rawengine/libraw/src/metadata/canon.cpp,
+	core/libs/rawengine/libraw/src/metadata/ciff.cpp,
+	core/libs/rawengine/libraw/src/metadata/cr3_parser.cpp,
+	core/libs/rawengine/libraw/src/metadata/exif_gps.cpp,
+	core/libs/rawengine/libraw/src/metadata/makernotes.cpp,
+	core/libs/rawengine/libraw/src/metadata/misc_parsers.cpp,
+	core/libs/rawengine/libraw/src/metadata/normalize_model.cpp,
+	core/libs/rawengine/libraw/src/metadata/pentax.cpp,
+	core/libs/rawengine/libraw/src/metadata/tiff.cpp,
+	core/libs/rawengine/libraw/src/postprocessing/mem_image.cpp,
+	core/libs/rawengine/libraw/src/postprocessing/postprocessing_utils_
+	dcrdefs.cpp,
+	core/libs/rawengine/libraw/src/preprocessing/subtract_black.cpp,
+	core/libs/rawengine/libraw/src/utils/init_close_utils.cpp,
+	core/libs/rawengine/libraw/src/utils/open.cpp,
+	core/libs/rawengine/libraw/src/utils/thumb_utils.cpp,
+	core/libs/rawengine/libraw/src/utils/utils_dcraw.cpp,
+	core/libs/rawengine/libraw/src/utils/utils_libraw.cpp: Update
+	internal Libraw to last 0.20-beta3
+	https://www.libraw.org/news/libraw-0-20-beta3
+
+2020-06-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/iojobs/iojob.cpp: check for the same file
+
+2020-06-28  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/dateframes/dateframe
+	s.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/elegant/elegant.desk
+	top,
+	core/dplugins/generic/tools/htmlgallery/themes/floatingcards/floati
+	ngcards.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/html5responsive/html
+	5responsive.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/s0/s0.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/simplerounded/simple
+	rounded.desktop: SVN_SILENT made messages (.desktop file) - always
+	resolve ours  In case of conflict in i18n, keep the version of the
+	branch "ours" To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2020-06-28  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-06-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/utils/ifaces/dio.cpp: remove double QUrl
+
+2020-06-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/engine/dfileoperations.cpp: fix QRegExp
+	for unique folder
+
+2020-06-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/utils/ifaces/dio.cpp: use variable
+
+2020-06-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/iojobs/iojob.cpp: polish file name in error message
+
+2020-06-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/utils/ifaces/dio.cpp: polish i18n
+
+2020-06-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/utils/ifaces/dio.cpp,
+	core/libs/iojobs/iojob.cpp, core/libs/iojobs/iojobdata.cpp,
+	core/libs/iojobs/iojobdata.h: rename use file conflict enum
+
+2020-06-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/utils/ifaces/dio.cpp,
+	core/libs/iojobs/iojob.cpp, core/libs/iojobs/iojobdata.cpp,
+	core/libs/iojobs/iojobdata.h,
+	core/libs/threadimageio/engine/dfileoperations.cpp,
+	core/libs/threadimageio/engine/dfileoperations.h: add simple file
+	conflict dialog when file conflicts are detected BUGS: 381625
+	FIXED-IN: 7.0.0
+
+2020-06-27  Karl Ove Hufthammer <karl@huftis.org>
+
+	* core/app/items/utils/tooltipfiller.cpp,
+	core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp,
+	core/libs/properties/import/importitempropertiestab.cpp,
+	core/libs/properties/itempropertiessidebar.cpp,
+	core/libs/properties/itempropertiessidebardb.cpp,
+	core/libs/widgets/itemview/itemviewdelegate.cpp,
+	core/showfoto/main/showfoto.cpp,
+	core/showfoto/thumbbar/itemviewshowfotodelegate.cpp,
+	core/showfoto/thumbbar/showfototooltipfiller.cpp,
+	core/utilities/imageeditor/main/imagewindow.cpp,
+	core/utilities/import/items/importtooltipfiller.cpp,
+	core/utilities/import/items/itemviewimportdelegate.cpp: Make
+	megapixel numbers use localised decimal separator and one decimal
+	The number of megapixels is now shown using the decimal separator of
+	the current locale, e.g., a comma instead of a period for many
+	European languages. The number of decimals is also reduced to one,
+	as two was really excessive.
+
+2020-06-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/models/categorizeditemmodel.cpp: use QString::fromUtf8()
+
+
+2020-06-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/sidebar/fuzzysearchsidebarwidget.cpp,
+	core/app/views/sidebar/peoplesidebarwidget.cpp,
+	core/app/views/sidebar/sidebarwidget.h,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview.h,
+	core/app/views/stack/itemiconview_sidebars.cpp,
+	core/utilities/fuzzysearch/fuzzysearchview.cpp,
+	core/utilities/fuzzysearch/fuzzysearchview.h: fix typo
+
+2020-06-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/utils/digikam_debug.cpp: try to fix enable debug under
+	Windows as default
+
+2020-06-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/utils/digikam_debug.cpp,
+	core/dplugins/generic/tools/htmlgallery/generator/galleryconfig.cpp
+	, core/dplugins/generic/webservices/facebook/fbitem.h,
+	core/dplugins/generic/webservices/flickr/flickritem.h,
+	core/dplugins/generic/webservices/smugmug/smugmpform.h,
+	core/dplugins/generic/webservices/twitter/twitteritem.h,
+	core/libs/dialogs/dconfigdlgmngr.cpp,
+	core/libs/models/categorizeditemmodel.cpp: QStringLiteral =>
+	Qlatin1String
+
+2020-06-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/models/categorizeditemmodel.cpp: fix wrong char encoding
+	from gitlab patch export
+
+2020-06-21  Karl Ove Hufthammer <karl@huftis.org>
+
+	* core/libs/models/categorizeditemmodel.cpp: Allow alternative
+	ellipsis characters  Some translations use a â€˜â€¦â€™
+	(a typographically correct ellipsis) instead of â€˜...â€™
+	(an ASCII ellipsis), or a non-breaking space instead of a normal
+	space in front of the â€˜â€¦â€™/â€˜...â€™. Now
+	all possible representations are supported, i.e., all four ellipses
+	are correctly removed from the string.
+
+2020-06-24  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-06-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* CMakeLists.txt, core/libs/dngwriter/CMakeLists.txt,
+	core/libs/rawengine/CMakeLists.txt: CMAKE_POSITION_INDEPENDENT_CODE
+	option from cmake must do the job of -fPic GCC option. We will see
+	if all compile fine with the CI in this case
+
+2020-06-22  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-06-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-06-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_fileio.cpp, core/libs/dimg/dimg_p.h: change
+	DImg private functions name
+
+2020-06-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/dimg/dimg_fileio.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp: change debug level
+	BUGS: 423307 FIXED-IN: 7.0.0
+
+2020-06-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/iojobs/iojob.cpp: send processing signal here
+
+2020-06-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/iojobs/iojob.cpp,
+	core/libs/threadimageio/engine/dfileoperations.cpp,
+	core/libs/threadimageio/engine/dfileoperations.h: polish parameters
+
+
+2020-06-21  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/digikam.notifyrc,
+	core/dplugins/generic/tools/htmlgallery/themes/classic/classic.desk
+	top,
+	core/dplugins/generic/tools/htmlgallery/themes/dateframes/dateframe
+	s.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/elegant/elegant.desk
+	top,
+	core/dplugins/generic/tools/htmlgallery/themes/html5responsive/html
+	5responsive.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/vanilla/vanilla.desk
+	top,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_10.5x14.
+	8cm.desktop,
+	core/dplugins/generic/tools/printcreator/templates/3_photos_4x6.des
+	ktop: SVN_SILENT made messages (.desktop file) - always resolve ours
+	In case of conflict in i18n, keep the version of the branch "ours"
+	To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2020-06-21  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-06-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/iojobs/iojob.cpp,
+	core/libs/threadimageio/engine/dfileoperations.cpp,
+	core/libs/threadimageio/engine/dfileoperations.h: show better
+	progress if we have to copy recursively CCBUGS: 423227
+
+2020-06-18  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/digikam.notifyrc,
+	core/app/main/org.kde.digikam.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/bluecurved/bluecurve
+	d.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/blueframes/blueframe
+	s.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/classic/classic.desk
+	top,
+	core/dplugins/generic/tools/htmlgallery/themes/cleanframes/cleanfra
+	mes.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/dateframes/dateframe
+	s.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/details/details.desk
+	top,
+	core/dplugins/generic/tools/htmlgallery/themes/elegant/elegant.desk
+	top,
+	core/dplugins/generic/tools/htmlgallery/themes/floatingcards/floati
+	ngcards.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/frames/frames.deskto
+	p,
+	core/dplugins/generic/tools/htmlgallery/themes/html5responsive/html
+	5responsive.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/matrix/matrix.deskto
+	p, core/dplugins/generic/tools/htmlgallery/themes/s0/s0.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/simple/simple.deskto
+	p,
+	core/dplugins/generic/tools/htmlgallery/themes/simplerounded/simple
+	rounded.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/simpleslides/simples
+	lides.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/snow/snow.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/vanilla/vanilla.desk
+	top,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_10.5x14.
+	8cm.desktop,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_10x15cm.
+	desktop,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_20x25cm.
+	desktop,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_8x10.des
+	ktop,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_9x13cm.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/2_photos_13x18cm
+	.desktop,
+	core/dplugins/generic/tools/printcreator/templates/2_photos_5x7.des
+	ktop,
+	core/dplugins/generic/tools/printcreator/templates/3_photos_10x15cm
+	.desktop,
+	core/dplugins/generic/tools/printcreator/templates/3_photos_4x6.des
+	ktop,
+	core/dplugins/generic/tools/printcreator/templates/4_photos_10x13.3
+	3cm.desktop,
+	core/dplugins/generic/tools/printcreator/templates/4_photos_3.5x5.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/4_photos_4.5x5cm
+	.desktop,
+	core/dplugins/generic/tools/printcreator/templates/4_photos_9x13cm.
+	desktop,
+	core/dplugins/generic/tools/printcreator/templates/4x6Album.desktop
+	,
+	core/dplugins/generic/tools/printcreator/templates/6_photos_3.5x4.5
+	cm.desktop,
+	core/dplugins/generic/tools/printcreator/templates/6_photos_3.5x4cm
+	.desktop,
+	core/dplugins/generic/tools/printcreator/templates/8_photos_6x9cm.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/Album-Collage.de
+	sktop,
+	core/dplugins/generic/tools/printcreator/templates/Album-Collage1.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/Album_10x15cm.de
+	sktop,
+	core/dplugins/generic/tools/printcreator/templates/Album_11.5x15cm.
+	desktop,
+	core/dplugins/generic/tools/printcreator/templates/FullPage.desktop
+	,
+	core/dplugins/generic/tools/printcreator/templates/Photoframe.deskt
+	op,
+	core/dplugins/generic/tools/printcreator/templates/Thumbnails_5x4.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/Thumbnails_6x5.d
+	esktop, core/showfoto/main/org.kde.showfoto.desktop: SVN_SILENT made
+	messages (.desktop file) - always resolve ours  In case of conflict
+	in i18n, keep the version of the branch "ours" To resolve a
+	particular conflict, "git checkout --ours path/to/file.desktop"
+
+2020-06-18  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml,
+	core/showfoto/main/org.kde.showfoto.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-06-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/combo/dcombobox.cpp,
+	core/libs/widgets/combo/dcombobox.h: this was wrong,
+	QComboBox::addItem() has no index parameters We can change it, so
+	far this has not been used.
+
+2020-06-17  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/digikam.notifyrc,
+	core/app/main/org.kde.digikam.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/bluecurved/bluecurve
+	d.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/blueframes/blueframe
+	s.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/classic/classic.desk
+	top,
+	core/dplugins/generic/tools/htmlgallery/themes/cleanframes/cleanfra
+	mes.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/dateframes/dateframe
+	s.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/details/details.desk
+	top,
+	core/dplugins/generic/tools/htmlgallery/themes/elegant/elegant.desk
+	top,
+	core/dplugins/generic/tools/htmlgallery/themes/floatingcards/floati
+	ngcards.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/frames/frames.deskto
+	p,
+	core/dplugins/generic/tools/htmlgallery/themes/html5responsive/html
+	5responsive.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/matrix/matrix.deskto
+	p, core/dplugins/generic/tools/htmlgallery/themes/s0/s0.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/simple/simple.deskto
+	p,
+	core/dplugins/generic/tools/htmlgallery/themes/simplerounded/simple
+	rounded.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/simpleslides/simples
+	lides.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/snow/snow.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/vanilla/vanilla.desk
+	top,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_10.5x14.
+	8cm.desktop,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_10x15cm.
+	desktop,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_20x25cm.
+	desktop,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_8x10.des
+	ktop,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_9x13cm.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/2_photos_13x18cm
+	.desktop,
+	core/dplugins/generic/tools/printcreator/templates/2_photos_5x7.des
+	ktop,
+	core/dplugins/generic/tools/printcreator/templates/3_photos_10x15cm
+	.desktop,
+	core/dplugins/generic/tools/printcreator/templates/3_photos_4x6.des
+	ktop,
+	core/dplugins/generic/tools/printcreator/templates/4_photos_10x13.3
+	3cm.desktop,
+	core/dplugins/generic/tools/printcreator/templates/4_photos_3.5x5.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/4_photos_4.5x5cm
+	.desktop,
+	core/dplugins/generic/tools/printcreator/templates/4_photos_9x13cm.
+	desktop,
+	core/dplugins/generic/tools/printcreator/templates/4x6Album.desktop
+	,
+	core/dplugins/generic/tools/printcreator/templates/6_photos_3.5x4.5
+	cm.desktop,
+	core/dplugins/generic/tools/printcreator/templates/6_photos_3.5x4cm
+	.desktop,
+	core/dplugins/generic/tools/printcreator/templates/8_photos_6x9cm.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/Album-Collage.de
+	sktop,
+	core/dplugins/generic/tools/printcreator/templates/Album-Collage1.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/Album_10x15cm.de
+	sktop,
+	core/dplugins/generic/tools/printcreator/templates/Album_11.5x15cm.
+	desktop,
+	core/dplugins/generic/tools/printcreator/templates/FullPage.desktop
+	,
+	core/dplugins/generic/tools/printcreator/templates/Photoframe.deskt
+	op,
+	core/dplugins/generic/tools/printcreator/templates/Thumbnails_5x4.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/Thumbnails_6x5.d
+	esktop, core/showfoto/main/org.kde.showfoto.desktop: SVN_SILENT made
+	messages (.desktop file) - always resolve ours  In case of conflict
+	in i18n, keep the version of the branch "ours" To resolve a
+	particular conflict, "git checkout --ours path/to/file.desktop"
+
+2020-06-17  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml,
+	core/showfoto/main/org.kde.showfoto.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-06-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/org.kde.digikam.appdata.xml,
+	core/showfoto/main/org.kde.showfoto.appdata.xml: typo
+
+2020-06-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/org.kde.digikam.appdata.xml,
+	core/showfoto/main/org.kde.showfoto.appdata.xml: Date must be in ISO
+	format
+
+2020-06-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/org.kde.digikam.appdata.xml,
+	core/showfoto/main/org.kde.showfoto.appdata.xml: more release dates
+
+
+2020-06-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/org.kde.digikam.appdata.xml,
+	core/showfoto/main/org.kde.showfoto.appdata.xml: add more release
+	dates
+
+2020-06-17  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml,
+	core/showfoto/main/org.kde.showfoto.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-06-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbsearchxml.cpp: think it is safe to
+	convert to double first
+
+2020-06-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbsearchxml.cpp,
+	core/libs/database/item/query/fieldquerybuilder.cpp,
+	core/libs/database/item/query/fieldquerybuilder.h,
+	core/libs/database/item/query/itemquerybuilder.cpp: max range is to
+	big for integer, add support for long long integer CCBUGS: 423033
+
+2020-06-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/searchwindow/searchfields.cpp: fix factor CCBUGS:
+	423033
+
+2020-06-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/searchwindow/searchfields.cpp: show file size range
+	in MiB CCBUGS: 423033
+
+2020-06-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbsearchxml.cpp: use
+	Qt::CaseInsensitive for exponent
+
+2020-06-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/video/player/mediaplayerview.cpp: add tooltip to loop
+	play button from video player Fixes #6
+
+2020-06-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/coredb/coredbsearchxml.cpp: fix convert
+	to integer from double value with exponent BUGS: 423033 FIXED-IN:
+	7.0.0
+
+2020-06-16  Michael Hrechyn <elxreno@gmail.com>
+
+	* project/release/fetch_l10n_doc.rb: Fix doc fetching
+
+2020-06-16  Michael Hrechyn <elxreno@gmail.com>
+
+	* project/release/fetch_l10n_po.rb: Fix locale fetching
+
+2020-06-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/flatpak/README.md: add more link and details
+
+2020-06-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/org.kde.digikam.appdata.xml,
+	core/showfoto/main/org.kde.showfoto.appdata.xml: more release date
+
+2020-06-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.cp
+	p: fix another wrong QWidget call CCBUGS: 422347
+
+2020-06-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/editor/enhance/hotpixels/hotpixelstool.cpp: fix save
+	black frame file url
+
+2020-06-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/editor/enhance/hotpixels/blackframelistview.cpp,
+	core/dplugins/editor/enhance/hotpixels/blackframeparser.cpp: fix
+	crashing hot pixel tool
+
+2020-06-15  Jonathan Riddell <jr@jriddell.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml: Update
+	org.kde.digikam.appdata.xml
+
+2020-06-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_mosaicwall/CMakeLists.txt: use
+	original github reprository
+
+2020-06-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/CMakeLists.txt: restore to drop this compiler flag
+
+2020-06-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg.h, core/libs/dimg/dimg_metadata.cpp: do not
+	use static for this DImg function CCBUGS: 422735 CCBUGS: 418939
+	CCBUGS: 421043
+
+2020-06-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* PACKAGING: update
+
+2020-06-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/rawimport/ufraw/rawimportufrawplugin.cpp: polish
+
+2020-06-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/rawimport/darktable/rawimportdarktableplugin.cpp,
+	core/dplugins/rawimport/rawtherapee/rawimportrawtherapeeplugin.cpp,
+	core/dplugins/rawimport/ufraw/rawimportufrawplugin.cpp: polish
+
+2020-06-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/rawimport/darktable/rawimportdarktableplugin.cpp,
+	core/dplugins/rawimport/rawtherapee/rawimportrawtherapeeplugin.cpp,
+	core/dplugins/rawimport/ufraw/rawimportufrawplugin.cpp: zero =>
+	nullptr
+
+2020-06-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp: 
+	polish
+
+2020-06-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetoolplugin.h: 
+	zero => nullptr
+
+2020-06-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/stack/trashview.cpp: polish
+
+2020-06-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/stack/trashview.cpp: zero => nullptr
+
+2020-06-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_photo
+	job.cpp: zerp -> nullptr
+
+2020-06-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/modeltest/modeltest.h: zero => nullptr
+
+2020-06-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/lens/lensfuncameraselector.cpp: zero ->
+	nullptr
+
+2020-06-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/core/undomanager.cpp: zero -> nullptr
+
+2020-06-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/history/itemhistorygraphmodel.cpp: zero ->
+	nullptr
+
+2020-06-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/CMakeLists.txt, core/libs/album/widgets/albumselecttabs.cpp: 
+	zero -> nullptr
+
+2020-06-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/engine/album.cpp: zero => nullptr
+
+2020-06-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/kmemoryinfo/libstatgrab/kmemoryinfo_backend.cpp: zero ->
+	nullptr
+
+2020-06-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailcreator_engine.cpp: fix
+	signed vs unsigned warning
+
+2020-06-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectoryolo.cpp: 
+	zero -> nullptr
+
+2020-06-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/glviewer/glviewerwidget.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationgl.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationkb_p.h: 
+	use ifdef to prevent compile warnings
+
+2020-06-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/view/glviewer/glviewerwidget.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationgl.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationkb_p.h: 
+	Sound like under ARM, lead opengl header need to be included to
+	compile fine. Now DK is ready to run on Raspberry PI (tested with
+	Version 4R2)
+
+2020-06-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-06-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* CMakeLists.txt: sailing to next digiKam 7.0.0 final release
+
+2020-06-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/CMakeLists.txt: drop cast-align GCC falg which bloat
+	compilation trace under ARM
+
+2020-06-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* ChangeLog, PACKAGING: update ChangeLog for 7.0.0-RC
+
 2020-06-13  Maik Qualmann <metzpinguin@gmail.com>
 
 	* core/libs/dialogs/dconfigdlgwidgets.cpp,
