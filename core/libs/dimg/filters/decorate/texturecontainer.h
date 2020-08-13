@@ -71,9 +71,8 @@ public:
 
 public:
 
-    int     blendGain;
-
-    QString texturePath;
+    int blendGain;
+    int textureType;
 };
 
 } // namespace Digikam
