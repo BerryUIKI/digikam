@@ -28,65 +28,16 @@
 // Qt includes
 
 #include <QList>
-#include <QImage>
-#include <QString>
-#include <QSize>
-#include <QPoint>
 #include <QUrl>
 #include <QTreeWidget>
 
 // Local includes
 
 #include "digikam_export.h"
-#include "blackframeparser.h"
 #include "hotpixelprops.h"
 
 namespace Digikam
 {
-
-class DIGIKAM_EXPORT BlackFrameListViewItem : public QObject,
-                                              public QTreeWidgetItem
-{
-    Q_OBJECT
-
-public:
-
-    enum BlackFrameColumn
-    {
-        PREVIEW = 0,
-        SIZE    = 1,
-        HOTPIXELS
-    };
-
-public:
-
-    explicit BlackFrameListViewItem(QTreeWidget* const parent, const QUrl& url);
-    ~BlackFrameListViewItem();
-
-    QUrl frameUrl() const;
-    void emitHotPixelsParsed();
-
-Q_SIGNALS:
-
-    void signalHotPixelsParsed(const QList<HotPixelProps>&, const QUrl&);
-
-private Q_SLOTS:
-
-    void slotHotPixelsParsed(const QList<HotPixelProps>&);
-    void slotLoadingProgress(float);
-
-private:
-
-    /// Data contained within each listview item
-
-    QList<HotPixelProps> m_hotPixels;
-
-    QUrl                 m_blackFrameUrl;
-
-    BlackFrameParser*    m_parser;
-};
-
-//-----------------------------------------------------------------------------------
 
 class DIGIKAM_EXPORT BlackFrameListView : public QTreeWidget
 {
@@ -94,7 +45,7 @@ class DIGIKAM_EXPORT BlackFrameListView : public QTreeWidget
 
 public:
 
-    explicit BlackFrameListView(QWidget* const parent=nullptr);
+    explicit BlackFrameListView(QWidget* const parent = nullptr);
     ~BlackFrameListView();
 
     bool contains(const QUrl& url);
