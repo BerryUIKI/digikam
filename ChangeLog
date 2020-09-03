@@ -1,3 +1,2369 @@
+2020-09-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: polish
+
+2020-09-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: Do not install
+	digiKam application links in /Applications/digiKam/ sub-dir
+
+2020-09-03  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-09-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-09-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/flatpak/org.kde.digikam.json: disable openjpeg
+	with opencv
+
+2020-09-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/bootstrap.opencv-minimal-linux.sh: disable
+	openjpeg with opencv
+
+2020-09-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/metadata/metadataedit/exif/exifcaption.cpp,
+	core/dplugins/generic/metadata/metadataedit/exif/exifdevice.cpp,
+	core/showfoto/setup/showfotosetupmetadata.cpp,
+	core/utilities/setup/metadata/setupmetadata.cpp: i18n fixes: EXIF =>
+	Exif
+
+2020-09-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/metadata/metadataedit/exif/exifdevice.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccontent.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcorigin.cpp,
+	core/dplugins/generic/metadata/metadataedit/xmp/xmpcontent.cpp,
+	core/dplugins/generic/metadata/metadataedit/xmp/xmpcredits.cpp,
+	core/dplugins/generic/metadata/metadataedit/xmp/xmporigin.cpp,
+	core/libs/widgets/metadata/exifwidget.cpp,
+	core/libs/widgets/metadata/makernotewidget.cpp,
+	core/utilities/import/widgets/advancedsettings.cpp,
+	core/utilities/setup/metadata/setupmetadata.cpp: i18n fixes: EXIF =>
+	Exif
+
+2020-09-02  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-09-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadingcache.cpp: protect loading
+	QMap with a recursive mutex CCBUGS: 425723
+
+2020-09-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/infodlg.h, core/libs/dialogs/libsinfodlg.cpp,
+	core/libs/metadataengine/engine/metaengine.cpp,
+	core/libs/metadataengine/engine/metaengine.h,
+	core/utilities/setup/metadata/setupmetadata.cpp: This legacy reports
+	in components dialog are obsolete. Fix typo in metaengine API
+
+2020-09-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* Mainpage.dox, core/CMakeLists.txt,
+	core/app/DigikamCoreTarget.cmake,
+	core/app/utils/digikam_config.h.cmake.in,
+	core/cmake/modules/MacroDPlugins.cmake,
+	core/dplugins/generic/webservices/CMakeLists.txt,
+	core/dplugins/generic/webservices/mediawiki/CMakeLists.txt,
+	core/dplugins/generic/webservices/rajce/CMakeLists.txt,
+	core/dplugins/generic/webservices/unified/CMakeLists.txt,
+	core/libs/dialogs/libsinfodlg.cpp,
+	core/libs/dplugins/CMakeLists.txt, core/showfoto/CMakeLists.txt,
+	core/tests/CMakeLists.txt, core/utilities/lighttable/CMakeLists.txt: 
+	Add Qt5::XmlPatterns as optional depency to prepare the future port
+	to Qt6, where this component will be removed. Only Rajce plugin
+	needs this dependency. We will need to found an alternative to parse
+	and validate XML stream exchanged with the web service. One solution
+	is to backport the necessary 2 classes used in the plugin. We will
+	see. If Qt5::XmlPatterns is not resolved, Rajce plugin will not
+	compiled/installed.
+
+2020-09-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-08-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-08-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-08-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/loaders/dimgloader.h: use quint64 here CCBUGS:
+	425886
+
+2020-08-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/metadata/metadataedit/exif/exifcaption.cpp,
+	core/dplugins/generic/metadata/metadataedit/xmp/xmpcredits.cpp: use
+	only a sime-colon as separator
+
+2020-08-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/metadata/metadataedit/xmp/xmpcredits.cpp,
+	core/dplugins/generic/metadata/metadataedit/xmp/xmpcredits.h,
+	core/dplugins/generic/metadata/metadataedit/xmp/xmpeditwidget.cpp: 
+	Metadata editor : sync Exif Artist with Xmp dc creator. CCBUGS:
+	426000
+
+2020-08-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/data/AppRun: AppImage: preload
+	libnssutil3 to prevent crash with GoogleMaps and QtWebEngine BUGS:
+	417121 BUGS: 424618 FIXED-IN: 7.1.0
+
+2020-08-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/metadata/metadataedit/iptc/iptccontent.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcorigin.cpp,
+	core/dplugins/generic/metadata/metadataedit/xmp/xmpcontent.cpp,
+	core/dplugins/generic/metadata/metadataedit/xmp/xmpcontent.h,
+	core/dplugins/generic/metadata/metadataedit/xmp/xmpeditwidget.cpp,
+	core/libs/template/templatepanel.cpp,
+	core/libs/widgets/metadata/subjectwidget.h,
+	core/utilities/setup/setuptemplate.cpp: MEtadat editor : sync Exif
+	Copyright with XMP Copyright CCBUGS: 426000
+
+2020-08-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: cleanup
+
+2020-08-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-31  Yuri Chornoivan <yurchor@ukr.net>
+
+	*
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccategories.cpp
+	, core/dplugins/generic/metadata/metadataedit/iptc/iptccontent.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccredits.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcenvelope.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptckeywords.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcorigin.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp
+	, core/dplugins/generic/metadata/metadataedit/iptc/iptcstatus.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcsubjects.cpp: 
+	Fix minor typo
+
+2020-08-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_p.cpp,
+	core/libs/metadataengine/engine/metaengine_p.h: polish
+
+2020-08-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-08-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/view/presentation/opengl/presentationgl.cpp,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	cpp: remove setMinificationFilter() in initializeGL() BUGS: 425999
+	FIXED-IN: 7.1.0
+
+2020-08-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/drawinfo.h: krazy++
+
+2020-08-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccategories.cpp
+	, core/dplugins/generic/metadata/metadataedit/iptc/iptccontent.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccredits.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcenvelope.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptckeywords.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcorigin.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp
+	, core/dplugins/generic/metadata/metadataedit/iptc/iptcstatus.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcsubjects.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcsubjects.h,
+	core/libs/widgets/metadata/subjectwidget.cpp,
+	core/libs/widgets/metadata/subjectwidget.h: IPTC metadata editor:
+	finaly, popup left character notifications with tooltips for IPTC
+	subject fields.
+
+2020-08-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/metadataedit/dialog/objectattributes
+	edit.cpp,
+	core/dplugins/generic/metadata/metadataedit/dialog/objectattributes
+	edit.h,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp: 
+	IPTC metadat editor: popup tooltip to notify left character with
+	object attribute field
+
+2020-08-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccategories.cpp
+	, core/dplugins/generic/metadata/metadataedit/iptc/iptccontent.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccredits.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcenvelope.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptckeywords.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcorigin.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp
+	, core/dplugins/generic/metadata/metadataedit/iptc/iptcstatus.cpp: 
+	IPTC metadata editor: use also tootips to notifiy left characters
+	with LimitedTextEdit based fields
+
+2020-08-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/metadataedit/dialog/objectattributes
+	edit.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccategories.cpp
+	, core/dplugins/generic/metadata/metadataedit/iptc/iptccontent.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccredits.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcenvelope.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptckeywords.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcorigin.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp
+	, core/dplugins/generic/metadata/metadataedit/iptc/iptcstatus.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcsubjects.cpp: 
+	Fix IPTC pages note to promote XMP instead
+
+2020-08-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/metadataedit/dialog/multistringsedit
+	.cpp,
+	core/dplugins/generic/metadata/metadataedit/dialog/multistringsedit
+	.h,
+	core/dplugins/generic/metadata/metadataedit/dialog/objectattributes
+	edit.cpp,
+	core/dplugins/generic/metadata/metadataedit/dialog/objectattributes
+	edit.h: Remove all ASCII limitation for IPTC metadata editor even if
+	option is disabled
+
+2020-08-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_save.cpp: fix file open
+	check with UTF16
+
+2020-08-30  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/dplugins/dimg/heif/dimgheifloader_save.cpp: add the
+	QIODevice writer to save HEIF files BUGS: 420195 FIXED-IN: 7.1.0
+
+2020-08-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/metadata/metadataedit/iptc/iptccredits.cpp: 
+	IPTC metadat editor: more left characters notifications
+
+2020-08-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/metadataedit/iptc/iptckeywords.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp
+	, core/dplugins/generic/metadata/metadataedit/iptc/iptcstatus.cpp: 
+	Fix broken compilation
+
+2020-08-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/metadata/metadataedit/iptc/iptccontent.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccredits.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcenvelope.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcenvelope.h,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptckeywords.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptckeywords.h,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcorigin.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcorigin.h,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp
+	,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.h,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcstatus.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcstatus.h: IPTC
+	metadata editor : more left characters notifications
+
+2020-08-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/metadataedit/dialog/multistringsedit
+	.cpp,
+	core/dplugins/generic/metadata/metadataedit/dialog/multistringsedit
+	.h,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccategories.cpp
+	,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccategories.h,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccontent.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccredits.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccredits.h: IPTC
+	metadateditor : more line edit left characters notificatins as
+	tooltips
+
+2020-08-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/metadataedit/dialog/multistringsedit
+	.cpp,
+	core/dplugins/generic/metadata/metadataedit/dialog/multistringsedit
+	.h,
+	core/dplugins/generic/metadata/metadataedit/dialog/objectattributes
+	edit.cpp,
+	core/dplugins/generic/metadata/metadataedit/dialog/objectattributes
+	edit.h,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccontent.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccontent.h,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccredits.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp
+	, core/dplugins/generic/metadata/metadataedit/xmp/xmpcredits.cpp,
+	core/dplugins/generic/metadata/metadataedit/xmp/xmpstatus.cpp: IPTC
+	metadata editor : do not limit multistringedit and
+	objectattributeedit to ascii by default. Start to notify users of
+	left characters from limited lineedit fields using delegate
+	qtooltips
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_exif.cpp: With Exiv2
+	0.23.3, 2 new GPSInfo tags from Exif are avaialble and need to be
+	post-processed for the Exif metadata viewer as Exif comment tag.
+	BUGS: 425884 FIXED-IN: 7.1.0
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_gps.cpp: polish
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_exif.cpp: polish
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/metadata/metadataedit/iptc/iptcstatus.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcstatus.h: IPTC
+	metadat editor Status/SpecialIstruction: report left characters
+	while entering string
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/metadataedit/dialog/limitedtextedit.
+	cpp,
+	core/dplugins/generic/metadata/metadataedit/dialog/limitedtextedit.
+	h,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccontent.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccontent.h,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcenvelope.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcenvelope.h: 
+	show left characters from IPTC caption and destination text edit
+
+2020-08-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/metadata/metadataedit/CMakeLists.txt,
+	core/dplugins/generic/metadata/metadataedit/dialog/limitedtextedit.
+	cpp,
+	core/dplugins/generic/metadata/metadataedit/dialog/limitedtextedit.
+	h,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccategories.cpp
+	, core/dplugins/generic/metadata/metadataedit/iptc/iptccontent.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccredits.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcenvelope.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptckeywords.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcorigin.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp
+	, core/dplugins/generic/metadata/metadataedit/iptc/iptcstatus.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcsubjects.cpp: 
+	MetadataEdit dialog and IPTC: introduce new widget to edit long text
+	with limited string size
+
+2020-08-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccategories.cpp
+	, core/dplugins/generic/metadata/metadataedit/iptc/iptccontent.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptccredits.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcenvelope.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptckeywords.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcorigin.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp
+	, core/dplugins/generic/metadata/metadataedit/iptc/iptcstatus.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcsubjects.cpp: 
+	IPTC Metadata Editor: permit to enter UTF8 characters BUGS: 370558
+	FIXED-IN: 7.1.0
+
+2020-08-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_iptc.cpp: use also
+	chararcterset information to retrieve Keywords, Subjects,
+	SubCategories, and Tags as string list from IPTC
+
+2020-08-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_p.cpp: no need a nested
+	mutex lock here
+
+2020-08-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_iptc.cpp,
+	core/libs/metadataengine/engine/metaengine_p.cpp,
+	core/libs/metadataengine/engine/metaengine_p.h: Factoriring 2nd pass
+
+
+2020-08-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_iptc.cpp: factoring
+
+2020-08-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_iptc.cpp: polish
+
+2020-08-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_iptc.cpp: IPTC and Utf8
+	support: If a tag is string, check if global IPTC characterset is
+	null to convert in latin1, else we expect to interpret the string as
+	utf8. We use std::string accessor from Exiv2 to get an Utf8
+	cenversion of string. If it do not work, well this problem need to
+	be reported as UPSTREAM to Exiv2 as pre-cenversion of string is not
+	done in background by the library. This patch prevent to display
+	latin1 string with a wrong Utf8 conversion which can break some
+	characters. BUGS: 379581 BUGS: 379050 FIXED-IN: 7.1.0
+
+2020-08-28  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-08-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/utilities/import/models/camitemsortsettings.cpp: sync
+	in the import view the category sorting and item sorting BUGS:
+	425879 FIXED-IN: 7.1.0
+
+2020-08-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_iptc.cpp: polish
+
+2020-08-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/containers/itemcopyright.cpp,
+	core/libs/database/item/containers/itemcopyright.h: Fix krazy
+	reports
+
+2020-08-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadingcache.cpp: polish
+
+2020-08-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_p.h,
+	core/libs/threadimageio/fileio/loadsavetask.cpp: check if there is a
+	loading thread CCBUGS: 425723
+
+2020-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	project/bundles/3rdparty/ext_kf5_frameworks/kio-drop-ktextwidgets.p
+	atch: Fix broken compilation with GCC 5.5
+
+2020-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/qimage/dimgqimageloader.cpp: QImage DImg loader
+	: since Qt5.12, QImage support 16 bits per color per pixels image
+	encode as ARGB. Fix the loader to support this color depth, as DImg
+	suport 16 bits since 15 years now. TODO: check if 16 bits QImage
+	loader work fine to import image data in editor, as i cannot found
+	relevant QImage plugin and image file encoded with this color depth.
+
+
+2020-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	project/bundles/3rdparty/ext_kf5_frameworks/kio-drop-ktextwidgets.p
+	atch: fix patch for KF5 5.73
+
+2020-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/icon-rcc/main.cpp,
+	project/bundles/macports/icon-rcc/main.cpp,
+	project/bundles/mxe/icon-rcc/main.cpp: Update icon to rcc code to be
+	compatible with KF5 5.73
+
+2020-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	project/bundles/mxe/icon-rcc/main.cpp: Only extract thumbnail from
+	libraw if format is recognized
+
+2020-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp: add code
+	to hack thumbn&il data
+
+2020-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.h: Store thumb data in byte array
+
+2020-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/drawdecoder_p.cpp: add link to libraw issue
+
+2020-08-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp: Always
+	setup XMp at end if data embede in Exif exists
+
+2020-08-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_fileio.cpp, core/libs/dimg/dimg_p.h,
+	core/libs/dimg/dimg_props.cpp: DImgStatic => DImgStaticPriv
+
+2020-08-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_fileio.cpp, core/libs/dimg/dimg_p.h,
+	core/libs/dimg/dimg_props.cpp,
+	core/libs/threadimageio/fileio/loadingcache.cpp: move static
+	functions from private shared data to a separate class CCBUGS:
+	425723
+
+2020-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract exposure program for
+	unsupported RAW by Exiv2 CCBUGS: 424860
+
+2020-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract metering mode values for
+	unsupported RAW by Exiv2 CCBUGS: 424860
+
+2020-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract camera ambient mesurements
+	(depth water, elevation angle, humidity, temperature, etc.) for
+	unsupported RAW by Exiv2 CCBUGS: 424860
+
+2020-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp: Store strings with right
+	format
+
+2020-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract flash used mode values for
+	unsupported RAW by Exiv2 CCBUGS: 424860
+
+2020-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract Max aperture Lens value for
+	unsupported RAW by Exiv2 CCBUGS: 424860
+
+2020-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract Focal Length In 35mm Film for
+	unsupported RAW by Exiv2 CCBUGS: 424860
+
+2020-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.h: RawEngine => MetadataEngine :
+	extract Lens model, make, and serial strings for unsupported RAW by
+	Exiv2 CCBUGS: 424860
+
+2020-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract Exposure Index value for
+	unsupported RAW by Exiv2 CCBUGS: 424860
+
+2020-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract Ambient Temperature value for
+	unsupported RAW by Exiv2 CCBUGS: 424860
+
+2020-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract unique image ID, unique raw
+	data ID, and original raw file name strings for unsupported RAW by
+	Exiv2 CCBUGS: 424860
+
+2020-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine: Check if GPS info are parsed and if
+	image description is empty before to host these data in reconstitued
+	Exif container. CCBUGS: 424860
+
+2020-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_kf5_frameworks/CMakeLists.txt,
+	project/bundles/3rdparty/ext_libksane/CMakeLists.txt,
+	project/bundles/3rdparty/ext_marble/CMakeLists.txt,
+	project/bundles/3rdparty/ext_mosaicwall/CMakeLists.txt,
+	project/bundles/appimage/01-build-host.sh: Update to KF5 5.73 and
+	KApplication to 20.08.3 fix creation of cmake install dir to
+	/opt/cmake
+
+2020-08-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/5.14/CMakeLists.txt,
+	project/bundles/3rdparty/ext_qt/5.14/config_help-5.14.txt,
+	project/bundles/3rdparty/ext_qt/5.14/qt-appimage-support.patch,
+	project/bundles/3rdparty/ext_qt/{ => 5.14}/qt-icu-hack.patch,
+	project/bundles/3rdparty/ext_qt/5.15/CMakeLists.txt,
+	project/bundles/3rdparty/ext_qt/{config_help.txt =>
+	5.15/config_help-5.15.txt}, project/bundles/3rdparty/ext_qt/{ =>
+	5.15}/qt-appimage-support.patch,
+	project/bundles/3rdparty/ext_qt/5.15/qt-icu-hack.patch,
+	project/bundles/3rdparty/ext_qt/CMakeLists.txt,
+	project/bundles/appimage/01-build-host.sh: Restore Qt5.14 for
+	AppImage to be compiled under Magei6. Qt 5.15 can only compiled with
+	Mageia7 due to openssl dependency. We will switch to Magei7 to build
+	AppImage later Mageia 8 availability, planed in October...
+
+2020-08-24  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadingcache.cpp: try without
+	loading notification CCBUGS: 425723
+
+2020-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawinfo.cpp: this is ithe default value for
+	this tag
+
+2020-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract Exif thumbnail for unsupported
+	RAW by Exiv2 CCBUGS: 424860
+
+2020-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract Baseline Exposure value for
+	unsupported RAW by Exiv2 CCBUGS: 424860
+
+2020-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract unique and localized camera
+	model strings for unsupported RAW by Exiv2 CCBUGS: 424860
+
+2020-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp: RawEngine
+	=> MetadataEngine : extract DNG Version string for unsupported RAW
+	by Exiv2 CCBUGS: 424860
+
+2020-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract Firmware version name for
+	unsupported RAW by Exiv2 CCBUGS: 424860
+
+2020-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/metadataengine/engine/metaengine.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract Image description for
+	unsupported RAW by Exiv2 CCBUGS: 424860
+
+2020-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/metadataengine/engine/metaengine.h,
+	core/libs/metadataengine/engine/metaengine_gps.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract GPS positions for unsupported
+	RAW by Exiv2 CCBUGS: 424860
+
+2020-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine.h,
+	core/libs/metadataengine/engine/metaengine_gps.cpp: constify
+
+2020-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine.h,
+	core/libs/metadataengine/engine/metaengine_gps.cpp: polish
+
+2020-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract image serial number for
+	unsupported RAW by Exiv2 CCBUGS: 424860
+
+2020-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	RawEngine => MetadataEngine : extract Software creator name for
+	unsupported RAW by Exiv2 CCBUGS: 424860
+
+2020-08-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h,
+	project/bundles/mxe/config.sh: RawEngine => MetadataEngine : extract
+	ICC color profile from RAW file for unsupported RAW by Exiv2 CCBUGS:
+	424860
+
+2020-08-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/drawdecoder.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawdecoder_p.h: Implement the libraw callback
+	to parse Exif. Function do nothing for the moment.
+
+2020-08-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libheif.cpp: use
+	digiKam debug spaces
+
+2020-08-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/main/showfoto.cpp: use digiKam debug spaces
+
+2020-08-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/video/manager/vidslidetask.cpp: use digiKam debug spaces
+
+
+2020-08-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libheif.cpp: use
+	digikam debug spaces
+
+2020-08-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/file/print/printoptionspage.cpp: code clean
+	up
+
+2020-08-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/kmemoryinfo/kmemoryinfo.cpp: use digiKam debug spaces
+
+2020-08-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/drawdecoder.cpp,
+	core/libs/rawengine/drawdecoder.h,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawdecoder_p.h: rename this static method with
+	"progress" prefix
+
+2020-08-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/mainview/dactivelabel.cpp: fix CID #1466259
+
+2020-08-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/settings/applicationsettings.cpp: use Fusion style on
+	Windows as default
+
+2020-08-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_exif.cpp: filter
+	"binary comment" from the comment fields Since Exiv2-0.27.3 empty
+	comment fields are output as "binary comment". CCBUGS: 374012
+	CCBUGS: 425125 CCBUGS: 422240
+
+2020-08-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/hotpixelcontainer.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelcontainer.h,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelsweights.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelsweights.h: polish
+
+2020-08-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-08-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/view/presentation/opengl/presentationgl.cpp,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	cpp: fix issue #1 from bug 425644 CCBUGS: 425644
+
+2020-08-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/blackframelistview.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistview.h,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.h: HotPixels : add
+	context menu to remove on black frame and to clean list
+
+2020-08-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/blackframelistview.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistview.h,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.h: Hotpixel tool :
+	save and restore list of all black frames between sessions
+
+2020-08-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/blackframelistview.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistview.h,
+	core/libs/dimg/filters/hotpixels/blackframelistviewitem.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistviewitem.h,
+	core/libs/dimg/filters/hotpixels/blackframeparser.cpp,
+	core/libs/dimg/filters/hotpixels/blackframeparser.h: use d private
+	internal containers
+
+2020-08-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/blackframelistview.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistview.h: add new
+	method to get all black frame urls from list view
+
+2020-08-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/blackframelistview.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistview.h,
+	core/libs/dimg/filters/hotpixels/blackframelistviewitem.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistviewitem.h,
+	core/libs/dimg/filters/hotpixels/blackframetooltip.cpp,
+	core/libs/dimg/filters/hotpixels/blackframetooltip.h,
+	core/libs/widgets/itemview/ditemtooltip.cpp: HotPixels: use
+	DItemToolTip to render Black Frame tool tip over list view.
+
+2020-08-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/blackframetooltip.h: missing to
+	export symbols
+
+2020-08-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/CMakeLists.txt,
+	core/libs/dimg/filters/hotpixels/blackframetooltip.cpp,
+	core/libs/dimg/filters/hotpixels/blackframetooltip.h: HotPixels
+	tool: introduce time tool tip for BlackFrame. Not yet used
+
+2020-08-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/blackframelistviewitem.cpp: show
+	camera serial number as hot pixel black frame properties
+
+2020-08-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata.h,
+	core/libs/metadataengine/dmetadata/dmetadata_photo.cpp: new method
+	to get camera serial number from exif, makernotes, and xmp
+
+2020-08-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/import/items/itemviewimportdelegate.cpp: fix
+	drawing error from mime icons in the import tool when a scaling
+	factor is set
+
+2020-08-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/CMakeLists.txt,
+	core/libs/dimg/filters/hotpixels/blackframelistview.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistview.h,
+	core/libs/dimg/filters/hotpixels/blackframelistviewitem.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistviewitem.h,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp: separate
+	black frame list view and item implementations
+
+2020-08-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/utilities/import/views/cameranamehelper.cpp: it should
+	be safe to translate this string BUGS: 388680 FIXED-IN: 7.1.0
+
+2020-08-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamui5.rc: fix missing language configuration
+	through changed KF5 API We move the language configuration to the
+	Settings menu.
+
+2020-08-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/slideshow/slideshowplugin.cpp: fix
+	warnings from KActionCollection
+
+2020-08-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/view/slideshow/slideshowplugin.cpp: Set all
+	Slideshow sub-menu actions configurable in keyboard shortcuts
+	dialog. Make menu action not configurable. This patch is only for
+	digiKAm, as Showfoto do not provide a menu with sub-actions BUGS:
+	425425 FIXED-IN: 7.1.0
+
+2020-08-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/digikamapp_setup.cpp: polish
+
+2020-08-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/items/utils/itemcategorydrawer.cpp: use long standalone
+	month name
+
+2020-08-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/items/utils/itemcategorydrawer.cpp: workaround for
+	strange locale problem in i18n BUGS: 425432 FIXED-IN: 7.1.0
+
+2020-08-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS,
+	core/dplugins/generic/view/presentation/opengl/presentationgl.cpp: 
+	start with a black first texture BUGS: 425423 FIXED-IN: 7.1.0
+
+2020-08-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawinfo.cpp, core/libs/rawengine/drawinfo.h: 
+	DMetadata::libraw loader: if RAW file contains XMP data, pass the
+	XMP byte-array extracted by libraw to DMetadata instance CCBUGS:
+	424860
+
+2020-08-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/blackframelistview.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistview.h,
+	core/libs/dimg/filters/hotpixels/blackframeparser.cpp,
+	core/libs/dimg/filters/hotpixels/blackframeparser.h: fix API
+
+2020-08-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/colors/whitebalance/whitebalancetool.cpp,
+	core/libs/dimg/filters/wb/wbsettings.cpp,
+	core/libs/dimg/filters/wb/wbsettings.h: Fix API
+
+2020-08-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-08-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/stack/welcomepageview.cpp: update welcome page new
+	features for 7.1.0
+
+2020-08-14  Yuri Chornoivan <yurchor@ukr.net>
+
+	* core/dplugins/bqm/decorate/texture/textureplugin.cpp: Fix minor
+	typo: can can -> can
+
+2020-08-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* AUTHORS, core/data/about/images/body-background.jpg,
+	core/data/about/main.html,
+	core/data/pics/digikam/splash-digikam.png,
+	core/data/pics/digikam/splash-digikam.svgz,
+	core/data/pics/showfoto/splash-showfoto.png,
+	core/data/pics/showfoto/splash-showfoto.svgz: Update digiKam and
+	Showfoto 7.1.0 splash-screens and background photo by Heinz Werner
+	Kramski-Grote CCMAIL: kramski@web.de
+
+2020-08-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-08-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/dplugins/TODO,
+	core/dplugins/bqm/decorate/CMakeLists.txt,
+	core/dplugins/bqm/decorate/texture/CMakeLists.txt,
+	core/dplugins/bqm/decorate/texture/texture.cpp,
+	core/dplugins/bqm/decorate/texture/texture.h,
+	core/dplugins/bqm/decorate/texture/textureplugin.cpp,
+	core/dplugins/bqm/decorate/texture/textureplugin.h: Batch Queue
+	Manager: add new tool to apply texture over images
+
+2020-08-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/decorate/border/bordertool.cpp,
+	core/dplugins/editor/decorate/texture/texturetool.cpp,
+	core/dplugins/editor/decorate/texture/texturetool.h,
+	core/libs/dimg/CMakeLists.txt,
+	core/libs/dimg/filters/decorate/bordercontainer.cpp,
+	core/libs/dimg/filters/decorate/bordercontainer.h,
+	core/libs/dimg/filters/decorate/bordersettings.cpp,
+	core/libs/dimg/filters/decorate/bordersettings.h,
+	core/libs/dimg/filters/decorate/texturecontainer.cpp,
+	core/libs/dimg/filters/decorate/texturecontainer.h,
+	core/libs/dimg/filters/decorate/texturefilter.cpp,
+	core/libs/dimg/filters/decorate/texturefilter.h,
+	core/libs/dimg/filters/decorate/texturesettings.cpp,
+	core/libs/dimg/filters/decorate/texturesettings.h: Introduce common
+	Texture Settings widget to share between image editor and BQM
+	plugins. Fix Texture action inforation to store for versionning with
+	texture type ID, not texture path whic is system dependant settings.
+	Factorize and Fix coding Style
+
+2020-08-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/enhance/hotpixels/hotpixels.cpp,
+	core/dplugins/editor/decorate/texture/texturetool.cpp,
+	core/dplugins/editor/enhance/hotpixels/hotpixelstool.cpp,
+	core/libs/dimg/filters/decorate/texturefilter.cpp,
+	core/libs/dimg/filters/decorate/texturefilter.h,
+	core/libs/dimg/filters/hotpixels/hotpixelcontainer.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelcontainer.h,
+	core/libs/dimg/filters/hotpixels/hotpixelfixer.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelfixer.h,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp: use delegate
+	filter setting containers
+
+2020-08-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/decorate/texture/texturetool.cpp,
+	core/libs/dimg/CMakeLists.txt,
+	core/libs/dimg/filters/decorate/texturecontainer.cpp,
+	core/libs/dimg/filters/decorate/texturecontainer.h,
+	core/libs/dimg/filters/decorate/texturefilter.cpp,
+	core/libs/dimg/filters/decorate/texturefilter.h: Start to port
+	Texture tool as new BQM plugin. Add Texture Container to host
+	settings
+
+2020-08-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/decorate/texture/texturetool.cpp,
+	core/dplugins/editor/decorate/texture/texturetool.h,
+	core/dplugins/editor/decorate/texture/texturetoolplugin.h: constify
+	and polish
+
+2020-08-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/utilities/maintenance/maintenancedlg.cpp: Fix English
+	typo BUGS: 425223 FIXED-IN: 7.1.0
+
+2020-08-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-08-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-08-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-08-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/dimgfiltermanager.cpp,
+	core/libs/dimg/filters/dimgfiltermanager.h,
+	core/libs/dimg/filters/dimgthreadedanalyser.h,
+	core/libs/dimg/filters/dimgthreadedfilter.cpp,
+	core/libs/dimg/filters/dimgthreadedfilter.h,
+	core/libs/dimg/filters/dpixelsaliasfilter.cpp,
+	core/libs/dimg/filters/dpixelsaliasfilter.h: Fix coding style and
+	improve binary compatibility
+
+2020-08-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/TODO, core/dplugins/editor/TODO: update
+
+2020-08-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/hotpixels/hotpixelstool.h,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.h,
+	core/libs/dimg/filters/hotpixels/hotpixelsweights.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelsweights.h: Increase binary
+	compatibility fix coding style
+
+2020-08-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/query/itemquerybuilder.cpp,
+	core/libs/database/item/query/itemquerybuilder_p.h: revert "fix SQL
+	query for MySQL in recursive Tags search" CCBUGS: 424691
+
+2020-08-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/jpeg/dimgjpegloader.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegloader_load.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegloader_save.cpp,
+	core/libs/jpegutils/jpegutils.cpp: ignore krazy report for MINGW32
+	macro
+
+2020-08-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp: krazy++
+
+2020-08-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/webservices/box/boxwindow.cpp,
+	core/dplugins/generic/webservices/dropbox/dbwindow.cpp,
+	core/dplugins/generic/webservices/facebook/fbwindow.cpp,
+	core/dplugins/generic/webservices/flickr/flickrwindow.cpp,
+	core/dplugins/generic/webservices/google/gswindow.cpp,
+	core/dplugins/generic/webservices/imageshack/imageshackwindow.cpp,
+	core/dplugins/generic/webservices/imgur/imgurwindow.cpp,
+	core/dplugins/generic/webservices/ipfs/ipfswindow.cpp,
+	core/dplugins/generic/webservices/mediawiki/mediawikiwindow.cpp,
+	core/dplugins/generic/webservices/onedrive/odwindow.cpp,
+	core/dplugins/generic/webservices/pinterest/pwindow.cpp,
+	core/dplugins/generic/webservices/smugmug/smugwindow.cpp,
+	core/dplugins/generic/webservices/twitter/twitterwindow.cpp: window
+	size saving/restore is done in the base class
+
+2020-08-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dplugins/widgets/dplugindialog.cpp: always sync is not
+	necessary
+
+2020-08-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/searchwindow/searchwindow.cpp: save window size
+	from Advanced Search widget
+
+2020-08-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/CMakeLists.txt,
+	core/libs/dimg/filters/decorate/bordercontainer.cpp,
+	core/libs/dimg/filters/decorate/bordercontainer.h,
+	core/libs/dimg/filters/decorate/borderfilter.h: Border tool :
+	separate settings container from filter class
+
+2020-08-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp: Add more
+	description as tooltip about how to create a black frame
+
+2020-08-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-09  Yuri Chornoivan <yurchor@ukr.net>
+
+	* core/libs/dimg/filters/hotpixels/blackframelistview.cpp: Fix minor
+	typo
+
+2020-08-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/jpeg/dimgjpegloader.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegloader_load.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegloader_save.cpp,
+	core/libs/jpegutils/jpegutils.cpp: try with built in setjmp/longjmp
+	function for MinGW CCBUGS: 425063 CCBUGS: 425096
+
+2020-08-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/blackframelistview.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistview.h,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.h: HotPixels : Do
+	not use an extra progress bar to display loading black frame stages,
+	but dispatch progress info in black frame treeview item.
+
+2020-08-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/blackframelistview.cpp: Fix
+	shadow variable reported by cppcheck
+
+2020-08-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/data/AppRun: preload libxcb-dri3.so
+	before to run appimage
+
+2020-08-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/blackframelistview.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistview.h,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp: HotPixels
+	tool: prevent to load same black frame 2 time in list view Fix
+	coding style
+
+2020-08-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/blackframelistview.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistview.h,
+	core/libs/dimg/filters/hotpixels/blackframeparser.cpp,
+	core/libs/dimg/filters/hotpixels/blackframeparser.h,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp: Hot Pixels :
+	add more info about black frame as tooltip, including camera
+	make/model, filename, and HP list positions
+
+2020-08-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/stack/trashview.cpp, core/dplugins/editor/TODO,
+	core/dplugins/editor/colors/adjustcurves/adjustcurvestool.cpp,
+	core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp,
+	core/dplugins/editor/colors/autocorrection/autocorrectiontool.cpp,
+	core/dplugins/editor/colors/bcg/bcgtool.cpp,
+	core/dplugins/editor/colors/bwsepia/bwsepiatool.cpp,
+	core/dplugins/editor/colors/channelmixer/channelmixertool.cpp,
+	core/dplugins/editor/colors/colorbalance/cbtool.cpp,
+	core/dplugins/editor/colors/hsl/hsltool.cpp,
+	core/dplugins/editor/colors/profileconversion/profileconversiontool
+	.cpp,
+	core/dplugins/editor/colors/whitebalance/whitebalancetool.cpp,
+	core/dplugins/editor/decorate/border/bordertool.cpp,
+	core/dplugins/editor/decorate/inserttext/inserttexttool.cpp,
+	core/dplugins/editor/decorate/texture/texturetool.cpp,
+	core/dplugins/editor/enhance/antivignetting/antivignettingtool.cpp,
+	core/dplugins/editor/enhance/blur/blurtool.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetool.cpp,
+	core/dplugins/editor/enhance/lensautofix/lensautofixtool.cpp,
+	core/dplugins/editor/enhance/localcontrast/localcontrasttool.cpp,
+	core/dplugins/editor/enhance/noisereduction/noisereductiontool.cpp,
+	core/dplugins/editor/enhance/restoration/restorationtool.cpp,
+	core/dplugins/editor/enhance/sharpen/sharpentool.cpp,
+	core/dplugins/editor/transform/contentawareresize/contentawareresiz
+	etool.cpp,
+	core/dplugins/editor/transform/freerotation/freerotationtool.cpp,
+	core/dplugins/editor/transform/perspective/perspectivetool.cpp,
+	core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp,
+	core/dplugins/editor/transform/resize/resizetool.cpp,
+	core/libs/dtrash/dtrashitemmodel.cpp,
+	core/libs/properties/itemselectionpropertiestab.cpp,
+	core/showfoto/main/showfoto_p.h: fix KDE include rules as system
+	headers
+
+2020-08-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/TODO,
+	core/dplugins/editor/colors/film/filmtool.cpp,
+	core/libs/dimg/filters/README,
+	core/libs/dimg/filters/film/filmfilter.cpp,
+	core/libs/dimg/filters/film/filmfilter.h,
+	core/libs/dimg/filters/film/filmfilter_p.h: Fix coding style update
+	filters description and port status
+
+2020-08-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/showfoto/main/org.kde.showfoto.desktop: Showfoto: add
+	missing heif and heic type mime support BUGS: 425122 FIXED-IN: 7.1.0
+
+
+2020-08-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/TODO: typo
+
+2020-08-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/enhance/hotpixels/hotpixels.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp: handle black
+	frame url in BQM hot pixels tool
+
+2020-08-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/dplugins/bqm/enhance/CMakeLists.txt,
+	core/dplugins/bqm/enhance/hotpixels/CMakeLists.txt,
+	core/dplugins/bqm/enhance/hotpixels/hotpixels.cpp,
+	core/dplugins/bqm/enhance/hotpixels/hotpixels.h,
+	core/dplugins/bqm/enhance/hotpixels/hotpixelsplugin.cpp,
+	core/dplugins/bqm/enhance/hotpixels/hotpixelsplugin.h,
+	core/dplugins/editor/TODO,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.h: Batch Queue
+	Manager : add new tool to fix hot pixels from images. BUGS: 388707
+	FIXED-IN: 7.1.0
+
+2020-08-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/hotpixels/hotpixelstool.cpp,
+	core/dplugins/editor/enhance/hotpixels/hotpixelstool.h,
+	core/libs/dimg/filters/hotpixels/blackframeparser.cpp,
+	core/libs/dimg/filters/hotpixels/blackframeparser.h,
+	core/libs/dimg/filters/hotpixels/hotpixelcontainer.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelcontainer.h,
+	core/libs/dimg/filters/hotpixels/hotpixelprops.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelprops.h: Port Image Editor
+	HotPixel to shared API for BQM uses. Fix crash while hot pixels
+	parsing and consolidate list CCBUGS: 388707
+
+2020-08-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/blackframelistview.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistview.h,
+	core/libs/dimg/filters/hotpixels/blackframeparser.cpp,
+	core/libs/dimg/filters/hotpixels/blackframeparser.h,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp: Simplify
+	intermediary image storage in black frame list view
+
+2020-08-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp: fix layout
+	again
+
+2020-08-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.h: Improve API and
+	fix progress bar in layout
+
+2020-08-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/hotpixelcontainer.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelcontainer.h,
+	core/libs/dimg/filters/hotpixels/hotpixelfixer.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelprops.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelprops.h,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.h: Implement hot
+	pixel settings pass 2
+
+2020-08-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/hotpixels/hotpixelstool.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp: Implement hot
+	pixel settings pass 1 CCBUGS: 388707
+
+2020-08-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/hotpixels/hotpixelstool.cpp,
+	core/dplugins/editor/enhance/hotpixels/hotpixelstool.h,
+	core/libs/dimg/CMakeLists.txt,
+	core/libs/dimg/filters/hotpixels/blackframelistview.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistview.h,
+	core/libs/dimg/filters/hotpixels/blackframeparser.cpp,
+	core/libs/dimg/filters/hotpixels/blackframeparser.h,
+	core/libs/dimg/filters/hotpixels/hotpixelfixer.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelfixer.h,
+	core/libs/dimg/filters/hotpixels/{hotpixel.cpp =>
+	hotpixelprops.cpp}, core/libs/dimg/filters/hotpixels/{hotpixel.h =>
+	hotpixelprops.h}: Stage3: rename HotPixel class as HotPixelProps
+	(aka properties) CCBUGS: 388707
+
+2020-08-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/CMakeLists.txt, core/libs/dimg/filters/README,
+	core/libs/dimg/filters/bcg/bcgcontainer.cpp,
+	core/libs/dimg/filters/bcg/bcgfilter.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelcontainer.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelcontainer.h,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.h: Stage 2 :
+	prepare HotPixel tool to handle generic settings container CCBUGS:
+	388707
+
+2020-08-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/hotpixels/CMakeLists.txt,
+	core/dplugins/editor/enhance/hotpixels/hotpixel.h,
+	core/libs/dimg/CMakeLists.txt, core/{dplugins/editor/enhance =>
+	libs/dimg/filters}/hotpixels/TODO, core/{dplugins/editor/enhance =>
+	libs/dimg/filters}/hotpixels/blackframelistview.cpp,
+	core/{dplugins/editor/enhance =>
+	libs/dimg/filters}/hotpixels/blackframelistview.h,
+	core/{dplugins/editor/enhance =>
+	libs/dimg/filters}/hotpixels/blackframeparser.cpp,
+	core/{dplugins/editor/enhance =>
+	libs/dimg/filters}/hotpixels/blackframeparser.h,
+	core/libs/dimg/filters/hotpixels/hotpixel.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixel.h,
+	core/{dplugins/editor/enhance =>
+	libs/dimg/filters}/hotpixels/hotpixelfixer.cpp,
+	core/{dplugins/editor/enhance =>
+	libs/dimg/filters}/hotpixels/hotpixelfixer.h,
+	core/{dplugins/editor/enhance =>
+	libs/dimg/filters}/hotpixels/hotpixelsweights.cpp,
+	core/{dplugins/editor/enhance =>
+	libs/dimg/filters}/hotpixels/hotpixelsweights.h: First stage to
+	factorize HotPixels classes to be shared between Image Editor and
+	BQM. CCBUGS: 388707
+
+2020-08-05  l10n daemon script <scripty@kde.org>
+
+	* core/showfoto/main/org.kde.showfoto.desktop: SVN_SILENT made
+	messages (.desktop file) - always resolve ours  In case of conflict
+	in i18n, keep the version of the branch "ours" To resolve a
+	particular conflict, "git checkout --ours path/to/file.desktop"
+
+2020-08-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamapp_import.cpp, core/app/main/digikamapp_p.h: 
+	check for the album root path, to enable import from other
+	collections. CCBUGS: 424934
+
+2020-08-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-03  Tobias Fella <fella@posteo.de>
+
+	* project/bundles/flatpak/org.kde.digikam.json: Fix flatpak build
+
+2020-08-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/enhance/antivignetting/antivignetting.cpp,
+	core/dplugins/bqm/enhance/antivignetting/antivignettingplugin.h: 
+	polish
+
+2020-08-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-08-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/main/digikamapp_import.cpp,
+	core/app/main/digikamapp_p.h: check the folders to be imported, with
+	existing collections BUGS: 424934 FIXED-IN: 7.1.0
+
+2020-08-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/core/undomanager.cpp: polish
+
+2020-08-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/core/undomanager.cpp: polish and remove
+	spaces
+
+2020-08-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-02  Natalie Mona Matthews <natalie.mona@gmail.com>
+
+	* core/utilities/imageeditor/core/undomanager.cpp: make undo
+	snapshot logic more readable
+
+2020-08-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-02  Natalie Mona Matthews <natalie.mona@gmail.com>
+
+	* core/utilities/imageeditor/core/undomanager.cpp: fix undo snapshot
+	logic
+
+2020-08-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS, core/dplugins/editor/file/print/printhelper.cpp,
+	core/dplugins/editor/file/print/printoptionspage.cpp,
+	core/showfoto/main/showfoto_config.cpp,
+	core/utilities/imageeditor/main/imagewindow_config.cpp: Fix Color
+	Management button connection to show CM settings from host
+	application to configure printer profile from editor print dialog
+	BUGS: 374161 FIXED-IN: 7.1.0
+
+2020-08-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/file/print/printconfig.cpp,
+	core/dplugins/editor/file/print/printconfig.h,
+	core/dplugins/editor/file/print/printhelper.cpp,
+	core/dplugins/editor/file/print/printhelper.h,
+	core/dplugins/editor/file/print/printoptionspage.cpp,
+	core/dplugins/editor/file/print/printoptionspage.h,
+	core/showfoto/main/showfoto_config.cpp,
+	core/showfoto/setup/showfotosetup.h,
+	core/utilities/imageeditor/main/imagewindow_config.cpp: fic coding
+	style and use nullptr as parent
+
+2020-08-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-02  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/bluecurved/bluecurve
+	d.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/blueframes/blueframe
+	s.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/classic/classic.desk
+	top,
+	core/dplugins/generic/tools/htmlgallery/themes/cleanframes/cleanfra
+	mes.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/dateframes/dateframe
+	s.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/details/details.desk
+	top,
+	core/dplugins/generic/tools/htmlgallery/themes/elegant/elegant.desk
+	top,
+	core/dplugins/generic/tools/htmlgallery/themes/floatingcards/floati
+	ngcards.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/frames/frames.deskto
+	p,
+	core/dplugins/generic/tools/htmlgallery/themes/html5responsive/html
+	5responsive.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/matrix/matrix.deskto
+	p, core/dplugins/generic/tools/htmlgallery/themes/s0/s0.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/simple/simple.deskto
+	p,
+	core/dplugins/generic/tools/htmlgallery/themes/simplerounded/simple
+	rounded.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/simpleslides/simples
+	lides.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/snow/snow.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/vanilla/vanilla.desk
+	top,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_10.5x14.
+	8cm.desktop,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_10x15cm.
+	desktop,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_20x25cm.
+	desktop,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_8x10.des
+	ktop,
+	core/dplugins/generic/tools/printcreator/templates/1_photo_9x13cm.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/2_photos_13x18cm
+	.desktop,
+	core/dplugins/generic/tools/printcreator/templates/2_photos_5x7.des
+	ktop,
+	core/dplugins/generic/tools/printcreator/templates/3_photos_10x15cm
+	.desktop,
+	core/dplugins/generic/tools/printcreator/templates/3_photos_4x6.des
+	ktop,
+	core/dplugins/generic/tools/printcreator/templates/4_photos_10x13.3
+	3cm.desktop,
+	core/dplugins/generic/tools/printcreator/templates/4_photos_3.5x5.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/4_photos_4.5x5cm
+	.desktop,
+	core/dplugins/generic/tools/printcreator/templates/4_photos_9x13cm.
+	desktop,
+	core/dplugins/generic/tools/printcreator/templates/4x6Album.desktop
+	,
+	core/dplugins/generic/tools/printcreator/templates/6_photos_3.5x4.5
+	cm.desktop,
+	core/dplugins/generic/tools/printcreator/templates/6_photos_3.5x4cm
+	.desktop,
+	core/dplugins/generic/tools/printcreator/templates/8_photos_6x9cm.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/Album-Collage.de
+	sktop,
+	core/dplugins/generic/tools/printcreator/templates/Album-Collage1.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/Album_10x15cm.de
+	sktop,
+	core/dplugins/generic/tools/printcreator/templates/Album_11.5x15cm.
+	desktop,
+	core/dplugins/generic/tools/printcreator/templates/FullPage.desktop
+	,
+	core/dplugins/generic/tools/printcreator/templates/Photoframe.deskt
+	op,
+	core/dplugins/generic/tools/printcreator/templates/Thumbnails_5x4.d
+	esktop,
+	core/dplugins/generic/tools/printcreator/templates/Thumbnails_6x5.d
+	esktop: SVN_SILENT made messages (.desktop file) - always resolve
+	ours  In case of conflict in i18n, keep the version of the branch
+	"ours" To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2020-08-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-08-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/item/query/itemquerybuilder.cpp,
+	core/libs/database/item/query/itemquerybuilder_p.h: fix SQL query
+	for MySQL in recursive Tags search BUGS: 424691 FIXED-IN: 7.1.0
+
+2020-07-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_p.cpp: remove duplicate
+	string
+
+2020-07-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/utils/ifaces/dio.cpp,
+	core/libs/iojobs/iojob.cpp: remove item from the group when moved to
+	trash
+
+2020-07-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* .gitattributes, .gitignore: More git configurations
+
+2020-07-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/jpeg/dimgjpegloader.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegloader_load.cpp: Revert "test
+	whether MSVC supported bulletin setjmp/longjmp"
+
+2020-07-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/jpeg/dimgjpegloader.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegloader_load.cpp: test whether MSVC
+	supported bulletin setjmp/longjmp CCBUGS: 424805
+
+2020-07-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dplugins/widgets/ditemslist.cpp: fix deprecated QFlags
+	warning
+
+2020-07-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_load.cpp,
+	core/dplugins/dimg/heif/dimgheifloader_save.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegloader_load.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegloader_save.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000loader_load.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000loader_save.cpp,
+	core/dplugins/dimg/pgf/dimgpgfloader.cpp,
+	core/dplugins/dimg/pgf/dimgpgfloader_load.cpp,
+	core/dplugins/dimg/pgf/dimgpgfloader_save.cpp,
+	core/dplugins/dimg/png/dimgpngloader_load.cpp,
+	core/dplugins/dimg/png/dimgpngloader_save.cpp,
+	core/dplugins/dimg/raw/dimgrawloader.cpp,
+	core/dplugins/dimg/tiff/dimgtiffloader_load.cpp,
+	core/dplugins/dimg/tiff/dimgtiffloader_save.cpp,
+	core/libs/dimg/filters/icc/icctransform.cpp,
+	core/libs/dimg/filters/raw/rawprocessingfilter.cpp,
+	core/libs/dimg/loaders/dimgloader.h,
+	core/libs/dimg/loaders/dimgloaderobserver.h: use explicit the float
+	type CCBUGS: 415867
+
+2020-07-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-07-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/CMakeLists.txt: try to fix Windows build #2
+
+2020-07-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/system/systemsettingswidget.cpp: polish i18n
+
+
+2020-07-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/system/systemsettingswidget.h: polish
+
+2020-07-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/system/systemsettingswidget.h: try to fix
+	Windows build
+
+2020-07-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/main.cpp, core/showfoto/main/main.cpp: polish
+
+2020-07-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/main.cpp, core/showfoto/main/main.cpp,
+	core/showfoto/setup/showfotosetupmisc.cpp,
+	core/showfoto/setup/showfotosetupmisc.h,
+	core/utilities/setup/CMakeLists.txt,
+	core/utilities/setup/system/systemsettingswidget.cpp: add system
+	settings to showFoto
+
+2020-07-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/main.cpp, core/utilities/setup/CMakeLists.txt,
+	core/utilities/setup/setupmisc.cpp,
+	core/utilities/setup/setupmisc.h,
+	core/utilities/setup/system/systemsettings.cpp,
+	core/utilities/setup/system/systemsettings.h,
+	core/utilities/setup/system/systemsettingswidget.cpp,
+	core/utilities/setup/system/systemsettingswidget.h: add hardware /
+	system settings Since the settings have to be carried out before a
+	QApplication is created, we use an extra settings file based on
+	QSettings. CCBUGS: 420727
+
+2020-07-27  Julian Steinmann <mail@xyquadrat.ch>
+
+	* .gitslave: Update .gitslave to new Invent convention  digikam-doc
+	is no longer at invent.kde.org/digikam-doc, but at
+	invent.kde.org/documentation/digikam-doc. This change breaks the
+	Neon build. This commit should fix the build.
+
+2020-07-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-07-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-07-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, project/bundles/mxe/installer/digikam.nsi: do not delete the
+	shortcut folder if it is not empty BUGS: 424666 FIXED-IN: 7.1.0
+
+2020-07-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/showfoto/setup/showfotosetupmisc.cpp: the same code for
+	showFoto #2
+
+2020-07-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/showfoto/setup/showfotosetupmisc.cpp: the same code for
+	showFoto #1
+
+2020-07-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/stack/itemiconview_items.cpp: fix selection
+	properties with grouped images
+
+2020-07-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp: check for deleted images in
+	the SQL query
+
+2020-07-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/searchwindow/searchfields.cpp: we don't get
+	duplicate items from the SQL query
+
+2020-07-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/searchwindow/searchfields.cpp: use full search also
+	for camera make names
+
+2020-07-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-07-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/utilities/searchwindow/searchfields.cpp: use the full
+	camera model name for the search BUGS: 424668 FIXED-IN: 7.1.0
+
+2020-07-26  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-07-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/collection/collectionscanner_scan.cpp: get
+	album date only once in a loop
+
+2020-07-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/libraw/libraw/libraw_types.h: definitively
+	this rules is the only one to link libraw without export symbols
+
+2020-07-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/CMakeLists.txt: try to fix libraw export
+	symbols
+
+2020-07-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/collection/collectionscanner_scan.cpp: polish
+
+2020-07-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-06-17  Marcel Mathis <maeseee@gmail.com>
+
+	* core/libs/database/collection/collectionscanner_scan.cpp: revert
+	formating of untouched files
+
+2020-06-17  Marcel Mathis <maeseee@gmail.com>
+
+	* core/libs/database/collection/collectionscanner_scan.cpp: Call
+	scanNewFile only once and use different name for ItemInfo
+
+2020-06-17  Marcel Mathis <maeseee@gmail.com>
+
+	* core/libs/database/collection/collectionscanner_scan.cpp: update
+	album date according to its contents
+
+2020-07-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/libraw/Changelog.txt,
+	core/libs/rawengine/libraw/libraw/libraw_types.h,
+	core/libs/rawengine/libraw/libraw/libraw_version.h,
+	core/libs/rawengine/libraw/src/tables/cameralist.cpp: Update
+	internal libraw with final 0.20 stable release
+
+2020-07-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-07-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-07-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/utilities/advancedrename/advancedrenameinput.cpp: allow
+	backslash for input, for Windows file system it will be filtered
+	later BUGS: 424540 FIXED-IN: 7.1.0
+
+2020-07-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/threadimageio/thumb/thumbnailcreator_engine.cpp: 
+	fix create detail thumbnail from the metadata preview BUGS: 424463
+	FIXED-IN: 7.1.0
+
+2020-07-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/CMakeLists.txt,
+	project/bundles/3rdparty/ext_cmake/CMakeLists.txt,
+	project/bundles/appimage/01-build-host.sh: add cmake build script to
+	use a more recent version
+
+2020-07-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_openssl/CMakeLists.txt,
+	project/bundles/3rdparty/ext_qt/CMakeLists.txt,
+	project/bundles/appimage/01-build-host.sh: We need an update of
+	openssl for Qt 5.15.0
+
+2020-07-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt: xcb option do not
+	exists with qt 5.15.0
+
+2020-07-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/qt-appimage-support.patch: fix
+	path
+
+2020-07-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-07-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/containers/iteminfo_properties.cpp: set
+	orientaion to the cache
+
+2020-07-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/containers/iteminfo_properties.cpp,
+	core/libs/database/item/containers/iteminfocache.cpp,
+	core/libs/database/item/containers/iteminfodata.cpp,
+	core/libs/database/item/containers/iteminfodata.h: add cache for the
+	itemInfo orientation flag
+
+2020-07-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/containers/iteminfo_p.h: I think this read
+	/ write lock is better and wrong reading from the DB not to the
+	cache
+
+2020-07-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/qt-appimage-support.patch: update
+	patch for Qt 5.15.0
+
+2020-07-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_boost/CMakeLists.txt,
+	project/bundles/3rdparty/ext_opencv/CMakeLists.txt: update boost to
+	last stable 1.73
+
+2020-07-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_libgphoto2/CMakeLists.txt: update to
+	last stable libgohoto2
+
+2020-07-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_qt/CMakeLists.txt,
+	project/bundles/3rdparty/ext_qt/{config_help-5.14.0.txt =>
+	config_help.txt}: update Qt to last 5.15.0
+
+2020-07-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_jasper/CMakeLists.txt: use libjasper
+	2.0.17
+
+2020-07-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/flatpak/org.kde.digikam.json: fix Exiv2 to 0.27.3
+	stable release. Use libjapser 2.0.17
+
+2020-07-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_exiv2/CMakeLists.txt,
+	project/bundles/mxe/config.sh: Current 0.27-maintenance branch is
+	currently broken with MXE. Use 0.27.3 tag instead
+
+2020-07-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dngwriter/CMakeLists.txt: fix broken compilation with
+	last Mingw version from MXE
+
+2020-07-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-07-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/flatpak/org.kde.digikam.json: bump Kapplication
+	from 20.4.0 t o20.4.3
+
+2020-07-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_libksane/CMakeLists.txt,
+	project/bundles/3rdparty/ext_marble/CMakeLists.txt: bump
+	kapplication from 20.04.0 to 20.04.3
+
+2020-07-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_kf5_frameworks/CMakeLists.txt: bump
+	KF5 from 5.70 to 5.72
+
+2020-07-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh: bypass exception
+	with MacOS Catalina and MAcports install from scratch
+
+2020-07-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* README.md: fix freebsd build status
+
+2020-07-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-07-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/items/views/digikamitemview.cpp,
+	core/app/views/tableview/tableview.cpp: Change MetaModifier to
+	AltModifier
+
+2020-07-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/metadataengine/engine/metaengine_p.cpp: fix ctime
+	change when write to sidecar only BUGS: 363599 FIXED-IN: 7.1.0
+
+2020-07-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: we can plan next 7.1.0 release to Sunday 30 august
+
+2020-07-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* CMakeLists.txt, NEWS, project/NEWS.7.0.0,
+	project/bundles/macports/config.sh, project/bundles/mxe/config.sh: 
+	master branch is now open for next release 7.1.0.
+
+2020-07-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/config.sh: switch AppImage to master, as
+	7.0.0 is broken with libraw 0.20-RC2 See my downstream report:
+	https://github.com/LibRaw/LibRaw/issues/315
+
+2020-07-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/libraw/src/write/file_write.cpp: Fix broken
+	libraw compilation with GCC 5.5.0
+
+2020-07-16  Yuri Chornoivan <yurchor@ukr.net>
+
+	* core/app/views/stack/welcomepageview.cpp: Fix minor typo, add
+	spaces
+
+2020-07-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/config.sh,
+	project/bundles/macports/config.sh, project/bundles/mxe/config.sh: 
+	prepare 7.0.0 release
+
+2020-07-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* ChangeLog: update ChangeLog for 7.0.0 release
+
 2020-07-16  Gilles Caulier <caulier.gilles@gmail.com>
 
 	* NEWS, bootstrap.tarball: prepare 7.0.0 release
