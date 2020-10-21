@@ -35,6 +35,8 @@ class ExpoBlendingManager;
 
 class ExpoBlendingLastPage : public DWizardPage
 {
+    Q_OBJECT
+
 public:
 
     explicit ExpoBlendingLastPage(ExpoBlendingManager* const mngr, QWizard* const dlg);

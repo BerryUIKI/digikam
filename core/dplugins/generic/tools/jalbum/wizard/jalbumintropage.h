@@ -43,10 +43,10 @@ class JAlbumIntroPage : public DWizardPage
 public:
 
     explicit JAlbumIntroPage(QWizard* const dialog, const QString& title);
-    ~JAlbumIntroPage() override;
+    ~JAlbumIntroPage()      override;
 
-    void initializePage() override;
-    bool validatePage() override;
+    void initializePage()   override;
+    bool validatePage()     override;
     bool isComplete() const override;
 
 private Q_SLOTS:

@@ -34,6 +34,7 @@ namespace DigikamGenericSendByMailPlugin
 
 class BalsaBinary : public DBinaryIface
 {
+
 public:
 
     explicit BalsaBinary()
