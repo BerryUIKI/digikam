@@ -34,26 +34,12 @@ namespace DigikamGenericPanoramaPlugin
 
 class AutoOptimiserBinary : public DBinaryIface
 {
+    Q_OBJECT
 
 public:
 
-    explicit AutoOptimiserBinary()
-        : DBinaryIface(QLatin1String("autooptimiser"),
-                       QLatin1String("2010.4"),
-                       QLatin1String("autooptimiser version "),
-                       1,
-                       QLatin1String("Hugin"),
-                       QLatin1String("http://hugin.sourceforge.net/download/"),
-                       QLatin1String("Panorama"),
-                       QStringList(QLatin1String("-h"))
-                      )
-        {
-            setup();
-        }
-
-    ~AutoOptimiserBinary() override
-    {
-    }
+    explicit AutoOptimiserBinary();
+    ~AutoOptimiserBinary() override;
 };
 
 } // namespace DigikamGenericPanoramaPlugin
