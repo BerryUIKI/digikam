@@ -20,8 +20,8 @@
  *
  * ============================================================ */
 
-#ifndef NETSCAPE_BINARY_H
-#define NETSCAPE_BINARY_H
+#ifndef DIGIKAM_NETSCAPE_BINARY_H
+#define DIGIKAM_NETSCAPE_BINARY_H
 
 // Local includes
 
@@ -34,27 +34,14 @@ namespace DigikamGenericSendByMailPlugin
 
 class NetscapeBinary : public DBinaryIface
 {
+    Q_OBJECT
 
 public:
 
-    explicit NetscapeBinary()
-        : DBinaryIface(
-                       QLatin1String("netscape"),
-                       QLatin1String("Netscape Messenger"),
-                       QLatin1String("https://en.wikipedia.org/wiki/Netscape_Mail_%26_Newsgroups"),
-                       QLatin1String("SendByMail"),
-                       QStringList(QLatin1String("-v")),
-                       i18n("Netscape Mail Client.")
-                      )
-        {
-            setup();
-        }
-
-    ~NetscapeBinary() override
-    {
-    }
+    explicit NetscapeBinary();
+    ~NetscapeBinary() override;
 };
 
 } // namespace DigikamGenericSendByMailPlugin
 
-#endif // NETSCAPE_BINARY_H
+#endif // DIGIKAM_NETSCAPE_BINARY_H
