@@ -34,22 +34,12 @@ namespace DigikamGenericPanoramaPlugin
 
 class PanoModifyBinary : public DBinaryIface
 {
+    Q_OBJECT
 
 public:
 
-    explicit PanoModifyBinary()
-        : DBinaryIface(QLatin1String("pano_modify"),
-                       QLatin1String("2012.0"),
-                       QLatin1String("pano_modify version "),
-                       1,
-                       QLatin1String("Hugin"),
-                       QLatin1String("http://hugin.sourceforge.net/download/"),
-                       QLatin1String("Panorama"),
-                       QStringList(QLatin1String("-h"))
-                      )
-        {
-            setup();
-        }
+    explicit PanoModifyBinary();
+    ~PanoModifyBinary() override;
 };
 
 } // namespace DigikamGenericPanoramaPlugin
