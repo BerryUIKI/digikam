@@ -37,23 +37,8 @@ class EnblendBinary : public DBinaryIface
 
 public:
 
-    explicit EnblendBinary()
-        : DBinaryIface(QLatin1String("enblend"),
-                       QLatin1String("4.0"),
-                       QLatin1String("enblend "),
-                       0,
-                       QLatin1String("Hugin"),
-                       QLatin1String("http://hugin.sourceforge.net/download/"),
-                       QLatin1String("Panorama"),
-                       QStringList(QLatin1String("-V"))
-                      )
-        {
-            setup();
-        }
-
-    ~EnblendBinary() override
-    {
-    }
+    explicit EnblendBinary();
+    ~EnblendBinary() override;
 };
 
 } // namespace DigikamGenericPanoramaPlugin
