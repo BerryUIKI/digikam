@@ -34,23 +34,12 @@ namespace DigikamGenericPanoramaPlugin
 
 class HuginExecutorBinary : public DBinaryIface
 {
+    Q_OBJECT
 
 public:
 
-    explicit HuginExecutorBinary()
-        : DBinaryIface(QLatin1String("hugin_executor"),
-                       QLatin1String("Hugin"),
-                       QLatin1String("http://hugin.sourceforge.net/download/"),
-                       QLatin1String("Panorama"),
-                       QStringList(QLatin1String("-h"))
-                      )
-        {
-            setup();
-        }
-
-    ~HuginExecutorBinary() override
-    {
-    }
+    explicit HuginExecutorBinary();
+    ~HuginExecutorBinary() override;
 };
 
 } // namespace DigikamGenericPanoramaPlugin
