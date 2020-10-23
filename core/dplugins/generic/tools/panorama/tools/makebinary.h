@@ -34,30 +34,12 @@ namespace DigikamGenericPanoramaPlugin
 
 class MakeBinary : public DBinaryIface
 {
+    Q_OBJECT
 
 public:
 
-    explicit MakeBinary()
-        : DBinaryIface(QLatin1String("make"),
-                       QLatin1String("3.80"),
-                       QLatin1String("GNU Make "),
-                       0,
-                       QLatin1String("GNU"),
-#ifdef Q_OS_WIN
-                       QLatin1String("http://gnuwin32.sourceforge.net/packages/make.htm"),
-#else
-                       QLatin1String("https://www.gnu.org/software/make/"),
-#endif
-                       QLatin1String("Panorama"),
-                       QStringList(QLatin1String("-v"))
-                      )
-        {
-            setup();
-        }
-
-    ~MakeBinary() override
-    {
-    }
+    explicit MakeBinary();
+    ~MakeBinary() override;
 };
 
 } // namespace DigikamGenericPanoramaPlugin
