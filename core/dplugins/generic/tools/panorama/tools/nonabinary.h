@@ -34,26 +34,12 @@ namespace DigikamGenericPanoramaPlugin
 
 class NonaBinary : public DBinaryIface
 {
+    Q_OBJECT
 
 public:
 
-    explicit NonaBinary()
-        : DBinaryIface(QLatin1String("nona"),
-                       QLatin1String("2010.4"),
-                       QLatin1String("nona version "),
-                       2,
-                       QLatin1String("Hugin"),
-                       QLatin1String("http://hugin.sourceforge.net/download/"),
-                       QLatin1String("Panorama"),
-                       QStringList(QLatin1String("-h"))
-                      )
-        {
-            setup();
-        }
-
-    ~NonaBinary() override
-    {
-    }
+    explicit NonaBinary();
+    ~NonaBinary() override;
 };
 
 } // namespace DigikamGenericPanoramaPlugin
