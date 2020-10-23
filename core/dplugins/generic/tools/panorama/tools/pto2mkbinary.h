@@ -34,26 +34,12 @@ namespace DigikamGenericPanoramaPlugin
 
 class Pto2MkBinary : public DBinaryIface
 {
+    Q_OBJECT
 
 public:
 
-    explicit Pto2MkBinary()
-        : DBinaryIface(QLatin1String("pto2mk"),
-                       QLatin1String("2010.4"),
-                       QLatin1String("pto2mk version "),
-                       2,
-                       QLatin1String("Hugin"),
-                       QLatin1String("http://hugin.sourceforge.net/download/"),
-                       QLatin1String("Panorama"),
-                       QStringList(QLatin1String("-h"))
-                      )
-        {
-            setup();
-        }
-
-    ~Pto2MkBinary() override
-    {
-    }
+    explicit Pto2MkBinary();
+    ~Pto2MkBinary() override;
 };
 
 } // namespace DigikamGenericPanoramaPlugin
