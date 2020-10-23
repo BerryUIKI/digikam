@@ -34,22 +34,12 @@ namespace DigikamGenericPanoramaPlugin
 
 class CPCleanBinary : public DBinaryIface
 {
+    Q_OBJECT
 
 public:
 
-    explicit CPCleanBinary()
-        : DBinaryIface(QLatin1String("cpclean"),
-                       QLatin1String("2010.4"),
-                       QLatin1String("cpclean version "),
-                       1,
-                       QLatin1String("Hugin"),
-                       QLatin1String("http://hugin.sourceforge.net/download/"),
-                       QLatin1String("Panorama"),
-                       QStringList(QLatin1String("-h"))
-                      )
-        {
-            setup();
-        }
+    explicit CPCleanBinary();
+    ~CPCleanBinary() override;
 };
 
 } // namespace DigikamGenericPanoramaPlugin
