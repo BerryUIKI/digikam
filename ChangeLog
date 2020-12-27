@@ -1,3 +1,4386 @@
+2020-12-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/README: Update structure description of
+	relocable MacOS bundle CCBUGS: 426860
+
+2020-12-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/setup/dpluginloader_p.cpp: Ignore plugin debug
+	extesion under MacOS CCBUGS: 426860
+
+2020-12-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh,
+	project/bundles/macports/common.sh,
+	project/bundles/macports/config.sh: MacOS relocable bundle: for PKG
+	debug version, do not patch dSYM extension binary files. Remove
+	rules to handle dSYM file name extension "_debug" which do not
+	exists anymore CCBUGS: 426860
+
+2020-12-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: MacOS relocatable
+	bundle start to run, but need more optimizations CCBUGS: 426860
+
+2020-12-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/qimage/dimgqimageloader.cpp: clear if no alpha
+	channel in the QImage loader
+
+2020-12-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/queuemanager/manager/task.cpp: remove double slash
+	in the BQM work URL
+
+2020-12-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/queuemanager/main/queuemgrwindow.cpp: fix run the
+	current selected queue BUGS: 430818 FIXED-IN: 7.2.0
+
+2020-12-26  l10n daemon script <scripty@kde.org>
+
+	* core/showfoto/main/org.kde.showfoto.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/items/utils/contextmenuhelper.cpp: change icon for mark
+	as face actions
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/view/slideshow/dialogs/setupslideshow_dialog.
+	cpp: add note for the F2 key in the slideshow settings CCBUGS:
+	430810
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/downloader/filesdownloader.cpp: ignore
+	QNetworkReply::InsecureRedirectError CCBUGS: 430589
+
+2020-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: polish
+
+2020-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh,
+	project/bundles/macports/README,
+	project/bundles/macports/common.sh,
+	project/bundles/macports/config.sh,
+	project/bundles/macports/installer/digikam.pkgproj: Relocatable
+	MacOS bundle: use relative paths to make symlinks to shared files
+	between digiKAm and showfoto containers CCBUGS: 426860
+
+2020-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/models/albummodel.h: polish
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/models/albummodel.cpp: fix HiDPI standard face icon
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: Relocate MacOS
+	bundle : last stage to finalize file places in bundle. Need to test
+	in target computers. CCBUGS: 426860
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/album/engine/album.cpp, core/libs/album/engine/album.h,
+	core/libs/tags/manager/tagpropwidget.cpp,
+	core/libs/tags/manager/tagsmanager.cpp,
+	core/libs/tags/widgets/tageditdlg.cpp,
+	core/libs/tags/widgets/tagfolderview.cpp: factoring face icon
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/sidebar/peoplesidebarwidget.cpp,
+	core/libs/models/albummodel.cpp: better to change the i18n here
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/models/albummodel.cpp: change 18n for face TagModel
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/utils/ifaces/syncjob.cpp,
+	core/libs/tags/manager/tagpropwidget.cpp,
+	core/libs/tags/widgets/tageditdlg.cpp: more fix reset tag icon
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp,
+	core/libs/tags/manager/tagsmanager.cpp,
+	core/libs/tags/widgets/tagfolderview.cpp: fix reset tag icon
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/album/engine/albumthumbnailloader.cpp,
+	core/libs/models/albummodel.cpp: use different icons for tags and
+	face tags BUGS: 392007 FIXED-IN: 7.2.0
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/models/albummodel.cpp: polish
+
+2020-12-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh,
+	project/bundles/macports/installer/digikam.pkgproj: MacOS relocable
+	application bundle stage 2: cleanup applet build, fix install paths
+	in bundle, and disable post install operation (not necessary now)
+
+2020-12-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/main/digikamapp_config.cpp,
+	core/libs/album/engine/albumthumbnailloader.cpp,
+	core/libs/album/engine/albumthumbnailloader.h,
+	core/libs/models/albummodel.cpp, core/libs/models/albummodel.h,
+	core/libs/settings/applicationsettings.cpp,
+	core/libs/settings/applicationsettings.h,
+	core/libs/settings/applicationsettings_albums.cpp,
+	core/libs/settings/applicationsettings_p.cpp,
+	core/libs/settings/applicationsettings_p.h,
+	core/utilities/setup/album/setupalbumview.cpp: add separate icon
+	size for the people tree view Better rendering of the face icon by
+	keeping the proportionen BUGS: 430762 FIXED-IN: 7.2.0
+
+2020-12-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-12-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh,
+	project/bundles/macports/config.sh,
+	project/bundles/macports/installer/digikam.pkgproj: Next stage to
+	build MacOS PKG as relocate bundle in /Applications CCBUGS: 426860
+
+2020-12-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-12-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh,
+	project/bundles/macports/README,
+	project/bundles/macports/common.sh,
+	project/bundles/macports/config.sh,
+	project/bundles/macports/installer/digikam.pkgproj: Make MacOS PKG
+	bundle binaries contents rellocable. All .dylib, .so, and execytable
+	are now patched to be RPATH compliant Installer is not yet fixed to
+	support this feature, but at least, we can run digiKam target
+	executable from everywhere without to install it at a specific place
+	(aka /opt/digikam). CCBUGS: 426860 BUGS: 417100
+
+2020-12-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/editor/editorwindow.cpp: try with
+	result function from QDialog CCBUGS: 430588
+
+2020-12-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/utilities/advancedrename/parser/options/database/keys/commonke
+	ys.cpp: change i18n
+
+2020-12-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/downloader/filesdownloader.cpp,
+	core/utilities/setup/downloader/filesdownloader.h: forward network
+	redirects manually BUGS: 430589 FIXED-IN: 7.2.0
+
+2020-12-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS,
+	core/utilities/advancedrename/parser/options/database/keys/commonke
+	ys.cpp: add title and tags list as database option for renaming
+	BUGS: 430684 FIXED-IN: 7.2.0
+
+2020-12-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh,
+	project/bundles/macports/common.sh,
+	project/bundles/macports/config.sh: Prepare to binary rellocation
+	under MacOS
+
+2020-12-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: add new link about
+	rellocate binaries under MacOS
+
+2020-12-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: rellocate .so
+	files
+
+2020-12-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/config.sh: restore auto uploading
+
+2020-12-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/config.sh: polish
+
+2020-12-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: copy
+	libdigiKam*.dSYM directories in MacOS bundle
+
+2020-12-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/cmake/modules/MacroDPlugins.cmake,
+	project/bundles/macports/04-build-installer.sh: Fix install path for
+	debug dSym directories under MAcOS and cleanup debug traces
+
+2020-12-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh,
+	project/bundles/macports/config.sh: Missing to bundle RawImport
+	DPlugins
+
+2020-12-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/cmake/modules/MacroDPlugins.cmake: With Apple debug targets,
+	install dSYM directories for all DPlugins
+
+2020-12-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/DigikamCoreTarget.cmake,
+	core/app/DigikamDatabaseTarget.cmake,
+	core/app/DigikamGuiTarget.cmake: With Apple debug targets, install
+	dSYM directories for shared libraries
+
+2020-12-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* bootstrap.macports, core/app/DigikamCoreTarget.cmake,
+	core/app/DigikamDatabaseTarget.cmake,
+	core/app/DigikamGuiTarget.cmake,
+	core/app/views/stack/welcomepageview.cpp,
+	core/dplugins/bqm/enhance/restoration/restoration.cpp,
+	core/dplugins/editor/enhance/restoration/restorationtool.cpp,
+	core/dplugins/editor/transform/contentawareresize/contentawareresiz
+	etool.cpp,
+	core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp,
+	core/dplugins/editor/transform/resize/resizetool.cpp,
+	core/dplugins/generic/metadata/geolocationedit/searches/searchresul
+	tmodel.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingintropa
+	ge.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingitemspa
+	ge.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendinglastpag
+	e.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingpreproc
+	esspage.cpp,
+	core/dplugins/generic/tools/htmlgallery/generator/gallerytheme.cpp,
+	core/dplugins/generic/tools/mediaserver/server/dlnaserver.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panointropage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panoitemspage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panolastpage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panooptimizepage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panopreprocesspage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp,
+	core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.c
+	pp, core/dplugins/generic/webservices/piwigo/piwigowindow.cpp,
+	core/libs/database/engine/dbengineconfig.cpp,
+	core/libs/database/engine/dbengineparameters.cpp,
+	core/libs/database/server/databaseserver.cpp,
+	core/libs/dialogs/dsplashscreen.cpp,
+	core/libs/dimg/filters/bw/bwsepiasettings.cpp,
+	core/libs/dimg/filters/curves/curvesbox.cpp,
+	core/libs/dimg/filters/decorate/bordercontainer.cpp,
+	core/libs/dimg/filters/decorate/texturecontainer.cpp,
+	core/libs/dimg/filters/fx/colorfxsettings.cpp,
+	core/libs/dimg/filters/fx/filmgrainsettings.cpp,
+	core/libs/dimg/filters/icc/iccprofile.cpp,
+	core/libs/dimg/filters/lens/lensfuniface.cpp,
+	core/libs/dimg/filters/nr/nrsettings.cpp,
+	core/libs/progressmanager/dlogoaction.cpp,
+	core/libs/progressmanager/dworkingpixmap.cpp,
+	core/libs/widgets/mainview/dxmlguiwindow.cpp,
+	core/libs/widgets/mainview/thememanager.cpp,
+	core/libs/widgets/metadata/subjectwidget.cpp,
+	core/showfoto/setup/showfotosetupmetadata.cpp,
+	core/tests/facesengine/alignment/funnelreal.cpp,
+	core/utilities/facemanagement/widgets/facemanagementhelpdlg.cpp,
+	core/utilities/geolocation/geoiface/bookmark/gpsbookmarkmodelhelper
+	.cpp, core/utilities/geolocation/geoiface/core/geoifacecommon.cpp,
+	core/utilities/imageeditor/widgets/previewtoolbar.cpp,
+	core/utilities/setup/camera/setupcamera.cpp,
+	core/utilities/setup/editor/setupeditoriface.cpp,
+	core/utilities/setup/metadata/setupmetadata.cpp,
+	core/utilities/setup/setupicc.cpp: Revert "install dSYM directory
+	for digiKAm shared libs"  This reverts commit
+	59ae476fff99fc532ee8f82739291759155cdec7.
+
+2020-12-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* bootstrap.macports, core/app/DigikamCoreTarget.cmake,
+	core/app/DigikamDatabaseTarget.cmake,
+	core/app/DigikamGuiTarget.cmake,
+	core/app/views/stack/welcomepageview.cpp,
+	core/dplugins/bqm/enhance/restoration/restoration.cpp,
+	core/dplugins/editor/enhance/restoration/restorationtool.cpp,
+	core/dplugins/editor/transform/contentawareresize/contentawareresiz
+	etool.cpp,
+	core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp,
+	core/dplugins/editor/transform/resize/resizetool.cpp,
+	core/dplugins/generic/metadata/geolocationedit/searches/searchresul
+	tmodel.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingintropa
+	ge.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingitemspa
+	ge.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendinglastpag
+	e.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingpreproc
+	esspage.cpp,
+	core/dplugins/generic/tools/htmlgallery/generator/gallerytheme.cpp,
+	core/dplugins/generic/tools/mediaserver/server/dlnaserver.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panointropage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panoitemspage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panolastpage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panooptimizepage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panopreprocesspage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp,
+	core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.c
+	pp, core/dplugins/generic/webservices/piwigo/piwigowindow.cpp,
+	core/libs/database/engine/dbengineconfig.cpp,
+	core/libs/database/engine/dbengineparameters.cpp,
+	core/libs/database/server/databaseserver.cpp,
+	core/libs/dialogs/dsplashscreen.cpp,
+	core/libs/dimg/filters/bw/bwsepiasettings.cpp,
+	core/libs/dimg/filters/curves/curvesbox.cpp,
+	core/libs/dimg/filters/decorate/bordercontainer.cpp,
+	core/libs/dimg/filters/decorate/texturecontainer.cpp,
+	core/libs/dimg/filters/fx/colorfxsettings.cpp,
+	core/libs/dimg/filters/fx/filmgrainsettings.cpp,
+	core/libs/dimg/filters/icc/iccprofile.cpp,
+	core/libs/dimg/filters/lens/lensfuniface.cpp,
+	core/libs/dimg/filters/nr/nrsettings.cpp,
+	core/libs/progressmanager/dlogoaction.cpp,
+	core/libs/progressmanager/dworkingpixmap.cpp,
+	core/libs/widgets/mainview/dxmlguiwindow.cpp,
+	core/libs/widgets/mainview/thememanager.cpp,
+	core/libs/widgets/metadata/subjectwidget.cpp,
+	core/showfoto/setup/showfotosetupmetadata.cpp,
+	core/tests/facesengine/alignment/funnelreal.cpp,
+	core/utilities/facemanagement/widgets/facemanagementhelpdlg.cpp,
+	core/utilities/geolocation/geoiface/bookmark/gpsbookmarkmodelhelper
+	.cpp, core/utilities/geolocation/geoiface/core/geoifacecommon.cpp,
+	core/utilities/imageeditor/widgets/previewtoolbar.cpp,
+	core/utilities/setup/camera/setupcamera.cpp,
+	core/utilities/setup/editor/setupeditoriface.cpp,
+	core/utilities/setup/metadata/setupmetadata.cpp,
+	core/utilities/setup/setupicc.cpp: install dSYM directory for
+	digiKAm shared libs
+
+2020-12-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: parse bundle dir
+	to drop all dSYM subdirectories when for non debug packaging
+
+2020-12-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: parse bundle dir
+	to populate a list of dSYM to remove in case of no debug version
+	CCBUGS:429103
+
+2020-12-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/cmake/modules/MacroUtils.cmake: build dSYm also with DPLugins
+
+
+2020-12-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/editor/editorwindow.cpp: add result
+	code to debug output CCBUGS: 430588
+
+2020-12-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/advancedrename/advancedrenameinput.cpp: polish
+
+2020-12-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/utilities/advancedrename/advancedrenameinput.cpp: 
+	prevent unnecessary text change signals from the rename widget BUGS:
+	372487 FIXED-IN: 7.2.0
+
+2020-12-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/CMakeLists.txt, core/cmake/modules/MacroUtils.cmake: 
+	factoring this cmake code in a common macro
+
+2020-12-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/editor/editorwindow.cpp: don't show
+	overwrite warning twice
+
+2020-12-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/editor/editorwindow.cpp: polish
+
+2020-12-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/editor/editorwindow.cpp: polish
+
+2020-12-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/imageeditor/editor/editorwindow.cpp: use QPointer
+	and fix memory leaks
+
+2020-12-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/CMakeLists.txt: Wrap this code only for Apple plateform
+
+2020-12-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/CMakeLists.txt: Finaly i found a way to generate debug
+	symbols for MacOS with CMake without to use XCode. Cmake do not
+	support yet this kind of rules. See this reports for details:
+	https://gitlab.kitware.com/cmake/cmake/-/issues/20256 CCBUGS: 429103
+
+
+2020-12-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/downloader/filesdownloader.cpp: force the use
+	of insecure connections CCBUGS: 430589
+
+2020-12-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-12-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dplugins/setup/dpluginloader_p.cpp: polish
+
+2020-12-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dplugins/setup/dpluginloader_p.cpp: polish
+
+2020-12-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dplugins/setup/dpluginloader_p.cpp: the colon is bad for
+	Windows users, now use semicolon as separator CCBUGS: 430566
+
+2020-12-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/dplugins/setup/dpluginloader_p.cpp: allow
+	DK_PLUGIN_PATH as path list with colon as separator BUGS: 430566
+	FIXED-IN: 7.2.0
+
+2020-12-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/dplugins/dimg/qimage/dimgqimageloader.cpp: ignore the
+	alpha channel in PSD files BUGS: 430427 FIXED-IN: 7.2.0
+
+2020-12-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/qimage/dimgqimageloader.cpp: use QRgb an
+	QRgba64 type
+
+2020-12-17  David Haslam <dch.code@gmail.com>
+
+	* core/libs/widgets/metadata/metadataselector.cpp: Apply standards
+	to MetadataSelector class  Reformat to keep width to less than 80
+	columns. Improve comments.
+
+2020-12-18  David Haslam <dch.code@gmail.com>
+
+	* core/libs/widgets/metadata/metadataselector.cpp: Add a tooltip to
+	the metadata selector widget  Adds a tooltip that displays the full
+	Exiv2 key name.  This could be of interest to more advanced users.
+
+2020-12-17  David Haslam <dch.code@gmail.com>
+
+	* core/libs/widgets/metadata/metadataselector.cpp: Show the child
+	indicator on the metadata selector  Allows the QtreeWdiget child
+	indicator to be visible in the metadata selector widget
+	(Configure/Metadata/Views widget).  Although the tree can be
+	collapsed using double click, this is not intuitive and it may be
+	clearer for new users to have a visible indication.
+
+2020-12-17  David Haslam <dch.code@gmail.com>
+
+	* core/libs/widgets/metadata/metadataselector.cpp: Sort metadata
+	selector by name  Enables sorting on column 0 (the Name) for the
+	QTreeWidget used in the Configure/Metadata/Views widget.
+
+2020-12-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh,
+	project/bundles/macports/config.sh: On Bigsur we need to switch
+	cctools with xcode variant option to prevent broken compilation with
+	objdump with activating QtWebEngine Problem is know and there are
+	plenty of packages broken. See this report for exemple:
+	https://trac.macports.org/ticket/61852 CCBUGS: 429103
+
+2020-12-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/glviewer/glviewertexture.cpp,
+	core/dplugins/generic/view/glviewer/glviewertexture.h,
+	core/dplugins/generic/view/glviewer/glviewerwidget.cpp: load always
+	high quality image in the GLViewer CCBUGS: 425644
+
+2020-12-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/qimage/dimgqimageloader.cpp: polish
+
+2020-12-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/qimage/dimgqimageloader.cpp: use constBits() to
+	prevent deep copy of pixel data
+
+2020-12-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/qimage/dimgqimageloader.cpp,
+	core/dplugins/dimg/qimage/dimgqimageloader.h: fix QImage Loader 16
+	bit support and crash CCBUGS: 430427
+
+2020-12-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/common.sh: Check diretory, not file
+
+2020-12-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/common.sh,
+	project/bundles/macports/config.sh: Check if Xcode SDK target
+	minimal version is installed and patch Xcode backward binary
+	compatibility automatically in settings
+
+2020-12-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/config.sh: fix url
+
+2020-12-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/config.sh: Fix url
+
+2020-12-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: More files
+	stripped with debug symbols CCBUGS:429103
+
+2020-12-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: Do not force PATH
+	env.var to include macports install path while reccursive library
+	depedencies collecting CCBUGS: 429103
+
+2020-12-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_exiv2/CMakeLists.txt,
+	project/bundles/3rdparty/ext_mosaicwall/CMakeLists.txt: Fix broken
+	compilation user MacOS BigSur. Optimize install to only process
+	dplugin. CCBUGS: 429103
+
+2020-12-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_kf5_frameworks/CMakeLists.txt,
+	project/bundles/3rdparty/ext_kf5_frameworks/kguiaddons-macports.pat
+	ch: Another patch to build KF5.77 under Macports as Wayland do not
+	exists under MacOS. CCBUGS: 429103
+
+2020-12-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-12-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_kf5_frameworks/CMakeLists.txt: bump
+	KF5 from 5.76 to last 5.77 stable release CCBUGS: 429103 BUGS:
+	429116
+
+2020-12-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/glviewer/glviewertexture.cpp: fix
+	possible crash when changing the size quickly in GLViewer
+
+2020-12-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/import/models/importthumbnailmodel.cpp: better
+	detection for thumbnail support
+
+2020-12-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/import/models/importthumbnailmodel.cpp: Android
+	phone says it doesn't have thumbnail support - ignore it
+
+2020-12-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/utilities/import/backend/gpcamera.cpp,
+	core/utilities/import/models/importthumbnailmodel.cpp: camera
+	capture preview support or preview size is no indicator for
+	thumbnails are possible BUGS: 425746 FIXED-IN: 7.2.0
+
+2020-12-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_iptc.cpp,
+	core/libs/metadataengine/engine/metaengine_p.cpp,
+	core/libs/metadataengine/engine/metaengine_previews.cpp: polish and
+	use QString::fromStdString()
+
+2020-12-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine.cpp,
+	core/libs/metadataengine/engine/metaengine_comments.cpp,
+	core/libs/metadataengine/engine/metaengine_data_p.cpp,
+	core/libs/metadataengine/engine/metaengine_exif.cpp,
+	core/libs/metadataengine/engine/metaengine_fileio.cpp,
+	core/libs/metadataengine/engine/metaengine_iptc.cpp,
+	core/libs/metadataengine/engine/metaengine_item.cpp,
+	core/libs/metadataengine/engine/metaengine_p.cpp,
+	core/libs/metadataengine/engine/metaengine_previews.cpp,
+	core/libs/metadataengine/engine/metaengine_xmp.cpp: polish and use
+	QString::fromStdString()
+
+2020-12-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine.cpp,
+	core/libs/metadataengine/engine/metaengine_xmp.cpp,
+	core/libs/widgets/metadata/mdkeylistviewitem.cpp: apply patch
+	#134033 from David Haslam to add some missing XMP Namespaces BUGS:
+	430303 FIXED-IN: 7.2.0
+
+2020-12-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/server/databaseserver.cpp: more time for the
+	MySQL server to shut down CCBUGS: 429963 CCBUGS: 430277
+
+2020-12-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/glviewer/glviewertexture.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationgl.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationkb.cpp: 
+	use Qt::SmoothTransformation CCBUGS: 425644
+
+2020-12-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/common.sh: milonia => deino
+
+2020-12-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/common.sh: milonia -> deino
+
+2020-12-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/common.sh: 10.16 => 10.15 for Catalina
+	add deino in cache for ssh dialog add link to Qt bug for 10.15
+	compatibility
+
+2020-12-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/common.sh: MAJOR => MINOR
+
+2020-12-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/common.sh: typo: MAJOR => MINOR
+
+2020-12-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/downloader/filesdownloader.cpp: use HTTP for
+	download CCBUGS: 429103
+
+2020-12-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamapp.cpp, core/app/main/main.cpp,
+	core/dplugins/generic/tools/mediaserver/server/dmediaservermngr.cpp
+	, core/libs/dimg/filters/redeye/redeyecorrectionfilter.cpp,
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectorssd.cpp,
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectoryolo.cpp,
+	core/libs/facesengine/preprocessing/recognition/openfacepreprocesso
+	r.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/dnnfaceextractor.cpp,
+	core/libs/template/templatemanager.cpp,
+	core/libs/widgets/mainview/dxmlguiwindow.cpp,
+	core/showfoto/main/main.cpp,
+	core/tests/mediaserver/dmediaserver_test.cpp,
+	core/utilities/firstrun/migratefromdigikam4page.cpp,
+	core/utilities/geolocation/geoiface/bookmark/gpsbookmarkowner.cpp,
+	core/utilities/queuemanager/manager/workflowmanager.cpp,
+	core/utilities/setup/downloader/filesdownloader.cpp: move from
+	deprecated QStandardPaths::DataLocation to
+	QStandardPaths::AppDataLocation This moves the files under Windows
+	to the desired roaming directory CCBUGS: 429103
+
+2020-12-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/utils/ifaces/dio.cpp,
+	core/libs/iojobs/iojob.cpp, core/libs/iojobs/iojobdata.cpp: fix scan
+	item after move and renaming to album BUGS: 430134 FIXED-IN: 7.2.0
+
+2020-12-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/item/query/fieldquerybuilder.cpp: add
+	escape character '\' to LIKE search with SQLite BUGS: 430147
+	FIXED-IN: 7.2.0
+
+2020-12-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/downloader/filesdownloader.cpp: show the same
+	path in the window as is used to save CCBUGS: 429103
+
+2020-12-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/downloader/filesdownloader.cpp: polish
+
+2020-12-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/downloader/filesdownloader.cpp,
+	core/utilities/setup/downloader/filesdownloader.h: check file size
+	during download
+
+2020-12-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/downloader/filesdownloader.cpp: for a test we
+	ignore SSL errors CCBUGS: 429103
+
+2020-12-07  Prajna Sariputra <putr4.s@gmail.com>
+
+	* core/showfoto/main/org.kde.showfoto.appdata.xml: Update Showfoto's
+	version in its AppStream metadata too
+
+2020-12-07  Prajna Sariputra <putr4.s@gmail.com>
+
+	* core/app/main/org.kde.digikam.appdata.xml: Update AppStream
+	metadata to include v7.1.0
+
+2020-12-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/dragdrop/albumdragdrop.cpp: disable drag for album
+	root BUGS: 430103 FIXED-IN: 7.2.0
+
+2020-12-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/rll.py: BigSur support: do not generate
+	exception if system lib is not found CCBUGS: 429103
+
+2020-12-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/rll.py: use env python
+
+2020-12-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh,
+	project/bundles/macports/config.sh: fix missing directory creation.
+	Do not sign PKG by default
+
+2020-12-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/bqm/decorate/watermark/watermark.cpp: first step to
+	fix restore font in the watermark tool
+
+2020-12-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/03-build-digikam.sh: BigSur support: fix
+	webengine option to configure digiKam CCBUGS: 429103
+
+2020-12-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/showfoto/setup/showfotosetup.cpp: fix crash in showFoto setup
+
+
+2020-12-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_kf5_frameworks/CMakeLists.txt,
+	project/bundles/3rdparty/ext_kf5_frameworks/kiconthemes-qt5.14.patc
+	h: MacOS BigSur support: add patch to bild KF5.76 under Macports,
+	where onlt Qt 5.14.2 is available for the moment.
+
+2020-12-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh,
+	project/bundles/macports/config.sh: MacOS BigSur support : Switch
+	back from QtWebEngine to QtWebkit to fix temporally the broken
+	compilation. QtWebKit 5.14.2 from MAcports do not support yet
+	BigSur. This will probably fixed inthe future. CCBUGS: 429103
+
+2020-12-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh: try to fix
+	QtWebEngine under BigSur as wrong MacOS detection is performed with
+	Qt 5.14.2 Details : https://bugreports.qt.io/browse/QTBUG-85546
+
+2020-12-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/tags/facetagseditor.cpp,
+	core/utilities/facemanagement/database/faceutils.cpp: fix
+	unconfirmed face name when change the face region BUGS: 430056
+	FIXED-IN: 7.2.0
+
+2020-12-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_image
+	.cpp: fix CID #1470385
+
+2020-12-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/tests/dimg/dimgabstracthistorytest.cpp: fix CID #1470386
+
+2020-12-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/workers/trainerworker.cpp: fix CID
+	#1470384
+
+2020-12-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_kf5_frameworks/CMakeLists.txt,
+	project/bundles/3rdparty/ext_libksane/CMakeLists.txt,
+	project/bundles/3rdparty/ext_marble/CMakeLists.txt: bump FF5 and
+	KApp to last stable release
+
+2020-12-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/config.sh: Add BigSur on list of
+	supported Qt version
+
+2020-12-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/common.sh: Fix Major and Minor detection
+	for the target MacOS and linking with libc++
+
+2020-12-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/01-build-macports.sh,
+	project/bundles/macports/common.sh: fix detection of MacOS BigSur
+	and fix Clang install failure due to wrong major version tested
+
+2020-12-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-12-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-12-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/metadata/picklabelwidget.cpp,
+	core/libs/widgets/metadata/picklabelwidget.h: polish
+
+2020-12-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/metadata/picklabelwidget.cpp: Clazy++ : use
+	DVBox as parent class instead QWidget
+
+2020-12-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/metadata/colorlabelwidget.cpp,
+	core/libs/widgets/metadata/colorlabelwidget.h: polish
+
+2020-12-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/metadata/colorlabelwidget.cpp: Clazy++: parent
+	class is DHBox, not QWidget here
+
+2020-12-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/dconfigdlgmngr.cpp: Clazy++: parser is lost with
+	this kind of code and return a false positive
+
+2020-12-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/album/engine/albummodificationhelper.cpp,
+	core/libs/album/widgets/albumpropsedit.cpp,
+	core/libs/album/widgets/albumpropsedit.h: update new album text when
+	parent changes BUGS: 429827 FIXED-IN: 7.2.0
+
+2020-12-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/filters/filtersidebarwidget.cpp: polish
+
+2020-11-30  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-11-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/filters/filtersidebarwidget.cpp: use QActionGroup
+	to display radio buttons BUGS: 429820 FIXED-IN: 7.2.0
+
+2020-11-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/tags/manager/tagsmanager.cpp,
+	core/libs/tags/manager/tagsmanager.h: only mark all tags that are
+	not assigned to images BUGS: 429787 FIXED-IN: 7.2.0
+
+2020-11-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: uodate
+
+2020-11-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/import/dscanner/scandialog.cpp: fix sane
+	scan dialog layout
+
+2020-11-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/utilities/import/main/importui.cpp: fix double event
+	for update download names BUGS: 429715 FIXED-IN: 7.2.0
+
+2020-11-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/notificationmanager/dnotificationwidget.cpp,
+	core/libs/notificationmanager/dnotificationwidget.h,
+	core/utilities/import/main/importui.cpp: add clear actions to the
+	DNotificationWidget
+
+2020-11-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/main/importui.cpp: Clazy++:fix writing to
+	temporary
+
+2020-11-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/containers/iteminfo_containers.cpp: 
+	Clazy++:fix writing to temporary
+
+2020-11-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/thumbbar/showfotodelegate.cpp: Clazy++:fix calling
+	method from top level class instead of the parent class
+
+2020-11-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/native/rawimport.cpp: Clazy++:fix calling
+	method from top level class instead of the parent class
+
+2020-11-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/thumbbar/itemthumbnaildelegate_p.h: Clazy++:fix
+	calling method from top level class instead of the parent class
+
+2020-11-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/thumbbar/itemthumbnaildelegate.cpp,
+	core/app/items/thumbbar/itemthumbnaildelegate.h,
+	core/app/items/thumbbar/itemthumbnaildelegate_p.h: Clazy++:fix
+	calling method from top level class instead of the parent class
+
+2020-11-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/items/importdelegate.cpp: Clazy++:fix
+	calling method from top level class instead of the parent class
+
+2020-11-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/models/albumfiltermodel.cpp: Clazy++:fix calling method
+	from top level class instead of the parent class
+
+2020-11-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/date/datefolderview.cpp, core/app/date/monthwidget.cpp: 
+	polish and remove unused QString
+
+2020-11-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/downloader/filesdownloader.cpp: add file open
+	error
+
+2020-11-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/data/CMakeLists.txt, core/data/facesengine/CMakeLists.txt,
+	core/data/facesengine/dnnface/README,
+	core/data/facesengine/dnnface/deploy.prototxt,
+	core/data/facesengine/dnnface/openface_nn4.small2.v1.t7,
+	core/data/facesengine/dnnface/res10_300x300_ssd_iter_140000_fp16.ca
+	ffemodel, core/data/facesengine/dnnface/yolov3-face.cfg,
+	core/data/facesengine/dnnface/yolov3-wider_16000.weights,
+	core/data/facesengine/shape-predictor/README,
+	core/data/facesengine/shape-predictor/shapepredictor.dat: remove
+	face engine data files from sources
+
+2020-11-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/iojobs/iojob.cpp: read dir to check for file name
+	to fix renaming in Windows BUGS: 429664 FIXED-IN: 7.2.0
+
+2020-11-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/workers/trainerworker.cpp: Clazy++ :
+	qDeleteAll() is being used on an unnecessary temporary container
+	created by QMap::values(), use qDeleteAll(mycontainer) instead.
+
+2020-11-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/advancedrename/advancedrenametest.h,
+	core/tests/advancedrename/cameranamehelpertest.h,
+	core/tests/advancedrename/renamecustomizertest.h,
+	core/tests/albummodel/albummodeltest.cpp,
+	core/tests/albummodel/albummodeltest.h,
+	core/tests/database/databasefieldstest.h,
+	core/tests/database/databasetagstest.cpp,
+	core/tests/database/databasetagstest.h,
+	core/tests/geolocation/kmlexport/test_geoparsing.h,
+	core/tests/iojobs/iojobstest.h,
+	core/tests/timestampupdate/timestampupdatetest.h: Clazy++: no parent
+	argument in constructor
+
+2020-11-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/geolocation/geoiface/calibrator/calibrator.cpp,
+	core/tests/geolocation/geoiface/calibrator/calibrator.h,
+	core/tests/geolocation/geoiface/test_geocoordinates.h,
+	core/tests/geolocation/geoiface/test_itemmarkertiler.h,
+	core/tests/geolocation/geoiface/test_lookup_altitude_geonames.h,
+	core/tests/geolocation/geoiface/test_primitives.h,
+	core/tests/geolocation/geoiface/test_tileindex.h,
+	core/tests/geolocation/geoiface/test_tracks.h: Clazy++: no parent
+	argument in constructor
+
+2020-11-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/geolocation/editor/test_correlator.h,
+	core/tests/geolocation/editor/test_gpsimageitem.h,
+	core/tests/geolocation/editor/test_rgparsing.h,
+	core/tests/geolocation/editor/test_rgtagmodel.h,
+	core/tests/geolocation/editor/test_simpletreemodel.h: Clazy++: no
+	parent argument in constructor
+
+2020-11-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/widgets/ditemslisttest.cpp,
+	core/tests/widgets/ditemslisttest.h,
+	core/tests/widgets/searchtextbartest.cpp,
+	core/tests/widgets/searchtextbartest.h: Clazy++: no parent argument
+	in constructor
+
+2020-11-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/multithreading/myactionthread.cpp: Clazy++: no parent
+	argument in constructor
+
+2020-11-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/mediawiki/edittest.cpp,
+	core/tests/mediawiki/logintest.cpp,
+	core/tests/mediawiki/logouttest.cpp,
+	core/tests/mediawiki/mediawikitest.cpp,
+	core/tests/mediawiki/parsetest.cpp,
+	core/tests/mediawiki/queryimageinfotest.cpp,
+	core/tests/mediawiki/queryimagestest.cpp,
+	core/tests/mediawiki/queryinfotest.cpp,
+	core/tests/mediawiki/queryrevisiontest.cpp,
+	core/tests/mediawiki/querysiteinfogeneraltest.cpp,
+	core/tests/mediawiki/querysiteinfousergroupstest.cpp,
+	core/tests/mediawiki/uploadtest.cpp: Clazy++: no parent argument in
+	constructor
+
+2020-11-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/multithreading/processordlg.cpp,
+	core/tests/multithreading/processordlg.h: Clazy++: no parent
+	argument in constructor
+
+2020-11-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threads/actionthreadbase.cpp,
+	core/libs/threads/actionthreadbase.h,
+	core/tests/metadataengine/metareaderthreadtest.cpp,
+	core/tests/metadataengine/metareaderthreadtest.h: Clazy++: no parent
+	argument in constructor
+
+2020-11-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/dimg/dimgabstracthistorytest.cpp,
+	core/tests/dimg/dimgfilteractiontest.cpp,
+	core/tests/dimg/dimgfreerotationtest.cpp,
+	core/tests/dimg/dimghistorygraphtest.cpp,
+	core/tests/dimg/dimghistorytest.cpp,
+	core/tests/fileio/filesaveoptionsboxtest.cpp,
+	core/tests/fileio/statesavingobjecttest.cpp,
+	core/tests/metadataengine/abstractunittest.h,
+	core/tests/metadataengine/applytagstest.cpp,
+	core/tests/metadataengine/applytagstest.h,
+	core/tests/metadataengine/commentreadwritetest.cpp,
+	core/tests/metadataengine/commentreadwritetest.h,
+	core/tests/metadataengine/createxmpsidecartest.cpp,
+	core/tests/metadataengine/createxmpsidecartest.h,
+	core/tests/metadataengine/erasemetadatatagtest.cpp,
+	core/tests/metadataengine/erasemetadatatagtest.h,
+	core/tests/metadataengine/loadfrombatest.cpp,
+	core/tests/metadataengine/loadfrombatest.h,
+	core/tests/metadataengine/metareaderthreadtest.cpp,
+	core/tests/metadataengine/metareaderthreadtest.h,
+	core/tests/metadataengine/patchpreviewtest.cpp,
+	core/tests/metadataengine/patchpreviewtest.h,
+	core/tests/metadataengine/printiteminfotest.cpp,
+	core/tests/metadataengine/printiteminfotest.h,
+	core/tests/metadataengine/printmetadatatest.cpp,
+	core/tests/metadataengine/printmetadatatest.h,
+	core/tests/metadataengine/printtagslisttest.cpp,
+	core/tests/metadataengine/printtagslisttest.h,
+	core/tests/metadataengine/ratingreadwritetest.cpp,
+	core/tests/metadataengine/ratingreadwritetest.h,
+	core/tests/metadataengine/setiptcpreviewtest.cpp,
+	core/tests/metadataengine/setiptcpreviewtest.h,
+	core/tests/metadataengine/setxmpfacetest.cpp,
+	core/tests/metadataengine/setxmpfacetest.h,
+	core/tests/metadataengine/tagsreadwritetest.cpp,
+	core/tests/metadataengine/tagsreadwritetest.h,
+	core/tests/metadataengine/usexmpsidecartest.cpp,
+	core/tests/metadataengine/usexmpsidecartest.h: Clazy++: no parent
+	argument in constructor
+
+2020-11-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/imgqsort/imgqsorttest.cpp,
+	core/tests/imgqsort/imgqsorttest.h,
+	core/tests/imgqsort/imgqsorttest_shared.cpp: Clazy++: no parent
+	argument in constructor
+
+2020-11-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facemanagementhelpdlg.cpp: 
+	fix coding style and i18n
+
+2020-11-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/fileio/filesaveoptionsboxtest.cpp,
+	core/tests/fileio/filesaveoptionsboxtest.h,
+	core/tests/fileio/statesavingobjecttest.cpp,
+	core/tests/fileio/statesavingobjecttest.h: Clazy++: no parent
+	argument in constructor
+
+2020-11-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/dimg/dimgabstracthistorytest.cpp,
+	core/tests/dimg/dimgabstracthistorytest.h,
+	core/tests/dimg/dimgfilteractiontest.cpp,
+	core/tests/dimg/dimgfilteractiontest.h,
+	core/tests/dimg/dimgfreerotationtest.cpp,
+	core/tests/dimg/dimgfreerotationtest.h,
+	core/tests/dimg/dimghistorygraphtest.cpp,
+	core/tests/dimg/dimghistorygraphtest.h,
+	core/tests/dimg/dimghistorytest.cpp,
+	core/tests/dimg/dimghistorytest.h: Clazy++: no parent argument in
+	constructor
+
+2020-11-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-11-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/main/showfoto.cpp, core/showfoto/main/showfoto.h,
+	core/showfoto/main/showfoto_p.h,
+	core/showfoto/thumbbar/showfotodelegate.cpp,
+	core/showfoto/thumbbar/showfotodelegate.h,
+	core/showfoto/thumbbar/showfotodelegate_p.h: Clazy++: no parent
+	argument in constructor
+
+2020-11-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp: remove debug
+
+2020-11-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/threads/facepreviewloader.cpp,
+	core/utilities/facemanagement/threads/facepreviewloader.h,
+	core/utilities/facemanagement/workers/detectionworker.cpp: think the
+	stop problem is now fixed
+
+2020-11-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/maintenance/facesdetector.cpp: Revert "call
+	FacePipeline constructor to register meta type"
+
+2020-11-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/maintenance/facesdetector.cpp: call FacePipeline
+	constructor to register meta type Otherwise the connection will not
+	always work the first time.
+
+2020-11-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/threads/facepipeline.cpp,
+	core/utilities/maintenance/facesdetector.cpp: this queued
+	connections seem to improve the stopping problem
+
+2020-11-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/facesengine/demo/demobutton.h,
+	core/tests/facesengine/demo/demomarquee.h,
+	core/tests/facesengine/recognition/benchmark_recognition.cpp: 
+	Clazy++: no parent argument in constructor
+
+2020-11-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/mediaserver/dmediaserverdlg.h,
+	core/dplugins/generic/tools/panorama/tools/autooptimiserbinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/autooptimiserbinary.h,
+	core/dplugins/generic/tools/panorama/tools/cpcleanbinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/cpcleanbinary.h,
+	core/dplugins/generic/tools/panorama/tools/cpfindbinary.h,
+	core/dplugins/generic/tools/panorama/tools/enblendbinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/enblendbinary.h,
+	core/dplugins/generic/tools/panorama/tools/huginexecutorbinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/huginexecutorbinary.h,
+	core/dplugins/generic/tools/panorama/tools/makebinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/makebinary.h,
+	core/dplugins/generic/tools/panorama/tools/nonabinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/nonabinary.h,
+	core/dplugins/generic/tools/panorama/tools/panomodifybinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/panomodifybinary.h,
+	core/dplugins/generic/tools/panorama/tools/pto2mkbinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/pto2mkbinary.h: Clazy++:
+	no parent argument in constructor
+
+2020-11-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/main/showfoto.h,
+	core/showfoto/thumbbar/showfotodelegate.h: Clazy++: no parent
+	argument in constructor
+
+2020-11-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/metadataengine/abstractunittest.h: Clazy++: no parent
+	argument in constructor
+
+2020-11-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/maintenance/facesdetector.cpp: try to fix the face
+	detection stopping CCBUGS: 427333
+
+2020-11-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/thumbbar/showfotodelegate.h,
+	core/showfoto/thumbbar/showfotofiltermodel.cpp,
+	core/showfoto/thumbbar/showfotofiltermodel.h: clazy++: fix missing
+	parent in constructor
+
+2020-11-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/thumbbar/showfotodelegate.h,
+	core/showfoto/thumbbar/showfotofiltermodel.h: clazy++: fix missing
+	parent in constructor
+
+2020-11-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/imageshack/imageshacktalker.h: 
+	clazy++: fix missing parent in constructor
+
+2020-11-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/view/presentation/common/presentationloader.c
+	pp: clazy++: fix missing parent in constructor
+
+2020-11-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/mediaserver/server/dmediaservermngr.h: 
+	clazy++: fix missing parent in constructor
+
+2020-11-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/main/showfoto.h: clazy++: fix missing parent in
+	constructor
+
+2020-11-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/main/showfotosettings.h: clazy++: fix missing parent
+	in constructor
+
+2020-11-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/raw/dimgrawloader.h: clazy++: fix missing
+	parent in constructor
+
+2020-11-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/file/print/printconfig.h: clazy++: fix
+	missing parent in constructor
+
+2020-11-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/rajce/rajcecommand.h: clazy++:
+	fix missing parent in constructor
+
+2020-11-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/preview/previewtask.cpp,
+	core/libs/threadimageio/preview/previewtask.h: less debug
+
+2020-11-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threads/dynamicthread.cpp: set running flag in
+	shutDown()
+
+2020-11-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/generator/galleryconfig.cpp
+	,
+	core/dplugins/generic/tools/htmlgallery/generator/galleryconfig.h,
+	core/dplugins/generic/tools/jalbum/generator/jalbumgenerator.cpp,
+	core/dplugins/generic/tools/jalbum/generator/jalbumgenerator.h,
+	core/dplugins/generic/tools/jalbum/tools/jalbumjar.cpp,
+	core/dplugins/generic/tools/jalbum/tools/jalbumjar.h,
+	core/dplugins/generic/tools/jalbum/tools/jalbumjava.cpp,
+	core/dplugins/generic/tools/jalbum/tools/jalbumjava.h,
+	core/dplugins/generic/tools/printcreator/tools/gimpbinary.cpp,
+	core/dplugins/generic/tools/printcreator/tools/gimpbinary.h,
+	core/dplugins/generic/view/glviewer/glviewerhelpdlg.cpp,
+	core/dplugins/generic/view/glviewer/glviewerhelpdlg.h,
+	core/dplugins/generic/view/glviewer/glviewerwidget.h,
+	core/dplugins/generic/view/presentation/opengl/kbimageloader.h,
+	core/dplugins/generic/view/presentation/opengl/presentationgl.h,
+	core/dplugins/generic/view/presentation/opengl/presentationkb.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationkb.h,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	cpp,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	h, core/dplugins/generic/view/slideshow/common/slideshowloader.h,
+	core/dplugins/generic/view/slideshow/widgets/slidehelp.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slidehelp.h,
+	core/dplugins/generic/webservices/filecopy/fctask.h: Clazy++: no
+	parent argument in construtor
+
+2020-11-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/printcreator/manager/advprinttask.h,
+	core/dplugins/generic/tools/sendbymail/tools/balsabinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/balsabinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/clawsmailbinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/clawsmailbinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/evolutionbinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/evolutionbinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/kmailbinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/kmailbinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/netscapebinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/netscapebinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/outlookbinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/outlookbinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/sylpheedbinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/sylpheedbinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/thunderbirdbinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/thunderbirdbinary.h: 
+	Clazy++: no parent argument in construtor
+
+2020-11-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/items/utils/contextmenuhelper.cpp: change i18n to "Unmark
+	Tag As Face" BUGS: 429471 FIXED-IN: 7.2.0
+
+2020-11-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/collections/setupcollectionview.cpp: try to
+	fix collection paths with % chars CCBUGS: 429397
+
+2020-11-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp,
+	core/dplugins/generic/tools/sendbymail/manager/imageresizejob.h: 
+	clazy++: fix missing parent in constructor
+
+2020-11-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-11-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/settings/applicationsettings.cpp,
+	core/libs/settings/applicationsettings_p.cpp: for new users show
+	name and date by default
+
+2020-11-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/calendar/print/calpainter.h,
+	core/dplugins/generic/tools/expoblending/manager/alignbinary.h,
+	core/dplugins/generic/tools/expoblending/manager/enfusebinary.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_vkapi
+	.h: Clazy++: no parent argument in construtor
+
+2020-11-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_album
+	listjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_creat
+	ealbumjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_delet
+	ealbumjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_edita
+	lbumjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_getap
+	plicationpermissionsjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_getph
+	otouploadserverjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_jobs.
+	cpp,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_jobs.
+	h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_photo
+	job.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_photo
+	listjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_photo
+	postjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_savep
+	hotojob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_uploa
+	dphotosjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_useri
+	nfojob.h, core/tests/vkontakte/vktestbase.cpp,
+	core/tests/vkontakte/vktestbase.h,
+	core/utilities/facemanagement/items/faceitem.h: Clazy++: no parent
+	argument in construtor
+
+2020-11-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/models/importfiltermodel.cpp: Clazy++: no
+	parent argument in construtor
+
+2020-11-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-11-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/workers/trainerworker.cpp: polish
+
+2020-11-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/workers/trainerworker.cpp: fix
+	memory leak CCBUGS: 429335
+
+2020-11-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/utilities/facemanagement/workers/trainerworker.cpp: fix
+	crash in the TrainerWorker BUGS: 429335 FIXED-IN: 7.2.0
+
+2020-11-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/delegate/digikamitemdelegate.h,
+	core/app/items/delegate/itemfacedelegate.h,
+	core/app/views/preview/itempreviewcanvas.h,
+	core/dplugins/generic/metadata/timeadjust/timeadjusttask.h,
+	core/utilities/geolocation/geoiface/dragdrop/mapdragdrophandler.h: 
+	clazy++: fix missing parent in constructor
+
+2020-11-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/items/facegroup.h,
+	core/utilities/facemanagement/items/faceitem.h: clazy++: fix missing
+	parent in constructor
+
+2020-11-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/advancedrename/parser/options/cameranameoption.h,
+	core/utilities/advancedrename/parser/options/database/databaseoptio
+	n.h, core/utilities/advancedrename/parser/options/dateoption.h,
+	core/utilities/advancedrename/parser/options/directorynameoption.h,
+	core/utilities/advancedrename/parser/options/filepropertiesoption.h
+	, core/utilities/advancedrename/parser/options/metadataoption.h,
+	core/utilities/advancedrename/parser/options/sequencenumberoption.h: 
+	clazy++: fix missing parent in constructor
+
+2020-11-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/redeye/redeyecorrectionfilter.cpp,
+	core/utilities/facemanagement/threads/parallelpipes.h,
+	core/utilities/geolocation/geoiface/core/geoifacecommon.h,
+	core/utilities/import/backend/umscamera.h: clazy++: fix missing
+	parent in constructor
+
+2020-11-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/downloader/filesdownloader.cpp,
+	core/utilities/setup/downloader/filesdownloader.h: fix crash when
+	cancel download
+
+2020-11-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/filters/redeye/redeyecorrectionfilter.cpp,
+	core/showfoto/CMakeLists.txt, core/showfoto/main/main.cpp,
+	core/utilities/setup/downloader/filesdownloader.cpp: add
+	FilesDownloader to showfoto
+
+2020-11-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_exif.cpp,
+	core/libs/metadataengine/engine/metaengine_gps.cpp,
+	core/libs/metadataengine/engine/metaengine_iptc.cpp,
+	core/libs/metadataengine/engine/metaengine_p.cpp,
+	core/libs/metadataengine/engine/metaengine_xmp.cpp: 
+	QString::fromLocal8Bit() => QString::fromStdString() CCBUGS: 429261
+
+
+2020-11-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-11-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/tags/widgets/tagfolderview.cpp: fix new tag entry
+	not appear This bug was probably added in digiKam-7.1.0 BUGS: 429310
+	FIXED-IN: 7.2.0
+
+2020-11-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-11-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/threads/facepipeline.h,
+	core/utilities/maintenance/facesdetector.cpp,
+	core/utilities/maintenance/fingerprintstask.h,
+	core/utilities/maintenance/imagequalitytask.h,
+	core/utilities/maintenance/thumbstask.cpp,
+	core/utilities/maintenance/thumbstask.h,
+	core/utilities/searchwindow/searchfieldgroup.h,
+	core/utilities/searchwindow/searchview.h,
+	core/utilities/searchwindow/searchwindow.cpp,
+	core/utilities/searchwindow/searchwindow.h: clazy++: fix missing
+	parent in constructor
+
+2020-11-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/maintenance/databasetask.h,
+	core/utilities/maintenance/iteminfojob.cpp,
+	core/utilities/maintenance/iteminfojob.h,
+	core/utilities/maintenance/metadatatask.cpp,
+	core/utilities/maintenance/metadatatask.h: clazy++: fix missing
+	parent in constructor
+
+2020-11-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/backend/gpcamera.cpp,
+	core/utilities/import/backend/gpcamera.h,
+	core/utilities/import/main/importui.cpp,
+	core/utilities/import/main/importui.h: clazy++: fix missing parent
+	in constructor
+
+2020-11-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/backend/dkcamera.cpp,
+	core/utilities/import/backend/dkcamera.h: clazy++: fix missing
+	parent in constructor
+
+2020-11-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/widgets/imagepreviewitem.h,
+	core/utilities/import/main/importsettings.cpp,
+	core/utilities/import/main/importsettings.h: clazy++: fix missing
+	parent in constructor
+
+2020-11-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/queuemanager/main/queuemgrwindow.cpp,
+	core/utilities/queuemanager/main/queuemgrwindow.h,
+	core/utilities/queuemanager/main/queuemgrwindow_p.h: clazy++: fix
+	missing parent in constructor
+
+2020-11-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/dimg/filters/wb/wbcontainer.cpp,
+	core/libs/dimg/filters/wb/wbfilter.cpp,
+	core/libs/dimg/filters/wb/wbsettings.cpp: more control over the
+	shadow slider in the white balance tool the new default value is now
+	0.0 BUGS: 429221 FIXED-IN: 7.2.0
+
+2020-11-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/advancedrename/parser/modifiers/casemodifier.h,
+	core/utilities/advancedrename/parser/modifiers/defaultvaluemodifier
+	.h, core/utilities/advancedrename/parser/modifiers/rangemodifier.h,
+	core/utilities/advancedrename/parser/modifiers/removedoublesmodifie
+	r.h,
+	core/utilities/advancedrename/parser/modifiers/replacemodifier.h,
+	core/utilities/advancedrename/parser/modifiers/trimmedmodifier.h,
+	core/utilities/advancedrename/parser/modifiers/uniquemodifier.h: 
+	clazy++: fix missing parent in constructor
+
+2020-11-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/advancedrename/common/ruledialog.h,
+	core/utilities/advancedrename/parser/modifiers/rangemodifier.h,
+	core/utilities/imageeditor/core/editorcore.h,
+	core/utilities/imageeditor/editor/editortooliface.h,
+	core/utilities/queuemanager/views/workflowdlg.h: clazy++: fix
+	missing parent in constructor
+
+2020-11-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/captions/disjointmetadata.h: make these
+	methods private
+
+2020-11-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/stack/itemiconview_search.cpp,
+	core/libs/album/treeview/albumselectiontreeview.cpp,
+	core/libs/facesengine/detection/facedetector.cpp,
+	core/libs/settings/applicationsettings.cpp,
+	core/libs/settings/applicationsettings.h,
+	core/libs/settings/applicationsettings_miscs.cpp,
+	core/libs/settings/applicationsettings_p.cpp,
+	core/libs/settings/applicationsettings_p.h,
+	core/utilities/facemanagement/database/facescansettings.cpp,
+	core/utilities/facemanagement/database/facescansettings.h,
+	core/utilities/facemanagement/threads/facepipeline.cpp,
+	core/utilities/facemanagement/threads/facepipeline.h,
+	core/utilities/facemanagement/threads/facepipeline_p.h,
+	core/utilities/facemanagement/widgets/facescanwidget.cpp,
+	core/utilities/facemanagement/widgets/facescanwidget_p.h,
+	core/utilities/facemanagement/workers/detectionworker.cpp,
+	core/utilities/facemanagement/workers/detectionworker.h,
+	core/utilities/facemanagement/workers/recognitionworker.cpp,
+	core/utilities/facemanagement/workers/recognitionworker.h,
+	core/utilities/maintenance/facesdetector.cpp,
+	core/utilities/setup/downloader/filesdownloader.cpp: add checkbox
+	for YOLO v3 face detection BUGS: 426309 BUGS: 420128 BUGS: 415559
+	FIXED-IN: 7.2.0
+
+2020-11-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/downloader/filesdownloader.cpp: show native
+	separators for the path
+
+2020-11-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/main.cpp, core/data/CMakeLists.txt,
+	core/utilities/setup/downloader/filesdownloader.cpp: activate the
+	file downloader for testing The large binary files contained in the
+	source code are no longer installed. Later, if there are no
+	problems, we can remove them from the sources. CCBUGS: 426309
+
+2020-11-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/facesengine/recognition/benchmark_recognition.cpp,
+	core/tests/facesengine/recognition/traindb.cpp: Clazy++: no copyable
+	polymorphic class
+
+2020-11-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/manager/panoactions.h: 
+	Clazy++: no copyable polymorphic class
+
+2020-11-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/tasks/autocroptask.h,
+	core/dplugins/generic/tools/panorama/tasks/commandtask.h,
+	core/dplugins/generic/tools/panorama/tasks/compilemksteptask.h,
+	core/dplugins/generic/tools/panorama/tasks/compilemktask.h,
+	core/dplugins/generic/tools/panorama/tasks/copyfilestask.h,
+	core/dplugins/generic/tools/panorama/tasks/cpcleantask.h,
+	core/dplugins/generic/tools/panorama/tasks/cpfindtask.h,
+	core/dplugins/generic/tools/panorama/tasks/createfinalptotask.h,
+	core/dplugins/generic/tools/panorama/tasks/createmktask.h,
+	core/dplugins/generic/tools/panorama/tasks/createpreviewtask.h,
+	core/dplugins/generic/tools/panorama/tasks/createptotask.h,
+	core/dplugins/generic/tools/panorama/tasks/huginexecutortask.h,
+	core/dplugins/generic/tools/panorama/tasks/optimisationtask.h,
+	core/dplugins/generic/tools/panorama/tasks/panotask.h,
+	core/dplugins/generic/tools/panorama/tasks/preprocesstask.h: 
+	Clazy++: no copyable polymorphic class
+
+2020-11-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/tasks/optimisationtask.h: 
+	Clazy++: no copyable polymorphic class
+
+2020-11-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/tasks/createfinalptotask.h: 
+	Clazy++: no copyable polymorphic class
+
+2020-11-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/geolocation/geoiface/demo/myimageitem.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/downloader/filesdownloader.cpp,
+	core/utilities/setup/downloader/filesdownloader.h: files
+	downloader++
+
+2020-11-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/main.cpp,
+	core/utilities/setup/downloader/filesdownloader.cpp,
+	core/utilities/setup/downloader/filesdownloader.h: files
+	downloader++
+
+2020-11-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/README: typo
+
+2020-11-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threads/dynamicthread.cpp: revert old change to the
+	DynamicThread CCBUGS: 427333
+
+2020-11-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/tasks/autocroptask.cpp,
+	core/dplugins/generic/tools/panorama/tasks/autocroptask.h,
+	core/dplugins/generic/tools/panorama/tasks/compilemksteptask.cpp,
+	core/dplugins/generic/tools/panorama/tasks/compilemksteptask.h,
+	core/dplugins/generic/tools/panorama/tasks/compilemktask.cpp,
+	core/dplugins/generic/tools/panorama/tasks/compilemktask.h,
+	core/dplugins/generic/tools/panorama/tasks/cpcleantask.cpp,
+	core/dplugins/generic/tools/panorama/tasks/cpcleantask.h: Clazy++:
+	no copyable polymorphic class
+
+2020-11-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/workers/databasewriter.cpp: fix
+	crash in the DatabaseWriter CCBUGS: 427333
+
+2020-11-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/htmlgallery/wizard/htmlthemepage.h,
+	core/dplugins/generic/tools/panorama/manager/panoactions.h,
+	core/dplugins/generic/tools/panorama/tasks/commandtask.cpp,
+	core/dplugins/generic/tools/panorama/tasks/commandtask.h,
+	core/dplugins/generic/tools/panorama/tasks/cpfindtask.cpp,
+	core/dplugins/generic/tools/panorama/tasks/cpfindtask.h,
+	core/dplugins/generic/tools/panorama/tasks/panotask.cpp,
+	core/dplugins/generic/tools/panorama/tasks/panotask.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/CMakeLists.txt,
+	core/utilities/setup/CMakeLists.txt,
+	core/utilities/{facemanagement/downloader/facemodeldownloader.cpp
+	=> setup/downloader/filesdownloader.cpp},
+	core/utilities/{facemanagement/downloader/facemodeldownloader.h =>
+	setup/downloader/filesdownloader.h}: move this class, a file is also
+	needed in showFoto
+
+2020-11-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/captions/disjointmetadata.cpp,
+	core/libs/properties/captions/disjointmetadata.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/thumbbar/itemviewshowfotodelegate.cpp,
+	core/showfoto/thumbbar/itemviewshowfotodelegate.h,
+	core/showfoto/thumbbar/itemviewshowfotodelegate_p.h,
+	core/showfoto/thumbbar/showfotodelegate_p.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/yandexfotki/yfalbum.cpp,
+	core/dplugins/generic/webservices/yandexfotki/yfalbum.h,
+	core/dplugins/generic/webservices/yandexfotki/yfphoto.cpp,
+	core/dplugins/generic/webservices/yandexfotki/yfphoto.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/view/presentation/opengl/kbeffect.cpp,
+	core/dplugins/generic/view/presentation/opengl/kbeffect.h,
+	core/dplugins/generic/view/presentation/opengl/kbimageloader.cpp,
+	core/dplugins/generic/view/presentation/opengl/kbimageloader.h,
+	core/dplugins/generic/view/presentation/opengl/presentationgl.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationgl.h,
+	core/dplugins/generic/view/presentation/opengl/presentationkb.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationkb_p.h: 
+	Clazy++: no copyable polymorphic class
+
+2020-11-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/mediaserver/server/dlnaserverdelegate.h
+	, core/dplugins/generic/tools/mediaserver/server/dmediaserver.h: 
+	Clazy++: no copyable polymorphic class
+
+2020-11-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/htmlgallery/wizard/htmlfinalpage.cpp,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmlimagesettingspag
+	e.cpp,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmlintropage.cpp,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmloutputpage.cpp,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmlparameterspage.c
+	pp,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmlselectionpage.cp
+	p,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmlthemepage.cpp,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmlthemepage.h,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmlwizard.cpp,
+	core/dplugins/generic/tools/htmlgallery/wizard/invisiblebuttongroup
+	.cpp,
+	core/dplugins/generic/tools/htmlgallery/wizard/invisiblebuttongroup
+	.h: Clazy++: no copyable polymorphic class
+
+2020-11-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/expoblending/blendingdlg/bracketstack.c
+	pp,
+	core/dplugins/generic/tools/expoblending/blendingdlg/bracketstack.h
+	,
+	core/dplugins/generic/tools/expoblending/blendingdlg/enfusesettings
+	.cpp,
+	core/dplugins/generic/tools/expoblending/blendingdlg/enfusesettings
+	.h,
+	core/dplugins/generic/tools/expoblending/blendingdlg/enfusestack.cp
+	p,
+	core/dplugins/generic/tools/expoblending/blendingdlg/enfusestack.h,
+	core/dplugins/generic/tools/expoblending/blendingdlg/expoblendingdl
+	g.h, core/dplugins/generic/tools/expoblending/expoblendingplugin.h,
+	core/dplugins/generic/tools/expoblending/manager/expoblendingaction
+	s.h,
+	core/dplugins/generic/tools/expoblending/manager/expoblendingthread
+	.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingitemspa
+	ge.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingitemspa
+	ge.h,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingpreproc
+	esspage.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingpreproc
+	esspage.h: Clazy++: no copyable polymorphic class
+
+2020-11-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/CMakeLists.txt,
+	core/utilities/facemanagement/downloader/facemodeldownloader.cpp,
+	core/utilities/facemanagement/downloader/facemodeldownloader.h: 
+	first step to add a face model downloader Class is still not used
+	yet. CCBUGS: 426309
+
+2020-11-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/dconfigdlgmodels.cpp,
+	core/libs/dialogs/dconfigdlgmodels_p.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/setup/dpluginconfview.cpp: Clazy++: no copyable
+	polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/metadata/metadatalistviewitem.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/recognition/dataproviders.cpp,
+	core/libs/facesengine/recognition/dataproviders.h,
+	core/libs/facesengine/recognition/facialrecognition_wrapper_recogni
+	ze.cpp,
+	core/libs/facesengine/recognition/recognitiontrainingprovider.cpp,
+	core/utilities/facemanagement/workers/databasewriter.cpp,
+	core/utilities/facemanagement/workers/databasewriter.h,
+	core/utilities/facemanagement/workers/detectionworker.cpp,
+	core/utilities/facemanagement/workers/detectionworker.h,
+	core/utilities/facemanagement/workers/recognitionworker.cpp,
+	core/utilities/facemanagement/workers/recognitionworker.h,
+	core/utilities/facemanagement/workers/trainerworker.cpp,
+	core/utilities/facemanagement/workers/trainerworker.h: Fix Clazy
+	report about copy constructor and copy operator used with
+	polymorphic classes from FaceEngine. Store data provider classes
+	instance while training faces stage as map of pointers. data are
+	allocated with new operator. CCBUGS: 427333
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/engine/dbenginesqlquery.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/utils/groupingviewimplementation.h,
+	core/app/views/tableview/tableview_model.h,
+	core/libs/widgets/itemview/itemviewdelegate.cpp,
+	core/libs/widgets/itemview/itemviewdelegate.h,
+	core/libs/widgets/itemview/itemviewdelegate_p.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/utilities/geolocation/geoiface/backends/backendmarblelayer.cpp
+	,
+	core/utilities/geolocation/geoiface/backends/backendmarblelayer.h,
+	core/utilities/geolocation/geoiface/tiles/tileindex.cpp,
+	core/utilities/geolocation/geoiface/tiles/tileindex.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/searchwindow/visibilitycontroller.h,
+	core/utilities/setup/camera/setupcamera.cpp,
+	core/utilities/setup/camera/setupcamera.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/recognition/dataproviders.h,
+	core/utilities/facemanagement/workers/trainerworker.cpp: Clazy++: no
+	copyable polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/history/itemhistorygraph.cpp,
+	core/libs/database/history/itemhistorygraph_boost.h,
+	core/libs/database/history/itemhistorygraphdata.h,
+	core/libs/fileactionmanager/fileactionimageinfolist.h,
+	core/libs/tags/engine/taggingactionfactory.cpp,
+	core/libs/tags/engine/taggingactionfactory.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/searchwindow/searchview.cpp,
+	core/utilities/searchwindow/searchview.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesalbumitem.cpp,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.h,
+	core/utilities/maintenance/maintenancesettings.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/items/itemviewimportdelegate_p.h: Clazy++:
+	no copyable polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/dialogs/cameramessagebox.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/widgets/previewlist.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/items/camerafolderitem.cpp,
+	core/utilities/import/items/camerafolderitem.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/captions/disjointmetadata.cpp,
+	core/libs/properties/captions/disjointmetadata.h: fx coding style
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/queuemanager/views/assignedlist.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/queuemanager/views/workflowlist.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/queuemanager/views/queuelist.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata.h,
+	core/libs/metadataengine/engine/metaengine.h,
+	core/libs/properties/captions/disjointmetadata.cpp,
+	core/libs/properties/captions/disjointmetadata.h,
+	core/utilities/queuemanager/manager/batchtoolutils.cpp,
+	core/utilities/queuemanager/manager/batchtoolutils.h,
+	core/utilities/queuemanager/views/toolslistview.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/history/itemhistorygraphmodel.cpp,
+	core/libs/database/history/itemhistorygraphmodel.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/sharp/sharpsettings.cpp,
+	core/libs/dimg/filters/sharp/sharpsettings.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/libs/facesengine/recognition/opencv-dnn/opencvdnnfacerecognize
+	r_p.h: Clazy++: no copyable polymorphic class
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata.h,
+	core/libs/metadataengine/engine/metaengine.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine.h: this method do not
+	need to be virtual. It's never re-implemented
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata.h,
+	core/libs/metadataengine/engine/metaengine.h: disable Clazy report
+	in Metadata Management classes for the moment. We must plan to merge
+	DMetaData in MetaEngine to fix the problem.
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/versionmanager/versionnamingscheme.cpp,
+	core/libs/versionmanager/versionnamingscheme.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/collection/collectionscannerhints.h: Clazy++:
+	no copyable polymorphic class
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/engine/dbengineerrorhandler.cpp,
+	core/libs/database/engine/dbengineerrorhandler.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/haar/haariface_p.cpp: fix GCC warning
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/fileactionmanager/metadatahub.cpp,
+	core/libs/fileactionmanager/metadatahub.h: Clazy++: no copyable
+	polymorphic class: MetadataHub is never derived in client class so
+	we don't need virtual methods, copy contructor, equality contructor
+	and clone operator.
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/fileactionmanager/metadatahub.cpp,
+	core/libs/fileactionmanager/metadatahub.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/captions/disjointmetadata.cpp,
+	core/libs/properties/captions/disjointmetadata.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/dimg_data.cpp, core/libs/dimg/dimg_p.h,
+	core/libs/dimg/dimg_props.cpp, core/libs/dimg/dimg_transform.cpp,
+	core/libs/dimg/loaders/dimgloader.cpp: this DImg mutex is not
+	necessary
+
+2020-11-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/mainview/thememanager.cpp,
+	core/libs/widgets/mainview/thememanager.h,
+	core/libs/widgets/mainview/thememanager_p.cpp,
+	core/libs/widgets/mainview/thememanager_p.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavethread.h: polish
+
+2020-11-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/engine/managedloadsavethread.cpp: i think
+	we should use dynamic_cast here CCBUGS: 427333
+
+2020-11-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dragdrop/dragdropimplementations.cpp,
+	core/libs/dragdrop/dragdropimplementations.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/itemview/itemdelegateoverlay.cpp,
+	core/libs/widgets/itemview/itemdelegateoverlay.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/loaders/dimgloaderobserver.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/query/itemqueryposthooks.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/tags/facetagseditor.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dplugins/core/dpluginaction.cpp,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.cpp: fix
+	QCollator use
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/collection/collectionscannerobserver.h: 
+	Clazy++: no copyable polymorphic class
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/lister/itemlisterreceiver.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/treeview/abstractalbumtreeview.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/engine/dbenginesqlquery.cpp,
+	core/libs/database/engine/dbenginesqlquery.h: polish
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/recognition/dataproviders.cpp,
+	core/libs/facesengine/recognition/dataproviders.h: Clazy++: no
+	copyable polymorphic class
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/color/dcolorcomposer.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/dbjobs/duplicatesprogressobserver.cpp,
+	core/libs/database/haar/haariface.h,
+	core/libs/database/haar/haariface_p.cpp: Clazy++ : fix copy
+	constructor warning with internal polymorphic class used in
+	HarrIface CCBUGS: 428964 CCBUGS: 427337
+
+2020-11-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/preview/previewtask.cpp: fix breakpoint
+	patch CCBUGS: 427333
+
+2020-11-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/preview/previewtask.cpp,
+	core/libs/threadimageio/preview/previewtask.h: fix breakpoint patch
+	when stopping loading CCBUGS: 427333
+
+2020-11-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/preview/previewtask.cpp,
+	core/libs/threadimageio/preview/previewtask.h: add breakpoint to the
+	destructor from preview task CCBUGS: 427333
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/raw/drawdecoding.h,
+	core/libs/rawengine/drawdecodersettings.cpp,
+	core/libs/rawengine/drawdecodersettings.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/dconfigdlg.cpp, core/libs/dialogs/dconfigdlg.h: 
+	Clazy++: no copyable polymorphic class
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/widgets/ditemslist.cpp,
+	core/libs/dplugins/widgets/ditemslist.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/deletedialog.cpp,
+	core/libs/dialogs/deletedialog.h: Clazy++: no copyable polymorphic
+	class
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/template/templatelist.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/metadata/metadatalistviewitem.cpp,
+	core/libs/widgets/metadata/metadataselector.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/models/itemthumbnailmodel.cpp: stop loading all
+	thumbs loading after setting new items for a better response
+
+2020-11-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/models/itemsortsettings.cpp,
+	core/libs/database/models/itemsortsettings.h,
+	core/utilities/import/models/camitemsortsettings.cpp,
+	core/utilities/import/models/camitemsortsettings.h: polish
+
+2020-11-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/CMakeLists.txt,
+	core/libs/database/models/{itemsortercache.cpp =>
+	itemsortcollator.cpp}, core/libs/database/models/{itemsortercache.h
+	=> itemsortcollator.h},
+	core/libs/database/models/itemsortsettings.h,
+	core/libs/models/albumfiltermodel.cpp,
+	core/utilities/import/models/camitemsortsettings.h: ItemSorterCache
+	=> ItemSortCollator
+
+2020-11-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threads/threadmanager.cpp: Clazy++: no copyable
+	polymorphic class
+
+2020-11-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/progressmanager/dhistoryview.cpp,
+	core/libs/progressmanager/dhistoryview.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/models/itemsortercache.cpp: go back to
+	standard QCollator comparison The QCollatorSortKey does not seem to
+	work under Windows. We also see error messages from time to time in
+	the log under Windows. The speed advantage remains because we don't
+	create the QCollator object every time new. BUGS: 428638 FIXED-IN:
+	7.2.0
+
+2020-11-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/coredb/coredbthumbinfoprovider.cpp,
+	core/libs/database/coredb/coredbthumbinfoprovider.h: polish
+
+2020-11-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/item/containers/itemgps.cpp,
+	core/libs/database/item/containers/itemgps.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/dimgfiltergenerator.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/film/filmfilter.cpp,
+	core/libs/dimg/filters/film/filmfilter.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/versionmanager/versionnamingscheme.h: polish
+
+2020-11-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/exposurecontainer.h: Clazy++: no copyable
+	polymorphic class
+
+2020-11-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/geolocation/geoiface/items/gpsitemcontainer.h: 
+	Clazy++: no copyable polymorphic class
+
+2020-11-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/loaders/dimgloader.h: Clazy++: no copyable
+	polymorphic qobject based class
+
+2020-11-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/models/itemfiltermodel.h: Clazy++: no copyable
+	polymorphic qobject based class
+
+2020-11-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dragdrop/dragdropimplementations.h: Clazy++: no copyable
+	polymorphic qobject based class
+
+2020-11-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/dbjobs/duplicatesprogressobserver.h,
+	core/libs/threadimageio/fileio/loadsavethread.h,
+	core/libs/threadimageio/thumb/thumbnailinfo.h: Clazy++ : disable
+	copy constructor when possible
+
+2020-11-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/tags/manager/tagmngrtreeview.h,
+	core/libs/timeadjust/detbyclockphotobutton.h,
+	core/libs/video/manager/vidslidetask.h,
+	core/utilities/advancedrename/advancedrenamemanager.cpp,
+	core/utilities/advancedrename/advancedrenamemanager.h,
+	core/utilities/advancedrename/common/modifier.h,
+	core/utilities/advancedrename/common/option.h,
+	core/utilities/advancedrename/common/rule.h,
+	core/utilities/advancedrename/common/token.h,
+	core/utilities/advancedrename/parser/options/database/databaseoptio
+	n.h, core/utilities/imageeditor/main/imagewindow.h,
+	core/utilities/lighttable/lighttablewindow.h,
+	core/utilities/queuemanager/manager/batchtoolsfactory.h,
+	core/utilities/queuemanager/manager/task.h,
+	core/utilities/queuemanager/manager/workflowmanager.h: Clazy++: fix
+	missing parent argument in constructor
+
+2020-11-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/views/itemcategorizedview.cpp,
+	core/app/items/views/itemcategorizedview.h,
+	core/app/views/stack/itemiconview_albums.cpp,
+	core/app/views/stack/welcomepageview.cpp,
+	core/app/views/stack/welcomepageview.h,
+	core/app/views/tableview/tableview.cpp,
+	core/app/views/tableview/tableview.h,
+	core/app/views/tableview/tableview_treeview.cpp,
+	core/app/views/tableview/tableview_treeview.h,
+	core/libs/metadataengine/dmetadata/dmetadata_generic.cpp,
+	core/utilities/geolocation/geoiface/bookmark/bookmarknode.cpp,
+	core/utilities/geolocation/geoiface/bookmark/bookmarksdlg.cpp,
+	core/utilities/geolocation/geoiface/tiles/itemmarkertiler.cpp,
+	core/utilities/geolocation/geoiface/tiles/itemmarkertiler.h: Clazy++
+	: use detaching temporary container
+
+2020-11-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh,
+	project/bundles/macports/04-build-installer.sh: fix weekly build
+	upload using sftp
+
+2020-11-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/04-build-installer.sh: fix weekly build upload
+	using sftp
+
+2020-11-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/mxe/04-build-installer.sh: try to use rsync
+	instead ssh
+
+2020-11-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/3rdparty/ext_gmicqt/CMakeLists.txt: We do not use
+	git subbmodules now, as it's a big pain to follow with these remote
+	repositories...
+
+2020-11-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/dragdrop/ddragobjects.h,
+	core/utilities/lighttable/lighttablepreview.h,
+	core/utilities/lighttable/lighttableview.cpp,
+	core/utilities/lighttable/lighttablewindow.cpp,
+	core/utilities/lighttable/lighttablewindow.h,
+	core/utilities/lighttable/lighttablewindow_p.h: Clazy++ : fix
+	missing parent argument
+
+2020-11-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/utils/contextmenuhelper.h,
+	core/utilities/imageeditor/editor/editortool.cpp,
+	core/utilities/imageeditor/editor/editortool.h,
+	core/utilities/imageeditor/editor/editortooliface.cpp,
+	core/utilities/imageeditor/editor/editortoolsettings.cpp,
+	core/utilities/imageeditor/editor/editortoolsettings.h,
+	core/utilities/imageeditor/editor/editorwindow.cpp,
+	core/utilities/imageeditor/editor/editorwindow.h,
+	core/utilities/imageeditor/editor/editorwindow_p.h,
+	core/utilities/imageeditor/editor/imageiface.cpp,
+	core/utilities/imageeditor/editor/imageiface.h: Clazy++ : fix
+	missing parent argument and fix coding style
+
+2020-11-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/date/ddatepicker.cpp, core/app/date/ddatepicker.h,
+	core/app/main/digikamapp_import.cpp,
+	core/libs/dplugins/iface/dmetainfoiface.cpp,
+	core/libs/dplugins/iface/dmetainfoiface.h,
+	core/libs/template/templateviewer.cpp,
+	core/libs/timeadjust/clockphotodialog.cpp,
+	core/libs/timeadjust/detbyclockphotobutton.cpp,
+	core/libs/timeadjust/timeadjustcontainer.cpp,
+	core/libs/timeadjust/timeadjustsettings.cpp,
+	core/libs/widgets/files/dbinaryiface.cpp,
+	core/libs/widgets/mainview/dxmlguiwindow.cpp,
+	core/utilities/advancedrename/common/parser.cpp: Clazy++: do not use
+	detaching temporary
+
+2020-11-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/dbjobs/dbjob.cpp,
+	core/libs/database/dbjobs/dbjob.h,
+	core/libs/database/utils/ifaces/dbinfoiface.cpp,
+	core/libs/database/utils/ifaces/dbinfoiface.h,
+	core/libs/database/utils/ifaces/dio.cpp,
+	core/libs/database/utils/ifaces/syncjob.cpp,
+	core/libs/database/utils/ifaces/syncjob.h: Clazy++: first() ->
+	constFirst()
+
+2020-11-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/clazy_visualizer.py: Add link to github
+	explainations for all reports
+
+2020-11-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/items/delegate/itemdelegate.cpp,
+	core/app/items/delegate/itemdelegate.h,
+	core/app/items/delegate/itemfacedelegate.cpp,
+	core/app/items/delegate/itemfacedelegate.h,
+	core/app/items/views/itemcategorizedview.cpp,
+	core/app/items/views/itemcategorizedview.h,
+	core/libs/models/itemalbumfiltermodel.cpp,
+	core/libs/models/itemalbumfiltermodel.h,
+	core/showfoto/thumbbar/showfotodelegate.h: remove dead code to
+	update thumbnails when a paint event occurs BUGS: 373839 BUGS:
+	426208 FIXED-IN: 7.2.0
+
+2020-11-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/utils/contextmenuhelper.cpp,
+	core/app/items/utils/contextmenuhelper.h,
+	core/libs/album/engine/albumhistory.cpp,
+	core/libs/album/engine/albumhistory.h,
+	core/libs/album/widgets/albumpropsedit.h,
+	core/libs/album/widgets/albumselectors.cpp,
+	core/libs/album/widgets/albumselectors.h,
+	core/utilities/maintenance/iteminfoalbumsjob.cpp,
+	core/utilities/maintenance/iteminfoalbumsjob.h: Clazy++: fix missing
+	parent argument
+
+2020-11-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/graphicsview/clickdragreleaseitem.h,
+	core/libs/widgets/graphicsview/dimgchilditem.cpp,
+	core/libs/widgets/graphicsview/dimgchilditem.h,
+	core/libs/widgets/graphicsview/regionframeitem.h,
+	core/libs/widgets/itemview/dcategorydrawer.cpp,
+	core/libs/widgets/itemview/dcategorydrawer.h,
+	core/utilities/facemanagement/database/faceutils.cpp,
+	core/utilities/facemanagement/database/faceutils.h: Clazy++: fix
+	missing parent argument
+
+2020-11-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/colors/autocorrection/autocorrectiontool.cpp,
+	core/dplugins/editor/colors/autocorrection/autocorrectiontool.h,
+	core/dplugins/editor/colors/autocorrection/autocorrectiontoolplugin
+	.cpp,
+	core/dplugins/editor/colors/autocorrection/autocorrectiontoolplugin
+	.h, core/libs/fileactionmanager/databaseworkeriface.h,
+	core/libs/fileactionmanager/fileactionmngr_p.h,
+	core/libs/fileactionmanager/fileworkeriface.h,
+	core/utilities/imageeditor/widgets/previewlist.cpp,
+	core/utilities/imageeditor/widgets/previewlist.h: Clazy++: fix
+	missing parent argument
+
+2020-11-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/combo/comboboxutilities.cpp,
+	core/libs/widgets/combo/dcombobox.cpp,
+	core/libs/widgets/combo/squeezedcombobox.cpp,
+	core/libs/widgets/combo/squeezedcombobox.h,
+	core/libs/widgets/combo/timezonecombobox.h: Clazy++: fix missing
+	parent argument and fix coding style
+
+2020-11-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/items/overlays/assignnameoverlay.cpp: polish
+
+2020-11-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/facemanagement/widgets/assignnamewidget_p.cpp: 
+	variable modelsGiven is bool
+
+2020-11-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/items/views/digikamitemview.cpp: polish
+
+2020-11-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/items/views/digikamitemview.cpp: polish
+
+2020-11-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/advancedrename/common/parseresults.h: fix
+	deprecated QMap warning
+
+2020-11-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/digikamapp.h, core/libs/dialogs/dsplashscreen.cpp,
+	core/libs/dialogs/dsplashscreen.h,
+	core/libs/models/itemalbumfiltermodel.cpp,
+	core/libs/tags/manager/tagsmanager.cpp,
+	core/libs/tags/manager/tagsmanager.h,
+	core/libs/widgets/combo/comboboxutilities.cpp,
+	core/libs/widgets/graphicsview/clickdragreleaseitem.cpp,
+	core/libs/widgets/graphicsview/clickdragreleaseitem.h,
+	core/libs/widgets/graphicsview/dimgchilditem.cpp,
+	core/libs/widgets/graphicsview/dimgchilditem.h,
+	core/libs/widgets/graphicsview/dimgpreviewitem.cpp,
+	core/libs/widgets/graphicsview/dimgpreviewitem.h,
+	core/libs/widgets/graphicsview/graphicsdimgitem.cpp,
+	core/libs/widgets/graphicsview/graphicsdimgitem.h,
+	core/libs/widgets/graphicsview/regionframeitem.cpp,
+	core/libs/widgets/graphicsview/regionframeitem.h,
+	core/libs/widgets/iccprofiles/iccprofilescombobox.h,
+	core/libs/widgets/itemview/dcategorydrawer.cpp: Clazy++: fix missing
+	parent argument in constructor
+
+2020-11-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/utils/ifaces/dio.cpp: polish scan paths
+
+2020-11-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/utils/ifaces/dio.cpp: scan if  copy to the
+	collection location
+
+2020-11-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/items/utils/itemviewutilities.cpp,
+	core/app/main/digikamapp_setup.cpp: destination => target
+
+2020-11-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/iojobs/iojob.cpp: polish
+
+2020-11-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/iojobs/iojob.cpp: separate error message
+
+2020-11-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/items/utils/contextmenuhelper.cpp,
+	core/app/items/utils/itemviewutilities.cpp,
+	core/app/items/utils/itemviewutilities.h,
+	core/app/main/digikamapp.cpp, core/app/main/digikamapp_p.h,
+	core/app/main/digikamapp_setup.cpp,
+	core/app/views/stack/itemiconview.h,
+	core/app/views/stack/itemiconview_items.cpp,
+	core/libs/database/utils/ifaces/dio.cpp,
+	core/libs/database/utils/ifaces/dio.h, core/libs/iojobs/iojob.cpp,
+	core/libs/iojobs/iojobdata.cpp, core/libs/iojobs/iojobdata.h,
+	core/libs/iojobs/iojobsmanager.cpp: add copy to... action in the
+	right context menu BUGS: 428723 FIXED-IN: 7.2.0
+
+2020-11-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/import/main/importui.cpp,
+	core/utilities/import/main/importui.h: fix hanging progress bar
+	after download and delete
+
+2020-11-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/models/itemmodel.cpp,
+	core/showfoto/thumbbar/showfotoimagemodel.cpp,
+	core/utilities/import/models/importimagemodel.cpp: some important
+	fixes for the item models Incorrect or no items from the file path
+	cache were removed. Because the index in the model is not the same
+	as the qlonglong id. BUGS: 428733 FIXED-IN: 7.2.0
+
+2020-11-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/itemview/dcategorizedview.cpp: fix crash when
+	change category in the import tool with many items
+
+2020-11-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/import/backend/cameracontroller.cpp,
+	core/utilities/import/backend/cameracontroller.h,
+	core/utilities/import/backend/camerathumbsctrl.cpp: move the
+	currently required thumbs to the top of the loading queue
+
+2020-11-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/dbjobs/dbjobsmanager.h,
+	core/libs/database/item/containers/iteminfocache.h,
+	core/libs/database/models/itemfiltermodel_p.h,
+	core/libs/database/similaritydb/similaritydbbackend.h,
+	core/libs/dialogs/dsplashscreen.h,
+	core/libs/facesengine/facedb/facedbbackend.h,
+	core/libs/fileactionmanager/databaseworkeriface.h,
+	core/libs/fileactionmanager/fileactionimageinfolist.h,
+	core/libs/fileactionmanager/fileactionprogress.h,
+	core/libs/fileactionmanager/fileworkeriface.h,
+	core/libs/fileactionmanager/metadatahubmngr.h,
+	core/libs/iojobs/iojob.h, core/libs/tags/manager/tagsmanager.h,
+	core/libs/template/templatemanager.h,
+	core/libs/threads/threadmanager.h,
+	core/libs/widgets/combo/comboboxutilities.cpp,
+	core/libs/widgets/graphicsview/regionframeitem.h,
+	core/libs/widgets/iccprofiles/iccprofilescombobox.h,
+	core/libs/widgets/mainview/thememanager.h,
+	core/utilities/extrasupport/filesindexer/baloowrap.h: Clazy++: fix
+	missing parent to constructor
+
+2020-11-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/digikamapp.h, core/app/views/utils/dmodelfactory.h,
+	core/libs/album/engine/albumparser.h,
+	core/libs/album/engine/albumthumbnailloader.h,
+	core/libs/database/item/lister/itemattributeswatch.h,
+	core/libs/database/models/itemsortercache.h,
+	core/libs/database/utils/ifaces/dio.h,
+	core/libs/database/utils/ifaces/syncjob.h,
+	core/libs/database/utils/scan/scancontroller_p.h,
+	core/libs/fileactionmanager/fileactionmngr.h,
+	core/libs/iojobs/iojobsmanager.h,
+	core/libs/progressmanager/progressmanager.h: Clazy++ fix missing
+	constructor with QObject argument
+
+2020-11-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/import/backend/cameracontroller.cpp: optimize
+	thumbnail loading in the import tool and fix memory leak
+
+2020-11-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/manager/albummanager.cpp,
+	core/libs/album/manager/albummanager.h,
+	core/libs/database/coredb/coredbcopymanager.cpp,
+	core/libs/database/coredb/coredbcopymanager.h,
+	core/libs/database/coredb/coredbwatch.cpp,
+	core/libs/database/coredb/coredbwatch.h,
+	core/libs/database/engine/dbengineguierrorhandler.cpp,
+	core/libs/database/engine/dbengineguierrorhandler.h,
+	core/libs/database/utils/scan/scancontroller.cpp,
+	core/libs/database/utils/scan/scancontroller.h,
+	core/libs/database/utils/scan/scancontroller_p.cpp,
+	core/libs/database/utils/widgets/mysqlinitbinary.h,
+	core/libs/database/utils/widgets/mysqlservbinary.h,
+	core/libs/settings/applicationsettings.cpp,
+	core/libs/settings/applicationsettings.h,
+	core/libs/settings/applicationsettings_p.cpp,
+	core/libs/threadimageio/fileio/loadingcache.h,
+	core/libs/widgets/files/dbinaryiface.cpp,
+	core/libs/widgets/files/dbinaryiface.h,
+	core/libs/widgets/mainview/daboutdata.cpp,
+	core/libs/widgets/mainview/daboutdata.h: Clazy++ : fix constructor
+	with QObject parent
+
+2020-11-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/collection/collectionmanager.h,
+	core/libs/database/tags/tagscache.h,
+	core/libs/database/thumbsdb/thumbsdbbackend.h,
+	core/libs/dimg/filters/icc/iccsettings.h,
+	core/libs/dplugins/setup/dpluginloader.h,
+	core/libs/metadataengine/engine/metaenginesettings.h,
+	core/libs/rawengine/drawdecoder.h,
+	core/libs/threadimageio/engine/filereadwritelock.h: Clazy++: fix
+	missing constructor with QObject* parent
+
+2020-11-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/ipfs/ipfsimageslist.cpp,
+	core/dplugins/generic/webservices/ipfs/ipfsimageslist.h,
+	core/dplugins/generic/webservices/ipfs/ipfstalker.cpp,
+	core/dplugins/generic/webservices/ipfs/ipfswindow.cpp,
+	core/dplugins/generic/webservices/ipfs/ipfswindow.h: Clazy++ :
+	return data instead void
+
+2020-11-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/collection/collectionscanner.h,
+	core/libs/database/coredb/coredbbackend.h,
+	core/libs/database/dbjobs/dbjob.h,
+	core/libs/database/engine/dbenginebackend.h,
+	core/libs/database/engine/dbengineerrorhandler.h,
+	core/libs/database/server/databaseserverstarter.h,
+	core/libs/metadataengine/dmetadata/dmetadatasettings.h,
+	core/libs/threads/actionthreadbase.h,
+	core/libs/threads/workerobject.h: Clazy++: fix ctor missing parent
+	arg
+
+2020-11-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/history/itemhistorygraph.cpp,
+	core/libs/database/history/itemhistorygraphmodel.cpp: Clazy++:
+	disable missing type info
+
+2020-11-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/yandexfotki/yfalbum.cpp,
+	core/dplugins/generic/webservices/yandexfotki/yfphoto.cpp,
+	core/dplugins/generic/webservices/yandexfotki/yftalker.cpp,
+	core/dplugins/generic/webservices/yandexfotki/yftalker.h,
+	core/dplugins/generic/webservices/yandexfotki/yfwidget.cpp: Clazy++:
+	fix return data instead void
+
+2020-11-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-11-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/views/digikamitemview.cpp,
+	core/dplugins/generic/webservices/imgur/imgurtalker.cpp,
+	core/dplugins/generic/webservices/ipfs/ipfstalker.cpp,
+	core/dplugins/generic/webservices/ipfs/ipfstalker.h,
+	core/libs/properties/history/versionsdelegate.cpp,
+	core/libs/properties/history/versionsdelegate.h,
+	core/libs/widgets/graphicsview/regionframeitem.cpp,
+	core/libs/widgets/graphicsview/regionframeitem.h,
+	core/tests/mediawiki/fakeserver/fakeserver.cpp,
+	core/tests/mediawiki/fakeserver/fakeserver.h,
+	core/utilities/imageeditor/editor/editorstackview.cpp,
+	core/utilities/imageeditor/editor/editorstackview.h,
+	core/utilities/searchwindow/ratingsearchutilities.cpp,
+	core/utilities/searchwindow/ratingsearchutilities.h,
+	core/utilities/searchwindow/visibilitycontroller.cpp: Clazy++:
+	return void instead data
+
+2020-11-02  Nghia Duong <minhnghiaduong997@gmail.com>
+
+	* core/libs/facesengine/TODO: Update TODO
+
+2020-11-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-11-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp,
+	core/libs/database/coredb/coredb.h,
+	core/libs/database/item/containers/itemcomments.cpp,
+	core/libs/database/item/containers/itemcomments.h: Clazy++ : return
+	data instead vode
+
+2020-11-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/engine/filereadwritelock.cpp,
+	core/utilities/facemanagement/database/faceutils.cpp,
+	core/utilities/facemanagement/threads/facepipeline.cpp,
+	core/utilities/facemanagement/threads/facepreviewloader.cpp,
+	core/utilities/maintenance/facesdetector.cpp,
+	core/utilities/maintenance/facesdetector.h: Clazy++: fix returning
+	data instead void
+
+2020-11-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/recognition/facialrecognition_wrapper.cpp,
+	core/libs/facesengine/recognition/facialrecognition_wrapper.h,
+	core/libs/facesengine/recognition/facialrecognition_wrapper_identit
+	y.cpp,
+	core/libs/facesengine/recognition/facialrecognition_wrapper_p.cpp: 
+	Clazy++ : fix returning data instead void
+
+2020-11-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/filters/lens/lensfuniface.cpp: check metadata
+	pointer
+
+2020-11-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/dimg/filters/lens/lensfuncameraselector.cpp: fix
+	passive metadata usage in the BQM lensfun tool BUGS: 428558
+	FIXED-IN: 7.2.0
+
+2020-11-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threads/parallelworkers.cpp,
+	core/libs/threads/parallelworkers.h: Fix coding style and disable
+	Clazy missing type definition
+
+2020-11-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/history/itemhistorygraph_boost.h: Calzy++ :
+	disable missing type info for all bosst based classes
+
+2020-11-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/digikamapp_solid.cpp,
+	core/libs/tags/widgets/addtagslineedit.cpp,
+	core/libs/tags/widgets/addtagslineedit.h,
+	core/libs/tags/widgets/tagfolderview.cpp,
+	core/libs/tags/widgets/tagfolderview.h,
+	core/libs/widgets/text/searchtextbar.cpp,
+	core/libs/widgets/text/searchtextbar.h,
+	core/utilities/maintenance/maintenancedlg.cpp: Clazy++: connect need
+	to use 3rd context argument with a lambda function. See notice
+	online here:
+
+	https://github.com/KDE/clazy/blob/master/docs/checks/README-connect-3arg-lambda.md
+
+2020-11-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/filters/lens/lensfuncameraselector.cpp: fix crash
+	with lensfun in BQM
+
+2020-11-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview.h,
+	core/app/views/stack/itemiconview_albums.cpp,
+	core/app/views/stack/itemiconview_groups.cpp,
+	core/app/views/stack/itemiconview_items.cpp,
+	core/app/views/stack/itemiconview_p.h,
+	core/app/views/stack/itemiconview_search.cpp,
+	core/app/views/stack/itemiconview_sidebars.cpp,
+	core/app/views/stack/itemiconview_tags.cpp,
+	core/app/views/stack/itemiconview_tools.cpp,
+	core/app/views/stack/itemiconview_views.cpp,
+	core/app/views/stack/itemiconview_zoom.cpp: Clazy++: connect need to
+	use 3rd context argument with a lambda function. See notice online
+	here:
+
+	https://github.com/KDE/clazy/blob/master/docs/checks/README-connect-3arg-lambda.md Fix whole IconView class coding style
+
+2020-11-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facescanwidget.cpp,
+	core/utilities/facemanagement/widgets/facescanwidget.h: Clazy++:
+	connect need to use 3rd context argument with a lambda function. See
+	notice online here:
+
+	https://github.com/KDE/clazy/blob/master/docs/checks/README-connect-3arg-lambda.md
+
+2020-11-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/database/faceutils.cpp,
+	core/utilities/facemanagement/database/faceutils.h: Clazy++: connect
+	need to use 3rd context argument with a lambda function. See notice
+	online here:
+
+	https://github.com/KDE/clazy/blob/master/docs/checks/README-connect-3arg-lambda.md  NOTE: FaceUtils class need to inherit of QObject to see this timer working properly.
+
+2020-11-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/models/albummodel.cpp, core/libs/models/albummodel.h: 
+	Clazy++: connect need to use 3rd context argument with a lambda
+	function. See notice online here:
+
+	https://github.com/KDE/clazy/blob/master/docs/checks/README-connect-3arg-lambda.md
+
+2020-11-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_image
+	.cpp,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_image
+	.h,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_image
+	info.cpp,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_image
+	info.h,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_job.c
+	pp,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_job_p
+	.h: Clazy++: use const ref args
+
+2020-11-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/items/utils/contextmenuhelper.cpp,
+	core/app/main/digikamapp_setup.cpp,
+	core/libs/dialogs/deletedialog.cpp,
+	core/utilities/imageeditor/editor/editorwindow.cpp,
+	core/utilities/imageeditor/main/imagewindow_setup.cpp,
+	core/utilities/lighttable/lighttablewindow_setup.cpp: 
+	user-trash-full => user-trash
+
+2020-11-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesview.cpp: polish
+
+2020-11-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesview.cpp: add icon to the
+	remove duplicates button
+
+2020-11-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/facesengine/recognition/traindb.cpp,
+	core/tests/geolocation/geoiface/demo/mainwindow.cpp,
+	core/tests/geolocation/geoiface/demo/mainwindow.h,
+	core/tests/geolocation/geoiface/demo/mytreewidget.cpp,
+	core/tests/geolocation/geoiface/demo/mytreewidget.h,
+	core/tests/mediawiki/examples/editsample/mainwindow.cpp,
+	core/tests/mediawiki/examples/editsample/mainwindow.h,
+	core/tests/mediawiki/queryrevisiontest.cpp: Clazy++: use const ref
+	args (Complete!!!)
+
+2020-11-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/imageshack/imageshacktalker.cpp,
+	core/dplugins/generic/webservices/imageshack/imageshacktalker.h,
+	core/dplugins/generic/webservices/smugmug/smugwindow.cpp,
+	core/dplugins/generic/webservices/smugmug/smugwindow.h,
+	core/showfoto/main/showfotosettings.cpp,
+	core/showfoto/main/showfotosettings.h,
+	core/showfoto/thumbbar/showfotothumbnailmodel.cpp,
+	core/showfoto/thumbbar/showfotothumbnailmodel.h: Clazy++ : use const
+	ref args
+
+2020-11-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/flickr/flickritem.h,
+	core/dplugins/generic/webservices/flickr/flickrlist.cpp,
+	core/dplugins/generic/webservices/flickr/flickrtalker.cpp,
+	core/dplugins/generic/webservices/flickr/flickrwidget.cpp,
+	core/dplugins/generic/webservices/flickr/flickrwidget.h,
+	core/dplugins/generic/webservices/flickr/flickrwidget_p.h,
+	core/dplugins/generic/webservices/flickr/flickrwindow.cpp,
+	core/dplugins/generic/webservices/flickr/flickrwindow.h: Clazy++:
+	use const ref args. fix coding style and remove dead code from
+	Google tool
+
+2020-11-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_edit.
+	cpp,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_edit.
+	h,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_page.
+	cpp,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_page.
+	h,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_prote
+	ction.cpp,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_prote
+	ction.h,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_revis
+	ion.cpp,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_revis
+	ion.h,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_uploa
+	d.cpp,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_uploa
+	d.h,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_userg
+	roup.cpp,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_userg
+	roup.h: Clazy++: use const ref args
+
+2020-10-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/stack/trashview.cpp,
+	core/app/views/stack/trashview.h,
+	core/app/views/tableview/tableview_model.cpp,
+	core/app/views/tableview/tableview_model.h,
+	core/libs/metadataengine/dmetadata/dmetadata_video.cpp,
+	core/utilities/geolocation/geoiface/backends/backendgooglemaps.cpp,
+	core/utilities/geolocation/geoiface/backends/backendgooglemaps.h,
+	core/utilities/geolocation/geoiface/backends/backendmarble.cpp,
+	core/utilities/geolocation/geoiface/backends/backendmarble.h: 
+	Clazy++: use const ref args
+
+2020-10-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesalbumitem.cpp: polish
+
+2020-10-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/utils/contextmenuhelper.cpp,
+	core/app/items/utils/contextmenuhelper.h,
+	core/libs/metadataengine/engine/metaengine_previews.cpp,
+	core/libs/metadataengine/engine/metaengine_previews.h: Clazy++: use
+	const ref args
+
+2020-10-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-10-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesalbum.cpp: polish
+
+2020-10-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesview.cpp: disable remove
+	duplicate button after tab selection
+
+2020-10-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesview.cpp: we do not need
+	the additional warning
+
+2020-10-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesalbum.cpp: move deleted
+	duplicate items to the Trash
+
+2020-10-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesview.cpp: cppcheck++:
+	removeDuplicates
+
+2020-10-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesalbum.cpp,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.cpp,
+	core/utilities/fuzzysearch/findduplicatesview.cpp: polish Remove
+	Duplicates
+
+2020-07-20  Tomaz Canabrava <tcanabrava@kde.org>
+
+	* core/utilities/fuzzysearch/findduplicatesview.cpp: Disable "Remove
+	duplicates"  untill after the duplicates are found
+
+2020-07-20  Tomaz Canabrava <tcanabrava@kde.org>
+
+	* core/utilities/maintenance/fingerprintsgenerator.cpp: Revert
+	change on fingerprintgenerator  Keep working code as is
+
+2020-07-20  Tomaz Canabrava <tcanabrava@kde.org>
+
+	* core/utilities/fuzzysearch/findduplicatesalbum.cpp,
+	core/utilities/fuzzysearch/findduplicatesalbum.h,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.cpp,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.h,
+	core/utilities/fuzzysearch/findduplicatesview.cpp: Remove range from
+	removeDuplicates
+
+2020-07-15  Tomaz Canabrava <tcanabrava@kde.org>
+
+	* core/utilities/fuzzysearch/findduplicatesalbum.cpp,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.cpp,
+	core/utilities/fuzzysearch/findduplicatesview.cpp,
+	core/utilities/maintenance/fingerprintsgenerator.cpp,
+	core/utilities/maintenance/maintenancethread.cpp: Remove Stray
+	Debugs, adapt code
+
+2020-05-24  Tomaz Canabrava <tcanabrava@kde.org>
+
+	* core/utilities/fuzzysearch/findduplicatesalbumitem.cpp,
+	core/utilities/fuzzysearch/findduplicatesview.cpp: Fix threshould
+	calculation
+
+2020-05-24  Tomaz Canabrava <tcanabrava@kde.org>
+
+	* core/utilities/fuzzysearch/findduplicatesalbum.cpp,
+	core/utilities/fuzzysearch/findduplicatesalbum.h,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.cpp,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.h,
+	core/utilities/fuzzysearch/findduplicatesview.cpp: Specify the range
+	for the automated duplication removal  Take in consideration the
+	similarity range for removing the duplicated images.
+
+2020-05-24  Tomaz Canabrava <tcanabrava@kde.org>
+
+	* core/utilities/fuzzysearch/findduplicatesalbum.cpp,
+	core/utilities/fuzzysearch/findduplicatesalbum.h,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.cpp,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.h,
+	core/utilities/fuzzysearch/findduplicatesview.cpp,
+	core/utilities/fuzzysearch/findduplicatesview.h,
+	core/utilities/maintenance/fingerprintsgenerator.cpp,
+	core/utilities/maintenance/maintenancethread.cpp: WIP: Remove
+	Duplicates  This patch is a Wip - It works for what I want, but it's
+	running in the main thread - any advice for fixing that is
+	appreicated.  This triggers a delete of all the duplicates of the
+	duplicate finder - with the exception of the original picture.
+
+2020-10-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/digikamapp.cpp, core/app/main/digikamapp.h,
+	core/app/main/digikamapp_p.h, core/app/main/digikamapp_solid.cpp: 
+	Clazy++ : use const ref args
+
+2020-10-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/geolocation/geoiface/reversegeocoding/rginfo.cpp,
+	core/utilities/geolocation/geoiface/reversegeocoding/rgtagmodel.cpp
+	,
+	core/utilities/geolocation/geoiface/reversegeocoding/rgtagmodel.h,
+	core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp,
+	core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.h,
+	core/utilities/geolocation/geoiface/reversegeocoding/simpletreemode
+	l.cpp,
+	core/utilities/geolocation/geoiface/reversegeocoding/simpletreemode
+	l.h,
+	core/utilities/geolocation/geoiface/reversegeocoding/treebranch.h: 
+	Clazy++: use const ref args
+
+2020-10-31  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/views/stack/itemiconview_items.cpp: apply the
+	setting for grouped items in the setup BUGS: 388899 BUGS: 428427
+	FIXED-IN: 7.2.0
+
+2020-10-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/setup/collections/dwitemdelegate.cpp,
+	core/utilities/setup/collections/dwitemdelegate.h,
+	core/utilities/setup/collections/dwitemdelegate_p.cpp,
+	core/utilities/setup/collections/dwitemdelegate_p.h,
+	core/utilities/setup/collections/setupcollections.cpp,
+	core/utilities/setup/collections/setupcollectionview.cpp,
+	core/utilities/setup/collections/setupcollectionview.h: Clazy++: use
+	const ref args
+
+2020-10-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/clazy.sh: disable this level2 Clazy test
+
+2020-10-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/color/dcolorcomposer.cpp,
+	core/libs/dimg/color/dcolorcomposer.h,
+	core/utilities/queuemanager/views/assignedlist.cpp,
+	core/utilities/queuemanager/views/assignedlist.h,
+	core/utilities/queuemanager/views/queuelist.cpp,
+	core/utilities/queuemanager/views/queuelist.h,
+	core/utilities/queuemanager/views/toolslistview.cpp,
+	core/utilities/queuemanager/views/toolslistview.h,
+	core/utilities/queuemanager/views/workflowlist.cpp,
+	core/utilities/queuemanager/views/workflowlist.h: Clazy++: use const
+	ref args
+
+2020-10-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_util.
+	cpp: Use QDateTime::fromSecsSinceEpoch and simplify
+
+2020-10-31  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/config.sh,
+	project/bundles/macports/config.sh, project/bundles/mxe/config.sh: 
+	switch from milonia to deino.kde.org.
+
+2020-10-30  Aleix Pol <aleixpol@kde.org>
+
+	* project/bundles/flatpak/org.kde.digikam.json: flatpak: Update to
+	newer stable versions of dependencies
+
+2020-10-30  Aleix Pol <aleixpol@kde.org>
+
+	* project/bundles/flatpak/org.kde.digikam.json: flatpak: Downlading
+	assets during the build isn't supported by flatpak-builder
+
+2020-10-30  Aleix Pol <aleixpol@kde.org>
+
+	* project/bundles/flatpak/org.kde.digikam.json: flatpak: opencv ml
+	was necessary  Digikam wouldn't build otherwise
+
+2020-10-30  Aleix Pol <aleixpol@kde.org>
+
+	* project/bundles/flatpak/org.kde.digikam.json: flatpak: sane tag
+	was not found anymore
+
+2020-10-30  Aleix Pol <aleixpol@kde.org>
+
+	* project/bundles/flatpak/org.kde.digikam.json: flatpak: update to
+	the latest stable runtime
+
+2020-10-30  Aleix Pol <aleixpol@kde.org>
+
+	* project/bundles/flatpak/org.kde.digikam.json: flatpak: eigen moved
+	to gitlab  Was not found anymore
+
+2020-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/color/dcolor.cpp, core/libs/dimg/color/dcolor.h,
+	core/libs/dimg/color/dcolorblend.h,
+	core/libs/dimg/color/dcolorcomposer.cpp,
+	core/libs/dimg/color/dcolorcomposer.h: Clazy++: use const ref args
+
+2020-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/threads/parallelpipes.cpp,
+	core/utilities/facemanagement/threads/parallelpipes.h,
+	core/utilities/geolocation/geoiface/core/gpsundocommand.h: Clazy++:
+	use const ref args
+
+2020-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/tags/facetagseditor.cpp,
+	core/libs/database/tags/facetagseditor.h,
+	core/utilities/facemanagement/database/faceutils.cpp,
+	core/utilities/facemanagement/database/faceutils.h,
+	core/utilities/facemanagement/threads/facepipeline_p.cpp,
+	core/utilities/facemanagement/threads/facepipeline_p.h: Clazy++ :
+	use const ref args
+
+2020-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/engine/albumhistory.cpp,
+	core/libs/album/engine/albumhistory.h,
+	core/libs/album/manager/albummanager.h,
+	core/libs/album/manager/albummanager_database.cpp,
+	core/libs/album/manager/albummanager_p.cpp: Clazy++: use const ref
+	args
+
+2020-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/filters/tagfilterview.cpp,
+	core/app/filters/tagfilterview.h,
+	core/libs/album/engine/albumhistory.cpp,
+	core/libs/album/treeview/abstractalbumtreeview.cpp,
+	core/libs/album/treeview/abstractalbumtreeview.h,
+	core/libs/album/widgets/albumselectwidget.cpp,
+	core/libs/album/widgets/albumselectwidget.h,
+	core/libs/tags/engine/tagmodificationhelper.cpp,
+	core/libs/tags/engine/tagmodificationhelper.h,
+	core/libs/tags/widgets/tagfolderview.cpp,
+	core/libs/tags/widgets/tagfolderview.h,
+	core/libs/widgets/layout/sidebar.cpp,
+	core/libs/widgets/layout/sidebar.h,
+	core/utilities/searchwindow/editablesearchtreeview.cpp,
+	core/utilities/searchwindow/editablesearchtreeview.h,
+	core/utilities/searchwindow/searchfolderview.cpp,
+	core/utilities/searchwindow/searchfolderview.h: Clazy++: use const
+	ref args
+
+2020-10-30  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/fileactionmanager/databaseworkeriface.cpp,
+	core/libs/fileactionmanager/databaseworkeriface.h,
+	core/libs/fileactionmanager/fileactionimageinfolist.h,
+	core/libs/fileactionmanager/fileworkeriface.cpp,
+	core/libs/fileactionmanager/fileworkeriface.h: Clazy++: use const
+	ref args
+
+2020-10-29  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/views/tableview/tableview_column_audiovideo.cpp: 
+	fix display video duration in the table view as in the properties
+	CCBUGS: 428435 FIXED-IN: 7.2.0
+
+2020-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/models/itemfiltermodel.cpp,
+	core/libs/database/models/itemfiltermodel.h,
+	core/libs/dimg/filters/redeye/redeyecorrectionfilter.cpp,
+	core/libs/dimg/filters/redeye/redeyecorrectionfilter.h,
+	core/libs/facesengine/recognition/opencv-dnn/opencvdnnfacerecognize
+	r_p.h, core/libs/widgets/mainview/thememanager_p.cpp,
+	core/libs/widgets/mainview/thememanager_p.h: Clazy++: use const ref
+	args
+
+2020-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/dbjobs/dbjobinfo.cpp,
+	core/libs/database/dbjobs/dbjobinfo.h,
+	core/libs/database/item/containers/itemcopyright.cpp,
+	core/libs/database/item/containers/itemcopyright.h,
+	core/libs/database/utils/scan/scancontroller.h,
+	core/libs/database/utils/scan/scancontroller_progress.cpp: Clazy++ :
+	use const ref args
+
+2020-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/coredb/coredbbackend.cpp,
+	core/libs/database/coredb/coredbbackend.h,
+	core/libs/database/coredb/coredbbackend_p.h: Clazy++ : use const ref
+	args
+
+2020-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/coredb/coredbchangesets.cpp,
+	core/libs/database/coredb/coredbchangesets.h,
+	core/libs/database/coredb/coredbschemaupdater.cpp,
+	core/libs/database/coredb/coredbschemaupdater.h: Clazy++: use const
+	ref arguments
+
+2020-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp,
+	core/libs/database/coredb/coredb.h,
+	core/libs/database/engine/dbenginebackend.cpp,
+	core/libs/database/engine/dbenginebackend.h,
+	core/libs/database/engine/dbenginebackend_p.h: Clazy++ : use const
+	ref arguments
+
+2020-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* CMakeLists.txt: missing to swich to 7.2.0-beta2
+
+2020-10-29  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/collection/collectionmanager.h,
+	core/libs/database/collection/collectionmanager_location.cpp,
+	core/libs/database/collection/collectionmanager_p.cpp,
+	core/libs/database/collection/collectionmanager_p.h,
+	core/libs/database/collection/collectionscannerhints.cpp,
+	core/libs/database/collection/collectionscannerhints.h: clazy++ :
+	use const ref arguments when possible. Fix coding style
+
+2020-10-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp: polish debug
+
+2020-10-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp: polish test debug
+	output
+
+2020-10-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.
+	cpp,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmloutputpage.cpp,
+	core/dplugins/generic/tools/jalbum/wizard/jalbumoutputpage.cpp,
+	core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp,
+	core/utilities/setup/camera/cameraselection.cpp,
+	core/utilities/setup/setupicc.cpp: fix another directory selections
+
+
+2020-10-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/utils/widgets/dbsettingswidget.cpp,
+	core/libs/widgets/files/dfileselector.cpp: fix selection database
+	directory
+
+2020-10-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/calendar/print/calprinter.cpp,
+	core/libs/dimg/filters/fx/colorfxfilter.cpp,
+	core/libs/dimg/filters/nr/nrestimate.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_tags.cpp,
+	core/libs/metadataengine/engine/metaengine_p.cpp,
+	core/libs/widgets/itemview/dcategorizedview.cpp,
+	core/utilities/advancedrename/common/dynamiclayout.cpp: cppcheck++
+
+2020-10-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/drawdecoder_p.cpp: cppcheck : fix not
+	necessary double check on pointers
+
+2020-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/auto/autolevelsfilter.cpp,
+	core/libs/dimg/filters/auto/autolevelsfilter.h,
+	core/libs/dimg/filters/fx/blurfxfilter.cpp,
+	core/libs/dimg/filters/fx/blurfxfilter.h,
+	core/libs/widgets/layout/sidebar.cpp,
+	core/libs/widgets/layout/sidebar.h: cppcheck++ : fix dupplicate
+	conditions
+
+2020-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/main/showfoto.h,
+	core/showfoto/main/showfoto_setup.cpp,
+	core/showfoto/thumbbar/showfotoimagemodel.cpp,
+	core/showfoto/thumbbar/showfotoimagemodel.h: cppcheck++: const ref
+	argument in signal/slot
+
+2020-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/history/itempropertieshistorytab.h,
+	core/libs/widgets/history/filtershistorywidget.cpp,
+	core/libs/widgets/history/filtershistorywidget.h: cppcheck++
+
+2020-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/history/itempropertieshistorytab.cpp,
+	core/libs/properties/history/itempropertieshistorytab.h: cppcheck++
+
+
+2020-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata.h,
+	core/libs/metadataengine/dmetadata/dmetadata_history.cpp: cppcheck++
+
+
+2020-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/wb/wbcontainer.cpp,
+	core/libs/dimg/filters/wb/wbfilter.cpp,
+	core/libs/dimg/filters/wb/wbfilter.h,
+	core/libs/dimg/filters/wb/wbsettings.cpp: cppcheck++
+
+2020-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/bw/bwsepiafilter.cpp,
+	core/libs/dimg/filters/bw/bwsepiafilter.h: cppcheck++
+
+2020-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/bcg/bcgcontainer.cpp,
+	core/libs/dimg/filters/bcg/bcgcontainer.h,
+	core/libs/dimg/filters/bcg/bcgfilter.cpp,
+	core/libs/dimg/filters/bcg/bcgfilter.h,
+	core/libs/dimg/filters/bcg/bcgsettings.cpp: cppcheck++
+
+2020-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/yandexfotki/yfwindow.cpp,
+	core/dplugins/generic/webservices/yandexfotki/yfwindow.h: cppcheck++
+
+
+2020-10-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/yandexfotki/yfalbum.cpp,
+	core/dplugins/generic/webservices/yandexfotki/yfalbum.h,
+	core/dplugins/generic/webservices/yandexfotki/yfnewalbumdlg.cpp: 
+	cppcheck++
+
+2020-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/tasks/preprocesstask.cpp,
+	core/dplugins/generic/tools/panorama/tasks/preprocesstask.h: 
+	cppcheck++
+
+2020-10-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadsavetask.cpp,
+	core/libs/threadimageio/preview/previewtask.cpp: add extra debug
+	CCBUGS: 421043
+
+2020-10-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/jpeg/dimgjpegloader_load.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.h: Revert "only for a test
+	protect jpeg loader with a mutex"
+
+2020-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/panorama/manager/panoactionthread.cpp,
+	core/dplugins/generic/tools/panorama/manager/panoactionthread.h: 
+	cppcheck++
+
+2020-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/calendar/print/calpainter.cpp,
+	core/dplugins/generic/tools/calendar/print/calprinter.cpp,
+	core/dplugins/generic/tools/calendar/print/calprinter.h,
+	core/dplugins/generic/tools/calendar/print/calsettings.cpp,
+	core/dplugins/generic/tools/calendar/print/calsystem.cpp: cppcheck++
+
+
+2020-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/import/dscanner/dscannerplugin.cpp,
+	core/dplugins/generic/import/dscanner/dscannerplugin.h,
+	core/dplugins/generic/import/dscanner/saveimgthread.cpp,
+	core/dplugins/generic/import/dscanner/saveimgthread.h,
+	core/dplugins/generic/import/dscanner/scandialog.cpp,
+	core/dplugins/generic/import/dscanner/scandialog.h: cppcheck++
+
+2020-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/file/print/printhelper.cpp,
+	core/dplugins/editor/file/print/printhelper.h: cppcheck++
+
+2020-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp: 
+	cppcheck++ : this static methos can take const & arguments
+
+2020-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/widgets/filter.cpp: cppcheck++: mime is a
+	shadow variable
+
+2020-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/metadataengine/CMakeLists.txt,
+	core/tests/metadataengine/abstractunittest.h,
+	core/tests/metadataengine/metareaderthreadtest.cpp: cppcheck++ :
+	data is a shadow variable
+
+2020-10-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/curves/imagecurves.cpp,
+	core/libs/dimg/filters/curves/imagecurves.h: cppcheck++ : data is a
+	shadow variable. fix coding style
+
+2020-10-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/dconfigdlgmngr.cpp: cppcheck++ : item is a
+	shadow variable
+
+2020-10-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/dimg_bitsops.cpp: cppcheck++ : src and dst are a
+	shadow variables
+
+2020-10-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailcreator_freedesktop.cpp: 
+	cppcheck++: info is a shadow variable
+
+2020-10-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/facedb/facedb_dnn_spatial.cpp: cppcheck:
+	position is a shadow variable at 2 places
+
+2020-10-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/iojobs/iojob.cpp: better solution for the move dir
+	problem CCBUGS: 427863
+
+2020-10-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/models/itemalbumfiltermodel.cpp: fix album category
+	sorting
+
+2020-10-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/models/itemsortercache.cpp,
+	core/libs/database/models/itemsortercache.h: polish
+
+2020-10-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/lister/itemlisterrecord.h: Revert "remove
+	this exports"
+
+2020-10-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/lister/itemlisterrecord.h: remove this
+	exports
+
+2020-10-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/dbjobs/dbjob.cpp,
+	core/libs/database/item/lister/itemlister.cpp,
+	core/libs/database/item/lister/itemlister.h,
+	core/libs/database/item/lister/itemlister_p.h,
+	core/libs/database/item/lister/itemlister_salbum.cpp,
+	core/libs/database/item/lister/itemlister_talbum.cpp,
+	core/libs/database/item/lister/itemlisterrecord.cpp,
+	core/libs/database/item/lister/itemlisterrecord.h: remove binary
+	format from the ItemListerRecord
+
+2020-10-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/itemview/itemviewcategorized.cpp,
+	core/libs/widgets/itemview/itemviewcategorized.h: fix coding style
+
+2020-10-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/itemview/itemviewcategorized.cpp: cppcheck++ :
+	pos is computed but never used. If he is null, we got a crash...
+	Solution, use pos as expected...
+
+2020-10-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.h: 
+	cppcheck++
+
+2020-10-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/containers/iteminfo.cpp,
+	core/libs/database/item/lister/itemlister.cpp,
+	core/libs/database/item/lister/itemlister_falbum.cpp,
+	core/libs/database/item/lister/itemlister_p.h,
+	core/libs/database/item/lister/itemlister_palbum.cpp,
+	core/libs/database/item/lister/itemlister_salbum.cpp,
+	core/libs/database/item/lister/itemlister_talbum.cpp,
+	core/libs/database/item/lister/itemlisterrecord.h: change
+	ItemListerRecord to use qlonglong for file size
+
+2020-10-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/utils/widgets/dbstatdlg.cpp: show the locale in
+	the database statistics dialog CCBUGS: 427964
+
+2020-10-25  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2020-10-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/facesengine/recognition/facialrecognition_wrapper.h,
+	core/libs/facesengine/recognition/facialrecognition_wrapper_recogni
+	ze.cpp: constify
+
+2020-10-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/facesengine/recognition/opencv-dnn/kd_node.cpp: polish
+
+2020-10-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/libs/facesengine/preprocessing/recognition/openfacepreprocesso
+	r.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/opencvdnnfacerecognize
+	r_p.h: polish
+
+2020-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/CMakeLists.txt,
+	core/dplugins/generic/tools/panorama/tools/pto2mkbinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/pto2mkbinary.h: Clazy++ :
+	fix missing Q_OBJECT macro is now fully complete!
+
+2020-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/CMakeLists.txt,
+	core/dplugins/generic/tools/panorama/tools/panomodifybinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/panomodifybinary.h: 
+	Clazy++
+
+2020-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/CMakeLists.txt,
+	core/dplugins/generic/tools/panorama/tools/nonabinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/nonabinary.h: Clazy++
+
+2020-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/CMakeLists.txt,
+	core/dplugins/generic/tools/panorama/tools/makebinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/makebinary.h: Clazy++
+
+2020-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/CMakeLists.txt,
+	core/dplugins/generic/tools/panorama/tools/enblendbinary.h,
+	core/dplugins/generic/tools/panorama/tools/huginexecutorbinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/huginexecutorbinary.h: 
+	Clazy++
+
+2020-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/CMakeLists.txt,
+	core/dplugins/generic/tools/panorama/tools/enblendbinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/enblendbinary.h: Clany++
+
+
+2020-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/CMakeLists.txt,
+	core/dplugins/generic/tools/panorama/manager/panoactions.h,
+	core/dplugins/generic/tools/panorama/manager/panoactionthread.cpp,
+	core/dplugins/generic/tools/panorama/manager/panomanager.cpp,
+	core/dplugins/generic/tools/panorama/{manager =>
+	tools}/autooptimiserbinary.cpp,
+	core/dplugins/generic/tools/panorama/{manager =>
+	tools}/autooptimiserbinary.h,
+	core/dplugins/generic/tools/panorama/{manager =>
+	tools}/cpcleanbinary.cpp,
+	core/dplugins/generic/tools/panorama/{manager =>
+	tools}/cpcleanbinary.h,
+	core/dplugins/generic/tools/panorama/{manager =>
+	tools}/cpfindbinary.cpp,
+	core/dplugins/generic/tools/panorama/{manager =>
+	tools}/cpfindbinary.h,
+	core/dplugins/generic/tools/panorama/{manager =>
+	tools}/enblendbinary.h,
+	core/dplugins/generic/tools/panorama/{manager =>
+	tools}/huginexecutorbinary.h,
+	core/dplugins/generic/tools/panorama/{manager =>
+	tools}/makebinary.h, core/dplugins/generic/tools/panorama/{manager
+	=> tools}/nonabinary.h,
+	core/dplugins/generic/tools/panorama/{manager =>
+	tools}/panomodifybinary.h,
+	core/dplugins/generic/tools/panorama/{manager =>
+	tools}/pto2mkbinary.h: Clazy++
+
+2020-10-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/CMakeLists.txt,
+	core/dplugins/generic/tools/panorama/manager/cpcleanbinary.cpp,
+	core/dplugins/generic/tools/panorama/manager/cpcleanbinary.h: 
+	Clazy++
+
+2020-10-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/CMakeLists.txt,
+	core/dplugins/generic/tools/panorama/manager/autooptimiserbinary.cp
+	p,
+	core/dplugins/generic/tools/panorama/manager/autooptimiserbinary.h: 
+	Clazy++
+
+2020-10-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/sendbymail/CMakeLists.txt,
+	core/dplugins/generic/tools/sendbymail/tools/balsabinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/balsabinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/clawsmailbinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/clawsmailbinary.h: 
+	Clazy++
+
+2020-10-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/sendbymail/CMakeLists.txt,
+	core/dplugins/generic/tools/sendbymail/tools/netscapebinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/netscapebinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/sylpheedbinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/sylpheedbinary.h: 
+	Clazy++
+
+2020-10-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/sendbymail/CMakeLists.txt,
+	core/dplugins/generic/tools/sendbymail/tools/evolutionbinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/evolutionbinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/kmailbinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/kmailbinary.h: Clazy ++
+
+
+2020-10-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/sendbymail/CMakeLists.txt,
+	core/dplugins/generic/tools/sendbymail/tools/thunderbirdbinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/thunderbirdbinary.h: 
+	Clazy++
+
+2020-10-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/sendbymail/CMakeLists.txt,
+	core/dplugins/generic/tools/sendbymail/tools/outlookbinary.cpp,
+	core/dplugins/generic/tools/sendbymail/tools/outlookbinary.h: 
+	clazy++
+
+2020-10-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.cp
+	p,
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.h: 
+	krazy++
+
+2020-10-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* .krazy: ignore build.clazy in CI
+
+2020-10-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/file/print/printconfig.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_getap
+	plicationpermissionsjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_getph
+	otouploadserverjob.h: Clazy++ : fix missing Q_OBJECT macro
+
+2020-10-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/calendar/wizard/calintropage.h,
+	core/dplugins/generic/tools/expoblending/CMakeLists.txt,
+	core/dplugins/generic/tools/expoblending/manager/alignbinary.cpp,
+	core/dplugins/generic/tools/expoblending/manager/alignbinary.h,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendinglastpag
+	e.h,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingpreproc
+	esspage.cpp,
+	core/dplugins/generic/tools/htmlgallery/generator/galleryconfig.h,
+	core/dplugins/generic/tools/htmlgallery/generator/galleryinfo.h,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmlfinalpage.h,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmlimagesettingspag
+	e.h,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmlintropage.h,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmloutputpage.h,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmlparameterspage.h
+	,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmlselectionpage.h,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmlwizard.h,
+	core/dplugins/generic/tools/jalbum/CMakeLists.txt,
+	core/dplugins/generic/tools/jalbum/tools/jalbumjava.cpp,
+	core/dplugins/generic/tools/jalbum/tools/jalbumjava.h,
+	core/dplugins/generic/tools/jalbum/wizard/jalbumfinalpage.h,
+	core/dplugins/generic/tools/jalbum/wizard/jalbumintropage.h,
+	core/dplugins/generic/tools/jalbum/wizard/jalbumoutputpage.h,
+	core/dplugins/generic/tools/jalbum/wizard/jalbumselectionpage.h,
+	core/dplugins/generic/tools/jalbum/wizard/jalbumwizard.h,
+	core/dplugins/generic/tools/panorama/manager/cpfindbinary.h,
+	core/dplugins/generic/tools/panorama/wizard/panowizard.h,
+	core/dplugins/generic/tools/printcreator/CMakeLists.txt,
+	core/dplugins/generic/tools/printcreator/tools/gimpbinary.cpp,
+	core/dplugins/generic/tools/printcreator/tools/gimpbinary.h,
+	core/dplugins/generic/tools/printcreator/wizard/advprintalbumspage.
+	h,
+	core/dplugins/generic/tools/printcreator/wizard/advprintintropage.h
+	,
+	core/dplugins/generic/tools/printcreator/wizard/advprintoutputpage.
+	h,
+	core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.h
+	, core/dplugins/generic/tools/printcreator/wizard/advprintwizard.h,
+	core/dplugins/generic/tools/sendbymail/tools/balsabinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/clawsmailbinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/evolutionbinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/kmailbinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/netscapebinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/outlookbinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/sylpheedbinary.h,
+	core/dplugins/generic/tools/sendbymail/tools/thunderbirdbinary.h,
+	core/dplugins/generic/tools/sendbymail/wizard/mailalbumspage.h,
+	core/dplugins/generic/tools/sendbymail/wizard/mailimagespage.h,
+	core/dplugins/generic/tools/sendbymail/wizard/mailwizard.h,
+	core/dplugins/generic/tools/videoslideshow/wizard/vidslidealbumspag
+	e.h,
+	core/dplugins/generic/tools/videoslideshow/wizard/vidslidefinalpage
+	.h,
+	core/dplugins/generic/tools/videoslideshow/wizard/vidslideimagespag
+	e.h,
+	core/dplugins/generic/tools/videoslideshow/wizard/vidslideintropage
+	.h,
+	core/dplugins/generic/tools/videoslideshow/wizard/vidslideoutputpag
+	e.h,
+	core/dplugins/generic/tools/videoslideshow/wizard/vidslidevideopage
+	.h,
+	core/dplugins/generic/tools/videoslideshow/wizard/vidslidewizard.h,
+	core/dplugins/generic/view/glviewer/glviewerhelpdlg.h,
+	core/dplugins/generic/view/presentation/audio/presentation_audiopag
+	e.h,
+	core/dplugins/generic/view/presentation/common/presentationloader.c
+	pp, core/dplugins/generic/view/slideshow/widgets/slidehelp.h,
+	core/dplugins/generic/view/slideshow/widgets/slideproperties.h,
+	core/dplugins/generic/webservices/rajce/rajcecommand.h,
+	core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_creat
+	ealbumjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_delet
+	ealbumjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_edita
+	lbumjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_savep
+	hotojob.cpp,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_savep
+	hotojob.h, core/showfoto/setup/showfotosetupmisc.h,
+	core/showfoto/thumbbar/showfotocategorizedview.cpp,
+	core/showfoto/thumbbar/showfotofiltermodel.cpp,
+	core/showfoto/thumbbar/showfotofiltermodel.h,
+	core/tests/multithreading/myactionthread.cpp,
+	core/tests/widgets/ditemslisttest.cpp: Clazy++ : fix missing
+	Q_OBJECt macro
+
+2020-10-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/date/ddatepicker_p.cpp, core/app/date/ddatepicker_p.h,
+	core/app/items/views/itemcategorizedview.cpp,
+	core/app/views/preview/itempreviewcanvas.h,
+	core/app/views/stack/trashview.cpp,
+	core/app/views/stack/trashview.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_jobs.
+	cpp,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_jobs.
+	h, core/utilities/import/views/importcategorizedview.cpp,
+	core/utilities/import/views/importcategorizedview.h: Clazy++ : fix
+	missing Q_OBJECT macro
+
+2020-10-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/tags/widgets/addtagscombobox.cpp,
+	core/utilities/facemanagement/widgets/assignnamewidget_p.cpp: try to
+	fix popup width under Windows CCBUGS: 392527
+
+2020-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/date/ddateedit.cpp, core/app/date/ddateedit.h,
+	core/app/date/ddatepickerpopup.cpp,
+	core/app/date/ddatepickerpopup.h, core/app/date/dpopupframe.cpp,
+	core/app/date/dpopupframe.h,
+	core/app/items/overlays/facerejectionoverlay.h,
+	core/app/items/overlays/itemfullscreenoverlay.h,
+	core/app/items/overlays/itemrotationoverlay.cpp,
+	core/app/items/overlays/itemrotationoverlay.h,
+	core/app/items/overlays/itemselectionoverlay.h,
+	core/app/items/utils/itemcategorydrawer.cpp,
+	core/app/items/utils/itemcategorydrawer.h,
+	core/utilities/import/items/importoverlays.h: Clazy++: fix missing
+	Q_OBECT macro
+
+2020-10-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/jpeg/dimgjpegloader_load.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.h: only for a test protect
+	jpeg loader with a mutex CCBUGS: 421043
+
+2020-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/video/player/mediaplayerview.cpp,
+	core/libs/video/player/slidevideo.cpp: Clazy++: fix missing Q_OBJECT
+	macro
+
+2020-10-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/video/player/slidevideo.cpp,
+	core/utilities/advancedrename/common/dynamiclayout.cpp,
+	core/utilities/advancedrename/common/dynamiclayout.h,
+	core/utilities/advancedrename/common/highlighter.cpp,
+	core/utilities/advancedrename/common/highlighter.h,
+	core/utilities/advancedrename/parser/modifiers/casemodifier.h,
+	core/utilities/advancedrename/parser/modifiers/trimmedmodifier.h,
+	core/utilities/advancedrename/parser/options/database/dbkeyselector
+	.cpp,
+	core/utilities/advancedrename/parser/options/database/dbkeyselector
+	.h, core/utilities/facemanagement/items/faceitem.cpp,
+	core/utilities/facemanagement/items/faceitem.h,
+	core/utilities/firstrun/startscanpage.h,
+	core/utilities/firstrun/welcomepage.h,
+	core/utilities/imageeditor/widgets/imagepreviewitem.h,
+	core/utilities/imageeditor/widgets/imageregionitem.cpp,
+	core/utilities/imageeditor/widgets/imageregionitem.h,
+	core/utilities/import/backend/gpcamera.h,
+	core/utilities/import/backend/umscamera.cpp,
+	core/utilities/import/backend/umscamera.h,
+	core/utilities/import/items/importcategorydrawer.cpp,
+	core/utilities/import/items/importcategorydrawer.h,
+	core/utilities/import/items/importoverlays.cpp,
+	core/utilities/import/items/importoverlays.h,
+	core/utilities/import/models/importfiltermodel.cpp,
+	core/utilities/import/models/importfiltermodel.h,
+	core/utilities/import/views/freespacetooltip.cpp,
+	core/utilities/import/views/freespacetooltip.h,
+	core/utilities/import/views/importpreviewview.cpp,
+	core/utilities/import/views/importpreviewview.h,
+	core/utilities/lighttable/lighttablethumbbar.cpp,
+	core/utilities/lighttable/lighttablethumbbar.h,
+	core/utilities/maintenance/facesdetector.cpp,
+	core/utilities/queuemanager/views/queuetooltip.cpp,
+	core/utilities/queuemanager/views/queuetooltip.h,
+	core/utilities/searchwindow/ratingsearchutilities.h,
+	core/utilities/searchwindow/searchfields.cpp,
+	core/utilities/searchwindow/searchfields.h,
+	core/utilities/searchwindow/searchgroup.cpp,
+	core/utilities/searchwindow/searchgroup.h,
+	core/utilities/searchwindow/searchtabheader.cpp,
+	core/utilities/searchwindow/searchutilities.cpp,
+	core/utilities/searchwindow/visibilitycontroller.cpp,
+	core/utilities/setup/collections/dwitemdelegatepool.cpp,
+	core/utilities/setup/setupmisc.cpp,
+	core/utilities/setup/setupmisc.h,
+	core/utilities/setup/system/systemsettings.cpp,
+	core/utilities/setup/system/systemsettingswidget.cpp,
+	core/utilities/setup/system/systemsettingswidget.h: Clazy++ : fix
+	missing Q_OBJECT macro
+
+2020-10-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/dragdrop/ddragobjects.h,
+	core/libs/album/treeview/abstractalbumtreeview.cpp,
+	core/libs/album/treeview/abstractalbumtreeview.h,
+	core/libs/album/treeview/abstractalbumtreeview_p.h,
+	core/libs/album/treeview/albumselectiontreeview.cpp,
+	core/libs/album/treeview/albumselectiontreeview.h,
+	core/libs/video/player/mediaplayerview.cpp,
+	project/reports/site/static/reports/clazy/master/index.html: Clazy++
+	: fix missing Q_OBJECT macro
+
+2020-10-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/site/static/reports/clazy/master/index.html: 
+	update clazy static analyzer report digiKam-master-rev-2abd5bde9c.
+
+2020-10-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/widgets/albumpropsedit.cpp,
+	core/libs/album/widgets/albumpropsedit.h,
+	core/libs/album/widgets/albumselectcombobox.cpp,
+	core/libs/album/widgets/albumselectcombobox.h,
+	core/libs/album/widgets/albumselectors.cpp,
+	core/libs/album/widgets/albumselectors.h,
+	core/libs/dimg/filters/dimgbuiltinfilter.cpp,
+	core/libs/dimg/filters/nr/nrestimate.cpp,
+	core/libs/dimg/filters/nr/nrestimate.h,
+	core/libs/dplugins/widgets/dwizardpage.cpp,
+	core/libs/dplugins/widgets/dwizardpage.h,
+	core/libs/tags/widgets/tageditdlg.cpp,
+	core/libs/tags/widgets/tageditdlg.h,
+	core/libs/tags/widgets/tagspopupmenu.cpp: Clazy++: fix missing
+	Q_OBJECT macro. Fix coding style
+
+2020-10-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/config.sh,
+	project/bundles/macports/config.sh, project/bundles/mxe/config.sh: 
+	add empty EPOCH sub version for beta releases
+
+2020-10-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/auto/autoexpofilter.h,
+	core/libs/dimg/filters/auto/autolevelsfilter.h,
+	core/libs/dimg/filters/auto/equalizefilter.h,
+	core/libs/dimg/filters/auto/normalizefilter.h,
+	core/libs/dimg/filters/auto/stretchfilter.h,
+	core/libs/dimg/filters/bcg/bcgfilter.cpp,
+	core/libs/dimg/filters/bcg/bcgfilter.h,
+	core/libs/dimg/filters/bw/bwsepiafilter.cpp,
+	core/libs/dimg/filters/bw/bwsepiafilter.h,
+	core/libs/dimg/filters/bw/infraredfilter.cpp,
+	core/libs/dimg/filters/bw/infraredfilter.h,
+	core/libs/dimg/filters/bw/mixerfilter.cpp,
+	core/libs/dimg/filters/bw/mixerfilter.h,
+	core/libs/dimg/filters/bw/tonalityfilter.cpp,
+	core/libs/dimg/filters/bw/tonalityfilter.h,
+	core/libs/dimg/filters/cb/cbfilter.cpp,
+	core/libs/dimg/filters/cb/cbfilter.h,
+	core/libs/dimg/filters/curves/curvesfilter.h,
+	core/libs/dimg/filters/decorate/borderfilter.cpp,
+	core/libs/dimg/filters/decorate/borderfilter.h,
+	core/libs/dimg/filters/decorate/texturefilter.h,
+	core/libs/dimg/filters/dimgthreadedanalyser.h,
+	core/libs/dimg/filters/film/filmfilter.h,
+	core/libs/dimg/filters/filteractionfilter.h,
+	core/libs/dimg/filters/fx/blurfilter.h,
+	core/libs/dimg/filters/fx/blurfxfilter.h,
+	core/libs/dimg/filters/fx/charcoalfilter.h,
+	core/libs/dimg/filters/fx/colorfxfilter.cpp,
+	core/libs/dimg/filters/fx/colorfxfilter.h,
+	core/libs/dimg/filters/fx/distortionfxfilter.h,
+	core/libs/dimg/filters/fx/embossfilter.h,
+	core/libs/dimg/filters/fx/filmgrainfilter.h,
+	core/libs/dimg/filters/fx/invertfilter.h,
+	core/libs/dimg/filters/fx/oilpaintfilter.h,
+	core/libs/dimg/filters/fx/raindropfilter.h,
+	core/libs/dimg/filters/greycstoration/greycstorationfilter.cpp,
+	core/libs/dimg/filters/greycstoration/greycstorationfilter.h,
+	core/libs/dimg/filters/hotpixels/blackframetooltip.h,
+	core/libs/dimg/filters/hotpixels/hotpixelfixer.h,
+	core/libs/dimg/filters/hsl/hslfilter.cpp,
+	core/libs/dimg/filters/hsl/hslfilter.h,
+	core/libs/dimg/filters/icc/icctransformfilter.h,
+	core/libs/dimg/filters/lc/localcontrastfilter.h,
+	core/libs/dimg/filters/lens/antivignettingfilter.cpp,
+	core/libs/dimg/filters/lens/antivignettingfilter.h,
+	core/libs/dimg/filters/lens/lensdistortionfilter.h,
+	core/libs/dimg/filters/lens/lensfunfilter.cpp,
+	core/libs/dimg/filters/lens/lensfunfilter.h,
+	core/libs/dimg/filters/levels/levelsfilter.h,
+	core/libs/dimg/filters/nr/nrfilter.cpp,
+	core/libs/dimg/filters/nr/nrfilter.h,
+	core/libs/dimg/filters/raw/rawprocessingfilter.h,
+	core/libs/dimg/filters/redeye/redeyecorrectionfilter.cpp,
+	core/libs/dimg/filters/redeye/redeyecorrectionfilter.h,
+	core/libs/dimg/filters/sharp/refocusfilter.h,
+	core/libs/dimg/filters/sharp/sharpenfilter.h,
+	core/libs/dimg/filters/sharp/unsharpmaskfilter.h,
+	core/libs/dimg/filters/transform/autocrop.h,
+	core/libs/dimg/filters/transform/contentawarefilter.h,
+	core/libs/dimg/filters/transform/freerotationfilter.h,
+	core/libs/dimg/filters/transform/shearfilter.h,
+	core/libs/dimg/filters/wb/wbfilter.cpp,
+	core/libs/dimg/filters/wb/wbfilter.h: Clazy++ : fix missing Q_OBJECt
+	macro and fix coding style
+
+2020-10-19  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/html5responsive/html
+	5responsive.desktop,
+	core/dplugins/generic/tools/htmlgallery/themes/simpleslides/simples
+	lides.desktop: SVN_SILENT made messages (.desktop file) - always
+	resolve ours  In case of conflict in i18n, keep the version of the
+	branch "ours" To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2020-10-19  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/org.kde.digikam.appdata.xml: GIT_SILENT made
+	messages (after extraction)
+
+2020-10-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/dconfigdlgview.cpp,
+	core/libs/dialogs/dconfigdlgview_p.h,
+	core/libs/dialogs/filesaveoptionsdlg.h,
+	core/libs/dialogs/libsinfodlg.h,
+	core/libs/fileactionmanager/databaseworkeriface.h,
+	core/libs/fileactionmanager/fileworkeriface.cpp,
+	core/libs/fileactionmanager/fileworkeriface.h,
+	core/libs/models/itemalbumfiltermodel.cpp,
+	core/libs/notificationmanager/dnotificationwrapper.cpp,
+	core/libs/progressmanager/dworkingpixmap.h,
+	core/libs/properties/history/versionsoverlays.cpp,
+	core/libs/properties/history/versionsoverlays.h,
+	core/libs/properties/history/versionstreeview.cpp,
+	core/libs/properties/history/versionstreeview.h,
+	core/libs/properties/itempropertiestxtlabel.h,
+	core/libs/properties/itemselectionpropertiestab.cpp,
+	core/libs/properties/itemselectionpropertiestab.h,
+	core/libs/template/templatepanel.cpp,
+	core/libs/template/templatepanel.h,
+	core/libs/threadimageio/engine/sharedloadsavethread.h,
+	core/libs/threads/threadmanager.cpp,
+	core/libs/widgets/combo/comboboxutilities.cpp,
+	core/libs/widgets/combo/comboboxutilities.h,
+	core/libs/widgets/files/filesaveoptionsbox.cpp,
+	core/libs/widgets/files/filesaveoptionsbox.h,
+	core/libs/widgets/graphicsview/paniconwidget.cpp,
+	core/libs/widgets/graphicsview/paniconwidget.h,
+	core/libs/widgets/history/filtershistorywidget.cpp,
+	core/libs/widgets/history/itemfiltershistoryitemdelegate.h,
+	core/libs/widgets/history/itemfiltershistorymodel.cpp,
+	core/libs/widgets/history/itemfiltershistorymodel.h,
+	core/libs/widgets/history/itemfiltershistorytreeitem.cpp,
+	core/libs/widgets/history/versionswidget.cpp,
+	core/libs/widgets/iccprofiles/iccprofilescombobox.cpp,
+	core/libs/widgets/iccprofiles/iccprofilescombobox.h,
+	core/libs/widgets/itemview/actioncategorizedview.cpp,
+	core/libs/widgets/itemview/actioncategorizedview.h,
+	core/libs/widgets/itemview/itemviewtooltip.cpp,
+	core/libs/widgets/itemview/itemviewtooltip.h,
+	core/libs/widgets/mainview/fullscreensettings.h,
+	core/libs/widgets/metadata/countryselector.cpp,
+	core/libs/widgets/metadata/countryselector.h,
+	core/libs/widgets/metadata/metadataselector.cpp,
+	core/libs/widgets/metadata/metadataselector.h,
+	core/utilities/extrasupport/filesindexer/baloowrap.h: Clazy++: fix
+	missing Q_OBJECT macro. Fix coding style
+
+2020-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/utils/widgets/dbstatdlg.cpp,
+	core/libs/database/utils/widgets/dbstatdlg.h,
+	core/libs/database/utils/widgets/mysqlinitbinary.h,
+	core/libs/database/utils/widgets/mysqlservbinary.h,
+	core/libs/dplugins/core/dpluginaction.cpp,
+	core/libs/dplugins/core/dpluginaction.h,
+	core/libs/iojobs/iojobsmanager.h, core/libs/models/albummodel.h,
+	core/libs/properties/itempropertiestab.cpp,
+	core/libs/properties/itempropertiestab.h,
+	core/libs/rawengine/drawdecoder.h,
+	core/libs/threadimageio/engine/filereadwritelock.cpp,
+	core/libs/threadimageio/engine/filereadwritelock.h,
+	core/libs/threadimageio/engine/managedloadsavethread.h,
+	core/libs/widgets/itemview/ditemtooltip.cpp,
+	core/libs/widgets/itemview/ditemtooltip.h,
+	core/libs/widgets/layout/dexpanderbox.h,
+	core/libs/widgets/mainview/daboutdata.h: Clazy++ : fix missing
+	Q_OBJECT macro
+
+2020-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/thumbsdb/thumbsdb.cpp,
+	core/libs/database/thumbsdb/thumbsdb.h,
+	core/libs/database/thumbsdb/thumbsdbaccess.cpp,
+	core/libs/database/thumbsdb/thumbsdbbackend.h,
+	core/libs/database/thumbsdb/thumbsdbschemaupdater.cpp,
+	core/libs/widgets/itemview/dcategorizedsortfilterproxymodel.cpp,
+	core/libs/widgets/itemview/dcategorizedsortfilterproxymodel.h,
+	core/libs/widgets/itemview/dcategorizedsortfilterproxymodel_p.h: 
+	Clazy++ : fix missing Q_OBJECT macro. Fix coding style
+
+2020-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/engine/dbenginebackend.cpp,
+	core/libs/database/engine/dbenginebackend.h,
+	core/libs/database/engine/dbenginebackend_p.h: Clazy++ : fix missing
+	Q_OBJECT macro. Fix coding style
+
+2020-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/layout/dlayoutbox.h: Clazy++ : missing Q_OBJECT
+	macro
+
+2020-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dragdrop/abstractitemdragdrophandler.cpp,
+	core/libs/dragdrop/abstractitemdragdrophandler.h,
+	core/libs/dragdrop/dragdropimplementations.cpp,
+	core/libs/dragdrop/dragdropimplementations.h: Clazy++ : missing
+	Q_OBJECT macro in AbstactItemDragDropHandler Fix coding style
+
+2020-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/clazy.sh: polish
+
+2020-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/clazy_visualizer.py: fix coding style
+
+2020-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/clazy.sh: enable Clazy level 2 with few disabled
+	checkers. Some tools will be really interresting to review.
+
+2020-10-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/utils/ifaces/dio.cpp: this must also be
+	connected to signalFinished()
+
+2020-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/clazy.sh: disable clazy-qstring-ref checker
+
+2020-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2020-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/iojobs/iojob.cpp, core/libs/iojobs/iojobdata.cpp,
+	core/libs/iojobs/iojobdata.h, core/libs/iojobs/iojobsmanager.cpp,
+	core/libs/iojobs/iojobsthread.cpp, core/libs/iojobs/iojobsthread.h: 
+	Clazy++ : fix overload of QThread::finished() signal in IOJobsThread
+	class. Prepend "signal" to signal definition and uses.
+
+2020-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp,
+	core/libs/database/coredb/coredb.h: Fix coding style
+
+2020-10-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/coredb/coredbwatch.cpp,
+	core/libs/database/coredb/coredbwatch.h,
+	core/libs/database/coredb/coredbwatchadaptor.h: Clazy++ : fix
+	signals overloaded in Dbus database wrapper. Prepend "signal" and
+	append "DBus" to all signals definitions and uses.
+
+2020-10-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/iojobs/iojob.cpp: fix move folder to the wrong
+	destination name BUGS: 427863 FIXED-IN: 7.2.0
+
+2020-10-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/layout/sidebar.cpp: fix crash when clicked on
+	left sidebar tab
+
+2020-10-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/bootstrap-cppcheck.sh: add bootstrap script to
+	configure cppcheck
+
+2020-10-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* ChangeLog, NEWS: prepare 7.2.0-beta1
+
 2020-10-17  Gilles Caulier <caulier.gilles@gmail.com>
 
 	* NEWS: prepare 7.2.0-beta1
