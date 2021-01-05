@@ -27,6 +27,7 @@
 // Qt includes
 
 #include <QNetworkReply>
+#include <QUrl>
 
 // Local includes
 
@@ -44,16 +45,20 @@ public:
     explicit OnlineVersionDwnl(QObject* const parent = nullptr);
     ~OnlineVersionDwnl() override;
 
-    void startDownload(const QString& file);
+    void startDownload(const QString& version);
 
 Q_SIGNALS:
 
-    void signalDownloadError(const QString&);
+    void signalDownloadError(const QString& error);
     void signalDownloadProgress(qint64 bytesReceived, qint64 bytesTotal);
 
 private Q_SLOTS:
 
     void slotDownloaded(QNetworkReply* reply);
+
+private:
+
+    void download(const QUrl& url);
 
 private:
 
