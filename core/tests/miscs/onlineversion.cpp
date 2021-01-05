@@ -29,7 +29,7 @@
 
 // Local includes
 
-#include "onlineversionchecker.h"
+#include "onlineversiondlg.h"
 
 using namespace Digikam;
 
@@ -37,10 +37,7 @@ int main(int argc, char* argv[])
 {
     QApplication app(argc, argv);
 
-    OnlineVersionChecker check(&app);
-    check.checkForNewVersion();
+    OnlineVersionDlg* const dlg = new OnlineVersionDlg;
 
-    QTest::qWait(3000);
-
-    return 0;
+    return dlg->exec();
 }
