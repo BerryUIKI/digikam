@@ -21,8 +21,8 @@
  *
  * ============================================================ */
 
-#ifndef ONLINE_VERSION_DLG_H
-#define ONLINE_VERSION_DLG_H
+#ifndef DIGIKAM_ONLINE_VERSION_DLG_H
+#define DIGIKAM_ONLINE_VERSION_DLG_H
 
 // Qt includes
 
@@ -58,4 +58,4 @@ private:
 
 } // namespace Digikam
 
-#endif // ONLINE_VERSION_DLG_H
+#endif // DIGIKAM_ONLINE_VERSION_DLG_H
