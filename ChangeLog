@@ -1,3 +1,4332 @@
+2021-03-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: prepare 7.2.0 release
+
+2021-03-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/geolocation/geoiface/core/geoifacecommon.h,
+	core/utilities/geolocation/geoiface/lookup/lookupaltitude.h,
+	core/utilities/geolocation/geoiface/reversegeocoding/simpletreemode
+	l.h, core/utilities/geolocation/geoiface/tiles/itemmarkertiler.h,
+	core/utilities/geolocation/geoiface/tiles/tilegrouper.h,
+	core/utilities/geolocation/geoiface/tracks/trackmanager.h,
+	core/utilities/geolocation/geoiface/tracks/trackreader.h,
+	core/utilities/geolocation/geoiface/widgets/htmlwidget.h,
+	core/utilities/geolocation/geoiface/widgets/htmlwidget_qwebengine.h
+	, core/utilities/geolocation/geoiface/widgets/mapwidget.h,
+	core/utilities/geolocation/geomapwrapper/gpsiteminfosorter.h,
+	core/utilities/imageeditor/core/editorcore.h,
+	core/utilities/imageeditor/core/iofilesettings.h,
+	core/utilities/imageeditor/editor/editortooliface.h,
+	core/utilities/imageeditor/editor/editortoolsettings.h,
+	core/utilities/imageeditor/main/imagewindow.h,
+	core/utilities/imageeditor/main/imagewindow_p.h,
+	core/utilities/import/backend/dkcamera.h,
+	core/utilities/import/backend/gpcamera.h,
+	core/utilities/import/items/importdelegate.h,
+	core/utilities/import/items/importdelegate_p.h,
+	core/utilities/import/items/importoverlays.h,
+	core/utilities/import/main/importsettings.h,
+	core/utilities/import/main/importui.h,
+	core/utilities/import/main/importui_p.h: delete unecessary
+	constructors and operators
+
+2021-03-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/queuemanager/dplugins/dpluginbqm.h,
+	core/utilities/queuemanager/dplugins/dpluginconfviewbqm.h,
+	core/utilities/queuemanager/main/queuemgrwindow.h,
+	core/utilities/queuemanager/manager/batchtoolutils.h,
+	core/utilities/queuemanager/manager/iteminfoset.h,
+	core/utilities/queuemanager/manager/task.h,
+	core/utilities/queuemanager/manager/workflowmanager.h,
+	core/utilities/queuemanager/views/workflowdlg.h,
+	core/utilities/searchwindow/searchfieldgroup.h,
+	core/utilities/searchwindow/searchview.h,
+	core/utilities/searchwindow/searchwindow.h: delete unecessary
+	constructors and operators
+
+2021-03-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/extrasupport/filesindexer/baloowrap.h,
+	core/utilities/fuzzysearch/findduplicatesalbum.h,
+	core/utilities/fuzzysearch/fuzzysearchview_p.h,
+	core/utilities/maintenance/databasetask.h,
+	core/utilities/maintenance/fingerprintstask.h,
+	core/utilities/maintenance/imagequalitytask.h,
+	core/utilities/maintenance/iteminfojob.h,
+	core/utilities/maintenance/metadatatask.h,
+	core/utilities/maintenance/thumbstask.h: delete unecessary
+	contructors and operators
+
+2021-03-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/advancedrename/advancedrenamedialog.h,
+	core/utilities/advancedrename/advancedrenameinput.h,
+	core/utilities/advancedrename/advancedrenamemanager.h,
+	core/utilities/advancedrename/advancedrenameprocessdialog.h,
+	core/utilities/advancedrename/advancedrenamewidget.h,
+	core/utilities/advancedrename/common/dynamiclayout.h,
+	core/utilities/advancedrename/common/modifier.h,
+	core/utilities/advancedrename/common/option.h,
+	core/utilities/advancedrename/common/parser.h,
+	core/utilities/advancedrename/common/rule.h,
+	core/utilities/advancedrename/common/ruledialog.h,
+	core/utilities/advancedrename/common/token.h,
+	core/utilities/advancedrename/common/tooltipcreator.h,
+	core/utilities/advancedrename/common/tooltipdialog.h,
+	core/utilities/advancedrename/parser/defaultrenameparser.h,
+	core/utilities/advancedrename/parser/importrenameparser.h,
+	core/utilities/advancedrename/parser/modifiers/casemodifier.h,
+	core/utilities/advancedrename/parser/modifiers/defaultvaluemodifier
+	.h, core/utilities/advancedrename/parser/modifiers/rangemodifier.h,
+	core/utilities/advancedrename/parser/modifiers/removedoublesmodifie
+	r.h,
+	core/utilities/advancedrename/parser/modifiers/replacemodifier.h,
+	core/utilities/advancedrename/parser/modifiers/trimmedmodifier.h,
+	core/utilities/advancedrename/parser/modifiers/uniquemodifier.h,
+	core/utilities/advancedrename/parser/options/cameranameoption.h,
+	core/utilities/advancedrename/parser/options/database/databaseoptio
+	n.h,
+	core/utilities/advancedrename/parser/options/database/dbheaderlisti
+	tem.h,
+	core/utilities/advancedrename/parser/options/database/dbkeyscollect
+	ion.h,
+	core/utilities/advancedrename/parser/options/database/dbkeyselector
+	.h,
+	core/utilities/advancedrename/parser/options/database/keys/commonke
+	ys.h,
+	core/utilities/advancedrename/parser/options/database/keys/metadata
+	keys.h,
+	core/utilities/advancedrename/parser/options/database/keys/position
+	keys.h, core/utilities/advancedrename/parser/options/dateoption.h,
+	core/utilities/advancedrename/parser/options/directorynameoption.h,
+	core/utilities/advancedrename/parser/options/filepropertiesoption.h
+	, core/utilities/advancedrename/parser/options/metadataoption.h,
+	core/utilities/advancedrename/parser/options/sequencenumberoption.h: 
+	delete unecessary constructors and operators
+
+2021-03-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/thumbbar/showfotocategorizedview.h,
+	core/showfoto/thumbbar/showfotoimagemodel.h,
+	core/showfoto/thumbbar/showfotothumbnailbar.h,
+	core/showfoto/thumbbar/showfotothumbnailmodel.h,
+	core/utilities/facemanagement/TODO.FACE,
+	core/utilities/facemanagement/database/faceutils.h,
+	core/utilities/facemanagement/items/facegroup.h,
+	core/utilities/facemanagement/items/faceitem.h,
+	core/utilities/facemanagement/threads/facepipeline.h,
+	core/utilities/facemanagement/threads/parallelpipes.h,
+	core/utilities/facemanagement/workers/databasewriter.h,
+	core/utilities/facemanagement/workers/detectionworker.h,
+	core/utilities/facemanagement/workers/recognitionworker.h,
+	core/utilities/imageeditor/core/undoaction.h,
+	core/utilities/imageeditor/core/undocache.h,
+	core/utilities/imageeditor/core/undomanager.h,
+	core/utilities/imageeditor/editor/imageiface.h: delete unecesary
+	constructors and operators
+
+2021-03-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/imgqsort/imagequalityparser.h,
+	core/libs/widgets/history/itemfiltershistorytreeitem.h,
+	core/libs/widgets/itemview/itemviewcategorized.h,
+	core/libs/widgets/layout/statesavingobject.h,
+	core/tests/facesengine/alignment/funnelreal.h,
+	core/utilities/facemanagement/database/faceitemretriever.h,
+	core/utilities/facemanagement/threads/facepreviewloader.h,
+	core/utilities/facemanagement/threads/scanstatefilter.h,
+	core/utilities/geolocation/geoiface/bookmark/bookmarknode.h,
+	core/utilities/geolocation/geoiface/tiles/abstractmarkertiler.h,
+	core/utilities/import/items/itemviewimportdelegate.h,
+	core/utilities/import/models/importimagemodel.h,
+	core/utilities/import/models/importthumbnailmodel.h,
+	core/utilities/import/views/importcategorizedview.h,
+	core/utilities/import/views/importiconview.h,
+	core/utilities/import/views/importthumbnailbar.h,
+	core/utilities/lighttable/lighttablethumbbar.h,
+	core/utilities/maintenance/maintenancedata.h,
+	core/utilities/searchwindow/searchfields.h,
+	core/utilities/setup/collections/dwitemdelegatepool.h,
+	core/utilities/setup/downloader/filesdownloader.h: delete unecessary
+	contructors and operators
+
+2021-03-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/jpegutils/jpegutils.cpp,
+	core/utilities/queuemanager/manager/batchtool.cpp: make temporary
+	file more unique even for multiple tasks BUGS: 434716 FIXED-IN:
+	7.2.0
+
+2021-03-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/healingclonetoolwidget.h,
+	core/dplugins/editor/file/print/printhelper.h,
+	core/dplugins/generic/tools/htmlgallery/generator/gallerytheme.h,
+	core/dplugins/generic/tools/htmlgallery/parameters/abstractthemepar
+	ameter.h,
+	core/dplugins/generic/tools/panorama/panoparser/ptoparser/ptofile.h
+	,
+	core/dplugins/generic/tools/printcreator/tools/atkinspagelayout.h,
+	core/dplugins/generic/tools/printcreator/tools/templateicon.h,
+	core/dplugins/generic/view/glviewer/glviewertimer.h,
+	core/dplugins/generic/view/presentation/common/presentationloader.h
+	, core/dplugins/generic/webservices/imageshack/imageshacksession.h,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_iface
+	.h, core/dplugins/generic/webservices/piwigo/piwigosession.h,
+	core/libs/database/item/lister/itemlister.h,
+	core/libs/database/item/scanner/itemscanner.h,
+	core/libs/dimg/filters/icc/iccmanager.h,
+	core/libs/dimg/filters/lens/lensfuniface.h,
+	core/libs/dimg/filters/levels/imagelevels.h,
+	core/libs/versionmanager/versionmanager.h: delete unecessary
+	constructors and operators
+
+2021-03-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dngwriter/dngwriter.h, core/libs/iojobs/iojobdata.h,
+	core/libs/jpegutils/jpegutils.h,
+	core/libs/metadataengine/engine/metaengine_previews.h,
+	core/libs/models/itemalbummodel.h,
+	core/libs/properties/history/versionstreeview.h,
+	core/libs/transitionmngr/effectmngr.h,
+	core/libs/transitionmngr/transitionmngr.h: delete unecessary
+	constructors and operators
+
+2021-03-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-03-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/layout/sidebar.cpp,
+	core/libs/widgets/layout/sidebar.h: return value is not used, use
+	void function
+
+2021-03-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/digikamapp.cpp,
+	core/libs/widgets/layout/sidebar.cpp,
+	core/libs/widgets/mainview/thememanager.cpp: polish
+
+2021-03-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/manager/albummanager_p.cpp,
+	core/libs/album/manager/albummanager_p.h,
+	core/libs/album/treeview/albumselectiontreeview.cpp,
+	core/libs/database/collection/collectionmanager_p.h,
+	core/libs/database/coredb/coredbbackend_p.h,
+	core/libs/database/coredb/coredbwatch.cpp,
+	core/libs/database/coredb/coredbwatch.h,
+	core/libs/database/models/itemfiltermodelthreads.cpp,
+	core/libs/database/models/itemfiltermodelthreads.h,
+	core/libs/database/tags/tagscache.cpp,
+	core/utilities/facemanagement/bench/recognitionbenchmarker.cpp,
+	core/utilities/facemanagement/bench/recognitionbenchmarker.h: Fixes
+	in constructors with internal containers : d(d) ==> d(dd)
+
+2021-03-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/dconfigdlgmodels_p.h,
+	core/libs/dialogs/dconfigdlgwidgets.h,
+	core/libs/dialogs/dconfigdlgwidgets_p.h,
+	core/libs/dialogs/dsplashscreen.h, core/libs/dialogs/imagedialog.h,
+	core/libs/dimg/color/dcolor.h, core/libs/dimg/dimg_p.h,
+	core/libs/dimg/exposurecontainer.h,
+	core/libs/dimg/filters/auto/autoexpofilter.h,
+	core/libs/dimg/filters/auto/equalizefilter.h,
+	core/libs/dimg/filters/auto/normalizefilter.h,
+	core/libs/dimg/filters/auto/stretchfilter.h,
+	core/libs/dimg/filters/dimgfiltermanager.h,
+	core/libs/dimg/filters/filteractionfilter.h,
+	core/libs/dimg/filters/randomnumbergenerator.h,
+	core/libs/dimg/history/dimagehistory.h,
+	core/libs/dimg/loaders/dimgloader.cpp,
+	core/libs/dimg/loaders/dimgloader.h: delete unecessary constructors
+	and operators
+
+2021-03-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/thumbsdb/thumbsdb.h,
+	core/libs/database/thumbsdb/thumbsdbschemaupdater.h,
+	core/libs/database/utils/ifaces/dio.h,
+	core/libs/database/utils/ifaces/syncjob.h,
+	core/libs/database/utils/scan/scancontroller.h,
+	core/libs/database/utils/scan/scancontroller_p.h,
+	core/libs/database/utils/widgets/mysqlinitbinary.h,
+	core/libs/database/utils/widgets/mysqlservbinary.h,
+	core/libs/threadimageio/thumb/thumbnailloadthread_p.h: delte
+	unecessary constructors and operators
+
+2021-03-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbaccess.cpp,
+	core/libs/database/similaritydb/similaritydbaccess.cpp,
+	core/libs/database/thumbsdb/thumbsdbaccess.cpp: polish
+
+2021-03-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbaccess.cpp,
+	core/libs/database/thumbsdb/thumbsdbaccess.cpp,
+	core/libs/facesengine/facedb/facedbaccess.cpp: polish
+
+2021-03-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/similaritydb/similaritydbaccess.cpp: fix crash
+	in SimilarityDbAccessMutexLocker
+
+2021-03-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/imageshack/imageshackwidget.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_tags.cpp,
+	core/utilities/advancedrename/advancedrenamewidget.cpp,
+	core/utilities/advancedrename/advancedrenamewidget.h: polish
+
+2021-03-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/models/itemmodel.cpp,
+	core/libs/tags/manager/models/tagmngrlistmodel.cpp,
+	core/libs/widgets/graphicsview/paniconwidget.h,
+	core/libs/widgets/itemview/dcategorizedsortfilterproxymodel.cpp,
+	core/libs/widgets/itemview/dcategorizedsortfilterproxymodel.h,
+	core/showfoto/thumbbar/showfotoimagemodel.cpp,
+	core/tests/modeltest/modeltest.cpp,
+	core/tests/modeltest/modeltest.h,
+	core/utilities/geolocation/geoiface/reversegeocoding/rgtagmodel.h,
+	core/utilities/import/models/importimagemodel.cpp: polish
+
+2021-03-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/dragdrop/albumdragdrop.h,
+	core/app/dragdrop/importdragdrop.h,
+	core/dplugins/generic/view/presentation/audio/presentationaudiolist
+	.cpp, core/dplugins/generic/webservices/facebook/fbtalker.cpp,
+	core/dplugins/generic/webservices/facebook/fbtalker_wizard.cpp,
+	core/dplugins/generic/webservices/facebook/fbwindow.h,
+	core/dplugins/generic/webservices/filecopy/fcexportwindow.cpp,
+	core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp,
+	core/dplugins/generic/webservices/google/gphoto/gptalker.cpp,
+	core/dplugins/generic/webservices/imageshack/imageshacktalker.h,
+	core/dplugins/generic/webservices/imageshack/imageshackwindow.cpp,
+	core/dplugins/generic/webservices/imgur/imgurwindow.h,
+	core/dplugins/generic/webservices/ipfs/ipfswindow.h,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_query
+	images.h, core/dplugins/generic/webservices/smugmug/smugwindow.cpp,
+	core/dplugins/generic/webservices/twitter/twittertalker.cpp,
+	core/libs/album/engine/albumthumbnailloader.cpp,
+	core/libs/album/manager/albummanager_album.cpp,
+	core/libs/database/dbjobs/dbjobsthread.cpp,
+	core/libs/database/item/containers/itemcomments.cpp,
+	core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp,
+	core/libs/widgets/itemview/dcategorizedview.cpp,
+	core/showfoto/main/showfoto.cpp,
+	core/showfoto/thumbbar/showfotodragdrophandler.h,
+	core/utilities/geolocation/mapsearches/gpsmarkertiler.cpp,
+	core/utilities/searchwindow/searchfields.cpp: polish
+
+2021-03-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/date/ddatepicker.h,
+	core/app/views/tableview/tableview_column_thumbnail.h,
+	core/libs/properties/itemselectionpropertiestab.h,
+	core/libs/widgets/colors/dcolorvalueselector.h,
+	core/libs/widgets/itemview/dcategorizedsortfilterproxymodel.h,
+	core/libs/widgets/itemview/dcategorydrawer.h,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.cpp,
+	core/utilities/geolocation/mapsearches/gpsmarkertiler.cpp,
+	core/utilities/import/views/importstackedview.h,
+	core/utilities/setup/editor/setupeditoriface.cpp: polish
+
+2021-03-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/history/itemhistorygraphmodel.h,
+	core/libs/database/item/containers/iteminfo_p.h,
+	core/libs/database/item/containers/iteminfocache.h,
+	core/libs/database/item/lister/itemattributeswatch.h,
+	core/libs/database/item/lister/itemlisterreceiver.h,
+	core/libs/database/models/itemfiltermodel_p.h,
+	core/libs/database/models/itemmodel.h,
+	core/libs/database/models/itemsortcollator.h,
+	core/libs/database/models/itemthumbnailmodel.h,
+	core/libs/database/models/itemversionsmodel.h,
+	core/libs/database/server/databaseserverstarter.h,
+	core/libs/database/similaritydb/similaritydb.h,
+	core/libs/database/similaritydb/similaritydbaccess.cpp,
+	core/libs/database/similaritydb/similaritydbschemaupdater.h,
+	core/libs/database/tags/tagscache.h: delete unecessary contructors
+	and operators
+
+2021-03-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/main/main.cpp, core/showfoto/main/main.cpp: workaround
+	for the automatic icon theme color in KF-5.80
+
+2021-03-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/dbjobs/dbjob.h,
+	core/libs/database/dbjobs/dbjobsmanager.h,
+	core/libs/database/engine/dbengineactiontype.h,
+	core/libs/database/engine/dbenginebackend.h,
+	core/libs/database/engine/dbengineerrorhandler.h,
+	core/libs/database/engine/dbengineguierrorhandler.h,
+	core/libs/database/haar/haariface.h: delete unecessary constructors
+	and operators
+
+2021-03-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/collection/collectionmanager.h,
+	core/libs/database/collection/collectionscanner.h,
+	core/libs/database/coredb/coredb.h,
+	core/libs/database/coredb/coredbaccess.h,
+	core/libs/database/coredb/coredbalbuminfo.h,
+	core/libs/database/coredb/coredbbackend.h,
+	core/libs/database/coredb/coredbcopymanager.h,
+	core/libs/database/coredb/coredbfields.h,
+	core/libs/database/coredb/coredbinfocontainers.h,
+	core/libs/database/coredb/coredboperationgroup.h,
+	core/libs/database/coredb/coredbschemaupdater.h,
+	core/libs/database/coredb/coredbsearchxml.h,
+	core/libs/database/coredb/coredbwatch.h: delete unucessary
+	constructors and operators
+
+2021-03-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/multithreading/rawtopngconverterthread.h: krazy++
+
+2021-03-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/engine/album.h,
+	core/libs/album/engine/albumparser.h,
+	core/libs/album/engine/albumthumbnailloader.h,
+	core/libs/album/manager/albummanager.h,
+	core/libs/album/widgets/albumselectors.h,
+	core/libs/album/widgets/albumselecttabs.h: delete unecessary
+	constructors and operators
+
+2021-03-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/detection/opencv-dnn/dnnfacedetectorbase.h,
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectorssd.h,
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectoryolo.h,
+	core/libs/facesengine/detection/opencv-dnn/opencvdnnfacedetector.h,
+	core/libs/facesengine/facedb/facedb.h,
+	core/libs/facesengine/facedb/facedbaccess.h,
+	core/libs/facesengine/facedb/facedboperationgroup.h,
+	core/libs/facesengine/facedb/facedbschemaupdater.h,
+	core/libs/facesengine/preprocessing/facepreprocessor.h,
+	core/libs/facesengine/preprocessing/recognition/openfacepreprocesso
+	r.h,
+	core/libs/facesengine/preprocessing/recognition/recognitionpreproce
+	ssor.h,
+	core/libs/facesengine/recognition/facialrecognition_wrapper.h,
+	core/libs/facesengine/recognition/opencv-dnn/dnnfaceextractor.h,
+	core/libs/facesengine/recognition/opencv-dnn/kd_node.h,
+	core/libs/facesengine/recognition/opencv-dnn/kd_tree.h,
+	core/libs/facesengine/recognition/opencv-dnn/opencvdnnfacerecognize
+	r.h,
+	core/libs/facesengine/recognition/recognitiontrainingprovider.h,
+	core/libs/tags/engine/taggingactionfactory.h,
+	core/libs/tags/manager/tagmngrtreeview.h,
+	core/libs/tags/manager/tagsmanager.h,
+	core/libs/tags/widgets/addtagscombobox.h: delete unecessary
+	constructors and operators
+
+2021-03-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/video/videodecoder.h,
+	core/libs/threadimageio/video/videostripfilter.h,
+	core/libs/threadimageio/video/videothumbnailer.h,
+	core/libs/threadimageio/video/videothumbwriter.h: delete unecessary
+	constructor and operator
+
+2021-03-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/preview/previewloadthread.h,
+	core/libs/threadimageio/preview/previewsettings.h,
+	core/libs/threadimageio/preview/previewtask.h,
+	core/libs/threadimageio/thumb/thumbnailcreator.h,
+	core/libs/threadimageio/thumb/thumbnailloadthread.h,
+	core/libs/threadimageio/thumb/thumbnailloadthread_p.h,
+	core/libs/threadimageio/thumb/thumbnailtask.h: delete unecessary
+	constructor and operator
+
+2021-03-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/fileio/loadingcacheinterface.h,
+	core/libs/threadimageio/fileio/loadingdescription.h,
+	core/libs/threadimageio/fileio/loadsavetask.h,
+	core/libs/threadimageio/fileio/loadsavethread.h: delete unecessary
+	constructors and operators
+
+2021-03-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/engine/filereadwritelock.h,
+	core/libs/threadimageio/engine/managedloadsavethread.h,
+	core/libs/threadimageio/engine/sharedloadsavethread.h,
+	core/libs/threadimageio/fileio/loadingcache.h: remove unecessary
+	constructors and operators with c++ delete key
+
+2021-03-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threads/dynamicthread.h,
+	core/libs/threads/parallelworkers.h,
+	core/libs/threads/threadmanager.h,
+	core/libs/threads/workerobject.cpp,
+	core/libs/threads/workerobject.h: disable constructors
+
+2021-03-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/showfoto/setup/showfotosetupmisc.cpp,
+	core/utilities/setup/setupmisc.cpp: first letter from widget style
+	to uppercase
+
+2021-03-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata.h,
+	core/libs/metadataengine/dmetadata/geodetictools.h,
+	core/libs/metadataengine/engine/metaengine_data_p.h,
+	core/libs/metadataengine/engine/metaengine_p.h,
+	core/libs/metadataengine/engine/metaengine_previews.h,
+	core/libs/metadataengine/engine/metaengine_rotation.h: fix coding
+	style and check if all compile and work fine with next Exiv2 0.27.4
+	with native HEIF support.
+
+2021-03-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2021-03-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* project/bundles/appimage/data/AppRun: correct the paths to the
+	ImageMagick modules CCBUGS: 434299
+
+2021-03-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-03-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/CD/ContinuousDeploy.txt: doc++
+
+2021-03-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/CD/ContinuousDeploy.txt: doc++
+
+2021-03-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2021-03-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/metadataedit/exif/exifeditwidget.cpp
+	,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptceditwidget.cpp
+	, core/dplugins/generic/webservices/facebook/fbtalker.cpp,
+	core/dplugins/generic/webservices/facebook/fbtalker_wizard.cpp,
+	core/dplugins/generic/webservices/imageshack/imageshackwindow.cpp,
+	core/dplugins/generic/webservices/imgur/imgurtalker.cpp,
+	core/dplugins/generic/webservices/rajce/rajcewidget.cpp,
+	core/dplugins/generic/webservices/smugmug/smugtalker.cpp,
+	core/libs/dialogs/libsinfodlg.cpp,
+	core/libs/filters/filterstatusbar.cpp,
+	core/showfoto/thumbbar/showfotoimagemodel.cpp,
+	core/tests/facesengine/preprocess/tantriggspreprocessor.cpp,
+	core/utilities/import/backend/gpcamera.cpp,
+	core/utilities/import/models/importimagemodel.cpp: fix coding style
+
+
+2021-03-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_exif.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_fileio.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_generic.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_history.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_labels.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_photo.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_tags.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_video.cpp,
+	core/libs/metadataengine/dmetadata/geodetictools.cpp,
+	core/libs/metadataengine/engine/metaengine_exif.cpp,
+	core/libs/metadataengine/engine/metaengine_fileio.cpp,
+	core/libs/metadataengine/engine/metaengine_gps.cpp,
+	core/libs/metadataengine/engine/metaengine_iptc.cpp,
+	core/libs/metadataengine/engine/metaengine_item.cpp,
+	core/libs/metadataengine/engine/metaengine_rotation.cpp,
+	core/libs/metadataengine/engine/metaengine_xmp.cpp: fix coding style
+
+
+2021-03-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: don't include
+	/etc/ImageMagick in AppImage bundle CCBUGS: 434299
+
+2021-03-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/mainview/dzoombar.cpp,
+	core/utilities/imageeditor/editor/editorwindow.cpp: polisch
+
+2021-03-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_p.h: restore
+	EXIV2_TEST_VERSION Even if the function in exiv2/version.hpp is
+	defined, we check it and define it if necessary.
+
+2021-03-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: copy only IM
+	modules
+
+2021-03-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2021-03-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/data/AppRun: add environnement variable
+	for AppImage run-times to deal with ImageMagick shared libs CCBUGS:
+	434299
+
+2021-03-17  Peter Kovář <peter.kovar@reflexion.tv>
+
+	* core/libs/metadataengine/engine/metaengine_p.h: Corrected for
+	Exiv2 version < 0.27.4
+
+2021-03-17  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/dateframes/dateframe
+	s.desktop: SVN_SILENT made messages (.desktop file) - always resolve
+	ours  In case of conflict in i18n, keep the version of the branch
+	"ours" To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2021-03-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/detection/facedetector.cpp,
+	core/libs/metadataengine/engine/metaengine.cpp,
+	core/libs/metadataengine/engine/metaengine_comments.cpp,
+	core/libs/metadataengine/engine/metaengine_data_p.cpp,
+	core/libs/metadataengine/engine/metaengine_exif.cpp,
+	core/libs/metadataengine/engine/metaengine_fileio.cpp,
+	core/libs/metadataengine/engine/metaengine_gps.cpp,
+	core/libs/metadataengine/engine/metaengine_iptc.cpp,
+	core/libs/metadataengine/engine/metaengine_item.cpp,
+	core/libs/metadataengine/engine/metaengine_p.cpp,
+	core/libs/metadataengine/engine/metaengine_xmp.cpp,
+	core/tests/facesengine/alignment/funnelreal.cpp: fix coding style
+
+2021-03-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetail
+	s.cpp, core/libs/widgets/graphicsview/previewlayout.cpp: use fit to
+	window as default
+
+2021-03-13  Bruno de Oliveira Abinader <brunoabinader@gmail.com>
+
+	* core/tests/multithreading/CMakeLists.txt,
+	core/tests/multithreading/processordlg.cpp,
+	core/tests/multithreading/{myactionthread.cpp =>
+	rawtopngconverterthread.cpp},
+	core/tests/multithreading/{myactionthread.h =>
+	rawtopngconverterthread.h}: 
+	s/MyActionThread/RAWToPNGConverterThread/
+
+2021-03-13  Bruno de Oliveira Abinader <brunoabinader@gmail.com>
+
+	* core/libs/threads/actionthreadbase.cpp,
+	core/libs/threads/actionthreadbase.h,
+	core/utilities/maintenance/maintenancethread.cpp,
+	core/utilities/queuemanager/manager/actionthread.cpp: 
+	ActionThreadBase::setDefaultMaximumNumberOfThreads is a setter
+
+2021-03-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/rajce/rajcewidget.cpp: krazy++
+
+2021-03-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: add more deps for macos
+	virtualbox
+
+2021-03-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/CD/macports/macos-guest-virtualbox.patch: adjust
+	patch with new code
+
+2021-03-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: copy IM config
+	files from /etc
+
+2021-03-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: fix path to copy IM
+	codecs CCBUGS: 434299
+
+2021-03-16  Peter Kovář <peter.kovar@reflexion.tv>
+
+	* core/libs/metadataengine/engine/metaengine_p.h: Add BMFF header
+
+2021-03-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine.cpp,
+	core/libs/metadataengine/engine/metaengine.h: api DOC ++
+
+2021-03-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/main.cpp, core/libs/dialogs/libsinfodlg.cpp,
+	core/libs/metadataengine/engine/metaengine.cpp,
+	core/libs/metadataengine/engine/metaengine.h,
+	core/libs/metadataengine/engine/metaengine_p.cpp,
+	core/libs/metadataengine/engine/metaengine_p.h,
+	core/showfoto/main/main.cpp,
+	core/tests/dimg/dimgabstracthistorytest.cpp,
+	core/tests/dimg/dimgfilteractiontest.cpp,
+	core/tests/dimg/testcolorbalancefilter.cpp,
+	core/tests/dimg/testdimgloader.cpp,
+	core/tests/dimg/testequalizefilter.cpp,
+	core/tests/dplugins/loadandrun_generic.cpp,
+	core/tests/fileio/loadsavethreadtest.cpp,
+	core/tests/filters/testautocrop.cpp,
+	core/tests/filters/testlensfuniface.cpp,
+	core/tests/filters/testnrestimate.cpp,
+	core/tests/geolocation/editor/test_gpsimageitem.cpp,
+	core/tests/geolocation/geoiface/demo/mainwindow.cpp,
+	core/tests/metadataengine/abstractunittest.h,
+	core/tests/metadataengine/commentreadwritetest.cpp,
+	core/tests/metadataengine/ratingreadwritetest.cpp,
+	core/tests/metadataengine/tagsreadwritetest.cpp,
+	core/tests/video/framesencoder.cpp,
+	project/bundles/3rdparty/ext_exiv2/CMakeLists.txt,
+	project/bundles/flatpak/org.kde.digikam.json,
+	project/scripts/bootstrap-exiv2.linux.sh,
+	project/scripts/bootstrap-exiv2.mxe.sh: Exiv2 0.27.4 will introduce
+	Base Media File format support for CR3, HEIF, HEIC, and AVIF image
+	containers. Enable Exiv2 compilation option for BMFF supports. Add
+	new static method to get BMFF support from Exiv2. Report BMFF
+	support in help/components dialog. Fix MetaEngine::initializeExiv2()
+	to register std::atexit C++11 method and cleanup automatically XMP
+	SDK allocation at application exit. Remove obsolete cleanupExiv2()
+	method from MEtaEngine and relevant calls everywhere. CCBUGS: 385726
+
+
+2021-03-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-03-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/editor/transform/freerotation/freerotationtool.cpp: 
+	polish
+
+2021-03-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/editor/transform/freerotation/freerotationtool.cpp: 
+	polish
+
+2021-03-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/editor/transform/freerotation/freerotationtool.cpp: 
+	polish
+
+2021-03-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS,
+	core/dplugins/editor/transform/freerotation/freerotationtool.cpp,
+	core/dplugins/editor/transform/freerotation/freerotationtoolplugin.
+	cpp: fix key shortcuts for the FreeRotation tool BUGS: 434446
+	FIXED-IN: 7.2.0
+
+2021-03-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/editor/transform/freerotation/freerotationtool.cpp: 
+	create point 1 and 2 icons with the right color
+
+2021-03-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/metadataengine/dmetadata/dmetadata_photo.cpp: 
+	ignore Sony Makernote lens info with entry "Manual lens" BUGS:
+	434423 FIXED-IN: 7.2.0
+
+2021-03-15  Yuri Chornoivan <yurchor@ukr.net>
+
+	*
+	core/dplugins/generic/tools/expoblending/wizard/expoblendinglastpag
+	e.cpp: Fix minor typo
+
+2021-03-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* README.md: fix urls
+
+2021-03-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/backend/cameracontroller.cpp,
+	core/utilities/import/backend/camerahistoryupdater.cpp,
+	core/utilities/import/backend/camerathumbsctrl.h: polish
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/colors/convert16to8/convert16to8toolplugin.cpp
+	,
+	core/dplugins/editor/colors/convert8to16/convert8to16toolplugin.cpp
+	, core/dplugins/editor/colors/invert/inverttoolplugin.cpp: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingpreproc
+	esspage.cpp: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/expoblending/wizard/expoblendinglastpag
+	e.cpp: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingitemspa
+	ge.cpp: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingintropa
+	ge.cpp: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/metadataedit/iptc/iptceditwidget.cpp: 
+	krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/transform/shear/sheartool.cpp,
+	core/dplugins/editor/transform/shear/sheartool.h,
+	core/dplugins/editor/transform/shear/sheartoolplugin.cpp,
+	core/dplugins/editor/transform/shear/sheartoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/transform/resize/resizetool.cpp,
+	core/dplugins/editor/transform/resize/resizetool.h,
+	core/dplugins/editor/transform/resize/resizetoolplugin.cpp,
+	core/dplugins/editor/transform/resize/resizetoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp,
+	core/dplugins/editor/transform/ratiocrop/ratiocroptool.h,
+	core/dplugins/editor/transform/ratiocrop/ratiocroptoolplugin.cpp,
+	core/dplugins/editor/transform/ratiocrop/ratiocroptoolplugin.h,
+	core/dplugins/editor/transform/ratiocrop/ratiocropwidget.cpp,
+	core/dplugins/editor/transform/ratiocrop/ratiocropwidget.h: krazy++
+
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/transform/perspective/perspectivetool.cpp,
+	core/dplugins/editor/transform/perspective/perspectivetool.h,
+	core/dplugins/editor/transform/perspective/perspectivetoolplugin.cp
+	p,
+	core/dplugins/editor/transform/perspective/perspectivetoolplugin.h,
+	core/dplugins/editor/transform/perspective/perspectivewidget.cpp: 
+	krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/transform/freerotation/freerotationtool.cpp,
+	core/dplugins/editor/transform/freerotation/freerotationtool.h,
+	core/dplugins/editor/transform/freerotation/freerotationtoolplugin.
+	cpp,
+	core/dplugins/editor/transform/freerotation/freerotationtoolplugin.
+	h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/transform/contentawareresize/contentawareresiz
+	etool.cpp,
+	core/dplugins/editor/transform/contentawareresize/contentawareresiz
+	etool.h,
+	core/dplugins/editor/transform/contentawareresize/contentawareresiz
+	etoolplugin.cpp,
+	core/dplugins/editor/transform/contentawareresize/contentawareresiz
+	etoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/transform/autocrop/autocroptoolplugin.cpp,
+	core/dplugins/editor/transform/autocrop/autocroptoolplugin.h: 
+	krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/filters/raindrop/raindroptool.cpp,
+	core/dplugins/editor/filters/raindrop/raindroptool.h,
+	core/dplugins/editor/filters/raindrop/raindroptoolplugin.cpp,
+	core/dplugins/editor/filters/raindrop/raindroptoolplugin.h: krazy++
+
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/filters/oilpaint/oilpainttool.cpp,
+	core/dplugins/editor/filters/oilpaint/oilpainttool.h,
+	core/dplugins/editor/filters/oilpaint/oilpainttoolplugin.cpp,
+	core/dplugins/editor/filters/oilpaint/oilpainttoolplugin.h: krazy++
+
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/filters/filmgrain/filmgraintool.cpp,
+	core/dplugins/editor/filters/filmgrain/filmgraintool.h,
+	core/dplugins/editor/filters/filmgrain/filmgraintoolplugin.cpp,
+	core/dplugins/editor/filters/filmgrain/filmgraintoolplugin.h: 
+	krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/filters/emboss/embosstool.cpp,
+	core/dplugins/editor/filters/emboss/embosstool.h,
+	core/dplugins/editor/filters/emboss/embosstoolplugin.cpp,
+	core/dplugins/editor/filters/emboss/embosstoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/filters/distortionfx/distortionfxtool.cpp,
+	core/dplugins/editor/filters/distortionfx/distortionfxtool.h,
+	core/dplugins/editor/filters/distortionfx/distortionfxtoolplugin.cp
+	p,
+	core/dplugins/editor/filters/distortionfx/distortionfxtoolplugin.h: 
+	krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/filters/colorfx/colorfxtool.cpp,
+	core/dplugins/editor/filters/colorfx/colorfxtool.h,
+	core/dplugins/editor/filters/colorfx/colorfxtoolplugin.cpp,
+	core/dplugins/editor/filters/colorfx/colorfxtoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/filters/charcoal/charcoaltool.cpp,
+	core/dplugins/editor/filters/charcoal/charcoaltool.h,
+	core/dplugins/editor/filters/charcoal/charcoaltoolplugin.cpp,
+	core/dplugins/editor/filters/charcoal/charcoaltoolplugin.h: krazy++
+
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/filters/blurfx/blurfxtool.cpp,
+	core/dplugins/editor/filters/blurfx/blurfxtool.h,
+	core/dplugins/editor/filters/blurfx/blurfxtoolplugin.cpp,
+	core/dplugins/editor/filters/blurfx/blurfxtoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/sharpen/sharpentool.cpp,
+	core/dplugins/editor/enhance/sharpen/sharpentool.h,
+	core/dplugins/editor/enhance/sharpen/sharpentoolplugin.cpp,
+	core/dplugins/editor/enhance/sharpen/sharpentoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/redeye/redeyetool.cpp,
+	core/dplugins/editor/enhance/redeye/redeyetool.h,
+	core/dplugins/editor/enhance/redeye/redeyetoolplugin.cpp: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/noisereduction/noisereductiontool.cpp,
+	core/dplugins/editor/enhance/noisereduction/noisereductiontool.h,
+	core/dplugins/editor/enhance/noisereduction/noisereductiontoolplugi
+	n.cpp,
+	core/dplugins/editor/enhance/noisereduction/noisereductiontoolplugi
+	n.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/localcontrast/localcontrasttool.cpp,
+	core/dplugins/editor/enhance/localcontrast/localcontrasttool.h,
+	core/dplugins/editor/enhance/localcontrast/localcontrasttoolplugin.
+	cpp,
+	core/dplugins/editor/enhance/localcontrast/localcontrasttoolplugin.
+	h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/lensdistortion/lensdistortiontool.cpp,
+	core/dplugins/editor/enhance/lensdistortion/lensdistortiontool.h,
+	core/dplugins/editor/enhance/lensdistortion/lensdistortiontoolplugi
+	n.cpp,
+	core/dplugins/editor/enhance/lensdistortion/lensdistortiontoolplugi
+	n.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/hotpixels/hotpixelstool.cpp,
+	core/dplugins/editor/enhance/hotpixels/hotpixelstool.h,
+	core/dplugins/editor/enhance/hotpixels/hotpixelstoolplugin.cpp,
+	core/dplugins/editor/enhance/hotpixels/hotpixelstoolplugin.h: 
+	krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/healingclone/healingclonetoolplugin.cp
+	p: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/blur/blurtool.cpp,
+	core/dplugins/editor/enhance/blur/blurtool.h,
+	core/dplugins/editor/enhance/blur/blurtoolplugin.cpp,
+	core/dplugins/editor/enhance/blur/blurtoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/enhance/antivignetting/antivignettingtool.cpp,
+	core/dplugins/editor/enhance/antivignetting/antivignettingtool.h,
+	core/dplugins/editor/enhance/antivignetting/antivignettingtoolplugi
+	n.cpp,
+	core/dplugins/editor/enhance/antivignetting/antivignettingtoolplugi
+	n.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/decorate/texture/texturetool.cpp,
+	core/dplugins/editor/decorate/texture/texturetool.h,
+	core/dplugins/editor/decorate/texture/texturetoolplugin.cpp,
+	core/dplugins/editor/decorate/texture/texturetoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/decorate/inserttext/inserttexttool.cpp,
+	core/dplugins/editor/decorate/inserttext/inserttexttoolplugin.cpp,
+	core/dplugins/editor/decorate/inserttext/inserttexttoolplugin.h,
+	core/dplugins/editor/decorate/inserttext/inserttextwidget.cpp: 
+	krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/decorate/border/bordertool.cpp,
+	core/dplugins/editor/decorate/border/bordertoolplugin.cpp,
+	core/dplugins/editor/decorate/border/bordertoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/file/print/printoptionspage.cpp,
+	core/dplugins/editor/file/print/printplugin.cpp: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/colors/whitebalance/whitebalancetool.cpp,
+	core/dplugins/editor/colors/whitebalance/whitebalancetoolplugin.cpp
+	, core/dplugins/editor/colors/whitebalance/whitebalancetoolplugin.h: 
+	krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/colors/profileconversion/profileconversiontool
+	.cpp,
+	core/dplugins/editor/colors/profileconversion/profileconversiontool
+	plugin.cpp,
+	core/dplugins/editor/colors/profileconversion/profileconversiontool
+	plugin.h: krazy++
+
+2021-03-14  Yuri Chornoivan <yurchor@ukr.net>
+
+	* core/dplugins/generic/webservices/flickr/flickrplugin.cpp: Add
+	missing newlines
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/colors/invert/inverttoolplugin.cpp,
+	core/dplugins/editor/colors/invert/inverttoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/colors/hsl/hsltool.cpp,
+	core/dplugins/editor/colors/hsl/hsltoolplugin.cpp,
+	core/dplugins/editor/colors/hsl/hsltoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/colors/film/filmtoolplugin.cpp,
+	core/dplugins/editor/colors/film/filmtoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/colors/convert8to16/convert8to16toolplugin.cpp
+	, core/dplugins/editor/colors/convert8to16/convert8to16toolplugin.h: 
+	krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/colors/convert16to8/convert16to8toolplugin.cpp
+	, core/dplugins/editor/colors/convert16to8/convert16to8toolplugin.h: 
+	krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/colors/colorbalance/cbtool.cpp,
+	core/dplugins/editor/colors/colorbalance/cbtoolplugin.cpp,
+	core/dplugins/editor/colors/colorbalance/cbtoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/colors/channelmixer/channelmixertool.cpp,
+	core/dplugins/editor/colors/channelmixer/channelmixertoolplugin.cpp
+	, core/dplugins/editor/colors/channelmixer/channelmixertoolplugin.h: 
+	krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/colors/bwsepia/bwsepiatool.cpp,
+	core/dplugins/editor/colors/bwsepia/bwsepiatoolplugin.cpp,
+	core/dplugins/editor/colors/bwsepia/bwsepiatoolplugin.h: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/colors/bcg/bcgtool.cpp,
+	core/dplugins/editor/colors/bcg/bcgtoolplugin.cpp,
+	core/dplugins/editor/colors/bcg/bcgtoolplugin.h: krazy++
+
+2021-03-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/editor/colors/autocorrection/autocorrectiontoolplugin
+	.cpp: krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp,
+	core/dplugins/editor/colors/adjustlevels/adjustlevelstool.h,
+	core/dplugins/editor/colors/adjustlevels/adjustlevelstoolplugin.cpp
+	, core/dplugins/editor/colors/adjustlevels/adjustlevelstoolplugin.h: 
+	krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/colors/adjustcurves/adjustcurvestool.cpp,
+	core/dplugins/editor/colors/adjustcurves/adjustcurvestoolplugin.cpp
+	, core/dplugins/editor/colors/adjustcurves/adjustcurvestoolplugin.h: 
+	krazy++
+
+2021-03-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: doc++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/yandexfotki/yfplugin.cpp,
+	core/dplugins/generic/webservices/yandexfotki/yfplugin.h: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_authe
+	nticationdialog.cpp: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/vkontakte/vkalbumchooser.cpp,
+	core/dplugins/generic/webservices/vkontakte/vkauthwidget.cpp,
+	core/dplugins/generic/webservices/vkontakte/vknewalbumdlg.cpp,
+	core/dplugins/generic/webservices/vkontakte/vkplugin.cpp,
+	core/dplugins/generic/webservices/vkontakte/vkplugin.h: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/unified/unifiedplugin.cpp,
+	core/dplugins/generic/webservices/unified/unifiedplugin.h: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/box/boxplugin.cpp,
+	core/dplugins/generic/webservices/twitter/twitterplugin.cpp,
+	core/dplugins/generic/webservices/twitter/twitterplugin.h,
+	core/dplugins/generic/webservices/twitter/twittertalker.cpp,
+	core/dplugins/generic/webservices/twitter/twitterwindow.cpp: krazy++
+
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/smugmug/smugplugin.cpp,
+	core/dplugins/generic/webservices/smugmug/smugplugin.h,
+	core/dplugins/generic/webservices/smugmug/smugwindow.cpp: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp,
+	core/dplugins/generic/webservices/rajce/rajceplugin.cpp,
+	core/dplugins/generic/webservices/rajce/rajceplugin.h,
+	core/dplugins/generic/webservices/rajce/rajcetalker.cpp,
+	core/dplugins/generic/webservices/rajce/rajcewidget.cpp: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/piwigo/piwigoitem.h,
+	core/dplugins/generic/webservices/piwigo/piwigologindlg.cpp,
+	core/dplugins/generic/webservices/piwigo/piwigoplugin.cpp,
+	core/dplugins/generic/webservices/piwigo/piwigoplugin.h,
+	core/dplugins/generic/webservices/piwigo/piwigowindow.cpp: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/pinterest/pplugin.cpp,
+	core/dplugins/generic/webservices/pinterest/pplugin.h,
+	core/dplugins/generic/webservices/pinterest/ptalker.cpp,
+	core/dplugins/generic/webservices/pinterest/pwindow.cpp: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/onedrive/odplugin.cpp,
+	core/dplugins/generic/webservices/onedrive/odplugin.h,
+	core/dplugins/generic/webservices/onedrive/odtalker.cpp,
+	core/dplugins/generic/webservices/onedrive/odwindow.cpp: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/mediawiki/mediawikiplugin.cpp,
+	core/dplugins/generic/webservices/mediawiki/mediawikiplugin.h,
+	core/dplugins/generic/webservices/mediawiki/mediawikitalker.cpp,
+	core/dplugins/generic/webservices/mediawiki/mediawikiwidget.cpp,
+	core/dplugins/generic/webservices/mediawiki/mediawikiwindow.cpp: 
+	krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/ipfs/ipfsplugin.cpp,
+	core/dplugins/generic/webservices/ipfs/ipfsplugin.h: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/imgur/imgurplugin.cpp,
+	core/dplugins/generic/webservices/imgur/imgurplugin.h: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/imageshack/imageshackplugin.cpp,
+	core/dplugins/generic/webservices/imageshack/imageshackplugin.h,
+	core/dplugins/generic/webservices/imageshack/imageshackwidget.cpp: 
+	krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/google/gsitem.h,
+	core/dplugins/generic/webservices/google/gsnewalbumdlg.cpp,
+	core/dplugins/generic/webservices/google/gsplugin.cpp,
+	core/dplugins/generic/webservices/google/gsplugin.h,
+	core/dplugins/generic/webservices/google/gsreplacedlg.cpp,
+	core/dplugins/generic/webservices/google/gstalkerbase.cpp,
+	core/dplugins/generic/webservices/google/gswidget.cpp,
+	core/dplugins/generic/webservices/google/gswindow.cpp: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/flickr/flickrplugin.cpp,
+	core/dplugins/generic/webservices/flickr/flickrplugin.h,
+	core/dplugins/generic/webservices/flickr/flickrwindow.cpp: krazy++
+
+2021-03-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS,
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectorssd.cpp,
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectoryolo.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/dnnfaceextractor.cpp: 
+	use local 8 bit file path for OpenCV under Windows BUGS: 434112
+	FIXED-IN: 7.2.0
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/filetransfer/ftexportwidget.cpp,
+	core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp,
+	core/dplugins/generic/webservices/filetransfer/ftimportwidget.cpp,
+	core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp,
+	core/dplugins/generic/webservices/filetransfer/ftplugin.cpp,
+	core/dplugins/generic/webservices/filetransfer/ftplugin.h: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/filecopy/fccontainer.h,
+	core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp,
+	core/dplugins/generic/webservices/filecopy/fcexportwindow.cpp,
+	core/dplugins/generic/webservices/filecopy/fcplugin.cpp,
+	core/dplugins/generic/webservices/filecopy/fcplugin.h,
+	core/dplugins/generic/webservices/filecopy/fctask.cpp,
+	core/dplugins/generic/webservices/filecopy/fctask.h: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/dropbox/dbplugin.cpp,
+	core/dplugins/generic/webservices/dropbox/dbplugin.h,
+	core/dplugins/generic/webservices/dropbox/dbtalker.cpp,
+	core/dplugins/generic/webservices/dropbox/dbwindow.cpp: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/box/boxplugin.cpp,
+	core/dplugins/generic/webservices/box/boxplugin.h,
+	core/dplugins/generic/webservices/box/boxwindow.cpp: krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/04-build-appimage.sh: copy ImageMagick
+	codecs in AppImage bundle CCBUGS: 434299
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/appimage/01-build-host.sh: ImageMagick codec are
+	installed with the CLI tools, not with the C API CCBUGS: 434299
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/wallpaper/wallpaperplugin_dbus.cpp,
+	core/dplugins/generic/tools/wallpaper/wallpaperplugin_macos.cpp: 
+	krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/printcreator/wizard/advprintalbumspage.
+	cpp,
+	core/dplugins/generic/tools/printcreator/wizard/advprintcaptionpage
+	.cpp,
+	core/dplugins/generic/tools/printcreator/wizard/advprintcropframe.c
+	pp,
+	core/dplugins/generic/tools/printcreator/wizard/advprintcroppage.cp
+	p,
+	core/dplugins/generic/tools/printcreator/wizard/advprintfinalpage.c
+	pp,
+	core/dplugins/generic/tools/printcreator/wizard/advprintintropage.c
+	pp,
+	core/dplugins/generic/tools/printcreator/wizard/advprintoutputpage.
+	cpp,
+	core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.c
+	pp,
+	core/dplugins/generic/tools/printcreator/wizard/advprintwizard.cpp: 
+	krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/panorama/wizard/panopreprocesspage.cpp: 
+	krazy++
+
+2021-03-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/wizard/panointropage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panooptimizepage.cpp: 
+	krazy++
+
+2021-03-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/wizard/panointropage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panoitemspage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panolastpage.cpp: 
+	krazy++
+
+2021-03-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/wizard/panointropage.cpp: 
+	krazy++
+
+2021-03-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/rajce/CMakeLists.txt,
+	core/dplugins/generic/webservices/rajce/rajcecommand.cpp,
+	core/dplugins/generic/webservices/rajce/rajcecommand.h: QXmlQuery is
+	only used in private area from this class. So we can reduce the
+	visibility
+
+2021-03-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectorssd.cpp,
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectoryolo.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/dnnfaceextractor.cpp: 
+	prepare for final patch and last try with UTF16 path CCBUGS: 434112
+
+
+2021-03-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/widgets/dplugindialog.cpp,
+	core/libs/dplugins/widgets/dpreviewimage.cpp,
+	core/libs/dplugins/widgets/dpreviewimage.h,
+	core/libs/dplugins/widgets/dpreviewmanager.cpp,
+	core/libs/dplugins/widgets/dpreviewmanager.h,
+	core/libs/dplugins/widgets/dsavesettingswidget.cpp,
+	core/libs/dplugins/widgets/dwizarddlg.cpp,
+	core/libs/dplugins/widgets/dwizardpage.h: krazy++
+
+2021-03-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2021-03-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/widgets/ditemslist.cpp,
+	core/libs/dplugins/widgets/ditemslist.h: apply patch #136597 from
+	Phuoc Khanh Le to keep position of view list images of presentation
+	tool to stay on position of dropped image BUGS: 376690 FIXED-IN:
+	7.2.0
+
+2021-03-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-03-11  Bruno de Oliveira Abinader <brunoabinader@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesalbum.cpp,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.cpp,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.h: Add ref. date
+	to duplicates album tree view  This allows sorting duplicate images
+	per album folder, image date and name.
+
+2021-03-11  Bruno de Oliveira Abinader <brunoabinader@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesalbumitem.cpp: Use
+	PAlbum::prettyUrl() instead of folderPath()  Matches the album item
+	view album description.
+
+2021-03-11  Bruno de Oliveira Abinader <brunoabinader@gmail.com>
+
+	* core/app/views/stack/itemiconview.h: Fix missing slot call in
+	app/main/digikamapp_setup.cpp
+
+2021-03-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectorssd.cpp,
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectoryolo.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/dnnfaceextractor.cpp: 
+	try with UTF8 char* as path CCBUGS: 434112
+
+2021-03-11  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/app/views/tableview/tableview_model.cpp: update table
+	layout after add or remove column BUGS: 434275 FIXED-IN: 7.2.0
+
+2021-03-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/mediaserver/dmediaserverdlg.cpp: 
+	krazy++
+
+2021-03-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/generator/gallerygenerator.
+	cpp,
+	core/dplugins/generic/tools/htmlgallery/wizard/htmloutputpage.cpp: 
+	krazy++
+
+2021-03-11  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/expoblending/blendingdlg/bracketstack.c
+	pp,
+	core/dplugins/generic/tools/expoblending/blendingdlg/enfusesettings
+	.cpp,
+	core/dplugins/generic/tools/expoblending/blendingdlg/expoblendingdl
+	g.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingintropa
+	ge.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingitemspa
+	ge.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendinglastpag
+	e.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingpreproc
+	esspage.cpp,
+	core/dplugins/generic/tools/expoblending/wizard/expoblendingwizard.
+	cpp: krazy++
+
+2021-03-09  Bruno de Oliveira Abinader <brunoabinader@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesalbum.cpp,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.cpp,
+	core/utilities/fuzzysearch/findduplicatesalbumitem.h: Add ref. album
+	to duplicates album tree view  This allows sorting duplicate images
+	per album folder. Also allows both image name and path columns to be
+	resizable by the user.
+
+2021-03-08  Bruno de Oliveira Abinader <brunoabinader@gmail.com>
+
+	* core/app/views/sidebar/albumfolderviewsidebarwidget.cpp,
+	core/app/views/sidebar/albumfolderviewsidebarwidget.h,
+	core/app/views/sidebar/fuzzysearchsidebarwidget.cpp,
+	core/app/views/sidebar/fuzzysearchsidebarwidget.h,
+	core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview.h,
+	core/app/views/stack/itemiconview_search.cpp,
+	core/libs/album/treeview/albumselectiontreeview.cpp,
+	core/libs/album/treeview/albumselectiontreeview.h,
+	core/utilities/fuzzysearch/findduplicatesview.cpp,
+	core/utilities/fuzzysearch/findduplicatesview.h,
+	core/utilities/fuzzysearch/fuzzysearchview.cpp,
+	core/utilities/fuzzysearch/fuzzysearchview.h: Remove redundant
+	single physical album signal/slot methods  Replace with alternatives
+	accepting QList<PAlbum*> as parameter.
+
+2021-03-08  Bruno de Oliveira Abinader <brunoabinader@gmail.com>
+
+	* core/libs/album/widgets/albumselectors.cpp,
+	core/libs/album/widgets/albumselectors.h,
+	core/utilities/fuzzysearch/findduplicatesview.cpp: Add
+	AlbumSelectors::SelectionType  Fixes an issue in which either
+	AlbumSelectors' setAlbumSelected() or setTagSelected() would be
+	called with 'singleSelection' set to false even though the albums
+	list contained only a single item.
+
+2021-03-10  Ömer Fadıl Usta <omerusta@gmail.com>
+
+	* README.md: Fix build links
+
+2021-03-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetail
+	s.cpp: fix preview image zoom in the geolocation editor
+
+2021-03-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* Mainpage.dox: fix url
+
+2021-03-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2021-03-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* Mainpage.dox: fix KF5 urls
+
+2021-03-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/facesengine/recognition/opencv-dnn/dnnfaceextractor.cpp: 
+	try with local 8 bit char* as path CCBUGS: 434112
+
+2021-03-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectorssd.cpp,
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectoryolo.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/dnnfaceextractor.cpp: 
+	remove native path separators for OpenCV
+
+2021-03-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/metadata/timeadjust/timeadjustdialog.cpp,
+	core/dplugins/generic/metadata/timeadjust/timeadjustplugin.cpp,
+	core/dplugins/generic/metadata/timeadjust/timeadjustplugin.h: 
+	krazy++
+
+2021-03-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/metadataedit/dialog/altlangstringedi
+	t.cpp,
+	core/dplugins/generic/metadata/metadataedit/dialog/limitedtextedit.
+	cpp,
+	core/dplugins/generic/metadata/metadataedit/dialog/metadatacheckbox
+	.cpp,
+	core/dplugins/generic/metadata/metadataedit/dialog/metadataedit.cpp
+	,
+	core/dplugins/generic/metadata/metadataedit/dialog/multistringsedit
+	.cpp,
+	core/dplugins/generic/metadata/metadataedit/dialog/multivaluesedit.
+	cpp,
+	core/dplugins/generic/metadata/metadataedit/dialog/objectattributes
+	edit.cpp,
+	core/dplugins/generic/metadata/metadataedit/exif/exifdevice.cpp,
+	core/dplugins/generic/metadata/metadataedit/exif/exifeditwidget.cpp
+	, core/dplugins/generic/metadata/metadataedit/exif/exiflight.cpp,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptceditwidget.cpp
+	,
+	core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp
+	,
+	core/dplugins/generic/metadata/metadataedit/metadataeditplugin.cpp,
+	core/dplugins/generic/metadata/metadataedit/metadataeditplugin.h,
+	core/dplugins/generic/metadata/metadataedit/xmp/xmpcredits.cpp,
+	core/dplugins/generic/metadata/metadataedit/xmp/xmpeditwidget.cpp,
+	core/dplugins/generic/metadata/metadataedit/xmp/xmpproperties.cpp: 
+	krazy++
+
+2021-03-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/geolocationedit/dialog/geolocationed
+	it.cpp,
+	core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetail
+	s.cpp,
+	core/dplugins/generic/metadata/geolocationedit/geolocationeditplugi
+	n.cpp,
+	core/dplugins/generic/metadata/geolocationedit/geolocationeditplugi
+	n.h,
+	core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlgpsdata
+	parser.cpp,
+	core/dplugins/generic/view/presentation/presentationplugin.cpp: 
+	krazy++
+
+2021-03-09  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/mainview/thememanager.cpp,
+	core/libs/widgets/mainview/thememanager.h,
+	core/utilities/setup/setupmisc.cpp: only standard color theme for
+	Windows Vista style
+
+2021-03-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-ubuntu.sh: add bash header
+
+2021-03-09  Surya Gowda <suryagowda590@gmail.com>
+
+	* project/scripts/installdeps-ubuntu.sh: Script to install
+	dependencies under Ubuntu Linux to compile digiKam. It helps those
+	who have same distro to compile codebase and saves their  time
+
+2021-03-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/view/presentation/dialogs/presentation_advpag
+	e.ui: use a vertical layout to host KenBurns options
+
+2021-03-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2021-03-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/view/presentation/dialogs/presentationdlg.cpp
+	, core/dplugins/generic/view/presentation/presentationplugin.cpp: 
+	krazy++
+
+2021-03-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/view/presentation/common/presentationcontaine
+	r.cpp,
+	core/dplugins/generic/view/presentation/common/presentationcontaine
+	r.h,
+	core/dplugins/generic/view/presentation/dialogs/presentation_advpag
+	e.cpp,
+	core/dplugins/generic/view/presentation/dialogs/presentation_advpag
+	e.ui,
+	core/dplugins/generic/view/presentation/opengl/presentationkb.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationkb_p.h: 
+	Apply patch #136331  for Phuoc Khanh Le to use the same visual
+	Ken-Burns effects speed while playing Presentation on scrren. BUGS:
+	195555 FIXED-IN: 7.2.0
+
+2021-03-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/mainview/thememanager.cpp: polish
+
+2021-03-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/mainview/thememanager.cpp: polish
+
+2021-03-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/mainview/thememanager.cpp: optimize color scheme
+	menu creating
+
+2021-03-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/mainview/thememanager.cpp: a QMap is already
+	sorted
+
+2021-03-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectorssd.cpp,
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectoryolo.cpp,
+	core/libs/facesengine/preprocessing/recognition/openfacepreprocesso
+	r.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/dnnfaceextractor.cpp: 
+	try with native separators CCBUGS: 434112
+
+2021-03-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/settings/applicationsettings.cpp,
+	core/showfoto/setup/showfotosetupmisc.cpp,
+	core/utilities/setup/setupmisc.cpp: allow setting of Windows Vista
+	style CCBUGS: 434152
+
+2021-03-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/CD/ContinuousDeploy.txt: doc++
+
+2021-03-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/lensautofix/lensautofixtool.cpp,
+	core/dplugins/editor/enhance/lensautofix/lensautofixtool.h,
+	core/dplugins/editor/enhance/lensautofix/lensautofixtoolplugin.cpp,
+	core/dplugins/editor/enhance/lensautofix/lensautofixtoolplugin.h: 
+	krazy++
+
+2021-03-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/enhance/restoration/restorationtool.cpp,
+	core/dplugins/editor/enhance/restoration/restorationtool.h,
+	core/dplugins/editor/enhance/restoration/restorationtoolplugin.cpp,
+	core/dplugins/editor/enhance/restoration/restorationtoolplugin.h: 
+	krazy++
+
+2021-03-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/rawimport/native/rawimport.cpp,
+	core/dplugins/rawimport/native/rawimport.h,
+	core/dplugins/rawimport/native/rawimportnativeplugin.h,
+	core/dplugins/rawimport/native/rawpostprocessing.cpp,
+	core/dplugins/rawimport/native/rawpreview.cpp,
+	core/dplugins/rawimport/native/rawpreview.h,
+	core/dplugins/rawimport/native/rawsettingsbox.cpp,
+	core/dplugins/rawimport/native/rawsettingsbox.h: krazy++
+
+2021-03-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/transform/flip/flip.cpp,
+	core/dplugins/bqm/transform/flip/flip.h,
+	core/dplugins/bqm/transform/flip/flipplugin.h: krazy++
+
+2021-03-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/metadata/removemetadata/removemetadata.cpp: 
+	krazy++
+
+2021-03-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/transform/rotate/rotate.cpp,
+	core/dplugins/bqm/transform/rotate/rotate.h,
+	core/dplugins/bqm/transform/rotate/rotateplugin.h: krazy++
+
+2021-03-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/metadata/removemetadata/removemetadata.cpp,
+	core/dplugins/bqm/metadata/removemetadata/removemetadata.h,
+	core/dplugins/bqm/metadata/removemetadata/removemetadataplugin.h: 
+	krazy++
+
+2021-03-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/decorate/watermark/watermark.cpp,
+	core/dplugins/bqm/decorate/watermark/watermark.h,
+	core/dplugins/bqm/decorate/watermark/watermarkplugin.h: krazy++
+
+2021-03-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/colors/curvesadjust/curvesadjust.cpp,
+	core/dplugins/bqm/colors/curvesadjust/curvesadjust.h,
+	core/dplugins/bqm/colors/curvesadjust/curvesadjustplugin.h: krazy++
+
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/digikamapp_setup.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/utils/componentsinfodlg.cpp,
+	core/app/views/utils/dmodelfactory.cpp,
+	core/app/views/utils/dmodelfactory.h: krazy++
+
+2021-03-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesalbum.cpp: a dynamic cast
+	must be checked
+
+2021-03-07  Bruno de Oliveira Abinader <brunoabinader@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesalbum.cpp: Hide all
+	selected albums when duplicates are removed  I did not dig deeper
+	enough, but my suspicion is that setting the item to hidden messes
+	up with the tree widget iterator, causing every selected album that
+	is not the first to not hide when all duplicate images are removed.
+	Switching to a predefined list of selected items resolves the issue.
+
+
+2021-03-07  Bruno de Oliveira Abinader <brunoabinader@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesview.cpp,
+	core/utilities/fuzzysearch/findduplicatesview.h: 
+	FindDuplicatesView::updateSimilarityRangeInterval()  Also removes
+	unimplemented updateAlbumsBox() and updateTagsBox().
+
+2021-03-07  Bruno de Oliveira Abinader <brunoabinader@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesview.cpp: 
+	s/scanDuplicatesBtn/findDuplicatesBtn/ in FindDuplicatesView
+	Matches with FindDuplicatesView::slotFindDuplicates().
+
+2021-03-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectorssd.cpp,
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectoryolo.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/dnnfaceextractor.cpp: 
+	polish debug strings
+
+2021-03-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectorssd.cpp,
+	core/libs/facesengine/detection/opencv-dnn/dnnfacedetectoryolo.cpp,
+	core/libs/facesengine/recognition/opencv-dnn/dnnfaceextractor.cpp: 
+	catch exceptions from openCV when loading model data CCBUGS: 434112
+
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/tableview/tableview_column_audiovideo.cpp,
+	core/app/views/tableview/tableview_column_configuration_dialog.cpp,
+	core/app/views/tableview/tableview_column_digikam.cpp,
+	core/app/views/tableview/tableview_column_item.cpp,
+	core/app/views/tableview/tableview_columnfactory.cpp,
+	core/app/views/tableview/tableview_selection_model_syncer.cpp,
+	core/app/views/tableview/tableview_shared.cpp,
+	core/app/views/tableview/tableview_treeview_delegate.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/tableview/tableview_column_file.cpp,
+	core/app/views/tableview/tableview_column_geo.cpp,
+	core/app/views/tableview/tableview_column_photo.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/stack/itemiconview.cpp,
+	core/app/views/stack/itemiconview_p.h,
+	core/app/views/stack/itemiconview_views.cpp,
+	core/app/views/stack/mapwidgetview.cpp,
+	core/app/views/stack/mapwidgetview.h,
+	core/app/views/stack/stackedview.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/sidebar/albumfolderviewsidebarwidget.cpp,
+	core/app/views/sidebar/datefolderviewsidebarwidget.cpp,
+	core/app/views/sidebar/fuzzysearchsidebarwidget.cpp,
+	core/app/views/sidebar/gpssearchsidebarwidget.cpp,
+	core/app/views/sidebar/labelssidebarwidget.cpp,
+	core/app/views/sidebar/searchsidebarwidget.cpp,
+	core/app/views/sidebar/tagviewsidebarwidget.cpp,
+	core/app/views/sidebar/timelinesidebarwidget.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/widgets/albumpropsedit.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/levels/histogramwidget.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/bw/mixersettings.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/utils/contextmenuhelper.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/utils/tooltipfiller.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/items/overlays/assignnameoverlay.cpp,
+	core/app/items/overlays/assignnameoverlay.h,
+	core/app/items/overlays/groupindicatoroverlay.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/date/ddateedit.cpp, core/app/date/ddatepickerpopup.cpp,
+	core/app/date/ddatetable.cpp, core/app/date/ddatetable_p.cpp,
+	core/app/date/ddatetimeedit.cpp, core/app/date/timelinewidget.cpp,
+	core/app/filters/tagfilterview.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/metadata/altlangstredit.cpp,
+	core/libs/widgets/metadata/altlangstredit.h,
+	core/libs/widgets/metadata/colorlabelwidget.cpp,
+	core/libs/widgets/metadata/countryselector.cpp,
+	core/libs/widgets/metadata/countryselector.h,
+	core/libs/widgets/metadata/mdkeylistviewitem.cpp,
+	core/libs/widgets/metadata/metadatapanel.cpp,
+	core/libs/widgets/metadata/metadataselector.cpp,
+	core/libs/widgets/metadata/metadataselector.h,
+	core/libs/widgets/metadata/metadatawidget.cpp,
+	core/libs/widgets/metadata/picklabelwidget.cpp,
+	core/libs/widgets/metadata/ratingwidget.cpp,
+	core/libs/widgets/metadata/subjectwidget.cpp: krazy++
+
+2021-03-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/geolocation/geoiface/backends/backendmarble.cpp: 
+	add satellite map from Marble
+
+2021-03-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/extrasupport/filesindexer/baloowrap.cpp: also
+	remove Baloo metadata BUGS: 434060 FIXED-IN: 7.2.0
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/text/searchtextbar.cpp,
+	core/libs/widgets/text/searchtextbar.h: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/itemview/dcategorizedview.cpp,
+	core/libs/widgets/itemview/ditemdelegate.cpp,
+	core/libs/widgets/itemview/itemdelegateoverlay.cpp,
+	core/libs/widgets/itemview/itemdelegateoverlay.h,
+	core/libs/widgets/itemview/itemviewdelegate.cpp,
+	core/libs/widgets/itemview/itemviewdelegate_p.h,
+	core/libs/widgets/itemview/itemviewhoverbutton.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/iccprofiles/cietonguewidget.cpp,
+	core/libs/widgets/iccprofiles/cietonguewidget.h,
+	core/libs/widgets/iccprofiles/iccprofilescombobox.cpp,
+	core/libs/widgets/iccprofiles/iccprofilewidget.cpp,
+	core/libs/widgets/iccprofiles/iccprofilewidget.h: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/fonts/dfontproperties.cpp,
+	core/libs/widgets/fonts/dfontselect.cpp: krazy++
+
+2021-03-07  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/files/dbinarysearch.cpp,
+	core/libs/widgets/files/dfileselector.cpp,
+	core/libs/widgets/files/filesaveconflictbox.cpp,
+	core/libs/widgets/files/filesaveoptionsbox.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/template/templatelist.cpp,
+	core/libs/template/templatepanel.cpp,
+	core/libs/template/templateselector.cpp,
+	core/libs/template/templateviewer.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/tags/widgets/tageditdlg.cpp,
+	core/libs/tags/widgets/tagslineeditoverlay.cpp,
+	core/libs/tags/widgets/tagspopupmenu.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/tags/manager/models/tagmngrlistitem.cpp,
+	core/libs/tags/manager/models/tagmngrlistmodel.cpp,
+	core/libs/tags/manager/models/tagmngrlistview.cpp,
+	core/libs/tags/manager/taglist.cpp,
+	core/libs/tags/manager/tagmngrtreeview.cpp,
+	core/libs/tags/manager/tagpropwidget.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/settings/applicationsettings.h,
+	core/libs/settings/applicationsettings_p.cpp: krazy++
+
+2021-03-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/rawengine/drawdecoder.h,
+	core/libs/rawengine/drawdecoder_p.h,
+	core/libs/rawengine/drawdecoderwidget.cpp,
+	core/libs/rawengine/drawdecoderwidget.h: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/itempropertiestab.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/itempropertiessidebardb.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/itempropertiessidebar.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/itempropertiesmetadatatab.cpp,
+	core/libs/properties/itempropertiessidebar.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/itempropertiescolorstab.cpp: krazy++
+
+2021-03-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/graphicsview/previewlayout.cpp,
+	core/libs/widgets/graphicsview/previewlayout.h: polish and const
+
+2021-03-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/import/importitempropertiessidebar.cpp,
+	core/libs/properties/import/importitempropertiessidebar.h,
+	core/libs/properties/import/importitempropertiestab.cpp,
+	core/libs/properties/import/importitempropertiestab.h: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/history/itempropertiesversionstab.cpp,
+	core/libs/properties/history/versionsoverlays.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/captions/captionedit.cpp,
+	core/libs/properties/captions/itemdescedittab.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/geolocation/itempropertiesgpstab.cpp: krazy++
+
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversionchecker.cpp,
+	core/libs/onlineversion/onlineversiondlg.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/models/albummodel.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_generic.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/webservices/webwidget.cpp,
+	core/libs/dplugins/webservices/webwidget.h,
+	core/libs/dplugins/webservices/webwidget_qwebengine.cpp,
+	core/libs/dplugins/webservices/wscomboboxdelegate.cpp,
+	core/libs/dplugins/webservices/wscomboboxintermediate.cpp,
+	core/libs/dplugins/webservices/wslogindialog.cpp,
+	core/libs/dplugins/webservices/wsnewalbumdialog.cpp,
+	core/libs/dplugins/webservices/wsselectuserdlg.cpp,
+	core/libs/dplugins/webservices/wssettings.cpp,
+	core/libs/dplugins/webservices/wssettingswidget.cpp,
+	core/libs/dplugins/webservices/wstooldialog.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/setup/dpluginaboutdlg.cpp,
+	core/libs/dplugins/setup/dpluginconfview.cpp,
+	core/libs/dplugins/setup/dpluginsetup.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dplugins/core/dpluginaction.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/setup/metadata/setupmetadata.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/widgets/dngconvertsettings.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/wb/wbsettings.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/levels/histogrambox.cpp,
+	core/libs/dimg/filters/levels/histogrampainter.cpp,
+	core/libs/dimg/filters/levels/histogramwidget.cpp,
+	core/libs/dimg/filters/levels/imagehistogram.cpp,
+	core/libs/dimg/filters/levels/imagelevels.cpp,
+	core/libs/dimg/filters/levels/levelsfilter.cpp: krazy++
+
+2021-03-06  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/widgets/graphicsview/previewlayout.cpp: apply
+	patch from Qian to not fall back from 100% to fit to window BUGS:
+	434049 FIXED-IN: 7.2.0
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/krazy.sh: re-enable post report
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/lens/lensfunfilter.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/lens/antivignettingsettings.cpp,
+	core/libs/dimg/filters/lens/lensdistortionfilter.cpp,
+	core/libs/dimg/filters/lens/lensdistortionpixelaccess.cpp,
+	core/libs/dimg/filters/lens/lensfuncameraselector.cpp,
+	core/libs/dimg/filters/lens/lensfunfilter.cpp,
+	core/libs/dimg/filters/lens/lensfuniface.cpp,
+	core/libs/dimg/filters/lens/lensfunsettings.cpp: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/lc/localcontrastcontainer.cpp,
+	core/libs/dimg/filters/lc/localcontrastfilter.cpp,
+	core/libs/dimg/filters/lc/localcontrastfilter.h,
+	core/libs/dimg/filters/lc/localcontrastsettings.cpp,
+	core/libs/dimg/filters/lc/localcontrastsettings.h: krazy++
+
+2021-03-06  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/hotpixels/blackframelistview.cpp,
+	core/libs/dimg/filters/hotpixels/blackframelistviewitem.cpp,
+	core/libs/dimg/filters/hotpixels/blackframeparser.cpp,
+	core/libs/dimg/filters/hotpixels/blackframetooltip.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelfixer.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelprops.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelsettings.cpp,
+	core/libs/dimg/filters/hotpixels/hotpixelsweights.cpp: krazy++
+
+2021-03-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/greycstoration/greycstorationsettings.cpp: 
+	krazy++
+
+2021-03-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/fx/colorfxsettings.cpp: krazy++
+
+2021-03-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-03-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/decorate/bordercontainer.cpp,
+	core/libs/dimg/filters/decorate/bordersettings.cpp,
+	core/libs/dimg/filters/decorate/texturecontainer.cpp,
+	core/libs/dimg/filters/decorate/texturefilter.cpp,
+	core/libs/dimg/filters/decorate/texturesettings.cpp: krazy++
+
+2021-03-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/cb/cbsettings.cpp: krazy++
+
+2021-03-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/fileactionmanager/metadatahub.cpp,
+	core/utilities/extrasupport/filesindexer/baloowrap.cpp: write
+	hierarchical tags to Baloo BUGS: 433984 FIXED-IN: 7.2.0
+
+2021-03-05  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailcreator_engine.cpp: polish
+
+
+2021-03-05  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/bw/mixersettings.cpp: krazy++
+
+2021-03-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/solidhardwaredlg.cpp: compile
+
+2021-03-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/libsinfodlg.cpp,
+	core/libs/dialogs/solidhardwaredlg.cpp: krazy++
+
+2021-03-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailcreator.cpp: check
+	background image load state
+
+2021-03-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dimg/filters/redeye/redeyecorrectionfilter.cpp,
+	core/libs/threadimageio/thumb/thumbnailcreator.cpp: use
+	QLatin1String here
+
+2021-03-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailcreator.cpp: polish create
+	alpha image
+
+2021-03-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailcreator_engine.cpp: polish
+
+
+2021-03-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/threadimageio/thumb/thumbnailcreator.cpp,
+	core/libs/threadimageio/thumb/thumbnailcreator_engine.cpp,
+	core/libs/threadimageio/thumb/thumbnailcreator_p.h: add possibility
+	to load a background for the alpha thumbnails BUGS: 418274 FIXED-IN:
+	7.2.0
+
+2021-03-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailcreator_engine.cpp: fix
+	thumbnail background when the checkerboard is disabled
+
+2021-03-04  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailloadthread_p.h: only needed
+	includes
+
+2021-03-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/utils/widgets/dbmigrationdlg.cpp,
+	core/libs/database/utils/widgets/dbstatdlg.cpp,
+	core/libs/database/utils/widgets/searchtextbardb.cpp: krazy++
+
+2021-03-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/utils/scan/scancontroller.cpp: krazy++
+
+2021-03-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/models/itemfiltermodel.cpp: krazy++
+
+2021-03-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/collection/collectionmanager_p.cpp: krazy++
+
+2021-03-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/widgets/albumpropsedit.cpp,
+	core/libs/album/widgets/albumselectdialog.cpp,
+	core/libs/album/widgets/albumselectors.cpp,
+	core/libs/album/widgets/albumselecttabs.cpp,
+	core/libs/album/widgets/albumselectwidget.cpp: krazy++
+
+2021-03-04  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/treeview/abstractcheckablealbumtreeview.cpp,
+	core/libs/album/treeview/abstractcountingalbumtreeview.cpp,
+	core/libs/album/treeview/albumlabelssearchhandler.cpp,
+	core/libs/album/treeview/albumselectiontreeview.cpp,
+	core/libs/album/treeview/albumtreeview.cpp,
+	core/libs/album/treeview/datetreeview.cpp,
+	core/libs/album/treeview/labelstreeview.cpp,
+	core/libs/album/treeview/searchtreeview.cpp,
+	core/libs/album/treeview/tagtreeview.cpp: krazy++
+
+2021-03-04  l10n daemon script <scripty@kde.org>
+
+	* core/app/main/digikam.notifyrc,
+	core/dplugins/generic/tools/htmlgallery/themes/classic/classic.desk
+	top: SVN_SILENT made messages (.desktop file) - always resolve ours
+	In case of conflict in i18n, keep the version of the branch "ours"
+	To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2021-03-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: deps++
+
+2021-03-03  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/setup/metadata/setupmetadata.cpp: format i18n
+
+2021-03-03  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/dateframes/dateframe
+	s.desktop: SVN_SILENT made messages (.desktop file) - always resolve
+	ours  In case of conflict in i18n, keep the version of the branch
+	"ours" To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2021-03-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/setup/metadata/advancedmetadatatab.cpp,
+	core/utilities/setup/metadata/namespaceeditdlg.cpp,
+	core/utilities/setup/metadata/namespaceeditdlg.h,
+	core/utilities/setup/metadata/setupmetadata.cpp: krazy++
+
+2021-03-03  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/setup/editor/setupeditor.cpp,
+	core/utilities/setup/editor/setupeditoriface.cpp,
+	core/utilities/setup/editor/setupiofiles.cpp,
+	core/utilities/setup/editor/setupraw.cpp,
+	core/utilities/setup/editor/setupversioning.cpp: krazy++
+
+2021-03-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/scanner/itemscanner_baloo.cpp: use Baloo
+	comment
+
+2021-03-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/fileactionmanager/metadatahub.cpp,
+	core/utilities/extrasupport/filesindexer/baloowrap.cpp,
+	core/utilities/extrasupport/filesindexer/baloowrap.h: factoring
+	Baloo API CCBUGS: 433822
+
+2021-03-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/item/scanner/itemscanner_baloo.cpp: fix
+	sync rating value from Baloo BUGS: 433822 FIXED-IN: 7.2.0
+
+2021-03-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/fileactionmanager/metadatahub.cpp,
+	core/utilities/extrasupport/filesindexer/baloowrap.cpp,
+	core/utilities/extrasupport/filesindexer/baloowrap.h: cleanup Baloo
+	API and fix QString memory leak CCBUGS: 433822
+
+2021-03-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/data/database/dbconfig.xml.cmake.in,
+	core/libs/database/coredb/coredbschemaupdater.cpp: update database
+	to V12 due to the changes to the triggers CCBUGS: 433850
+
+2021-03-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/data/database/dbconfig.xml.cmake.in: fix TagsTree
+	trigger to delete tag  under MySQL BUGS: 433850 FIXED-IN: 7.2.0
+
+2021-03-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: deps++
+
+2021-03-02  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-03-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/setup/collections/setupcollectionview.cpp: krazy++
+
+
+2021-03-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/setup/camera/cameralist.cpp,
+	core/utilities/setup/camera/cameraselection.cpp,
+	core/utilities/setup/camera/cameratype.cpp,
+	core/utilities/setup/camera/importfilterdlg.cpp,
+	core/utilities/setup/camera/setupcamera.cpp: krazy++
+
+2021-03-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/setup/album/setupalbumview.cpp,
+	core/utilities/setup/album/setupcategory.cpp,
+	core/utilities/setup/album/setupmime.cpp: krazy++
+
+2021-03-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/setup/setup.cpp,
+	core/utilities/setup/setupdatabase.cpp,
+	core/utilities/setup/setupicc.cpp,
+	core/utilities/setup/setupmisc.cpp,
+	core/utilities/setup/setupplugins.cpp: krazy++
+
+2021-03-02  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/widgets/capturewidget.cpp,
+	core/utilities/import/widgets/dngconvertsettings.cpp,
+	core/utilities/import/widgets/freespacewidget.cpp,
+	core/utilities/import/widgets/renamecustomizer.cpp,
+	core/utilities/import/widgets/scriptingsettings.cpp: krazy++
+
+2021-03-01  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/dimg/heif/dimgheifloader_load.cpp: validate luma and
+	chroma bits in the HEIC loader Fixes #16
+
+2021-03-01  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/dateframes/dateframe
+	s.desktop: SVN_SILENT made messages (.desktop file) - always resolve
+	ours  In case of conflict in i18n, keep the version of the branch
+	"ours" To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2021-03-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/widgets/advancedsettings.cpp,
+	core/utilities/import/widgets/albumcustomizer.cpp,
+	core/utilities/import/widgets/dngconvertsettings.cpp,
+	core/utilities/import/widgets/freespacewidget.cpp,
+	core/utilities/import/widgets/importcontextmenu.cpp: krazy++
+
+2021-03-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/main/importui.cpp: krazy++
+
+2021-03-01  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2021-02-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/metadata/metadataedit/xmp/xmpcredits.cpp: 
+	polish
+
+2021-02-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS,
+	core/dplugins/generic/metadata/metadataedit/xmp/xmpcredits.cpp: 
+	rename byline to creator in the xmp edit BUGS: 433423 FIXED-IN:
+	7.2.0
+
+2021-02-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/backend/umscamera.cpp,
+	core/utilities/import/dialogs/camerafolderdialog.cpp,
+	core/utilities/import/dialogs/camerainfodialog.cpp,
+	core/utilities/import/dialogs/cameramessagebox.cpp,
+	core/utilities/import/dialogs/capturedlg.cpp,
+	core/utilities/import/dialogs/capturedlg.h,
+	core/utilities/import/views/importpreviewview.cpp,
+	core/utilities/import/views/importpreviewview.h: krazy++
+
+2021-02-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/import/backend/cameracontroller.cpp,
+	core/utilities/import/backend/cameracontroller.h,
+	core/utilities/import/backend/camerahistoryupdater.cpp,
+	core/utilities/import/backend/camerathumbsctrl.cpp,
+	core/utilities/import/backend/camerathumbsctrl.h,
+	core/utilities/import/backend/camiteminfo.cpp,
+	core/utilities/import/backend/camiteminfo.h,
+	core/utilities/import/backend/downloadsettings.h,
+	core/utilities/import/backend/gpcamera.cpp,
+	core/utilities/import/backend/umscamera.cpp: krazy++
+
+2021-02-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/searchwindow/searchfields.cpp: fix restore
+	operation box state
+
+2021-02-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/searchwindow/searchfields.cpp: polish
+
+2021-02-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/searchwindow/searchfields.cpp,
+	core/utilities/searchwindow/searchfields.h: add tag search in tree
+	to the advanced search
+
+2021-02-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp,
+	core/utilities/geolocation/geoiface/correlator/track_listmodel.cpp: 
+	krazy++
+
+2021-02-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/advancedrename/parser/options/dateoption.cpp: 
+	krazy++
+
+2021-02-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/advancedrename/advancedrenamedialog.cpp,
+	core/utilities/advancedrename/advancedrenameinput.cpp,
+	core/utilities/advancedrename/advancedrenameinput.h,
+	core/utilities/advancedrename/advancedrenameprocessdialog.cpp,
+	core/utilities/advancedrename/advancedrenamewidget.cpp: krazy++
+
+2021-02-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata.h,
+	core/libs/metadataengine/dmetadata/dmetadata_generic.cpp: factoring
+	fromExifOrXmpList() function
+
+2021-02-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/metadataengine/dmetadata/dmetadata_photo.cpp: add
+	missing ISO speed to the photo info container BUGS: 433727 FIXED-IN:
+	7.2.0
+
+2021-02-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_generic.cpp: add
+	PanasonicRaw.ISOSpeed info CCBUGS: 433727
+
+2021-02-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata_generic.cpp: fix
+	compile
+
+2021-02-28  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/dmetadata/dmetadata.h,
+	core/libs/metadataengine/dmetadata/dmetadata_generic.cpp,
+	core/libs/metadataengine/dmetadata/dmetadata_photo.cpp: first step
+	to expand DMetadata API to read more Exif tags CCBUGS: 433727
+
+2021-02-28  Yuri Chornoivan <yurchor@ukr.net>
+
+	* core/dplugins/generic/view/glviewer/glviewerplugin.cpp: Fix minor
+	typo
+
+2021-02-28  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/dateframes/dateframe
+	s.desktop: SVN_SILENT made messages (.desktop file) - always resolve
+	ours  In case of conflict in i18n, keep the version of the branch
+	"ours" To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2021-02-28  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/editor/editorwindow.cpp: krazy++
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/utilities/imageeditor/dialogs/versioningpromptusersavedlg.cpp,
+	core/utilities/imageeditor/editor/editorwindow.cpp: krazy++
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/assignnamewidget.cpp,
+	core/utilities/facemanagement/widgets/assignnamewidget_p.cpp,
+	core/utilities/facemanagement/widgets/facemanagementhelpdlg.cpp,
+	core/utilities/facemanagement/widgets/facescanwidget.cpp: krazy++
+
+2021-02-27  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/views/stack/stackedview.cpp,
+	core/utilities/geolocation/geoiface/widgets/mapwidget.cpp,
+	core/utilities/import/views/importstackedview.cpp: always start with
+	the Marble maps backend The geolocation editor is excluded from
+	this.
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/fuzzysearch/findduplicatesview.cpp,
+	core/utilities/fuzzysearch/fuzzysearchview.cpp: krazy++
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/lighttable/lighttablewindow_setup.cpp: krazy++
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/searchwindow/searchfields.cpp,
+	core/utilities/searchwindow/searchtabheader.cpp: krazy++
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/queuemanager/main/queuemgrwindow.cpp,
+	core/utilities/queuemanager/manager/batchtool.cpp: krazy++
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/queuemanager/views/queuelist.cpp,
+	core/utilities/queuemanager/views/queuesettingsview.cpp,
+	core/utilities/queuemanager/views/toolsettingsview.cpp,
+	core/utilities/queuemanager/views/toolslistview.cpp,
+	core/utilities/queuemanager/views/toolsview.cpp,
+	core/utilities/queuemanager/views/workflowdlg.cpp,
+	core/utilities/queuemanager/views/workflowlist.cpp: krazy++
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: Missing marble data to
+	render maps
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/clazy.sh, project/reports/krazy.sh,
+	project/scripts/bootstrap-clazy.sh: Check Clazy binary dependency
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/bootstrap-clazy.sh: install clazy in /opt
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: Another deps for Clazy
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: missing llvm deps for Clazy
+	static analyzer
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/main/imagewindow.cpp: krazy++
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/dialogs/colorcorrectiondlg.cpp,
+	core/utilities/imageeditor/dialogs/softproofdialog.cpp,
+	core/utilities/imageeditor/dialogs/versioningpromptusersavedlg.cpp: 
+	krazy++
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/editor/editortoolsettings.cpp: krazy++
+
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/core/undoaction.cpp: krazy++
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/setup/showfotosetup.cpp: krazy++
+
+2021-02-27  Yuri Chornoivan <yurchor@ukr.net>
+
+	* core/dplugins/generic/view/glviewer/glviewerplugin.cpp: Fix minor
+	typo
+
+2021-02-27  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/view/glviewer/glviewerplugin.cpp,
+	core/dplugins/generic/view/glviewer/glviewerwidget.cpp,
+	core/dplugins/generic/view/slideshow/CMakeLists.txt,
+	core/dplugins/generic/view/slideshow/slideshowplugin.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slidehelp.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slidehelp.h,
+	core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp: 
+	Glviewer use same Qt tag syntax to show help contents than Slideshow
+	tool. Slideshoow tool; use plugin about dialog to show help contents
+	krazy++
+
+2021-02-27  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/dateframes/dateframe
+	s.desktop: SVN_SILENT made messages (.desktop file) - always resolve
+	ours  In case of conflict in i18n, keep the version of the branch
+	"ours" To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2021-02-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/searchwindow/searchfields.cpp: enable/disable day
+	box
+
+2021-02-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/query/itemquerybuilder.cpp: polish
+
+2021-02-26  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/item/query/itemquerybuilder.cpp,
+	core/libs/database/item/query/itemquerybuilder_p.h,
+	core/utilities/searchwindow/searchfields.cpp,
+	core/utilities/searchwindow/searchfields.h,
+	core/utilities/searchwindow/searchgroup.cpp: add search for a
+	specific month or day of the month BUGS: 431748 BUGS: 433573
+	FIXED-IN: 7.2.0
+
+2021-02-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2021-02-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/view/slideshow/widgets/slidehelp.cpp: 
+	krazy++
+
+2021-02-26  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/view/glviewer/CMakeLists.txt,
+	core/dplugins/generic/view/glviewer/glviewerhelpdlg.cpp,
+	core/dplugins/generic/view/glviewer/glviewerhelpdlg.h,
+	core/dplugins/generic/view/glviewer/glviewerplugin.cpp,
+	core/dplugins/generic/view/glviewer/glviewerwidget.cpp: Use DPlugin
+	about dialog to show help information for end users instead a
+	dedicated help dialog with complex html contents difficult to
+	translate.
+
+2021-02-26  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/dateframes/dateframe
+	s.desktop: SVN_SILENT made messages (.desktop file) - always resolve
+	ours  In case of conflict in i18n, keep the version of the branch
+	"ours" To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2021-02-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/core/undoaction.cpp,
+	core/utilities/imageeditor/editor/editortoolsettings.cpp,
+	core/utilities/imageeditor/editor/editorwindow.cpp: krazy++
+
+2021-02-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/showfoto/setup/showfotosetup.cpp,
+	core/showfoto/setup/showfotosetupplugins.cpp,
+	core/showfoto/thumbbar/showfotodragdrophandler.cpp,
+	core/showfoto/thumbbar/showfotodragdrophandler.h: krazy++
+
+2021-02-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/widgets/facemanagementhelpdlg.cpp: 
+	krazy++
+
+2021-02-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/widgets/metadata/metadatawidget.cpp,
+	core/libs/widgets/metadata/metadatawidget.h: krazy++
+
+2021-02-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/captions/itemdescedittab.cpp,
+	core/libs/properties/captions/itemdescedittab.h: krazy++
+
+2021-02-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/calendar/wizard/calintropage.cpp: 
+	krazy++
+
+2021-02-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/facebook/fbplugin.h,
+	core/dplugins/generic/webservices/facebook/fbwindow.cpp,
+	core/dplugins/generic/webservices/facebook/fbwindow.h: krazy++
+
+2021-02-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.
+	cpp: krazy++
+
+2021-02-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_photo
+	postjob.cpp,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_photo
+	postjob.h: krazy++
+
+2021-02-25  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_jobs.
+	cpp,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_jobs.
+	h: krazy++
+
+2021-02-25  l10n daemon script <scripty@kde.org>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/dateframes/dateframe
+	s.desktop: SVN_SILENT made messages (.desktop file) - always resolve
+	ours  In case of conflict in i18n, keep the version of the branch
+	"ours" To resolve a particular conflict, "git checkout --ours
+	path/to/file.desktop"
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/filetransfer/ftexportwidget.cpp: 
+	compile
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/filetransfer/ftexportwidget.cpp,
+	core/dplugins/generic/webservices/filetransfer/ftexportwidget.h: 
+	krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/imgur/imgurwindow.cpp,
+	core/dplugins/generic/webservices/imgur/imgurwindow.h: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/piwigo/piwigotalker.cpp: krazy++
+
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/advancedrename/parser/options/dateoption.h,
+	core/utilities/advancedrename/parser/options/metadataoption.h,
+	core/utilities/advancedrename/parser/options/sequencenumberoption.h: 
+	krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/utilities/advancedrename/parser/options/database/databaseoptio
+	n.h: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/mediawiki/querysiteinfousergroupstest.cpp: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/main.cpp: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/searchwindow/searchgroup.cpp,
+	core/utilities/searchwindow/searchgroup.h: krazy++
+
+2021-02-24  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threads/actionthreadbase.cpp: polish
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/imageeditor/core/undocache.cpp,
+	core/utilities/imageeditor/core/undocache.h: krazy++
+
+2021-02-24  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/threads/actionthreadbase.cpp: fix theoretical memory
+	leak in ActionThreadBase The todo jobs were not deleted if the
+	thread was canceled.
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/expoblending/manager/alignbinary.h,
+	core/dplugins/generic/tools/expoblending/manager/enfusebinary.h,
+	core/dplugins/generic/view/glviewer/glviewertexture.cpp,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_query
+	imageinfo.h,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_query
+	revision.h, core/libs/album/widgets/albumpropsedit.h,
+	core/libs/database/coredb/coredbbackend.h,
+	core/libs/database/similaritydb/similaritydbbackend.h,
+	core/libs/database/thumbsdb/thumbsdbbackend.h,
+	core/libs/facesengine/facedb/facedbbackend.h,
+	core/libs/facesengine/recognition/opencv-dnn/opencvdnnfacerecognize
+	r_p.h, core/libs/properties/captions/disjointmetadata.h,
+	core/utilities/advancedrename/common/ruledialog.h,
+	core/utilities/advancedrename/parser/modifiers/casemodifier.h,
+	core/utilities/advancedrename/parser/modifiers/defaultvaluemodifier
+	.h, core/utilities/advancedrename/parser/modifiers/rangemodifier.h,
+	core/utilities/advancedrename/parser/modifiers/removedoublesmodifie
+	r.h,
+	core/utilities/advancedrename/parser/modifiers/replacemodifier.h,
+	core/utilities/advancedrename/parser/modifiers/trimmedmodifier.h,
+	core/utilities/advancedrename/parser/modifiers/uniquemodifier.h,
+	core/utilities/advancedrename/parser/options/database/databaseoptio
+	n.h, core/utilities/advancedrename/parser/options/dateoption.h,
+	core/utilities/advancedrename/parser/options/metadataoption.h,
+	core/utilities/advancedrename/parser/options/sequencenumberoption.h
+	, core/utilities/facemanagement/threads/facepipeline.h,
+	core/utilities/geolocation/geoiface/core/geoifacecommon.h,
+	core/utilities/geolocation/geoiface/dragdrop/mapdragdrophandler.h,
+	core/utilities/imageeditor/widgets/imagepreviewitem.h,
+	core/utilities/import/backend/gpcamera.h,
+	core/utilities/import/backend/umscamera.h,
+	core/utilities/import/main/importsettings.h,
+	core/utilities/queuemanager/manager/batchtoolsfactory.h,
+	core/utilities/queuemanager/views/workflowdlg.h: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_photo
+	job.h: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/geolocation/itemgpsmodelhelper.cpp,
+	core/libs/properties/geolocation/itemgpsmodelhelper.h,
+	core/libs/properties/geolocation/itempropertiesgpstab.cpp,
+	core/libs/properties/geolocation/itempropertiesgpstab.h: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/mediawiki/queryimageinfotest.cpp: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/calendar/ui/calevents.ui: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/mediawiki/querysiteinfousergroupstest.cpp: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: prevent divide by
+	zero
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/utilities/geolocation/geoiface/backends/backend-geonames-rg.cp
+	p,
+	core/utilities/geolocation/geoiface/backends/backend-geonames-rg.h,
+	core/utilities/geolocation/geoiface/backends/backend-geonamesUS-rg.
+	cpp,
+	core/utilities/geolocation/geoiface/backends/backend-geonamesUS-rg.
+	h, core/utilities/geolocation/geoiface/backends/backend-osm-rg.cpp,
+	core/utilities/geolocation/geoiface/backends/backend-osm-rg.h,
+	core/utilities/geolocation/geoiface/backends/backendgooglemaps.cpp,
+	core/utilities/geolocation/geoiface/backends/backendgooglemaps.h,
+	core/utilities/geolocation/geoiface/backends/backendmarble.cpp,
+	core/utilities/geolocation/geoiface/backends/backendmarble.h,
+	core/utilities/geolocation/geoiface/backends/backendmarblelayer.h,
+	core/utilities/geolocation/geoiface/backends/mapbackend.cpp,
+	core/utilities/geolocation/geoiface/backends/mapbackend.h: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/views/sidebar/sidebarwidget.h,
+	core/app/views/stack/mapwidgetview.cpp,
+	core/dplugins/editor/enhance/healingclone/healingclonetool.h,
+	core/dplugins/generic/webservices/filecopy/fcexportwindow.h,
+	core/dplugins/generic/webservices/filetransfer/ftexportwindow.h,
+	core/dplugins/generic/webservices/filetransfer/ftimportwindow.h,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_query
+	imageinfo.h,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_query
+	revision.h,
+	core/dplugins/generic/webservices/mediawiki/backend/mediawiki_userg
+	roup.h,
+	core/dplugins/generic/webservices/vkontakte/vknewalbumdlg.h,
+	core/libs/album/engine/album.h,
+	core/libs/album/engine/albummodificationhelper.h,
+	core/libs/album/manager/albummanager.h,
+	core/libs/album/treeview/abstractalbumtreeview.h,
+	core/libs/album/treeview/albumselectiontreeview.h,
+	core/libs/album/widgets/albumselectwidget.h,
+	core/libs/database/item/lister/itemlister.h,
+	core/libs/dialogs/dconfigdlgwidgets.h,
+	core/libs/dialogs/filesaveoptionsdlg.h,
+	core/libs/dimg/filters/curves/curveswidget.h,
+	core/libs/dimg/filters/levels/histogrampainter.h,
+	core/libs/models/albumfiltermodel.h, core/libs/models/albummodel.h,
+	core/libs/tags/engine/tagmodificationhelper.h,
+	core/libs/tags/widgets/tagfolderview.h,
+	core/libs/widgets/combo/squeezedcombobox.h,
+	core/libs/widgets/files/filesaveoptionsbox.h,
+	core/libs/widgets/layout/statesavingobject.h,
+	core/libs/widgets/mainview/thememanager_p.cpp,
+	core/utilities/advancedrename/common/rule.h,
+	core/utilities/geolocation/geoiface/backends/backend-geonames-rg.cp
+	p, core/utilities/geolocation/geoiface/core/geomodelhelper.cpp,
+	core/utilities/geolocation/geomapwrapper/gpsiteminfo.cpp,
+	core/utilities/geolocation/geomapwrapper/gpsiteminfosorter.cpp,
+	core/utilities/geolocation/geomapwrapper/gpsiteminfosorter.h,
+	core/utilities/geolocation/mapsearches/gpsmarkertiler.cpp,
+	core/utilities/geolocation/mapsearches/gpsmarkertiler.h,
+	core/utilities/geolocation/mapsearches/gpssearchview.cpp,
+	core/utilities/geolocation/mapsearches/gpssearchview.h,
+	core/utilities/imageeditor/editor/editorwindow.h,
+	core/utilities/searchwindow/searchmodificationhelper.h: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/enhance/noisereduction/noisereduction.cpp,
+	core/dplugins/bqm/enhance/noisereduction/noisereduction.h,
+	core/dplugins/bqm/enhance/noisereduction/noisereductionplugin.cpp,
+	core/dplugins/bqm/enhance/noisereduction/noisereductionplugin.h: 
+	krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/filters/filtersidebarwidget.h,
+	core/app/filters/tagfilterview.h: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/editor/file/print/printoptionspage.ui: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/tools/htmlgallery/themes/dateframes/dateframe
+	s.desktop, project/reports/krazy.sh: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/expoblending/manager/alignbinary.h,
+	core/dplugins/generic/tools/expoblending/manager/enfusebinary.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_jobs.
+	h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_photo
+	job.h: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/facemanagement/threads/facepipeline.h,
+	core/utilities/geolocation/geoiface/core/geoifacecommon.h,
+	core/utilities/geolocation/geoiface/dragdrop/mapdragdrophandler.h,
+	core/utilities/imageeditor/widgets/imagepreviewitem.h,
+	core/utilities/import/backend/gpcamera.h,
+	core/utilities/import/backend/umscamera.h,
+	core/utilities/import/main/importsettings.h: krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/advancedrename/common/ruledialog.h,
+	core/utilities/advancedrename/parser/modifiers/casemodifier.h,
+	core/utilities/advancedrename/parser/modifiers/defaultvaluemodifier
+	.h, core/utilities/advancedrename/parser/modifiers/rangemodifier.h,
+	core/utilities/advancedrename/parser/modifiers/removedoublesmodifie
+	r.h,
+	core/utilities/advancedrename/parser/modifiers/replacemodifier.h,
+	core/utilities/advancedrename/parser/modifiers/trimmedmodifier.h,
+	core/utilities/advancedrename/parser/modifiers/uniquemodifier.h,
+	core/utilities/advancedrename/parser/options/database/databaseoptio
+	n.h, core/utilities/advancedrename/parser/options/dateoption.h,
+	core/utilities/advancedrename/parser/options/metadataoption.h,
+	core/utilities/advancedrename/parser/options/sequencenumberoption.h: 
+	krazy++
+
+2021-02-24  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/utilities/queuemanager/manager/batchtoolsfactory.h,
+	core/utilities/queuemanager/views/workflowdlg.h: krazy++
+
+2021-02-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/mediawiki/queryimageinfotest.cpp: cppcheck ++
+
+2021-02-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/data/database/dbconfig.xml.cmake.in,
+	core/libs/database/coredb/coredb.cpp,
+	core/libs/database/item/query/itemquerybuilder.cpp: use upper case
+	for SQL keywords
+
+2021-02-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/dimg/tiff/dimgtiffloader.h,
+	core/dplugins/editor/transform/ratiocrop/ratiocropwidget.h: krazy++
+
+
+2021-02-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/facebook/fbtalker_wizard.cpp,
+	core/dplugins/generic/webservices/facebook/fbwindow.cpp,
+	core/dplugins/generic/webservices/google/gphoto/gptalker.cpp,
+	core/dplugins/generic/webservices/smugmug/smugtalker.cpp,
+	core/dplugins/generic/webservices/smugmug/smugwindow.cpp,
+	core/dplugins/generic/webservices/twitter/twittertalker.cpp,
+	core/dplugins/generic/webservices/yandexfotki/yftalker.cpp,
+	core/libs/widgets/mainview/daboutdata.cpp,
+	core/libs/widgets/metadata/altlangstredit.cpp,
+	core/libs/widgets/metadata/countryselector.cpp,
+	core/libs/widgets/metadata/subjectwidget.cpp,
+	core/tests/facesengine/recognition/recognize.cpp,
+	core/tests/mediawiki/edittest.cpp,
+	core/tests/mediawiki/fakeserver/fakeserver.cpp,
+	core/tests/mediawiki/logintest.cpp,
+	core/tests/mediawiki/logouttest.cpp,
+	core/tests/mediawiki/mediawikitest.cpp,
+	core/tests/mediawiki/parsetest.cpp,
+	core/tests/mediawiki/queryimageinfotest.cpp,
+	core/tests/mediawiki/queryimagestest.cpp,
+	core/tests/mediawiki/queryinfotest.cpp,
+	core/tests/mediawiki/queryrevisiontest.cpp,
+	core/tests/mediawiki/querysiteinfogeneraltest.cpp,
+	core/tests/mediawiki/querysiteinfousergroupstest.cpp,
+	core/tests/mediawiki/uploadtest.cpp,
+	core/utilities/advancedrename/parser/options/dateoption.cpp,
+	core/utilities/extrasupport/addressbook/akonadiiface.cpp,
+	core/utilities/geolocation/geoiface/backends/backend-geonames-rg.cp
+	p,
+	core/utilities/geolocation/geoiface/backends/backend-geonamesUS-rg.
+	cpp,
+	core/utilities/geolocation/geoiface/backends/backendgooglemaps.cpp,
+	core/utilities/geolocation/geoiface/core/geocoordinates.cpp,
+	core/utilities/geolocation/geoiface/core/gpscommon.cpp,
+	core/utilities/geolocation/geoiface/lookup/lookupaltitudegeonames.c
+	pp, core/utilities/geolocation/geoiface/tracks/trackreader.cpp,
+	core/utilities/import/backend/gpcamera.cpp,
+	core/utilities/setup/camera/cameraselection.cpp,
+	core/utilities/setup/camera/setupcamera.cpp,
+	core/utilities/setup/metadata/setupmetadata.cpp,
+	core/utilities/setup/setupicc.cpp: krazy++
+
+2021-02-23  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/enhance/restoration/restoration.cpp,
+	core/dplugins/dimg/png/dimgpngloader_load.cpp,
+	core/dplugins/dimg/tiff/dimgtiffloader_load.cpp,
+	core/dplugins/dimg/tiff/dimgtiffloader_save.cpp,
+	core/dplugins/editor/enhance/restoration/restorationtool.cpp,
+	core/dplugins/editor/transform/resize/resizetool.cpp,
+	core/dplugins/generic/metadata/geolocationedit/kmlexport/geodatapar
+	ser.cpp,
+	core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.
+	cpp,
+	core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.
+	cpp,
+	core/dplugins/generic/metadata/geolocationedit/searches/searchbacke
+	nd.cpp, core/dplugins/generic/tools/calendar/print/calsystem.cpp,
+	core/dplugins/generic/tools/expoblending/manager/alignbinary.cpp,
+	core/dplugins/generic/tools/expoblending/manager/expoblendingthread
+	.cpp,
+	core/dplugins/generic/tools/panorama/panoparser/ptoparser/ptofile.c
+	pp,
+	core/dplugins/generic/tools/panorama/panoparser/ptotype/ptotype.cpp
+	, core/dplugins/generic/tools/panorama/tasks/copyfilestask.cpp,
+	core/dplugins/generic/tools/panorama/tools/autooptimiserbinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/cpcleanbinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/enblendbinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/huginexecutorbinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/makebinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/nonabinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/panomodifybinary.cpp,
+	core/dplugins/generic/tools/panorama/tools/pto2mkbinary.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panointropage.cpp,
+	core/dplugins/generic/tools/panorama/wizard/panolastpage.cpp,
+	core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp,
+	core/dplugins/generic/view/glviewer/glviewerhelpdlg.cpp,
+	core/dplugins/rawimport/ufraw/rawimportufrawplugin.cpp,
+	core/libs/database/item/query/fieldquerybuilder.cpp,
+	core/libs/database/utils/widgets/dbsettingswidget.cpp,
+	core/libs/dimg/color/dcolor.cpp,
+	core/libs/dimg/filters/bw/infraredfilter.cpp,
+	core/libs/dimg/filters/decorate/texturefilter.cpp,
+	core/libs/dimg/filters/fx/colorfxfilter.cpp,
+	core/libs/dimg/filters/fx/filmgrainfilter.cpp,
+	core/libs/dimg/filters/lc/localcontrastcontainer.cpp,
+	core/libs/dimg/filters/lc/localcontrastfilter.cpp,
+	core/libs/dimg/filters/lc/localcontrastsettings.cpp,
+	core/libs/dimg/filters/lens/lensfunsettings.cpp,
+	core/libs/dimg/filters/nr/nrestimate.cpp,
+	core/libs/dimg/filters/wb/wbfilter.cpp,
+	core/libs/dngwriter/dngwriter.cpp,
+	core/libs/facesengine/preprocessing/shape-predictor/shapepredictor.
+	cpp, core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp,
+	core/libs/metadataengine/dmetadata/geodetictools.cpp,
+	core/libs/metadataengine/engine/metaengine.cpp,
+	core/libs/properties/geolocation/itempropertiesgpstab.cpp,
+	core/libs/properties/itempropertiestab.cpp,
+	core/libs/rawengine/drawdecoder_p.cpp,
+	core/libs/rawengine/drawdecoderwidget.cpp,
+	core/libs/rawengine/drawfiles.cpp: krazy++
+
+2021-02-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/query/itemquerybuilder.cpp: polish
+
+2021-02-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/item/query/itemquerybuilder.cpp,
+	core/utilities/searchwindow/searchfields.cpp: add empty search for
+	creator and headline BUGS: 424051 FIXED-IN: 7.2.0
+
+2021-02-23  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/query/itemquerybuilder.cpp: optimize sql
+	search query CCBUGS: 424051
+
+2021-02-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/query/itemquerybuilder.cpp,
+	core/utilities/searchwindow/searchfields.cpp,
+	core/utilities/searchwindow/searchgroup.cpp: add search for empty
+	text in comment, title and author CCBUGS: 424051
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dimg/filters/lc/localcontrastcontainer.h,
+	core/libs/dimg/filters/lc/localcontrastfilter.h,
+	core/libs/dimg/filters/lc/localcontrastsettings.h,
+	core/utilities/geolocation/geoiface/items/gpsitemsortproxymodel.h: 
+	krazy++
+
+2021-02-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/glviewer/glviewertexture.cpp: polish
+	GLViewerTexture
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/webservices/flickr/flickrlist.cpp,
+	core/dplugins/generic/webservices/flickr/flickrwidget.cpp,
+	core/dplugins/generic/webservices/imageshack/imageshacktalker.cpp,
+	core/dplugins/generic/webservices/imgur/imgurtalker.cpp,
+	core/dplugins/generic/webservices/piwigo/piwigowindow.cpp,
+	core/dplugins/generic/webservices/vkontakte/backend/attic/vkontakte
+	_friendlistjob.cpp,
+	core/dplugins/generic/webservices/vkontakte/backend/attic/vkontakte
+	_notejob.cpp,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_getap
+	plicationpermissionsjob.cpp,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_jobs.
+	cpp,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_photo
+	listjob.cpp,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_photo
+	postjob.cpp,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_useri
+	nfojob.cpp,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_util.
+	cpp, core/dplugins/generic/webservices/vkontakte/vkauthwidget.cpp,
+	core/dplugins/generic/webservices/yandexfotki/yfauth/yfrsa.cpp,
+	core/dplugins/generic/webservices/yandexfotki/yftalker.cpp: krazy++
+
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/main/digikamapp_import.cpp,
+	core/dplugins/dimg/pgf/dimgpgfloader.h,
+	core/dplugins/dimg/tiff/dimgtiffloader.h,
+	core/dplugins/editor/transform/ratiocrop/ratiocropwidget.h,
+	core/dplugins/generic/metadata/geolocationedit/kmlexport/geodatacon
+	tainer.h,
+	core/dplugins/generic/metadata/geolocationedit/kmlexport/geodatapar
+	ser.h,
+	core/dplugins/generic/tools/panorama/panoparser/ptoparser/ptofile.h
+	,
+	core/dplugins/generic/tools/panorama/panoparser/ptotype/ptotype.h,
+	core/dplugins/generic/tools/panorama/tools/cpfindbinary.h,
+	core/dplugins/generic/tools/printcreator/tools/atkinspagelayout.h,
+	core/dplugins/generic/tools/printcreator/tools/atkinspagelayoutnode
+	.h,
+	core/dplugins/generic/tools/printcreator/tools/atkinspagelayouttree
+	.h, core/dplugins/generic/webservices/unified/manager/wstalker.h,
+	core/dplugins/generic/webservices/unified/wizard/wsauthenticationpa
+	ge.h,
+	core/dplugins/generic/webservices/vkontakte/backend/attic/vkontakte
+	_groupinfo.h,
+	core/dplugins/generic/webservices/vkontakte/backend/attic/vkontakte
+	_noteinfo.h,
+	core/dplugins/generic/webservices/vkontakte/backend/deprecated/vkon
+	takte_getvariablejob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/deprecated/vkon
+	takte_grouplistjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_album
+	info.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_album
+	listjob.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_jobs.
+	h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_photo
+	info.h,
+	core/dplugins/generic/webservices/vkontakte/backend/vkontakte_useri
+	nfo.h,
+	core/dplugins/generic/webservices/yandexfotki/yfauth/yfauth.h,
+	core/dplugins/generic/webservices/yandexfotki/yfauth/yfrsa.h,
+	core/libs/facesengine/preprocessing/shape-predictor/shapepredictor.
+	h, core/libs/jpegutils/iccjpeg.h,
+	core/libs/metadataengine/engine/metaengine.h,
+	core/libs/metadataengine/engine/metaengine_p.h,
+	core/libs/rawengine/drawdecodersettings.h,
+	core/libs/rawengine/libraw/internal/defines.h: krazy++
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/utils/digikam_version.cpp: krazy++
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* .krazy, project/reports/krazy.sh: Fix krazy analysis which pass
+	now with last version of static analyzer from github/master
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/widgets/albumpropsedit.h,
+	core/libs/database/coredb/coredbbackend.h,
+	core/libs/database/similaritydb/similaritydbbackend.h,
+	core/libs/database/thumbsdb/thumbsdbbackend.h,
+	core/libs/facesengine/facedb/facedbbackend.h,
+	core/libs/properties/captions/disjointmetadata.h: It's better to use
+	delete property instead private:explicit constructor
+
+2021-02-22  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/dbjobs/dbjob.cpp: enable date albums from
+	offline collections BUGS: 433331 FIXED-IN: 7.2.0
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/properties/captions/disjointmetadata.h: krazy++
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/similaritydb/similaritydbbackend.h: krazy++
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/thumbsdb/thumbsdbbackend.h: krazy++
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/database/coredb/coredbbackend.h: krazy++
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/facesengine/facedb/facedbbackend.h: krazy++
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/album/widgets/albumpropsedit.h: krazy++
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/calendar/calendarplugin.cpp,
+	core/dplugins/generic/tools/calendar/ui/calevents.ui: krazy++
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondwnl.cpp: krazy++
+
+2021-02-22  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondwnl.cpp: krazy++
+
+2021-02-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/mediawiki/queryimageinfotest.cpp,
+	core/tests/mediawiki/queryimagestest.cpp,
+	core/tests/mediawiki/queryinfotest.cpp,
+	core/tests/mediawiki/queryrevisiontest.cpp: krazy++
+
+2021-02-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* .krazy, project/reports/krazy.sh: polish
+
+2021-02-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/dragdrop/ddragobjects.cpp,
+	core/app/dragdrop/ddragobjects.h,
+	core/libs/widgets/mainview/daboutdata.h: krazy++
+
+2021-02-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp: 
+	delay variable is integer from  the slideshow settings
+
+2021-02-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/krazy.sh, project/scripts/installdeps-mageia.sh: 
+	krazy dependency
+
+2021-02-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/view/presentation/opengl/presentationgl.cpp,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	cpp: fix blank cursor when pause
+
+2021-02-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/view/presentation/opengl/presentationgl.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationgl.h,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	cpp,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	h: fix hide/show state of the overlays
+
+2021-02-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/slideshow/widgets/slideosd.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slideosd.h,
+	core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slidetoolbar.h: 
+	factoring set delay in slide show
+
+2021-02-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/view/presentation/opengl/presentationgl.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationgl.h,
+	core/dplugins/generic/view/presentation/widgets/presentationctrlwid
+	get.cpp,
+	core/dplugins/generic/view/presentation/widgets/presentationctrlwid
+	get.h,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	cpp,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	h: factoring set delay in presentation
+
+2021-02-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: add deps for MXE build
+
+2021-02-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: add deps for MXE build
+
+2021-02-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: enable extra RPMs repos
+	tainted release and updates
+
+2021-02-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/view/presentation/opengl/presentationgl.cpp,
+	core/dplugins/generic/view/presentation/widgets/presentationctrlwid
+	get.cpp,
+	core/dplugins/generic/view/presentation/widgets/presentationctrlwid
+	get.h,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	cpp: fix milliseconds input and use last value
+
+2021-02-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: add last dependencies for
+	Windows and run-time
+
+2021-02-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	*
+	core/dplugins/generic/view/presentation/widgets/presentationctrlwid
+	get.cpp: delay changes also for presentation
+
+2021-02-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp: set
+	the current delay value in the dialog
+
+2021-02-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp: 
+	pause during the dialogue and check for ok
+
+2021-02-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp: set
+	correct range for delay
+
+2021-02-21  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp: 
+	polish and use another icon for delay button
+
+2021-02-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: add dependencies to build
+	documentation
+
+2021-02-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: more dependencies for
+	static analyzers
+
+2021-02-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS,
+	core/dplugins/generic/view/presentation/dialogs/presentation_mainpa
+	ge.cpp,
+	core/dplugins/generic/view/presentation/dialogs/presentation_mainpa
+	ge.h,
+	core/dplugins/generic/view/presentation/opengl/presentationgl.cpp,
+	core/dplugins/generic/view/presentation/opengl/presentationgl.h,
+	core/dplugins/generic/view/presentation/presentationplugin.cpp,
+	core/dplugins/generic/view/presentation/presentationplugin.h,
+	core/dplugins/generic/view/presentation/widgets/presentationctrlwid
+	get.cpp,
+	core/dplugins/generic/view/presentation/widgets/presentationctrlwid
+	get.h,
+	core/dplugins/generic/view/presentation/widgets/presentationctrlwid
+	get.ui,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	cpp,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	h, core/dplugins/generic/view/slideshow/CMakeLists.txt,
+	core/dplugins/generic/view/slideshow/common/slideshowloader.cpp,
+	core/dplugins/generic/view/slideshow/common/slideshowloader.h,
+	core/dplugins/generic/view/slideshow/common/slideshowsettings.cpp,
+	core/dplugins/generic/view/slideshow/common/slideshowsettings.h,
+	core/dplugins/generic/view/slideshow/dialogs/setupslideshow_dialog.
+	cpp, core/dplugins/generic/view/slideshow/slideshowplugin.cpp,
+	core/dplugins/generic/view/slideshow/slideshowplugin.h,
+	core/dplugins/generic/view/slideshow/widgets/slideerror.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slidehelp.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slideimage.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slideosd.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slideosd.h,
+	core/dplugins/generic/view/slideshow/widgets/slideproperties.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp,
+	core/dplugins/generic/view/slideshow/widgets/slidetoolbar.h: Apply
+	patch #119088 from Phuoc Khanh Le to allow to change Presentation
+	and SlideShow tools delay on the fly. BUGS: 183103 FIXED-IN: 7.2.0
+
+2021-02-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/panorama/wizard/panowizard.cpp,
+	core/dplugins/generic/tools/wallpaper/wallpaperplugin_dbus.cpp,
+	core/libs/dimg/filters/nr/nrestimate.cpp,
+	core/libs/onlineversion/onlineversionchecker.h: krazy++
+
+2021-02-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/metadata/timeadjust/timeadjustdialog.cpp,
+	core/dplugins/generic/metadata/timeadjust/timeadjustdialog.h,
+	core/dplugins/generic/metadata/timeadjust/timeadjustlist.cpp,
+	core/dplugins/generic/metadata/timeadjust/timeadjustlist.h,
+	core/dplugins/generic/metadata/timeadjust/timeadjusttask.h,
+	core/dplugins/generic/metadata/timeadjust/timeadjustthread.cpp,
+	core/dplugins/generic/metadata/timeadjust/timeadjustthread.h,
+	core/dplugins/generic/tools/calendar/print/calpainter.cpp,
+	core/dplugins/generic/tools/calendar/print/calpainter.h,
+	core/dplugins/generic/tools/calendar/print/calprinter.cpp,
+	core/dplugins/generic/tools/calendar/print/calprinter.h,
+	core/dplugins/generic/tools/calendar/print/calsettings.cpp,
+	core/dplugins/generic/tools/calendar/print/calsettings.h,
+	core/dplugins/generic/webservices/filecopy/fctask.h,
+	core/dplugins/generic/webservices/filecopy/fcthread.cpp,
+	core/dplugins/generic/webservices/filecopy/fcthread.h,
+	core/libs/database/tags/facetags.h,
+	core/libs/database/tags/facetagseditor.h,
+	core/libs/database/tags/facetagsiface.cpp,
+	core/libs/database/tags/facetagsiface.h,
+	core/libs/dplugins/setup/dpluginsetup.cpp,
+	core/libs/dplugins/setup/dpluginsetup.h,
+	core/libs/heifutils/libde265/util.h,
+	core/showfoto/setup/showfotosetupplugins.cpp,
+	core/utilities/setup/setupplugins.h: krazy++
+
+2021-02-21  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/app/utils/digikam_version.cpp,
+	core/app/utils/digikam_version.h.cmake.in,
+	core/libs/onlineversion/onlineversiondlg.cpp,
+	core/utilities/queuemanager/main/queuemgrwindow_p.h,
+	core/utilities/setup/setupmisc.cpp: krazy++
+
+2021-02-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/database/databasefieldstest.h,
+	core/tests/dimg/dimgfilteractiontest.h,
+	core/tests/dimg/dimghistorygraphtest.h,
+	core/tests/dimg/dimghistorytest.h,
+	core/tests/fileio/statesavingobjecttest.h,
+	core/tests/geolocation/editor/test_correlator.cpp,
+	core/tests/geolocation/editor/test_correlator.h,
+	core/tests/geolocation/editor/test_gpsimageitem.h,
+	core/tests/geolocation/editor/test_rgparsing.h,
+	core/tests/geolocation/editor/test_rgtagmodel.h,
+	core/tests/geolocation/editor/test_simpletreemodel.h,
+	core/tests/geolocation/geoiface/test_geocoordinates.h,
+	core/tests/geolocation/geoiface/test_itemmarkertiler.h,
+	core/tests/geolocation/geoiface/test_lookup_altitude_geonames.h,
+	core/tests/geolocation/geoiface/test_primitives.h,
+	core/tests/geolocation/geoiface/test_tileindex.h,
+	core/tests/geolocation/geoiface/test_tracks.cpp,
+	core/tests/geolocation/geoiface/test_tracks.h,
+	core/tests/geolocation/kmlexport/test_geoparsing.cpp,
+	core/tests/geolocation/kmlexport/test_geoparsing.h,
+	core/tests/imgqsort/imgqsorttest.cpp,
+	core/tests/iojobs/iojobstest.cpp,
+	core/tests/mediawiki/edittest.cpp,
+	core/tests/mediawiki/logintest.cpp,
+	core/tests/mediawiki/logouttest.cpp,
+	core/tests/mediawiki/mediawikitest.cpp,
+	core/tests/mediawiki/parsetest.cpp,
+	core/tests/mediawiki/queryinfotest.cpp,
+	core/tests/mediawiki/querysiteinfogeneraltest.cpp,
+	core/tests/mediawiki/uploadtest.cpp,
+	core/tests/modeltest/modeltest.cpp,
+	core/tests/timestampupdate/timestampupdatetest.cpp,
+	core/tests/timestampupdate/timestampupdatetest.h,
+	core/tests/vkontakte/test_albums.cpp,
+	core/tests/vkontakte/test_frequentrequests.cpp,
+	core/tests/vkontakte/test_photos.cpp,
+	core/tests/vkontakte/test_userinfo.cpp: krazy++
+
+2021-02-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/wallpaper/wallpaperplugindlg.cpp,
+	core/libs/onlineversion/onlineversionchecker.cpp: krazy++
+
+2021-02-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp: polish
+
+2021-02-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp: clean up also
+	ImageProperties BUGS: 433350 FIXED-IN: 7.2.0
+
+2021-02-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: more dependencies to solve
+
+
+2021-02-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/installdeps-mageia.sh: ad new script to install
+	all dependencies to compile whole digiKam under Mageia
+
+2021-02-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* .krazy, project/reports/krazy.sh: another test to drop
+
+2021-02-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* .krazy: reduce krazy check that we don't needs
+
+2021-02-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/collection/collectionmanager_location.cpp: 
+	polish
+
+2021-02-20  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/collection/collectionmanager_location.cpp: fix
+	change collection type from UNC path collection CCBUGS: 433311
+
+2021-02-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/CMakeLists.txt,
+	core/libs/onlineversion/onlineversiondlg.cpp,
+	core/libs/onlineversion/onlineversiondlg.h,
+	core/libs/onlineversion/onlineversiondwnl.cpp,
+	core/libs/onlineversion/onlineversiondwnl.h: Online Downloader:
+	compute checksum in a separated thread using QFutureWatcher. Make
+	computation cancelable from dialog. Report computation states to
+	dialog.
+
+2021-02-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/tests/mediawiki/queryrevisiontest.cpp: clazy++
+
+2021-02-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/coverity.sh, project/reports/krazy.sh: add
+	run-time checks for these static analyzers
+
+2021-02-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/threadimageio/thumb/thumbnailloadthread.cpp,
+	core/libs/threadimageio/thumb/thumbnailloadthread.h,
+	core/libs/threadimageio/thumb/thumbnailloadthread_p.cpp,
+	core/libs/threadimageio/thumb/thumbnailloadthread_p.h: cppcheck++
+
+2021-02-20  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/krazy.sh: Check run time dependencies before to
+	processs krazy static analyzers
+
+2021-02-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/dbjobs/dbjob.cpp: polish
+
+2021-02-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp,
+	core/libs/database/coredb/coredb.h,
+	core/libs/database/dbjobs/dbjob.cpp: remove this unused funktion
+
+2021-02-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/tests/video/qtavcodecs.cpp: apply patch #135912 from
+	griffiths_andy to fix compile qtavcodecs.cpp BUGS: 433264
+
+2021-02-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredb.cpp,
+	core/libs/database/coredb/coredb.h,
+	core/libs/database/coredb/coredbaccess.cpp,
+	core/libs/database/dbjobs/dbjob.cpp: calculate QDateTime outside of
+	the DB lock CCBUGS: 431951 CCBUGS: 432257
+
+2021-02-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/tags/manager/tagsmanager.cpp,
+	core/libs/tags/manager/tagsmanager.h: try correcting the Tags
+	Manager window position CCBUGS: 430924
+
+2021-02-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/dconfigdlgmngr.cpp,
+	core/libs/dialogs/dconfigdlgmodels.cpp,
+	core/libs/dialogs/dconfigdlgview_p.cpp,
+	core/libs/dialogs/dconfigdlgwidgets.cpp,
+	core/libs/dialogs/dconfigdlgwidgets.h,
+	core/libs/dialogs/dconfigdlgwidgets_p.h: cppcheck++
+
+2021-02-19  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/date/timelinewidget.cpp: this also works with an unsorted
+	QHash
+
+2021-02-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/wallpaper/wallpaperplugin_windows.cpp: 
+	cppcheck++
+
+2021-02-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/wallpaper/wallpaperplugin.h,
+	core/dplugins/generic/tools/wallpaper/wallpaperplugindlg.cpp,
+	core/dplugins/generic/tools/wallpaper/wallpaperplugindlg.h: 
+	cppcheck++
+
+2021-02-19  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/krazy.sh: fix path to saxon.jar
+
+2021-02-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/solidhardwaredlg.h: cppcheck++
+
+2021-02-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/dialogs/solidhardwaredlg.cpp: cppcheck++
+
+2021-02-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: cppcheck++
+
+2021-02-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/data/database/dbconfig.xml.cmake.in: fix sql query to
+	copy TagsProperties table BUGS: 433183 FIXED-IN: 7.2.0
+
+2021-02-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbaccess.cpp: Revert "revert
+	CoreDbAccess test debug"
+
+2021-02-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/app/date/timelinewidget.cpp, core/app/date/timelinewidget.h,
+	core/app/views/sidebar/timelinesidebarwidget.cpp,
+	core/libs/album/manager/albummanager.cpp,
+	core/libs/album/manager/albummanager.h,
+	core/libs/album/manager/albummanager_dalbum.cpp,
+	core/libs/database/coredb/coredb.cpp,
+	core/libs/database/coredb/coredb.h,
+	core/libs/database/dbjobs/dbjob.cpp,
+	core/libs/database/dbjobs/dbjob.h,
+	core/libs/database/dbjobs/dbjobsthread.cpp,
+	core/libs/database/dbjobs/dbjobsthread.h,
+	core/libs/database/models/itemfiltersettings.h: port QMap<QDateTime,
+	int> to a QHash CCBUGS: 431951
+
+2021-02-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbaccess.cpp: revert CoreDbAccess
+	test debug
+
+2021-02-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/scripts/bootstrap-clazy.sh: add new bootstrap script to
+	configure Clazy static analyzer
+
+2021-02-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbaccess.cpp: crash at 10 seconds
+	lock time CCBUGS: 431951
+
+2021-02-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/clangscan.sh: Fix clang scan script if one .krazy
+	entry is not found in html report page
+
+2021-02-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/clangscan.sh: polish
+
+2021-02-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/common.sh: Use git rm to cleanup remote website
+	contents
+
+2021-02-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbaccess.cpp: restart timer after
+	lock CCBUGS: 431951
+
+2021-02-18  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/coredb/coredbaccess.cpp: add test debug for
+	CoreDbAccess lock time CCBUGS: 431951
+
+2021-02-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/reports/clangscan.sh, project/reports/clangtidy.sh,
+	project/reports/clazy.sh, project/reports/coverity.sh,
+	project/reports/cppcheck.sh, project/reports/krazy.sh,
+	project/reports/site/static/reports/krazy/master/style.css: handle
+	bash exception
+
+2021-02-18  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversionchecker.cpp,
+	core/libs/onlineversion/onlineversionchecker.h,
+	core/libs/onlineversion/onlineversiondlg.cpp,
+	core/libs/onlineversion/onlineversiondlg.h,
+	core/libs/onlineversion/onlineversiondwnl.cpp,
+	core/libs/onlineversion/onlineversiondwnl.h: polish
+
+2021-02-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: use font metric to
+	fix status value column width
+
+2021-02-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/server/databaseserver.cpp: add comment
+
+2021-02-17  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: Use smallest font
+	for stats view
+
+2021-02-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: Fix statistics view
+	layout
+
+2021-02-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: Remaning -> ETA (for
+	Estimated Time of Arrival)
+
+2021-02-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2021-02-17  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/installer/digikam.pkgproj,
+	project/bundles/macports/installer/releasenotes.html: polish release
+	notes for macOS check if bundle already running before to install
+	new version
+
+2021-02-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/data/database/dbconfig.xml.cmake.in: polish
+
+2021-02-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/data/database/dbconfig.xml.cmake.in: polish
+
+2021-02-16  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/data/database/dbconfig.xml.cmake.in: wrap in SELECT clause
+	for MySQL CCBUGS: 432957
+
+2021-02-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/CD/macports/macports_update.sh: pull source code
+	before to update PKG
+
+2021-02-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: typo
+
+2021-02-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: Show remaining time
+	in day, hours, minutes, and seconds
+
+2021-02-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: fix statistics view
+	layout using grid
+
+2021-02-16  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: Show download rate
+	speed and remaining time in statistics wiew
+
+2021-02-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/server/databaseserver.cpp: use "mysqladmin
+	shutdown" to stop MySQL server The call via terminate() does not
+	work for Windows console programs. With  kill() at end, so we have
+	data loss in the database under Windows. CCBUGS: 432957
+
+2021-02-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/data/database/dbconfig.xml.cmake.in: remove dead SQL code
+
+2021-02-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/CD/ContinuousDeploy.txt: doc++
+
+2021-02-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp,
+	core/libs/onlineversion/onlineversiondlg.h: use 1 second timer to
+	refresh statistics
+
+2021-02-15  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: Show statistics
+	while downloading
+
+2021-02-15  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: fix dialog layout
+
+2021-02-14  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/metadataengine/dmetadata/dmetadata_libraw.cpp: 
+	decode libraw orientation flag BUGS: 432789 FIXED-IN: 7.2.0
+
+2021-02-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversionchecker.cpp,
+	core/libs/onlineversion/onlineversiondlg.cpp,
+	core/libs/onlineversion/onlineversiondwnl.cpp: Fix progress bar
+	behavior
+
+2021-02-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: Fix layout with
+	release notes view
+
+2021-02-14  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: Force to use
+	monospace font family with non Linux OS
+
+2021-02-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/utils/widgets/dbsettingswidget.cpp: MariaDB
+	10.5 version is up to date
+
+2021-02-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/dimg/filters/redeye/redeyecorrectionfilter.cpp: 
+	enable Yolo v3 face detection for the red eye tool BUGS: 384614
+	FIXED-IN: 7.2.0
+
+2021-02-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/database/models/itemfiltersettings.cpp: add
+	wildcard search to the contains search in the text filter BUGS:
+	432732 FIXED-IN: 7.2.0
+
+2021-02-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp,
+	core/libs/onlineversion/onlineversiondwnl.cpp,
+	core/libs/onlineversion/onlineversiondwnl.h: add external link to
+	download repository use rich text format to make dialog contents
+	more elegant
+
+2021-02-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/database/item/scanner/itemscanner_photo.cpp: add face
+	only for valid tag id
+
+2021-02-13  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/widgets/iccprofiles/iccprofilescombobox.cpp: 
+	translate items of the IccRenderingIntentComboBox BUGS: 432878
+	FIXED-IN: 7.2.0
+
+2021-02-13  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* CMakeLists.txt, Mainpage.dox: Fix ECM dependency. Remove
+	dupplicate ECM macro Fix API doc
+
+2021-02-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversionchecker.cpp: report right
+	date string to gui
+
+2021-02-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/utilities/geolocation/geoiface/tracks/trackreader.cpp: data
+	points => track points
+
+2021-02-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/utilities/geolocation/geoiface/tracks/trackreader.cpp: 
+	change i18n to better explain the missing timestamps BUGS: 293335
+	FIXED-IN: 7.2.0
+
+2021-02-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/metadata/metadatawidget.cpp: fix set filter
+
+2021-02-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/metadata/xmpwidget.cpp: polish
+
+2021-02-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/metadataengine/engine/metaengine_xmp.cpp,
+	core/libs/widgets/metadata/xmpwidget.cpp: sync and sort xmp schemas
+
+
+2021-02-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/metadata/metadatalistview.cpp: polish
+
+2021-02-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/widgets/metadata/metadatalistview.cpp,
+	core/libs/widgets/metadata/xmpwidget.cpp: more fixes to xmp metadata
+	filter
+
+2021-02-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS, core/libs/widgets/metadata/metadatalistview.cpp: add special
+	case to filter metadata tags in bag containers BUGS: 432823
+	FIXED-IN: 7.2.0
+
+2021-02-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/macports/04-build-installer.sh: Fix Applications
+	path to use with digiKam and Showfoto target
+
+2021-02-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2021-02-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/CD/ContinuousDeploy.txt: doc++
+
+2021-02-12  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversiondlg.cpp: use monnospace font
+	to render release notes
+
+2021-02-12  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/generic/tools/htmlgallery/wizard/htmlthemepage.cpp: 
+	fix object name
+
+2021-02-11  Tyson Tan <tysontan@tysontan.com>
+
+	* core/app/views/stack/itemiconview.cpp,
+	core/dplugins/generic/metadata/metadataedit/exif/exifdevice.cpp,
+	core/dplugins/generic/tools/htmlgallery/generator/gallerygenerator.
+	cpp, core/libs/widgets/iccprofiles/iccprofilewidget.cpp,
+	core/utilities/fuzzysearch/fuzzysearchview.cpp,
+	core/utilities/queuemanager/manager/batchtool.cpp,
+	core/utilities/queuemanager/views/toolslistview.cpp,
+	core/utilities/setup/camera/setupcamera.cpp,
+	core/utilities/setup/metadata/namespaceeditdlg.cpp: Disambiguated
+	some strings for better translation in CJK languages as well as some
+	string fixes.
+
+2021-02-11  Yuri Chornoivan <yurchor@ukr.net>
+
+	* core/libs/album/widgets/albumselectors.cpp: Fix i18n()
+
+2021-02-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/data/database/dbconfig.xml.cmake.in: add drop foreign key
+	procedure
+
+2021-02-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* NEWS: update
+
+2021-02-10  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/album/widgets/albumselectors.cpp,
+	core/libs/album/widgets/albumselectors.h: show selected Albums/Tags
+	count in the tab header BUGS: 432613 FIXED-IN: 7.2.0
+
+2021-02-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/dplugins/bqm/colors/autocorrection/autocorrectionplugin.cpp,
+	core/dplugins/bqm/colors/bcgcorrection/bcgcorrectionplugin.cpp,
+	core/dplugins/bqm/colors/bwconvert/bwconvertplugin.cpp,
+	core/dplugins/bqm/colors/channelmixer/channelmixerplugin.cpp,
+	core/dplugins/bqm/colors/colorbalance/colorbalanceplugin.cpp,
+	core/dplugins/bqm/colors/convert16to8/convert16to8plugin.cpp,
+	core/dplugins/bqm/colors/convert8to16/convert8to16plugin.cpp,
+	core/dplugins/bqm/colors/curvesadjust/curvesadjustplugin.cpp,
+	core/dplugins/bqm/colors/hslcorrection/hslcorrectionplugin.cpp,
+	core/dplugins/bqm/colors/iccconvert/iccconvertplugin.cpp,
+	core/dplugins/bqm/colors/invert/invertplugin.cpp,
+	core/dplugins/bqm/colors/whitebalance/whitebalanceplugin.cpp,
+	core/dplugins/bqm/convert/converttodng/converttodngplugin.cpp,
+	core/dplugins/bqm/convert/converttojp2/converttojp2plugin.cpp,
+	core/dplugins/bqm/convert/converttojpeg/converttojpegplugin.cpp,
+	core/dplugins/bqm/convert/converttopgf/converttopgfplugin.cpp,
+	core/dplugins/bqm/convert/converttopng/converttopngplugin.cpp,
+	core/dplugins/bqm/convert/converttotiff/converttotiffplugin.cpp,
+	core/dplugins/bqm/decorate/border/borderplugin.cpp,
+	core/dplugins/bqm/decorate/texture/textureplugin.cpp,
+	core/dplugins/bqm/decorate/watermark/watermarkplugin.cpp,
+	core/dplugins/bqm/enhance/antivignetting/antivignettingplugin.cpp,
+	core/dplugins/bqm/enhance/blur/blurplugin.cpp,
+	core/dplugins/bqm/enhance/hotpixels/hotpixelsplugin.cpp,
+	core/dplugins/bqm/enhance/lensautofix/lensautofixplugin.cpp,
+	core/dplugins/bqm/enhance/localcontrast/localcontrastplugin.cpp,
+	core/dplugins/bqm/enhance/noisereduction/noisereductionplugin.cpp,
+	core/dplugins/bqm/enhance/restoration/restorationplugin.cpp,
+	core/dplugins/bqm/enhance/sharpen/sharpenplugin.cpp,
+	core/dplugins/bqm/filters/filmgrain/filmgrainplugin.cpp,
+	core/dplugins/bqm/metadata/assigntemplate/assigntemplateplugin.cpp,
+	core/dplugins/bqm/metadata/removemetadata/removemetadataplugin.cpp,
+	core/dplugins/bqm/metadata/timeadjust/timeadjustplugin.cpp,
+	core/dplugins/bqm/transform/crop/cropplugin.cpp,
+	core/dplugins/bqm/transform/flip/flipplugin.cpp,
+	core/dplugins/bqm/transform/resize/resizeplugin.cpp,
+	core/dplugins/bqm/transform/rotate/rotateplugin.cpp,
+	core/dplugins/dimg/heif/dimgheifplugin.cpp,
+	core/dplugins/dimg/imagemagick/dimgimagemagickplugin.cpp,
+	core/dplugins/dimg/jpeg/dimgjpegplugin.cpp,
+	core/dplugins/dimg/jpeg2000/dimgjpeg2000plugin.cpp,
+	core/dplugins/dimg/pgf/dimgpgfplugin.cpp,
+	core/dplugins/dimg/png/dimgpngplugin.cpp,
+	core/dplugins/dimg/qimage/dimgqimageplugin.cpp,
+	core/dplugins/dimg/raw/dimgrawplugin.cpp,
+	core/dplugins/dimg/tiff/dimgtiffplugin.cpp,
+	core/dplugins/editor/colors/adjustcurves/adjustcurvestoolplugin.cpp
+	,
+	core/dplugins/editor/colors/adjustlevels/adjustlevelstoolplugin.cpp
+	,
+	core/dplugins/editor/colors/autocorrection/autocorrectiontoolplugin
+	.cpp, core/dplugins/editor/colors/bcg/bcgtoolplugin.cpp,
+	core/dplugins/editor/colors/bwsepia/bwsepiatoolplugin.cpp,
+	core/dplugins/editor/colors/channelmixer/channelmixertoolplugin.cpp
+	, core/dplugins/editor/colors/colorbalance/cbtoolplugin.cpp,
+	core/dplugins/editor/colors/convert16to8/convert16to8toolplugin.cpp
+	,
+	core/dplugins/editor/colors/convert8to16/convert8to16toolplugin.cpp
+	, core/dplugins/editor/colors/hsl/hsltoolplugin.cpp,
+	core/dplugins/editor/colors/invert/inverttoolplugin.cpp,
+	core/dplugins/editor/colors/profileconversion/profileconversiontool
+	plugin.cpp,
+	core/dplugins/editor/colors/whitebalance/whitebalancetoolplugin.cpp
+	, core/dplugins/editor/decorate/border/bordertoolplugin.cpp,
+	core/dplugins/editor/decorate/inserttext/inserttexttoolplugin.cpp,
+	core/dplugins/editor/decorate/texture/texturetoolplugin.cpp,
+	core/dplugins/editor/enhance/antivignetting/antivignettingtoolplugi
+	n.cpp, core/dplugins/editor/enhance/blur/blurtoolplugin.cpp,
+	core/dplugins/editor/enhance/hotpixels/hotpixelstoolplugin.cpp,
+	core/dplugins/editor/enhance/lensautofix/lensautofixtoolplugin.cpp,
+	core/dplugins/editor/enhance/lensdistortion/lensdistortiontoolplugi
+	n.cpp,
+	core/dplugins/editor/enhance/localcontrast/localcontrasttoolplugin.
+	cpp,
+	core/dplugins/editor/enhance/noisereduction/noisereductiontoolplugi
+	n.cpp, core/dplugins/editor/enhance/redeye/redeyetoolplugin.cpp,
+	core/dplugins/editor/enhance/restoration/restorationtoolplugin.cpp,
+	core/dplugins/editor/enhance/sharpen/sharpentoolplugin.cpp,
+	core/dplugins/editor/file/print/printplugin.cpp,
+	core/dplugins/editor/filters/blurfx/blurfxtoolplugin.cpp,
+	core/dplugins/editor/filters/charcoal/charcoaltoolplugin.cpp,
+	core/dplugins/editor/filters/colorfx/colorfxtoolplugin.cpp,
+	core/dplugins/editor/filters/distortionfx/distortionfxtoolplugin.cp
+	p, core/dplugins/editor/filters/emboss/embosstoolplugin.cpp,
+	core/dplugins/editor/filters/filmgrain/filmgraintoolplugin.cpp,
+	core/dplugins/editor/filters/oilpaint/oilpainttoolplugin.cpp,
+	core/dplugins/editor/filters/raindrop/raindroptoolplugin.cpp,
+	core/dplugins/editor/transform/autocrop/autocroptoolplugin.cpp,
+	core/dplugins/editor/transform/contentawareresize/contentawareresiz
+	etoolplugin.cpp,
+	core/dplugins/editor/transform/freerotation/freerotationtoolplugin.
+	cpp,
+	core/dplugins/editor/transform/perspective/perspectivetoolplugin.cp
+	p,
+	core/dplugins/editor/transform/ratiocrop/ratiocroptoolplugin.cpp,
+	core/dplugins/editor/transform/resize/resizetoolplugin.cpp,
+	core/dplugins/editor/transform/shear/sheartoolplugin.cpp,
+	core/dplugins/generic/import/dscanner/dscannerplugin.cpp,
+	core/dplugins/generic/metadata/geolocationedit/geolocationeditplugi
+	n.cpp,
+	core/dplugins/generic/metadata/metadataedit/metadataeditplugin.cpp,
+	core/dplugins/generic/metadata/timeadjust/timeadjustplugin.cpp,
+	core/dplugins/generic/view/glviewer/glviewerplugin.cpp,
+	core/dplugins/generic/view/slideshow/slideshowplugin.cpp,
+	core/dplugins/generic/webservices/dropbox/dbplugin.cpp,
+	core/dplugins/generic/webservices/facebook/fbplugin.cpp,
+	core/dplugins/generic/webservices/filecopy/fcplugin.cpp,
+	core/dplugins/generic/webservices/filetransfer/ftplugin.cpp,
+	core/dplugins/generic/webservices/flickr/flickrplugin.cpp,
+	core/dplugins/generic/webservices/google/gsplugin.cpp,
+	core/dplugins/generic/webservices/imgur/imgurplugin.cpp,
+	core/dplugins/generic/webservices/mediawiki/mediawikiplugin.cpp,
+	core/dplugins/generic/webservices/piwigo/piwigoplugin.cpp,
+	core/dplugins/generic/webservices/smugmug/smugplugin.cpp,
+	core/dplugins/generic/webservices/unified/unifiedplugin.cpp,
+	core/dplugins/generic/webservices/yandexfotki/yfplugin.cpp,
+	core/dplugins/rawimport/native/rawimportnativeplugin.cpp: Fix (c) in
+	plugins
+
+2021-02-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2021-02-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* bootstrap.macports: Fix default install paths if not specified as
+	CLI arguments
+
+2021-02-10  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* core/libs/onlineversion/onlineversionchecker.cpp: Fix extraction
+	in remote build date if no version prefix is present in file name
+
+2021-02-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2021-02-09  Gilles Caulier <caulier.gilles@gmail.com>
+
+	*
+	core/dplugins/generic/view/presentation/audio/presentation_audiopag
+	e.cpp,
+	core/dplugins/generic/view/presentation/audio/presentation_audiopag
+	e.h,
+	core/dplugins/generic/view/presentation/audio/presentationaudiolist
+	.cpp,
+	core/dplugins/generic/view/presentation/audio/presentationaudiolist
+	.h,
+	core/dplugins/generic/view/presentation/audio/presentationaudiowidg
+	et.cpp,
+	core/dplugins/generic/view/presentation/audio/presentationaudiowidg
+	et.h,
+	core/dplugins/generic/view/presentation/common/presentationcontaine
+	r.cpp,
+	core/dplugins/generic/view/presentation/common/presentationcontaine
+	r.h,
+	core/dplugins/generic/view/presentation/common/presentationloader.c
+	pp,
+	core/dplugins/generic/view/presentation/dialogs/presentation_advpag
+	e.cpp,
+	core/dplugins/generic/view/presentation/dialogs/presentation_advpag
+	e.h,
+	core/dplugins/generic/view/presentation/dialogs/presentation_captio
+	npage.cpp,
+	core/dplugins/generic/view/presentation/dialogs/presentation_captio
+	npage.h,
+	core/dplugins/generic/view/presentation/dialogs/presentation_mainpa
+	ge.cpp,
+	core/dplugins/generic/view/presentation/dialogs/presentation_mainpa
+	ge.h,
+	core/dplugins/generic/view/presentation/dialogs/presentation_mainpa
+	ge.ui,
+	core/dplugins/generic/view/presentation/dialogs/presentationdlg.cpp
+	,
+	core/dplugins/generic/view/presentation/dialogs/presentationdlg.h,
+	core/dplugins/generic/view/presentation/opengl/presentationgl.cpp,
+	core/dplugins/generic/view/presentation/presentationplugin.cpp,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	cpp,
+	core/dplugins/generic/view/presentation/widgets/presentationwidget.
+	h: Apply patch #135527 from Phuoc Khanh LE to allow to turn off
+	Presentation tool delay between image BUGS: 124788 FIXED-IN: 7.2.0
+
+2021-02-08  Maik Qualmann <metzpinguin@gmail.com>
+
+	* core/libs/dialogs/webbrowserdlg.cpp: remove changed user agent
+
+2021-02-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* project/bundles/CD/ContinuousDeploy.txt: doc++
+
+2021-02-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* CMakeLists.txt, NEWS: Now final release is palned for 28 feb. 2021
+
+
+2021-02-08  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* NEWS: update
+
+2021-02-07  Gilles Caulier <caulier.gilles@gmail.com>
+
+	* ChangeLog: update changelog for 7.2.0 release candidate
+
 2021-02-07  Maik Qualmann <metzpinguin@gmail.com>
 
 	* NEWS: update
