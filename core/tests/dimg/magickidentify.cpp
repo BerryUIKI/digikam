@@ -3,7 +3,7 @@
  * This file is a part of digiKam project
  * https://www.digikam.org
  *
- * Date        : 2017-09-24
+ * Date        : 2020-12-23
  * Description : identify properties from image with ImageMagick.
  *
  * Copyright (C) 2020-2021 by Gilles Caulier <caulier dot gilles at gmail dot com>
@@ -136,7 +136,7 @@ int main(int argc, char** argv)
         {
             if (metadata[i][0] != '\0')
             {
-                output.append(QString::fromLatin1(metadata[i]));
+                output.append(QString::fromUtf8(metadata[i]));
             }
         }
 
