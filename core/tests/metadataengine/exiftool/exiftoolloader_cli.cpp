@@ -7,7 +7,6 @@
  * Description : a command line tool to test ExifTool image loader
  *
  * Copyright (C) 2012-2021 by Gilles Caulier <caulier dot gilles at gmail dot com>
- * Copyright (C) 2013-2019 by Phil Harvey <philharvey66 at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -33,7 +32,6 @@
 
 // Local includes
 
-#include "dmetadata.h"
 #include "exiftoolcore.h"
 #include "exiftooltranslator.h"
 
@@ -50,9 +48,12 @@ int main(int argc, char** argv)
         return -1;
     }
 
-    MetaEngine::initializeExiv2();
+    QFileInfo fileInfo(QString::fromUtf8(argv[1]));
 
-    QFileInfo input(QString::fromUtf8(argv[1]));
+    if (!fileInfo.exists())
+    {
+        return false;
+    }
 
     // Create ExifTool parser instance.
 
@@ -64,7 +65,7 @@ int main(int argc, char** argv)
 
     // Read metadata from the file.
 
-    ExifToolTagInfo* const info = parser->ImageInfo(input.filePath().toLatin1().constData(), nullptr, 5);
+    ExifToolTagInfo* const info = parser->ImageInfo(fileInfo.filePath().toUtf8().constData(), nullptr, 5);
 
     if      (info)
     {
@@ -156,7 +157,7 @@ int main(int argc, char** argv)
     }
     else if (parser->LastComplete() <= 0)
     {
-        qWarning() << "Cannot load" << input.filePath();
+        qWarning() << "Cannot load" << fileInfo.filePath();
     }
 
     // Print ExifTool errors.
