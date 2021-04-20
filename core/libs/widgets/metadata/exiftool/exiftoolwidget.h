@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2021-04-18
- * Description : ExifTool metadata list view.
+ * Description : ExifTool metadata widget.
  *
  * Copyright (C) 2021 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
@@ -26,7 +26,6 @@
 
 // Qt includes
 
-#include <QTreeWidget>
 #include <QWidget>
 #include <QStackedWidget>
 #include <QString>
@@ -35,52 +34,9 @@
 // Local includes
 
 #include "digikam_export.h"
-#include "exiftoolparser.h"
 
 namespace Digikam
 {
-
-class ExifToolListViewGroup;
-
-class ExifToolListViewItem : public QTreeWidgetItem
-{
-public:
-
-    ExifToolListViewItem(ExifToolListViewGroup* const parent,
-                          const QString& name,
-                          const QString& value,
-                          const QString& desc);
-    ~ExifToolListViewItem() override;
-
-private:
-
-    Q_DISABLE_COPY(ExifToolListViewItem)
-};
-
-// -------------------------------------------------------------------------
-
-class ExifToolListView : public QTreeWidget
-{
-    Q_OBJECT
-
-public:
-
-    explicit ExifToolListView(QWidget* const parent);
-    ~ExifToolListView() override;
-
-    bool loadFromUrl(const QUrl& url);
-
-private:
-
-    void setMetadata(const ExifToolParser::TagsMap& map);
-    ExifToolListViewGroup* findGroup(const QString& group);
-
-private:
-
-    ExifToolParser* m_parser;
-};
-
-// -------------------------------------------------------------------------
 
 class DIGIKAM_EXPORT ExifToolWidget : public QStackedWidget
 {
