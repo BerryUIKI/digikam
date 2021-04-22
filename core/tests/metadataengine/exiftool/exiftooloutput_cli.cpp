@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2013-11-28
- * Description : a command line tool to test ExifTool output without Exiv2 trnaslation.
+ * Description : a command line tool to test ExifTool output without Exiv2 translation.
  *
  * Copyright (C) 2012-2021 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
