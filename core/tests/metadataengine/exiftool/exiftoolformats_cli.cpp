@@ -50,7 +50,7 @@ int main(int argc, char** argv)
     {
         parsed = parser->currentData();
         lst    = parsed.find(QLatin1String("READ_FORMATS")).value()[0].toStringList();
-        qDebug() << "Readbale file formats:";
+        qDebug() << "Readable file formats:";
 
         for (int i = 0 ; i < lst.size()  ; i += 2)
         {
