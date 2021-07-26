@@ -68,78 +68,10 @@ class MjpegFrameTask : public ActionJob
 
 public:
 
-    class OSDProperties
-    {
-
-    public:
-
-        OSDProperties()
-          : m_titleShowDate   (true),
-            m_titleShowRelDate(false),
-            m_titleRelDate    (0),
-            m_titlePos        (QPoint(30, 30)),
-            m_titleFnt        (QFont(QLatin1String("Monospace"))),
-            m_titleAlign      (Qt::AlignLeft),
-            m_titleBg         (Qt::darkGray),
-            m_descPos         (QPoint(30, 500)),
-            m_descFnt         (QFont(QLatin1String("Monospace"))),
-            m_descAlign       (Qt::AlignLeft),
-            m_descBg          (Qt::darkGray),
-            m_commentPos      (QPoint(30, 560)),
-            m_commentFnt      (QFont(QLatin1String("Monospace"))),
-            m_commentAlign    (Qt::AlignLeft),
-            m_commentBg       (Qt::darkGray)
-        {
-            m_titleFnt.setStyleHint(QFont::Monospace);
-            m_titleFnt.setPixelSize(12);
-            m_titleFnt.setBold(true);
-            m_descFnt.setStyleHint(QFont::Monospace);
-            m_descFnt.setPixelSize(12);
-            m_descFnt.setBold(true);
-            m_commentFnt.setStyleHint(QFont::Monospace);
-            m_commentFnt.setPixelSize(12);
-            m_commentFnt.setBold(true);
-        }
-
-        QString       m_title;
-        bool          m_titleShowDate;
-        QDateTime     m_titleDate;          ///< Local date to show
-        bool          m_titleShowRelDate;
-        quint64       m_titleRelDate;       ///< Relative date to show  get from chrono device
-        QPoint        m_titlePos;
-        QFont         m_titleFnt;
-        Qt::Alignment m_titleAlign;
-        QColor        m_titleBg;
-        QImage        m_titleLogo;
-
-        // -----
-
-        QString       m_desc;
-        QPoint        m_descPos;
-        QFont         m_descFnt;
-        Qt::Alignment m_descAlign;
-        QColor        m_descBg;
-
-        // -----
-
-        QString       m_comment;
-        QPoint        m_commentPos;
-        QFont         m_commentFnt;
-        Qt::Alignment m_commentAlign;
-        QColor        m_commentBg;
-    };
-
-public:
-
     explicit MjpegFrameTask(const MjpegStreamSettings& set);
     ~MjpegFrameTask();
 
 public:
-
-    /**
-     * Insert time-stamp OSD on frame.
-     */
-    void insertOSDToFrame(QImage& frame, const OSDProperties& osd = OSDProperties());
 
     /**
      * Convert a QImage to a byte-aaray off JPEG data file.
