@@ -85,6 +85,16 @@ QDir ImgQSortTest::imageDir() const
     return dir;
 }
 
+void ImgQSortTest::testParseTestImagesForExposureDetection()
+{
+    // testParseTestImages(QLatin1String("exposureDetection"), DETECTEXPOSURE);
+}
+
+void ImgQSortTest::testParseTestImagesForNoiseDetection()
+{
+    // testParseTestImages(QLatin1String("noiseDetection"), DETECTNOISE);
+}
+
 void ImgQSortTest::testParseTestImagesForBlurDetection()
 {
     // testParseTestImages(QLatin1String("blurDetection"), DETECTBLUR);
