@@ -85,11 +85,6 @@ QDir ImgQSortTest::imageDir() const
     return dir;
 }
 
-void ImgQSortTest::testParseTestImagesForExposureDetection()
-{
-    // testParseTestImages(QLatin1String("exposureDetection"), DETECTEXPOSURE);
-}
-
 void ImgQSortTest::testParseTestImagesForBlurDetection()
 {
     // testParseTestImages(QLatin1String("blurDetection"), DETECTBLUR);
@@ -118,19 +113,4 @@ void ImgQSortTest::testParseTestImagesForBlurDetection_DefocusImage()
 void ImgQSortTest::testParseTestImagesForBlurDetection_BlurBackGroundImage()
 {
     // testParseTestImages(QLatin1String("blurBackGroundImage"), DETECTBLUR);
-}
-
-void ImgQSortTest::testParseTestImagesForNoiseDetection()
-{
-    testParseTestImages(QLatin1String("noiseDetection"), DETECTNOISE);
-}
-
-void ImgQSortTest::testParseTestImagesForImageHighSO()
-{
-    testParseTestImages(QLatin1String("highISO"), DETECTNOISE);
-}
-
-void ImgQSortTest::testParseTestImagesForVariousTypeNoise()
-{
-    testParseTestImages(QLatin1String("variousTypesNoise"), DETECTNOISE);
 }
