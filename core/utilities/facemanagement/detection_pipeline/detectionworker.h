@@ -26,11 +26,14 @@
 #ifndef DIGIKAM_DETECTION_WORKER_H
 #define DIGIKAM_DETECTION_WORKER_H
 
+#include <QImage>
 // Local 
 #include "actionthreadbase.h"
 
 namespace Digikam
 {
+
+class FaceDetector;
 
 class Q_DECL_HIDDEN DetectionWorker : public ActionJob
 {
@@ -42,16 +45,13 @@ public:
     ~DetectionWorker() override;
 public Q_SLOTS:
 
-    void process(const Dimage& info);
+    QList<QRectF> process(const QImage& info);
     void setAccuracyAndModel(double value, bool yolo);
-
-Q_SIGNALS:
-
-    void processed();
 
 private:
 
-    FaceDetector m_detector;
+    class Private;
+    Private* d;
 
     // Disable
     DetectionWorker(const DetectionWorker&)            = delete;
