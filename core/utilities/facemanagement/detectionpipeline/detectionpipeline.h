@@ -29,8 +29,9 @@
 namespace Digikam
 {
 
-class DetectionPipeline
+class DetectionPipeline: public QObject
 {
+    Q_OBJECT
 public:
 
     explicit DetectionPipeline();
@@ -38,7 +39,13 @@ public:
 
 public:
 
-    void process(const ItemInfo& info);
+    void process(const QList<ItemInfo>& info);
+    void cancel();
+
+Q_SIGNALS:
+
+    void processed();
+    void finished();
 
 private:
 

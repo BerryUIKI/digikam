@@ -54,9 +54,18 @@ DetectionPipeline::~DetectionPipeline()
     delete d;
 }
 
-void DetectionPipeline::process(const ItemInfo& info) 
+void DetectionPipeline::process(const QList<ItemInfo>& info) 
 {
-    qDebug() << info.fileUrl();
+    for (int i = 0; i < info.size(); ++i)
+    {
+         qDebug() << info[i].fileUrl();
+    }
 }
+
+void DetectionPipeline::cancel()
+{
+    // TODO
+}
+
 
 }
