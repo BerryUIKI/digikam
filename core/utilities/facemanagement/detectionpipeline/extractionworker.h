@@ -53,7 +53,7 @@ public Q_SLOTS:
 
 Q_SIGNALS:
 
-    void embeddingExtracted(const QVector<cv::Mat>&, const QVector<int>&);
+    void embeddingExtracted(const QVector<cv::Mat>&, const QVector<QString>&);
 
 private:
 
