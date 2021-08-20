@@ -25,17 +25,11 @@
 
 // Qt includes
 
-#include <QImage>
 #include <QByteArray>
-#include <QColor>
-#include <QPoint>
-#include <QFont>
-#include <QDateTime>
 
 // Local includes
 
 #include "actionthread.h"
-#include "mjpegserver.h"
 #include "mjpegstreamsettings.h"
 
 using namespace Digikam;
@@ -66,51 +60,6 @@ Q_SIGNALS:
      * Re-route signal from task to MJPEG server.
      */
     void signalFrameChanged(const QByteArray&);
-};
-
-// ---------------------------------------------------------------
-
-class MjpegFrameTask : public ActionJob
-{
-    Q_OBJECT
-
-public:
-
-    /**
-     * Standard constructor using MJPEg stream settings.
-     */
-    explicit MjpegFrameTask(const MjpegStreamSettings& set);
-    ~MjpegFrameTask();
-
-Q_SIGNALS:
-
-    /**
-     * Output JPEG frames from generator thread (emitted to server thread).
-     */
-    void signalFrameChanged(const QByteArray& frame);
-
-private:
-
-    /**
-     * Helper monvert a QImage to a byte-aaray of JPEG data file.
-     */
-    QByteArray imageToJPEGArray(const QImage& frame) const;
-
-    /**
-     * Load image from Preview cache from path with desired output size.
-     */
-    QImage loadImageFromPreviewCache(const QString& path) const;
-
-    /**
-     * Loop from separated thread to render periodicaly frames for MJPEG stream.
-     * Result is sent to signalFrameChanged().
-     */
-    void run();
-
-private:
-
-    class Private;
-    Private* const d;
 };
 
 } // namespace DigikamGenericMjpegStreamPlugin
