@@ -27,7 +27,6 @@
 // Qt includes
 
 #include <QWidget>
-#include <QIcon>
 #include <QString>
 #include <QTreeWidgetItem>
 
@@ -37,27 +36,6 @@ namespace ShowFoto
 {
 
 class ShowfotoFolderViewSideBar;
-
-class ShowfotoFolderViewBookmarkItem : public QTreeWidgetItem
-{
-
-public:
-
-    explicit ShowfotoFolderViewBookmarkItem(QTreeWidgetItem* const parent);
-    ~ShowfotoFolderViewBookmarkItem()    override;
-
-    void setPath(const QString&);
-    QString path()      const;
-
-private:
-
-    QString m_path;
-
-    Q_DISABLE_COPY(ShowfotoFolderViewBookmarkItem)
-};
-
-// -------------------------------------------------------------------
-
 
 class ShowfotoFolderViewBookmarks : public QWidget
 {
