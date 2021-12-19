@@ -26,11 +26,9 @@
 
 #include <QString>
 #include <QCoreApplication>
-#include <QVariant>
 
 // Local includes
 
-#include "dimg.h"
 #include "digikam_debug.h"
 #include "focuspoints_writer.h"
 
@@ -43,11 +41,11 @@ int main(int argc, char** argv)
     if (argc != 2)
     {
         qCDebug(DIGIKAM_TESTS_LOG) << "afpointwrite - CLI tool to write focus points metadata with ExifTool in image";
-        qCDebug(DIGIKAM_TESTS_LOG) << "Usage: <image to patch>";
+        qCDebug(DIGIKAM_TESTS_LOG) << "Usage: <image to write>";
         return -1;
     }
 
-    FocusPointsWriter* const writer = new FocusPointsWriter(qApp, QString::fromUtf8(argv[1]));
+    FocusPointsWriter* const fpwriter = new FocusPointsWriter(qApp, QString::fromUtf8(argv[1]));
 
     FocusPoint point =
     {
@@ -57,9 +55,9 @@ int main(int argc, char** argv)
         0.5
     };
 
-    writer->writeFocusPoint(point);
+    fpwriter->writeFocusPoint(point);
 
-    delete writer;
+    delete fpwriter;
 
     return 0;
 }
