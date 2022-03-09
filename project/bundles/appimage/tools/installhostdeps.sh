@@ -32,6 +32,8 @@ HostAdjustments
 RegisterRemoteServers
 ORIG_WD="`pwd`/.."
 
+#################################################################################################
+
 cd $BUILDING_DIR
 
 rm -rf $BUILDING_DIR/* || true
@@ -48,3 +50,6 @@ rm -rf $BUILDING_DIR/* || true
 
 /opt/cmake/bin/cmake --build . --config RelWithDebInfo --target ext_$1 -- -j$CPU_CORES
 
+#################################################################################################
+
+TerminateScript
