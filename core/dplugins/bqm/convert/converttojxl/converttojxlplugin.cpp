@@ -3,10 +3,10 @@
  * This file is a part of digiKam project
  * https://www.digikam.org
  *
- * Date        : 2018-07-30
+ * Date        : 2022-04-03
  * Description : a BQM plugin to convert to JXL.
  *
- * Copyright (C) 2018-2022 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * Copyright (C) 2022 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * This program is free software; you can redistribute it
  * and/or modify it under the terms of the GNU General
@@ -81,7 +81,7 @@ QList<DPluginAuthor> ConvertToJxlPlugin::authors() const
     return QList<DPluginAuthor>()
             << DPluginAuthor(QString::fromUtf8("Gilles Caulier"),
                              QString::fromUtf8("caulier dot gilles at gmail dot com"),
-                             QString::fromUtf8("(C) 2009-2022"))
+                             QString::fromUtf8("(C) 2022"))
             ;
 }
 
