@@ -51,7 +51,7 @@ ConvertToJxlPlugin::~ConvertToJxlPlugin()
 
 QString ConvertToJxlPlugin::name() const
 {
-    return i18n("Convert To JXL");
+    return i18nc("@title", "Convert To JXL");
 }
 
 QString ConvertToJxlPlugin::iid() const
@@ -66,14 +66,14 @@ QIcon ConvertToJxlPlugin::icon() const
 
 QString ConvertToJxlPlugin::description() const
 {
-    return i18n("A tool to convert images to JXL format");
+    return i18nc("@info", "A tool to convert images to JXL format");
 }
 
 QString ConvertToJxlPlugin::details() const
 {
-    return i18n("<p>This Batch Queue Manager tool can convert images data to JPEG-XL format.</p>"
-                "<p>JPEG-XL is a royalty-free raster-graphics file format that supports both lossy and lossless compression. It is designed to outperform existing raster formats and thus to become their universal replacement.</p>"
-                "<p>See details about this format from <a href='https://en.wikipedia.org/wiki/JPEG_XL'>this page</a>.</p>");
+    return xi18nc("@info", "<p>This Batch Queue Manager tool can convert images data to JPEG-XL format.</p>"
+                  "<p>JPEG-XL is a royalty-free raster-graphics file format that supports both lossy and lossless compression. It is designed to outperform existing raster formats and thus to become their universal replacement.</p>"
+                  "<p>See details about this format from <a href='https://en.wikipedia.org/wiki/JPEG_XL'>this page</a>.</p>");
 }
 
 QList<DPluginAuthor> ConvertToJxlPlugin::authors() const
