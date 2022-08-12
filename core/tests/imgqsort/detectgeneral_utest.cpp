@@ -40,90 +40,16 @@
 
 using namespace Digikam;
 
-int    s_newArgc = 0;                                                                                                           \
-char** s_newArgv = nullptr;                                                                                                     \
-
-int main(int argc, char* argv[])
-{
-    // This test generate more than 2000 warnings on the console.
-    // This code is a hack to disable warnings to prevent breaking workflow with CI/CD on gitlab.
-
-    int i     = 0;                                                                                                      \
-    s_newArgc = argc + 2;                                                                                               \
-    s_newArgv = new char*[s_newArgc];                                                                                   \
-                                                                                                                        \
-    for (i = 0 ; i < argc ; ++i)                                                                                        \
-    {                                                                                                                   \
-        s_newArgv[i] = new char[strlen(argv[i]) + 1];                                                                   \
-        strcpy(s_newArgv[i], argv[i]);                                                                                  \
-    }                                                                                                                   \
-                                                                                                                        \
-    const char* const headLessOpt1 = "-maxwarnings";                                                                       \
-    s_newArgv[i]                   = new char[strlen(headLessOpt1) + 1];                                                \
-    strcpy(s_newArgv[i], headLessOpt1);                                                                                 \
-                                                                                                                        \
-    const char* const headLessOpt2 = "0";                                                                       \
-    s_newArgv[i + 1]               = new char[strlen(headLessOpt2) + 1];                                                \
-    strcpy(s_newArgv[i + 1], headLessOpt2);                                                                             \
-                                                                                                                        \
-    argc = s_newArgc;
-    argv = s_newArgv;                                                                      \
-
-    QTEST_MAIN_IMPL(ImgQSortTestGeneral)
-}
+QTEST_MAIN(ImgQSortTestGeneral)
 
 ImgQSortTestGeneral::ImgQSortTestGeneral(QObject* const)
 {
     m_dataTestCases = dataTestCases;
 }
 
-void ImgQSortTestGeneral::testParseTestImagesForGeneralBadImage()
-{
-    QHash<QString, bool> results = testParseTestImages(QLatin1String("badImage"),
-                                                       ImgQSortTest_ParseTestImagesDefautDetection, DETECTIONGENERAL);
-
-    for (const auto& test_case : results.keys())
-    {
-        QVERIFY(results.value(test_case));
-    }
-}
-
-void ImgQSortTestGeneral::testParseTestImagesForGeneralQuiteBadImage()
-{
-    QHash<QString, bool> results = testParseTestImages(QLatin1String("quiteBadImage"),
-                                                       ImgQSortTest_ParseTestImagesDefautDetection, DETECTIONGENERAL);
-
-    for (const auto& test_case : results.keys())
-    {
-        QVERIFY(results.value(test_case));
-    }
-}
-
 void ImgQSortTestGeneral::testParseTestImagesForGeneralNormalImage()
 {
     QHash<QString, bool> results = testParseTestImages(QLatin1String("normalImage"),
-                                                       ImgQSortTest_ParseTestImagesDefautDetection, DETECTIONGENERAL);
-
-    for (const auto& test_case : results.keys())
-    {
-        QVERIFY(results.value(test_case));
-    }
-}
-
-void ImgQSortTestGeneral::testParseTestImagesForGeneralQuiteGoodImage()
-{
-    QHash<QString, bool> results = testParseTestImages(QLatin1String("quiteGoodImage"),
-                                                       ImgQSortTest_ParseTestImagesDefautDetection, DETECTIONGENERAL);
-
-    for (const auto& test_case : results.keys())
-    {
-        QVERIFY(results.value(test_case));
-    }
-}
-
-void ImgQSortTestGeneral::testParseTestImagesForGeneralGoodImage()
-{
-    QHash<QString, bool> results = testParseTestImages(QLatin1String("goodImage"),
                                                        ImgQSortTest_ParseTestImagesDefautDetection, DETECTIONGENERAL);
 
     for (const auto& test_case : results.keys())
