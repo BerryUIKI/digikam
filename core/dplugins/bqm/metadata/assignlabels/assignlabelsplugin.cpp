@@ -3,8 +3,8 @@
  * This file is a part of digiKam project
  * https://www.digikam.org
  *
- * Date        : 2022-09-23
- * Description : a BQM plugin to assign labels metadata.
+ * Date        : 2024-09-23
+ * Description : a BQM plugin to assign captions metadata.
  *
  * SPDX-FileCopyrightText: 2021-2022 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
