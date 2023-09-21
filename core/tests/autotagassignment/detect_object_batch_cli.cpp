@@ -100,7 +100,7 @@ int main(int argc, char** argv)
         cvImages.push_back(cvImage);
     }
 
-    int batch_size = 1;
+    int batch_size = 16;
     QList<QMap<QString, QVector<QRect>>> results; 
     QScopedPointer<DNNYoloDetector> yoloDetector (new DNNYoloDetector());
 

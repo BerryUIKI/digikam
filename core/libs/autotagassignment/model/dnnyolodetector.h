@@ -22,7 +22,8 @@ namespace Digikam
 enum class YoloVersions
 {
     YOLOV5NANO = 0,
-    YOLOV5XLARGE
+    YOLOV5XLARGE,
+    RESNET50
 };
 
 class DIGIKAM_EXPORT DNNYoloDetector: public DNNBaseDetectorModel

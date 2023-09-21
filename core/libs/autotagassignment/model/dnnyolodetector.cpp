@@ -84,13 +84,13 @@ bool DNNYoloDetector::loadModels()
     {
         case (YoloVersions::YOLOV5NANO):
         {
-            model = appPath + QLatin1Char('/') + QLatin1String("yolov5n_batch_1_s320.onnx");  ///< smaller model
+            model = appPath + QLatin1Char('/') + QLatin1String("yolov5n_batch_16_s320.onnx");  ///< smaller model
             break;
         }
 
         case (YoloVersions::YOLOV5XLARGE):
         {
-            model = appPath + QLatin1Char('/') + QLatin1String("yolov5x.onnx");  ///< bigger model
+            model = appPath + QLatin1Char('/') + QLatin1String("yolov5x_batch_16_s320.onnx");  ///< bigger model
             break;
         }
     }
@@ -181,7 +181,7 @@ std::vector<cv::Mat> DNNYoloDetector::preprocess(const std::vector<cv::Mat>& inp
         net.forward(outs, getOutputsNames());
 
         int elapsed = timer.elapsed();
-        qDebug() << "Batch forward takes: " << elapsed << " ms";
+        qDebug() << "Batch forward (Inference) takes: " << elapsed << " ms";
     }
     mutex.unlock();
 
