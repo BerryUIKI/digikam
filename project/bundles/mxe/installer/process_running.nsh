@@ -1,7 +1,7 @@
 ;; ============================================================
  ;
  ; This file is a part of digiKam project
- ; http://www.digikam.org
+ ; https://www.digikam.org
  ;
  ; Date        : 2005-01-01
  ; Description : Functions to check if executable is running.
