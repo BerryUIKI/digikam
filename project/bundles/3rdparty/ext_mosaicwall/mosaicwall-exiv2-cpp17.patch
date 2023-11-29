@@ -1,5 +1,5 @@
 diff --git a/CMakeLists.txt b/CMakeLists.txt
-index ec6d70e..5a60fb5 100644
+index ec6d70e..b8d3cec 100644
 --- a/CMakeLists.txt
 +++ b/CMakeLists.txt
 @@ -1,17 +1,18 @@
@@ -47,7 +47,50 @@ index ec6d70e..5a60fb5 100644
  if(BUILD_WITH_QT6)
  
      find_package(Qt6 "6.5.0" REQUIRED
-@@ -93,7 +99,6 @@ set(imagemosaicwall_core_SRCS ${CMAKE_SOURCE_DIR}/mainwindow.cpp
+@@ -63,10 +69,29 @@ endif()
+ 
+ find_package(Threads)
+ 
+-find_package(exiv2 REQUIRED)
++find_package(exiv2lib REQUIRED CONFIG NAMES exiv2)
++
++if(exiv2lib_FOUND)
++
++    message(STATUS "Found Exiv2 version ${exiv2lib_VERSION}")
++
++    # Work around the cmake export rules from Exiv2 since 0.28
++
++    if("${exiv2lib_VERSION}" VERSION_GREATER "0.27.99")
++
++        set(exiv2lib_LIBRARIES Exiv2::exiv2lib)
++
++    else()
++
++        set(exiv2lib_LIBRARIES exiv2lib)
++
++    endif()
++
++    message(STATUS "Exiv2 libraries: ${exiv2lib_LIBRARIES}")
+ 
+-set_package_properties("exiv2"     PROPERTIES
+-                       DESCRIPTION "Required to build digiKam"
++endif()
++
++set_package_properties(exiv2lib PROPERTIES
+                        URL         "https://www.exiv2.org"
+                        TYPE        RECOMMENDED
+                        PURPOSE     "Library to manage image metadata"
+@@ -74,8 +99,7 @@ set_package_properties("exiv2"     PROPERTIES
+ 
+ include(i18nUtils)
+ 
+-include_directories($<TARGET_PROPERTY:exiv2lib,INTERFACE_INCLUDE_DIRECTORIES>
+-                    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
++include_directories($<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
+                     $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Core,INTERFACE_INCLUDE_DIRECTORIES>
+                     $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Gui,INTERFACE_INCLUDE_DIRECTORIES>
+                     $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Concurrent,INTERFACE_INCLUDE_DIRECTORIES>
+@@ -93,7 +117,6 @@ set(imagemosaicwall_core_SRCS ${CMAKE_SOURCE_DIR}/mainwindow.cpp
                                ${i18n_QM}
  )
  
@@ -55,7 +98,16 @@ index ec6d70e..5a60fb5 100644
  if(Qt6_FOUND)
  
      qt6_wrap_ui(imagemosaicwall_core_SRCS ${CMAKE_SOURCE_DIR}/mainwindow.ui
-@@ -123,43 +128,46 @@ if(NOT MSVC)
+@@ -119,47 +142,54 @@ set(libimagemosaicwall_core_SRCS
+ 
+ add_library(imagemosaicwallcore STATIC ${libimagemosaicwall_core_SRCS})
+ 
++target_link_libraries(imagemosaicwallcore
++                      PUBLIC
++                      ${exiv2lib_LIBRARIES}
++)
++
+ if(NOT MSVC)
      target_compile_options(imagemosaicwallcore PRIVATE -fPIC)
  endif()
  
@@ -90,25 +142,24 @@ index ec6d70e..5a60fb5 100644
 +                          Qt${QT_VERSION_MAJOR}::Gui
 +                          Qt${QT_VERSION_MAJOR}::Concurrent
 +
-+                          exiv2lib
-+                         ${CMAKE_THREAD_LIBS_INIT}
++                          ${CMAKE_THREAD_LIBS_INIT}
 +    )
++
++    if(APPLE)
++        set(APPS "\${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}.app")
++        set(DIRS "\${CMAKE_INSTALL_PREFIX}/share")
  
 -if(APPLE)
 -  set(APPS "\${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}.app")
 -  set(DIRS "\${CMAKE_INSTALL_PREFIX}/share")
-+    if(APPLE)
-+        set(APPS "\${CMAKE_INSTALL_PREFIX}/${PROJECT_NAME}.app")
-+        set(DIRS "\${CMAKE_INSTALL_PREFIX}/share")
++        install(TARGETS ${PROJECT_NAME}
++                BUNDLE DESTINATION . COMPONENT Runtime
++                RUNTIME DESTINATION bin COMPONENT Runtime)
  
 -  install(TARGETS ${PROJECT_NAME}
 -    BUNDLE DESTINATION . COMPONENT Runtime
 -    RUNTIME DESTINATION bin COMPONENT Runtime
 -  )
-+        install(TARGETS ${PROJECT_NAME}
-+                BUNDLE DESTINATION . COMPONENT Runtime
-+                RUNTIME DESTINATION bin COMPONENT Runtime)
-+
 +        install(CODE "
 +            include(BundleUtilities)
 +            fixup_bundle(\"${APPS}\"  \"\"  \"${DIRS}\")
@@ -130,6 +181,19 @@ index ec6d70e..5a60fb5 100644
      MACRO_ADD_UNINSTALL_TARGET()
 +
  endif()
+diff --git a/dplugin/CMakeLists.txt b/dplugin/CMakeLists.txt
+index 2842f45..f882de8 100644
+--- a/dplugin/CMakeLists.txt
++++ b/dplugin/CMakeLists.txt
+@@ -35,8 +35,6 @@ target_link_libraries(Generic_ImageMosaicWall_Plugin
+                       Qt${QT_VERSION_MAJOR}::Widgets
+                       Qt${QT_VERSION_MAJOR}::Gui
+                       Qt${QT_VERSION_MAJOR}::Concurrent
+-
+-                      exiv2lib
+ )
+ 
+ MACRO_ADD_PLUGIN_INSTALL_TARGET(Generic_ImageMosaicWall_Plugin generic)
 diff --git a/imageprocessing.cpp b/imageprocessing.cpp
 index 407d943..b4609a8 100644
 --- a/imageprocessing.cpp
