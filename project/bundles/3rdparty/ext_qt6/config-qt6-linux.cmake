@@ -1,7 +1,7 @@
 ################################################################################
 #
 # Script to build Qt 6 - config for Linux
-# See option details on configure-linux text file
+# See option details on configure-help text file
 #
 # Copyright (c) 2015-2024 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
@@ -20,7 +20,7 @@ LIST(APPEND QT_CONFIG
             -opensource                       # Build open-source framework edition
             -confirm-license                  # Silency ack the license
 
-            -sql-mysql                         # Compile PostgreSql SQL plugin
+            -sql-mysql                        # Compile PostgreSql SQL plugin
             -sql-sqlite                       # Compile Sqlite SQL plugin
             -fontconfig
             -system-freetype                  # Use system font rendering lib https://doc.qt.io/qt-5/qtgui-attribution-freetype.html
