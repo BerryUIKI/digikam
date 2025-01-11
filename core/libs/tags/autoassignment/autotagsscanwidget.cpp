@@ -117,10 +117,10 @@ void AutotagsScanWidget::setupUi()
     hbox15->setStretchFactor(space15, 10);
 
     d->tagMode = new QComboBox(hbox15);
-    d->tagMode->addItem(i18n("Repalce existing autotags"), AutotagsScanSettings::TagMode::Replace);
+    d->tagMode->addItem(i18n("Replace existing autotags"), AutotagsScanSettings::TagMode::Replace);
     d->tagMode->addItem(i18n("Update autotags"),  AutotagsScanSettings::TagMode::Update);
     d->tagMode->setToolTip(i18nc("@info:tooltip",
-        "<p><b>Repalce existing autotags</b>: clear existing autotags and replace with the results of the scan.</p>"
+        "<p><b>Replace existing autotags</b>: clear existing autotags and replace with the results of the scan.</p>"
         "<p><b>Update autotags</b>: add any new autotags found to the existing tags.</p>"));
 
     DHBox* const hbox13    = new DHBox(d->settingsTab);
@@ -135,7 +135,7 @@ void AutotagsScanWidget::setupUi()
     d->objectDetectModel->setToolTip(i18nc("@info:tooltip",
         "<p><b>YOLOv11 Nano</b>: small, lightweight neural network offering exceptional speed, but may miss identifying more objects in images. "
         "YOLO can detect multiple objects in an image. It is trained to recognize 80 different objects using the COCO dataset.</p>"
-        "<p><b>YOLOv11 XLarge</b>: large, rebust neural network offering good accuracy. It will detect more objects in images than YOLOv11 Nano, "
+        "<p><b>YOLOv11 XLarge</b>: large, robust neural network offering good accuracy. It will detect more objects in images than YOLOv11 Nano, "
         "but is slower. YOLO can detect multiple objects in an image. It is trained to recognize 80 different objects using the COCO dataset.</p>"
         "<p><b>ResNet-152</b>: large and powerful convoluted neural network. It will detect a single object in an image with high accuracy. "
         "ResNet-152 was trained to recognize 1,000 different objects using the ImageNet dataset.</p>"));
