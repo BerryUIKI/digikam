@@ -311,10 +311,14 @@ void MaintenanceMngr::stage6()
     {
         // NOTE : Use multi-core CPU option is passed through FaceScanSettings
 
-        d->settings.faceSettings.readFromConfig();
-        d->settings.faceSettings.wholeAlbums        = d->settings.wholeAlbums;
-        d->settings.faceSettings.useFullCpu         = d->settings.useMutiCoreCPU;
-        d->facesDetector                            = new FacesEngine(d->settings.faceSettings);
+        FaceScanSettings faceSettings;
+
+        faceSettings.readFromConfig();
+        faceSettings.albums             = d->settings.albums;
+        faceSettings.wholeAlbums        = d->settings.wholeAlbums;
+        faceSettings.useFullCpu         = d->settings.useMutiCoreCPU;
+        faceSettings.task               = d->settings.faceSettings.task;
+        d->facesDetector                = new FacesEngine(faceSettings);
         d->facesDetector->setNotificationEnabled(false);
         d->facesDetector->start();
     }
