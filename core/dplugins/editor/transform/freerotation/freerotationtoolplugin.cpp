@@ -85,7 +85,10 @@ QList<DPluginAuthor> FreeRotationToolPlugin::authors() const
                              QString::fromUtf8("(C) 2009-2010"))
             << DPluginAuthor(QString::fromUtf8("Gilles Caulier"),
                              QString::fromUtf8("caulier dot gilles at gmail dot com"),
-                             QString::fromUtf8("(C) 2004-2024"))
+                             QString::fromUtf8("(C) 2004-2025"))
+            << DPluginAuthor(QString::fromUtf8("Michael Miller"),
+                             QString::fromUtf8("michael underscore miller at msn dot com"),
+                             QString::fromUtf8("(C) 2025"))
             ;
 }
 
@@ -120,6 +123,12 @@ void FreeRotationToolPlugin::setup(QObject* const parent)
     connect(autoAdjustAction, SIGNAL(triggered(bool)),
             this, SIGNAL(signalAutoAdjustAction()));
 
+    QAction* const dnnAdjustAction = new QAction(i18nc("@action", "Free Rotation AI Adjust"), parent);
+    dnnAdjustAction->setObjectName(QLatin1String("editorwindow_transform_freerotation_dnndjust"));
+
+    connect(dnnAdjustAction, SIGNAL(triggered(bool)),
+            this, SIGNAL(signalDnnAdjustAction()));
+        
     KXmlGuiWindow* const gui = dynamic_cast<KXmlGuiWindow*>(parent);
 
     if (gui)
@@ -129,10 +138,12 @@ void FreeRotationToolPlugin::setup(QObject* const parent)
         collection->addAction(point1Action->objectName(),     point1Action);
         collection->addAction(point2Action->objectName(),     point2Action);
         collection->addAction(autoAdjustAction->objectName(), autoAdjustAction);
+        collection->addAction(dnnAdjustAction->objectName(),  dnnAdjustAction);
 
         collection->setDefaultShortcut(point1Action,     Qt::CTRL | Qt::SHIFT | Qt::Key_1);
         collection->setDefaultShortcut(point2Action,     Qt::CTRL | Qt::SHIFT | Qt::Key_2);
         collection->setDefaultShortcut(autoAdjustAction, Qt::CTRL | Qt::SHIFT | Qt::Key_R);
+        collection->setDefaultShortcut(dnnAdjustAction,  Qt::CTRL | Qt::SHIFT | Qt::Key_Up);
     }
 }
 
@@ -153,6 +164,9 @@ void FreeRotationToolPlugin::slotFreeRotation()
 
         connect(this, SIGNAL(signalAutoAdjustAction()),
                 tool, SLOT(slotAutoAdjustClicked()));
+
+        connect(this, SIGNAL(signalDnnAdjustAction()),
+                tool, SLOT(slotDnnAdjustClicked()));
 
         editor->loadTool(tool);
     }

@@ -53,6 +53,7 @@ Q_SIGNALS:
     void signalPoint1Action();
     void signalPoint2Action();
     void signalAutoAdjustAction();
+    void signalDnnAdjustAction();
 
 private Q_SLOTS:
 

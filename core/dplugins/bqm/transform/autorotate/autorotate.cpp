@@ -34,8 +34,8 @@
 #include "dimgbuiltinfilter.h"
 #include "dmetadata.h"
 #include "jpegutils.h"
-#include "freerotationfilter.h"
-#include "freerotationsettings.h"
+// #include "freerotationfilter.h"
+// #include "freerotationsettings.h"
 #include "autorotator.h"
 
 namespace DigikamBqmAutoRotatePlugin

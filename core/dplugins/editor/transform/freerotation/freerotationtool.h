@@ -42,6 +42,7 @@ public Q_SLOTS:
     void slotAutoAdjustP1Clicked();
     void slotAutoAdjustP2Clicked();
     void slotAutoAdjustClicked();
+    void slotDnnAdjustClicked();
 
 private Q_SLOTS:
 

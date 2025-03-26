@@ -67,6 +67,7 @@ public:
     QPushButton*          autoAdjustBtn         = nullptr;
     QPushButton*          autoAdjustPoint1Btn   = nullptr;
     QPushButton*          autoAdjustPoint2Btn   = nullptr;
+    QPushButton*          dnnAdjustBtn          = nullptr;
 
     FreeRotationSettings* settingsView          = nullptr;
 
@@ -163,6 +164,10 @@ FreeRotationTool::FreeRotationTool(QObject* const parent)
     d->autoAdjustBtn->setSizePolicy(QSizePolicy::MinimumExpanding,
                                     QSizePolicy::Expanding);
 
+    d->dnnAdjustBtn = new QPushButton(i18nc("AI Adjustment", "AI Adjust"));
+    d->dnnAdjustBtn->setSizePolicy(QSizePolicy::MinimumExpanding,
+                                    QSizePolicy::Expanding);
+
     // --------------------------------------------------------
 
     QWidget* const autoAdjustContainer  = new QWidget;
@@ -180,6 +185,7 @@ FreeRotationTool::FreeRotationTool(QObject* const parent)
     containerLayout2->addWidget(d->autoAdjustPoint1Btn, 1, 0, 1,  1);
     containerLayout2->addWidget(d->autoAdjustBtn,       1, 2, 2,  1);
     containerLayout2->addWidget(d->autoAdjustPoint2Btn, 2, 0, 1,  1);
+    containerLayout2->addWidget(d->dnnAdjustBtn,        3, 0, 1,  1);
     containerLayout2->setColumnStretch(1, 10);
     containerLayout2->setContentsMargins(cmargin, cmargin, cmargin, cmargin);
     autoAdjustContainer->setLayout(containerLayout2);
@@ -230,6 +236,9 @@ FreeRotationTool::FreeRotationTool(QObject* const parent)
 
     connect(d->autoAdjustBtn, SIGNAL(clicked()),
             this, SLOT(slotAutoAdjustClicked()));
+
+    connect(d->dnnAdjustBtn, SIGNAL(clicked()),
+            this, SLOT(slotDnnAdjustClicked()));
 }
 
 FreeRotationTool::~FreeRotationTool()
@@ -444,6 +453,68 @@ void FreeRotationTool::slotAutoAdjustP2Clicked()
 }
 
 void FreeRotationTool::slotAutoAdjustClicked()
+{
+    // we need to check manually here if the button is enabled,
+    // because this slot can be called with an action now
+
+    if (!d->autoAdjustBtn->isEnabled())
+    {
+        return;
+    }
+
+    double angle = calculateAutoAngle();
+
+    if (fabs(angle) > 45.0)
+    {
+        if (angle < 0.0)
+        {
+            angle += 90.0;
+        }
+        else
+        {
+            angle -= 90.0;
+        }
+    }
+
+    // we need to add the calculated angle to the currently set angle
+
+    angle                  = d->settingsView->settings().angle + angle;
+
+    // convert the angle to a string so we can easily split it up
+
+    QString angleStr       = QString::number(angle, 'f', 2);
+    QStringList anglesList = angleStr.split(QLatin1Char('.'));
+
+    // try to set the angle widgets with the extracted values
+
+    if (anglesList.count() == 2)
+    {
+        bool ok       = false;
+        int mainAngle = anglesList.at(0).toInt(&ok);
+
+        if (!ok)
+        {
+            mainAngle = 0;
+        }
+
+        double fineAngle = QString(QLatin1String("0.") + anglesList.at(1)).toDouble(&ok);
+        fineAngle        = (angle < 0.0) ? -fineAngle : fineAngle;
+
+        if (!ok)
+        {
+            fineAngle = 0.0;
+        }
+
+        FreeRotationContainer prm = d->settingsView->settings();
+        prm.angle                 = mainAngle + fineAngle;
+        d->settingsView->setSettings(prm);
+        slotPreview();
+    }
+
+    resetPoints();
+}
+
+void FreeRotationTool::slotDnnAdjustClicked()
 {
     // we need to check manually here if the button is enabled,
     // because this slot can be called with an action now
