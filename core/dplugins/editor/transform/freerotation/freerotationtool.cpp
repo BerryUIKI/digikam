@@ -46,6 +46,7 @@
 #include "freerotationsettings.h"
 #include "imageiface.h"
 #include "imageguidewidget.h"
+#include "autorotator.h"
 
 namespace DigikamEditorFreeRotationToolPlugin
 {
@@ -516,31 +517,28 @@ void FreeRotationTool::slotAutoAdjustClicked()
 
 void FreeRotationTool::slotDnnAdjustClicked()
 {
-    // we need to check manually here if the button is enabled,
-    // because this slot can be called with an action now
+    // To use the AI autorotate, we need to get the DImg from the preview widget
+    // and pass it to the autorotator
 
-    if (!d->autoAdjustBtn->isEnabled())
-    {
-        return;
-    }
+    AutoRotator autorotator;
 
-    double angle = calculateAutoAngle();
+    double angle = autorotator.rotationAngle(d->previewWidget->imageIface()->preview());
 
-    if (fabs(angle) > 45.0)
-    {
-        if (angle < 0.0)
-        {
-            angle += 90.0;
-        }
-        else
-        {
-            angle -= 90.0;
-        }
-    }
+    // if (fabs(angle) > 45.0)
+    // {
+    //     if (angle < 0.0)
+    //     {
+    //         angle += 90.0;
+    //     }
+    //     else
+    //     {
+    //         angle -= 90.0;
+    //     }
+    // }
 
-    // we need to add the calculated angle to the currently set angle
+    // // we need to add the calculated angle to the currently set angle
 
-    angle                  = d->settingsView->settings().angle + angle;
+    // angle                  = d->settingsView->settings().angle + angle;
 
     // convert the angle to a string so we can easily split it up
 
