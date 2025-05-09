@@ -50,8 +50,8 @@ protected:
     const int   topK                            = 0;
     const float minP                            = 1.05f;
 
-    const QString apiURL                      = QLatin1String("http://localhost:5001");
-    const QString apiPassword                 = QLatin1String("");
+    const QString apiURL                        = QLatin1String("http://localhost:5001");
+    const QString apiPassword                   = QLatin1String("");
 
     bool finder() override;
     bool loader() override;

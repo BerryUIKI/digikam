@@ -92,7 +92,7 @@ const QList<DownloadInfo>& DNNModelManager::getDownloadInformation(DNNModelUsage
 
     for (const auto& model : keys)
     {
-        if (d->modelMap[model]->info.usage.contains(usage))
+        if (d->modelMap[model]->info.usage.contains(usage) && (QLatin1String("koboldllm") != d->modelMap[model]->info.classifier))
         {
             d->downloadInfo << d->modelMap[model]->getDownloadInformation();
         }
@@ -113,19 +113,27 @@ const QList<QPair<QString, QStringList> > DNNModelManager::getModelList(DNNModel
     {
         // check if the model is used for the requested usage.
 
-        if (
-            d->modelMap[model]->info.usage.contains(usage) &&
-            (d->modelMap[model]->info.loaderType != DNNLoaderType::DNNLoaderConfig)
-           )
+        if (d->modelMap[model]->info.usage.contains(usage))
         {
-            // check we have the model downloaded.
-
-            QFileInfo check_file(d->modelMap[model]->getModelPath());
-
-            if (!check_file.exists())
+                        // don't check for the model file if it is a koboldllm model.
+            
+            if (d->modelMap[model]->info.classifier.toLower() != QLatin1String("koboldllm"))
             {
-                qCDebug(DIGIKAM_DNNMODELMNGR_LOG) << "DNNModelManager::getModelList: Model file not found:" << model;
-                continue;
+                if (d->modelMap[model]->info.loaderType == DNNLoaderType::DNNLoaderConfig)
+                {
+                    // skip the config models other than KoboldLLM, they are not used in the UI
+                    continue;
+                }
+
+                // check we have the model downloaded.
+
+                QFileInfo check_file(d->modelMap[model]->getModelPath());
+
+                if (!check_file.exists() )
+                {
+                    qCDebug(DIGIKAM_DNNMODELMNGR_LOG) << "DNNModelManager::getModelList: Model file not found:" << model;
+                    continue;
+                }
             }
 
             // get the display strings for the model.
@@ -362,6 +370,13 @@ QStringList DNNModelManager::getDisplayStrings(const QString& modelName) const
             result << i18nc("@info:tooltip",
                             "<p><b>EfficientNet B7</b>: large and powerful convoluted neural network. It will detect a single object in an image with high accuracy. "
                             "EfficientNet B7 was trained to recognize 1,000 different objects using the ImageNet dataset.</p>");
+        }
+        else if (modelName == QStringLiteral("AutoRotate").toLower())
+        {
+            result << i18n("AutoRotate");
+            result << i18nc("@info:tooltip",
+                            "<p><b>AutoRotate</b>: neural network to automatically rotate images to the correct orientation. It will rotate images to the correct "
+                            "orientation based on the content of the image.</p>");
         }
 
         // if no translation is found, use the info from dnnmodels.conf

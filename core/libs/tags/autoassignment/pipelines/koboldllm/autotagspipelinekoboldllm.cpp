@@ -87,22 +87,6 @@ bool AutotagsPipelineKoboldLLM::start()
     {
         model = static_cast<DNNModelNet*>(DNNModelManager::instance()->getModel(settings.objectDetectModel,
                                                                                 DNNModelUsage::DNNUsageImageClassification));
-
-        model->getNet();
-
-        const DNNModelConfig* configModel = static_cast<DNNModelConfig*>(DNNModelManager::instance()->getModel(model->info.classList,
-                                                                                                               DNNModelUsage::DNNUsageImageClassification));
-
-        if (configModel)
-        {
-            // Create appropriate classifier for KoboldLLM model
-            autotagsClassifier = static_cast<AutotagsClassifierBase*>(new AutotagsClassifierMinmax(0.5, configModel->getModelPath()));            
-        }
-        else
-        {
-            qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::start(): Failed to find config model.";
-            return false;
-        }
     }
     catch (const std::exception& e)
     {
@@ -129,7 +113,7 @@ bool AutotagsPipelineKoboldLLM::start()
 
     // Check if the model and classifier were created
 
-    if ((nullptr == model) || (nullptr == autotagsClassifier))
+    if (nullptr == model)
     {
         return false;
     }
