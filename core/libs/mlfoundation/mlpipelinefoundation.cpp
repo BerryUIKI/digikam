@@ -449,7 +449,7 @@ bool MLPipelineFoundation::enqueue(MLPipelineQueue* thisQueue, MLPipelinePackage
         {
             // speed things up
 
-            thisQueue->setMaxDepth(QThread::idealThreadCount());
+            thisQueue->setMaxDepth(maxQueueDepth);
         }
 
         // add the package to the queue
@@ -525,7 +525,7 @@ void MLPipelineFoundation::stageStart(QThread::Priority threadPriority,
 
         if (MLPipelineStage::Loader != thisStage)
         {
-            thisQueue->setMaxDepth(QThread::idealThreadCount());
+            thisQueue->setMaxDepth(maxQueueDepth);
         }
     }
 

@@ -135,6 +135,7 @@ protected:
 
     QMap<MLPipelineStage, MLPipelineQueue*>             queues;
     const int                                           throttledQueueDepth = 1;
+    int                                                 maxQueueDepth       = QThread::idealThreadCount();
     QMutex                                              mutex;
     QMutex                                              threadStageMutex;
     QAtomicInteger<int>                                 itemsProcessed      = 0;
