@@ -94,6 +94,9 @@ DK_BUILDTEMP=~/dktemp
 #DK_QTVERSION="5"
 DK_QTVERSION="6"
 
+# Build universal bundle (arm64 + Intel architecture). Work only with Silicon computer.
+DK_UNIVERSAL=0
+
 # Mariadb version to install for Qt SQL plugin.
 DK_MARIADB_VERSION="10.11"
 
@@ -147,7 +150,7 @@ else
 
     # KDE KF6 frameworks version.
     # See official release here: https://download.kde.org/stable/frameworks/
-    DK_KDE_VERSION="v6.13.0"
+    DK_KDE_VERSION="v6.14.0"
 
     # KDE Plasma version.
     # See official release here: https://download.kde.org/stable/plasma/
