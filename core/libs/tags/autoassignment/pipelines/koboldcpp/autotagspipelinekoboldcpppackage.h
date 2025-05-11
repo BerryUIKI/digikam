@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2025-05-07
- * Description : Package class for KoboldLLM pipeline
+ * Description : Package class for KoboldCpp pipeline
  *
  * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
@@ -28,29 +28,29 @@ namespace Digikam
 {
 
 /**
- * @class AutotagsPipelineKoboldLLMPackage
- * @brief The AutotagsPipelineKoboldLLMPackage class extends the base package class
- * to include KoboldLLM-specific fields such as base64-encoded image data.
+ * @class AutotagsPipelineKoboldCppPackage
+ * @brief The AutotagsPipelineKoboldCppPackage class extends the base package class
+ * to include KoboldCpp-specific fields such as base64-encoded image data.
  */
-class DIGIKAM_GUI_EXPORT AutotagsPipelineKoboldLLMPackage : public AutotagsPipelinePackageBase
+class DIGIKAM_GUI_EXPORT AutotagsPipelineKoboldCppPackage : public AutotagsPipelinePackageBase
 {
 public:
 
     /**
      * @brief Default constructor
      */
-    AutotagsPipelineKoboldLLMPackage() = default;
+    AutotagsPipelineKoboldCppPackage() = default;
 
     /**
      * @brief Constructor with image ID
      * @param imageId The ID of the image to process
      */
-    explicit AutotagsPipelineKoboldLLMPackage(qlonglong imageId);
+    explicit AutotagsPipelineKoboldCppPackage(qlonglong imageId);
 
     /**
      * @brief Destructor
      */
-    ~AutotagsPipelineKoboldLLMPackage() override = default;
+    ~AutotagsPipelineKoboldCppPackage() override = default;
 
 public:
 
@@ -69,7 +69,7 @@ public:
 private:
 
     // Disable
-    AutotagsPipelineKoboldLLMPackage(const AutotagsPipelineKoboldLLMPackage&) = delete;
+    AutotagsPipelineKoboldCppPackage(const AutotagsPipelineKoboldCppPackage&) = delete;
 };
 
 } // namespace Digikam

@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2025-05-09
- * Description : Manager for KoboldCPP process operations
+ * Description : Manager for KoboldCpp process operations
  *
  * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
@@ -49,7 +49,7 @@ bool LLMProcessManagerKoboldCpp::startEngine()
 {
     if (!m_settings.isValid() || m_settings.mmprojPath.isEmpty())
     {
-        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot start KoboldCPP engine: invalid settings";
+        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot start KoboldCpp engine: invalid settings";
         Q_EMIT engineStarted(false);
         return false;
     }
@@ -91,7 +91,7 @@ void LLMProcessManagerKoboldCpp::abortInference()
 {
     if (!isEngineRunning())
     {
-        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot abort inference: KoboldCPP engine is not running";
+        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot abort inference: KoboldCpp engine is not running";
         return;
     }
     
@@ -107,11 +107,11 @@ void LLMProcessManagerKoboldCpp::abortInference()
     // Log the result
     if (!response.isEmpty())
     {
-        qCDebug(DIGIKAM_LLMENGINE_LOG) << "Successfully aborted KoboldCPP inference";
+        qCDebug(DIGIKAM_LLMENGINE_LOG) << "Successfully aborted KoboldCpp inference";
     }
     else
     {
-        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Failed to abort KoboldCPP inference";
+        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Failed to abort KoboldCpp inference";
     }
 }
 
@@ -145,12 +145,12 @@ bool LLMProcessManagerKoboldCpp::checkEngineReady()
             QString status = jsonResponse[QStringLiteral("result")].toString();
             ready = (status.toLower() == QStringLiteral("koboldcpp"));
             
-            qCDebug(DIGIKAM_LLMENGINE_LOG) << "KoboldCPP LLM status:" << jsonResponse;
+            qCDebug(DIGIKAM_LLMENGINE_LOG) << "KoboldCpp LLM status:" << jsonResponse;
         }
     }
     else
     {
-        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Failed to check KoboldCPP LLM status";
+        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Failed to check KoboldCpp LLM status";
     }
 
     return ready;
@@ -161,13 +161,13 @@ QByteArray LLMProcessManagerKoboldCpp::submitRequest(const QString& function, co
 {
     if (!isEngineRunning())
     {
-        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot submit request: KoboldCPP engine is not running";
+        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot submit request: KoboldCpp engine is not running";
         return QByteArray();
     }
 
     if (!force && !engineReady())
     {
-        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot submit request: KoboldCPP engine is not ready for inference";
+        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot submit request: KoboldCpp engine is not ready for inference";
         return QByteArray();
     }
 

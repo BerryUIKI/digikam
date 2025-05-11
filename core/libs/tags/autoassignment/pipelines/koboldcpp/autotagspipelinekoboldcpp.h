@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2025-05-06
- * Description : Performs autotags using KoboldLLM models
+ * Description : Performs autotags using KoboldCpp models
  *
  * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
@@ -31,14 +31,14 @@
 namespace Digikam
 {
 
-class DIGIKAM_GUI_EXPORT AutotagsPipelineKoboldLLM : public AutotagsPipelineBase
+class DIGIKAM_GUI_EXPORT AutotagsPipelineKoboldCpp : public AutotagsPipelineBase
 {
     Q_OBJECT
 
 public:
 
-    explicit AutotagsPipelineKoboldLLM(const AutotagsScanSettings& settings);
-    ~AutotagsPipelineKoboldLLM() override;
+    explicit AutotagsPipelineKoboldCpp(const AutotagsScanSettings& settings);
+    ~AutotagsPipelineKoboldCpp() override;
 
     bool start() override;
 
@@ -75,7 +75,7 @@ protected:
     void addMoreWorkers() override;
 
     /**
-     * @brief Prepares the payload for the KoboldLLM API request
+     * @brief Prepares the payload for the KoboldCpp API request
      * @param prompt The LLM prompt to include in the request
      * @param base64Image The base64 encoded image to include in the request
      * @return The JSON object containing the prepared payload
@@ -107,9 +107,9 @@ private Q_SLOTS:
 private:
 
     // Disable
-    AutotagsPipelineKoboldLLM() = delete;
-    AutotagsPipelineKoboldLLM(QObject*) = delete;
-    AutotagsPipelineKoboldLLM(const AutotagsPipelineKoboldLLM&) = delete;
+    AutotagsPipelineKoboldCpp() = delete;
+    AutotagsPipelineKoboldCpp(QObject*) = delete;
+    AutotagsPipelineKoboldCpp(const AutotagsPipelineKoboldCpp&) = delete;
 };
 
 } // namespace Digikam

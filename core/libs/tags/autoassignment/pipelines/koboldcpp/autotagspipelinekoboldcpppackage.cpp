@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2025-05-07
- * Description : Package class for KoboldLLM pipeline
+ * Description : Package class for KoboldCpp pipeline
  *
  * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
@@ -13,7 +13,7 @@
  *
  * ============================================================ */
 
-#include "autotagspipelinekoboldllmpackage.h"
+#include "autotagspipelinekoboldcpppackage.h"
 
 // Local includes
 
@@ -22,10 +22,10 @@
 namespace Digikam
 {
 
-AutotagsPipelineKoboldLLMPackage::AutotagsPipelineKoboldLLMPackage(qlonglong imageId)
+AutotagsPipelineKoboldCppPackage::AutotagsPipelineKoboldCppPackage(qlonglong imageId)
     : AutotagsPipelinePackageBase(imageId)
 {
-    // Initialize KoboldLLM specific members with default values
+    // Initialize KoboldCpp specific members with default values
     base64Image = QString();
     imageDescription = QString();
 }

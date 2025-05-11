@@ -47,7 +47,7 @@
 #include "iteminfojob.h"
 #include "mlpipelinepackagenotify.h"
 #include "autotagspipelineobject.h"
-#include "autotagspipelinekoboldllm.h"
+#include "autotagspipelinekoboldcpp.h"
 
 namespace Digikam
 {
@@ -81,7 +81,7 @@ AutotagsEngine::AutotagsEngine(const AutotagsScanSettings& _settings, ProgressIt
     if ((d->settings.objectDetectModel.toLower().contains(QStringLiteral("qwen"))) ||
         (d->settings.objectDetectModel.toLower().contains(QStringLiteral("gemma"))))
     {
-        d->newPipeline = new AutotagsPipelineKoboldLLM(_settings);
+        d->newPipeline = new AutotagsPipelineKoboldCpp(_settings);
     }
     else
     {

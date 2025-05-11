@@ -106,7 +106,6 @@ bool LLMProcessManager::startEngine(const QStringList& args)
     {
         m_lastErrorMessage = QString::fromLatin1("Engine binary does not exist or is not executable: %1").arg(m_executablePath);
         qCWarning(DIGIKAM_LLMENGINE_LOG) << m_lastErrorMessage;
-        Q_EMIT engineStarted(false);
         return false;
     }
 

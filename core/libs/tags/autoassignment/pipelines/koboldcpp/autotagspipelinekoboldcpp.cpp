@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2025-05-06
- * Description : Performs autotags using KoboldLLM models
+ * Description : Performs autotags using KoboldCpp models
  *
  * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
@@ -13,20 +13,14 @@
  *
  * ============================================================ */
 
-#include "autotagspipelinekoboldllm.h"
-
-// C++ includes
-
-// #include <vector>
+#include "autotagspipelinekoboldcpp.h"
 
 // Qt includes
 
 #include <QList>
-// #include <QSet>
 #include <QElapsedTimer>
-// #include <QRectF>
-#include <QBuffer>
 #include <QByteArray>
+#include <QBuffer>
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QJsonDocument>
@@ -56,27 +50,24 @@
 #include "dimg.h"
 #include "previewloadthread.h"
 #include "dnnmodelconfig.h"
-#include "autotagsclassifierbase.h"
-#include "autotagsclassifierminmax.h"
 #include "scancontroller.h"
 #include "metadatahub.h"
 #include "itemcomments.h"
 #include "tagscache.h"
 #include "localizeselector.h"
-#include "qtopencvimg.h"
-#include "autotagspipelinekoboldllmpackage.h"
+#include "autotagspipelinekoboldcpppackage.h"
 
 namespace Digikam
 {
 
-AutotagsPipelineKoboldLLM::AutotagsPipelineKoboldLLM(const AutotagsScanSettings& settings)
+AutotagsPipelineKoboldCpp::AutotagsPipelineKoboldCpp(const AutotagsScanSettings& settings)
     : AutotagsPipelineBase(settings),
       m_llmProcessManager(nullptr)
 {
     maxQueueDepth = 1;
 }
 
-AutotagsPipelineKoboldLLM::~AutotagsPipelineKoboldLLM()
+AutotagsPipelineKoboldCpp::~AutotagsPipelineKoboldCpp()
 {
     if (m_llmProcessManager)
     {
@@ -86,9 +77,11 @@ AutotagsPipelineKoboldLLM::~AutotagsPipelineKoboldLLM()
     }
 }
 
-bool AutotagsPipelineKoboldLLM::start()
+bool AutotagsPipelineKoboldCpp::start()
 {
-    // Create the KoboldLLM model
+    bool started = false;
+
+    // Create the KoboldCpp model
 
     try
     {
@@ -97,7 +90,7 @@ bool AutotagsPipelineKoboldLLM::start()
     
         if (!model)
         {
-            qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::start(): Unable to load model:"
+            qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::start(): Unable to load model:"
                                                    << settings.objectDetectModel;
             return false;
         }
@@ -109,7 +102,7 @@ bool AutotagsPipelineKoboldLLM::start()
         // Create the LLM Process Manager
         m_llmProcessManager = new LLMProcessManagerKoboldCpp(m_llmSettings, this);
         
-        // Start the KoboldCPP LLM engine
+        // Start the KoboldCpp LLM engine
         if (!m_llmProcessManager->isEngineRunning())
         {
             // Connect signals for engine status updates
@@ -123,11 +116,25 @@ bool AutotagsPipelineKoboldLLM::start()
                     this, SLOT(slotEngineReadyChanged(bool)));
                         
             // Start the engine
-            bool started = m_llmProcessManager->startEngine();
+            started = m_llmProcessManager->startEngine();
             
-            if (!started) {
-                qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::start(): Unable to initiate KoboldCPP engine start:"
+            if (!started) 
+            {
+                // notify(MLPipelineNotification::,
+                //        i18n("Unable to start KoboldCpp engine. Please check the settings and try again."),
+                //        QString(),
+                //        QString(),
+                //        0,
+                //        QIcon());
+
+                qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::start(): Unable to initiate KoboldCpp engine start:"
                                                        << m_llmProcessManager->lastErrorMessage();
+
+                delete m_llmProcessManager;
+                m_llmProcessManager = nullptr;
+
+                Q_EMIT finished();
+
                 return false;
             }
             
@@ -137,7 +144,7 @@ bool AutotagsPipelineKoboldLLM::start()
     }
     catch (const std::exception& e)
     {
-        qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::start(): Unable to load model. " << e.what();
+        qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::start(): Unable to load model. " << e.what();
 
         if (model)
         {
@@ -148,7 +155,7 @@ bool AutotagsPipelineKoboldLLM::start()
     }
     catch (...)
     {
-        qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::start(): Unknown error. Unable to load model.";
+        qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::start(): Unknown error. Unable to load model.";
 
         if (model)
         {
@@ -165,10 +172,10 @@ bool AutotagsPipelineKoboldLLM::start()
         return false;
     }
 
-    return true;
+    return started;
 }
 
-void AutotagsPipelineKoboldLLM::cancel()
+void AutotagsPipelineKoboldCpp::cancel()
 {
     if (!cancelled)
     {
@@ -176,12 +183,15 @@ void AutotagsPipelineKoboldLLM::cancel()
 
         // Capture 'this' pointer to access class members from the lambda
         // Store the QFuture to resolve the 'nodiscard' warning
-        QFuture<void> future = QtConcurrent::run([this]()
+        if (m_llmProcessManager)
         {
-            QThread::msleep(100);
-            m_llmProcessManager->abortInference();
-            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::cancel(): sent abort request to LLM engine";
-        });
+            QFuture<void> future = QtConcurrent::run([this]()
+            {
+                QThread::msleep(100);
+                m_llmProcessManager->abortInference();
+                qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::cancel(): sent abort request to LLM engine";
+            });
+        }
         
         // Note: We don't need to wait for the future completion here
         // as we only want to start the abort process asynchronously
@@ -190,7 +200,7 @@ void AutotagsPipelineKoboldLLM::cancel()
     }
 }
 
-bool AutotagsPipelineKoboldLLM::finder()
+bool AutotagsPipelineKoboldCpp::finder()
 {
     if (settings.bqmMode)
     {
@@ -249,7 +259,7 @@ bool AutotagsPipelineKoboldLLM::finder()
                     ++totalItemCount;
                     filter << imageId;
 
-                    enqueue(nextQueue, new AutotagsPipelineKoboldLLMPackage(imageId));
+                    enqueue(nextQueue, new AutotagsPipelineKoboldCppPackage(imageId));
                 }
             }
         }
@@ -264,10 +274,10 @@ bool AutotagsPipelineKoboldLLM::finder()
     MLPIPELINE_FINDER_END(MLPipelineStage::Loader);
 }
 
-bool AutotagsPipelineKoboldLLM::loader()
+bool AutotagsPipelineKoboldCpp::loader()
 {
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Loader, MLPipelineStage::Extractor);
-    AutotagsPipelineKoboldLLMPackage* package = nullptr;
+    AutotagsPipelineKoboldCppPackage* package = nullptr;
 
     int imageSize= 1024;
 
@@ -280,7 +290,7 @@ bool AutotagsPipelineKoboldLLM::loader()
      */
 
     MLPIPELINE_LOOP_START(MLPipelineStage::Loader, thisQueue);
-    package = static_cast<AutotagsPipelineKoboldLLMPackage*>(mlpackage);
+    package = static_cast<AutotagsPipelineKoboldCppPackage*>(mlpackage);
 
     /* =========================================================================================
      * Start pipeline stage specific loop
@@ -296,7 +306,7 @@ bool AutotagsPipelineKoboldLLM::loader()
 
         if (DatabaseItem::Category::Image == package->info.category())
         {
-            // Load image for KoboldLLM model processing
+            // Load image for KoboldCpp model processing
 
             // package->image = PreviewLoadThread::loadFastSynchronously(package->info.filePath(), model->info.imageSize);
             package->image = PreviewLoadThread::loadFastSynchronously(package->info.filePath(), imageSize);
@@ -342,7 +352,7 @@ bool AutotagsPipelineKoboldLLM::loader()
      * End pipeline stage specific loop
      */
 
-    MLPIPELINE_LOOP_END(MLPipelineStage::Loader, "AutotagsPipelineKoboldLLM::loader");
+    MLPIPELINE_LOOP_END(MLPipelineStage::Loader, "AutotagsPipelineKoboldCpp::loader");
 
     /* =========================================================================================
      * Pipeline stage specific cleanup
@@ -353,10 +363,10 @@ bool AutotagsPipelineKoboldLLM::loader()
     MLPIPELINE_STAGE_END(MLPipelineStage::Loader, MLPipelineStage::Extractor);
 }
 
-bool AutotagsPipelineKoboldLLM::extractor()
+bool AutotagsPipelineKoboldCpp::extractor()
 {
     MLPIPELINE_STAGE_START(QThread::NormalPriority, MLPipelineStage::Extractor, MLPipelineStage::Classifier);
-    AutotagsPipelineKoboldLLMPackage* package = nullptr;
+    AutotagsPipelineKoboldCppPackage* package = nullptr;
 
     /* =========================================================================================
      * Pipeline stage specific initialization code
@@ -367,7 +377,7 @@ bool AutotagsPipelineKoboldLLM::extractor()
      */
     
     MLPIPELINE_LOOP_START(MLPipelineStage::Extractor, thisQueue);
-    package = static_cast<AutotagsPipelineKoboldLLMPackage*>(mlpackage);
+    package = static_cast<AutotagsPipelineKoboldCppPackage*>(mlpackage);
 
     /* =========================================================================================
      * Start pipeline stage specific loop
@@ -427,7 +437,7 @@ bool AutotagsPipelineKoboldLLM::extractor()
      * End pipeline stage specific loop
      */
 
-    MLPIPELINE_LOOP_END(MLPipelineStage::Extractor, "AutotagsPipelineKoboldLLM::extractor");
+    MLPIPELINE_LOOP_END(MLPipelineStage::Extractor, "AutotagsPipelineKoboldCpp::extractor");
 
     /* =========================================================================================
      * Pipeline stage specific cleanup
@@ -438,10 +448,10 @@ bool AutotagsPipelineKoboldLLM::extractor()
     MLPIPELINE_STAGE_END(MLPipelineStage::Extractor, MLPipelineStage::Classifier);
 }
 
-bool AutotagsPipelineKoboldLLM::classifier()
+bool AutotagsPipelineKoboldCpp::classifier()
 {
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Classifier, MLPipelineStage::Writer);
-    AutotagsPipelineKoboldLLMPackage* package = nullptr;
+    AutotagsPipelineKoboldCppPackage* package = nullptr;
 
     llmPrompt = QLatin1String("The tasks are to describe the image and to come up with a large set of keyword tags for it.\n\n"
                               "Write the Description using the active voice.\n\n"
@@ -490,7 +500,7 @@ bool AutotagsPipelineKoboldLLM::classifier()
      */
 
     MLPIPELINE_LOOP_START(MLPipelineStage::Classifier, thisQueue);
-    package = static_cast<AutotagsPipelineKoboldLLMPackage*>(mlpackage);
+    package = static_cast<AutotagsPipelineKoboldCppPackage*>(mlpackage);
 
     /* =========================================================================================
      * Start pipeline stage specific loop
@@ -504,12 +514,12 @@ bool AutotagsPipelineKoboldLLM::classifier()
         QJsonObject payload = createPayload(llmPrompt, package->base64Image);
         
         // Log the request being sent
-        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Sending request to KoboldLLM API";
+        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Sending request to KoboldCpp API";
         
         // First check if the LLM engine is ready
         if (!m_llmProcessManager->engineReady())
         {
-            qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldLLM is not ready for inference. Cancelling the pipeline...";
+            qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp is not ready for inference. Cancelling the pipeline...";
             cancelled = true;
             QTimer::singleShot(10, this, SLOT(cancel()));
             delete package;
@@ -542,7 +552,7 @@ bool AutotagsPipelineKoboldLLM::classifier()
         // Check if request was successful
         if (!responseData.isEmpty())
         {
-            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Received successful response from KoboldLLM API";
+            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Received successful response from KoboldCpp API";
             qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Response data:" << responseData;
 
             // Use LLMResponseHelper to process the result
@@ -588,8 +598,10 @@ bool AutotagsPipelineKoboldLLM::classifier()
         }
         else
         {
-            qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "Error in KoboldLLM API request: Empty response";
-            package->imageDescription = QStringLiteral("Error: API request failed");
+            // throw an exception for empty response
+            QString errorMessage = i18n("KoboldCpp API returned an empty response");
+            qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << errorMessage;;
+            throw std::runtime_error(errorMessage.toStdString());
         }
 
         // Clear the base64 image data to free memory
@@ -607,7 +619,7 @@ bool AutotagsPipelineKoboldLLM::classifier()
      * End pipeline stage specific loop
      */
 
-    MLPIPELINE_LOOP_END(MLPipelineStage::Classifier, "AutotagsPipelineKoboldLLM::classifier");
+    MLPIPELINE_LOOP_END(MLPipelineStage::Classifier, "AutotagsPipelineKoboldCpp::classifier");
 
     /* =========================================================================================
      * Pipeline stage specific cleanup
@@ -618,10 +630,10 @@ bool AutotagsPipelineKoboldLLM::classifier()
     MLPIPELINE_STAGE_END(MLPipelineStage::Classifier, MLPipelineStage::Writer);
 }
 
-bool AutotagsPipelineKoboldLLM::writer()
+bool AutotagsPipelineKoboldCpp::writer()
 {
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Writer, MLPipelineStage::None);
-    AutotagsPipelineKoboldLLMPackage* package = nullptr;
+    AutotagsPipelineKoboldCppPackage* package = nullptr;
 
     /* =========================================================================================
      * Pipeline stage specific initialization code
@@ -636,7 +648,7 @@ bool AutotagsPipelineKoboldLLM::writer()
     const int rootTagId = tagsCache->getOrCreateTag(rootTag);
 
     MLPIPELINE_LOOP_START(MLPipelineStage::Writer, thisQueue);
-    package = static_cast<AutotagsPipelineKoboldLLMPackage*>(mlpackage);
+    package = static_cast<AutotagsPipelineKoboldCppPackage*>(mlpackage);
 
     /* =========================================================================================
      * Start pipeline stage specific loop
@@ -778,9 +790,9 @@ bool AutotagsPipelineKoboldLLM::writer()
         // Log debug information
         if (displayTags.size() > 0)
         {
-            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::writer: adding "
-                                                << displayTags.size() << " KoboldLLM tags to the image.";
-            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::writer: "
+            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::writer: adding "
+                                                << displayTags.size() << " KoboldCpp tags to the image.";
+            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::writer: "
                                                 << package->info.relativePath() << "/"
                                                 << albumName + package->info.relativePath();
         }
@@ -794,7 +806,7 @@ bool AutotagsPipelineKoboldLLM::writer()
      * End pipeline stage specific loop
      */
 
-    MLPIPELINE_LOOP_END(MLPipelineStage::Writer, "AutotagsPipelineKoboldLLM::writer");
+    MLPIPELINE_LOOP_END(MLPipelineStage::Writer, "AutotagsPipelineKoboldCpp::writer");
 
     /* =========================================================================================
      * Pipeline stage specific cleanup
@@ -805,13 +817,13 @@ bool AutotagsPipelineKoboldLLM::writer()
     MLPIPELINE_STAGE_END(MLPipelineStage::Writer, MLPipelineStage::None);
 }
 
-void AutotagsPipelineKoboldLLM::addMoreWorkers()
+void AutotagsPipelineKoboldCpp::addMoreWorkers()
 {
 }
 
 // The extractJsonFromContent method has been replaced by LLMResponseHelper::processResult and LLMResponseHelper::ensureValidJsonFormat
 
-QJsonObject AutotagsPipelineKoboldLLM::createPayload(const QString& prompt, const QString& base64Image)
+QJsonObject AutotagsPipelineKoboldCpp::createPayload(const QString& prompt, const QString& base64Image)
 {
     // Create a JSON object with the LLM prompt and base64 image data
     QJsonArray messagesArray;
@@ -860,20 +872,20 @@ QJsonObject AutotagsPipelineKoboldLLM::createPayload(const QString& prompt, cons
     return payload;
 }
 
-void AutotagsPipelineKoboldLLM::slotEngineStarted(bool success)
+void AutotagsPipelineKoboldCpp::slotEngineStarted(bool success)
 {
     if (!success)
     {
-        qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::slotEngineStarted: Failed to start KoboldCPP engine:"
+        qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::slotEngineStarted: Failed to start KoboldCpp engine:"
                                          << m_llmProcessManager->lastErrorMessage();
     }
     else
     {
-        qCInfo(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCPP process started, waiting for engine to be ready...";
+        qCInfo(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp process started, waiting for engine to be ready...";
     }
 }
 
-void AutotagsPipelineKoboldLLM::slotEngineReadyChanged(bool ready)
+void AutotagsPipelineKoboldCpp::slotEngineReadyChanged(bool ready)
 {
     if (ready && !cancelled && !running)
     {
@@ -894,44 +906,38 @@ void AutotagsPipelineKoboldLLM::slotEngineReadyChanged(bool ready)
         }
 
         AutotagsPipelineBase::start();
-        qCInfo(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCPP LLM is ready for inference";
+        qCInfo(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp LLM is ready for inference";
     }
     else if (!cancelled)
     {
-        qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCPP LLM is no longer ready for inference";
+        qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp LLM is no longer ready for inference";
         QTimer::singleShot(10, this, SLOT(cancel()));
     }
 }
 
-void AutotagsPipelineKoboldLLM::checkLLMEngineReady()
+void AutotagsPipelineKoboldCpp::checkLLMEngineReady()
 {
-    if (!m_llmProcessManager)
+    /*
+     * Check if the LLM engine is ready for inference.
+     * This method is connected to a timer to check engine readiness at startup
+     * to kill the process if startup takes too long.
+     * 
+     * Note: This method is called from a separate thread, so be careful with UI updates.
+    */ 
+
+    if (!running && !cancelled)
     {
-        qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::checkLLMEngineReady: LLMProcessManager is not initialized";
-        return;
-    }
-    
-    // Check if the engine is running first
-    if (!m_llmProcessManager->isEngineRunning())
-    {
-        qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::checkLLMEngineReady: LLM engine is not running";
-        return;
-    }
-    
-    // Check if the engine is ready for inference
-    bool ready = m_llmProcessManager->engineReady();
-    
-    qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::checkLLMEngineReady: LLM engine ready status:" << ready;
-    
-    // If ready status has changed since last check, emit the signal
-    static bool lastReadyStatus = false;
-    if (ready != lastReadyStatus)
-    {
-        lastReadyStatus = ready;
-        // The LLMProcessManager will emit the engineReadyChanged signal, which we are connected to already
+        if (m_llmProcessManager)
+        {
+            m_llmProcessManager->shutdownEngine();
+            delete m_llmProcessManager;
+            m_llmProcessManager = nullptr;
+        }
+
+        Q_EMIT finished();
     }
 }
 
 } // namespace Digikam
 
-#include "moc_autotagspipelinekoboldllm.cpp"
+#include "moc_autotagspipelinekoboldcpp.cpp"

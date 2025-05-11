@@ -92,7 +92,7 @@ const QList<DownloadInfo>& DNNModelManager::getDownloadInformation(DNNModelUsage
 
     for (const auto& model : keys)
     {
-        if (d->modelMap[model]->info.usage.contains(usage) && (QLatin1String("koboldllm") != d->modelMap[model]->info.classifier))
+        if (d->modelMap[model]->info.usage.contains(usage) && (QLatin1String("koboldcpp") != d->modelMap[model]->info.classifier))
         {
             d->downloadInfo << d->modelMap[model]->getDownloadInformation();
         }
@@ -115,13 +115,13 @@ const QList<QPair<QString, QStringList> > DNNModelManager::getModelList(DNNModel
 
         if (d->modelMap[model]->info.usage.contains(usage))
         {
-                        // don't check for the model file if it is a koboldllm model.
+                        // don't check for the model file if it is a koboldcpp model.
             
-            if (d->modelMap[model]->info.classifier.toLower() != QLatin1String("koboldllm"))
+            if (d->modelMap[model]->info.classifier.toLower() != QLatin1String("koboldcpp"))
             {
                 if (d->modelMap[model]->info.loaderType == DNNLoaderType::DNNLoaderConfig)
                 {
-                    // skip the config models other than KoboldLLM, they are not used in the UI
+                    // skip the config models other than KoboldCpp, they are not used in the UI
                     continue;
                 }
 
