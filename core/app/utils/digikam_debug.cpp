@@ -32,6 +32,7 @@ Q_LOGGING_CATEGORY(DIGIKAM_RAWENGINE_LOG,               "digikam.rawengine",    
 Q_LOGGING_CATEGORY(DIGIKAM_FACESENGINE_LOG,             "digikam.facesengine",              QtInfoMsg)
 Q_LOGGING_CATEGORY(DIGIKAM_AUTOROTATE_LOG,              "digikam.autorotate",               QtInfoMsg)
 Q_LOGGING_CATEGORY(DIGIKAM_AUTOTAGSENGINE_LOG,          "digikam.autotagsengine",           QtInfoMsg)
+Q_LOGGING_CATEGORY(DIGIKAM_LLMENGINE_LOG,               "digikam.llmengine",                QtInfoMsg)
 Q_LOGGING_CATEGORY(DIGIKAM_MLPIPELINEFOUNDATION_LOG,    "digikam.mlpipelinefoundation",     QtInfoMsg)
 Q_LOGGING_CATEGORY(DIGIKAM_GEOIFACE_LOG,                "digikam.geoiface",                 QtInfoMsg)
 Q_LOGGING_CATEGORY(DIGIKAM_GEOENGINE_LOG,               "digikam.geocore",                  QtInfoMsg)

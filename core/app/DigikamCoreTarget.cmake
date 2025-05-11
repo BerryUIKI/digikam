@@ -31,6 +31,7 @@ set(DIGIKAMCORE_OBJECTS
             $<TARGET_OBJECTS:core_mlpipeline_obj>
             $<TARGET_OBJECTS:core_qtopencvimg_obj>
             $<TARGET_OBJECTS:core_autorotator_obj>
+            $<TARGET_OBJECTS:core_digikamllmengine_obj>
 
             # widgets
             $<TARGET_OBJECTS:core_digikamwidgets_obj>

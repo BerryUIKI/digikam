@@ -15,12 +15,18 @@
 
 #pragma once
 
+// Qt includes
+#include <QNetworkAccessManager>
+
 // Local includes
 
 #include "digikam_export.h"
 #include "dnnmodelbase.h"
 #include "dnnmodelmanager.h"
 #include "autotagspipelinebase.h"
+#include "llmresponsehelper.h"
+#include "llmprocessmanager.h"
+#include "llmprocessmanagerkoboldcpp.h"
 
 namespace Digikam
 {
@@ -42,6 +48,10 @@ protected:
     const int   jpegQuality                     = 95;
     const char* base64ImageType                 = "JPEG";
     QString     llmPrompt;
+    QString     apiKey;
+    const int   llmStartupTimeout               = 300;          /// seconds
+    bool        llmReady                        = false;
+    bool        running                         = false;
 
     // LLM model parameters
     const int   maxTokens                       = 250;
@@ -50,8 +60,9 @@ protected:
     const int   topK                            = 0;
     const float minP                            = 1.05f;
 
-    const QString apiURL                        = QLatin1String("http://localhost:5001");
-    const QString apiPassword                   = QLatin1String("");
+    // LLM Process Manager and settings
+    LLMProcessSettings                          m_llmSettings;
+    LLMProcessManagerKoboldCpp*                 m_llmProcessManager;
 
     bool finder() override;
     bool loader() override;
@@ -59,7 +70,8 @@ protected:
     bool classifier() override;
     bool trainer() override { return false; }
     bool writer() override;
-
+    
+    void cancel() override;
     void addMoreWorkers() override;
 
     /**
@@ -70,19 +82,27 @@ protected:
      */
     QJsonObject createPayload(const QString& prompt, const QString& base64Image);
 
-    /**
-     * @brief Processes the API response and extracts Description and Keywords
-     * @param responseData The raw response data from the API call
-     * @return QJsonObject containing Description and Keywords if successful, empty object if failed
-     */
-    QJsonObject processResult(const QByteArray& responseData);
+    // LLMResponseHelper is now used for JSON extraction instead of a custom method
+
+private Q_SLOTS:
 
     /**
-     * @brief Ensures a string has valid JSON formatting at the beginning and end
-     * @param jsonStr The string to check and modify
-     * @return The string with valid JSON formatting
+     * @brief Handles engineStarted signal from LLMProcessManager
+     * @param success Whether the engine started successfully
      */
-    QString ensureValidJsonFormat(const QString& jsonStr);
+    void slotEngineStarted(bool success);
+
+    /**
+     * @brief Handles engineReadyChanged signal from LLMProcessManager
+     * @param ready Whether the engine is ready for inference
+     */
+    void slotEngineReadyChanged(bool ready);
+
+    /**
+     * @brief Checks if the LLM engine is ready for inference
+     * This slot can be connected to a timer to periodically check engine readiness
+     */
+    void checkLLMEngineReady();
 
 private:
 

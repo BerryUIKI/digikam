@@ -129,7 +129,7 @@ private Q_SLOTS:
 
     void slotFinished();
     void slotAddMoreWorkers();
-    void slotCancel()                                   { cancel(); }
+    void slotCancel()                                   { this->cancel(); }
 
 protected:
 

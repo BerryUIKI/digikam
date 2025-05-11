@@ -1,6 +1,6 @@
 /* ============================================================
  *
- * This file is a part of digiKam project
+ * This file is a part of digikam project
  * https://www.digikam.org
  *
  * Date        : 2025-05-06
@@ -17,28 +17,31 @@
 
 // C++ includes
 
-#include <vector>
+// #include <vector>
 
 // Qt includes
 
 #include <QList>
-#include <QSet>
+// #include <QSet>
 #include <QElapsedTimer>
-#include <QRectF>
+// #include <QRectF>
 #include <QBuffer>
 #include <QByteArray>
 #include <QJsonArray>
 #include <QJsonObject>
 #include <QJsonDocument>
-#include <QNetworkRequest>
-#include <QNetworkReply>
-#include <QNetworkAccessManager>
+#include <QtConcurrentRun>
+#include <QFuture>
 #include <QTimer>
-#include <QEventLoop>
 
 // KDE includes
 
 #include <klocalizedstring.h>
+
+// LLM includes
+
+#include "llmprocessmanager.h"
+#include "llmprocessmanagerkoboldcpp.h"
 
 // Local includes
 
@@ -67,15 +70,19 @@ namespace Digikam
 {
 
 AutotagsPipelineKoboldLLM::AutotagsPipelineKoboldLLM(const AutotagsScanSettings& settings)
-    : AutotagsPipelineBase(settings)
+    : AutotagsPipelineBase(settings),
+      m_llmProcessManager(nullptr)
 {
+    maxQueueDepth = 1;
 }
 
 AutotagsPipelineKoboldLLM::~AutotagsPipelineKoboldLLM()
 {
-    if (autotagsClassifier)
+    if (m_llmProcessManager)
     {
-        delete autotagsClassifier;
+        m_llmProcessManager->shutdownEngine();
+        m_llmProcessManager->deleteLater();
+        m_llmProcessManager = nullptr;
     }
 }
 
@@ -87,6 +94,46 @@ bool AutotagsPipelineKoboldLLM::start()
     {
         model = static_cast<DNNModelNet*>(DNNModelManager::instance()->getModel(settings.objectDetectModel,
                                                                                 DNNModelUsage::DNNUsageImageClassification));
+    
+        if (!model)
+        {
+            qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::start(): Unable to load model:"
+                                                   << settings.objectDetectModel;
+            return false;
+        }
+
+        m_llmSettings.modelPath = model->info.fileName;
+        m_llmSettings.mmprojPath = model->info.configName;
+        m_llmSettings.chatCompletionsAdapter = model->info.preprocessor;
+
+        // Create the LLM Process Manager
+        m_llmProcessManager = new LLMProcessManagerKoboldCpp(m_llmSettings, this);
+        
+        // Start the KoboldCPP LLM engine
+        if (!m_llmProcessManager->isEngineRunning())
+        {
+            // Connect signals for engine status updates
+            
+            // Connect to the engineStarted signal to know when the process has started
+            connect(m_llmProcessManager, SIGNAL(engineStarted(bool)), 
+                    this, SLOT(slotEngineStarted(bool)));
+                        
+            // Connect to the engineReadyChanged signal to know when the engine is ready for inference
+            connect(m_llmProcessManager, SIGNAL(engineReadyChanged(bool)),
+                    this, SLOT(slotEngineReadyChanged(bool)));
+                        
+            // Start the engine
+            bool started = m_llmProcessManager->startEngine();
+            
+            if (!started) {
+                qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::start(): Unable to initiate KoboldCPP engine start:"
+                                                       << m_llmProcessManager->lastErrorMessage();
+                return false;
+            }
+            
+            // Set timeout for waiting
+            QTimer::singleShot(llmStartupTimeout * 1000, this, SLOT(checkLLMEngineReady()));
+        }            
     }
     catch (const std::exception& e)
     {
@@ -118,21 +165,29 @@ bool AutotagsPipelineKoboldLLM::start()
         return false;
     }
 
+    return true;
+}
+
+void AutotagsPipelineKoboldLLM::cancel()
+{
+    if (!cancelled)
     {
-        // Use the mutex to synchronize the start of the threads
+        // QTimer::singleShot(100, m_llmProcessManager, SLOT(abortInference()));
 
-        QMutexLocker lock(&mutex);
-
-        // Add the worker threads for this pipeline
-
-        addWorker(MLPipelineStage::Finder);
-        addWorker(MLPipelineStage::Loader);
-        addWorker(MLPipelineStage::Extractor);
-        addWorker(MLPipelineStage::Classifier);
-        addWorker(MLPipelineStage::Writer);
+        // Capture 'this' pointer to access class members from the lambda
+        // Store the QFuture to resolve the 'nodiscard' warning
+        QFuture<void> future = QtConcurrent::run([this]()
+        {
+            QThread::msleep(100);
+            m_llmProcessManager->abortInference();
+            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::cancel(): sent abort request to LLM engine";
+        });
+        
+        // Note: We don't need to wait for the future completion here
+        // as we only want to start the abort process asynchronously
+        
+        AutotagsPipelineBase::cancel();
     }
-
-    return AutotagsPipelineBase::start();
 }
 
 bool AutotagsPipelineKoboldLLM::finder()
@@ -155,6 +210,9 @@ bool AutotagsPipelineKoboldLLM::finder()
     // Get the IDs to process
 
     QSet<qlonglong> filter;
+    Q_UNUSED(moreCpu);
+
+    nextQueue->setMaxDepth(1);
 
     for (const Album* const album : std::as_const(settings.albums))
     {
@@ -176,13 +234,6 @@ bool AutotagsPipelineKoboldLLM::finder()
             else if (album->type() == Album::TAG)
             {
                 imageIds = CoreDbAccess().db()->getItemIDsInTag(album->id());
-            }
-
-            // Quick check if we should add threads
-
-            if (!moreCpu)
-            {
-                moreCpu = checkMoreWorkers(totalItemCount, imageIds.size(), settings.useFullCpu);
             }
 
             // Iterate over the image IDs and add unique IDs to the queue for processing
@@ -391,8 +442,6 @@ bool AutotagsPipelineKoboldLLM::classifier()
 {
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Classifier, MLPipelineStage::Writer);
     AutotagsPipelineKoboldLLMPackage* package = nullptr;
-    QString endpointURL = apiURL + QLatin1String("/v1/chat/completions");
-    QNetworkAccessManager* manager = new QNetworkAccessManager();
 
     llmPrompt = QLatin1String("The tasks are to describe the image and to come up with a large set of keyword tags for it.\n\n"
                               "Write the Description using the active voice.\n\n"
@@ -454,57 +503,51 @@ bool AutotagsPipelineKoboldLLM::classifier()
         // Prepare payload using the new method
         QJsonObject payload = createPayload(llmPrompt, package->base64Image);
         
-        // Create HTTP headers for the request
-        QNetworkRequest request;
-        request.setUrl(QUrl(endpointURL));
-        request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("appQStringLiteral(lication/json"));
-        QString authHeader = QString::fromLatin1("Bearer %1").arg(apiPassword);
-        request.setRawHeader("Authorization", authHeader.toLatin1());
-
-        // Convert JSON payload to QByteArray
-        QJsonDocument doc(payload);
-        QByteArray jsonData = doc.toJson();
-        
         // Log the request being sent
-        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Sending request to KoboldLLM API at:" << endpointURL;
+        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Sending request to KoboldLLM API";
         
-        // Make the API call
-        QNetworkReply* reply = manager->post(request, jsonData);
+        // First check if the LLM engine is ready
+        if (!m_llmProcessManager->engineReady())
+        {
+            qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldLLM is not ready for inference. Cancelling the pipeline...";
+            cancelled = true;
+            QTimer::singleShot(10, this, SLOT(cancel()));
+            delete package;
+            package = nullptr;
+            break;
+        }
+
+        QString albumName = CollectionManager::instance()->albumRootLabel(package->info.albumRootId());
+
+        notify(MLPipelineNotification::notifyProcessed,
+               package->info.name(),
+               albumName + package->info.relativePath(),
+               QString(),
+               0,
+               package->thumbnailIcon);
+
         
-        // Set up a timeout for the request
-        QTimer* timer = new QTimer();
-        timer->setSingleShot(true);
-        timer->setInterval(600000); // 10 minutes timeout (600,000 milliseconds)
-        
-        // Connect timer timeout signal to cancel the request
-        QObject::connect(timer, &QTimer::timeout, [reply, timer]() {
-            if (reply->isRunning())
-            {
-                qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldLLM API request timed out after 10 minutes";
-                reply->abort();
-            }
-            
-            timer->deleteLater();
-        });
-        
-        // Wait for the response synchronously (this is a blocking operation)
-        QEventLoop loop;
-        QObject::connect(reply, &QNetworkReply::finished, &loop, &QEventLoop::quit);
-        timer->start();
-        loop.exec();
-        
+        // Use LLMProcessManager's submitRequest method to communicate with the LLM
+        QByteArray responseData = m_llmProcessManager->submitRequest(QStringLiteral("/v1/chat/completions"), 
+                                                                     payload, 
+                                                                     LLMProcessManager::POST);
+
+        if (cancelled)
+        {
+            delete package;
+            package = nullptr;
+            break;
+        }
+
         // Check if request was successful
-        if (reply->error() == QNetworkReply::NoError)
+        if (!responseData.isEmpty())
         {
             qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Received successful response from KoboldLLM API";
-            
-            // Read the response data
-            QByteArray responseData = reply->readAll();
             qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Response data:" << responseData;
-            
-            // Process the result using the new method
-            QJsonObject resultObj = processResult(responseData);
-            
+
+            // Use LLMResponseHelper to process the result
+            QJsonObject resultObj = LLMResponseHelper::processResult(responseData);
+
             if (!resultObj.isEmpty())
             {
                 // Extract description and keywords
@@ -545,17 +588,9 @@ bool AutotagsPipelineKoboldLLM::classifier()
         }
         else
         {
-            qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "Error in KoboldLLM API request:" 
-                                                << reply->errorString() 
-                                                << "Status code:" 
-                                                << reply->attribute(QNetworkRequest::HttpStatusCodeAttribute).toInt();
-                                                
+            qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "Error in KoboldLLM API request: Empty response";
             package->imageDescription = QStringLiteral("Error: API request failed");
         }
-        
-        // Clean up resources
-        timer->stop();
-        reply->deleteLater();
 
         // Clear the base64 image data to free memory
 
@@ -580,9 +615,6 @@ bool AutotagsPipelineKoboldLLM::classifier()
      * Use the block from here to MLPIPELINE_STAGE_END to clean up any resources used by the stage.
      */
     
-    // Clean up network manager
-    manager->deleteLater();
-
     MLPIPELINE_STAGE_END(MLPipelineStage::Classifier, MLPipelineStage::Writer);
 }
 
@@ -737,20 +769,20 @@ bool AutotagsPipelineKoboldLLM::writer()
 
         // Send a notification that the image was processed
         notify(MLPipelineNotification::notifyProcessed,
-              package->info.name(),
-              albumName + package->info.relativePath(),
-              displayTags.join(QLatin1String(", ")),
-              displayTags.size(),
-              package->thumbnailIcon);
+               package->info.name(),
+               albumName + package->info.relativePath(),
+               displayTags.join(QLatin1String(", ")),
+               displayTags.size(),
+               package->thumbnailIcon);
 
         // Log debug information
         if (displayTags.size() > 0)
         {
             qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::writer: adding "
-                                              << displayTags.size() << " KoboldLLM tags to the image.";
+                                                << displayTags.size() << " KoboldLLM tags to the image.";
             qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::writer: "
-                                              << package->info.relativePath() << "/"
-                                              << albumName + package->info.relativePath();
+                                                << package->info.relativePath() << "/"
+                                                << albumName + package->info.relativePath();
         }
 
         // Delete the package
@@ -775,19 +807,9 @@ bool AutotagsPipelineKoboldLLM::writer()
 
 void AutotagsPipelineKoboldLLM::addMoreWorkers()
 {
-    /* =========================================================================================
-     * Use the performanceProfile metrics to find the slowest stages
-     * and add more workers to those stages.
-     *
-     * For the KoboldLLM pipeline, add more workers to handle the potentially large models
-     */
-
-    // addWorker(Loader);
-    // addWorker(Loader);
-    // addWorker(Extractor);
-    // addWorker(Extractor);
-    // addWorker(Classifier);  // Add extra classifier workers for KoboldLLM models which may be compute-intensive
 }
+
+// The extractJsonFromContent method has been replaced by LLMResponseHelper::processResult and LLMResponseHelper::ensureValidJsonFormat
 
 QJsonObject AutotagsPipelineKoboldLLM::createPayload(const QString& prompt, const QString& base64Image)
 {
@@ -838,160 +860,76 @@ QJsonObject AutotagsPipelineKoboldLLM::createPayload(const QString& prompt, cons
     return payload;
 }
 
-QJsonObject AutotagsPipelineKoboldLLM::processResult(const QByteArray& responseData)
+void AutotagsPipelineKoboldLLM::slotEngineStarted(bool success)
 {
-    QJsonObject resultObj;
-    
-    // Check if the response contains valid JSON
-    QJsonParseError parseError;
-    QJsonDocument jsonResponse = QJsonDocument::fromJson(responseData, &parseError);
-    
-    if (parseError.error == QJsonParseError::NoError)
+    if (!success)
     {
-        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Response contains valid JSON data";
-        
-        // Extract content from the response
-        QJsonObject responseObj = jsonResponse.object();
-        
-        // Try to get the content from various possible paths in the response JSON structure
-        QString contentText;
-        
-        // Check for content in choices[0].message.content path (typical for OpenAI API format)
-        if (responseObj.contains(QStringLiteral("choices")) && 
-            responseObj[QStringLiteral("choices")].isArray() && 
-            !responseObj[QStringLiteral("choices")].toArray().isEmpty())
-        {
-            QJsonObject messageObj = responseObj[QStringLiteral("choices")].toArray()[0].toObject()
-                                    [QStringLiteral("message")].toObject();
-            
-            if (messageObj.contains(QStringLiteral("content")))
-            {
-                contentText = messageObj[QStringLiteral("content")].toString();
-            }
-        }
-        // Also try direct content field for other possible API formats
-        else if (responseObj.contains(QStringLiteral("content")))
-        {
-            contentText = responseObj[QStringLiteral("content")].toString();
-        }
-        
-        // If we found content text, process it
-        if (!contentText.isEmpty())
-        {
-            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Found content in response:" << contentText;
-            
-            // Ensure the JSON string is properly formatted
-            QString jsonStr = ensureValidJsonFormat(contentText);
-            
-            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Cleaned JSON string:" << jsonStr;
-            
-            // Parse the extracted JSON
-            QJsonParseError contentParseError;
-            QJsonDocument contentJson = QJsonDocument::fromJson(jsonStr.toUtf8(), &contentParseError);
-            
-            if (contentParseError.error == QJsonParseError::NoError)
-            {
-                qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Successfully parsed JSON from content";
-                
-                // Extract description and keywords
-                QJsonObject contentObj = contentJson.object();
-                if (contentObj.contains(QStringLiteral("Description")) && 
-                    contentObj.contains(QStringLiteral("Keywords")))
-                {
-                    // Return the content object with Description and Keywords
-                    return contentObj;
-                }
-                else
-                {
-                    qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "JSON missing Description or Keywords fields";
-                }
-            }
-            else
-            {
-                qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "Failed to parse JSON content:" 
-                                                    << contentParseError.errorString();
-            }
-        }
-        else
-        {
-            qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "No content found in the JSON response";
-        }
+        qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::slotEngineStarted: Failed to start KoboldCPP engine:"
+                                         << m_llmProcessManager->lastErrorMessage();
     }
     else
     {
-        qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "Response does not contain valid JSON:"
-                                            << parseError.errorString()
-                                            << "at offset:" << parseError.offset;
-        
-        // Log a sample of the response for debugging
-        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Response sample:" << responseData.left(200) << "...";
+        qCInfo(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCPP process started, waiting for engine to be ready...";
     }
-    
-    // Return empty object if processing failed
-    return resultObj;
 }
 
-QString AutotagsPipelineKoboldLLM::ensureValidJsonFormat(const QString& jsonStr)
+void AutotagsPipelineKoboldLLM::slotEngineReadyChanged(bool ready)
 {
-    QString result = jsonStr.trimmed();
-    
-    // Check and fix beginning of JSON
-    if (!result.startsWith(QLatin1Char('{')))
+    if (ready && !cancelled && !running)
     {
-        // Find the first opening brace
-        int startPos = result.indexOf(QLatin1Char('{'));
-        if (startPos >= 0)
+        running = true;
+
         {
-            // Remove everything before the opening brace
-            result = result.mid(startPos);
+            // Use the mutex to synchronize the start of the threads
+
+            QMutexLocker lock(&mutex);
+
+            // Add the worker threads for this pipeline
+
+            addWorker(MLPipelineStage::Finder);
+            addWorker(MLPipelineStage::Loader);
+            addWorker(MLPipelineStage::Extractor);
+            addWorker(MLPipelineStage::Classifier);
+            addWorker(MLPipelineStage::Writer);
         }
-        else
-        {
-            // No opening brace found, add one
-            result.prepend(QLatin1String("{\"Description\": \"Unable to parse response\", \"Keywords\": ["));
-        }
+
+        AutotagsPipelineBase::start();
+        qCInfo(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCPP LLM is ready for inference";
+    }
+    else if (!cancelled)
+    {
+        qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCPP LLM is no longer ready for inference";
+        QTimer::singleShot(10, this, SLOT(cancel()));
+    }
+}
+
+void AutotagsPipelineKoboldLLM::checkLLMEngineReady()
+{
+    if (!m_llmProcessManager)
+    {
+        qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::checkLLMEngineReady: LLMProcessManager is not initialized";
+        return;
     }
     
-    // Check and fix end of JSON
-    if (!result.endsWith(QLatin1Char('}')) && result.contains(QLatin1Char('}')))
+    // Check if the engine is running first
+    if (!m_llmProcessManager->isEngineRunning())
     {
-        // Find the last closing brace
-        int endPos = result.lastIndexOf(QLatin1Char('}'));
-        if (endPos >= 0)
-        {
-            // Remove everything after the closing brace
-            result.truncate(endPos + 1);
-        }
-    }
-    else if (!result.endsWith(QLatin1Char('}')))
-    {
-        // No proper JSON closing - check for the last quote preceded by alphanumeric character
-        // which likely indicates the end of the last keyword in the array
-        for (int i = result.length() - 1; i >= 0; --i)
-        {
-            if (result.at(i) == QLatin1Char('"') && i > 0)
-            {
-                QChar precedingChar = result.at(i - 1);
-                if (precedingChar.isLetterOrNumber())
-                {
-                    // Found the last quote preceded by an alphanumeric character
-                    // Truncate and close the JSON properly
-                    result.truncate(i + 1);
-                    result.append(QLatin1String("]}"));
-                    break;
-                }
-            }
-        }
-        
-        // If we still don't have a proper JSON closing, add it
-        if (!result.endsWith(QLatin1Char('}')))
-        {
-            result.append(QLatin1String("]}"));
-        }
+        qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::checkLLMEngineReady: LLM engine is not running";
+        return;
     }
     
-    qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "JSON formatted string:" << result;
-    return result;
+    // Check if the engine is ready for inference
+    bool ready = m_llmProcessManager->engineReady();
+    
+    qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldLLM::checkLLMEngineReady: LLM engine ready status:" << ready;
+    
+    // If ready status has changed since last check, emit the signal
+    static bool lastReadyStatus = false;
+    if (ready != lastReadyStatus)
+    {
+        lastReadyStatus = ready;
+        // The LLMProcessManager will emit the engineReadyChanged signal, which we are connected to already
+    }
 }
 
 } // namespace Digikam
