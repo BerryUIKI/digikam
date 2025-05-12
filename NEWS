@@ -7,7 +7,7 @@ Bundles:         Update to last ExifTool version 13.29.
 Bundles:         Update Linux AppImage to last frameworks Qt 6.8.3 and KDE 6.12.0
 Bundles:         Update MacOS Silicon to last frameworks Qt 6.9.0 and KDE 6.14.0
 Bundles:         Update Windows installer to last frameworks Qt 6.8.3 and KDE 6.12.0
-RawEngine:       Update internal Libraw to last 21.04 version.
+RawEngine:       Update internal Libraw to last 20250512 upstream.
 Video:           Update internal QtAVPlayer to last 20250416 upstream (Qt5 only).
 Queue Manager:   New tool to perform auto-rotation based on content analysis using DNN.
 Face Engine:     digiKam will automatically start a new face recognition scan when new faces are
@@ -222,10 +222,10 @@ BUGFIXES:
 196 ==> 497285 - Program does not open after installation.
 197 ==> 504045 - Misleading Link on Support Page.
 198 ==> 504044 - Duplicate Result Table does not properly resize.
-199 ==> 
-200 ==> 
-201 ==> 
-202 ==> 
+199 ==> 497588 - digiKam crashes when adjusting date and time for multiple photos consecutively without restarting the application.
+200 ==> 504056 - View on small images doesnt scale above 100% automatically.
+201 ==> 504048 - Duplicate Result Table uses different Units than Search Dialogue.
+202 ==> 503731 - On launching Digikam-8.6.0-Qt6-Win64 follows msg '..large binary files not found' and Download results in error.
 203 ==> 
 204 ==> 
 205 ==> 
