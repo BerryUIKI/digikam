@@ -36,6 +36,12 @@ class DIGIKAM_EXPORT LLMProcessManagerKoboldCpp : public LLMProcessManager
 
 public:
 
+    enum LLMEngineType
+    {
+        KoboldCpp,
+        LlamaCpp
+    };
+
     /**
      * @brief Constructor
      * @param settings The LLM process settings
@@ -71,6 +77,11 @@ public:
      */
     QByteArray submitRequest(const QString& function, const QJsonObject& payload,
                             LLMRequestMethod method, bool force = false) override;
+
+    /**
+     * @brief the type of LLM engine
+     */
+    LLMEngineType m_engineType  = LLMEngineType::KoboldCpp;
         
 public Q_SLOTS:
 

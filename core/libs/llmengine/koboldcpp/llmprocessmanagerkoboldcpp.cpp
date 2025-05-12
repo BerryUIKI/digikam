@@ -38,6 +38,8 @@ namespace Digikam
 LLMProcessManagerKoboldCpp::LLMProcessManagerKoboldCpp(const LLMProcessSettings& settings, QObject* parent)
     : LLMProcessManager(settings, parent)
 {
+    m_engineType = LLMEngineType::KoboldCpp;
+
     m_settings.apiPort = findUnusedTcpPort();
 }
 
@@ -56,24 +58,35 @@ bool LLMProcessManagerKoboldCpp::startEngine()
 
     QStringList args;
 
-    // add the model path
-
-    args << m_settings.modelPath;
-
-    // add the mmproj path if it exists
-
-    if (!m_settings.mmprojPath.isEmpty())
-    {
-        args << QStringLiteral("--mmproj") << m_settings.mmprojPath;
-    }
 
     // add normal arguments
 
+    if (LLMEngineType::KoboldCpp == m_engineType)
+    {
+        // add the model path
+
+        args << m_settings.modelPath;
+
+        // add the mmproj path if it exists
+
+        if (!m_settings.mmprojPath.isEmpty())
+        {
+            args << QStringLiteral("--mmproj") << m_settings.mmprojPath;
+        }
+        args << QStringLiteral("--contextsize") << QString::number(m_settings.contextSize)
+             << QStringLiteral("--chatcompletionsadapter") << m_settings.chatCompletionsAdapter
+             << QStringLiteral("--visionmaxres") << QStringLiteral("2048");
+    }
+    else if (LLMEngineType::LlamaCpp == m_engineType)
+    {
+        args << QStringLiteral("--model") << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/google_gemma-3-4b-it-Q6_K.gguf")
+             << QStringLiteral("--mmproj") << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/mmproj-google_gemma-3-4b-it-f16.gguf") 
+             << QStringLiteral("--ctx-size") << QString::number(m_settings.contextSize)
+             << QStringLiteral("--n-gpu-layers") << QStringLiteral("0");
+    }
+
     args << QStringLiteral("--host") << m_settings.apiHost    
-         << QStringLiteral("--port") << QString::number(m_settings.apiPort)
-         << QStringLiteral("--contextsize") << QString::number(m_settings.contextSize)
-        //  << QStringLiteral("--visionmaxres 2048")
-         << QStringLiteral("--chatcompletionsadapter") << m_settings.chatCompletionsAdapter;
+         << QStringLiteral("--port") << QString::number(m_settings.apiPort);
 
     // add additional arguments if any
     
@@ -82,7 +95,18 @@ bool LLMProcessManagerKoboldCpp::startEngine()
         args << m_settings.additionalArgs;
     }
 
-    m_executablePath = QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/koboldcpp-1_90_2");
+    if (LLMEngineType::KoboldCpp == m_engineType)
+    {
+        // koboldcpp path
+
+        m_executablePath = QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/koboldcpp-1_90_2");
+    }
+    else if (LLMEngineType::LlamaCpp == m_engineType)
+    {
+        // llamacpp path
+
+        m_executablePath = QStringLiteral("/Users/michmill/Projects/llamacpp/bin/llama-server");
+    }
     
     return LLMProcessManager::startEngine(args);
 }
@@ -128,7 +152,24 @@ bool LLMProcessManagerKoboldCpp::checkEngineReady()
 
     // Submit the request to the version endpoint with force=true to avoid circular dependency
     // (since submitRequest itself calls engineReady when force is false)
-    QByteArray response = submitRequest(QStringLiteral("/api/extra/version"), emptyPayload, GET, true);
+
+    QString healthUrl;
+
+    if (LLMEngineType::KoboldCpp == m_engineType)
+    {
+        // koboldcpp check
+
+        healthUrl = QStringLiteral("/api/extra/version");
+    }
+    else if (LLMEngineType::LlamaCpp == m_engineType)
+    {
+        // llamacpp check
+
+        healthUrl = QStringLiteral("/health");
+    }
+
+    QByteArray response = submitRequest(healthUrl, emptyPayload, GET, true);
+
 
     // Check if the response indicates the model is ready
     bool ready = false;
@@ -139,9 +180,30 @@ bool LLMProcessManagerKoboldCpp::checkEngineReady()
         QJsonDocument doc = QJsonDocument::fromJson(response);
         QJsonObject jsonResponse = doc.object();
         
+        // // Check if the model is loaded and ready
+        // if (jsonResponse.contains(QStringLiteral("result")))
+        // {
+        //     QString status = jsonResponse[QStringLiteral("result")].toString();
+        //     ready = (status.toLower() == QStringLiteral("koboldcpp"));
+            
+        //     qCDebug(DIGIKAM_LLMENGINE_LOG) << "KoboldCpp LLM status:" << jsonResponse;
+        // }
+
         // Check if the model is loaded and ready
-        if (jsonResponse.contains(QStringLiteral("result")))
+
+        if (jsonResponse.contains(QStringLiteral("status")))
         {
+            // llamacpp check
+
+            QString status = jsonResponse[QStringLiteral("status")].toString();
+            ready = (status.toLower() == QStringLiteral("ok"));
+            
+            qCDebug(DIGIKAM_LLMENGINE_LOG) << "KoboldCpp LLM status:" << jsonResponse;
+        }
+        else if (jsonResponse.contains(QStringLiteral("result")))
+        {
+            // koboldcpp check
+
             QString status = jsonResponse[QStringLiteral("result")].toString();
             ready = (status.toLower() == QStringLiteral("koboldcpp"));
             
@@ -177,7 +239,8 @@ QByteArray LLMProcessManagerKoboldCpp::submitRequest(const QString& function, co
     QByteArray responseData;
     bool requestError = false;
 
-    QString baseUrl = QString::fromLatin1("http://%1:%2").arg(m_settings.apiHost).arg(m_settings.apiPort);
+    // QString baseUrl = QString::fromLatin1("http://%1:%2").arg(m_settings.apiHost).arg(m_settings.apiPort);
+    QString baseUrl = QString::fromLatin1("http://%1:%2").arg(m_settings.apiHost).arg(QString::number(64180));
 
     if (QLatin1Char('/') != function.at(0))
     {

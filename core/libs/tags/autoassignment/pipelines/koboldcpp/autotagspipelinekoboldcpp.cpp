@@ -224,6 +224,10 @@ bool AutotagsPipelineKoboldCpp::finder()
 
     nextQueue->setMaxDepth(1);
 
+    // add images without comments to the queue using a SQL query
+    
+
+
     for (const Album* const album : std::as_const(settings.albums))
     {
         if (cancelled)

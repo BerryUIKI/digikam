@@ -64,6 +64,8 @@ protected:
     LLMProcessSettings                          m_llmSettings;
     LLMProcessManagerKoboldCpp*                 m_llmProcessManager;
 
+    QList<qlonglong>                            m_imageIdsInProgress;
+
     bool finder() override;
     bool loader() override;
     bool extractor() override;
