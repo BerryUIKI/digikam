@@ -224,47 +224,38 @@ bool AutotagsPipelineKoboldCpp::finder()
 
     nextQueue->setMaxDepth(1);
 
-    // add images without comments to the queue using a SQL query
-    
-
-
-    for (const Album* const album : std::as_const(settings.albums))
+    while (!cancelled && !settings.bqmMode)
     {
-        if (cancelled)
+        // Add images without comments to the queue using CoreDB method
+
+        QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan(20);
+        
+        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::finder: Found top" << imageIdsWithoutComments.size() 
+                                            << "images without comments to process";
+
+        // Process the images without comments first
+        for (qlonglong imageId : std::as_const(imageIdsWithoutComments))
         {
-            break;
-        }
-
-        if (album && !album->isTrashAlbum())
-        {
-            QList<qlonglong> imageIds;
-
-            // Get the image IDs for the album/tag
-
-            if      (album->type() == Album::PHYSICAL)
+            ++performanceProfileList[MLPipelineStage::Finder].itemCount;
+            
+            if (!filter.contains(imageId) && !m_imageIdsInProgress.contains(imageId))
             {
-                imageIds = CoreDbAccess().db()->getItemIDsInAlbum(album->id());
-            }
-            else if (album->type() == Album::TAG)
-            {
-                imageIds = CoreDbAccess().db()->getItemIDsInTag(album->id());
-            }
+                ++totalItemCount;
+                filter << imageId;
 
-            // Iterate over the image IDs and add unique IDs to the queue for processing
-
-            for (qlonglong imageId : std::as_const(imageIds))
-            {
-                ++performanceProfileList[MLPipelineStage::Finder].itemCount;
-
-                // Filter out duplicate image IDs
-
-                if (!filter.contains(imageId))
                 {
-                    ++totalItemCount;
-                    filter << imageId;
-
-                    enqueue(nextQueue, new AutotagsPipelineKoboldCppPackage(imageId));
+                    QMutexLocker locker(&m_progressIdsMutex);
+                    m_imageIdsInProgress << imageId;
                 }
+                
+                qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::finder: adding image ID" << imageId;
+                
+                enqueue(nextQueue, new AutotagsPipelineKoboldCppPackage(imageId));
+
+                // added imageId to the pipeline.  Break to refresh the list
+                // this allows recently added images to be processed first
+
+                break;
             }
         }
     }
@@ -343,6 +334,11 @@ bool AutotagsPipelineKoboldCpp::loader()
                    QString(),
                    0,
                    package->thumbnailIcon);
+
+            {
+                QMutexLocker locker(&m_progressIdsMutex);
+                m_imageIdsInProgress.removeAll(package->info.id());
+            }
 
             // Delete the package since it is not needed
 
@@ -526,6 +522,13 @@ bool AutotagsPipelineKoboldCpp::classifier()
             qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp is not ready for inference. Cancelling the pipeline...";
             cancelled = true;
             QTimer::singleShot(10, this, SLOT(cancel()));
+
+            
+            {
+                QMutexLocker locker(&m_progressIdsMutex);
+                m_imageIdsInProgress.removeAll(package->info.id());
+            }
+
             delete package;
             package = nullptr;
             break;
@@ -801,7 +804,14 @@ bool AutotagsPipelineKoboldCpp::writer()
                                                 << albumName + package->info.relativePath();
         }
 
+        
+        {
+            QMutexLocker locker(&m_progressIdsMutex);
+            m_imageIdsInProgress.removeAll(package->info.id());
+        }
+
         // Delete the package
+
         delete package;
         package = nullptr;
     }

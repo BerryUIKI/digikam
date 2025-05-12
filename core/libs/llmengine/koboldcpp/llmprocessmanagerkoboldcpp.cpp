@@ -239,8 +239,8 @@ QByteArray LLMProcessManagerKoboldCpp::submitRequest(const QString& function, co
     QByteArray responseData;
     bool requestError = false;
 
-    // QString baseUrl = QString::fromLatin1("http://%1:%2").arg(m_settings.apiHost).arg(m_settings.apiPort);
-    QString baseUrl = QString::fromLatin1("http://%1:%2").arg(m_settings.apiHost).arg(QString::number(64180));
+    QString baseUrl = QString::fromLatin1("http://%1:%2").arg(m_settings.apiHost).arg(m_settings.apiPort);
+    // QString baseUrl = QString::fromLatin1("http://%1:%2").arg(m_settings.apiHost).arg(QString::number(64180));
 
     if (QLatin1Char('/') != function.at(0))
     {

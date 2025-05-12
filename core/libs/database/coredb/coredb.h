@@ -789,6 +789,12 @@ public:
      */
     QList<qlonglong> getObsoleteItemIds()                                                                           const;
 
+    /**
+     * @brief get the next items to be scanned by the LLM Vision engine
+     * @param maxCount the maximum number of items to be returned
+     */
+    QList<qlonglong> getNextLLMItemsToScan(int maxCount)                                                               const;
+
     // ----------- Item properties -----------
 
     /**

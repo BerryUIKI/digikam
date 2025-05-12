@@ -65,6 +65,7 @@ protected:
     LLMProcessManagerKoboldCpp*                 m_llmProcessManager;
 
     QList<qlonglong>                            m_imageIdsInProgress;
+    QMutex                                      m_progressIdsMutex;
 
     bool finder() override;
     bool loader() override;

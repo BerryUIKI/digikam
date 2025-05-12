@@ -4890,4 +4890,32 @@ void CoreDB::writeSettings()
     group.writeEntry(d->configRecentlyUsedTags, d->recentlyAssignedTags);
 }
 
+QList<qlonglong> CoreDB::getNextLLMItemsToScan(int maxCount) const
+{
+    QList<QVariant> values;
+    
+    // Execute SQL query to find images without comments
+    d->db->execSql(QString::fromUtf8("SELECT Images.id "
+                                     "FROM Images "
+                                     "LEFT JOIN ImageComments ON Images.id = ImageComments.imageid "
+                                     "WHERE ImageComments.id IS NULL OR ImageComments.comment IS NULL "
+                                     "ORDER BY Images.id DESC "
+                                     "LIMIT ?;"),
+                   maxCount, &values);
+
+    QList<qlonglong> imageIds;
+    
+    if (values.isEmpty())
+    {
+        return imageIds;
+    }
+
+    for (const QVariant& var : std::as_const(values))
+    {
+        imageIds << var.toLongLong();
+    }
+
+    return imageIds;
+}
+
 } // namespace Digikam
