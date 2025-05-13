@@ -114,32 +114,32 @@ bool AutotagsPipelineKoboldCpp::start()
             // Connect to the engineReadyChanged signal to know when the engine is ready for inference
             connect(m_llmProcessManager, SIGNAL(engineReadyChanged(bool)),
                     this, SLOT(slotEngineReadyChanged(bool)));
-                        
+
+            connect(m_llmProcessManager, &LLMProcessManager::engineCrashed,
+                    this, &AutotagsPipelineKoboldCpp::cancel);
+
             // Start the engine
             started = m_llmProcessManager->startEngine();
+
+            QString startupMessage;
             
             if (!started) 
             {
-                // notify(MLPipelineNotification::,
-                //        i18n("Unable to start KoboldCpp engine. Please check the settings and try again."),
-                //        QString(),
-                //        QString(),
-                //        0,
-                //        QIcon());
+                startupMessage = i18n("Unable to start KoboldCpp engine. Please check the settings and try again.");
 
                 qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::start(): Unable to initiate KoboldCpp engine start:"
                                                        << m_llmProcessManager->lastErrorMessage();
 
                 delete m_llmProcessManager;
                 m_llmProcessManager = nullptr;
-
-                Q_EMIT finished();
-
                 return false;
             }
-            
-            // Set timeout for waiting
-            QTimer::singleShot(llmStartupTimeout * 1000, this, SLOT(checkLLMEngineReady()));
+            else
+            {
+                startupMessage = i18n("KoboldCpp engine starting. Please wait...");
+                Q_EMIT signalStartupMessage(startupMessage);
+                qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << startupMessage;
+            }
         }            
     }
     catch (const std::exception& e)
@@ -179,7 +179,16 @@ void AutotagsPipelineKoboldCpp::cancel()
 {
     if (!cancelled)
     {
-        // QTimer::singleShot(100, m_llmProcessManager, SLOT(abortInference()));
+        // disconnect the signals to avoid multiple calls
+
+        disconnect(m_llmProcessManager, SIGNAL(engineStarted(bool)), 
+                   this, SLOT(slotEngineStarted(bool)));
+
+        disconnect(m_llmProcessManager, SIGNAL(engineReadyChanged(bool)),
+                   this, SLOT(slotEngineReadyChanged(bool)));
+
+        disconnect(m_llmProcessManager, &LLMProcessManager::engineCrashed,
+                   this, &AutotagsPipelineKoboldCpp::cancel);
 
         // Capture 'this' pointer to access class members from the lambda
         // Store the QFuture to resolve the 'nodiscard' warning
@@ -224,11 +233,16 @@ bool AutotagsPipelineKoboldCpp::finder()
 
     nextQueue->setMaxDepth(1);
 
+    qlonglong totalItemsToScan = CoreDbAccess().db()->getTotalLLMItemsToScan();
+
+    // Q_EMIT the updated total item count
+    Q_EMIT signalUpdateItemCount(totalItemsToScan);
+
     while (!cancelled && !settings.bqmMode)
     {
         // Add images without comments to the queue using CoreDB method
 
-        QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan(20);
+        QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan(30);
         
         qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::finder: Found top" << imageIdsWithoutComments.size() 
                                             << "images without comments to process";
@@ -238,12 +252,13 @@ bool AutotagsPipelineKoboldCpp::finder()
         {
             ++performanceProfileList[MLPipelineStage::Finder].itemCount;
             
-            if (!filter.contains(imageId) && !m_imageIdsInProgress.contains(imageId))
+            if (!m_imageIdsInProgress.contains(imageId))
             {
                 ++totalItemCount;
-                filter << imageId;
 
                 {
+                    // keep track of the IDs in progress so we don't process them again
+
                     QMutexLocker locker(&m_progressIdsMutex);
                     m_imageIdsInProgress << imageId;
                 }
@@ -890,10 +905,15 @@ void AutotagsPipelineKoboldCpp::slotEngineStarted(bool success)
     {
         qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::slotEngineStarted: Failed to start KoboldCpp engine:"
                                          << m_llmProcessManager->lastErrorMessage();
+
+        Q_EMIT finished();
     }
     else
     {
         qCInfo(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp process started, waiting for engine to be ready...";
+
+        // Set timeout for waiting
+        // QTimer::singleShot(llmStartupTimeout * 1000, this, SLOT(checkLLMEngineReady()));
     }
 }
 

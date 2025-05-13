@@ -58,7 +58,6 @@ bool LLMProcessManagerKoboldCpp::startEngine()
 
     QStringList args;
 
-
     // add normal arguments
 
     if (LLMEngineType::KoboldCpp == m_engineType)

@@ -41,6 +41,9 @@ public:
     ~AutotagsPipelineKoboldCpp() override;
 
     bool start() override;
+Q_SIGNALS:
+
+    void signalStartupMessage(const QString& message);
 
 protected:
 
@@ -84,8 +87,6 @@ protected:
      * @return The JSON object containing the prepared payload
      */
     QJsonObject createPayload(const QString& prompt, const QString& base64Image);
-
-    // LLMResponseHelper is now used for JSON extraction instead of a custom method
 
 private Q_SLOTS:
 
