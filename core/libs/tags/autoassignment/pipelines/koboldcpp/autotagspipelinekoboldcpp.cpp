@@ -242,7 +242,7 @@ bool AutotagsPipelineKoboldCpp::finder()
     {
         // Add images without comments to the queue using CoreDB method
 
-        QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan(30);
+        QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan(totalItemsToScan);
         
         qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::finder: Found top" << imageIdsWithoutComments.size() 
                                             << "images without comments to process";
@@ -347,10 +347,10 @@ bool AutotagsPipelineKoboldCpp::loader()
                    0,
                    package->thumbnailIcon);
 
-            {
-                QMutexLocker locker(&m_progressIdsMutex);
-                m_imageIdsInProgress.removeAll(package->info.id());
-            }
+            // {
+            //     QMutexLocker locker(&m_progressIdsMutex);
+            //     m_imageIdsInProgress.removeAll(package->info.id());
+            // }
 
             // Delete the package since it is not needed
 
