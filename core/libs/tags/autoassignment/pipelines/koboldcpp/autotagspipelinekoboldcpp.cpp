@@ -226,9 +226,6 @@ bool AutotagsPipelineKoboldCpp::finder()
      * is always 1.
      */
 
-    // Get the IDs to process
-
-    QSet<qlonglong> filter;
     Q_UNUSED(moreCpu);
 
     nextQueue->setMaxDepth(1);
@@ -236,6 +233,7 @@ bool AutotagsPipelineKoboldCpp::finder()
     qlonglong totalItemsToScan = CoreDbAccess().db()->getTotalLLMItemsToScan();
 
     // Q_EMIT the updated total item count
+    
     Q_EMIT signalUpdateItemCount(totalItemsToScan);
 
     while (!cancelled && !settings.bqmMode)
@@ -244,10 +242,8 @@ bool AutotagsPipelineKoboldCpp::finder()
 
         QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan(totalItemsToScan);
         
-        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::finder: Found top" << imageIdsWithoutComments.size() 
-                                            << "images without comments to process";
-
         // Process the images without comments first
+        
         for (qlonglong imageId : std::as_const(imageIdsWithoutComments))
         {
             ++performanceProfileList[MLPipelineStage::Finder].itemCount;
@@ -346,11 +342,6 @@ bool AutotagsPipelineKoboldCpp::loader()
                    QString(),
                    0,
                    package->thumbnailIcon);
-
-            // {
-            //     QMutexLocker locker(&m_progressIdsMutex);
-            //     m_imageIdsInProgress.removeAll(package->info.id());
-            // }
 
             // Delete the package since it is not needed
 
@@ -534,11 +525,6 @@ bool AutotagsPipelineKoboldCpp::classifier()
             qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp is not ready for inference. Cancelling the pipeline...";
             QTimer::singleShot(10, this, SLOT(cancel()));
             
-            {
-                QMutexLocker locker(&m_progressIdsMutex);
-                m_imageIdsInProgress.removeAll(package->info.id());
-            }
-
             delete package;
             package = nullptr;
             break;
@@ -613,12 +599,14 @@ bool AutotagsPipelineKoboldCpp::classifier()
             }
             else
             {
-                package->imageDescription = QStringLiteral("Error: API returned invalid JSON format");
+                // TODO: add error handling for empty response
+                
             }
         }
         else
         {
             // throw an exception for empty response
+            
             QString errorMessage = i18n("KoboldCpp API returned an empty response");
             qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << errorMessage;;
             throw std::runtime_error(errorMessage.toStdString());
@@ -813,7 +801,6 @@ bool AutotagsPipelineKoboldCpp::writer()
             qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::writer: adding "
                                                 << displayTags.size() << " KoboldCpp tags to the image.";
             qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::writer: "
-                                                << package->info.relativePath() << "/"
                                                 << albumName + package->info.relativePath();
         }
 
@@ -888,6 +875,7 @@ QJsonObject AutotagsPipelineKoboldCpp::createPayload(const QString& prompt, cons
     messagesArray.append(userMessage);
     
     // Create the payload object
+
     QJsonObject payload;
     payload[QStringLiteral("messages")] = messagesArray;
     payload[QStringLiteral("max_tokens")] = maxTokens;
@@ -913,6 +901,7 @@ void AutotagsPipelineKoboldCpp::slotEngineStarted(bool success)
         qCInfo(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp process started, waiting for engine to be ready...";
 
         // Set timeout for waiting
+        // 
         // QTimer::singleShot(llmStartupTimeout * 1000, this, SLOT(checkLLMEngineReady()));
     }
 }
