@@ -4909,18 +4909,42 @@ QList<qlonglong> CoreDB::getNextLLMItemsToScan(int maxCount) const
                    &values);
 
     QList<qlonglong> imageIds;
-    
-    if (values.isEmpty())
-    {
-        return imageIds;
-    }
 
-    for (const QVariant& var : std::as_const(values))
+    if (!values.isEmpty())
     {
-        imageIds << var.toLongLong();
+        for (const QVariant& var : std::as_const(values))
+        {
+            imageIds << var.toLongLong();
+        }
     }
 
     return imageIds;
+}
+
+qlonglong CoreDB::getTotalLLMItemsToScan() const
+{
+    QList<QVariant> values;
+    
+    // Execute SQL query to find images without comments
+    // Include only still image categories
+
+    d->db->execSql(QString::fromUtf8("SELECT COUNT(Images.id) "
+                                     "FROM Images "
+                                     "LEFT JOIN ImageComments ON Images.id = ImageComments.imageid "
+                                     "WHERE ImageComments.id IS NULL OR ImageComments.comment IS NULL "
+                                     "AND Images.category = ? "
+                                     "ORDER BY Images.id DESC; "),
+                   DatabaseItem::Category::Image,
+                   &values);
+
+    qlonglong maxCount = 0;
+    
+    if (!values.isEmpty())
+    {
+        maxCount = values.first().toLongLong();
+    }
+
+    return maxCount;
 }
 
 } // namespace Digikam
