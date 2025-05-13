@@ -4895,13 +4895,18 @@ QList<qlonglong> CoreDB::getNextLLMItemsToScan(int maxCount) const
     QList<QVariant> values;
     
     // Execute SQL query to find images without comments
+    // Include only still image categories
+
     d->db->execSql(QString::fromUtf8("SELECT Images.id "
                                      "FROM Images "
                                      "LEFT JOIN ImageComments ON Images.id = ImageComments.imageid "
                                      "WHERE ImageComments.id IS NULL OR ImageComments.comment IS NULL "
+                                     "AND Images.category = ? "
                                      "ORDER BY Images.id DESC "
                                      "LIMIT ?;"),
-                   maxCount, &values);
+                   DatabaseItem::Category::Image,
+                   maxCount, 
+                   &values);
 
     QList<qlonglong> imageIds;
     
