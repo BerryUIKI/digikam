@@ -53,24 +53,24 @@ LLMProcessManager::LLMProcessManager(const LLMProcessSettings& settings, QObject
     m_process->setWorkingDirectory(m_workingDir);
     
     connect(m_process, SIGNAL(stateChanged(QProcess::ProcessState)),
-            this, SLOT(handleProcessStateChanged(QProcess::ProcessState)));
+            this, SLOT(slotProcessStateChanged(QProcess::ProcessState)));
     
     connect(m_process, SIGNAL(errorOccurred(QProcess::ProcessError)),
-            this, SLOT(handleProcessError(QProcess::ProcessError)));
+            this, SLOT(slotProcessError(QProcess::ProcessError)));
 
     connect(m_process, SIGNAL(started()),
-            this, SLOT(handleProcessStarted()));
+            this, SLOT(slotProcessStarted()));
 
     connect(m_process, &QProcess::readyReadStandardOutput,
             this, [this]()
             {
-                processEngineOutput(m_process->readAllStandardOutput());
+                slotProcessEngineOutput(m_process->readAllStandardOutput());
             });
             
     connect(m_process, &QProcess::readyReadStandardError,
             this, [this]()
             {
-                processEngineError(m_process->readAllStandardError());
+                slotProcessEngineError(m_process->readAllStandardError());
             });
 
     connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
@@ -97,7 +97,6 @@ bool LLMProcessManager::startEngine(const QStringList& args)
     {
         m_lastErrorMessage = QLatin1String("Engine is already running");
         qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot start engine. " << m_lastErrorMessage;
-        Q_EMIT engineStarted(false);
         return false;
     }
     
@@ -118,13 +117,13 @@ bool LLMProcessManager::startEngine(const QStringList& args)
     return true; // Return true if process start was initiated (not waiting for actual startup)
 }
 
-void LLMProcessManager::handleProcessStarted()
+void LLMProcessManager::slotProcessStarted()
 {
     qCDebug(DIGIKAM_LLMENGINE_LOG) << "LLM Engine process started";
 
     // begin checking for readiness
 
-    if (m_process)
+    if (m_process && (QProcess::Running == m_process->state()))
     {
         if (checkEngineReady())
         {
@@ -136,7 +135,7 @@ void LLMProcessManager::handleProcessStarted()
         {
             // try again in 2 seconds
 
-            QTimer::singleShot(2000, this, &LLMProcessManager::handleProcessStarted);
+            QTimer::singleShot(2000, this, &LLMProcessManager::slotProcessStarted);
         }
     }
 }
@@ -174,7 +173,7 @@ const LLMProcessSettings& LLMProcessManager::settings() const
     return m_settings;
 }
 
-void LLMProcessManager::processEngineOutput(const QByteArray& data)
+void LLMProcessManager::slotProcessEngineOutput(const QByteArray& data)
 {
     if (!data.isEmpty())
     {
@@ -183,7 +182,7 @@ void LLMProcessManager::processEngineOutput(const QByteArray& data)
     }
 }
 
-void LLMProcessManager::processEngineError(const QByteArray& data)
+void LLMProcessManager::slotProcessEngineError(const QByteArray& data)
 {
     if (!data.isEmpty())
     {
@@ -194,7 +193,7 @@ void LLMProcessManager::processEngineError(const QByteArray& data)
     }
 }
 
-void LLMProcessManager::handleProcessStateChanged(QProcess::ProcessState newState)
+void LLMProcessManager::slotProcessStateChanged(QProcess::ProcessState newState)
 {
     QString stateStr;
     
@@ -222,7 +221,7 @@ void LLMProcessManager::handleProcessStateChanged(QProcess::ProcessState newStat
     qCDebug(DIGIKAM_LLMENGINE_LOG) << "LLM Engine process state changed to:" << stateStr;
 }
 
-void LLMProcessManager::handleProcessError(QProcess::ProcessError error)
+void LLMProcessManager::slotProcessError(QProcess::ProcessError error)
 {
     QString errorStr;
     
@@ -238,11 +237,12 @@ void LLMProcessManager::handleProcessError(QProcess::ProcessError error)
         {
             if (m_exiting)
             {
-                errorStr = QLatin1String("Exiting");
+                errorStr = QLatin1String("Exiting normally");
             }
             else
             {
                 errorStr = QLatin1String("Crashed");
+                Q_EMIT engineCrashed();
             }
             break;
         }

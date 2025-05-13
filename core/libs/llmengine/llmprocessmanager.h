@@ -174,6 +174,11 @@ Q_SIGNALS:
      */
     void engineReadyChanged(bool ready);
 
+    /**
+     * @brief Signal emitted when the engine process exits unexpectedly
+     */
+    void engineCrashed();
+
 
 protected Q_SLOTS:
 
@@ -181,19 +186,19 @@ protected Q_SLOTS:
      * @brief Handle process state changes
      * @param newState The new process state
      */
-    virtual void handleProcessStateChanged(QProcess::ProcessState newState);
+    virtual void slotProcessStateChanged(QProcess::ProcessState newState);
     
     /**
      * @brief Handle process errors
      * @param error The process error
      */
-    virtual void handleProcessError(QProcess::ProcessError error);
+    virtual void slotProcessError(QProcess::ProcessError error);
 
     /**
      * @brief Handle process started signal
      * @param pid The process ID of the started engine
      */
-    virtual void handleProcessStarted();
+    virtual void slotProcessStarted();
 
 protected:
 
@@ -208,13 +213,13 @@ protected:
      * @brief Process engine output
      * @param data The output data from the engine
      */
-    virtual void processEngineOutput(const QByteArray& data);
+    virtual void slotProcessEngineOutput(const QByteArray& data);
 
     /**
      * @brief Process engine error output
      * @param data The error output data from the engine
      */
-    virtual void processEngineError(const QByteArray& data);
+    virtual void slotProcessEngineError(const QByteArray& data);
     
     /**
      * @brief Find an unused TCP port that can be used for services
