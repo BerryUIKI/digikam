@@ -249,7 +249,7 @@ bool AutotagsPipelineKoboldCpp::finder()
                 }
                 
                 qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::finder: adding image ID" << imageId;
-                
+
                 enqueue(nextQueue, new AutotagsPipelineKoboldCppPackage(imageId));
 
                 // added imageId to the pipeline.  Break to refresh the list
@@ -543,12 +543,15 @@ bool AutotagsPipelineKoboldCpp::classifier()
                0,
                package->thumbnailIcon);
 
-        
+        QElapsedTimer timer;
+        timer.start();
         // Use LLMProcessManager's submitRequest method to communicate with the LLM
         QByteArray responseData = m_llmProcessManager->submitRequest(QStringLiteral("/v1/chat/completions"), 
                                                                      payload, 
                                                                      LLMProcessManager::POST);
 
+        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp API response time:" << timer.elapsed() << "ms";
+        
         if (cancelled)
         {
             delete package;

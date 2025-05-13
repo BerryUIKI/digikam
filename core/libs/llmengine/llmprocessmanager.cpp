@@ -134,9 +134,9 @@ void LLMProcessManager::handleProcessStarted()
         }
         else
         {
-            // try again in 1 second
+            // try again in 2 seconds
 
-            QTimer::singleShot(1000, this, &LLMProcessManager::handleProcessStarted);
+            QTimer::singleShot(2000, this, &LLMProcessManager::handleProcessStarted);
         }
     }
 }
