@@ -208,7 +208,10 @@ void AutotagsEngine::slotStart()
 
     if (!d->newPipeline->start())
     {
+        // TODO: display banner with error message
+        
         Q_EMIT signalScanNotification(QString(i18n("Error starting object detection.")), DNotificationWidget::Error);
+        MaintenanceTool::slotDone();
     }
 }
 
