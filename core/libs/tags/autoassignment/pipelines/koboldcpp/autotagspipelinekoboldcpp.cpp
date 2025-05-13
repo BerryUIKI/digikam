@@ -274,8 +274,6 @@ bool AutotagsPipelineKoboldCpp::loader()
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Loader, MLPipelineStage::Extractor);
     AutotagsPipelineKoboldCppPackage* package = nullptr;
 
-    int imageSize= 1024;
-
     /* =========================================================================================
      * Pipeline stage specific initialization code
      *
@@ -303,8 +301,7 @@ bool AutotagsPipelineKoboldCpp::loader()
         {
             // Load image for KoboldCpp model processing
 
-            // package->image = PreviewLoadThread::loadFastSynchronously(package->info.filePath(), model->info.imageSize);
-            package->image = PreviewLoadThread::loadFastSynchronously(package->info.filePath(), imageSize);
+            package->image = PreviewLoadThread::loadFastSynchronously(package->info.filePath(), model->info.imageSize);
 
             // Check for corrupted images that can't be loaded
 
@@ -520,9 +517,7 @@ bool AutotagsPipelineKoboldCpp::classifier()
         if (!m_llmProcessManager->engineReady())
         {
             qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp is not ready for inference. Cancelling the pipeline...";
-            cancelled = true;
             QTimer::singleShot(10, this, SLOT(cancel()));
-
             
             {
                 QMutexLocker locker(&m_progressIdsMutex);
