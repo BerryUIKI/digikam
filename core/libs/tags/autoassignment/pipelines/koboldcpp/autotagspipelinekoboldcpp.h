@@ -100,7 +100,7 @@ private Q_SLOTS:
      * @brief Handles engineReadyChanged signal from LLMProcessManager
      * @param ready Whether the engine is ready for inference
      */
-    void slotEngineReadyChanged(bool ready);
+    void slotEngineReady();
 
     /**
      * @brief Checks if the LLM engine is ready for inference

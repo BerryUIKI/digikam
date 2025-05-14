@@ -76,7 +76,8 @@ LLMProcessManager::LLMProcessManager(const LLMProcessSettings& settings, QObject
     connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
             this, [this](int exitCode, QProcess::ExitStatus /*exitStatus*/)
             {
-                Q_EMIT engineStopped(exitCode);
+                m_exiting = true;
+                Q_EMIT signalEngineStopped(exitCode);
             });
 }
 
@@ -125,10 +126,12 @@ void LLMProcessManager::slotProcessStarted()
 
     if (m_process && (QProcess::Running == m_process->state()))
     {
+        // check if the engine is ready for inference by sending a test request
+        
         if (checkEngineReady())
         {
             m_engineReady = true;
-            Q_EMIT engineReadyChanged(m_engineReady);
+            Q_EMIT signalEngineReady();
             qCDebug(DIGIKAM_LLMENGINE_LOG) << "LLM Engine is ready for inference";
         }
         else
@@ -143,6 +146,7 @@ void LLMProcessManager::slotProcessStarted()
 void LLMProcessManager::applySettings(const LLMProcessSettings& settings)
 {
     // Store the settings in our member variable
+    
     m_settings = settings;
     
     // Derived classes should override this to apply settings to their specific implementation
@@ -189,7 +193,7 @@ void LLMProcessManager::slotProcessEngineError(const QByteArray& data)
         QString error = QString::fromUtf8(data);
         qCWarning(DIGIKAM_LLMENGINE_LOG) << "LLM Engine error:" << error;
         m_lastErrorMessage = error;
-        Q_EMIT engineError(error);
+        Q_EMIT signalEngineError(error);
     }
 }
 
@@ -230,6 +234,7 @@ void LLMProcessManager::slotProcessError(QProcess::ProcessError error)
         case QProcess::FailedToStart:
         {
             errorStr = QLatin1String("Failed to start");
+            m_exiting = true;
             break;
         }
             
@@ -242,7 +247,7 @@ void LLMProcessManager::slotProcessError(QProcess::ProcessError error)
             else
             {
                 errorStr = QLatin1String("Crashed");
-                Q_EMIT engineCrashed();
+                qCDebug(DIGIKAM_LLMENGINE_LOG) << "Emitting engineCrashed signal";
             }
             break;
         }
@@ -274,7 +279,7 @@ void LLMProcessManager::slotProcessError(QProcess::ProcessError error)
     
     m_lastErrorMessage = QString::fromLatin1("Process error: %1 - %2").arg(errorStr).arg(m_process->errorString());
     qCWarning(DIGIKAM_LLMENGINE_LOG) << m_lastErrorMessage;
-    Q_EMIT engineError(m_lastErrorMessage);
+    Q_EMIT signalEngineError(m_lastErrorMessage);
 }
 
 void LLMProcessManager::shutdownEngine()

@@ -108,14 +108,14 @@ bool AutotagsPipelineKoboldCpp::start()
             // Connect signals for engine status updates
             
             // Connect to the engineStarted signal to know when the process has started
-            connect(m_llmProcessManager, SIGNAL(engineStarted(bool)), 
+            connect(m_llmProcessManager, SIGNAL(signalEngineStarted(bool)), 
                     this, SLOT(slotEngineStarted(bool)));
                         
             // Connect to the engineReadyChanged signal to know when the engine is ready for inference
-            connect(m_llmProcessManager, SIGNAL(engineReadyChanged(bool)),
-                    this, SLOT(slotEngineReadyChanged(bool)));
+            connect(m_llmProcessManager, SIGNAL(signalEngineReady()),
+                    this, SLOT(slotEngineReady()));
 
-            connect(m_llmProcessManager, &LLMProcessManager::engineCrashed,
+            connect(m_llmProcessManager, &LLMProcessManager::signalEngineStopped,
                     this, &AutotagsPipelineKoboldCpp::cancel);
 
             // Start the engine
@@ -181,25 +181,33 @@ void AutotagsPipelineKoboldCpp::cancel()
     {
         // disconnect the signals to avoid multiple calls
 
-        disconnect(m_llmProcessManager, SIGNAL(engineStarted(bool)), 
+        disconnect(m_llmProcessManager, SIGNAL(signalEngineStarted(bool)), 
                    this, SLOT(slotEngineStarted(bool)));
 
-        disconnect(m_llmProcessManager, SIGNAL(engineReadyChanged(bool)),
-                   this, SLOT(slotEngineReadyChanged(bool)));
+        disconnect(m_llmProcessManager, SIGNAL(signalEngineReady()),
+                   this, SLOT(slotEngineReady()));
 
-        disconnect(m_llmProcessManager, &LLMProcessManager::engineCrashed,
+        disconnect(m_llmProcessManager, &LLMProcessManager::signalEngineStopped,
                    this, &AutotagsPipelineKoboldCpp::cancel);
 
         // Capture 'this' pointer to access class members from the lambda
         // Store the QFuture to resolve the 'nodiscard' warning
-        if (m_llmProcessManager)
+        if (m_llmProcessManager && m_llmProcessManager->isEngineRunning())
         {
+            // Use QtConcurrent to run the abort process in a separate thread
+            // This allows the main thread to continue processing other tasks
+            // while waiting for the LLM engine to abort the inference
+            
             QFuture<void> future = QtConcurrent::run([this]()
             {
                 QThread::msleep(100);
                 m_llmProcessManager->abortInference();
                 qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::cancel(): sent abort request to LLM engine";
             });
+        }
+        else
+        {
+            Q_EMIT finished();
         }
         
         // Note: We don't need to wait for the future completion here
@@ -481,6 +489,7 @@ bool AutotagsPipelineKoboldCpp::classifier()
                               "OUTPUT=```json{\"Description\": \"Two apples next to each other, one green and one red, placed side by side against a white background. There is even and diffuse studio lighting. The fruit is glossy and covered with dropplets of water indicating they are fresh and recently washed. The image emphasizes the cleanliness and appetizing nature of the food\", \"Keywords\": [\"studio shot\",\"green\",\"fruit\",\"red\",\"apple\",\"stock image\",\"health food\",\"appetizing\",\"empty background\",\"grocery\",\"food\",\"snack\"]}```\n"
                               "</EXAMPLE> ");
 
+QString llmPrompt_neutral = QLatin1String("Analyze the given image and provide a clear, neutral description of its contents. Focus on objective details such as objects, people, environment, colors, and any notable features, avoiding subjective interpretations. Then, generate a list of relevant keywords to tag the image, ensuring they accurately reflect its elements without bias or assumptions. Format the response as follows:");
 // "The description should be a detailed and accurate representation of the image content.\n"
 // "The keywords should be relevant to the image and cover various aspects of it.\n"
 // "Please provide the output in JSON format with two fields: \"Description\" and \"Keywords\".\n"
@@ -906,9 +915,9 @@ void AutotagsPipelineKoboldCpp::slotEngineStarted(bool success)
     }
 }
 
-void AutotagsPipelineKoboldCpp::slotEngineReadyChanged(bool ready)
+void AutotagsPipelineKoboldCpp::slotEngineReady()
 {
-    if (ready && !cancelled && !running)
+    if (!cancelled && !running)
     {
         running = true;
 

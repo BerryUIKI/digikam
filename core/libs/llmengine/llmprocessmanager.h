@@ -154,31 +154,25 @@ Q_SIGNALS:
      * @brief Signal emitted when the engine has started
      * @param success True if the engine started successfully
      */
-    void engineStarted(bool success);
+    void signalEngineStarted(bool success);
     
     /**
      * @brief Signal emitted when the engine has stopped
      * @param exitCode The exit code of the process
      */
-    void engineStopped(int exitCode);
+    void signalEngineStopped(int exitCode);
     
     /**
      * @brief Signal emitted when there is an error from the engine
      * @param error The error text from the engine
      */
-    void engineError(const QString& error);
+    void signalEngineError(const QString& error);
     
     /**
      * @brief Signal emitted when the engine becomes ready for inference
      * @param ready True if the engine is ready, false otherwise
      */
-    void engineReadyChanged(bool ready);
-
-    /**
-     * @brief Signal emitted when the engine process exits unexpectedly
-     */
-    void engineCrashed();
-
+    void signalEngineReady();
 
 protected Q_SLOTS:
 

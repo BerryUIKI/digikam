@@ -52,7 +52,7 @@ bool LLMProcessManagerKoboldCpp::startEngine()
     if (!m_settings.isValid() || m_settings.mmprojPath.isEmpty())
     {
         qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot start KoboldCpp engine: invalid settings";
-        Q_EMIT engineStarted(false);
+        Q_EMIT signalEngineStarted(false);
         return false;
     }
 
@@ -86,6 +86,9 @@ bool LLMProcessManagerKoboldCpp::startEngine()
 
     args << QStringLiteral("--host") << m_settings.apiHost    
          << QStringLiteral("--port") << QString::number(m_settings.apiPort);
+
+    // used for testing engine startup failure
+    // args << QStringLiteral("--badparam");
 
     // add additional arguments if any
     
@@ -143,10 +146,12 @@ bool LLMProcessManagerKoboldCpp::checkEngineReady()
     if (!isEngineRunning())
     {
         // Not running, so definitely not ready
+
         return false;
     }
 
     // Create an empty payload for the GET request
+
     QJsonObject emptyPayload;
 
     // Submit the request to the version endpoint with force=true to avoid circular dependency
@@ -171,23 +176,16 @@ bool LLMProcessManagerKoboldCpp::checkEngineReady()
 
 
     // Check if the response indicates the model is ready
+
     bool ready = false;
 
     if (!response.isEmpty())
     {
         // Parse the response as JSON
+
         QJsonDocument doc = QJsonDocument::fromJson(response);
         QJsonObject jsonResponse = doc.object();
         
-        // // Check if the model is loaded and ready
-        // if (jsonResponse.contains(QStringLiteral("result")))
-        // {
-        //     QString status = jsonResponse[QStringLiteral("result")].toString();
-        //     ready = (status.toLower() == QStringLiteral("koboldcpp"));
-            
-        //     qCDebug(DIGIKAM_LLMENGINE_LOG) << "KoboldCpp LLM status:" << jsonResponse;
-        // }
-
         // Check if the model is loaded and ready
 
         if (jsonResponse.contains(QStringLiteral("status")))
@@ -197,7 +195,7 @@ bool LLMProcessManagerKoboldCpp::checkEngineReady()
             QString status = jsonResponse[QStringLiteral("status")].toString();
             ready = (status.toLower() == QStringLiteral("ok"));
             
-            qCDebug(DIGIKAM_LLMENGINE_LOG) << "KoboldCpp LLM status:" << jsonResponse;
+            qCDebug(DIGIKAM_LLMENGINE_LOG) << "LlamaCpp LLM status:" << jsonResponse;
         }
         else if (jsonResponse.contains(QStringLiteral("result")))
         {
@@ -211,7 +209,7 @@ bool LLMProcessManagerKoboldCpp::checkEngineReady()
     }
     else
     {
-        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Failed to check KoboldCpp LLM status";
+        qCWarning(DIGIKAM_LLMENGINE_LOG) << "LLM status check failed: empty response";
     }
 
     return ready;
