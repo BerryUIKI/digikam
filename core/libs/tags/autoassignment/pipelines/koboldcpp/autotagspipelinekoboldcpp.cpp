@@ -377,7 +377,7 @@ bool AutotagsPipelineKoboldCpp::loader()
 
 bool AutotagsPipelineKoboldCpp::extractor()
 {
-    MLPIPELINE_STAGE_START(QThread::NormalPriority, MLPipelineStage::Extractor, MLPipelineStage::Classifier);
+    MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Extractor, MLPipelineStage::Classifier);
     AutotagsPipelineKoboldCppPackage* package = nullptr;
 
     /* =========================================================================================
