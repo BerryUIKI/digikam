@@ -372,60 +372,7 @@ SetupLLM::SetupLLM(QWidget* const parent)
             this, &SetupLLM::slotEnableAIAnnotateMaxTags);
 
     // Initialize settings
-    readSettings();
-    
-    // Set initial enabled/disabled state based on the checkboxes
-    bool mainChecked = d->enableAIAnnotateCheck->isChecked();
-    bool advChecked = d->enableAIAnnotateAdvSetCheck->isChecked();
-    bool tagsChecked = d->enableAIAnnotateTagsCheck->isChecked();
-    bool customPromptChecked = d->enableAIAnnotateCustomPromptCheck->isChecked();
-    
-    // Basic settings enabled only if main checkbox is checked
-    d->llmEngineCombo->setEnabled(mainChecked);
-    
-    // Component checkboxes enabled only if main checkbox is checked
-    d->enableAIAnnotateDescriptionCheck->setEnabled(mainChecked);
-    d->enableAIAnnotateTagsCheck->setEnabled(mainChecked);
-    d->enableAIAnnotateAestheticCheck->setEnabled(mainChecked);
-    
-    // Tags settings enabled only if main checkbox and tags checkbox are checked
-    d->maxTagsSpinBox->setEnabled(mainChecked && tagsChecked);
-    d->maxTagsLabel->setEnabled(mainChecked && tagsChecked);
-    
-    // Advanced settings checkbox enabled only if main is checked
-    d->enableAIAnnotateAdvSetCheck->setEnabled(mainChecked);
-    
-    // Custom prompt checkbox enabled only if main and advanced are checked
-    d->enableAIAnnotateCustomPromptCheck->setEnabled(mainChecked && advChecked);
-    
-    // Advanced settings elements enabled only if both checkboxes are checked
-    d->temperatureInput->setEnabled(mainChecked && advChecked);
-    d->temperatureLabel->setEnabled(mainChecked && advChecked);
-    
-    // Voice style and text tones are now in Generation Settings, enabling depends only on main checkbox
-    d->aiVoiceTypeCombo->setEnabled(mainChecked);
-    d->aiVoiceTypeLabel->setEnabled(mainChecked);
-    
-    // Text tone checkboxes enabled only if main checkbox is checked
-    d->textToneFriendlyCheck->setEnabled(mainChecked);
-    d->textToneSeriousCheck->setEnabled(mainChecked);
-    d->textToneHumorousCheck->setEnabled(mainChecked);
-    d->textToneEmpatheticCheck->setEnabled(mainChecked);
-    d->textToneAuthoritativeCheck->setEnabled(mainChecked);
-    d->textToneEncouragingCheck->setEnabled(mainChecked);
-    d->textToneUrgentCheck->setEnabled(mainChecked);
-    d->textToneInspirationalCheck->setEnabled(mainChecked);
-    d->textToneRespectfulCheck->setEnabled(mainChecked);
-    d->textToneConciseCheck->setEnabled(mainChecked);
-    d->textToneDescriptiveCheck->setEnabled(mainChecked);
-    d->textTonePersuasiveCheck->setEnabled(mainChecked);
-    d->textToneDramaticCheck->setEnabled(mainChecked);
-    d->textTonePoeticCheck->setEnabled(mainChecked);
-    d->textToneTechnicalCheck->setEnabled(mainChecked);
-    
-    // Prompt text edit and reset button enabled only if custom prompt is enabled and advanced settings are enabled
-    d->promptTextEdit->setEnabled(mainChecked && advChecked && customPromptChecked);
-    d->resetPromptButton->setEnabled(mainChecked && advChecked);
+    readSettings();    
 }
 
 SetupLLM::~SetupLLM()
@@ -538,21 +485,21 @@ void SetupLLM::applySettings()
     
     // Text tones
     LLMProcessSettings::AITextTones tones = LLMProcessSettings::NoTone;
-    if (d->textToneFriendlyCheck->isChecked())     tones |= LLMProcessSettings::Friendly;
-    if (d->textToneSeriousCheck->isChecked())      tones |= LLMProcessSettings::Serious;
-    if (d->textToneHumorousCheck->isChecked())     tones |= LLMProcessSettings::Humorous;
-    if (d->textToneEmpatheticCheck->isChecked())   tones |= LLMProcessSettings::Empathetic;
+    if (d->textToneFriendlyCheck->isChecked())      tones |= LLMProcessSettings::Friendly;
+    if (d->textToneSeriousCheck->isChecked())       tones |= LLMProcessSettings::Serious;
+    if (d->textToneHumorousCheck->isChecked())      tones |= LLMProcessSettings::Humorous;
+    if (d->textToneEmpatheticCheck->isChecked())    tones |= LLMProcessSettings::Empathetic;
     if (d->textToneAuthoritativeCheck->isChecked()) tones |= LLMProcessSettings::Authoritative;
-    if (d->textToneEncouragingCheck->isChecked())  tones |= LLMProcessSettings::Encouraging;
-    if (d->textToneUrgentCheck->isChecked())       tones |= LLMProcessSettings::Urgent;
+    if (d->textToneEncouragingCheck->isChecked())   tones |= LLMProcessSettings::Encouraging;
+    if (d->textToneUrgentCheck->isChecked())        tones |= LLMProcessSettings::Urgent;
     if (d->textToneInspirationalCheck->isChecked()) tones |= LLMProcessSettings::Inspirational;
-    if (d->textToneRespectfulCheck->isChecked())   tones |= LLMProcessSettings::Respectful;
-    if (d->textToneConciseCheck->isChecked())      tones |= LLMProcessSettings::Concise;
-    if (d->textToneDescriptiveCheck->isChecked())  tones |= LLMProcessSettings::Descriptive;
-    if (d->textTonePersuasiveCheck->isChecked())   tones |= LLMProcessSettings::Persuasive;
-    if (d->textToneDramaticCheck->isChecked())     tones |= LLMProcessSettings::Dramatic;
-    if (d->textTonePoeticCheck->isChecked())       tones |= LLMProcessSettings::Poetic;
-    if (d->textToneTechnicalCheck->isChecked())    tones |= LLMProcessSettings::Technical;
+    if (d->textToneRespectfulCheck->isChecked())    tones |= LLMProcessSettings::Respectful;
+    if (d->textToneConciseCheck->isChecked())       tones |= LLMProcessSettings::Concise;
+    if (d->textToneDescriptiveCheck->isChecked())   tones |= LLMProcessSettings::Descriptive;
+    if (d->textTonePersuasiveCheck->isChecked())    tones |= LLMProcessSettings::Persuasive;
+    if (d->textToneDramaticCheck->isChecked())      tones |= LLMProcessSettings::Dramatic;
+    if (d->textTonePoeticCheck->isChecked())        tones |= LLMProcessSettings::Poetic;
+    if (d->textToneTechnicalCheck->isChecked())     tones |= LLMProcessSettings::Technical;
     settings->setAIAnnotateTextTones(tones);
 
     settings->saveSettings();
@@ -589,6 +536,10 @@ void SetupLLM::slotEnableAIAnnotateSettings(bool enable)
     d->textToneDramaticCheck->setEnabled(enable);
     d->textTonePoeticCheck->setEnabled(enable);
     d->textToneTechnicalCheck->setEnabled(enable);
+
+    slotEnableAIAnnotateAdvancedSettings(d->enableAIAnnotateAdvSetCheck->isChecked());
+    slotEnableAIAnnotateCustomPrompt(d->enableAIAnnotateCustomPromptCheck->isChecked());
+    slotEnableAIAnnotateMaxTags(d->enableAIAnnotateTagsCheck->isChecked());
 }
 
 void SetupLLM::slotEnableAIAnnotateMaxTags(bool enable)
@@ -599,16 +550,17 @@ void SetupLLM::slotEnableAIAnnotateMaxTags(bool enable)
 
 void SetupLLM::slotEnableAIAnnotateAdvancedSettings(bool enable)
 {
-    d->enableAIAnnotateCustomPromptCheck->setEnabled(enable);
-    d->promptTextEdit->setEnabled(enable && d->enableAIAnnotateCustomPromptCheck->isChecked());
-    d->resetPromptButton->setEnabled(enable && d->enableAIAnnotateCustomPromptCheck->isChecked());
-    d->temperatureInput->setEnabled(enable);
-    d->temperatureLabel->setEnabled(enable);
+    d->enableAIAnnotateCustomPromptCheck->setEnabled(enable && d->enableAIAnnotateAdvSetCheck->isEnabled());
+    d->promptTextEdit->setEnabled(enable && d->enableAIAnnotateCustomPromptCheck->isChecked() && d->enableAIAnnotateCustomPromptCheck->isEnabled());
+    d->resetPromptButton->setEnabled(enable && d->enableAIAnnotateCustomPromptCheck->isChecked() && d->enableAIAnnotateCustomPromptCheck->isEnabled());
+    d->temperatureInput->setEnabled(enable && d->enableAIAnnotateAdvSetCheck->isEnabled());
+    d->temperatureLabel->setEnabled(enable && d->enableAIAnnotateAdvSetCheck->isEnabled());
 }
 
 void SetupLLM::slotEnableAIAnnotateCustomPrompt(bool enable)
 {
-    d->promptTextEdit->setEnabled(enable);
+    d->promptTextEdit->setEnabled(enable && d->enableAIAnnotateCustomPromptCheck->isEnabled());
+    d->resetPromptButton->setEnabled(enable && d->enableAIAnnotateCustomPromptCheck->isEnabled());
 }
 
 } // namespace Digikam
