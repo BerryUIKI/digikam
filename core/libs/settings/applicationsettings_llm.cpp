@@ -19,7 +19,7 @@ namespace Digikam
 {
 // LLM Settings
 
-void ApplicationSettings::setEnableAIAnnotate(bool enable)
+void ApplicationSettings::setAIAnnotateEnabled(bool enable)
 {
     d->aiAnnotateEnable = enable;
 }
@@ -29,7 +29,7 @@ bool ApplicationSettings::getAIAnnotateEnabled() const
     return d->aiAnnotateEnable;
 }
 
-void ApplicationSettings::setEnableAIAnnotateAdvSet(bool enable)
+void ApplicationSettings::setAIAnnotateEnableAdvSet(bool enable)
 {
     d->aiAnnotateEnableAdvSet = enable;
 }
@@ -39,7 +39,7 @@ bool ApplicationSettings::getAIAnnotateAdvSetEnabled() const
     return d->aiAnnotateEnableAdvSet;
 }
 
-void ApplicationSettings::setEnableAIAnnotateDescription(bool enable)
+void ApplicationSettings::setAIAnnotateEnableDescription(bool enable)
 {
     d->aiAnnotateEnableDescription = enable;
 }
@@ -49,7 +49,7 @@ bool ApplicationSettings::getAIAnnotateDescriptionEnabled() const
     return d->aiAnnotateEnableDescription;
 }
 
-void ApplicationSettings::setEnableAIAnnotateTags(bool enable)
+void ApplicationSettings::setAIAnnotateEnableTags(bool enable)
 {
     d->aiAnnotateEnableTags = enable;
 }
@@ -59,7 +59,7 @@ bool ApplicationSettings::getAIAnnotateTagsEnabled() const
     return d->aiAnnotateEnableTags;
 }
 
-void ApplicationSettings::setEnableAIAnnotateAesthetic(bool enable)
+void ApplicationSettings::setAIAnnotateEnableAesthetic(bool enable)
 {
     d->aiAnnotateEnableAesthetic = enable;
 }
@@ -69,7 +69,7 @@ bool ApplicationSettings::getAIAnnotateAestheticEnabled() const
     return d->aiAnnotateEnableAesthetic;
 }
 
-void ApplicationSettings::setEnableAIAnnotateCustomPrompt(bool enable)
+void ApplicationSettings::setAIAnnotateEnableCustomPrompt(bool enable)
 {
     d->aiAnnotateEnableCustomPrompt = enable;
 }
@@ -77,6 +77,26 @@ void ApplicationSettings::setEnableAIAnnotateCustomPrompt(bool enable)
 bool ApplicationSettings::getAIAnnotateCustomPromptEnabled() const
 {
     return d->aiAnnotateEnableCustomPrompt;
+}
+
+void ApplicationSettings::setAIAnnotateEnableExternalLLM(bool enable)
+{
+    d->aiAnnotateEnableExternalLLM = enable;
+}
+
+bool ApplicationSettings::getAIAnnotateExternalLLMEnabled() const
+{
+    return d->aiAnnotateEnableExternalLLM;
+}
+
+void ApplicationSettings::setAIAnnotateExternalLLMUrl(const QString& url)
+{
+    d->aiAnnotateExternalLLMUrl = url;
+}
+
+QString ApplicationSettings::getAIAnnotateExternalLLMUrl() const
+{
+    return d->aiAnnotateExternalLLMUrl;
 }
 
 void ApplicationSettings::setAIAnnotateEngine(const LLMProcessManagerKoboldCpp::LLMEngineType engine)

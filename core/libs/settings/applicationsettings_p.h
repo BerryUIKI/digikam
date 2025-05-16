@@ -112,6 +112,8 @@ public:
     const QString configAIAnnotateMaxTags                           = QLatin1String("Max Tags");
     const QString configAIAnnotateEnableAdvSetEntry                 = QLatin1String("Enable Advanced Settings");
     const QString configAIAnnotateEnableCustomPromptEntry           = QLatin1String("Enable Custom Prompt");
+    const QString configAIAnnotateEnableExternalLLMEntry            = QLatin1String("Enable External LLM");
+    const QString configAIAnnotateExternalLLMUrl                    = QLatin1String("External LLM URL");
     const QString configAIAnnotateLlmPrompt                         = QLatin1String("Prompt");
     const QString configAIAnnotateTemperature                       = QLatin1String("Temperature");
     const QString configSidebarTitleStyleEntry                      = QLatin1String("Sidebar Title Style");
@@ -371,9 +373,11 @@ public:
     bool                                         aiAnnotateEnableTags                               = true;
     bool                                         aiAnnotateEnableAesthetic                          = true;
     bool                                         aiAnnotateEnableCustomPrompt                       = false;
+    bool                                         aiAnnotateEnableExternalLLM                        = false;
     LLMProcessManagerKoboldCpp::LLMEngineType    aiAnnotateLlmEngine                                          = LLMProcessManagerKoboldCpp::KoboldCpp;
     int                                          aiAnnotateMaxTags                                   = 15;
     QString                                      aiAnnotateLlmPrompt;
+    QString                                      aiAnnotateExternalLLMUrl                            = QLatin1String("http://localhost:5000/api");
     double                                       aiAnnotateLlmTemperature                                     = 0.1;
     LLMProcessSettings::AIVoiceType              aiAnnotateVoiceType                                        = LLMProcessSettings::Neutral;
     LLMProcessSettings::AITextTones              aiAnnotateTextTones                                        = LLMProcessSettings::NoTone;

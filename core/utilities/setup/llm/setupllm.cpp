@@ -26,6 +26,7 @@
 #include <QGroupBox>
 #include <QIcon>
 #include <QLabel>
+#include <QLineEdit>
 #include <QPushButton>
 #include <QRadioButton>
 #include <QSpinBox>
@@ -59,75 +60,63 @@ class Q_DECL_HIDDEN SetupLLM::Private
 public:
 
     explicit Private()
-      : tab(nullptr),
-        annotateTab(nullptr),
-        llmEngineCombo(nullptr),
-        maxTagsSpinBox(nullptr),
-        maxTagsLabel(nullptr),
-        promptTextEdit(nullptr),
-        resetPromptButton(nullptr),
-        temperatureInput(nullptr),
-        temperatureLabel(nullptr),
-        enableAIAnnotateCheck(nullptr),
-        enableAIAnnotateAdvSetCheck(nullptr),
-        enableAIAnnotateDescriptionCheck(nullptr),
-        enableAIAnnotateTagsCheck(nullptr),
-        enableAIAnnotateAestheticCheck(nullptr),
-        enableAIAnnotateCustomPromptCheck(nullptr),
-        aiVoiceTypeCombo(nullptr),
-        aiVoiceTypeLabel(nullptr),
-        activeTab(Annotate)
     {
     }
 
-    QTabWidget*    tab;
-    QWidget*       annotateTab;
+    QTabWidget*         tab                                     = nullptr;
+    QWidget*            annotateTab                             = nullptr;
     
-    // Engine tab
-    QComboBox*     llmEngineCombo;
-    DIntNumInput*  maxTagsSpinBox;
-    QLabel*        maxTagsLabel;
+    DIntNumInput*       maxTagsSpinBox                          = nullptr;
+    QLabel*             maxTagsLabel                            = nullptr;
+    
+    // External LLM
+    QLabel*             engineLabel                             = nullptr;
+    QComboBox*          llmEngineCombo                          = nullptr;
+    QLineEdit*          externalLLMUrlEdit                      = nullptr;
+    QLabel*             externalLLMUrlLabel                     = nullptr;
 
     // Custom prompt
-    QTextEdit*     promptTextEdit;
-    QPushButton*   resetPromptButton;
+    QTextEdit*          promptTextEdit                          = nullptr;
+    QPushButton*        resetPromptButton                       = nullptr;
 
     // Generation settings
-    DDoubleNumInput* temperatureInput;
-    QLabel*        temperatureLabel;
+    DDoubleNumInput*    temperatureInput                        = nullptr;
+    QLabel*             temperatureLabel                        = nullptr;
 
     // Enable AI Annotate
-    QCheckBox*     enableAIAnnotateCheck;
-    QCheckBox*     enableAIAnnotateAdvSetCheck;
+    QCheckBox*          enableAIAnnotateCheck                   = nullptr;
+    QCheckBox*          enableAIAnnotateAdvSetCheck             = nullptr;
     
     // Generation components checkboxes
-    QCheckBox*     enableAIAnnotateDescriptionCheck;
-    QCheckBox*     enableAIAnnotateTagsCheck;
-    QCheckBox*     enableAIAnnotateAestheticCheck;
-    QCheckBox*     enableAIAnnotateCustomPromptCheck;
+    QCheckBox*          enableAIAnnotateDescriptionCheck        = nullptr;
+    QCheckBox*          enableAIAnnotateTagsCheck               = nullptr;
+    QCheckBox*          enableAIAnnotateAestheticCheck          = nullptr;
+    QCheckBox*          enableAIAnnotateCustomPromptCheck       = nullptr;
+    QCheckBox*          enableAIAnnotateExternalLLMCheck        = nullptr;
     
     // Voice style
-    QComboBox*     aiVoiceTypeCombo;
-    QLabel*        aiVoiceTypeLabel;
+    QComboBox*          aiVoiceTypeCombo                        = nullptr;
+    QLabel*             aiVoiceTypeLabel                        = nullptr;
     
     // Text tones
-    QCheckBox*     textToneFriendlyCheck;
-    QCheckBox*     textToneSeriousCheck;
-    QCheckBox*     textToneHumorousCheck;
-    QCheckBox*     textToneEmpatheticCheck;
-    QCheckBox*     textToneAuthoritativeCheck;
-    QCheckBox*     textToneEncouragingCheck;
-    QCheckBox*     textToneUrgentCheck;
-    QCheckBox*     textToneInspirationalCheck;
-    QCheckBox*     textToneRespectfulCheck;
-    QCheckBox*     textToneConciseCheck;
-    QCheckBox*     textToneDescriptiveCheck;
-    QCheckBox*     textTonePersuasiveCheck;
-    QCheckBox*     textToneDramaticCheck;
-    QCheckBox*     textTonePoeticCheck;
-    QCheckBox*     textToneTechnicalCheck;
+    QLabel*             textTonesLabel                          = nullptr;
+    QCheckBox*          textToneFriendlyCheck                   = nullptr;
+    QCheckBox*          textToneSeriousCheck                    = nullptr;
+    QCheckBox*          textToneHumorousCheck                   = nullptr;
+    QCheckBox*          textToneEmpatheticCheck                 = nullptr;
+    QCheckBox*          textToneAuthoritativeCheck              = nullptr;
+    QCheckBox*          textToneEncouragingCheck                = nullptr;
+    QCheckBox*          textToneUrgentCheck                     = nullptr;
+    QCheckBox*          textToneInspirationalCheck              = nullptr;
+    QCheckBox*          textToneRespectfulCheck                 = nullptr;
+    QCheckBox*          textToneConciseCheck                    = nullptr;
+    QCheckBox*          textToneDescriptiveCheck                = nullptr;
+    QCheckBox*          textTonePersuasiveCheck                 = nullptr;
+    QCheckBox*          textToneDramaticCheck                   = nullptr;
+    QCheckBox*          textTonePoeticCheck                     = nullptr;
+    QCheckBox*          textToneTechnicalCheck                  = nullptr;
 
-    LLMTab         activeTab;
+    LLMTab              activeTab                               = Annotate;
 };
 
 SetupLLM::SetupLLM(QWidget* const parent)
@@ -168,23 +157,6 @@ SetupLLM::SetupLLM(QWidget* const parent)
     
     annotateTabLayout->addWidget(descriptionLabel);
     annotateTabLayout->addSpacing(spacing);
-
-    // LLM Engine selection
-    QHBoxLayout* const engineLayout = new QHBoxLayout();
-    
-    QLabel* const engineLabel = new QLabel(i18n("LLM Engine:"), d->annotateTab);
-    engineLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    
-    d->llmEngineCombo = new QComboBox(d->annotateTab);
-    d->llmEngineCombo->addItem(i18n("KoboldCPP"), static_cast<int>(LLMProcessManagerKoboldCpp::KoboldCpp));
-    d->llmEngineCombo->addItem(i18n("LlamaCPP"), static_cast<int>(LLMProcessManagerKoboldCpp::LlamaCpp));
-    d->llmEngineCombo->setToolTip(i18n("Select the LLM engine to use for text generation"));
-    
-    engineLayout->addWidget(engineLabel);
-    engineLayout->addWidget(d->llmEngineCombo);
-    engineLayout->addStretch();
-    
-    annotateTabLayout->addLayout(engineLayout);
 
     // Generation settings
     QGroupBox* const tagGenBox     = new QGroupBox(i18n("Generation Settings"), d->annotateTab);
@@ -233,9 +205,9 @@ SetupLLM::SetupLLM(QWidget* const parent)
     voiceLayout->addStretch();
     textTonesLayout->addLayout(voiceLayout, 0, 0, 1, 3);
     
-    QLabel* const textTonesLabel = new QLabel(i18n("Select one or more tones to apply to AI-generated text:"), textTonesBox);
-    textTonesLabel->setWordWrap(true);
-    textTonesLayout->addWidget(textTonesLabel, 1, 0, 1, 3);
+    d->textTonesLabel = new QLabel(i18n("Select one or more tones to apply to AI-generated text:"), textTonesBox);
+    d->textTonesLabel->setWordWrap(true);
+    textTonesLayout->addWidget(d->textTonesLabel, 1, 0, 1, 3);
     
     // Create and add the tone checkboxes in a grid layout
     d->textToneFriendlyCheck = new QCheckBox(i18n("Friendly"), textTonesBox);
@@ -327,6 +299,55 @@ SetupLLM::SetupLLM(QWidget* const parent)
     annotateTabLayout->addWidget(advancedBox);
     annotateTabLayout->addStretch();
 
+    // External LLM Service section
+    QGroupBox* const externalLLMBox = new QGroupBox(i18n("External LLM Service"), d->annotateTab);
+    QVBoxLayout* const externalLLMLayout = new QVBoxLayout(externalLLMBox);
+    
+    // Checkbox to enable external LLM service
+    d->enableAIAnnotateExternalLLMCheck = new QCheckBox(i18n("Enable External LLM Service"), externalLLMBox);
+    d->enableAIAnnotateExternalLLMCheck->setToolTip(i18n("Enable or disable the external LLM service"));
+    externalLLMLayout->addWidget(d->enableAIAnnotateExternalLLMCheck);
+    
+    // Container for external LLM settings
+    QWidget* const externalLLMSettingsContainer = new QWidget(externalLLMBox);
+    QVBoxLayout* const externalLLMContainerLayout = new QVBoxLayout(externalLLMSettingsContainer);
+    externalLLMContainerLayout->setContentsMargins(20, 10, 0, 0);  // Add left margin for indentation
+    
+    // LLM Engine selection
+    QHBoxLayout* const engineLayout = new QHBoxLayout();
+    
+    d->engineLabel = new QLabel(i18n("External LLM Service API Style:"), externalLLMSettingsContainer);
+    d->engineLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    
+    d->llmEngineCombo = new QComboBox(externalLLMSettingsContainer);
+    d->llmEngineCombo->addItem(i18n("KoboldCPP"), static_cast<int>(LLMProcessManagerKoboldCpp::KoboldCpp));
+    d->llmEngineCombo->addItem(i18n("LlamaCPP"), static_cast<int>(LLMProcessManagerKoboldCpp::LlamaCpp));
+    d->llmEngineCombo->setToolTip(i18n("Select the LLM engine to use for text generation"));
+    
+    engineLayout->addWidget(d->engineLabel);
+    engineLayout->addWidget(d->llmEngineCombo);
+    engineLayout->addStretch();
+    
+    // URL for external LLM service
+    QHBoxLayout* const urlLayout = new QHBoxLayout();
+    
+    d->externalLLMUrlLabel = new QLabel(i18n("URL:"), externalLLMSettingsContainer);
+    d->externalLLMUrlLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    
+    d->externalLLMUrlEdit = new QLineEdit(externalLLMSettingsContainer);
+    d->externalLLMUrlEdit->setPlaceholderText(i18n("http://localhost:5000/api"));
+    d->externalLLMUrlEdit->setToolTip(i18n("Enter the URL for the external LLM service"));
+    
+    urlLayout->addWidget(d->externalLLMUrlLabel);
+    urlLayout->addWidget(d->externalLLMUrlEdit);
+    
+    externalLLMContainerLayout->addLayout(engineLayout);
+    externalLLMContainerLayout->addLayout(urlLayout);
+    externalLLMLayout->addWidget(externalLLMSettingsContainer);
+    
+    annotateTabLayout->addWidget(externalLLMBox);
+    annotateTabLayout->addSpacing(spacing);
+
     // --------------------------------------------------------
 
     d->tab->addTab(d->annotateTab, i18n("AI Annotate"));
@@ -370,6 +391,9 @@ SetupLLM::SetupLLM(QWidget* const parent)
             
     connect(d->enableAIAnnotateTagsCheck, &QCheckBox::toggled,
             this, &SetupLLM::slotEnableAIAnnotateMaxTags);
+            
+    connect(d->enableAIAnnotateExternalLLMCheck, &QCheckBox::toggled,
+            this, &SetupLLM::slotEnableAIAnnotateExternalLLM);
 
     // Initialize settings
     readSettings();    
@@ -409,10 +433,14 @@ void SetupLLM::readSettings()
     d->enableAIAnnotateTagsCheck->setChecked(settings->getAIAnnotateTagsEnabled());
     d->enableAIAnnotateAestheticCheck->setChecked(settings->getAIAnnotateAestheticEnabled());
     d->enableAIAnnotateCustomPromptCheck->setChecked(settings->getAIAnnotateCustomPromptEnabled());
+    d->enableAIAnnotateExternalLLMCheck->setChecked(settings->getAIAnnotateExternalLLMEnabled());
     
     // Engine tab
     d->llmEngineCombo->setCurrentIndex(d->llmEngineCombo->findData(static_cast<int>(settings->getAIAnnotateEngine())));
     d->maxTagsSpinBox->setValue(settings->getAIAnnotateMaxTags());
+    
+    // External LLM
+    d->externalLLMUrlEdit->setText(settings->getAIAnnotateExternalLLMUrl());
 
     // Custom prompt
     d->promptTextEdit->setPlainText(settings->getAIAnnotatePrompt());
@@ -461,18 +489,22 @@ void SetupLLM::applySettings()
     }
     
     // Enable/disable toggles
-    settings->setEnableAIAnnotate(d->enableAIAnnotateCheck->isChecked());
-    settings->setEnableAIAnnotateAdvSet(d->enableAIAnnotateAdvSetCheck->isChecked());
+    settings->setAIAnnotateEnabled(d->enableAIAnnotateCheck->isChecked());
+    settings->setAIAnnotateEnableAdvSet(d->enableAIAnnotateAdvSetCheck->isChecked());
     
     // Component toggles
-    settings->setEnableAIAnnotateDescription(d->enableAIAnnotateDescriptionCheck->isChecked());
-    settings->setEnableAIAnnotateTags(d->enableAIAnnotateTagsCheck->isChecked());
-    settings->setEnableAIAnnotateAesthetic(d->enableAIAnnotateAestheticCheck->isChecked());
-    settings->setEnableAIAnnotateCustomPrompt(d->enableAIAnnotateCustomPromptCheck->isChecked());
+    settings->setAIAnnotateEnableDescription(d->enableAIAnnotateDescriptionCheck->isChecked());
+    settings->setAIAnnotateEnableTags(d->enableAIAnnotateTagsCheck->isChecked());
+    settings->setAIAnnotateEnableAesthetic(d->enableAIAnnotateAestheticCheck->isChecked());
+    settings->setAIAnnotateEnableCustomPrompt(d->enableAIAnnotateCustomPromptCheck->isChecked());
+    settings->setAIAnnotateEnableExternalLLM(d->enableAIAnnotateExternalLLMCheck->isChecked());
     
     // Engine tab
     settings->setAIAnnotateEngine(static_cast<LLMProcessManagerKoboldCpp::LLMEngineType>(d->llmEngineCombo->currentData().toInt()));
     settings->setAIAnnotateMaxTags(d->maxTagsSpinBox->value());
+    
+    // External LLM
+    settings->setAIAnnotateExternalLLMUrl(d->externalLLMUrlEdit->text());
 
     // Custom prompt
     settings->setAIAnnotatePrompt(d->promptTextEdit->toPlainText());
@@ -507,39 +539,18 @@ void SetupLLM::applySettings()
 
 void SetupLLM::slotEnableAIAnnotateSettings(bool enable)
 {
-    d->llmEngineCombo->setEnabled(enable);
+    d->enableAIAnnotateExternalLLMCheck->setEnabled(enable);
     d->maxTagsSpinBox->setEnabled(enable);
     d->maxTagsLabel->setEnabled(enable);
     d->enableAIAnnotateAdvSetCheck->setEnabled(enable);
     d->enableAIAnnotateDescriptionCheck->setEnabled(enable);
     d->enableAIAnnotateTagsCheck->setEnabled(enable);
     d->enableAIAnnotateAestheticCheck->setEnabled(enable);
-    d->aiVoiceTypeCombo->setEnabled(enable);
-    d->aiVoiceTypeLabel->setEnabled(enable);
-
-    // Voice style and text tones now depend directly on main checkbox
-    d->aiVoiceTypeCombo->setEnabled(enable);
-    d->aiVoiceTypeLabel->setEnabled(enable);
-    
-    d->textToneFriendlyCheck->setEnabled(enable);
-    d->textToneSeriousCheck->setEnabled(enable);
-    d->textToneHumorousCheck->setEnabled(enable);
-    d->textToneEmpatheticCheck->setEnabled(enable);
-    d->textToneAuthoritativeCheck->setEnabled(enable);
-    d->textToneEncouragingCheck->setEnabled(enable);
-    d->textToneUrgentCheck->setEnabled(enable);
-    d->textToneInspirationalCheck->setEnabled(enable);
-    d->textToneRespectfulCheck->setEnabled(enable);
-    d->textToneConciseCheck->setEnabled(enable);
-    d->textToneDescriptiveCheck->setEnabled(enable);
-    d->textTonePersuasiveCheck->setEnabled(enable);
-    d->textToneDramaticCheck->setEnabled(enable);
-    d->textTonePoeticCheck->setEnabled(enable);
-    d->textToneTechnicalCheck->setEnabled(enable);
 
     slotEnableAIAnnotateAdvancedSettings(d->enableAIAnnotateAdvSetCheck->isChecked());
     slotEnableAIAnnotateCustomPrompt(d->enableAIAnnotateCustomPromptCheck->isChecked());
     slotEnableAIAnnotateMaxTags(d->enableAIAnnotateTagsCheck->isChecked());
+    slotEnableAIAnnotateExternalLLM(d->enableAIAnnotateExternalLLMCheck->isChecked());
 }
 
 void SetupLLM::slotEnableAIAnnotateMaxTags(bool enable)
@@ -561,6 +572,37 @@ void SetupLLM::slotEnableAIAnnotateCustomPrompt(bool enable)
 {
     d->promptTextEdit->setEnabled(enable && d->enableAIAnnotateCustomPromptCheck->isEnabled());
     d->resetPromptButton->setEnabled(enable && d->enableAIAnnotateCustomPromptCheck->isEnabled());
+
+    // Enable voice style and text tones if custom prompt is not checked or custom prompt is disabled
+    bool enableVoiceAndTones = (!enable || !d->enableAIAnnotateDescriptionCheck->isEnabled());
+    d->aiVoiceTypeCombo->setEnabled(enableVoiceAndTones);
+    d->aiVoiceTypeLabel->setEnabled(enableVoiceAndTones);
+    
+    d->textTonesLabel->setEnabled(enableVoiceAndTones);
+    d->textToneFriendlyCheck->setEnabled(enableVoiceAndTones);
+    d->textToneSeriousCheck->setEnabled(enableVoiceAndTones);
+    d->textToneHumorousCheck->setEnabled(enableVoiceAndTones);
+    d->textToneEmpatheticCheck->setEnabled(enableVoiceAndTones);
+    d->textToneAuthoritativeCheck->setEnabled(enableVoiceAndTones);
+    d->textToneEncouragingCheck->setEnabled(enableVoiceAndTones);
+    d->textToneUrgentCheck->setEnabled(enableVoiceAndTones);
+    d->textToneInspirationalCheck->setEnabled(enableVoiceAndTones);
+    d->textToneRespectfulCheck->setEnabled(enableVoiceAndTones);
+    d->textToneConciseCheck->setEnabled(enableVoiceAndTones);
+    d->textToneDescriptiveCheck->setEnabled(enableVoiceAndTones);
+    d->textTonePersuasiveCheck->setEnabled(enableVoiceAndTones);
+    d->textToneDramaticCheck->setEnabled(enableVoiceAndTones);
+    d->textTonePoeticCheck->setEnabled(enableVoiceAndTones);
+    d->textToneTechnicalCheck->setEnabled(enableVoiceAndTones);
+}
+
+void SetupLLM::slotEnableAIAnnotateExternalLLM(bool enable)
+{
+    bool isEnabled = enable && d->enableAIAnnotateExternalLLMCheck->isEnabled();
+    d->engineLabel->setEnabled(isEnabled);
+    d->llmEngineCombo->setEnabled(isEnabled);
+    d->externalLLMUrlEdit->setEnabled(isEnabled);
+    d->externalLLMUrlLabel->setEnabled(isEnabled);
 }
 
 } // namespace Digikam

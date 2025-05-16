@@ -304,6 +304,41 @@ void ApplicationSettings::readSettings()
 
     // ---------------------------------------------------------------------
 
+    // AI Annotate Settings
+    
+    KConfigGroup aiGroup                        = config->group(d->configGroupAIAnnotate);
+    d->aiAnnotateEnable                         = aiGroup.readEntry(d->configAIAnnotateEnableEntry, false);
+    d->aiAnnotateEnableAdvSet                   = aiGroup.readEntry(d->configAIAnnotateEnableAdvSetEntry, false);
+    d->aiAnnotateEnableDescription              = aiGroup.readEntry(d->configAIAnnotateEnableDescriptionEntry, true);
+    d->aiAnnotateEnableTags                     = aiGroup.readEntry(d->configAIAnnotateEnableTagsEntry, true);
+    d->aiAnnotateEnableAesthetic                = aiGroup.readEntry(d->configAIAnnotateEnableAestheticEntry, true);
+    d->aiAnnotateEnableCustomPrompt             = aiGroup.readEntry(d->configAIAnnotateEnableCustomPromptEntry, false);
+    d->aiAnnotateEnableExternalLLM              = aiGroup.readEntry(d->configAIAnnotateEnableExternalLLMEntry, false);
+    
+    d->aiAnnotateLlmEngine                      = static_cast<LLMProcessManagerKoboldCpp::LLMEngineType>(aiGroup.readEntry(d->configAIAnnotateLlmEngine, static_cast<int>(LLMProcessManagerKoboldCpp::KoboldCpp)));
+    d->aiAnnotateMaxTags                        = aiGroup.readEntry(d->configAIAnnotateMaxTags, 15);
+    
+    QString aiAnnotateExternalUrl               = QLatin1String("http://localhost:5000/");
+    d->aiAnnotateExternalLLMUrl                 = aiGroup.readEntry(d->configAIAnnotateExternalLLMUrl, aiAnnotateExternalUrl);
+    
+    // Default prompt text
+    QString defaultPrompt                       = QLatin1String("Write the Description using the active voice.\n\n"
+                                                                "The Keywords must be one or two words each. Generate as many Keywords as possible using a controlled and consistent vocabulary.\n\n"
+                                                                "For both Description and Keywords, make sure to include:\n\n"
+                                                                " - Themes, concepts\n"
+                                                                " - Items, animals, objects\n"
+                                                                " - Structures, landmarks, setting\n"
+                                                                " - Foreground and background elements\n"
+                                                                " - Notable colors, textures, styles\n"
+                                                                " - Actions, activities\n\n");
+    
+    d->aiAnnotateLlmPrompt                      = aiGroup.readEntry(d->configAIAnnotateLlmPrompt, defaultPrompt);
+    d->aiAnnotateLlmTemperature                 = aiGroup.readEntry(d->configAIAnnotateTemperature, 0.1);
+    d->aiAnnotateVoiceType                      = static_cast<LLMProcessSettings::AIVoiceType>(aiGroup.readEntry(d->configAIAnnotateVoiceTypeEntry, static_cast<int>(LLMProcessSettings::Neutral)));
+    d->aiAnnotateTextTones                      = static_cast<LLMProcessSettings::AITextTones>(aiGroup.readEntry(d->configAIAnnotateTextTonesEntry, static_cast<int>(LLMProcessSettings::NoTone)));
+
+    // ---------------------------------------------------------------------
+
     group = config->group(d->configGroupGrouping);
 
     for (ApplicationSettings::OperationModes::key_iterator it = d->groupingOperateOnAll.keyBegin() ;
@@ -313,38 +348,6 @@ void ApplicationSettings::readSettings()
                                                 group.readEntry(d->configGroupingOperateOnAll.value(*it),
                                                                 (int)ApplicationSettings::Ask));
     }
-
-    // AI Settings
-    
-    KConfigGroup aiGroup = config->group(d->configGroupAIAnnotate);
-    d->aiAnnotateEnable = aiGroup.readEntry(d->configAIAnnotateEnableEntry, false);
-    d->aiAnnotateEnableAdvSet = aiGroup.readEntry(d->configAIAnnotateEnableAdvSetEntry, false);
-    d->aiAnnotateEnableDescription = aiGroup.readEntry(d->configAIAnnotateEnableDescriptionEntry, true);
-    d->aiAnnotateEnableTags = aiGroup.readEntry(d->configAIAnnotateEnableTagsEntry, true);
-    d->aiAnnotateEnableAesthetic = aiGroup.readEntry(d->configAIAnnotateEnableAestheticEntry, true);
-    d->aiAnnotateEnableCustomPrompt = aiGroup.readEntry(d->configAIAnnotateEnableCustomPromptEntry, false);
-    
-    // ---------------------------------------------------------------------
-    d->aiAnnotateLlmEngine              = static_cast<LLMProcessManagerKoboldCpp::LLMEngineType>(aiGroup.readEntry(d->configAIAnnotateLlmEngine, static_cast<int>(LLMProcessManagerKoboldCpp::KoboldCpp)));
-    d->aiAnnotateMaxTags                = aiGroup.readEntry(d->configAIAnnotateMaxTags, 15);
-    
-    // Default prompt text
-    QString defaultPrompt = QLatin1String("The tasks are to describe the image and to come up with a large set of keyword tags for it.\n\n"
-                                         "Write the Description using the active voice.\n\n"
-                                         "The Keywords must be one or two words each. Generate as many Keywords as possible using a controlled and consistent vocabulary.\n\n"
-                                         "For both Description and Keywords, make sure to include:\n\n"
-                                         " - Themes, concepts\n"
-                                         " - Items, animals, objects\n"
-                                         " - Structures, landmarks, setting\n"
-                                         " - Foreground and background elements\n"
-                                         " - Notable colors, textures, styles\n"
-                                         " - Actions, activities\n\n"
-                                         "Use ENGLISH only. Generate ONLY a JSON object with the keys Description and Keywords as follows {\"Description\": str, \"Keywords\": []}");
-    
-    d->aiAnnotateLlmPrompt              = aiGroup.readEntry(d->configAIAnnotateLlmPrompt, defaultPrompt);
-    d->aiAnnotateLlmTemperature         = aiGroup.readEntry(d->configAIAnnotateTemperature, 0.1);
-    d->aiAnnotateVoiceType              = static_cast<LLMProcessSettings::AIVoiceType>(aiGroup.readEntry(d->configAIAnnotateVoiceTypeEntry, static_cast<int>(LLMProcessSettings::Neutral)));
-    d->aiAnnotateTextTones              = static_cast<LLMProcessSettings::AITextTones>(aiGroup.readEntry(d->configAIAnnotateTextTonesEntry, static_cast<int>(LLMProcessSettings::NoTone)));
 
     Q_EMIT setupChanged();
     Q_EMIT recurseSettingsChanged();
@@ -522,8 +525,10 @@ void ApplicationSettings::saveSettings()
     aiGroup.writeEntry(d->configAIAnnotateEnableTagsEntry,              d->aiAnnotateEnableTags);
     aiGroup.writeEntry(d->configAIAnnotateEnableAestheticEntry,         d->aiAnnotateEnableAesthetic);
     aiGroup.writeEntry(d->configAIAnnotateEnableCustomPromptEntry,      d->aiAnnotateEnableCustomPrompt);
+    aiGroup.writeEntry(d->configAIAnnotateEnableExternalLLMEntry,       d->aiAnnotateEnableExternalLLM);
     aiGroup.writeEntry(d->configAIAnnotateLlmEngine,                    static_cast<int>(d->aiAnnotateLlmEngine));
     aiGroup.writeEntry(d->configAIAnnotateMaxTags,                      d->aiAnnotateMaxTags);
+    aiGroup.writeEntry(d->configAIAnnotateExternalLLMUrl,               d->aiAnnotateExternalLLMUrl);
     aiGroup.writeEntry(d->configAIAnnotateLlmPrompt,                    d->aiAnnotateLlmPrompt);
     aiGroup.writeEntry(d->configAIAnnotateTemperature,                  d->aiAnnotateLlmTemperature);
     aiGroup.writeEntry(d->configAIAnnotateVoiceTypeEntry,               static_cast<int>(d->aiAnnotateVoiceType));

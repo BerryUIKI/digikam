@@ -491,23 +491,29 @@ public:
 
     // AI Annotate LLM Settings
     
-    void  setEnableAIAnnotate(bool enable);
+    void  setAIAnnotateEnabled(bool enable);
     bool  getAIAnnotateEnabled() const;
     
-    void  setEnableAIAnnotateAdvSet(bool enable);
+    void  setAIAnnotateEnableAdvSet(bool enable);
     bool  getAIAnnotateAdvSetEnabled() const;
     
-    void  setEnableAIAnnotateDescription(bool enable);
+    void  setAIAnnotateEnableDescription(bool enable);
     bool  getAIAnnotateDescriptionEnabled() const;
     
-    void  setEnableAIAnnotateTags(bool enable);
+    void  setAIAnnotateEnableTags(bool enable);
     bool  getAIAnnotateTagsEnabled() const;
     
-    void  setEnableAIAnnotateAesthetic(bool enable);
+    void  setAIAnnotateEnableAesthetic(bool enable);
     bool  getAIAnnotateAestheticEnabled() const;
     
-    void  setEnableAIAnnotateCustomPrompt(bool enable);
+    void  setAIAnnotateEnableCustomPrompt(bool enable);
     bool  getAIAnnotateCustomPromptEnabled() const;
+    
+    void  setAIAnnotateEnableExternalLLM(bool enable);
+    bool  getAIAnnotateExternalLLMEnabled() const;
+    
+    void  setAIAnnotateExternalLLMUrl(const QString& url);
+    QString getAIAnnotateExternalLLMUrl() const;
     
     void  setAIAnnotateEngine(const LLMProcessManagerKoboldCpp::LLMEngineType engine);
     LLMProcessManagerKoboldCpp::LLMEngineType getAIAnnotateEngine() const;

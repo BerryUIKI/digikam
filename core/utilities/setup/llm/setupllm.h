@@ -54,6 +54,7 @@ private Q_SLOTS:
     void slotEnableAIAnnotateMaxTags(bool enable);
     void slotEnableAIAnnotateAdvancedSettings(bool enable);
     void slotEnableAIAnnotateCustomPrompt(bool enable);
+    void slotEnableAIAnnotateExternalLLM(bool enable);
 
 private:
 
