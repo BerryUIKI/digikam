@@ -11,6 +11,7 @@
  * SPDX-FileCopyrightText: 2007      by Arnd Baecker <arnd dot baecker at web dot de>
  * SPDX-FileCopyrightText: 2014-2015 by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  * SPDX-FileCopyrightText: 2017      by Simon Frei <freisim93 at gmail dot com>
+ * SPDX-FileCopyrightText: 2025      by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -34,7 +35,8 @@
 #include "facescansettings.h"
 #include "haariface.h"
 #include "sidebar.h"
-
+#include "llmprocessmanagerkoboldcpp.h"
+#include "llmprocesssettings.h"
 
 class KConfigGroup;
 
@@ -487,6 +489,44 @@ public:
     void setDuplicatesSearchLastMaxSimilarity(int val);
     int  getDuplicatesSearchLastMaxSimilarity() const;
 
+    // AI Annotate LLM Settings
+    
+    void  setEnableAIAnnotate(bool enable);
+    bool  getAIAnnotateEnabled() const;
+    
+    void  setEnableAIAnnotateAdvSet(bool enable);
+    bool  getAIAnnotateAdvSetEnabled() const;
+    
+    void  setEnableAIAnnotateDescription(bool enable);
+    bool  getAIAnnotateDescriptionEnabled() const;
+    
+    void  setEnableAIAnnotateTags(bool enable);
+    bool  getAIAnnotateTagsEnabled() const;
+    
+    void  setEnableAIAnnotateAesthetic(bool enable);
+    bool  getAIAnnotateAestheticEnabled() const;
+    
+    void  setEnableAIAnnotateCustomPrompt(bool enable);
+    bool  getAIAnnotateCustomPromptEnabled() const;
+    
+    void  setAIAnnotateEngine(const LLMProcessManagerKoboldCpp::LLMEngineType engine);
+    LLMProcessManagerKoboldCpp::LLMEngineType getAIAnnotateEngine() const;
+    
+    void  setAIAnnotateMaxTags(int maxTags);
+    int   getAIAnnotateMaxTags() const;
+    
+    void  setAIAnnotatePrompt(const QString& prompt);
+    QString getAIAnnotatePrompt() const;
+    
+    void  setAIAnnotateTemperature(double temperature);
+    double getAIAnnotateTemperature() const;
+    
+    void  setAIAnnotateVoice(LLMProcessSettings::AIVoiceType voiceType);
+    LLMProcessSettings::AIVoiceType getAIAnnotateVoice() const;
+    
+    void  setAIAnnotateTextTones(LLMProcessSettings::AITextTones tones);
+    LLMProcessSettings::AITextTones getAIAnnotateTextTones() const;
+
     /**
      * Defines whether an operation should be performed on all grouped items
      * or just the head item.
@@ -542,7 +582,7 @@ public:
 
     void setHelpBoxNotificationSeen(bool val);
     bool getHelpBoxNotificationSeen();
-
+    
 private Q_SLOTS:
 
     void applyBalooSettings();

@@ -16,6 +16,7 @@ set(libsettings_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/applicationsettings_mime.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/applicationsettings_miscs.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/applicationsettings_tooltips.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/applicationsettings_llm.cpp
 )
 
 include_directories(

@@ -54,6 +54,7 @@ public:
 
         CameraPage,
         PluginsPage,
+        AIPage,
         MiscellaneousPage,
 
         SetupPageEnumLast

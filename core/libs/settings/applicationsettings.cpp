@@ -12,6 +12,7 @@
  * SPDX-FileCopyrightText: 2014-2015 by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  * SPDX-FileCopyrightText: 2014      by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
  * SPDX-FileCopyrightText: 2017      by Simon Frei <freisim93 at gmail dot com>
+ * SPDX-FileCopyrightText: 2025      by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -313,6 +314,38 @@ void ApplicationSettings::readSettings()
                                                                 (int)ApplicationSettings::Ask));
     }
 
+    // AI Settings
+    
+    KConfigGroup aiGroup = config->group(d->configGroupAIAnnotate);
+    d->aiAnnotateEnable = aiGroup.readEntry(d->configAIAnnotateEnableEntry, false);
+    d->aiAnnotateEnableAdvSet = aiGroup.readEntry(d->configAIAnnotateEnableAdvSetEntry, false);
+    d->aiAnnotateEnableDescription = aiGroup.readEntry(d->configAIAnnotateEnableDescriptionEntry, true);
+    d->aiAnnotateEnableTags = aiGroup.readEntry(d->configAIAnnotateEnableTagsEntry, true);
+    d->aiAnnotateEnableAesthetic = aiGroup.readEntry(d->configAIAnnotateEnableAestheticEntry, true);
+    d->aiAnnotateEnableCustomPrompt = aiGroup.readEntry(d->configAIAnnotateEnableCustomPromptEntry, false);
+    
+    // ---------------------------------------------------------------------
+    d->aiAnnotateLlmEngine              = static_cast<LLMProcessManagerKoboldCpp::LLMEngineType>(aiGroup.readEntry(d->configAIAnnotateLlmEngine, static_cast<int>(LLMProcessManagerKoboldCpp::KoboldCpp)));
+    d->aiAnnotateMaxTags                = aiGroup.readEntry(d->configAIAnnotateMaxTags, 15);
+    
+    // Default prompt text
+    QString defaultPrompt = QLatin1String("The tasks are to describe the image and to come up with a large set of keyword tags for it.\n\n"
+                                         "Write the Description using the active voice.\n\n"
+                                         "The Keywords must be one or two words each. Generate as many Keywords as possible using a controlled and consistent vocabulary.\n\n"
+                                         "For both Description and Keywords, make sure to include:\n\n"
+                                         " - Themes, concepts\n"
+                                         " - Items, animals, objects\n"
+                                         " - Structures, landmarks, setting\n"
+                                         " - Foreground and background elements\n"
+                                         " - Notable colors, textures, styles\n"
+                                         " - Actions, activities\n\n"
+                                         "Use ENGLISH only. Generate ONLY a JSON object with the keys Description and Keywords as follows {\"Description\": str, \"Keywords\": []}");
+    
+    d->aiAnnotateLlmPrompt              = aiGroup.readEntry(d->configAIAnnotateLlmPrompt, defaultPrompt);
+    d->aiAnnotateLlmTemperature         = aiGroup.readEntry(d->configAIAnnotateTemperature, 0.1);
+    d->aiAnnotateVoiceType              = static_cast<LLMProcessSettings::AIVoiceType>(aiGroup.readEntry(d->configAIAnnotateVoiceTypeEntry, static_cast<int>(LLMProcessSettings::Neutral)));
+    d->aiAnnotateTextTones              = static_cast<LLMProcessSettings::AITextTones>(aiGroup.readEntry(d->configAIAnnotateTextTonesEntry, static_cast<int>(LLMProcessSettings::NoTone)));
+
     Q_EMIT setupChanged();
     Q_EMIT recurseSettingsChanged();
     Q_EMIT balooSettingsChanged();
@@ -323,7 +356,7 @@ void ApplicationSettings::saveSettings()
     KSharedConfigPtr config = d->config;
 
     // ---------------------------------------------------------------------
-
+    
     KConfigGroup group = config->group(d->configGroupDefault);
 
     group.writeEntry(d->configAlbumCollectionsEntry,                    d->albumCategoryNames);
@@ -479,6 +512,25 @@ void ApplicationSettings::saveSettings()
     group.writeEntry(d->configDuplicatesSearchLastAlbumTagRelation,     d->duplicatesSearchLastAlbumTagRelation);
     group.writeEntry(d->configDuplicatesSearchLastRestrictions,         d->duplicatesSearchLastRestrictions);
     group.writeEntry(d->configDuplicatesSearchReferenceSelectionMethod, (int)d->duplicatesSearchLastReferenceImageSelectionMethod);
+
+    // Write AI Annotate LLM settings
+    
+    KConfigGroup aiGroup = config->group(d->configGroupAIAnnotate);
+    aiGroup.writeEntry(d->configAIAnnotateEnableEntry,                  d->aiAnnotateEnable);
+    aiGroup.writeEntry(d->configAIAnnotateEnableAdvSetEntry,            d->aiAnnotateEnableAdvSet);
+    aiGroup.writeEntry(d->configAIAnnotateEnableDescriptionEntry,       d->aiAnnotateEnableDescription);
+    aiGroup.writeEntry(d->configAIAnnotateEnableTagsEntry,              d->aiAnnotateEnableTags);
+    aiGroup.writeEntry(d->configAIAnnotateEnableAestheticEntry,         d->aiAnnotateEnableAesthetic);
+    aiGroup.writeEntry(d->configAIAnnotateEnableCustomPromptEntry,      d->aiAnnotateEnableCustomPrompt);
+    aiGroup.writeEntry(d->configAIAnnotateLlmEngine,                    static_cast<int>(d->aiAnnotateLlmEngine));
+    aiGroup.writeEntry(d->configAIAnnotateMaxTags,                      d->aiAnnotateMaxTags);
+    aiGroup.writeEntry(d->configAIAnnotateLlmPrompt,                    d->aiAnnotateLlmPrompt);
+    aiGroup.writeEntry(d->configAIAnnotateTemperature,                  d->aiAnnotateLlmTemperature);
+    aiGroup.writeEntry(d->configAIAnnotateVoiceTypeEntry,               static_cast<int>(d->aiAnnotateVoiceType));
+    aiGroup.writeEntry(d->configAIAnnotateTextTonesEntry,               static_cast<int>(d->aiAnnotateTextTones));
+
+
+    // ---------------------------------------------------------------------
 
     group = config->group(d->configGroupGrouping);
 

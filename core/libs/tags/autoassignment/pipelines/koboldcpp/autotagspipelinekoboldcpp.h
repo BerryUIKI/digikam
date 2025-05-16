@@ -46,15 +46,22 @@ Q_SIGNALS:
     void signalStartupMessage(const QString& message);
 
 protected:
+    enum LLMResponses
+    {
+        LLMDescription                  = 1 << 0,
+        LLMKeywords                     = 1 << 1,
+        LLMdescriptionAndKeywords       = LLMDescription | LLMKeywords
+    };
 
-    const int   minImageSize                    = 312;
-    const int   jpegQuality                     = 95;
-    const char* base64ImageType                 = "JPEG";
-    QString     llmPrompt;
-    QString     apiKey;
-    const int   llmStartupTimeout               = 300;          /// seconds
-    bool        llmReady                        = false;
-    bool        running                         = false;
+    const int       minImageSize                    = 312;
+    const int       jpegQuality                     = 95;
+    const char*     base64ImageType                 = "JPEG";
+    QString         llmPrompt;
+    QString         apiKey;
+    const int       llmStartupTimeout               = 300;          /// seconds
+    bool            llmReady                        = false;
+    bool            running                         = false;
+    LLMResponses    llmResponseType                 = LLMResponses::LLMdescriptionAndKeywords;
 
     // LLM model parameters
     const int   maxTokens                       = 250;

@@ -9,6 +9,7 @@
  * SPDX-FileCopyrightText: 2003-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2015      by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  * SPDX-FileCopyrightText: 2017      by Simon Frei <freisim93 at gmail dot com>
+ * SPDX-FileCopyrightText: 2025      by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -58,6 +59,8 @@
 #include "drawdecoder.h"
 #include "coredbaccess.h"
 #include "coredb.h"
+#include "llmprocessmanagerkoboldcpp.h"
+#include "llmprocesssettings.h"
 
 namespace Digikam
 {
@@ -98,6 +101,19 @@ public:
     const QString configThemeEntry                                  = QLatin1String("Theme");
     const QString configUpdateType                                  = QLatin1String("Update Type");
     const QString configUpdateWithDebug                             = QLatin1String("Update With Debug");
+    const QString configGroupAIAnnotate                             = QLatin1String("AI Annotate Settings");
+    const QString configAIAnnotateEnableEntry                       = QLatin1String("Enable");
+    const QString configAIAnnotateEnableDescriptionEntry            = QLatin1String("Enable Description");
+    const QString configAIAnnotateEnableTagsEntry                   = QLatin1String("EnableTags");
+    const QString configAIAnnotateEnableAestheticEntry              = QLatin1String("Enable Aesthetic");
+    const QString configAIAnnotateVoiceTypeEntry                    = QLatin1String("Voice Type");
+    const QString configAIAnnotateTextTonesEntry                    = QLatin1String("Text Tones");
+    const QString configAIAnnotateLlmEngine                         = QLatin1String("LLM Engine");
+    const QString configAIAnnotateMaxTags                           = QLatin1String("Max Tags");
+    const QString configAIAnnotateEnableAdvSetEntry                 = QLatin1String("Enable Advanced Settings");
+    const QString configAIAnnotateEnableCustomPromptEntry           = QLatin1String("Enable Custom Prompt");
+    const QString configAIAnnotateLlmPrompt                         = QLatin1String("Prompt");
+    const QString configAIAnnotateTemperature                       = QLatin1String("Temperature");
     const QString configSidebarTitleStyleEntry                      = QLatin1String("Sidebar Title Style");
     const QString configRatingFilterConditionEntry                  = QLatin1String("Rating Filter Condition");
     const QString configRecursiveAlbumsEntry                        = QLatin1String("Recursive Albums");
@@ -347,6 +363,20 @@ public:
     int                                          duplicatesSearchLastAlbumTagRelation               = 0;
     int                                          duplicatesSearchLastRestrictions                   = 0;
     HaarIface::RefImageSelMethod                 duplicatesSearchLastReferenceImageSelectionMethod  = HaarIface::RefImageSelMethod::OlderOrLarger;
+
+    /// LLM AI settings
+    bool                                         aiAnnotateEnable                                   = false;
+    bool                                         aiAnnotateEnableAdvSet                             = false;
+    bool                                         aiAnnotateEnableDescription                        = true;
+    bool                                         aiAnnotateEnableTags                               = true;
+    bool                                         aiAnnotateEnableAesthetic                          = true;
+    bool                                         aiAnnotateEnableCustomPrompt                       = false;
+    LLMProcessManagerKoboldCpp::LLMEngineType    aiAnnotateLlmEngine                                          = LLMProcessManagerKoboldCpp::KoboldCpp;
+    int                                          aiAnnotateMaxTags                                   = 15;
+    QString                                      aiAnnotateLlmPrompt;
+    double                                       aiAnnotateLlmTemperature                                     = 0.1;
+    LLMProcessSettings::AIVoiceType              aiAnnotateVoiceType                                        = LLMProcessSettings::Neutral;
+    LLMProcessSettings::AITextTones              aiAnnotateTextTones                                        = LLMProcessSettings::NoTone;
 
     /// Grouping operation settings
     ApplicationSettings::OperationModes          groupingOperateOnAll                               = ApplicationSettings::OperationModes();

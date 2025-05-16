@@ -43,6 +43,7 @@
 #include "setuptooltip.h"
 #include "setupdatabase.h"
 #include "setupplugins.h"
+#include "setupllm.h"
 #include "importsettings.h"
 #include "onlineversiondlg.h"
 
@@ -79,6 +80,7 @@ public:
     DConfigDlgWdgItem*       page_icc                   = nullptr;
     DConfigDlgWdgItem*       page_camera                = nullptr;
     DConfigDlgWdgItem*       page_plugins               = nullptr;
+    DConfigDlgWdgItem*       page_ai                    = nullptr;
     DConfigDlgWdgItem*       page_misc                  = nullptr;
 
     SetupDatabase*           databasePage               = nullptr;
@@ -99,6 +101,7 @@ public:
     SetupICC*                iccPage                    = nullptr;
     SetupCamera*             cameraPage                 = nullptr;
     SetupPlugins*            pluginsPage                = nullptr;
+    SetupLLM*                aiPage                     = nullptr;
     SetupMisc*               miscPage                   = nullptr;
 
 public:
@@ -190,6 +193,11 @@ Setup::Setup(QWidget* const parent)
     d->page_plugins->setHeader(i18nc("@title", "Plug-in Settings\nSet which plugins will be accessible from application"));
     d->page_plugins->setIcon(QIcon::fromTheme(QLatin1String("preferences-plugin")));
 
+    d->aiPage  = new SetupLLM();
+    d->page_ai = addPage(d->aiPage, i18nc("@title: settings section", "AI"));
+    d->page_ai->setHeader(i18nc("@title", "AI Settings\nIntelligent automation for image organization and analysis"));
+    d->page_ai->setIcon(QIcon::fromTheme(QLatin1String("edit-image")));
+
     d->miscPage  = new SetupMisc(this);
     d->page_misc = addPage(d->miscPage, i18nc("@title: settings section", "Miscellaneous"));
     d->page_misc->setHeader(i18nc("@title", "Miscellaneous Settings\nCustomize behavior of the other parts of digiKam"));
@@ -243,6 +251,7 @@ Setup::~Setup()
     group.writeEntry(QLatin1String("ICC Tab"),         (int)d->iccPage->activeTab());
     group.writeEntry(QLatin1String("Camera Tab"),      (int)d->cameraPage->activeTab());
     group.writeEntry(QLatin1String("Plugin Tab"),      (int)d->pluginsPage->activeTab());
+    group.writeEntry(QLatin1String("AI Tab"),          (int)d->aiPage->activeTab());
     group.writeEntry(QLatin1String("Misc Tab"),        (int)d->miscPage->activeTab());
     config->sync();
 
@@ -284,6 +293,7 @@ QSize Setup::sizeHint() const
             (page == LightTablePage)  ||
             (page == EditorPage)      ||
             (page == PluginsPage)     ||
+            (page == AIPage)          ||
             (page == MiscellaneousPage)
            )
         {
@@ -487,6 +497,12 @@ void Setup::slotOkClicked()
         return;
     }
 
+    if (!d->aiPage->checkSettings())
+    {
+        showPage(AIPage);
+        return;
+    }
+
     if (!d->miscPage->checkSettings())
     {
         showPage(MiscellaneousPage);
@@ -513,6 +529,7 @@ void Setup::slotOkClicked()
     d->editorPage->applySettings();
     d->iccPage->applySettings();
     d->pluginsPage->applySettings();
+    d->aiPage->applySettings();
     d->miscPage->applySettings();
 
     ApplicationSettings::instance()->emitSetupChanged();
@@ -564,6 +581,7 @@ void Setup::showPage(Setup::Page page)
         d->iccPage->setActiveTab((SetupICC::ICCTab)group.readEntry(QLatin1String("ICC Tab"), (int)SetupICC::Behavior));
         d->cameraPage->setActiveTab((SetupCamera::CameraTab)group.readEntry(QLatin1String("Camera Tab"), (int)SetupCamera::Devices));
         d->pluginsPage->setActiveTab((SetupPlugins::PluginTab)group.readEntry(QLatin1String("Plugin Tab"), (int)SetupPlugins::Generic));
+        d->aiPage->setActiveTab((SetupLLM::LLMTab)group.readEntry(QLatin1String("AI Tab"), (int)SetupLLM::Annotate));
         d->miscPage->setActiveTab((SetupMisc::MiscTab)group.readEntry(QLatin1String("Misc Tab"), (int)SetupMisc::Behaviour));
     }
     else
@@ -642,6 +660,11 @@ Setup::Page Setup::activePageIndex() const
         return PluginsPage;
     }
 
+    if (cur == d->page_ai)
+    {
+        return AIPage;
+    }
+
     if (cur == d->page_misc)
     {
         return MiscellaneousPage;
@@ -716,6 +739,11 @@ DConfigDlgWdgItem* Setup::Private::pageItem(Setup::Page page) const
         case Setup::PluginsPage:
         {
             return page_plugins;
+        }
+
+        case Setup::AIPage:
+        {
+            return page_ai;
         }
 
         case Setup::MiscellaneousPage:

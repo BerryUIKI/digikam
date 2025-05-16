@@ -19,6 +19,7 @@
 
 #include <QString>
 #include <QStringList>
+#include <QFlags>
 
 // Local includes
 
@@ -38,6 +39,40 @@ namespace Digikam
 class DIGIKAM_EXPORT LLMProcessSettings
 {
 public:
+
+    /**
+     * @brief Defines the AI response voice style
+     */
+    enum AIVoiceType
+    {
+        Casual = 0,
+        Neutral,
+        Formal
+    };
+    
+    /**
+     * @brief Defines tone flags for AI-generated text (bitwise combinable)
+     */
+    enum AITextTone
+    {
+        NoTone         = 0,
+        Friendly       = 1 << 0,
+        Serious        = 1 << 1,
+        Humorous       = 1 << 2,
+        Empathetic     = 1 << 3,
+        Authoritative  = 1 << 4,
+        Encouraging    = 1 << 5,
+        Urgent         = 1 << 6,
+        Inspirational  = 1 << 7,
+        Respectful     = 1 << 8,
+        Concise        = 1 << 9,
+        Descriptive    = 1 << 10,
+        Persuasive     = 1 << 11,
+        Dramatic       = 1 << 12,
+        Poetic         = 1 << 13,
+        Technical      = 1 << 14
+    };
+    Q_DECLARE_FLAGS(AITextTones, AITextTone)
 
     /**
      * @brief Constructor with default settings
@@ -91,6 +126,16 @@ public:
     QStringList additionalArgs;
     
     /**
+     * The voice style for AI-generated text
+     */
+    AIVoiceType voiceType = Neutral;
+    
+    /**
+     * The tone flags for AI-generated text (can be combined)
+     */
+    AITextTones textTones = NoTone;
+    
+    /**
      * @brief Check if settings are valid for starting an LLM process
      * @return True if the settings are valid
      */
@@ -116,4 +161,7 @@ public:
     LLMProcessSettings& operator=(const LLMProcessSettings& other);
 };
 
+
 } // namespace Digikam
+
+Q_DECLARE_OPERATORS_FOR_FLAGS(Digikam::LLMProcessSettings::AITextTones)

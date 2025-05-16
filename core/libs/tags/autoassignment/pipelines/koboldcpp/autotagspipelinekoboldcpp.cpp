@@ -239,6 +239,7 @@ bool AutotagsPipelineKoboldCpp::finder()
     nextQueue->setMaxDepth(1);
 
     qlonglong totalItemsToScan = CoreDbAccess().db()->getTotalLLMItemsToScan();
+    QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan(totalItemsToScan);
 
     // Q_EMIT the updated total item count
     
@@ -248,7 +249,7 @@ bool AutotagsPipelineKoboldCpp::finder()
     {
         // Add images without comments to the queue using CoreDB method
 
-        QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan(totalItemsToScan);
+        // QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan(totalItemsToScan);
         
         // Process the images without comments first
         
@@ -550,7 +551,9 @@ QString llmPrompt_neutral = QLatin1String("Analyze the given image and provide a
 
         QElapsedTimer timer;
         timer.start();
+
         // Use LLMProcessManager's submitRequest method to communicate with the LLM
+
         QByteArray responseData = m_llmProcessManager->submitRequest(QStringLiteral("/v1/chat/completions"), 
                                                                      payload, 
                                                                      LLMProcessManager::POST);
@@ -576,35 +579,42 @@ QString llmPrompt_neutral = QLatin1String("Analyze the given image and provide a
             if (!resultObj.isEmpty())
             {
                 // Extract description and keywords
-                package->imageDescription = resultObj[QStringLiteral("Description")].toString();
+                if ((llmResponseType & LLMResponses::LLMDescription) && resultObj.contains(QStringLiteral("Description")))
+                {
+                    // Extract description
+                    package->imageDescription = resultObj[QStringLiteral("Description")].toString();
+                }
                 
                 // Get keywords - clear any existing tags first
                 package->tagList.clear();
                 
-                QJsonArray keywordsArray = resultObj[QStringLiteral("Keywords")].toArray();
-                int dupeCount = 0;
-                for (const QJsonValue &keyword : keywordsArray)
+                if ((llmResponseType & LLMResponses::LLMKeywords) && resultObj.contains(QStringLiteral("Keywords")))
                 {
-                    if (package->tagList.contains(keyword.toString()))
+                    QJsonArray keywordsArray = resultObj[QStringLiteral("Keywords")].toArray();
+                    int dupeCount = 0;
+                    for (const QJsonValue &keyword : keywordsArray)
                     {
-                        if (++dupeCount > 3)
+                        if (package->tagList.contains(keyword.toString()))
                         {
-                            // stop processing if too many duplicates
+                            if (++dupeCount > 3)
+                            {
+                                // stop processing if too many duplicates
 
-                            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Duplicate keyword found:" << keyword.toString();
-                            break;
+                                qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Duplicate keyword found:" << keyword.toString();
+                                break;
+                            }
+                        }
+                        if (keyword.isString() && !package->tagList.contains(keyword.toString()))
+                        {
+                            // Add unique keywords to the tag list
+                            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Adding keyword:" << keyword.toString();
+                            package->tagList.append(keyword.toString());
                         }
                     }
-                    if (keyword.isString() && !package->tagList.contains(keyword.toString()))
-                    {
-                        // Add unique keywords to the tag list
-                        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Adding keyword:" << keyword.toString();
-                        package->tagList.append(keyword.toString());
-                    }
+                    
+                    qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Extracted description:" << package->imageDescription;
+                    qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Extracted" << package->tagList.size() << "keywords";
                 }
-                
-                qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Extracted description:" << package->imageDescription;
-                qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Extracted" << package->tagList.size() << "keywords";
             }
             else
             {
@@ -675,13 +685,24 @@ bool AutotagsPipelineKoboldCpp::writer()
      */
 
     {
-        bool tagsChanged = false;
+        // bool tagsChanged = false;
         QStringList tagsPath;
         QStringList displayTags;
         QSet<int> newIds;
-        
-        // In BQM mode we don't want to touch the source image tags
-        if (!settings.bqmMode)
+        MetadataHub::WriteComponent changedMetadata;
+
+
+        // Add the description to the image comments
+
+        if ((llmResponseType & LLMResponses::LLMDescription) && !package->imageDescription.isEmpty())
+        {
+            package->info.imageComments(CoreDbAccess()).addComment(package->imageDescription);
+            changedMetadata |= MetadataHub::WRITE_COMMENTS;
+        }
+
+        // Add the tags to the image
+
+        if ((llmResponseType & LLMResponses::LLMKeywords) && !package->tagList.isEmpty())
         {
             const auto ids = package->info.tagIds();
 
@@ -694,105 +715,84 @@ bool AutotagsPipelineKoboldCpp::writer()
                         // Clear existing tags when TagMode is replace
                         
                         package->info.removeTag(tid);
-                        tagsChanged = true;
+                        changedMetadata |= MetadataHub::WRITE_TAGS;
                     }
                     else
                     {
-                        // Add existing tags to the tags list
+                        // Add existing tags to the new tags list
                         
                         newIds << tid;
                     }
                 }
             }
-        }
 
-        // Iterate over the list of found tags
-        for (const auto& tag : std::as_const(package->tagList))
-        {
-            int tagId = -1;
+            // Iterate over the new list of found tags
 
-            // Translate tag if requested
-            if (!settings.languages.isEmpty())
+            for (const auto& tag : std::as_const(package->tagList))
             {
-                for (const QString& trLang : std::as_const(settings.languages))
-                {
-                    QString trOut;
-                    QString error;
-                    bool trRet = s_inlineTranslateString(tag, trLang, trOut, error);
+                int tagId = -1;
 
-                    if (trRet)
+                // Translate tag if requested
+                if (!settings.languages.isEmpty())
+                {
+                    for (const QString& trLang : std::as_const(settings.languages))
                     {
-                        // Translation found
-                        QString newTag = rootTag + trLang + QLatin1Char('/') + trOut;
-                        tagsPath << newTag;
-                        displayTags << trOut;
-                        tagId = tagsCache->getOrCreateTag(newTag);
-                    }
-                    else
-                    {
-                        // Tag could not be translated
-                        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Auto-Tags online translation error:"
-                                                            << error;
-                        QString newTag = rootTag + trLang + QLatin1Char('/') + tag;
-                        tagsPath << newTag;
-                        displayTags << tag;
-                        tagId = tagsCache->getOrCreateTag(newTag);
+                        QString trOut;
+                        QString error;
+                        bool trRet = s_inlineTranslateString(tag, trLang, trOut, error);
+
+                        if (trRet)
+                        {
+                            // Translation found
+                            QString newTag = rootTag + trLang + QLatin1Char('/') + trOut;
+                            tagsPath << newTag;
+                            displayTags << trOut;
+                            tagId = tagsCache->getOrCreateTag(newTag);
+                        }
+                        else
+                        {
+                            // Tag could not be translated
+                            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Auto-Tags online translation error:"
+                                                                << error;
+                            QString newTag = rootTag + trLang + QLatin1Char('/') + tag;
+                            tagsPath << newTag;
+                            displayTags << tag;
+                            tagId = tagsCache->getOrCreateTag(newTag);
+                        }
                     }
                 }
-            }
-            else
-            {
-                // Translation not requested, use default tag name
-                QString newTag = rootTag + tag;
-                tagsPath << newTag;
-                displayTags << tag;
-                tagId = tagsCache->getOrCreateTag(newTag);
-            }
-
-            if (!settings.bqmMode && (tagId != -1) && !newIds.contains(tagId))
-            {
-                // If new tag, add tag to image
-                package->info.setTag(tagId);
-                newIds << tagId;
-                tagsChanged = true;
-            }
-        }
-
-        // Write tags to the metadata
-        if (!settings.bqmMode)
-        {
-            // Normal mode
-            if (tagsChanged || !package->imageDescription.isEmpty())
-            {
-                MetadataHub::WriteComponent changedMetadata;
-
-                if (!package->imageDescription.isEmpty())
+                else
                 {
-                    package->info.imageComments(CoreDbAccess()).addComment(package->imageDescription);
-                    changedMetadata |= MetadataHub::WRITE_COMMENTS;
+                    // Translation not requested, use default tag name
+
+                    QString newTag = rootTag + tag;
+                    tagsPath << newTag;
+                    displayTags << tag;
+                    tagId = tagsCache->getOrCreateTag(newTag);
                 }
 
-                if (tagsChanged)
+                if ((tagId != -1) && !newIds.contains(tagId))
                 {
+                    // If new tag, add tag to image
+
+                    package->info.setTag(tagId);
+                    newIds << tagId;
                     changedMetadata |= MetadataHub::WRITE_TAGS;
                 }
-
-                MetadataHub hub;
-                hub.load(package->info);
-
-                ScanController::FileMetadataWrite writeScope(package->info);
-                writeScope.changed(hub.writeToMetadata(package->info, changedMetadata));    
-            }
+            }        
         }
-        else
+
+        // Save the metadata to the image
+        if (changedMetadata)
         {
-            // BQM mode
-            if (tagsPath.size() > 0)
-            {
-                bqmMeta->setItemTagsPath(tagsPath);
-                bqmMeta->save(bqmOutputUrl.toLocalFile());
-            }
+            MetadataHub hub;
+            hub.load(package->info);
+
+            ScanController::FileMetadataWrite writeScope(package->info);
+            writeScope.changed(hub.writeToMetadata(package->info, changedMetadata));
         }
+
+        // Send a notification that the image was processed
 
         QString albumName = CollectionManager::instance()->albumRootLabel(package->info.albumRootId());
 
@@ -812,9 +812,10 @@ bool AutotagsPipelineKoboldCpp::writer()
             qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::writer: "
                                                 << albumName + package->info.relativePath();
         }
-
         
         {
+            // remove the ID from the in-progress list so the image may be reprocessed if modified by the user
+
             QMutexLocker locker(&m_progressIdsMutex);
             m_imageIdsInProgress.removeAll(package->info.id());
         }

@@ -62,6 +62,8 @@ set(libsetup_SRCS
 
     ${CMAKE_CURRENT_SOURCE_DIR}/misc/setupmisc.cpp
 
+    ${CMAKE_CURRENT_SOURCE_DIR}/llm/setupllm.cpp
+
     ${CMAKE_CURRENT_SOURCE_DIR}/editor/setupeditor.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/editor/setupversioning.cpp
 

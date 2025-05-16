@@ -74,7 +74,7 @@ LLMProcessManager::LLMProcessManager(const LLMProcessSettings& settings, QObject
             });
 
     connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
-            this, [this](int exitCode, QProcess::ExitStatus /*exitStatus*/)
+            this, [this](int exitCode, QProcess::ExitStatus)
             {
                 m_exiting = true;
                 Q_EMIT signalEngineStopped(exitCode);
