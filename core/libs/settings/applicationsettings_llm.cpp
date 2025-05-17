@@ -124,7 +124,7 @@ void ApplicationSettings::setAIAnnotatePrompt(const QString& prompt)
     d->aiAnnotateLlmPrompt = prompt;
 }
 
-QString ApplicationSettings::getAIAnnotatePrompt() const
+QString ApplicationSettings::getAIAnnotateCustomPrompt() const
 {
     return d->aiAnnotateLlmPrompt;
 }
@@ -147,6 +147,16 @@ void ApplicationSettings::setAIAnnotateVoice(LLMProcessSettings::AIVoiceType voi
 LLMProcessSettings::AIVoiceType ApplicationSettings::getAIAnnotateVoice() const
 {
     return d->aiAnnotateVoiceType;
+}
+
+void ApplicationSettings::setAIAnnotateVoicePerspective(LLMProcessSettings::AIVoicePerspective perspective)
+{
+    d->aiAnnotateVoicePerspective = perspective;
+}
+
+LLMProcessSettings::AIVoicePerspective ApplicationSettings::getAIAnnotateVoicePerspective() const
+{
+    return d->aiAnnotateVoicePerspective;
 }
 
 void ApplicationSettings::setAIAnnotateTextTones(LLMProcessSettings::AITextTones tones)

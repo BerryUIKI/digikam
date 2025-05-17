@@ -51,6 +51,17 @@ public:
     };
     
     /**
+     * @brief Defines voice perspective for AI-generated text
+     */
+    enum AIVoicePerspective
+    {
+        NoPerspective = 0,
+        FirstPerson,
+        SecondPerson,
+        ThirdPerson
+    };
+    
+    /**
      * @brief Defines tone flags for AI-generated text (bitwise combinable)
      */
     enum AITextTone

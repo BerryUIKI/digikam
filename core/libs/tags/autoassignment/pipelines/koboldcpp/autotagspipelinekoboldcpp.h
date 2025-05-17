@@ -45,6 +45,8 @@ Q_SIGNALS:
 
     void signalStartupMessage(const QString& message);
 
+    // const QString defaultPrompt = i18n("Describe the image in detail. Include any relevant keywords or tags that may apply to the image. Please separate each keyword with a comma.");
+
 protected:
     enum LLMResponses
     {
@@ -93,7 +95,13 @@ protected:
      * @param base64Image The base64 encoded image to include in the request
      * @return The JSON object containing the prepared payload
      */
-    QJsonObject createPayload(const QString& prompt, const QString& base64Image);
+    QJsonObject createPayload(const QString& prompt, const QString& base64Image) const;
+
+    /**
+     * @brief Creates the LLM prompt based on SystemSettings
+     * @return The generated prompt string
+     */
+    QString createPrompt() const;
 
 private Q_SLOTS:
 

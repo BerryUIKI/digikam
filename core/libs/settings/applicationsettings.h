@@ -522,13 +522,16 @@ public:
     int   getAIAnnotateMaxTags() const;
     
     void  setAIAnnotatePrompt(const QString& prompt);
-    QString getAIAnnotatePrompt() const;
+    QString getAIAnnotateCustomPrompt() const;
     
     void  setAIAnnotateTemperature(double temperature);
     double getAIAnnotateTemperature() const;
     
     void  setAIAnnotateVoice(LLMProcessSettings::AIVoiceType voiceType);
     LLMProcessSettings::AIVoiceType getAIAnnotateVoice() const;
+    
+    void  setAIAnnotateVoicePerspective(LLMProcessSettings::AIVoicePerspective perspective);
+    LLMProcessSettings::AIVoicePerspective getAIAnnotateVoicePerspective() const;
     
     void  setAIAnnotateTextTones(LLMProcessSettings::AITextTones tones);
     LLMProcessSettings::AITextTones getAIAnnotateTextTones() const;

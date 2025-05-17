@@ -107,6 +107,7 @@ public:
     const QString configAIAnnotateEnableTagsEntry                   = QLatin1String("EnableTags");
     const QString configAIAnnotateEnableAestheticEntry              = QLatin1String("Enable Aesthetic");
     const QString configAIAnnotateVoiceTypeEntry                    = QLatin1String("Voice Type");
+    const QString configAIAnnotateVoicePerspectiveEntry             = QLatin1String("Voice Perspective");
     const QString configAIAnnotateTextTonesEntry                    = QLatin1String("Text Tones");
     const QString configAIAnnotateLlmEngine                         = QLatin1String("LLM Engine");
     const QString configAIAnnotateMaxTags                           = QLatin1String("Max Tags");
@@ -380,6 +381,7 @@ public:
     QString                                      aiAnnotateExternalLLMUrl                            = QLatin1String("http://localhost:5000/api");
     double                                       aiAnnotateLlmTemperature                                     = 0.1;
     LLMProcessSettings::AIVoiceType              aiAnnotateVoiceType                                        = LLMProcessSettings::Neutral;
+    LLMProcessSettings::AIVoicePerspective       aiAnnotateVoicePerspective                                 = LLMProcessSettings::NoPerspective;
     LLMProcessSettings::AITextTones              aiAnnotateTextTones                                        = LLMProcessSettings::NoTone;
 
     /// Grouping operation settings

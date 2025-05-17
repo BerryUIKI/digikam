@@ -32,15 +32,11 @@
 
 #include <klocalizedstring.h>
 
-// LLM includes
-
-#include "llmprocessmanager.h"
-#include "llmprocessmanagerkoboldcpp.h"
-
 // Local includes
 
 #include "digikam_debug.h"
 #include "digikam_opencv.h"
+#include "applicationsettings.h"
 #include "sharedqueue.h"
 #include "collectionmanager.h"
 #include "album.h"
@@ -56,6 +52,8 @@
 #include "tagscache.h"
 #include "localizeselector.h"
 #include "autotagspipelinekoboldcpppackage.h"
+#include "llmprocessmanager.h"
+#include "llmprocessmanagerkoboldcpp.h"
 
 namespace Digikam
 {
@@ -465,32 +463,33 @@ bool AutotagsPipelineKoboldCpp::classifier()
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Classifier, MLPipelineStage::Writer);
     AutotagsPipelineKoboldCppPackage* package = nullptr;
 
-    llmPrompt = QLatin1String("The tasks are to describe the image and to come up with a large set of keyword tags for it.\n\n"
-                              "Write the Description using the active voice.\n\n"
-                              "The Keywords must be one or two words each. Generate as many Keywords as possible using a controlled and consistent vocabulary.\n\n"
-                              "For both Description and Keywords, make sure to include:\n\n"
-                              " - Themes, concepts\n"
-                              " - Items, animals, objects\n"
-                              " - Structures, landmarks, setting\n"
-                              " - Foreground and background elements\n"
-                              " - Notable colors, textures, styles\n"
-                              " - Actions, activities\n\n"
-                              "If humans are present, include: \n"
-                              " - Physical appearance\n"
-                              " - Gender\n"
-                              " - Clothing\n"
-                              " - Age range\n"
-                              " - Visibly apparent ancestry\n"
-                              " - Occupation/role\n"
-                              " - Relationships between individuals\n"
-                              " - Emotions, expressions, body language\n\n"
-                              "Use ENGLISH only. Generate ONLY a JSON object with the keys Description and Keywords as follows {\"Description\": str, \"Keywords\": []}\n"
-                              "<EXAMPLE>\n"
-                              "The example input would be a stock photo of two apples, one red and one green, against a white backdrop and is a hypothetical Description and Keyword for a non-existent image.\n"
-                              "OUTPUT=```json{\"Description\": \"Two apples next to each other, one green and one red, placed side by side against a white background. There is even and diffuse studio lighting. The fruit is glossy and covered with dropplets of water indicating they are fresh and recently washed. The image emphasizes the cleanliness and appetizing nature of the food\", \"Keywords\": [\"studio shot\",\"green\",\"fruit\",\"red\",\"apple\",\"stock image\",\"health food\",\"appetizing\",\"empty background\",\"grocery\",\"food\",\"snack\"]}```\n"
-                              "</EXAMPLE> ");
+    llmPrompt = createPrompt();
 
-QString llmPrompt_neutral = QLatin1String("Analyze the given image and provide a clear, neutral description of its contents. Focus on objective details such as objects, people, environment, colors, and any notable features, avoiding subjective interpretations. Then, generate a list of relevant keywords to tag the image, ensuring they accurately reflect its elements without bias or assumptions. Format the response as follows:");
+    // llmPrompt = QLatin1String("The tasks are to describe the image and to come up with a large set of keyword tags for it.\n\n"
+    //                           "Write the Description using the active voice.\n\n"
+    //                           "The Keywords must be one or two words each. Generate as many Keywords as possible using a controlled and consistent vocabulary.\n\n"
+    //                           "For both Description and Keywords, make sure to include:\n\n"
+    //                           " - Themes, concepts\n"
+    //                           " - Items, animals, objects\n"
+    //                           " - Structures, landmarks, setting\n"
+    //                           " - Foreground and background elements\n"
+    //                           " - Notable colors, textures, styles\n"
+    //                           " - Actions, activities\n\n"
+    //                           "If humans are present, include: \n"
+    //                           " - Physical appearance\n"
+    //                           " - Gender\n"
+    //                           " - Clothing\n"
+    //                           " - Age range\n"
+    //                           " - Visibly apparent ancestry\n"
+    //                           " - Occupation/role\n"
+    //                           " - Relationships between individuals\n"
+    //                           " - Emotions, expressions, body language\n\n"
+    //                           "Use ENGLISH only. Generate ONLY a JSON object with the keys Description and Keywords as follows {\"Description\": str, \"Keywords\": []}\n"
+    //                           "<EXAMPLE>\n"
+    //                           "The example input would be a stock photo of two apples, one red and one green, against a white backdrop and is a hypothetical Description and Keyword for a non-existent image.\n"
+    //                           "OUTPUT=```json{\"Description\": \"Two apples next to each other, one green and one red, placed side by side against a white background. There is even and diffuse studio lighting. The fruit is glossy and covered with dropplets of water indicating they are fresh and recently washed. The image emphasizes the cleanliness and appetizing nature of the food\", \"Keywords\": [\"studio shot\",\"green\",\"fruit\",\"red\",\"apple\",\"stock image\",\"health food\",\"appetizing\",\"empty background\",\"grocery\",\"food\",\"snack\"]}```\n"
+    //                           "</EXAMPLE> ");
+
 // "The description should be a detailed and accurate representation of the image content.\n"
 // "The keywords should be relevant to the image and cover various aspects of it.\n"
 // "Please provide the output in JSON format with two fields: \"Description\" and \"Keywords\".\n"
@@ -847,7 +846,7 @@ void AutotagsPipelineKoboldCpp::addMoreWorkers()
 
 // The extractJsonFromContent method has been replaced by LLMResponseHelper::processResult and LLMResponseHelper::ensureValidJsonFormat
 
-QJsonObject AutotagsPipelineKoboldCpp::createPayload(const QString& prompt, const QString& base64Image)
+QJsonObject AutotagsPipelineKoboldCpp::createPayload(const QString& prompt, const QString& base64Image) const
 {
     // Create a JSON object with the LLM prompt and base64 image data
     QJsonArray messagesArray;
@@ -967,6 +966,161 @@ void AutotagsPipelineKoboldCpp::checkLLMEngineReady()
 
         Q_EMIT finished();
     }
+}
+
+QString AutotagsPipelineKoboldCpp::createPrompt() const
+{
+    ApplicationSettings* const appSettings = ApplicationSettings::instance();
+
+    /**
+     * @note: All strings are English.  Do not translate them. 
+     * */
+
+    // Add the tasks to the prompt
+
+    QString llmPrompt = QLatin1String("The tasks are to describe the image and to come up with a set of keyword tags for it, and to rate the aesthetic quality of the image on a scale of 1 to 3.\n");
+
+    if (appSettings->getAIAnnotateAdvSetEnabled() && appSettings->getAIAnnotateCustomPromptEnabled())
+    {
+        llmPrompt += appSettings->getAIAnnotateCustomPrompt();
+        llmPrompt += QLatin1String("\n");
+    }
+    else
+    {
+        llmPrompt += QLatin1String("Write the Description using the active");
+
+        switch(appSettings->getAIAnnotateVoice())
+        {
+            case LLMProcessSettings::AIVoiceType::Casual:
+                llmPrompt += QLatin1String(", casual");
+                break;
+            case LLMProcessSettings::AIVoiceType::Formal:
+                llmPrompt += QLatin1String(", formal");
+                break;
+            case LLMProcessSettings::AIVoiceType::Neutral:
+                llmPrompt += QLatin1String(", neutral");
+                break;
+        }
+
+        llmPrompt += QLatin1String(" voice");
+
+        switch (appSettings->getAIAnnotateVoicePerspective())
+        {
+            case LLMProcessSettings::FirstPerson:
+                llmPrompt += QLatin1String(" in the first person");
+                break;
+            case LLMProcessSettings::SecondPerson:
+                llmPrompt += QLatin1String(" in the second person");
+                break;
+            case LLMProcessSettings::ThirdPerson:
+                llmPrompt += QLatin1String(" in the third person");
+                break;
+            default:
+                break;
+        }
+
+        llmPrompt += QLatin1String(".\n");
+
+        if (LLMProcessSettings::NoTone != appSettings->getAIAnnotateTextTones())
+        {
+            // iterate over the tones and add them to the prompt
+
+            llmPrompt += QLatin1String("The tone of the description is ");
+            LLMProcessSettings::AITextTones tone = appSettings->getAIAnnotateTextTones();
+            if (tone & LLMProcessSettings::AITextTone::Authoritative)
+            {
+                llmPrompt += QLatin1String("authoritative, ");
+            }
+            if (tone & LLMProcessSettings::AITextTone::Concise)
+            {
+                llmPrompt += QLatin1String("concise, ");
+            }
+            if (tone & LLMProcessSettings::AITextTone::Descriptive)
+            {
+                llmPrompt += QLatin1String("descriptive, ");
+            }
+            if (tone & LLMProcessSettings::AITextTone::Dramatic)
+            {
+                llmPrompt += QLatin1String("dramatic, ");
+            }
+            if (tone & LLMProcessSettings::AITextTone::Empathetic)
+            {
+                llmPrompt += QLatin1String("empathetic, ");
+            }
+            if (tone & LLMProcessSettings::AITextTone::Encouraging)
+            {
+                llmPrompt += QLatin1String("encouraging, ");
+            }
+            if (tone & LLMProcessSettings::AITextTone::Friendly)
+            {
+                llmPrompt += QLatin1String("friendly, ");
+            }
+            if (tone & LLMProcessSettings::AITextTone::Humorous)
+            {
+                llmPrompt += QLatin1String("humorous, ");
+            }
+            if (tone & LLMProcessSettings::AITextTone::Inspirational)
+            {
+                llmPrompt += QLatin1String("inspirational, ");
+            }
+            if (tone & LLMProcessSettings::AITextTone::Persuasive)
+            {
+                llmPrompt += QLatin1String("persuasive, ");
+            }
+            if (tone & LLMProcessSettings::AITextTone::Poetic)
+            {
+                llmPrompt += QLatin1String("poetic, ");
+            }
+            if (tone & LLMProcessSettings::AITextTone::Respectful)
+            {
+                llmPrompt += QLatin1String("respectful, ");
+            }
+            if (tone & LLMProcessSettings::AITextTone::Serious)
+            {
+                llmPrompt += QLatin1String("serious, ");
+            }
+            if (tone & LLMProcessSettings::AITextTone::Technical)
+            {
+                llmPrompt += QLatin1String("technical, ");
+            }
+            if (tone & LLMProcessSettings::AITextTone::Urgent)
+            {
+                llmPrompt += QLatin1String("urgent, ");
+            }
+
+            // trim the last comma and space from the string
+            llmPrompt.chop(2);
+            llmPrompt += QLatin1String(".\n");
+        }
+
+        llmPrompt += QLatin1String("For both Description and Keywords, make sure to include:\n"
+                                " - Themes, concepts\n"
+                                " - Items, animals, objects\n"
+                                " - Structures, landmarks, setting\n"
+                                " - Foreground and background elements\n"
+                                " - Notable colors, textures, styles\n"
+                                " - Actions, activities\n\n"
+                                "If humans are present, include:\n"
+                                " - Physical appearance\n"
+                                " - Gender\n"
+                                " - Clothing\n"
+                                " - Age range\n"
+                                " - Visibly apparent ancestry\n"
+                                " - Occupation/role\n"
+                                " - Relationships between individuals\n"
+                                " - Emotions, expressions, body language\n\n");
+    }
+
+    // define the result format
+
+    llmPrompt += QLatin1String("Use ENGLISH only. Generate ONLY a JSON object with the keys Description and Keywords as follows {\"Description\": str, \"Keywords\": []}\n"
+                               "<EXAMPLE>\n"
+                               "The example input would be a stock photo of two apples, one red and one green, against a white backdrop and is a hypothetical Description and Keyword for a non-existent image.\n"
+                               "OUTPUT=```json{\"Description\": \"Two apples next to each other, one green and one red, placed side by side against a white background. There is even and diffuse studio lighting. The fruit is glossy and covered with dropplets of water indicating they are fresh and recently washed. The image emphasizes the cleanliness and appetizing nature of the food\", \"Keywords\": [\"studio shot\",\"green\",\"fruit\",\"red\",\"apple\",\"stock image\",\"health food\",\"appetizing\",\"empty background\",\"grocery\",\"food\",\"snack\"]}```\n"
+                               "</EXAMPLE> ");
+
+    return llmPrompt;
+
 }
 
 } // namespace Digikam
