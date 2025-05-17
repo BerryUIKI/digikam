@@ -97,6 +97,8 @@ public:
     // Voice style
     QComboBox*          aiVoiceTypeCombo                        = nullptr;
     QLabel*             aiVoiceTypeLabel                        = nullptr;
+    QComboBox*          aiVoicePerspectiveCombo                 = nullptr;
+    QLabel*             aiVoicePerspectiveLabel                 = nullptr;
     
     // Text tones
     QLabel*             textTonesLabel                          = nullptr;
@@ -199,15 +201,31 @@ SetupLLM::SetupLLM(QWidget* const parent)
     d->aiVoiceTypeCombo->addItem(i18n("Formal"), static_cast<int>(LLMProcessSettings::Formal));
     d->aiVoiceTypeCombo->setToolTip(i18n("Select the tone of voice used in AI-generated descriptions"));
     
+    // Voice perspective dropdown
+    d->aiVoicePerspectiveLabel = new QLabel(i18n("Voice Perspective:"), textTonesBox);
+    d->aiVoicePerspectiveLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    d->aiVoicePerspectiveCombo = new QComboBox(textTonesBox);
+    d->aiVoicePerspectiveCombo->addItem(i18n("None"), static_cast<int>(LLMProcessSettings::NoPerspective));
+    d->aiVoicePerspectiveCombo->addItem(i18n("First Person"), static_cast<int>(LLMProcessSettings::FirstPerson));
+    d->aiVoicePerspectiveCombo->addItem(i18n("Second Person"), static_cast<int>(LLMProcessSettings::SecondPerson));
+    d->aiVoicePerspectiveCombo->addItem(i18n("Third Person"), static_cast<int>(LLMProcessSettings::ThirdPerson));
+    d->aiVoicePerspectiveCombo->setToolTip(i18n("Select the narrative perspective used in AI-generated descriptions"));
+    
     QHBoxLayout* const voiceLayout = new QHBoxLayout();
     voiceLayout->addWidget(d->aiVoiceTypeLabel);
     voiceLayout->addWidget(d->aiVoiceTypeCombo);
     voiceLayout->addStretch();
     textTonesLayout->addLayout(voiceLayout, 0, 0, 1, 3);
     
+    QHBoxLayout* const perspectiveLayout = new QHBoxLayout();
+    perspectiveLayout->addWidget(d->aiVoicePerspectiveLabel);
+    perspectiveLayout->addWidget(d->aiVoicePerspectiveCombo);
+    perspectiveLayout->addStretch();
+    textTonesLayout->addLayout(perspectiveLayout, 1, 0, 1, 3);
+    
     d->textTonesLabel = new QLabel(i18n("Select one or more tones to apply to AI-generated text:"), textTonesBox);
     d->textTonesLabel->setWordWrap(true);
-    textTonesLayout->addWidget(d->textTonesLabel, 1, 0, 1, 3);
+    textTonesLayout->addWidget(d->textTonesLabel, 2, 0, 1, 3);
     
     // Create and add the tone checkboxes in a grid layout
     d->textToneFriendlyCheck = new QCheckBox(i18n("Friendly"), textTonesBox);
@@ -227,21 +245,21 @@ SetupLLM::SetupLLM(QWidget* const parent)
     d->textToneTechnicalCheck = new QCheckBox(i18n("Technical"), textTonesBox);
     
     // Arrange checkboxes in a 5x3 grid
-    textTonesLayout->addWidget(d->textToneFriendlyCheck, 2, 0);
-    textTonesLayout->addWidget(d->textToneSeriousCheck, 2, 1);
-    textTonesLayout->addWidget(d->textToneHumorousCheck, 2, 2);
-    textTonesLayout->addWidget(d->textToneEmpatheticCheck, 3, 0);
-    textTonesLayout->addWidget(d->textToneAuthoritativeCheck, 3, 1);
-    textTonesLayout->addWidget(d->textToneEncouragingCheck, 3, 2);
-    textTonesLayout->addWidget(d->textToneUrgentCheck, 4, 0);
-    textTonesLayout->addWidget(d->textToneInspirationalCheck, 4, 1);
-    textTonesLayout->addWidget(d->textToneRespectfulCheck, 4, 2);
-    textTonesLayout->addWidget(d->textToneConciseCheck, 5, 0);
-    textTonesLayout->addWidget(d->textToneDescriptiveCheck, 5, 1);
-    textTonesLayout->addWidget(d->textTonePersuasiveCheck, 5, 2);
-    textTonesLayout->addWidget(d->textToneDramaticCheck, 6, 0);
-    textTonesLayout->addWidget(d->textTonePoeticCheck, 6, 1);
-    textTonesLayout->addWidget(d->textToneTechnicalCheck, 6, 2);
+    textTonesLayout->addWidget(d->textToneFriendlyCheck, 3, 0);
+    textTonesLayout->addWidget(d->textToneSeriousCheck, 3, 1);
+    textTonesLayout->addWidget(d->textToneHumorousCheck, 3, 2);
+    textTonesLayout->addWidget(d->textToneEmpatheticCheck, 4, 0);
+    textTonesLayout->addWidget(d->textToneAuthoritativeCheck, 4, 1);
+    textTonesLayout->addWidget(d->textToneEncouragingCheck, 4, 2);
+    textTonesLayout->addWidget(d->textToneUrgentCheck, 5, 0);
+    textTonesLayout->addWidget(d->textToneInspirationalCheck, 5, 1);
+    textTonesLayout->addWidget(d->textToneRespectfulCheck, 5, 2);
+    textTonesLayout->addWidget(d->textToneConciseCheck, 6, 0);
+    textTonesLayout->addWidget(d->textToneDescriptiveCheck, 6, 1);
+    textTonesLayout->addWidget(d->textTonePersuasiveCheck, 6, 2);
+    textTonesLayout->addWidget(d->textToneDramaticCheck, 7, 0);
+    textTonesLayout->addWidget(d->textTonePoeticCheck, 7, 1);
+    textTonesLayout->addWidget(d->textToneTechnicalCheck, 7, 2);
     
     tagGenLayout->addWidget(textTonesBox, 5, 0, 1, 3);
     
@@ -443,13 +461,14 @@ void SetupLLM::readSettings()
     d->externalLLMUrlEdit->setText(settings->getAIAnnotateExternalLLMUrl());
 
     // Custom prompt
-    d->promptTextEdit->setPlainText(settings->getAIAnnotatePrompt());
+    d->promptTextEdit->setPlainText(settings->getAIAnnotateCustomPrompt());
     
     // Generation settings
     d->temperatureInput->setValue(settings->getAIAnnotateTemperature());
     
-    // Voice type
+    // Voice type and perspective
     d->aiVoiceTypeCombo->setCurrentIndex(d->aiVoiceTypeCombo->findData(static_cast<int>(settings->getAIAnnotateVoice())));
+    d->aiVoicePerspectiveCombo->setCurrentIndex(d->aiVoicePerspectiveCombo->findData(static_cast<int>(settings->getAIAnnotateVoicePerspective())));
     
     // Text tones
     LLMProcessSettings::AITextTones tones = settings->getAIAnnotateTextTones();
@@ -512,8 +531,9 @@ void SetupLLM::applySettings()
     // Generation settings
     settings->setAIAnnotateTemperature(d->temperatureInput->value());
     
-    // Voice style
+    // Voice style and perspective
     settings->setAIAnnotateVoice(static_cast<LLMProcessSettings::AIVoiceType>(d->aiVoiceTypeCombo->currentData().toInt()));
+    settings->setAIAnnotateVoicePerspective(static_cast<LLMProcessSettings::AIVoicePerspective>(d->aiVoicePerspectiveCombo->currentData().toInt()));
     
     // Text tones
     LLMProcessSettings::AITextTones tones = LLMProcessSettings::NoTone;
@@ -546,6 +566,10 @@ void SetupLLM::slotEnableAIAnnotateSettings(bool enable)
     d->enableAIAnnotateDescriptionCheck->setEnabled(enable);
     d->enableAIAnnotateTagsCheck->setEnabled(enable);
     d->enableAIAnnotateAestheticCheck->setEnabled(enable);
+    d->aiVoiceTypeCombo->setEnabled(enable);
+    d->aiVoiceTypeLabel->setEnabled(enable);
+    d->aiVoicePerspectiveCombo->setEnabled(enable);
+    d->aiVoicePerspectiveLabel->setEnabled(enable);
 
     slotEnableAIAnnotateAdvancedSettings(d->enableAIAnnotateAdvSetCheck->isChecked());
     slotEnableAIAnnotateCustomPrompt(d->enableAIAnnotateCustomPromptCheck->isChecked());
@@ -577,6 +601,8 @@ void SetupLLM::slotEnableAIAnnotateCustomPrompt(bool enable)
     bool enableVoiceAndTones = (!enable || !d->enableAIAnnotateDescriptionCheck->isEnabled());
     d->aiVoiceTypeCombo->setEnabled(enableVoiceAndTones);
     d->aiVoiceTypeLabel->setEnabled(enableVoiceAndTones);
+    d->aiVoicePerspectiveCombo->setEnabled(enableVoiceAndTones);
+    d->aiVoicePerspectiveLabel->setEnabled(enableVoiceAndTones);
     
     d->textTonesLabel->setEnabled(enableVoiceAndTones);
     d->textToneFriendlyCheck->setEnabled(enableVoiceAndTones);
