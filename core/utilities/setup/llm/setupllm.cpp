@@ -383,17 +383,25 @@ SetupLLM::SetupLLM(QWidget* const parent)
             this, [this]()
             {
                 // Default prompt text
-                QString defaultPrompt = QLatin1String("The tasks are to describe the image and to come up with a large set of keyword tags for it.\n\n"
-                                                     "Write the Description using the active voice.\n\n"
-                                                     "The Keywords must be one or two words each. Generate as many Keywords as possible using a controlled and consistent vocabulary.\n\n"
-                                                     "For both Description and Keywords, make sure to include:\n\n"
-                                                     " - Themes, concepts\n"
-                                                     " - Items, animals, objects\n"
-                                                     " - Structures, landmarks, setting\n"
-                                                     " - Foreground and background elements\n"
-                                                     " - Notable colors, textures, styles\n"
-                                                     " - Actions, activities\n\n"
-                                                     "Use ENGLISH only. Generate ONLY a JSON object with the keys Description and Keywords as follows {\"Description\": str, \"Keywords\": []}");
+                QString defaultPrompt = QLatin1String("Write the Description using the active voice.\n\n"
+                                                      "The Keywords must be one or two words each. Generate no more than 15 Keywords using a controlled and consistent vocabulary.\n\n"
+                                                      "For both Description and Keywords, make sure to include:\n\n"
+                                                      " - Themes, concepts\n"
+                                                      " - Items, animals, objects\n"
+                                                      " - Structures, landmarks, setting\n"
+                                                      " - Foreground and background elements\n"
+                                                      " - Notable colors, textures, styles\n"
+                                                      " - Actions, activities\n\n"
+                                                      "If humans are present, include:\n"
+                                                      " - Physical appearance\n"
+                                                      " - Gender\n"
+                                                      " - Clothing\n"
+                                                      " - Age range\n"
+                                                      " - Visibly apparent ancestry\n"
+                                                      " - Occupation/role\n"
+                                                      " - Relationships between individuals\n"
+                                                      " - Emotions, expressions, body language\n\n"
+                                                      "Use ENGLISH only.\n");
 
                 d->promptTextEdit->setPlainText(defaultPrompt);
             });
