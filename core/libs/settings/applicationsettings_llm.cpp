@@ -17,6 +17,7 @@
 
 namespace Digikam
 {
+
 // LLM Settings
 
 void ApplicationSettings::setAIAnnotateEnabled(bool enable)

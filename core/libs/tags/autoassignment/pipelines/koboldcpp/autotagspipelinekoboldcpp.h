@@ -21,6 +21,7 @@
 // Local includes
 
 #include "digikam_export.h"
+#include "applicationsettings.h"
 #include "dnnmodelbase.h"
 #include "dnnmodelmanager.h"
 #include "autotagspipelinebase.h"
@@ -37,11 +38,6 @@ class DIGIKAM_GUI_EXPORT AutotagsPipelineKoboldCpp : public AutotagsPipelineBase
 
 public:
 
-    // Static constants for default values
-    static const int DEFAULT_MAX_TOKENS;
-    static const float DEFAULT_TEMPERATURE;
-    static const QString DEFAULT_PROMPT;
-
     explicit AutotagsPipelineKoboldCpp(const AutotagsScanSettings& settings);
     ~AutotagsPipelineKoboldCpp() override;
 
@@ -54,27 +50,27 @@ Q_SIGNALS:
 protected:
     enum LLMResponses
     {
-        LLMDescription                  = 1 << 0,
-        LLMKeywords                     = 1 << 1,
-        LLMdescriptionAndKeywords       = LLMDescription | LLMKeywords
+        LLMDescription                      = 1 << 0,
+        LLMKeywords                         = 1 << 1,
+        LLMdescriptionAndKeywords           = LLMDescription | LLMKeywords
     };
 
-    const int       minImageSize                    = 312;
-    const int       jpegQuality                     = 95;
-    const char*     base64ImageType                 = "JPEG";
-    QString         llmPrompt                       = DEFAULT_PROMPT;
+    const int       minImageSize            = 312;
+    const int       jpegQuality             = 95;
+    const char*     base64ImageType         = "JPEG";
+    QString         llmPrompt               = AIAnnotate::DEFAULT_PROMPT;
     QString         apiKey;
-    const int       llmStartupTimeout               = 300;          /// seconds
-    bool            llmReady                        = false;
-    bool            running                         = false;
-    LLMResponses    llmResponseType                 = LLMResponses::LLMdescriptionAndKeywords;
+    const int       llmStartupTimeout       = 300;          /// seconds
+    bool            llmReady                = false;
+    bool            running                 = false;
+    LLMResponses    llmResponseType         = LLMResponses::LLMdescriptionAndKeywords;
 
     // LLM model parameters
-    int         maxTokens                       = DEFAULT_MAX_TOKENS;
-    float       temperature                     = DEFAULT_TEMPERATURE;
-    const int   topP                            = 1;
-    const int   topK                            = 0;
-    const float minP                            = 1.05f;
+    int             maxTokens               = AIAnnotate::DEFAULT_MAX_TOKENS;
+    float           temperature             = AIAnnotate::DEFAULT_TEMPERATURE;
+    const int       topP                    = 1;
+    const int       topK                    = 0;
+    const float     minP                    = 1.05f;
 
     // LLM Process Manager and settings
     LLMProcessSettings                          m_llmSettings;

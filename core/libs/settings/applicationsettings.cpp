@@ -316,25 +316,14 @@ void ApplicationSettings::readSettings()
     
     d->aiAnnotateLlmEngine                      = static_cast<LLMProcessManagerKoboldCpp::LLMEngineType>(aiGroup.readEntry(d->configAIAnnotateLlmEngine, static_cast<int>(LLMProcessManagerKoboldCpp::KoboldCpp)));
     d->aiAnnotateMaxTags                        = aiGroup.readEntry(d->configAIAnnotateMaxTags, 15);
-    d->aiAnnotateMaxTokens                      = aiGroup.readEntry(d->configAIAnnotateMaxTokens, 300);
+    d->aiAnnotateMaxTokens                      = aiGroup.readEntry(d->configAIAnnotateMaxTokens, AIAnnotate::DEFAULT_MAX_TOKENS);
     
     QString aiAnnotateExternalUrl               = QLatin1String("http://localhost");
     d->aiAnnotateExternalLLMUrl                 = aiGroup.readEntry(d->configAIAnnotateExternalLLMUrl, aiAnnotateExternalUrl);
     d->aiAnnotateExternalLLMPort                = aiGroup.readEntry(d->configAIAnnotateExternalLLMPort, 5000);
     
-    // Default prompt text
-    QString defaultPrompt                       = QLatin1String("Write the Description using the active voice.\n\n"
-                                                                "The Keywords must be one or two words each. Generate as many Keywords as possible using a controlled and consistent vocabulary.\n\n"
-                                                                "For both Description and Keywords, make sure to include:\n\n"
-                                                                " - Themes, concepts\n"
-                                                                " - Items, animals, objects\n"
-                                                                " - Structures, landmarks, setting\n"
-                                                                " - Foreground and background elements\n"
-                                                                " - Notable colors, textures, styles\n"
-                                                                " - Actions, activities\n\n");
-    
-    d->aiAnnotateLlmPrompt                      = aiGroup.readEntry(d->configAIAnnotateLlmPrompt, defaultPrompt);
-    d->aiAnnotateLlmTemperature                 = aiGroup.readEntry(d->configAIAnnotateTemperature, 0.5);
+    d->aiAnnotateLlmPrompt                      = aiGroup.readEntry(d->configAIAnnotateLlmPrompt, AIAnnotate::DEFAULT_PROMPT);
+    d->aiAnnotateLlmTemperature                 = aiGroup.readEntry(d->configAIAnnotateTemperature, AIAnnotate::DEFAULT_TEMPERATURE);
     d->aiAnnotateVoiceType                      = static_cast<LLMProcessSettings::AIVoiceType>(aiGroup.readEntry(d->configAIAnnotateVoiceTypeEntry, static_cast<int>(LLMProcessSettings::Neutral)));
     d->aiAnnotateVoicePerspective               = static_cast<LLMProcessSettings::AIVoicePerspective>(aiGroup.readEntry(d->configAIAnnotateVoicePerspectiveEntry, static_cast<int>(LLMProcessSettings::NoPerspective)));
     d->aiAnnotateTextTones                      = static_cast<LLMProcessSettings::AITextTones>(aiGroup.readEntry(d->configAIAnnotateTextTonesEntry, static_cast<int>(LLMProcessSettings::NoTone)));

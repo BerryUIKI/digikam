@@ -36,7 +36,6 @@
 
 #include "digikam_debug.h"
 #include "digikam_opencv.h"
-#include "applicationsettings.h"
 #include "sharedqueue.h"
 #include "collectionmanager.h"
 #include "album.h"
@@ -57,31 +56,6 @@
 
 namespace Digikam
 {
-
-// Define static constants
-const int AutotagsPipelineKoboldCpp::DEFAULT_MAX_TOKENS = 300;
-const float AutotagsPipelineKoboldCpp::DEFAULT_TEMPERATURE = 0.5f;
-const QString AutotagsPipelineKoboldCpp::DEFAULT_PROMPT = QLatin1String(
-    "Write the Description using the active voice.\n\n"
-    "The Keywords must be one or two words each. Generate no more than 15 Keywords using a controlled and consistent vocabulary.\n\n"
-    "For both Description and Keywords, make sure to include:\n\n"
-    " - Themes, concepts\n"
-    " - Items, animals, objects\n"
-    " - Structures, landmarks, setting\n"
-    " - Foreground and background elements\n"
-    " - Notable colors, textures, styles\n"
-    " - Actions, activities\n\n"
-    "If humans are present, include:\n"
-    " - Physical appearance\n"
-    " - Gender\n"
-    " - Clothing\n"
-    " - Age range\n"
-    " - Visibly apparent ancestry\n"
-    " - Occupation/role\n"
-    " - Relationships between individuals\n"
-    " - Emotions, expressions, body language\n\n"
-    "Use ENGLISH only as spoken in Great Britian.\n"
-);
 
 AutotagsPipelineKoboldCpp::AutotagsPipelineKoboldCpp(const AutotagsScanSettings& settings)
     : AutotagsPipelineBase(settings),
