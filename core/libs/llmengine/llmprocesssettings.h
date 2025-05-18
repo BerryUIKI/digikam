@@ -116,6 +116,11 @@ public:
     int apiPort                     = -1;
     
     /**
+     * Flag to indicate the engnie is external and no process should be started
+     */
+    bool external                 = false;
+
+    /**
      * The context size in tokens
      */
     int contextSize                 = 4096;

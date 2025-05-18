@@ -793,7 +793,7 @@ public:
      * @brief Get the next items to be scanned by the LLM Vision engine
      * @param maxCount the maximum number of items to be returned
      */
-    QList<qlonglong> getNextLLMItemsToScan(int maxCount)                                                            const;
+    QList<qlonglong> getNextLLMItemsToScan()                                                            const;
 
     /**
      * @brief Get the total number of items to be scanned by the LLM Vision engine

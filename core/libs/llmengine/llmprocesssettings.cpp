@@ -30,10 +30,13 @@ LLMProcessSettings::LLMProcessSettings(const LLMProcessSettings& other)
       mmprojPath(other.mmprojPath),
       apiHost(other.apiHost),
       apiPort(other.apiPort),
+      external(other.external),
       contextSize(other.contextSize),
       threads(other.threads),
       chatCompletionsAdapter(other.chatCompletionsAdapter),
-      additionalArgs(other.additionalArgs)
+      additionalArgs(other.additionalArgs),
+      voiceType(other.voiceType),
+      textTones(other.textTones)
 {
 }
 
@@ -45,10 +48,13 @@ LLMProcessSettings& LLMProcessSettings::operator=(const LLMProcessSettings& othe
         mmprojPath = other.mmprojPath;
         apiHost = other.apiHost;
         apiPort = other.apiPort;
+        external = other.external;
         contextSize = other.contextSize;
         threads = other.threads;
         chatCompletionsAdapter = other.chatCompletionsAdapter;
         additionalArgs = other.additionalArgs;
+        voiceType = other.voiceType;
+        textTones = other.textTones;
     }
     
     return *this;
@@ -57,11 +63,19 @@ LLMProcessSettings& LLMProcessSettings::operator=(const LLMProcessSettings& othe
 bool LLMProcessSettings::isValid() const
 {
     // At a minimum, we need a model path to be valid
-    return (!modelPath.isEmpty() &&
-            !apiHost.isEmpty() &&
-            apiPort > 0 &&
-            contextSize > 0 &&
-            threads > 0);
+    if (external)
+    {
+        return (!apiHost.isEmpty());
+    }
+    else
+    {
+        return (!modelPath.isEmpty() &&
+                !apiHost.isEmpty() &&
+                apiPort > 0 &&
+                contextSize > 0 &&
+                threads > 0);
+    }
+
 }
 
 QString LLMProcessSettings::validationError() const

@@ -311,15 +311,16 @@ void ApplicationSettings::readSettings()
     d->aiAnnotateEnableAdvSet                   = aiGroup.readEntry(d->configAIAnnotateEnableAdvSetEntry, false);
     d->aiAnnotateEnableDescription              = aiGroup.readEntry(d->configAIAnnotateEnableDescriptionEntry, true);
     d->aiAnnotateEnableTags                     = aiGroup.readEntry(d->configAIAnnotateEnableTagsEntry, true);
-    d->aiAnnotateEnableAesthetic                = aiGroup.readEntry(d->configAIAnnotateEnableAestheticEntry, true);
     d->aiAnnotateEnableCustomPrompt             = aiGroup.readEntry(d->configAIAnnotateEnableCustomPromptEntry, false);
     d->aiAnnotateEnableExternalLLM              = aiGroup.readEntry(d->configAIAnnotateEnableExternalLLMEntry, false);
     
     d->aiAnnotateLlmEngine                      = static_cast<LLMProcessManagerKoboldCpp::LLMEngineType>(aiGroup.readEntry(d->configAIAnnotateLlmEngine, static_cast<int>(LLMProcessManagerKoboldCpp::KoboldCpp)));
     d->aiAnnotateMaxTags                        = aiGroup.readEntry(d->configAIAnnotateMaxTags, 15);
+    d->aiAnnotateMaxTokens                      = aiGroup.readEntry(d->configAIAnnotateMaxTokens, 300);
     
-    QString aiAnnotateExternalUrl               = QLatin1String("http://localhost:5000/");
+    QString aiAnnotateExternalUrl               = QLatin1String("http://localhost");
     d->aiAnnotateExternalLLMUrl                 = aiGroup.readEntry(d->configAIAnnotateExternalLLMUrl, aiAnnotateExternalUrl);
+    d->aiAnnotateExternalLLMPort                = aiGroup.readEntry(d->configAIAnnotateExternalLLMPort, 5000);
     
     // Default prompt text
     QString defaultPrompt                       = QLatin1String("Write the Description using the active voice.\n\n"
@@ -333,7 +334,7 @@ void ApplicationSettings::readSettings()
                                                                 " - Actions, activities\n\n");
     
     d->aiAnnotateLlmPrompt                      = aiGroup.readEntry(d->configAIAnnotateLlmPrompt, defaultPrompt);
-    d->aiAnnotateLlmTemperature                 = aiGroup.readEntry(d->configAIAnnotateTemperature, 0.1);
+    d->aiAnnotateLlmTemperature                 = aiGroup.readEntry(d->configAIAnnotateTemperature, 0.5);
     d->aiAnnotateVoiceType                      = static_cast<LLMProcessSettings::AIVoiceType>(aiGroup.readEntry(d->configAIAnnotateVoiceTypeEntry, static_cast<int>(LLMProcessSettings::Neutral)));
     d->aiAnnotateVoicePerspective               = static_cast<LLMProcessSettings::AIVoicePerspective>(aiGroup.readEntry(d->configAIAnnotateVoicePerspectiveEntry, static_cast<int>(LLMProcessSettings::NoPerspective)));
     d->aiAnnotateTextTones                      = static_cast<LLMProcessSettings::AITextTones>(aiGroup.readEntry(d->configAIAnnotateTextTonesEntry, static_cast<int>(LLMProcessSettings::NoTone)));
@@ -524,12 +525,13 @@ void ApplicationSettings::saveSettings()
     aiGroup.writeEntry(d->configAIAnnotateEnableAdvSetEntry,            d->aiAnnotateEnableAdvSet);
     aiGroup.writeEntry(d->configAIAnnotateEnableDescriptionEntry,       d->aiAnnotateEnableDescription);
     aiGroup.writeEntry(d->configAIAnnotateEnableTagsEntry,              d->aiAnnotateEnableTags);
-    aiGroup.writeEntry(d->configAIAnnotateEnableAestheticEntry,         d->aiAnnotateEnableAesthetic);
     aiGroup.writeEntry(d->configAIAnnotateEnableCustomPromptEntry,      d->aiAnnotateEnableCustomPrompt);
     aiGroup.writeEntry(d->configAIAnnotateEnableExternalLLMEntry,       d->aiAnnotateEnableExternalLLM);
     aiGroup.writeEntry(d->configAIAnnotateLlmEngine,                    static_cast<int>(d->aiAnnotateLlmEngine));
     aiGroup.writeEntry(d->configAIAnnotateMaxTags,                      d->aiAnnotateMaxTags);
+    aiGroup.writeEntry(d->configAIAnnotateMaxTokens,                    d->aiAnnotateMaxTokens);
     aiGroup.writeEntry(d->configAIAnnotateExternalLLMUrl,               d->aiAnnotateExternalLLMUrl);
+    aiGroup.writeEntry(d->configAIAnnotateExternalLLMPort,              d->aiAnnotateExternalLLMPort);
     aiGroup.writeEntry(d->configAIAnnotateLlmPrompt,                    d->aiAnnotateLlmPrompt);
     aiGroup.writeEntry(d->configAIAnnotateTemperature,                  d->aiAnnotateLlmTemperature);
     aiGroup.writeEntry(d->configAIAnnotateVoiceTypeEntry,               static_cast<int>(d->aiAnnotateVoiceType));

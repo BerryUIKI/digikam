@@ -59,15 +59,7 @@ bool ApplicationSettings::getAIAnnotateTagsEnabled() const
     return d->aiAnnotateEnableTags;
 }
 
-void ApplicationSettings::setAIAnnotateEnableAesthetic(bool enable)
-{
-    d->aiAnnotateEnableAesthetic = enable;
-}
-
-bool ApplicationSettings::getAIAnnotateAestheticEnabled() const
-{
-    return d->aiAnnotateEnableAesthetic;
-}
+// Aesthetic rating feature has been removed
 
 void ApplicationSettings::setAIAnnotateEnableCustomPrompt(bool enable)
 {
@@ -99,6 +91,16 @@ QString ApplicationSettings::getAIAnnotateExternalLLMUrl() const
     return d->aiAnnotateExternalLLMUrl;
 }
 
+void ApplicationSettings::setAIAnnotateExternalLLMPort(int port)
+{
+    d->aiAnnotateExternalLLMPort = port;
+}
+
+int ApplicationSettings::getAIAnnotateExternalLLMPort() const
+{
+    return d->aiAnnotateExternalLLMPort;
+}
+
 void ApplicationSettings::setAIAnnotateEngine(const LLMProcessManagerKoboldCpp::LLMEngineType engine)
 {
     d->aiAnnotateLlmEngine = engine;
@@ -117,6 +119,16 @@ void ApplicationSettings::setAIAnnotateMaxTags(int maxTags)
 int ApplicationSettings::getAIAnnotateMaxTags() const
 {
     return d->aiAnnotateMaxTags;
+}
+
+void ApplicationSettings::setAIAnnotateMaxTokens(int maxTokens)
+{
+    d->aiAnnotateMaxTokens = maxTokens;
+}
+
+int ApplicationSettings::getAIAnnotateMaxTokens() const
+{
+    return d->aiAnnotateMaxTokens;
 }
 
 void ApplicationSettings::setAIAnnotatePrompt(const QString& prompt)
@@ -169,4 +181,4 @@ LLMProcessSettings::AITextTones ApplicationSettings::getAIAnnotateTextTones() co
     return d->aiAnnotateTextTones;
 }
 
-}
+} // namespace Digikam

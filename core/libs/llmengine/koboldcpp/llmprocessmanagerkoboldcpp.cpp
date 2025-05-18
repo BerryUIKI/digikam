@@ -40,7 +40,12 @@ LLMProcessManagerKoboldCpp::LLMProcessManagerKoboldCpp(const LLMProcessSettings&
 {
     m_engineType = LLMEngineType::KoboldCpp;
 
-    m_settings.apiPort = findUnusedTcpPort();
+
+
+    if (!m_settings.external)
+    {
+        m_settings.apiPort = findUnusedTcpPort();
+    }
 }
 
 LLMProcessManagerKoboldCpp::~LLMProcessManagerKoboldCpp()
@@ -49,65 +54,71 @@ LLMProcessManagerKoboldCpp::~LLMProcessManagerKoboldCpp()
 
 bool LLMProcessManagerKoboldCpp::startEngine()
 {
-    if (!m_settings.isValid() || m_settings.mmprojPath.isEmpty())
-    {
-        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot start KoboldCpp engine: invalid settings";
-        Q_EMIT signalEngineStarted(false);
-        return false;
-    }
-
     QStringList args;
 
-    // add normal arguments
+    // skip creating the process if it is external
 
-    if (LLMEngineType::KoboldCpp == m_engineType)
+    if (!m_settings.external)
     {
-        // add the model path
 
-        args << m_settings.modelPath;
-
-        // add the mmproj path if it exists
-
-        if (!m_settings.mmprojPath.isEmpty())
+        if (!m_settings.isValid() || m_settings.mmprojPath.isEmpty())
         {
-            args << QStringLiteral("--mmproj") << m_settings.mmprojPath;
+            qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot start KoboldCpp engine: invalid settings";
+            // Q_EMIT signalEngineStarted(false);
+            return false;
         }
-        args << QStringLiteral("--contextsize") << QString::number(m_settings.contextSize)
-             << QStringLiteral("--chatcompletionsadapter") << m_settings.chatCompletionsAdapter
-             << QStringLiteral("--visionmaxres") << QStringLiteral("2048");
-    }
-    else if (LLMEngineType::LlamaCpp == m_engineType)
-    {
-        args << QStringLiteral("--model") << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/google_gemma-3-4b-it-Q6_K.gguf")
-             << QStringLiteral("--mmproj") << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/mmproj-google_gemma-3-4b-it-f16.gguf") 
-             << QStringLiteral("--ctx-size") << QString::number(m_settings.contextSize)
-             << QStringLiteral("--n-gpu-layers") << QStringLiteral("0");
-    }
 
-    args << QStringLiteral("--host") << m_settings.apiHost    
-         << QStringLiteral("--port") << QString::number(m_settings.apiPort);
+        // add normal arguments
 
-    // used for testing engine startup failure
-    // args << QStringLiteral("--badparam");
+        if (LLMEngineType::KoboldCpp == m_engineType)
+        {
+            // add the model path
 
-    // add additional arguments if any
-    
-    if (m_settings.additionalArgs.size() > 0)
-    {
-        args << m_settings.additionalArgs;
-    }
+            args << m_settings.modelPath;
 
-    if (LLMEngineType::KoboldCpp == m_engineType)
-    {
-        // koboldcpp path
+            // add the mmproj path if it exists
 
-        m_executablePath = QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/koboldcpp-1_90_2");
-    }
-    else if (LLMEngineType::LlamaCpp == m_engineType)
-    {
-        // llamacpp path
+            if (!m_settings.mmprojPath.isEmpty())
+            {
+                args << QStringLiteral("--mmproj") << m_settings.mmprojPath;
+            }
+            args << QStringLiteral("--contextsize") << QString::number(m_settings.contextSize)
+                << QStringLiteral("--chatcompletionsadapter") << m_settings.chatCompletionsAdapter
+                << QStringLiteral("--visionmaxres") << QStringLiteral("2048");
+        }
+        else if (LLMEngineType::LlamaCpp == m_engineType)
+        {
+            args << QStringLiteral("--model") << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/google_gemma-3-4b-it-Q6_K.gguf")
+                << QStringLiteral("--mmproj") << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/mmproj-google_gemma-3-4b-it-f16.gguf") 
+                << QStringLiteral("--ctx-size") << QString::number(m_settings.contextSize)
+                << QStringLiteral("--n-gpu-layers") << QStringLiteral("0");
+        }
 
-        m_executablePath = QStringLiteral("/Users/michmill/Projects/llamacpp/bin/llama-server");
+        args << QStringLiteral("--host") << m_settings.apiHost    
+            << QStringLiteral("--port") << QString::number(m_settings.apiPort);
+
+        // used for testing engine startup failure
+        // args << QStringLiteral("--badparam");
+
+        // add additional arguments if any
+        
+        if (m_settings.additionalArgs.size() > 0)
+        {
+            args << m_settings.additionalArgs;
+        }
+
+        if (LLMEngineType::KoboldCpp == m_engineType)
+        {
+            // koboldcpp path
+
+            m_executablePath = QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/koboldcpp-1_90_2");
+        }
+        else if (LLMEngineType::LlamaCpp == m_engineType)
+        {
+            // llamacpp path
+
+            m_executablePath = QStringLiteral("/Users/michmill/Projects/llamacpp/bin/llama-server");
+        }
     }
     
     return LLMProcessManager::startEngine(args);
@@ -236,8 +247,8 @@ QByteArray LLMProcessManagerKoboldCpp::submitRequest(const QString& function, co
     QByteArray responseData;
     bool requestError = false;
 
-    QString baseUrl = QString::fromLatin1("http://%1:%2").arg(m_settings.apiHost).arg(m_settings.apiPort);
-    // QString baseUrl = QString::fromLatin1("http://%1:%2").arg(m_settings.apiHost).arg(QString::number(64180));
+    QString baseUrl = createBaseUrl();
+    // QString baseUrl = QString::fromLatin1("http://%1:%2").arg(m_settings.apiHost).arg(m_settings.apiPort);
 
     if (QLatin1Char('/') != function.at(0))
     {
@@ -298,6 +309,30 @@ QByteArray LLMProcessManagerKoboldCpp::submitRequest(const QString& function, co
 
     // Return the raw response data directly
     return responseData;
+}
+
+QString LLMProcessManagerKoboldCpp::createBaseUrl() const
+{
+    QString baseUrl;
+    if (m_settings.external)
+    {
+        // check if the host ends with a slash
+        baseUrl = m_settings.apiHost;
+        if (baseUrl.endsWith(QLatin1Char('/')))
+        {
+            baseUrl.chop(1);
+        }
+        if (0 < m_settings.apiPort)
+        {
+            baseUrl += QLatin1String(":%1").arg(QString::number(m_settings.apiPort));
+        }
+    }
+    else
+    {
+        baseUrl = QString::fromLatin1("http://%1:%2").arg(m_settings.apiHost).arg(m_settings.apiPort);
+    }
+
+    return baseUrl;
 }
 
 } // namespace Digikam

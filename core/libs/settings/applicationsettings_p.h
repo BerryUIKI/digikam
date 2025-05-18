@@ -105,16 +105,18 @@ public:
     const QString configAIAnnotateEnableEntry                       = QLatin1String("Enable");
     const QString configAIAnnotateEnableDescriptionEntry            = QLatin1String("Enable Description");
     const QString configAIAnnotateEnableTagsEntry                   = QLatin1String("EnableTags");
-    const QString configAIAnnotateEnableAestheticEntry              = QLatin1String("Enable Aesthetic");
     const QString configAIAnnotateVoiceTypeEntry                    = QLatin1String("Voice Type");
     const QString configAIAnnotateVoicePerspectiveEntry             = QLatin1String("Voice Perspective");
     const QString configAIAnnotateTextTonesEntry                    = QLatin1String("Text Tones");
+    const QString configAIAnnotateLanguageEntry                     = QLatin1String("Language");
     const QString configAIAnnotateLlmEngine                         = QLatin1String("LLM Engine");
     const QString configAIAnnotateMaxTags                           = QLatin1String("Max Tags");
+    const QString configAIAnnotateMaxTokens                         = QLatin1String("Max Tokens");
     const QString configAIAnnotateEnableAdvSetEntry                 = QLatin1String("Enable Advanced Settings");
     const QString configAIAnnotateEnableCustomPromptEntry           = QLatin1String("Enable Custom Prompt");
     const QString configAIAnnotateEnableExternalLLMEntry            = QLatin1String("Enable External LLM");
     const QString configAIAnnotateExternalLLMUrl                    = QLatin1String("External LLM URL");
+    const QString configAIAnnotateExternalLLMPort                   = QLatin1String("External LLM Port");
     const QString configAIAnnotateLlmPrompt                         = QLatin1String("Prompt");
     const QString configAIAnnotateTemperature                       = QLatin1String("Temperature");
     const QString configSidebarTitleStyleEntry                      = QLatin1String("Sidebar Title Style");
@@ -372,17 +374,18 @@ public:
     bool                                         aiAnnotateEnableAdvSet                             = false;
     bool                                         aiAnnotateEnableDescription                        = true;
     bool                                         aiAnnotateEnableTags                               = true;
-    bool                                         aiAnnotateEnableAesthetic                          = true;
     bool                                         aiAnnotateEnableCustomPrompt                       = false;
     bool                                         aiAnnotateEnableExternalLLM                        = false;
-    LLMProcessManagerKoboldCpp::LLMEngineType    aiAnnotateLlmEngine                                          = LLMProcessManagerKoboldCpp::KoboldCpp;
-    int                                          aiAnnotateMaxTags                                   = 15;
+    LLMProcessManagerKoboldCpp::LLMEngineType    aiAnnotateLlmEngine                                = LLMProcessManagerKoboldCpp::KoboldCpp;
+    int                                          aiAnnotateMaxTags                                  = 15;
+    int                                          aiAnnotateMaxTokens                                = 300;
     QString                                      aiAnnotateLlmPrompt;
-    QString                                      aiAnnotateExternalLLMUrl                            = QLatin1String("http://localhost:5000/api");
-    double                                       aiAnnotateLlmTemperature                                     = 0.1;
-    LLMProcessSettings::AIVoiceType              aiAnnotateVoiceType                                        = LLMProcessSettings::Neutral;
-    LLMProcessSettings::AIVoicePerspective       aiAnnotateVoicePerspective                                 = LLMProcessSettings::NoPerspective;
-    LLMProcessSettings::AITextTones              aiAnnotateTextTones                                        = LLMProcessSettings::NoTone;
+    QString                                      aiAnnotateExternalLLMUrl                           = QLatin1String("http://localhost/api");
+    int                                          aiAnnotateExternalLLMPort                          = 5000;
+    double                                       aiAnnotateLlmTemperature                           = 0.5;
+    LLMProcessSettings::AIVoiceType              aiAnnotateVoiceType                                = LLMProcessSettings::Neutral;
+    LLMProcessSettings::AIVoicePerspective       aiAnnotateVoicePerspective                         = LLMProcessSettings::NoPerspective;
+    LLMProcessSettings::AITextTones              aiAnnotateTextTones                                = LLMProcessSettings::NoTone;
 
     /// Grouping operation settings
     ApplicationSettings::OperationModes          groupingOperateOnAll                               = ApplicationSettings::OperationModes();

@@ -58,11 +58,46 @@
 namespace Digikam
 {
 
+// Define static constants
+const int AutotagsPipelineKoboldCpp::DEFAULT_MAX_TOKENS = 300;
+const float AutotagsPipelineKoboldCpp::DEFAULT_TEMPERATURE = 0.5f;
+const QString AutotagsPipelineKoboldCpp::DEFAULT_PROMPT = QLatin1String(
+    "Write the Description using the active voice.\n\n"
+    "The Keywords must be one or two words each. Generate no more than 15 Keywords using a controlled and consistent vocabulary.\n\n"
+    "For both Description and Keywords, make sure to include:\n\n"
+    " - Themes, concepts\n"
+    " - Items, animals, objects\n"
+    " - Structures, landmarks, setting\n"
+    " - Foreground and background elements\n"
+    " - Notable colors, textures, styles\n"
+    " - Actions, activities\n\n"
+    "If humans are present, include:\n"
+    " - Physical appearance\n"
+    " - Gender\n"
+    " - Clothing\n"
+    " - Age range\n"
+    " - Visibly apparent ancestry\n"
+    " - Occupation/role\n"
+    " - Relationships between individuals\n"
+    " - Emotions, expressions, body language\n\n"
+    "Use ENGLISH only as spoken in Great Britian.\n"
+);
+
 AutotagsPipelineKoboldCpp::AutotagsPipelineKoboldCpp(const AutotagsScanSettings& settings)
     : AutotagsPipelineBase(settings),
       m_llmProcessManager(nullptr)
 {
+    // limit the queues to 1 package to avoid using too much memory
+
     maxQueueDepth = 1;
+
+    // apply advanced settings if enabled
+
+    if (ApplicationSettings::instance()->getAIAnnotateAdvSetEnabled())
+    {
+        maxTokens     = ApplicationSettings::instance()->getAIAnnotateMaxTokens();
+        temperature   = ApplicationSettings::instance()->getAIAnnotateTemperature();
+    }
 }
 
 AutotagsPipelineKoboldCpp::~AutotagsPipelineKoboldCpp()
@@ -97,11 +132,18 @@ bool AutotagsPipelineKoboldCpp::start()
         m_llmSettings.mmprojPath = model->info.configName;
         m_llmSettings.chatCompletionsAdapter = model->info.preprocessor;
 
+        if (ApplicationSettings::instance()->getAIAnnotateExternalLLMEnabled())
+        {
+            m_llmSettings.external = true;
+            m_llmSettings.apiHost = ApplicationSettings::instance()->getAIAnnotateExternalLLMUrl();
+            m_llmSettings.apiPort = ApplicationSettings::instance()->getAIAnnotateExternalLLMPort();
+        }
+
         // Create the LLM Process Manager
         m_llmProcessManager = new LLMProcessManagerKoboldCpp(m_llmSettings, this);
         
         // Start the KoboldCpp LLM engine
-        if (!m_llmProcessManager->isEngineRunning())
+        if (!m_llmProcessManager->isEngineRunning() || m_llmSettings.external)
         {
             // Connect signals for engine status updates
             
@@ -217,10 +259,6 @@ void AutotagsPipelineKoboldCpp::cancel()
 
 bool AutotagsPipelineKoboldCpp::finder()
 {
-    if (settings.bqmMode)
-    {
-        return true;
-    }
 
     MLPIPELINE_FINDER_START(QThread::LowPriority, MLPipelineStage::Loader);
 
@@ -236,18 +274,16 @@ bool AutotagsPipelineKoboldCpp::finder()
 
     nextQueue->setMaxDepth(1);
 
-    qlonglong totalItemsToScan = CoreDbAccess().db()->getTotalLLMItemsToScan();
-    QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan(totalItemsToScan);
-
-    // Q_EMIT the updated total item count
-    
-    Q_EMIT signalUpdateItemCount(totalItemsToScan);
-
-    while (!cancelled && !settings.bqmMode)
+    while (!cancelled)
     {
         // Add images without comments to the queue using CoreDB method
 
-        // QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan(totalItemsToScan);
+        QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan();
+
+        // Q_EMIT the updated total item count
+        qlonglong itemCount = totalItemCount + imageIdsWithoutComments.size() - m_imageIdsInProgress.size();
+
+        Q_EMIT signalUpdateItemCount(itemCount);
         
         // Process the images without comments first
         
@@ -684,12 +720,10 @@ bool AutotagsPipelineKoboldCpp::writer()
      */
 
     {
-        // bool tagsChanged = false;
         QStringList tagsPath;
         QStringList displayTags;
         QSet<int> newIds;
         MetadataHub::WriteComponent changedMetadata;
-
 
         // Add the description to the image comments
 
@@ -978,7 +1012,7 @@ QString AutotagsPipelineKoboldCpp::createPrompt() const
 
     // Add the tasks to the prompt
 
-    QString llmPrompt = QLatin1String("The tasks are to describe the image and to come up with a set of keyword tags for it, and to rate the aesthetic quality of the image on a scale of 1 to 3.\n");
+    QString llmPrompt = QLatin1String("The tasks are to describe the image and to come up with a set of keyword tags for it.\n");
 
     if (appSettings->getAIAnnotateAdvSetEnabled() && appSettings->getAIAnnotateCustomPromptEnabled())
     {
@@ -1114,11 +1148,16 @@ QString AutotagsPipelineKoboldCpp::createPrompt() const
     }
 
     // get the current language from the system settings
-    QString currentLanguage = QLocale::system().name();
+    QString currentLanguage = QLocale::system().languageToString(QLocale::system().language());
+    QString currentCountry  = QLocale::system().countryToString(QLocale::system().country());
 
     // define the result format
 
-    llmPrompt += QLatin1String("Use ENGLISH only. The Aesthetic Rating is a scale of 1 (bad) to 3 (good). Generate ONLY a JSON object with the keys Description, Keywords, AestheticRating as follows {\"Description\": str, \"Keywords\": [], \"AestheticRating\": str}\n");
+    llmPrompt += QLatin1String("Use %1 only as spoken in %2."
+                               " Generate ONLY a JSON object with the keys Description, Keywords as follows"
+                               " {\"Description\": str, \"Keywords\": []}\n")
+                            .arg(currentLanguage)
+                            .arg(currentCountry);
                             //    "<EXAMPLE>\n"
                             //    "The example input would be a stock photo of two apples, one red and one green, against a white backdrop and is a hypothetical Description and Keyword for a non-existent image.\n"
                             //    "OUTPUT=```json{\"Description\": \"Two apples next to each other, one green and one red, placed side by side against a white background. There is even and diffuse studio lighting. The fruit is glossy and covered with dropplets of water indicating they are fresh and recently washed. The image emphasizes the cleanliness and appetizing nature of the food\", \"Keywords\": [\"studio shot\",\"green\",\"fruit\",\"red\",\"apple\",\"stock image\",\"health food\",\"appetizing\",\"empty background\",\"grocery\",\"food\",\"snack\"]}```\n"

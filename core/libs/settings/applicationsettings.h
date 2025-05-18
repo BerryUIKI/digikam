@@ -503,9 +503,6 @@ public:
     void  setAIAnnotateEnableTags(bool enable);
     bool  getAIAnnotateTagsEnabled() const;
     
-    void  setAIAnnotateEnableAesthetic(bool enable);
-    bool  getAIAnnotateAestheticEnabled() const;
-    
     void  setAIAnnotateEnableCustomPrompt(bool enable);
     bool  getAIAnnotateCustomPromptEnabled() const;
     
@@ -515,11 +512,17 @@ public:
     void  setAIAnnotateExternalLLMUrl(const QString& url);
     QString getAIAnnotateExternalLLMUrl() const;
     
+    void  setAIAnnotateExternalLLMPort(int port);
+    int   getAIAnnotateExternalLLMPort() const;
+    
     void  setAIAnnotateEngine(const LLMProcessManagerKoboldCpp::LLMEngineType engine);
     LLMProcessManagerKoboldCpp::LLMEngineType getAIAnnotateEngine() const;
     
     void  setAIAnnotateMaxTags(int maxTags);
     int   getAIAnnotateMaxTags() const;
+    
+    void  setAIAnnotateMaxTokens(int maxTokens);
+    int   getAIAnnotateMaxTokens() const;
     
     void  setAIAnnotatePrompt(const QString& prompt);
     QString getAIAnnotateCustomPrompt() const;

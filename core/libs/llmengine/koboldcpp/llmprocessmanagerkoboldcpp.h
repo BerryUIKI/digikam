@@ -90,6 +90,15 @@ public Q_SLOTS:
      * Implementation for KoboldCpp specific abort mechanism
      */
     void abortInference() override;
+
+protected:
+
+    /**
+     * @Brief Create the base URL for API requests
+     * @return The base URL for the KoboldCpp API
+     * @note This method constructs the base URL using the host and port settings
+     */
+    QString createBaseUrl() const;
     
 };
 

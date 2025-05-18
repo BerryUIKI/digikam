@@ -37,6 +37,11 @@ class DIGIKAM_GUI_EXPORT AutotagsPipelineKoboldCpp : public AutotagsPipelineBase
 
 public:
 
+    // Static constants for default values
+    static const int DEFAULT_MAX_TOKENS;
+    static const float DEFAULT_TEMPERATURE;
+    static const QString DEFAULT_PROMPT;
+
     explicit AutotagsPipelineKoboldCpp(const AutotagsScanSettings& settings);
     ~AutotagsPipelineKoboldCpp() override;
 
@@ -45,7 +50,6 @@ Q_SIGNALS:
 
     void signalStartupMessage(const QString& message);
 
-    // const QString defaultPrompt = i18n("Describe the image in detail. Include any relevant keywords or tags that may apply to the image. Please separate each keyword with a comma.");
 
 protected:
     enum LLMResponses
@@ -58,7 +62,7 @@ protected:
     const int       minImageSize                    = 312;
     const int       jpegQuality                     = 95;
     const char*     base64ImageType                 = "JPEG";
-    QString         llmPrompt;
+    QString         llmPrompt                       = DEFAULT_PROMPT;
     QString         apiKey;
     const int       llmStartupTimeout               = 300;          /// seconds
     bool            llmReady                        = false;
@@ -66,8 +70,8 @@ protected:
     LLMResponses    llmResponseType                 = LLMResponses::LLMdescriptionAndKeywords;
 
     // LLM model parameters
-    const int   maxTokens                       = 250;
-    const float temperature                     = 0.1f;
+    int         maxTokens                       = DEFAULT_MAX_TOKENS;
+    float       temperature                     = DEFAULT_TEMPERATURE;
     const int   topP                            = 1;
     const int   topK                            = 0;
     const float minP                            = 1.05f;

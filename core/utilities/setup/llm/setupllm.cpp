@@ -44,11 +44,8 @@
 #include "digikam_config.h"
 #include "digikam_debug.h"
 #include "applicationsettings.h"
-#include "dfontselect.h"
 #include "dnuminput.h"
-#include "dimg.h"
 #include "dnnmodelmanager.h"
-#include "dfiledialog.h"
 #include "llmprocessmanagerkoboldcpp.h"
 #include "llmprocesssettings.h"
 
@@ -74,6 +71,8 @@ public:
     QComboBox*          llmEngineCombo                          = nullptr;
     QLineEdit*          externalLLMUrlEdit                      = nullptr;
     QLabel*             externalLLMUrlLabel                     = nullptr;
+    QLineEdit*          externalLLMPortEdit                     = nullptr;
+    QLabel*             externalLLMPortLabel                    = nullptr;
 
     // Custom prompt
     QTextEdit*          promptTextEdit                          = nullptr;
@@ -82,6 +81,8 @@ public:
     // Generation settings
     DDoubleNumInput*    temperatureInput                        = nullptr;
     QLabel*             temperatureLabel                        = nullptr;
+    DIntNumInput*       maxTokensSpinBox                        = nullptr;
+    QLabel*             maxTokensLabel                          = nullptr;
 
     // Enable AI Annotate
     QCheckBox*          enableAIAnnotateCheck                   = nullptr;
@@ -90,7 +91,6 @@ public:
     // Generation components checkboxes
     QCheckBox*          enableAIAnnotateDescriptionCheck        = nullptr;
     QCheckBox*          enableAIAnnotateTagsCheck               = nullptr;
-    QCheckBox*          enableAIAnnotateAestheticCheck          = nullptr;
     QCheckBox*          enableAIAnnotateCustomPromptCheck       = nullptr;
     QCheckBox*          enableAIAnnotateExternalLLMCheck        = nullptr;
     
@@ -149,9 +149,7 @@ SetupLLM::SetupLLM(QWidget* const parent)
     QLabel* const descriptionLabel = new QLabel(d->annotateTab);
     descriptionLabel->setText(i18n("<b>AI Annotate</b> in <b>digiKam</b> brings intelligent automation to your image organization. "
                                   "Leveraging advanced AI, this feature <b>analyzes photos</b>, generates <b>detailed descriptions</b>, "
-                                  "and assigns <b>accurate keyword tags</b>, making searching and categorization effortless. "
-                                  "Additionally, AI Annotate performs <b>aesthetic analysis</b>, rating each image with a "
-                                  "<b>red, yellow, or green flag</b> to quickly indicate visual appeal or quality."));
+                                  "and assigns <b>accurate keyword tags</b>, making searching and categorization effortless."));
     descriptionLabel->setWordWrap(true);
     descriptionLabel->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
     descriptionLabel->setLineWidth(1);
@@ -163,7 +161,9 @@ SetupLLM::SetupLLM(QWidget* const parent)
     // Generation settings
     QGroupBox* const tagGenBox     = new QGroupBox(i18n("Generation Settings"), d->annotateTab);
     QGridLayout* const tagGenLayout = new QGridLayout(tagGenBox);
-    
+
+    // Generation components checkboxes
+
     // Generation components checkboxes
     d->enableAIAnnotateDescriptionCheck = new QCheckBox(i18n("Enable Description Generation"), tagGenBox);
     d->enableAIAnnotateDescriptionCheck->setToolTip(i18n("Generate detailed descriptions of image contents"));
@@ -179,14 +179,10 @@ SetupLLM::SetupLLM(QWidget* const parent)
     d->maxTagsSpinBox->setValue(15);
     d->maxTagsSpinBox->setToolTip(i18n("Set the maximum number of tags to generate per image"));
     
-    d->enableAIAnnotateAestheticCheck = new QCheckBox(i18n("Enable Aesthetic Rating"), tagGenBox);
-    d->enableAIAnnotateAestheticCheck->setToolTip(i18n("Rate image aesthetic quality (red, yellow, green flag)"));
-
-    tagGenLayout->addWidget(d->enableAIAnnotateDescriptionCheck, 0, 0);
-    tagGenLayout->addWidget(d->enableAIAnnotateTagsCheck, 1, 0);
-    tagGenLayout->addWidget(d->maxTagsLabel, 1, 1);
-    tagGenLayout->addWidget(d->maxTagsSpinBox, 1, 2);
-    tagGenLayout->addWidget(d->enableAIAnnotateAestheticCheck, 2, 0);
+    tagGenLayout->addWidget(d->enableAIAnnotateDescriptionCheck, 3, 0);
+    tagGenLayout->addWidget(d->enableAIAnnotateTagsCheck, 4, 0);
+    tagGenLayout->addWidget(d->maxTagsLabel, 4, 1);
+    tagGenLayout->addWidget(d->maxTagsSpinBox, 4, 2);
     
     // Text tones and voice style
     QGroupBox* const textTonesBox = new QGroupBox(i18n("Text Tones and Voice Style"), tagGenBox);
@@ -210,23 +206,23 @@ SetupLLM::SetupLLM(QWidget* const parent)
     d->aiVoicePerspectiveCombo->addItem(i18n("Second Person"), static_cast<int>(LLMProcessSettings::SecondPerson));
     d->aiVoicePerspectiveCombo->addItem(i18n("Third Person"), static_cast<int>(LLMProcessSettings::ThirdPerson));
     d->aiVoicePerspectiveCombo->setToolTip(i18n("Select the narrative perspective used in AI-generated descriptions"));
-    
+
     QHBoxLayout* const voiceLayout = new QHBoxLayout();
     voiceLayout->addWidget(d->aiVoiceTypeLabel);
     voiceLayout->addWidget(d->aiVoiceTypeCombo);
     voiceLayout->addStretch();
     textTonesLayout->addLayout(voiceLayout, 0, 0, 1, 3);
-    
+
     QHBoxLayout* const perspectiveLayout = new QHBoxLayout();
     perspectiveLayout->addWidget(d->aiVoicePerspectiveLabel);
     perspectiveLayout->addWidget(d->aiVoicePerspectiveCombo);
     perspectiveLayout->addStretch();
     textTonesLayout->addLayout(perspectiveLayout, 1, 0, 1, 3);
-    
+
     d->textTonesLabel = new QLabel(i18n("Select one or more tones to apply to AI-generated text:"), textTonesBox);
     d->textTonesLabel->setWordWrap(true);
     textTonesLayout->addWidget(d->textTonesLabel, 2, 0, 1, 3);
-    
+
     // Create and add the tone checkboxes in a grid layout
     d->textToneFriendlyCheck = new QCheckBox(i18n("Friendly"), textTonesBox);
     d->textToneSeriousCheck = new QCheckBox(i18n("Serious"), textTonesBox);
@@ -243,7 +239,7 @@ SetupLLM::SetupLLM(QWidget* const parent)
     d->textToneDramaticCheck = new QCheckBox(i18n("Dramatic"), textTonesBox);
     d->textTonePoeticCheck = new QCheckBox(i18n("Poetic"), textTonesBox);
     d->textToneTechnicalCheck = new QCheckBox(i18n("Technical"), textTonesBox);
-    
+
     // Arrange checkboxes in a 5x3 grid
     textTonesLayout->addWidget(d->textToneFriendlyCheck, 3, 0);
     textTonesLayout->addWidget(d->textToneSeriousCheck, 3, 1);
@@ -260,47 +256,60 @@ SetupLLM::SetupLLM(QWidget* const parent)
     textTonesLayout->addWidget(d->textToneDramaticCheck, 7, 0);
     textTonesLayout->addWidget(d->textTonePoeticCheck, 7, 1);
     textTonesLayout->addWidget(d->textToneTechnicalCheck, 7, 2);
-    
-    tagGenLayout->addWidget(textTonesBox, 5, 0, 1, 3);
-    
+
+    tagGenLayout->addWidget(textTonesBox, 6, 0, 1, 3);
+
     annotateTabLayout->addWidget(tagGenBox);
 
     // Advanced Settings section
     QGroupBox* const advancedBox = new QGroupBox(i18n("Advanced Settings"), d->annotateTab);
     QVBoxLayout* const advancedLayout = new QVBoxLayout(advancedBox);
-    
+
     // Checkbox to enable advanced settings
     d->enableAIAnnotateAdvSetCheck = new QCheckBox(i18n("Enable Advanced Settings"), advancedBox);
     d->enableAIAnnotateAdvSetCheck->setToolTip(i18n("Enable advanced options for fine-tuning AI generation"));
     advancedLayout->addWidget(d->enableAIAnnotateAdvSetCheck);
-    
+
     // Container for advanced settings
     QWidget* const advancedSettingsContainer = new QWidget(advancedBox);
     QVBoxLayout* const advContainerLayout = new QVBoxLayout(advancedSettingsContainer);
     advContainerLayout->setContentsMargins(20, 10, 0, 0);  // Add left margin for indentation
-    
+
     // Temperature settings (moved to advanced settings)
     QHBoxLayout* const tempLayout = new QHBoxLayout();
     d->temperatureLabel = new QLabel(i18n("Temperature:"), advancedSettingsContainer);
     d->temperatureLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     d->temperatureInput = new DDoubleNumInput(advancedSettingsContainer);
-    d->temperatureInput->setRange(0.0, 1.0, 0.1);
-    d->temperatureInput->setValue(0.1);  // Default is 0.1 for more consistent results
+    d->temperatureInput->setRange(0.1, 1.9, 0.2);
+    d->temperatureInput->setValue(0.5);  // Default is 0.5 for a balance of consistency and creativity
     d->temperatureInput->setToolTip(i18n("Controls randomness in generation (higher = more creative, lower = more deterministic)"));
     tempLayout->addWidget(d->temperatureLabel);
     tempLayout->addWidget(d->temperatureInput);
     tempLayout->addStretch();
     advContainerLayout->addLayout(tempLayout);
     
+    // Max tokens settings 
+    QHBoxLayout* const maxTokensLayout = new QHBoxLayout();
+    d->maxTokensLabel = new QLabel(i18n("Max Tokens:"), advancedSettingsContainer);
+    d->maxTokensLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    d->maxTokensSpinBox = new DIntNumInput(advancedSettingsContainer);
+    d->maxTokensSpinBox->setRange(250, 500, 50);
+    d->maxTokensSpinBox->setValue(300);  // Default is 300
+    d->maxTokensSpinBox->setToolTip(i18n("Maximum number of tokens (words) to generate as a response"));
+    maxTokensLayout->addWidget(d->maxTokensLabel);
+    maxTokensLayout->addWidget(d->maxTokensSpinBox);
+    maxTokensLayout->addStretch();
+    advContainerLayout->addLayout(maxTokensLayout);
+
     // Voice type and text tones have been moved to Generation Settings section
-    
+
     // Custom prompt area (moved to advanced settings)
     QGroupBox* const promptBox = new QGroupBox(i18n("Custom Prompt"), advancedSettingsContainer);
     QVBoxLayout* const promptLayout = new QVBoxLayout(promptBox);
 
     d->enableAIAnnotateCustomPromptCheck = new QCheckBox(i18n("Enable Custom Prompt"), promptBox);
     d->enableAIAnnotateCustomPromptCheck->setToolTip(i18n("Use the custom prompt instead of the auto-generated one"));
-    
+
     d->promptTextEdit = new QTextEdit(promptBox);
     d->promptTextEdit->setMinimumHeight(150);
     d->promptTextEdit->setToolTip(i18n("Enter a custom prompt to send to the LLM"));
@@ -312,7 +321,7 @@ SetupLLM::SetupLLM(QWidget* const parent)
     promptLayout->addWidget(d->promptTextEdit);
     promptLayout->addWidget(d->resetPromptButton);
     advContainerLayout->addWidget(promptBox);
-    
+
     advancedLayout->addWidget(advancedSettingsContainer);
     annotateTabLayout->addWidget(advancedBox);
     annotateTabLayout->addStretch();
@@ -320,49 +329,66 @@ SetupLLM::SetupLLM(QWidget* const parent)
     // External LLM Service section
     QGroupBox* const externalLLMBox = new QGroupBox(i18n("External LLM Service"), d->annotateTab);
     QVBoxLayout* const externalLLMLayout = new QVBoxLayout(externalLLMBox);
-    
+
     // Checkbox to enable external LLM service
     d->enableAIAnnotateExternalLLMCheck = new QCheckBox(i18n("Enable External LLM Service"), externalLLMBox);
     d->enableAIAnnotateExternalLLMCheck->setToolTip(i18n("Enable or disable the external LLM service"));
     externalLLMLayout->addWidget(d->enableAIAnnotateExternalLLMCheck);
-    
+
     // Container for external LLM settings
     QWidget* const externalLLMSettingsContainer = new QWidget(externalLLMBox);
     QVBoxLayout* const externalLLMContainerLayout = new QVBoxLayout(externalLLMSettingsContainer);
     externalLLMContainerLayout->setContentsMargins(20, 10, 0, 0);  // Add left margin for indentation
-    
+
     // LLM Engine selection
     QHBoxLayout* const engineLayout = new QHBoxLayout();
-    
+
     d->engineLabel = new QLabel(i18n("External LLM Service API Style:"), externalLLMSettingsContainer);
     d->engineLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    
+
     d->llmEngineCombo = new QComboBox(externalLLMSettingsContainer);
     d->llmEngineCombo->addItem(i18n("KoboldCPP"), static_cast<int>(LLMProcessManagerKoboldCpp::KoboldCpp));
     d->llmEngineCombo->addItem(i18n("LlamaCPP"), static_cast<int>(LLMProcessManagerKoboldCpp::LlamaCpp));
     d->llmEngineCombo->setToolTip(i18n("Select the LLM engine to use for text generation"));
-    
+
     engineLayout->addWidget(d->engineLabel);
     engineLayout->addWidget(d->llmEngineCombo);
     engineLayout->addStretch();
-    
+
     // URL for external LLM service
     QHBoxLayout* const urlLayout = new QHBoxLayout();
-    
-    d->externalLLMUrlLabel = new QLabel(i18n("URL:"), externalLLMSettingsContainer);
+
+    d->externalLLMUrlLabel = new QLabel(i18n("Host URL:"), externalLLMSettingsContainer);
     d->externalLLMUrlLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    
+
     d->externalLLMUrlEdit = new QLineEdit(externalLLMSettingsContainer);
-    d->externalLLMUrlEdit->setPlaceholderText(i18n("http://localhost:5000/api"));
-    d->externalLLMUrlEdit->setToolTip(i18n("Enter the URL for the external LLM service"));
-    
+    d->externalLLMUrlEdit->setPlaceholderText(i18n("http://localhost"));
+    d->externalLLMUrlEdit->setToolTip(i18n("Enter the URL for the external LLM service without the port number (port is specified separately)"));
+
     urlLayout->addWidget(d->externalLLMUrlLabel);
     urlLayout->addWidget(d->externalLLMUrlEdit);
-    
+
+    // Port number for external LLM service
+    QHBoxLayout* const portLayout = new QHBoxLayout();
+
+    d->externalLLMPortLabel = new QLabel(i18n("Port:"), externalLLMSettingsContainer);
+    d->externalLLMPortLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+
+    d->externalLLMPortEdit = new QLineEdit(externalLLMSettingsContainer);
+    d->externalLLMPortEdit->setPlaceholderText(i18n("5000"));
+    d->externalLLMPortEdit->setToolTip(i18n("Enter the port number for the external LLM service (1-65535)"));
+    d->externalLLMPortEdit->setValidator(new QIntValidator(1, 65535, d->externalLLMPortEdit));
+    d->externalLLMPortEdit->setMaximumWidth(100);
+
+    portLayout->addWidget(d->externalLLMPortLabel);
+    portLayout->addWidget(d->externalLLMPortEdit);
+    portLayout->addStretch();
+
     externalLLMContainerLayout->addLayout(engineLayout);
     externalLLMContainerLayout->addLayout(urlLayout);
+    externalLLMContainerLayout->addLayout(portLayout);
     externalLLMLayout->addWidget(externalLLMSettingsContainer);
-    
+
     annotateTabLayout->addWidget(externalLLMBox);
     annotateTabLayout->addSpacing(spacing);
 
@@ -401,7 +427,7 @@ SetupLLM::SetupLLM(QWidget* const parent)
                                                       " - Occupation/role\n"
                                                       " - Relationships between individuals\n"
                                                       " - Emotions, expressions, body language\n\n"
-                                                      "Use ENGLISH only.\n");
+                                                      "Use ENGLISH only as spoken in Great Britian.\n");
 
                 d->promptTextEdit->setPlainText(defaultPrompt);
             });
@@ -457,7 +483,6 @@ void SetupLLM::readSettings()
     // Component checkboxes
     d->enableAIAnnotateDescriptionCheck->setChecked(settings->getAIAnnotateDescriptionEnabled());
     d->enableAIAnnotateTagsCheck->setChecked(settings->getAIAnnotateTagsEnabled());
-    d->enableAIAnnotateAestheticCheck->setChecked(settings->getAIAnnotateAestheticEnabled());
     d->enableAIAnnotateCustomPromptCheck->setChecked(settings->getAIAnnotateCustomPromptEnabled());
     d->enableAIAnnotateExternalLLMCheck->setChecked(settings->getAIAnnotateExternalLLMEnabled());
     
@@ -467,12 +492,14 @@ void SetupLLM::readSettings()
     
     // External LLM
     d->externalLLMUrlEdit->setText(settings->getAIAnnotateExternalLLMUrl());
+    d->externalLLMPortEdit->setText(QString::number(settings->getAIAnnotateExternalLLMPort()));
 
     // Custom prompt
     d->promptTextEdit->setPlainText(settings->getAIAnnotateCustomPrompt());
     
     // Generation settings
     d->temperatureInput->setValue(settings->getAIAnnotateTemperature());
+    d->maxTokensSpinBox->setValue(settings->getAIAnnotateMaxTokens());
     
     // Voice type and perspective
     d->aiVoiceTypeCombo->setCurrentIndex(d->aiVoiceTypeCombo->findData(static_cast<int>(settings->getAIAnnotateVoice())));
@@ -522,7 +549,6 @@ void SetupLLM::applySettings()
     // Component toggles
     settings->setAIAnnotateEnableDescription(d->enableAIAnnotateDescriptionCheck->isChecked());
     settings->setAIAnnotateEnableTags(d->enableAIAnnotateTagsCheck->isChecked());
-    settings->setAIAnnotateEnableAesthetic(d->enableAIAnnotateAestheticCheck->isChecked());
     settings->setAIAnnotateEnableCustomPrompt(d->enableAIAnnotateCustomPromptCheck->isChecked());
     settings->setAIAnnotateEnableExternalLLM(d->enableAIAnnotateExternalLLMCheck->isChecked());
     
@@ -532,12 +558,18 @@ void SetupLLM::applySettings()
     
     // External LLM
     settings->setAIAnnotateExternalLLMUrl(d->externalLLMUrlEdit->text());
+    
+    // Convert port text to integer, with fallback to 5000 if conversion fails
+    bool ok = false;
+    int port = d->externalLLMPortEdit->text().toInt(&ok);
+    settings->setAIAnnotateExternalLLMPort(ok ? port : 5000);
 
     // Custom prompt
     settings->setAIAnnotatePrompt(d->promptTextEdit->toPlainText());
 
     // Generation settings
     settings->setAIAnnotateTemperature(d->temperatureInput->value());
+    settings->setAIAnnotateMaxTokens(d->maxTokensSpinBox->value());
     
     // Voice style and perspective
     settings->setAIAnnotateVoice(static_cast<LLMProcessSettings::AIVoiceType>(d->aiVoiceTypeCombo->currentData().toInt()));
@@ -573,7 +605,6 @@ void SetupLLM::slotEnableAIAnnotateSettings(bool enable)
     d->enableAIAnnotateAdvSetCheck->setEnabled(enable);
     d->enableAIAnnotateDescriptionCheck->setEnabled(enable);
     d->enableAIAnnotateTagsCheck->setEnabled(enable);
-    d->enableAIAnnotateAestheticCheck->setEnabled(enable);
     d->aiVoiceTypeCombo->setEnabled(enable);
     d->aiVoiceTypeLabel->setEnabled(enable);
     d->aiVoicePerspectiveCombo->setEnabled(enable);
@@ -598,6 +629,8 @@ void SetupLLM::slotEnableAIAnnotateAdvancedSettings(bool enable)
     d->resetPromptButton->setEnabled(enable && d->enableAIAnnotateCustomPromptCheck->isChecked() && d->enableAIAnnotateCustomPromptCheck->isEnabled());
     d->temperatureInput->setEnabled(enable && d->enableAIAnnotateAdvSetCheck->isEnabled());
     d->temperatureLabel->setEnabled(enable && d->enableAIAnnotateAdvSetCheck->isEnabled());
+    d->maxTokensSpinBox->setEnabled(enable && d->enableAIAnnotateAdvSetCheck->isEnabled());
+    d->maxTokensLabel->setEnabled(enable && d->enableAIAnnotateAdvSetCheck->isEnabled());
 }
 
 void SetupLLM::slotEnableAIAnnotateCustomPrompt(bool enable)
@@ -637,6 +670,8 @@ void SetupLLM::slotEnableAIAnnotateExternalLLM(bool enable)
     d->llmEngineCombo->setEnabled(isEnabled);
     d->externalLLMUrlEdit->setEnabled(isEnabled);
     d->externalLLMUrlLabel->setEnabled(isEnabled);
+    d->externalLLMPortEdit->setEnabled(isEnabled);
+    d->externalLLMPortLabel->setEnabled(isEnabled);
 }
 
 } // namespace Digikam

@@ -4890,22 +4890,20 @@ void CoreDB::writeSettings()
     group.writeEntry(d->configRecentlyUsedTags, d->recentlyAssignedTags);
 }
 
-QList<qlonglong> CoreDB::getNextLLMItemsToScan(int maxCount) const
+QList<qlonglong> CoreDB::getNextLLMItemsToScan() const
 {
     QList<QVariant> values;
     
     // Execute SQL query to find images without comments
     // Include only still image categories
 
-    d->db->execSql(QString::fromUtf8("SELECT Images.id "
+    d->db->execSql(QString::fromUtf8("SELECT DISTINCT Images.id "
                                      "FROM Images "
                                      "LEFT JOIN ImageComments ON Images.id = ImageComments.imageid "
                                      "WHERE ImageComments.id IS NULL OR ImageComments.comment IS NULL "
                                      "AND Images.category = ? "
-                                     "ORDER BY Images.id DESC "
-                                     "LIMIT ?;"),
+                                     "ORDER BY Images.id DESC; "),
                    DatabaseItem::Category::Image,
-                   maxCount, 
                    &values);
 
     QList<qlonglong> imageIds;
@@ -4928,12 +4926,11 @@ qlonglong CoreDB::getTotalLLMItemsToScan() const
     // Execute SQL query to find images without comments
     // Include only still image categories
 
-    d->db->execSql(QString::fromUtf8("SELECT COUNT(Images.id) "
+    d->db->execSql(QString::fromUtf8("SELECT COUNT(DISTINCT Images.id) "
                                      "FROM Images "
                                      "LEFT JOIN ImageComments ON Images.id = ImageComments.imageid "
                                      "WHERE ImageComments.id IS NULL OR ImageComments.comment IS NULL "
-                                     "AND Images.category = ? "
-                                     "ORDER BY Images.id DESC; "),
+                                     "AND Images.category = ?; "),
                    DatabaseItem::Category::Image,
                    &values);
 

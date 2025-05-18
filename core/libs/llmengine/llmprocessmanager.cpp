@@ -39,6 +39,12 @@ LLMProcessManager::LLMProcessManager(const LLMProcessSettings& settings, QObject
       m_lastErrorMessage(QString()),
       m_settings(settings)
 {
+    if (m_settings.external)
+    {
+        // External engine, no need to start a process
+        return;
+    }
+
     // get the working directory for the process
 
     QString m_workingDir = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation);
@@ -87,13 +93,25 @@ LLMProcessManager::~LLMProcessManager()
     {
         shutdownEngine();
     }
+
+    if (m_process)
+    {
+        m_process->disconnect();
+        delete m_process;
+        m_process = nullptr;
+    }
     
-    delete m_process;
-    m_process = nullptr;
 }
 
 bool LLMProcessManager::startEngine(const QStringList& args)
 {
+    if (m_settings.external)
+    {
+        // External engine, no need to start a process
+        QTimer::singleShot(100, this, &LLMProcessManager::slotProcessStarted);
+        return true;
+    }
+
     if (isEngineRunning())
     {
         m_lastErrorMessage = QLatin1String("Engine is already running");
@@ -124,7 +142,8 @@ void LLMProcessManager::slotProcessStarted()
 
     // begin checking for readiness
 
-    if (m_process && (QProcess::Running == m_process->state()))
+    if ((m_process && (QProcess::Running == m_process->state())) ||
+        m_settings.external)
     {
         // check if the engine is ready for inference by sending a test request
         
@@ -154,7 +173,8 @@ void LLMProcessManager::applySettings(const LLMProcessSettings& settings)
 
 bool LLMProcessManager::isEngineRunning() const
 {
-    return (m_process && m_process->state() != QProcess::NotRunning);
+    return ((m_process && m_process->state() != QProcess::NotRunning) || 
+            m_settings.external);
 }
 
 QProcess::ProcessState LLMProcessManager::engineState() const
@@ -287,6 +307,14 @@ void LLMProcessManager::shutdownEngine()
     qCDebug(DIGIKAM_LLMENGINE_LOG) << "LLMProcessManager::shutdownEngine: Shutting down LLM engine";
 
     m_exiting = true;
+
+    if (m_settings.external)
+    {
+        // External engine, no need to shut down
+        // fake the shutdown signal
+        Q_EMIT signalEngineStopped(0);
+        return;
+    }
 
     if (m_process && (m_process->state() != QProcess::NotRunning))
     {
