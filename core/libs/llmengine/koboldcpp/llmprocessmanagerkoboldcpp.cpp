@@ -40,12 +40,16 @@ LLMProcessManagerKoboldCpp::LLMProcessManagerKoboldCpp(const LLMProcessSettings&
 {
     if (!m_settings.external)
     {
+        // local engine settings
+
         m_settings.apiPort = findUnusedTcpPort();
         m_settings.apiHost = QStringLiteral("127.0.0.1");
         m_engineType = LLMProcessSettings::LLMEngineType::LlamaCpp;
     }
     else
     {
+        // external engine settings
+
         m_engineType = m_settings.engineType;
     }
 }
@@ -66,7 +70,6 @@ bool LLMProcessManagerKoboldCpp::startEngine()
         if (!m_settings.isValid() || m_settings.mmprojPath.isEmpty())
         {
             qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot start KoboldCpp engine: invalid settings";
-            // Q_EMIT signalEngineStarted(false);
             return false;
         }
 
@@ -82,21 +85,21 @@ bool LLMProcessManagerKoboldCpp::startEngine()
 
             if (!m_settings.mmprojPath.isEmpty())
             {
-                args << QStringLiteral("--mmproj") << m_settings.mmprojPath;
+                args << QStringLiteral("--mmproj")              << m_settings.mmprojPath;
             }
-            args << QStringLiteral("--contextsize") << QString::number(m_settings.contextSize)
-                << QStringLiteral("--chatcompletionsadapter") << m_settings.chatCompletionsAdapter
-                << QStringLiteral("--visionmaxres") << QStringLiteral("2048");
+            args << QStringLiteral("--contextsize")             << QString::number(m_settings.contextSize)
+                 << QStringLiteral("--chatcompletionsadapter")  << m_settings.chatCompletionsAdapter
+                 << QStringLiteral("--visionmaxres")            << QStringLiteral("2048");
         }
         else if (LLMProcessSettings::LLMEngineType::LlamaCpp == m_engineType)
         {
-            args << QStringLiteral("--model") << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/google_gemma-3-4b-it-Q6_K.gguf")
-                << QStringLiteral("--mmproj") << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/mmproj-google_gemma-3-4b-it-f16.gguf") 
-                << QStringLiteral("--ctx-size") << QString::number(m_settings.contextSize);
+            args << QStringLiteral("--model")                   << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/google_gemma-3-4b-it-Q6_K.gguf")
+                 << QStringLiteral("--mmproj")                  << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/mmproj-google_gemma-3-4b-it-f16.gguf") 
+                 << QStringLiteral("--ctx-size")                << QString::number(m_settings.contextSize);
         }
 
-        args << QStringLiteral("--host") << m_settings.apiHost    
-            << QStringLiteral("--port") << QString::number(m_settings.apiPort);
+        args << QStringLiteral("--host")                        << m_settings.apiHost    
+             << QStringLiteral("--port")                        << QString::number(m_settings.apiPort);
 
         // used for testing engine startup failure
         // args << QStringLiteral("--badparam");
@@ -134,15 +137,18 @@ void LLMProcessManagerKoboldCpp::abortInference()
     }
     
     // Prepare the payload for the abort request
+
     QJsonObject jsonPayload;
     jsonPayload[QStringLiteral("abort")] = true;
     
     // Submit the request to the abort endpoint
     // Use force=true to skip the engine ready check, as we want to be able to abort
     // even if the engine is busy or in a non-ready state
+
     QByteArray response = submitRequest(QStringLiteral("/api/extra/abort"), jsonPayload, POST, true);
     
     // Log the result
+
     if (!response.isEmpty())
     {
         qCDebug(DIGIKAM_LLMENGINE_LOG) << "Successfully aborted KoboldCpp inference";
@@ -243,13 +249,13 @@ QByteArray LLMProcessManagerKoboldCpp::submitRequest(const QString& function, co
     }
 
     // Create a local network manager for this request
+
     QNetworkAccessManager networkManager;
     QEventLoop loop;
     QByteArray responseData;
     bool requestError = false;
 
     QString baseUrl = createBaseUrl();
-    // QString baseUrl = QString::fromLatin1("http://%1:%2").arg(m_settings.apiHost).arg(m_settings.apiPort);
 
     if (QLatin1Char('/') != function.at(0))
     {
@@ -267,7 +273,7 @@ QByteArray LLMProcessManagerKoboldCpp::submitRequest(const QString& function, co
 
     // Submit the request
     qCDebug(DIGIKAM_LLMENGINE_LOG) << "Submitting request to" << url.toString() 
-                                 << "using" << (method == GET ? "GET" : "POST") << "method";
+                                   << "using" << (method == GET ? "GET" : "POST") << "method";
     QNetworkReply* reply = nullptr;
 
     if (GET == method)
@@ -298,6 +304,7 @@ QByteArray LLMProcessManagerKoboldCpp::submitRequest(const QString& function, co
     });
 
     // Wait for the request to complete with a timeout
+
     QTimer::singleShot(m_apiTimeout, &loop, &QEventLoop::quit);
     loop.exec();
 
@@ -316,13 +323,18 @@ QString LLMProcessManagerKoboldCpp::createBaseUrl() const
 {
     QString baseUrl;
     if (m_settings.external)
-    {
-        // check if the host ends with a slash
+    {        
         baseUrl = m_settings.apiHost;
+
+        // check if the host ends with a slash
+
         if (baseUrl.endsWith(QLatin1Char('/')))
         {
             baseUrl.chop(1);
         }
+
+        // add the port if it is not the default
+
         if (0 < m_settings.apiPort)
         {
             baseUrl += QLatin1String(":%1").arg(QString::number(m_settings.apiPort));
