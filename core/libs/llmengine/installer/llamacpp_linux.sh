@@ -35,7 +35,7 @@ if [ $# -lt 1 ] || [ $# -gt 3 ]; then
 fi
 
 DEST_DIR="$1"
-VERSION="${2:-b5425}"  # Use second parameter or default to latest version (b5425)
+VERSION="${2:-b5415}"  # Use second parameter or default to latest version (b5415)
 GPU_TYPE="${3:-auto}"  # Use third parameter or auto-detect
 
 # Create destination directory if it doesn't exist
