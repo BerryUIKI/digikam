@@ -17,7 +17,6 @@
 
 #include <QUrl>
 #include <QNetworkRequest>
-#include <QNetworkReply>
 #include <QNetworkAccessManager>
 #include <QJsonDocument>
 #include <QJsonObject>
@@ -45,6 +44,7 @@ LLMProcessManagerKoboldCpp::LLMProcessManagerKoboldCpp(const LLMProcessSettings&
         m_settings.apiPort = findUnusedTcpPort();
         m_settings.apiHost = QStringLiteral("127.0.0.1");
         m_engineType = LLMProcessSettings::LLMEngineType::LlamaCpp;
+        // m_engineType = m_settings.engineType;
     }
     else
     {
@@ -93,8 +93,10 @@ bool LLMProcessManagerKoboldCpp::startEngine()
         }
         else if (LLMProcessSettings::LLMEngineType::LlamaCpp == m_engineType)
         {
-            args << QStringLiteral("--model")                   << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/google_gemma-3-4b-it-Q6_K.gguf")
-                 << QStringLiteral("--mmproj")                  << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/mmproj-google_gemma-3-4b-it-f16.gguf") 
+            // args << QStringLiteral("--model")                   << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/google_gemma-3-4b-it-Q6_K.gguf")
+            //      << QStringLiteral("--mmproj")                  << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/mmproj-google_gemma-3-4b-it-f16.gguf") 
+            args << QStringLiteral("--model")                   << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/Qwen2-VL-2B-Instruct-Q6_K.gguf")
+                 << QStringLiteral("--mmproj")                  << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/mmproj-Qwen2-VL-2B-Instruct-f16.gguf") 
                  << QStringLiteral("--ctx-size")                << QString::number(m_settings.contextSize);
         }
 
@@ -134,6 +136,14 @@ void LLMProcessManagerKoboldCpp::abortInference()
     {
         qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot abort inference: KoboldCpp engine is not running";
         return;
+    }
+
+    if (m_replyPtr)
+    {
+        // If a reply is already in progress, we need to abort it first
+
+        (*m_replyPtr)->abort();
+        m_replyPtr = nullptr;
     }
     
     // Prepare the payload for the abort request
@@ -276,6 +286,11 @@ QByteArray LLMProcessManagerKoboldCpp::submitRequest(const QString& function, co
                                    << "using" << (method == GET ? "GET" : "POST") << "method";
     QNetworkReply* reply = nullptr;
 
+    if (!force)
+    {
+        m_replyPtr = &reply;
+    }
+
     if (GET == method)
     {
         reply = networkManager.get(request);
@@ -307,6 +322,8 @@ QByteArray LLMProcessManagerKoboldCpp::submitRequest(const QString& function, co
 
     QTimer::singleShot(m_apiTimeout, &loop, &QEventLoop::quit);
     loop.exec();
+
+    m_replyPtr = nullptr;
 
     // If there was an error or timeout, return an empty byte array
     if (requestError || responseData.isEmpty())

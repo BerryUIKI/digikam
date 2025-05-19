@@ -15,6 +15,10 @@
 
 #pragma once
 
+// Qt includes
+
+#include <QNetworkReply>
+
 // Local includes
 
 #include "digikam_export.h"
@@ -88,7 +92,13 @@ public Q_SLOTS:
 protected:
 
     /**
-     * @Brief Create the base URL for API requests
+     * @brief network reply object for handling API responses
+     * @note this is NOT set if force=true for the request
+     */
+    QNetworkReply** m_replyPtr                      = nullptr;
+
+    /**
+     * @brief Create the base URL for API requests
      * @return The base URL for the KoboldCpp API
      * @note This method constructs the base URL using the host and port settings
      */

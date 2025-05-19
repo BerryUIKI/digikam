@@ -197,6 +197,14 @@ protected Q_SLOTS:
 protected:
 
     /**
+     * @brief Start the LLM engine process with a specific priority
+     * @param process The QProcess instance to start
+     * @param program The path to the executable
+     * @param args The arguments to pass to the executable
+     */
+    void startProcessWithPriority(QProcess* process, const QString& program, const QStringList& args);
+    
+    /**
      * @brief Start the LLM engine process asynchronously
      * @return True if the process launch was initiated successfully
      * @note The actual engine startup result will be communicated via the engineStarted signal

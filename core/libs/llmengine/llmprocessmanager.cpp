@@ -25,6 +25,11 @@
 #include <QHostAddress>
 #include <QAbstractSocket>
 
+// System includes
+#if defined(Q_OS_MAC) || defined(Q_OS_UNIX)
+#include <sys/resource.h>  // For setpriority
+#endif
+
 // Local includes
 
 #include "digikam_debug.h"
@@ -131,9 +136,53 @@ bool LLMProcessManager::startEngine(const QStringList& args)
 
     // Start the process
 
-    m_process->start(m_executablePath, args);
+    startProcessWithPriority(m_process, m_executablePath, args);
+    // m_process->start(m_executablePath, args);
 
     return true; // Return true if process start was initiated (not waiting for actual startup)
+}
+
+void LLMProcessManager::startProcessWithPriority(QProcess* process, const QString& program, const QStringList& args)
+{
+    // Start process with idle priority to minimize impact on system performance
+#ifdef Q_OS_WIN
+    // On Windows, we use the CREATE_PROCESS_BELOW_NORMAL_PRIORITY_CLASS flag
+    QProcess::CreateProcessArgumentModifier modifier = [](QProcess::CreateProcessArguments* args) {
+        // Set the process priority to below normal
+        args->flags |= 0x00004000; // CREATE_BELOW_NORMAL_PRIORITY_CLASS
+    };
+    
+    process->setCreateProcessArgumentsModifier(modifier);
+    process->start(program, args);
+#elif defined(Q_OS_MAC)
+    // On macOS, we start the process and then use setpriority() to set the priority
+    process->start(program, args);
+    
+    // Give the process a moment to start up
+    if (process->waitForStarted(500)) {
+        qint64 pid = process->processId();
+        if (pid > 0) {
+            // Use setpriority to set the process priority to idle (lowest)
+            // PRIO_PROCESS = 0, 20 = lowest priority
+            if (setpriority(0, pid, 20) != 0) {
+                qCWarning(DIGIKAM_LLMENGINE_LOG) << "Failed to set process priority for PID" << pid;
+            }
+            else {
+                qCDebug(DIGIKAM_LLMENGINE_LOG) << "Successfully set low priority for process" << pid;
+            }
+        }
+    }
+#else
+    // On Linux and other Unix variants, we use nice to start with lower priority
+    QStringList nicedArgs;
+    nicedArgs << QLatin1String("nice");   // Run with modified scheduling priority
+    nicedArgs << QLatin1String("-n");     // Specify the nice increment
+    nicedArgs << QLatin1String("19");     // Highest nice value (lowest priority)
+    nicedArgs << program;                 // The actual program to run
+    nicedArgs << args;                    // Add the original arguments
+    
+    process->start(QLatin1String("/usr/bin/env"), nicedArgs);
+#endif
 }
 
 void LLMProcessManager::slotProcessStarted()
@@ -202,7 +251,7 @@ void LLMProcessManager::slotProcessEngineOutput(const QByteArray& data)
     if (!data.isEmpty())
     {
         QString output = QString::fromUtf8(data);
-        qCDebug(DIGIKAM_LLMENGINE_LOG) << "LLM Engine output:" << output;
+        qCDebug(DIGIKAM_LLMENGINE_LOG) << "LLM Engine (1):" << output;
     }
 }
 
@@ -210,10 +259,10 @@ void LLMProcessManager::slotProcessEngineError(const QByteArray& data)
 {
     if (!data.isEmpty())
     {
-        QString error = QString::fromUtf8(data);
-        qCWarning(DIGIKAM_LLMENGINE_LOG) << "LLM Engine error:" << error;
-        m_lastErrorMessage = error;
-        Q_EMIT signalEngineError(error);
+        QString output = QString::fromUtf8(data);
+        qCDebug(DIGIKAM_LLMENGINE_LOG) << "LLM Engine (2):" << output;
+        m_lastErrorMessage = output;
+        Q_EMIT signalEngineError(output);
     }
 }
 
