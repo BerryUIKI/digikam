@@ -314,7 +314,7 @@ void ApplicationSettings::readSettings()
     d->aiAnnotateEnableCustomPrompt             = aiGroup.readEntry(d->configAIAnnotateEnableCustomPromptEntry, false);
     d->aiAnnotateEnableExternalLLM              = aiGroup.readEntry(d->configAIAnnotateEnableExternalLLMEntry, false);
     
-    d->aiAnnotateLlmEngine                      = static_cast<LLMProcessManagerKoboldCpp::LLMEngineType>(aiGroup.readEntry(d->configAIAnnotateLlmEngine, static_cast<int>(LLMProcessManagerKoboldCpp::KoboldCpp)));
+    d->aiAnnotateLlmEngine                      = static_cast<LLMProcessSettings::LLMEngineType>(aiGroup.readEntry(d->configAIAnnotateLlmEngine, static_cast<int>(LLMProcessSettings::KoboldCpp)));
     d->aiAnnotateMaxTags                        = aiGroup.readEntry(d->configAIAnnotateMaxTags, 15);
     d->aiAnnotateMaxTokens                      = aiGroup.readEntry(d->configAIAnnotateMaxTokens, AIAnnotate::DEFAULT_MAX_TOKENS);
     

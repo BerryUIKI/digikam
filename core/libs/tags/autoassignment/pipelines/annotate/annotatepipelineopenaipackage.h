@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2025-05-07
- * Description : Package class for KoboldCpp pipeline
+ * Description : Package class for OpenAI pipeline
  *
  * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
@@ -28,29 +28,29 @@ namespace Digikam
 {
 
 /**
- * @class AutotagsPipelineKoboldCppPackage
- * @brief The AutotagsPipelineKoboldCppPackage class extends the base package class
- * to include KoboldCpp-specific fields such as base64-encoded image data.
+ * @class AnnotatePipelineOpenAIPackage
+ * @brief The AnnotatePipelineOpenAIPackage class extends the base package class
+ * to include OpenAI-specific fields such as base64-encoded image data.
  */
-class DIGIKAM_GUI_EXPORT AutotagsPipelineKoboldCppPackage : public AutotagsPipelinePackageBase
+class DIGIKAM_GUI_EXPORT AnnotatePipelineOpenAIPackage : public AutotagsPipelinePackageBase
 {
 public:
 
     /**
      * @brief Default constructor
      */
-    AutotagsPipelineKoboldCppPackage() = default;
+    AnnotatePipelineOpenAIPackage() = default;
 
     /**
      * @brief Constructor with image ID
      * @param imageId The ID of the image to process
      */
-    explicit AutotagsPipelineKoboldCppPackage(qlonglong imageId);
+    explicit AnnotatePipelineOpenAIPackage(qlonglong imageId);
 
     /**
      * @brief Destructor
      */
-    ~AutotagsPipelineKoboldCppPackage() override = default;
+    ~AnnotatePipelineOpenAIPackage() override = default;
 
 public:
 
@@ -69,7 +69,7 @@ public:
 private:
 
     // Disable
-    AutotagsPipelineKoboldCppPackage(const AutotagsPipelineKoboldCppPackage&) = delete;
+    AnnotatePipelineOpenAIPackage(const AnnotatePipelineOpenAIPackage&) = delete;
 };
 
 } // namespace Digikam

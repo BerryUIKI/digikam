@@ -38,13 +38,15 @@ namespace Digikam
 LLMProcessManagerKoboldCpp::LLMProcessManagerKoboldCpp(const LLMProcessSettings& settings, QObject* parent)
     : LLMProcessManager(settings, parent)
 {
-    m_engineType = LLMEngineType::KoboldCpp;
-
-
-
     if (!m_settings.external)
     {
         m_settings.apiPort = findUnusedTcpPort();
+        m_settings.apiHost = QStringLiteral("127.0.0.1");
+        m_engineType = LLMProcessSettings::LLMEngineType::LlamaCpp;
+    }
+    else
+    {
+        m_engineType = m_settings.engineType;
     }
 }
 
@@ -70,7 +72,7 @@ bool LLMProcessManagerKoboldCpp::startEngine()
 
         // add normal arguments
 
-        if (LLMEngineType::KoboldCpp == m_engineType)
+        if (LLMProcessSettings::LLMEngineType::KoboldCpp == m_engineType)
         {
             // add the model path
 
@@ -86,12 +88,11 @@ bool LLMProcessManagerKoboldCpp::startEngine()
                 << QStringLiteral("--chatcompletionsadapter") << m_settings.chatCompletionsAdapter
                 << QStringLiteral("--visionmaxres") << QStringLiteral("2048");
         }
-        else if (LLMEngineType::LlamaCpp == m_engineType)
+        else if (LLMProcessSettings::LLMEngineType::LlamaCpp == m_engineType)
         {
             args << QStringLiteral("--model") << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/google_gemma-3-4b-it-Q6_K.gguf")
                 << QStringLiteral("--mmproj") << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/mmproj-google_gemma-3-4b-it-f16.gguf") 
-                << QStringLiteral("--ctx-size") << QString::number(m_settings.contextSize)
-                << QStringLiteral("--n-gpu-layers") << QStringLiteral("0");
+                << QStringLiteral("--ctx-size") << QString::number(m_settings.contextSize);
         }
 
         args << QStringLiteral("--host") << m_settings.apiHost    
@@ -107,13 +108,13 @@ bool LLMProcessManagerKoboldCpp::startEngine()
             args << m_settings.additionalArgs;
         }
 
-        if (LLMEngineType::KoboldCpp == m_engineType)
+        if (LLMProcessSettings::LLMEngineType::KoboldCpp == m_engineType)
         {
             // koboldcpp path
 
             m_executablePath = QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/koboldcpp-1_90_2");
         }
-        else if (LLMEngineType::LlamaCpp == m_engineType)
+        else if (LLMProcessSettings::LLMEngineType::LlamaCpp == m_engineType)
         {
             // llamacpp path
 
@@ -170,13 +171,13 @@ bool LLMProcessManagerKoboldCpp::checkEngineReady()
 
     QString healthUrl;
 
-    if (LLMEngineType::KoboldCpp == m_engineType)
+    if (LLMProcessSettings::LLMEngineType::KoboldCpp == m_engineType)
     {
         // koboldcpp check
 
         healthUrl = QStringLiteral("/api/extra/version");
     }
-    else if (LLMEngineType::LlamaCpp == m_engineType)
+    else if (LLMProcessSettings::LLMEngineType::LlamaCpp == m_engineType)
     {
         // llamacpp check
 

@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2025-05-06
- * Description : Performs autotags using KoboldCpp models
+ * Description : Performs autotags using OpenAI models
  *
  * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
@@ -32,14 +32,14 @@
 namespace Digikam
 {
 
-class DIGIKAM_GUI_EXPORT AutotagsPipelineKoboldCpp : public AutotagsPipelineBase
+class DIGIKAM_GUI_EXPORT AnnotatePipelineOpenAI : public AutotagsPipelineBase
 {
     Q_OBJECT
 
 public:
 
-    explicit AutotagsPipelineKoboldCpp(const AutotagsScanSettings& settings);
-    ~AutotagsPipelineKoboldCpp() override;
+    explicit AnnotatePipelineOpenAI(const AutotagsScanSettings& settings);
+    ~AnnotatePipelineOpenAI() override;
 
     bool start() override;
 Q_SIGNALS:
@@ -68,9 +68,9 @@ protected:
     // LLM model parameters
     int             maxTokens               = AIAnnotate::DEFAULT_MAX_TOKENS;
     float           temperature             = AIAnnotate::DEFAULT_TEMPERATURE;
-    const int       topP                    = 1;
-    const int       topK                    = 0;
-    const float     minP                    = 1.05f;
+    const float     topP                    = 0.95F;
+    const int       topK                    = 40;
+    const float     minP                    = 0.05F;
 
     // LLM Process Manager and settings
     LLMProcessSettings                          m_llmSettings;
@@ -90,7 +90,7 @@ protected:
     void addMoreWorkers() override;
 
     /**
-     * @brief Prepares the payload for the KoboldCpp API request
+     * @brief Prepares the payload for the OpenAI API request
      * @param prompt The LLM prompt to include in the request
      * @param base64Image The base64 encoded image to include in the request
      * @return The JSON object containing the prepared payload
@@ -126,9 +126,9 @@ private Q_SLOTS:
 private:
 
     // Disable
-    AutotagsPipelineKoboldCpp() = delete;
-    AutotagsPipelineKoboldCpp(QObject*) = delete;
-    AutotagsPipelineKoboldCpp(const AutotagsPipelineKoboldCpp&) = delete;
+    AnnotatePipelineOpenAI() = delete;
+    AnnotatePipelineOpenAI(QObject*) = delete;
+    AnnotatePipelineOpenAI(const AnnotatePipelineOpenAI&) = delete;
 };
 
 } // namespace Digikam

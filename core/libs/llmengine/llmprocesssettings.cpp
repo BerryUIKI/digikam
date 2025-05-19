@@ -30,6 +30,7 @@ LLMProcessSettings::LLMProcessSettings(const LLMProcessSettings& other)
       mmprojPath(other.mmprojPath),
       apiHost(other.apiHost),
       apiPort(other.apiPort),
+      engineType(other.engineType),
       external(other.external),
       contextSize(other.contextSize),
       threads(other.threads),
@@ -48,6 +49,7 @@ LLMProcessSettings& LLMProcessSettings::operator=(const LLMProcessSettings& othe
         mmprojPath = other.mmprojPath;
         apiHost = other.apiHost;
         apiPort = other.apiPort;
+        engineType = other.engineType;
         external = other.external;
         contextSize = other.contextSize;
         threads = other.threads;

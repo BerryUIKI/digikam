@@ -515,8 +515,8 @@ public:
     void  setAIAnnotateExternalLLMPort(int port);
     int   getAIAnnotateExternalLLMPort() const;
     
-    void  setAIAnnotateEngine(const LLMProcessManagerKoboldCpp::LLMEngineType engine);
-    LLMProcessManagerKoboldCpp::LLMEngineType getAIAnnotateEngine() const;
+    void  setAIAnnotateEngine(const LLMProcessSettings::LLMEngineType engine);
+    LLMProcessSettings::LLMEngineType getAIAnnotateEngine() const;
     
     void  setAIAnnotateMaxTags(int maxTags);
     int   getAIAnnotateMaxTags() const;

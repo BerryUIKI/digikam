@@ -57,8 +57,8 @@ set(autotagassignment_LIB_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/autoassignment/pipelines/autotagspipelinebase.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/autoassignment/pipelines/autotagspipelinepackagebase.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/autoassignment/pipelines/object/autotagspipelineobject.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/autoassignment/pipelines/koboldcpp/autotagspipelinekoboldcpp.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/autoassignment/pipelines/koboldcpp/autotagspipelinekoboldcpppackage.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/autoassignment/pipelines/annotate/annotatepipelineopenai.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/autoassignment/pipelines/annotate/annotatepipelineopenaipackage.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/autoassignment/classifiers/autotagsclassifierbase.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/autoassignment/classifiers/softmax/autotagsclassifiersoftmax.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/autoassignment/classifiers/multiclassyolo/autotagsclassifiermultiyolo.cpp

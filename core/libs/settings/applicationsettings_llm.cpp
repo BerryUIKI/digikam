@@ -102,12 +102,12 @@ int ApplicationSettings::getAIAnnotateExternalLLMPort() const
     return d->aiAnnotateExternalLLMPort;
 }
 
-void ApplicationSettings::setAIAnnotateEngine(const LLMProcessManagerKoboldCpp::LLMEngineType engine)
+void ApplicationSettings::setAIAnnotateEngine(const LLMProcessSettings::LLMEngineType engine)
 {
     d->aiAnnotateLlmEngine = engine;
 }
 
-LLMProcessManagerKoboldCpp::LLMEngineType ApplicationSettings::getAIAnnotateEngine() const
+LLMProcessSettings::LLMEngineType ApplicationSettings::getAIAnnotateEngine() const
 {
     return d->aiAnnotateLlmEngine;
 }

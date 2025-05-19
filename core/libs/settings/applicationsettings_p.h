@@ -376,7 +376,7 @@ public:
     bool                                         aiAnnotateEnableTags                               = true;
     bool                                         aiAnnotateEnableCustomPrompt                       = false;
     bool                                         aiAnnotateEnableExternalLLM                        = false;
-    LLMProcessManagerKoboldCpp::LLMEngineType    aiAnnotateLlmEngine                                = LLMProcessManagerKoboldCpp::KoboldCpp;
+    LLMProcessSettings::LLMEngineType            aiAnnotateLlmEngine                                = LLMProcessSettings::KoboldCpp;
     int                                          aiAnnotateMaxTags                                  = 15;
     int                                          aiAnnotateMaxTokens                                = 300;
     QString                                      aiAnnotateLlmPrompt;

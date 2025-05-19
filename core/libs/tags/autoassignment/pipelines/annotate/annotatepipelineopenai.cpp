@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2025-05-06
- * Description : Performs autotags using KoboldCpp models
+ * Description : Performs autotags using OpenAI models
  *
  * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
@@ -13,7 +13,7 @@
  *
  * ============================================================ */
 
-#include "autotagspipelinekoboldcpp.h"
+#include "annotatepipelineopenai.h"
 
 // Qt includes
 
@@ -50,14 +50,14 @@
 #include "itemcomments.h"
 #include "tagscache.h"
 #include "localizeselector.h"
-#include "autotagspipelinekoboldcpppackage.h"
+#include "annotatepipelineopenaipackage.h"
 #include "llmprocessmanager.h"
 #include "llmprocessmanagerkoboldcpp.h"
 
 namespace Digikam
 {
 
-AutotagsPipelineKoboldCpp::AutotagsPipelineKoboldCpp(const AutotagsScanSettings& settings)
+AnnotatePipelineOpenAI::AnnotatePipelineOpenAI(const AutotagsScanSettings& settings)
     : AutotagsPipelineBase(settings),
       m_llmProcessManager(nullptr)
 {
@@ -74,7 +74,7 @@ AutotagsPipelineKoboldCpp::AutotagsPipelineKoboldCpp(const AutotagsScanSettings&
     }
 }
 
-AutotagsPipelineKoboldCpp::~AutotagsPipelineKoboldCpp()
+AnnotatePipelineOpenAI::~AnnotatePipelineOpenAI()
 {
     if (m_llmProcessManager)
     {
@@ -84,11 +84,11 @@ AutotagsPipelineKoboldCpp::~AutotagsPipelineKoboldCpp()
     }
 }
 
-bool AutotagsPipelineKoboldCpp::start()
+bool AnnotatePipelineOpenAI::start()
 {
     bool started = false;
 
-    // Create the KoboldCpp model
+    // Create the OpenAI model
 
     try
     {
@@ -97,7 +97,7 @@ bool AutotagsPipelineKoboldCpp::start()
     
         if (!model)
         {
-            qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::start(): Unable to load model:"
+            qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AnnotatePipelineOpenAI::start(): Unable to load model:"
                                                    << settings.objectDetectModel;
             return false;
         }
@@ -108,15 +108,16 @@ bool AutotagsPipelineKoboldCpp::start()
 
         if (ApplicationSettings::instance()->getAIAnnotateExternalLLMEnabled())
         {
-            m_llmSettings.external = true;
-            m_llmSettings.apiHost = ApplicationSettings::instance()->getAIAnnotateExternalLLMUrl();
-            m_llmSettings.apiPort = ApplicationSettings::instance()->getAIAnnotateExternalLLMPort();
+            m_llmSettings.external      = true;
+            m_llmSettings.apiHost       = ApplicationSettings::instance()->getAIAnnotateExternalLLMUrl();
+            m_llmSettings.apiPort       = ApplicationSettings::instance()->getAIAnnotateExternalLLMPort();
+            m_llmSettings.engineType    = ApplicationSettings::instance()->getAIAnnotateEngine();
         }
 
         // Create the LLM Process Manager
         m_llmProcessManager = new LLMProcessManagerKoboldCpp(m_llmSettings, this);
         
-        // Start the KoboldCpp LLM engine
+        // Start the OpenAI LLM engine
         if (!m_llmProcessManager->isEngineRunning() || m_llmSettings.external)
         {
             // Connect signals for engine status updates
@@ -130,7 +131,7 @@ bool AutotagsPipelineKoboldCpp::start()
                     this, SLOT(slotEngineReady()));
 
             connect(m_llmProcessManager, &LLMProcessManager::signalEngineStopped,
-                    this, &AutotagsPipelineKoboldCpp::cancel);
+                    this, &AnnotatePipelineOpenAI::cancel);
 
             // Start the engine
             started = m_llmProcessManager->startEngine();
@@ -139,9 +140,9 @@ bool AutotagsPipelineKoboldCpp::start()
             
             if (!started) 
             {
-                startupMessage = i18n("Unable to start KoboldCpp engine. Please check the settings and try again.");
+                startupMessage = i18n("Unable to start OpenAI engine. Please check the settings and try again.");
 
-                qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::start(): Unable to initiate KoboldCpp engine start:"
+                qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AnnotatePipelineOpenAI::start(): Unable to initiate OpenAI engine start:"
                                                        << m_llmProcessManager->lastErrorMessage();
 
                 delete m_llmProcessManager;
@@ -150,7 +151,7 @@ bool AutotagsPipelineKoboldCpp::start()
             }
             else
             {
-                startupMessage = i18n("KoboldCpp engine starting. Please wait...");
+                startupMessage = i18n("OpenAI engine starting. Please wait...");
                 Q_EMIT signalStartupMessage(startupMessage);
                 qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << startupMessage;
             }
@@ -158,7 +159,7 @@ bool AutotagsPipelineKoboldCpp::start()
     }
     catch (const std::exception& e)
     {
-        qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::start(): Unable to load model. " << e.what();
+        qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AnnotatePipelineOpenAI::start(): Unable to load model. " << e.what();
 
         if (model)
         {
@@ -169,7 +170,7 @@ bool AutotagsPipelineKoboldCpp::start()
     }
     catch (...)
     {
-        qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::start(): Unknown error. Unable to load model.";
+        qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AnnotatePipelineOpenAI::start(): Unknown error. Unable to load model.";
 
         if (model)
         {
@@ -189,7 +190,7 @@ bool AutotagsPipelineKoboldCpp::start()
     return started;
 }
 
-void AutotagsPipelineKoboldCpp::cancel()
+void AnnotatePipelineOpenAI::cancel()
 {
     if (!cancelled)
     {
@@ -202,7 +203,7 @@ void AutotagsPipelineKoboldCpp::cancel()
                    this, SLOT(slotEngineReady()));
 
         disconnect(m_llmProcessManager, &LLMProcessManager::signalEngineStopped,
-                   this, &AutotagsPipelineKoboldCpp::cancel);
+                   this, &AnnotatePipelineOpenAI::cancel);
 
         // Capture 'this' pointer to access class members from the lambda
         // Store the QFuture to resolve the 'nodiscard' warning
@@ -216,7 +217,7 @@ void AutotagsPipelineKoboldCpp::cancel()
             {
                 QThread::msleep(100);
                 m_llmProcessManager->abortInference();
-                qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::cancel(): sent abort request to LLM engine";
+                qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AnnotatePipelineOpenAI::cancel(): sent abort request to LLM engine";
             });
         }
         else
@@ -231,7 +232,7 @@ void AutotagsPipelineKoboldCpp::cancel()
     }
 }
 
-bool AutotagsPipelineKoboldCpp::finder()
+bool AnnotatePipelineOpenAI::finder()
 {
 
     MLPIPELINE_FINDER_START(QThread::LowPriority, MLPipelineStage::Loader);
@@ -276,9 +277,9 @@ bool AutotagsPipelineKoboldCpp::finder()
                     m_imageIdsInProgress << imageId;
                 }
                 
-                qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::finder: adding image ID" << imageId;
+                qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AnnotatePipelineOpenAI::finder: adding image ID" << imageId;
 
-                enqueue(nextQueue, new AutotagsPipelineKoboldCppPackage(imageId));
+                enqueue(nextQueue, new AnnotatePipelineOpenAIPackage(imageId));
 
                 // added imageId to the pipeline.  Break to refresh the list
                 // this allows recently added images to be processed first
@@ -297,10 +298,10 @@ bool AutotagsPipelineKoboldCpp::finder()
     MLPIPELINE_FINDER_END(MLPipelineStage::Loader);
 }
 
-bool AutotagsPipelineKoboldCpp::loader()
+bool AnnotatePipelineOpenAI::loader()
 {
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Loader, MLPipelineStage::Extractor);
-    AutotagsPipelineKoboldCppPackage* package = nullptr;
+    AnnotatePipelineOpenAIPackage* package = nullptr;
 
     /* =========================================================================================
      * Pipeline stage specific initialization code
@@ -311,7 +312,7 @@ bool AutotagsPipelineKoboldCpp::loader()
      */
 
     MLPIPELINE_LOOP_START(MLPipelineStage::Loader, thisQueue);
-    package = static_cast<AutotagsPipelineKoboldCppPackage*>(mlpackage);
+    package = static_cast<AnnotatePipelineOpenAIPackage*>(mlpackage);
 
     /* =========================================================================================
      * Start pipeline stage specific loop
@@ -327,7 +328,7 @@ bool AutotagsPipelineKoboldCpp::loader()
 
         if (DatabaseItem::Category::Image == package->info.category())
         {
-            // Load image for KoboldCpp model processing
+            // Load image for OpenAI model processing
 
             package->image = PreviewLoadThread::loadFastSynchronously(package->info.filePath(), model->info.imageSize);
 
@@ -372,7 +373,7 @@ bool AutotagsPipelineKoboldCpp::loader()
      * End pipeline stage specific loop
      */
 
-    MLPIPELINE_LOOP_END(MLPipelineStage::Loader, "AutotagsPipelineKoboldCpp::loader");
+    MLPIPELINE_LOOP_END(MLPipelineStage::Loader, "AnnotatePipelineOpenAI::loader");
 
     /* =========================================================================================
      * Pipeline stage specific cleanup
@@ -383,10 +384,10 @@ bool AutotagsPipelineKoboldCpp::loader()
     MLPIPELINE_STAGE_END(MLPipelineStage::Loader, MLPipelineStage::Extractor);
 }
 
-bool AutotagsPipelineKoboldCpp::extractor()
+bool AnnotatePipelineOpenAI::extractor()
 {
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Extractor, MLPipelineStage::Classifier);
-    AutotagsPipelineKoboldCppPackage* package = nullptr;
+    AnnotatePipelineOpenAIPackage* package = nullptr;
 
     /* =========================================================================================
      * Pipeline stage specific initialization code
@@ -397,7 +398,7 @@ bool AutotagsPipelineKoboldCpp::extractor()
      */
     
     MLPIPELINE_LOOP_START(MLPipelineStage::Extractor, thisQueue);
-    package = static_cast<AutotagsPipelineKoboldCppPackage*>(mlpackage);
+    package = static_cast<AnnotatePipelineOpenAIPackage*>(mlpackage);
 
     /* =========================================================================================
      * Start pipeline stage specific loop
@@ -457,7 +458,7 @@ bool AutotagsPipelineKoboldCpp::extractor()
      * End pipeline stage specific loop
      */
 
-    MLPIPELINE_LOOP_END(MLPipelineStage::Extractor, "AutotagsPipelineKoboldCpp::extractor");
+    MLPIPELINE_LOOP_END(MLPipelineStage::Extractor, "AnnotatePipelineOpenAI::extractor");
 
     /* =========================================================================================
      * Pipeline stage specific cleanup
@@ -468,10 +469,10 @@ bool AutotagsPipelineKoboldCpp::extractor()
     MLPIPELINE_STAGE_END(MLPipelineStage::Extractor, MLPipelineStage::Classifier);
 }
 
-bool AutotagsPipelineKoboldCpp::classifier()
+bool AnnotatePipelineOpenAI::classifier()
 {
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Classifier, MLPipelineStage::Writer);
-    AutotagsPipelineKoboldCppPackage* package = nullptr;
+    AnnotatePipelineOpenAIPackage* package = nullptr;
 
     llmPrompt = createPrompt();
 
@@ -522,7 +523,7 @@ bool AutotagsPipelineKoboldCpp::classifier()
      */
 
     MLPIPELINE_LOOP_START(MLPipelineStage::Classifier, thisQueue);
-    package = static_cast<AutotagsPipelineKoboldCppPackage*>(mlpackage);
+    package = static_cast<AnnotatePipelineOpenAIPackage*>(mlpackage);
 
     /* =========================================================================================
      * Start pipeline stage specific loop
@@ -536,12 +537,12 @@ bool AutotagsPipelineKoboldCpp::classifier()
         QJsonObject payload = createPayload(llmPrompt, package->base64Image);
         
         // Log the request being sent
-        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Sending request to KoboldCpp API";
+        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Sending request to OpenAI API";
         
         // First check if the LLM engine is ready
         if (!m_llmProcessManager->engineReady())
         {
-            qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp is not ready for inference. Cancelling the pipeline...";
+            qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "OpenAI is not ready for inference. Cancelling the pipeline...";
             QTimer::singleShot(10, this, SLOT(cancel()));
             
             delete package;
@@ -567,7 +568,7 @@ bool AutotagsPipelineKoboldCpp::classifier()
                                                                      payload, 
                                                                      LLMProcessManager::POST);
 
-        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp API response time:" << timer.elapsed() << "ms";
+        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "OpenAI API response time:" << timer.elapsed() << "ms";
         
         if (cancelled)
         {
@@ -579,7 +580,7 @@ bool AutotagsPipelineKoboldCpp::classifier()
         // Check if request was successful
         if (!responseData.isEmpty())
         {
-            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Received successful response from KoboldCpp API";
+            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Received successful response from OpenAI API";
             qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Response data:" << responseData;
 
             // Use LLMResponseHelper to process the result
@@ -635,7 +636,7 @@ bool AutotagsPipelineKoboldCpp::classifier()
         {
             // throw an exception for empty response
             
-            QString errorMessage = i18n("KoboldCpp API returned an empty response");
+            QString errorMessage = i18n("OpenAI API returned an empty response");
             qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << errorMessage;;
             throw std::runtime_error(errorMessage.toStdString());
         }
@@ -655,7 +656,7 @@ bool AutotagsPipelineKoboldCpp::classifier()
      * End pipeline stage specific loop
      */
 
-    MLPIPELINE_LOOP_END(MLPipelineStage::Classifier, "AutotagsPipelineKoboldCpp::classifier");
+    MLPIPELINE_LOOP_END(MLPipelineStage::Classifier, "AnnotatePipelineOpenAI::classifier");
 
     /* =========================================================================================
      * Pipeline stage specific cleanup
@@ -666,10 +667,10 @@ bool AutotagsPipelineKoboldCpp::classifier()
     MLPIPELINE_STAGE_END(MLPipelineStage::Classifier, MLPipelineStage::Writer);
 }
 
-bool AutotagsPipelineKoboldCpp::writer()
+bool AnnotatePipelineOpenAI::writer()
 {
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Writer, MLPipelineStage::None);
-    AutotagsPipelineKoboldCppPackage* package = nullptr;
+    AnnotatePipelineOpenAIPackage* package = nullptr;
 
     /* =========================================================================================
      * Pipeline stage specific initialization code
@@ -684,7 +685,7 @@ bool AutotagsPipelineKoboldCpp::writer()
     const int rootTagId = tagsCache->getOrCreateTag(rootTag);
 
     MLPIPELINE_LOOP_START(MLPipelineStage::Writer, thisQueue);
-    package = static_cast<AutotagsPipelineKoboldCppPackage*>(mlpackage);
+    package = static_cast<AnnotatePipelineOpenAIPackage*>(mlpackage);
 
     /* =========================================================================================
      * Start pipeline stage specific loop
@@ -814,9 +815,9 @@ bool AutotagsPipelineKoboldCpp::writer()
         // Log debug information
         if (displayTags.size() > 0)
         {
-            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::writer: adding "
-                                                << displayTags.size() << " KoboldCpp tags to the image.";
-            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::writer: "
+            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AnnotatePipelineOpenAI::writer: adding "
+                                                << displayTags.size() << " OpenAI tags to the image.";
+            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AnnotatePipelineOpenAI::writer: "
                                                 << albumName + package->info.relativePath();
         }
         
@@ -837,7 +838,7 @@ bool AutotagsPipelineKoboldCpp::writer()
      * End pipeline stage specific loop
      */
 
-    MLPIPELINE_LOOP_END(MLPipelineStage::Writer, "AutotagsPipelineKoboldCpp::writer");
+    MLPIPELINE_LOOP_END(MLPipelineStage::Writer, "AnnotatePipelineOpenAI::writer");
 
     /* =========================================================================================
      * Pipeline stage specific cleanup
@@ -848,13 +849,13 @@ bool AutotagsPipelineKoboldCpp::writer()
     MLPIPELINE_STAGE_END(MLPipelineStage::Writer, MLPipelineStage::None);
 }
 
-void AutotagsPipelineKoboldCpp::addMoreWorkers()
+void AnnotatePipelineOpenAI::addMoreWorkers()
 {
 }
 
 // The extractJsonFromContent method has been replaced by LLMResponseHelper::processResult and LLMResponseHelper::ensureValidJsonFormat
 
-QJsonObject AutotagsPipelineKoboldCpp::createPayload(const QString& prompt, const QString& base64Image) const
+QJsonObject AnnotatePipelineOpenAI::createPayload(const QString& prompt, const QString& base64Image) const
 {
     // Create a JSON object with the LLM prompt and base64 image data
     QJsonArray messagesArray;
@@ -897,25 +898,25 @@ QJsonObject AutotagsPipelineKoboldCpp::createPayload(const QString& prompt, cons
     payload[QStringLiteral("messages")] = messagesArray;
     payload[QStringLiteral("max_tokens")] = maxTokens;
     payload[QStringLiteral("temperature")] = qRound(temperature * 100.0) / 100.0;
-    payload[QStringLiteral("top_p")] = topP;
+    payload[QStringLiteral("top_p")] = qRound(topP * 100.0) / 100.0;
     payload[QStringLiteral("top_k")] = topK;
     payload[QStringLiteral("min_p")] = qRound(minP * 100.0) / 100.0;
     
     return payload;
 }
 
-void AutotagsPipelineKoboldCpp::slotEngineStarted(bool success)
+void AnnotatePipelineOpenAI::slotEngineStarted(bool success)
 {
     if (!success)
     {
-        qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsPipelineKoboldCpp::slotEngineStarted: Failed to start KoboldCpp engine:"
+        qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AnnotatePipelineOpenAI::slotEngineStarted: Failed to start OpenAI engine:"
                                          << m_llmProcessManager->lastErrorMessage();
 
         Q_EMIT finished();
     }
     else
     {
-        qCInfo(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp process started, waiting for engine to be ready...";
+        qCInfo(DIGIKAM_AUTOTAGSENGINE_LOG) << "OpenAI process started, waiting for engine to be ready...";
 
         // Set timeout for waiting
         // 
@@ -923,7 +924,7 @@ void AutotagsPipelineKoboldCpp::slotEngineStarted(bool success)
     }
 }
 
-void AutotagsPipelineKoboldCpp::slotEngineReady()
+void AnnotatePipelineOpenAI::slotEngineReady()
 {
     if (!cancelled && !running)
     {
@@ -944,16 +945,16 @@ void AutotagsPipelineKoboldCpp::slotEngineReady()
         }
 
         AutotagsPipelineBase::start();
-        qCInfo(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp LLM is ready for inference";
+        qCInfo(DIGIKAM_AUTOTAGSENGINE_LOG) << "OpenAI LLM is ready for inference";
     }
     else if (!cancelled)
     {
-        qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "KoboldCpp LLM is no longer ready for inference";
+        qCWarning(DIGIKAM_AUTOTAGSENGINE_LOG) << "OpenAI LLM is no longer ready for inference";
         QTimer::singleShot(10, this, SLOT(cancel()));
     }
 }
 
-void AutotagsPipelineKoboldCpp::checkLLMEngineReady()
+void AnnotatePipelineOpenAI::checkLLMEngineReady()
 {
     /*
      * Check if the LLM engine is ready for inference.
@@ -976,7 +977,7 @@ void AutotagsPipelineKoboldCpp::checkLLMEngineReady()
     }
 }
 
-QString AutotagsPipelineKoboldCpp::createPrompt() const
+QString AnnotatePipelineOpenAI::createPrompt() const
 {
     ApplicationSettings* const appSettings = ApplicationSettings::instance();
 
@@ -1143,4 +1144,4 @@ QString AutotagsPipelineKoboldCpp::createPrompt() const
 
 } // namespace Digikam
 
-#include "moc_autotagspipelinekoboldcpp.cpp"
+#include "moc_annotatepipelineopenai.cpp"

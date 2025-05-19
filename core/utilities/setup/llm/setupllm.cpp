@@ -347,8 +347,8 @@ SetupLLM::SetupLLM(QWidget* const parent)
     d->engineLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
 
     d->llmEngineCombo = new QComboBox(externalLLMSettingsContainer);
-    d->llmEngineCombo->addItem(i18n("KoboldCPP"), static_cast<int>(LLMProcessManagerKoboldCpp::KoboldCpp));
-    d->llmEngineCombo->addItem(i18n("LlamaCPP"), static_cast<int>(LLMProcessManagerKoboldCpp::LlamaCpp));
+    d->llmEngineCombo->addItem(i18n("KoboldCPP"), static_cast<int>(LLMProcessSettings::KoboldCpp));
+    d->llmEngineCombo->addItem(i18n("LlamaCPP"), static_cast<int>(LLMProcessSettings::LlamaCpp));
     d->llmEngineCombo->setToolTip(i18n("Select the LLM engine to use for text generation"));
 
     engineLayout->addWidget(d->engineLabel);
@@ -553,7 +553,7 @@ void SetupLLM::applySettings()
     settings->setAIAnnotateEnableExternalLLM(d->enableAIAnnotateExternalLLMCheck->isChecked());
     
     // Engine tab
-    settings->setAIAnnotateEngine(static_cast<LLMProcessManagerKoboldCpp::LLMEngineType>(d->llmEngineCombo->currentData().toInt()));
+    settings->setAIAnnotateEngine(static_cast<LLMProcessSettings::LLMEngineType>(d->llmEngineCombo->currentData().toInt()));
     settings->setAIAnnotateMaxTags(d->maxTagsSpinBox->value());
     
     // External LLM

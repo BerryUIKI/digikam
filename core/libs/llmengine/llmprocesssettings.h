@@ -41,6 +41,15 @@ class DIGIKAM_EXPORT LLMProcessSettings
 public:
 
     /**
+     * @brief Defines the LLM engine type
+     */
+    enum LLMEngineType
+    {
+        KoboldCpp,
+        LlamaCpp
+    };
+
+    /**
      * @brief Defines the AI response voice style
      */
     enum AIVoiceType
@@ -115,6 +124,11 @@ public:
      */
     int apiPort                     = -1;
     
+    /**
+     * Engine type to use (e.g., KoboldCpp, LlamaCpp)
+     */
+    LLMEngineType engineType = LLMEngineType::KoboldCpp;
+
     /**
      * Flag to indicate the engnie is external and no process should be started
      */
