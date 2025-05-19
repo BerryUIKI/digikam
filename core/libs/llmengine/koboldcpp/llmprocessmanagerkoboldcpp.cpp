@@ -43,8 +43,8 @@ LLMProcessManagerKoboldCpp::LLMProcessManagerKoboldCpp(const LLMProcessSettings&
 
         m_settings.apiPort = findUnusedTcpPort();
         m_settings.apiHost = QStringLiteral("127.0.0.1");
-        m_engineType = LLMProcessSettings::LLMEngineType::LlamaCpp;
-        // m_engineType = m_settings.engineType;
+        // m_engineType = LLMProcessSettings::LLMEngineType::LlamaCpp;
+        m_engineType = m_settings.engineType;
     }
     else
     {

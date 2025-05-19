@@ -24,6 +24,9 @@ set(libllmengine_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/llmprocessmanager.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/llmresponsehelper.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/koboldcpp/llmprocessmanagerkoboldcpp.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/installer/llmengineinstaller.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/installer/llmengineinstalldialog.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/installer/llmengineinstallaction.cpp
 )
 
 # Used by digikamcore
@@ -37,3 +40,14 @@ target_compile_definitions(core_digikamllmengine_obj
 
 # For unit-tests
 add_library(digikamllmengine STATIC $<TARGET_OBJECTS:core_digikamllmengine_obj>)
+
+# Install llama.cpp installer scripts
+install(FILES
+        "${CMAKE_CURRENT_SOURCE_DIR}/installer/scripts/llamacpp_linux.sh"
+        "${CMAKE_CURRENT_SOURCE_DIR}/installer/scripts/llamacpp_macos.sh"
+        "${CMAKE_CURRENT_SOURCE_DIR}/installer/scripts/llamacpp_win.bat"
+        DESTINATION ${DATA_INSTALL_DIR}/digikam/installer/scripts
+        PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE
+                    GROUP_READ GROUP_EXECUTE
+                    WORLD_READ WORLD_EXECUTE
+)

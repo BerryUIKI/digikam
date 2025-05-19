@@ -74,7 +74,7 @@ AnnotatePipelineOpenAI::AnnotatePipelineOpenAI(const AutotagsScanSettings& setti
     }
 
     //TODO: delete this
-    // m_llmSettings.engineType    = ApplicationSettings::instance()->getAIAnnotateEngine();
+    m_llmSettings.engineType    = ApplicationSettings::instance()->getAIAnnotateEngine();
 
 }
 
