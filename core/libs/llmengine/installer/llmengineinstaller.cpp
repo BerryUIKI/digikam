@@ -123,7 +123,7 @@ bool LLMEngineInstaller::start(const QString& destinationPath,
     }
     else if (!gpuType.isEmpty())
     {
-        arguments << QLatin1String("b5415"); // Default version
+        arguments << QLatin1String("b5432"); // Default version
         arguments << gpuType;
     }
 

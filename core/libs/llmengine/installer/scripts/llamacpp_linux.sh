@@ -22,7 +22,7 @@ show_usage() {
     echo ""
     echo "Arguments:"
     echo "  destination_directory   Directory where the binary will be downloaded and extracted"
-    echo "  version_string          Optional: Version string (e.g., 'b5415'). Defaults to 'b5415' if not specified"
+    echo "  version_string          Optional: Version string (e.g., 'b5432'). Defaults to 'b5432' if not specified"
     echo "  gpu_type                Optional: GPU acceleration type. Options: 'cuda', 'vulkan', 'rocm', 'none'"
     echo "                          If not specified, attempts to auto-detect the GPU"
 }
@@ -35,7 +35,7 @@ if [ $# -lt 1 ] || [ $# -gt 3 ]; then
 fi
 
 DEST_DIR="$1"
-VERSION="${2:-b5415}"  # Use second parameter or default to latest version (b5415)
+VERSION="${2:-b5432}"  # Use second parameter or default to latest version (b5432)
 GPU_TYPE="${3:-auto}"  # Use third parameter or auto-detect
 
 # Create destination directory if it doesn't exist
