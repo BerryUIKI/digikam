@@ -34,6 +34,10 @@
 
 #include <klocalizedstring.h>
 
+// Local includes
+
+#include "llmprocessmanagerkoboldcpp.h"
+
 namespace Digikam
 {
 
@@ -53,8 +57,12 @@ LLMEngineInstallDialog::LLMEngineInstallDialog(QWidget* const parent)
     m_pathEdit = new QLineEdit(this);
     
     // Set default path in user's application data directory
-    QString defaultPath = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
-    defaultPath += QDir::separator() + QStringLiteral("llamacpp");
+    // QString defaultPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation);
+
+    // defaultPath += QDir::separator() + QStringLiteral("digikam/llmengine/llamacpp");
+
+    QString defaultPath = LLMProcessManagerKoboldCpp::getEnginePath();
+
     m_pathEdit->setText(defaultPath);
     
     QPushButton* browseButton = new QPushButton(i18n("Browse..."), this);
@@ -67,8 +75,8 @@ LLMEngineInstallDialog::LLMEngineInstallDialog(QWidget* const parent)
     QHBoxLayout* versionLayout = new QHBoxLayout();
     QLabel* versionLabel = new QLabel(i18n("Version:"), this);
     m_versionEdit = new QLineEdit(this);
-    m_versionEdit->setText(QStringLiteral("b5425"));
-    m_versionEdit->setToolTip(i18n("Specify a version tag from the llama.cpp GitHub releases. Default is b5425."));
+    m_versionEdit->setText(QStringLiteral("b5432"));
+    m_versionEdit->setToolTip(i18n("Specify a version tag from the llama.cpp GitHub releases. Default is b5432."));
     
     versionLayout->addWidget(versionLabel);
     versionLayout->addWidget(m_versionEdit, 1);

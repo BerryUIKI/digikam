@@ -132,6 +132,8 @@ public:
      */
     QString lastErrorMessage() const;
 
+    static const QString getBaseEnginePath();
+
 public Q_SLOTS:
 
     /**

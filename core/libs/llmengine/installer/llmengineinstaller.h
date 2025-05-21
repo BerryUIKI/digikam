@@ -47,7 +47,7 @@ public:
     /**
      * Start the installation process.
      * @param destinationPath The path where llama.cpp binaries will be installed
-     * @param version Optional version string (e.g., 'b5425')
+     * @param version Optional version string (e.g., 'b5432')
      * @param gpuType Optional GPU type ('cuda', 'vulkan', 'rocm', 'metal', 'hip', 'none', or 'auto')
      * @return True if installation was started successfully, false otherwise
      */

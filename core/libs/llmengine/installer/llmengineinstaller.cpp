@@ -28,6 +28,11 @@
 
 #include <klocalizedstring.h>
 
+// Local includes
+
+#include "digikam_globals.h"
+#include "digikam_debug.h"
+
 namespace Digikam
 {
 
@@ -200,7 +205,8 @@ void LLMEngineInstaller::slotReadStandardError()
 
 QString LLMEngineInstaller::getInstallerScript() const
 {
-    QString appDirPath = QCoreApplication::applicationDirPath();
+    // QString appDirPath = QCoreApplication::applicationDirPath();
+    QString appDirPath = macOSBundlePrefix();
     QString installerDir = appDirPath + QDir::separator() + QLatin1String("installer");
     
 #ifdef Q_OS_WIN

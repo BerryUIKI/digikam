@@ -72,10 +72,6 @@ AnnotatePipelineOpenAI::AnnotatePipelineOpenAI(const AutotagsScanSettings& setti
         maxTokens     = ApplicationSettings::instance()->getAIAnnotateMaxTokens();
         temperature   = ApplicationSettings::instance()->getAIAnnotateTemperature();
     }
-
-    //TODO: delete this
-    m_llmSettings.engineType    = ApplicationSettings::instance()->getAIAnnotateEngine();
-
 }
 
 AnnotatePipelineOpenAI::~AnnotatePipelineOpenAI()

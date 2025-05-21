@@ -236,6 +236,15 @@ qint64 LLMProcessManager::engineProcessId() const
     return m_process ? m_process->processId() : -1;
 }
 
+const QString LLMProcessManager::getBaseEnginePath()
+{
+    // Get the base path for the LLM engine
+    QString basePath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation);
+    basePath        += QDir::separator() + QLatin1String("digikam") + QDir::separator() + QLatin1String("llmengine");
+    
+    return basePath;
+}
+
 QString LLMProcessManager::lastErrorMessage() const
 {
     return m_lastErrorMessage;

@@ -50,6 +50,7 @@ private:
     void readSettings();
 
 private Q_SLOTS:
+    void slotShowInstallDialog();
     void slotEnableAIAnnotateSettings(bool enable);
     void slotEnableAIAnnotateMaxTags(bool enable);
     void slotEnableAIAnnotateAdvancedSettings(bool enable);

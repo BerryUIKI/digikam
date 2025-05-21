@@ -77,9 +77,17 @@ public:
                             LLMRequestMethod method, bool force = false) override;
 
     /**
+     * @brief Get the base path for the Open AI engine
+     */
+    static const QString getEnginePath()
+    {
+        return LLMProcessManager::getBaseEnginePath() + QLatin1String("/llamacpp");
+    }
+
+    /**
      * @brief the type of LLM engine
      */
-    LLMProcessSettings::LLMEngineType m_engineType  = LLMProcessSettings::LLMEngineType::KoboldCpp;
+    LLMProcessSettings::LLMEngineType m_engineType  = LLMProcessSettings::LLMEngineType::LlamaCpp;
         
 public Q_SLOTS:
 

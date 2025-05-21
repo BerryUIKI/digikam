@@ -48,6 +48,7 @@
 #include "dnnmodelmanager.h"
 #include "llmprocessmanagerkoboldcpp.h"
 #include "llmprocesssettings.h"
+#include "llmengineinstalldialog.h"
 
 namespace Digikam
 {
@@ -131,6 +132,13 @@ SetupLLM::SetupLLM(QWidget* const parent)
 
     QWidget* const panel      = new QWidget(viewport());
     QVBoxLayout* const layout = new QVBoxLayout(panel);
+
+    // Add Install llama.cpp button at the top
+    QPushButton* const installButton = new QPushButton(i18n("Install llama.cpp Binaries..."), panel);
+    installButton->setToolTip(i18n("Download and install llama.cpp binaries for local AI inference"));
+    connect(installButton, &QPushButton::clicked, this, &SetupLLM::slotShowInstallDialog);
+    layout->addWidget(installButton);
+    layout->addSpacing(spacing);
 
     d->tab                    = new QTabWidget(panel);
     d->annotateTab            = new QWidget(d->tab);
@@ -672,6 +680,14 @@ void SetupLLM::slotEnableAIAnnotateExternalLLM(bool enable)
     d->externalLLMUrlLabel->setEnabled(isEnabled);
     d->externalLLMPortEdit->setEnabled(isEnabled);
     d->externalLLMPortLabel->setEnabled(isEnabled);
+}
+
+void SetupLLM::slotShowInstallDialog()
+{
+    // Create and show the install dialog
+    LLMEngineInstallDialog* const dialog = new LLMEngineInstallDialog(this);
+    dialog->setAttribute(Qt::WA_DeleteOnClose);
+    dialog->show();
 }
 
 } // namespace Digikam
