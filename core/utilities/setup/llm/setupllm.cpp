@@ -126,35 +126,42 @@ SetupLLM::SetupLLM(QWidget* const parent)
     : QScrollArea(parent),
       d(new Private)
 {
-    // const int spacing         = QApplication::style()->pixelMetric(QStyle::PM_DefaultLayoutSpacing);
-    const int spacing         = layoutSpacing();
+    const int spacing                   = layoutSpacing();
 
+    QWidget* const panel                = new QWidget(viewport());
+    QVBoxLayout* const layout           = new QVBoxLayout(panel);
 
-    QWidget* const panel      = new QWidget(viewport());
-    QVBoxLayout* const layout = new QVBoxLayout(panel);
-
-    // Add Install llama.cpp button at the top
-    QPushButton* const installButton = new QPushButton(i18n("Install llama.cpp Binaries..."), panel);
-    installButton->setToolTip(i18n("Download and install llama.cpp binaries for local AI inference"));
-    connect(installButton, &QPushButton::clicked, this, &SetupLLM::slotShowInstallDialog);
-    layout->addWidget(installButton);
-    layout->addSpacing(spacing);
-
-    d->tab                    = new QTabWidget(panel);
-    d->annotateTab            = new QWidget(d->tab);
+    d->tab                              = new QTabWidget(panel);
+    d->annotateTab                      = new QWidget(d->tab);
 
     // --------------------------------------------------------
 
     QVBoxLayout* const annotateTabLayout = new QVBoxLayout(d->annotateTab);
-    
+
+    // Add the Enable AI Annotate checkbox and Install LLM button to the top of the tab
+    QWidget* const topRowWidget         = new QWidget(d->annotateTab);
+    QHBoxLayout* const topRowLayout     = new QHBoxLayout(topRowWidget);
+    topRowLayout->setContentsMargins(0, 0, 0, 0);
+
     // Enable AI Annotate checkbox
-    d->enableAIAnnotateCheck = new QCheckBox(i18n("Enable AI Annotate"), d->annotateTab);
+    d->enableAIAnnotateCheck            = new QCheckBox(i18n("Enable AI Annotate"), topRowWidget);
     d->enableAIAnnotateCheck->setToolTip(i18n("Enable or disable the AI Annotate feature"));
-    annotateTabLayout->addWidget(d->enableAIAnnotateCheck);
+    topRowLayout->addWidget(d->enableAIAnnotateCheck);
+
+    topRowLayout->addStretch(); // Add stretch before the button to push it to the right
+    
+    // Add Install llama.cpp button to the same row, right-justified
+    QPushButton* const installButton    = new QPushButton(i18n("Install LLM engine"), topRowWidget);
+    installButton->setToolTip(i18n("Download and install llama.cpp binaries for local AI inference"));
+    installButton->setEnabled(false); // Initially disabled
+    installButton->setMinimumWidth(200); // Make the button wider
+    topRowLayout->addWidget(installButton);
+
+    annotateTabLayout->addWidget(topRowWidget);
     annotateTabLayout->addSpacing(spacing);
 
     // Description label to explain the feature
-    QLabel* const descriptionLabel = new QLabel(d->annotateTab);
+    QLabel* const descriptionLabel      = new QLabel(d->annotateTab);
     descriptionLabel->setText(i18n("<b>AI Annotate</b> in <b>digiKam</b> brings intelligent automation to your image organization. "
                                   "Leveraging advanced AI, this feature <b>analyzes photos</b>, generates <b>detailed descriptions</b>, "
                                   "and assigns <b>accurate keyword tags</b>, making searching and categorization effortless."));
@@ -167,8 +174,8 @@ SetupLLM::SetupLLM(QWidget* const parent)
     annotateTabLayout->addSpacing(spacing);
 
     // Generation settings
-    QGroupBox* const tagGenBox     = new QGroupBox(i18n("Generation Settings"), d->annotateTab);
-    QGridLayout* const tagGenLayout = new QGridLayout(tagGenBox);
+    QGroupBox* const tagGenBox          = new QGroupBox(i18n("Generation Settings"), d->annotateTab);
+    QGridLayout* const tagGenLayout     = new QGridLayout(tagGenBox);
 
     // Generation components checkboxes
 
@@ -176,13 +183,13 @@ SetupLLM::SetupLLM(QWidget* const parent)
     d->enableAIAnnotateDescriptionCheck = new QCheckBox(i18n("Enable Description Generation"), tagGenBox);
     d->enableAIAnnotateDescriptionCheck->setToolTip(i18n("Generate detailed descriptions of image contents"));
     
-    d->enableAIAnnotateTagsCheck = new QCheckBox(i18n("Enable Tag Generation"), tagGenBox);
+    d->enableAIAnnotateTagsCheck        = new QCheckBox(i18n("Enable Tag Generation"), tagGenBox);
     d->enableAIAnnotateTagsCheck->setToolTip(i18n("Generate tags/keywords for image categorization"));
     
     // Max Tags settings
-    d->maxTagsLabel = new QLabel(i18n("Maximum tags:"), tagGenBox);
+    d->maxTagsLabel                     = new QLabel(i18n("Maximum tags:"), tagGenBox);
     d->maxTagsLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
-    d->maxTagsSpinBox = new DIntNumInput(tagGenBox);
+    d->maxTagsSpinBox                   = new DIntNumInput(tagGenBox);
     d->maxTagsSpinBox->setRange(0, 30, 1);
     d->maxTagsSpinBox->setValue(15);
     d->maxTagsSpinBox->setToolTip(i18n("Set the maximum number of tags to generate per image"));
@@ -455,6 +462,13 @@ SetupLLM::SetupLLM(QWidget* const parent)
     connect(d->enableAIAnnotateExternalLLMCheck, &QCheckBox::toggled,
             this, &SetupLLM::slotEnableAIAnnotateExternalLLM);
 
+    // --- Connect Enable AI Annotate checkbox to Install llama.cpp button ---
+    connect(d->enableAIAnnotateCheck, &QCheckBox::toggled,
+            installButton, &QPushButton::setEnabled);
+            
+    connect(installButton, &QPushButton::clicked,
+            this, &SetupLLM::slotShowInstallDialog);
+
     // Initialize settings
     readSettings();    
 }
@@ -613,10 +627,30 @@ void SetupLLM::slotEnableAIAnnotateSettings(bool enable)
     d->enableAIAnnotateAdvSetCheck->setEnabled(enable);
     d->enableAIAnnotateDescriptionCheck->setEnabled(enable);
     d->enableAIAnnotateTagsCheck->setEnabled(enable);
+    
+    // Voice style controls
     d->aiVoiceTypeCombo->setEnabled(enable);
     d->aiVoiceTypeLabel->setEnabled(enable);
     d->aiVoicePerspectiveCombo->setEnabled(enable);
     d->aiVoicePerspectiveLabel->setEnabled(enable);
+    
+    // Text tones controls
+    d->textTonesLabel->setEnabled(enable);
+    d->textToneFriendlyCheck->setEnabled(enable);
+    d->textToneSeriousCheck->setEnabled(enable);
+    d->textToneHumorousCheck->setEnabled(enable);
+    d->textToneEmpatheticCheck->setEnabled(enable);
+    d->textToneAuthoritativeCheck->setEnabled(enable);
+    d->textToneEncouragingCheck->setEnabled(enable);
+    d->textToneUrgentCheck->setEnabled(enable);
+    d->textToneInspirationalCheck->setEnabled(enable);
+    d->textToneRespectfulCheck->setEnabled(enable);
+    d->textToneConciseCheck->setEnabled(enable);
+    d->textToneDescriptiveCheck->setEnabled(enable);
+    d->textTonePersuasiveCheck->setEnabled(enable);
+    d->textToneDramaticCheck->setEnabled(enable);
+    d->textTonePoeticCheck->setEnabled(enable);
+    d->textToneTechnicalCheck->setEnabled(enable);
 
     slotEnableAIAnnotateAdvancedSettings(d->enableAIAnnotateAdvSetCheck->isChecked());
     slotEnableAIAnnotateCustomPrompt(d->enableAIAnnotateCustomPromptCheck->isChecked());
@@ -646,8 +680,12 @@ void SetupLLM::slotEnableAIAnnotateCustomPrompt(bool enable)
     d->promptTextEdit->setEnabled(enable && d->enableAIAnnotateCustomPromptCheck->isEnabled());
     d->resetPromptButton->setEnabled(enable && d->enableAIAnnotateCustomPromptCheck->isEnabled());
 
-    // Enable voice style and text tones if custom prompt is not checked or custom prompt is disabled
-    bool enableVoiceAndTones = (!enable || !d->enableAIAnnotateDescriptionCheck->isEnabled());
+    // Only enable voice style and text tones if:
+    // 1. The main AI Annotate feature is enabled
+    // 2. Either custom prompt is not checked or custom prompt is disabled
+    bool mainFeatureEnabled = d->enableAIAnnotateCheck->isChecked();
+    bool enableVoiceAndTones = mainFeatureEnabled && (!enable || !d->enableAIAnnotateDescriptionCheck->isEnabled());
+    
     d->aiVoiceTypeCombo->setEnabled(enableVoiceAndTones);
     d->aiVoiceTypeLabel->setEnabled(enableVoiceAndTones);
     d->aiVoicePerspectiveCombo->setEnabled(enableVoiceAndTones);

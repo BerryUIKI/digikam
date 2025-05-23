@@ -205,8 +205,11 @@ void LLMEngineInstaller::slotReadStandardError()
 
 QString LLMEngineInstaller::getInstallerScript() const
 {
-    // QString appDirPath = QCoreApplication::applicationDirPath();
+#ifdef Q_OS_MAC
     QString appDirPath = macOSBundlePrefix();
+#else
+    QString appDirPath = QCoreApplication::applicationDirPath();
+#endif
     QString installerDir = appDirPath + QDir::separator() + QLatin1String("installer");
     
 #ifdef Q_OS_WIN
