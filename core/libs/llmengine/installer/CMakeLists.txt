@@ -23,5 +23,5 @@ target_link_libraries(llamacpp_installer_test
 
 # Make sure the executable can find the scripts
 set_target_properties(llamacpp_installer_test PROPERTIES
-    INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/${DATA_INSTALL_DIR}/digikam/installer"
+    INSTALL_RPATH "${CMAKE_INSTALL_PREFIX}/${DATA_INSTALL_DIR}/digikam/llm_install_scripts"
 )
