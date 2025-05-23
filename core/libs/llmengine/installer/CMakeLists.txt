@@ -5,10 +5,6 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
-install(DIRECTORY scripts/
-        DESTINATION ${KDE_INSTALL_FULL_DATADIR}/digikam/llm_install_scripts
-)
-
 set(installertest_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/installer/installertest.cpp
 )

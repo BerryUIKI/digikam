@@ -46,7 +46,7 @@ install(FILES
         "${CMAKE_CURRENT_SOURCE_DIR}/installer/scripts/llamacpp_linux.sh"
         "${CMAKE_CURRENT_SOURCE_DIR}/installer/scripts/llamacpp_macos.sh"
         "${CMAKE_CURRENT_SOURCE_DIR}/installer/scripts/llamacpp_win.bat"
-        DESTINATION ${DATA_INSTALL_DIR}/digikam/installer/scripts
+        DESTINATION ${DATA_INSTALL_DIR}/digikam/llm_install_scripts
         PERMISSIONS OWNER_READ OWNER_WRITE OWNER_EXECUTE
                     GROUP_READ GROUP_EXECUTE
                     WORLD_READ WORLD_EXECUTE
