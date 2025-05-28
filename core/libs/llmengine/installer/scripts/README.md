@@ -37,7 +37,7 @@ llamacpp_win.bat <destination_directory> [version_string] [gpu_type]
 ### Parameters
 
 1. `destination_directory`: Directory where the binaries will be installed
-2. `version_string`: (Optional) The llama.cpp release version (e.g., b5425)
+2. `version_string`: (Optional) The llama.cpp release version (e.g., b5519)
 3. `gpu_type`: (Optional) The GPU acceleration type
    - Linux: auto, cuda, rocm, vulkan, none
    - macOS: auto, metal, vulkan, none

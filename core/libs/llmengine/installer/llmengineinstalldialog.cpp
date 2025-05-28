@@ -75,8 +75,8 @@ LLMEngineInstallDialog::LLMEngineInstallDialog(QWidget* const parent)
     QHBoxLayout* versionLayout = new QHBoxLayout();
     QLabel* versionLabel = new QLabel(i18n("Version:"), this);
     m_versionEdit = new QLineEdit(this);
-    m_versionEdit->setText(QStringLiteral("b5432"));
-    m_versionEdit->setToolTip(i18n("Specify a version tag from the llama.cpp GitHub releases. Default is b5432."));
+    m_versionEdit->setText(QStringLiteral("b5519"));
+    m_versionEdit->setToolTip(i18n("Specify a version tag from the llama.cpp GitHub releases. Default is b5519."));
     
     versionLayout->addWidget(versionLabel);
     versionLayout->addWidget(m_versionEdit, 1);

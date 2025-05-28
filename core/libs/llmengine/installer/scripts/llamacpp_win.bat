@@ -27,7 +27,7 @@ set "VERSION=%~2"
 set "GPU_TYPE=%~3"
 
 REM Set default version if not provided
-if "%VERSION%"=="" set "VERSION=b5432"
+if "%VERSION%"=="" set "VERSION=b5519"
 
 REM Set default GPU type to auto if not provided
 if "%GPU_TYPE%"=="" set "GPU_TYPE=auto"
@@ -346,7 +346,7 @@ echo Downloads the appropriate llama.cpp binary for Windows based on system arch
 echo.
 echo Arguments:
 echo   destination_directory   Directory where the binary will be downloaded and extracted
-echo   version_string          Optional: Version string (e.g., 'b5432'). Defaults to 'b5432' if not specified
+echo   version_string          Optional: Version string (e.g., 'b5519'). Defaults to 'b5519' if not specified
 echo   gpu_type                Optional: GPU acceleration type. Options: 'cuda', 'hip', 'vulkan', 'none'
 echo                           If not specified, attempts to auto-detect the GPU
 exit /b 0

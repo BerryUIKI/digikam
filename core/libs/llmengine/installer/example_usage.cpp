@@ -36,7 +36,7 @@ void MyApplication::installLlamaCpp()
     
     // Start the installation
     // You can specify version and GPU type or leave them empty for defaults
-    // e.g., installer->start(destDir, "b5432", "cuda");
+    // e.g., installer->start(destDir, "b5519", "cuda");
     if (!installer->start(destDir))
     {
         qWarning() << "Failed to start the llama.cpp installation";

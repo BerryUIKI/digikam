@@ -64,7 +64,7 @@ public:
         QHBoxLayout* versionLayout = new QHBoxLayout();
         QLabel* versionLabel = new QLabel("Version:", this);
         m_versionEdit = new QLineEdit(this);
-        m_versionEdit->setText("b5432");
+        m_versionEdit->setText("b5519");
         m_versionEdit->setPlaceholderText("Leave empty for default");
         
         versionLayout->addWidget(versionLabel);

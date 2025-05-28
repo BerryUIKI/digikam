@@ -470,7 +470,12 @@ SetupLLM::SetupLLM(QWidget* const parent)
             this, &SetupLLM::slotShowInstallDialog);
 
     // Initialize settings
-    readSettings();    
+
+    readSettings();
+
+    // call the slot to set the initial state of the settings
+
+    slotEnableAIAnnotateSettings(d->enableAIAnnotateCheck->isChecked());
 }
 
 SetupLLM::~SetupLLM()
@@ -652,10 +657,10 @@ void SetupLLM::slotEnableAIAnnotateSettings(bool enable)
     d->textTonePoeticCheck->setEnabled(enable);
     d->textToneTechnicalCheck->setEnabled(enable);
 
-    slotEnableAIAnnotateAdvancedSettings(d->enableAIAnnotateAdvSetCheck->isChecked());
-    slotEnableAIAnnotateCustomPrompt(d->enableAIAnnotateCustomPromptCheck->isChecked());
-    slotEnableAIAnnotateMaxTags(d->enableAIAnnotateTagsCheck->isChecked());
-    slotEnableAIAnnotateExternalLLM(d->enableAIAnnotateExternalLLMCheck->isChecked());
+    slotEnableAIAnnotateAdvancedSettings(d->enableAIAnnotateAdvSetCheck->isChecked() && d->enableAIAnnotateAdvSetCheck->isEnabled());
+    slotEnableAIAnnotateCustomPrompt(d->enableAIAnnotateCustomPromptCheck->isChecked() && d->enableAIAnnotateCustomPromptCheck->isEnabled());
+    slotEnableAIAnnotateMaxTags(d->enableAIAnnotateTagsCheck->isChecked() && d->enableAIAnnotateTagsCheck->isEnabled());
+    slotEnableAIAnnotateExternalLLM(d->enableAIAnnotateExternalLLMCheck->isChecked() && d->enableAIAnnotateExternalLLMCheck->isEnabled());
 }
 
 void SetupLLM::slotEnableAIAnnotateMaxTags(bool enable)

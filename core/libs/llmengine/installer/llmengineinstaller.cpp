@@ -128,7 +128,7 @@ bool LLMEngineInstaller::start(const QString& destinationPath,
     }
     else if (!gpuType.isEmpty())
     {
-        arguments << QLatin1String("b5432"); // Default version
+        arguments << QLatin1String("b5519"); // Default version
         arguments << gpuType;
     }
 
@@ -205,12 +205,6 @@ void LLMEngineInstaller::slotReadStandardError()
 
 QString LLMEngineInstaller::getInstallerScript() const
 {
-#ifdef Q_OS_MAC
-    QString appDirPath = macOSBundlePrefix();
-#else
-    QString appDirPath = QCoreApplication::applicationDirPath();
-#endif
-    QString installerDir = appDirPath + QDir::separator() + QLatin1String("installer");
     
 #ifdef Q_OS_WIN
     QString scriptName = QLatin1String("llamacpp_win.bat");
@@ -219,25 +213,30 @@ QString LLMEngineInstaller::getInstallerScript() const
 #else
     QString scriptName = QLatin1String("llamacpp_linux.sh");
 #endif
-    
-    QStringList searchPaths;
-    
-    searchPaths << (appDirPath + QDir::separator() + QLatin1String("lib") + QDir::separator() + 
-                    QLatin1String("llmengine") + QDir::separator() + QLatin1String("scripts") + QDir::separator() + scriptName);
-    
-    
-    // Loop through search paths and use the first script found
-    for (const QString& path : searchPaths)
+
+    QString appPath      = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
+                                                  QLatin1String("digikam/llm_install_scripts/") + scriptName,
+                                                  QStandardPaths::LocateFile);
+
+    if (!appPath.isEmpty())
     {
-        if (QFile::exists(path))
+#ifndef Q_OS_WIN
+        // Check if the script is executable
+        QFile script(appPath);
+        
+        if (script.exists())
         {
-            qDebug() << "Found installer script at:" << path;
-            return path;
+            QProcess chmodProcess;
+            chmodProcess.start(QLatin1String("chmod"), QStringList() << QLatin1String("+x") << appPath);
+            chmodProcess.waitForFinished();
         }
+#endif        
+        return appPath;
     }
-    
-    // If we can't find the script, try to create a temporary one
-    qWarning() << "Could not find installer script:" << scriptName;
+    else
+    {
+        qWarning(DIGIKAM_LLMENGINE_LOG) << "Installer script not found at:" << appPath;
+    }
     
     // As a last resort, copy our embedded script to a temporary location and use that
     QTemporaryDir tempDir;

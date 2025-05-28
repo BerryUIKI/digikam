@@ -65,6 +65,7 @@ LLMProcessSettings& LLMProcessSettings::operator=(const LLMProcessSettings& othe
 bool LLMProcessSettings::isValid() const
 {
     // At a minimum, we need a model path to be valid
+    
     if (external)
     {
         return (!apiHost.isEmpty());
@@ -74,8 +75,7 @@ bool LLMProcessSettings::isValid() const
         return (!modelPath.isEmpty() &&
                 !apiHost.isEmpty() &&
                 apiPort > 0 &&
-                contextSize > 0 &&
-                threads > 0);
+                contextSize > 0);
     }
 
 }

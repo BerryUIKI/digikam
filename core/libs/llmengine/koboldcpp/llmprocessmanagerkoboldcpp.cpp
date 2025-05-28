@@ -24,6 +24,8 @@
 #include <QThread>
 #include <QTimer>
 #include <QEventLoop>
+#include <QDir>
+#include <QProcessEnvironment>
 
 // Local includes
 
@@ -43,8 +45,6 @@ LLMProcessManagerKoboldCpp::LLMProcessManagerKoboldCpp(const LLMProcessSettings&
 
         m_settings.apiPort = findUnusedTcpPort();
         m_settings.apiHost = QStringLiteral("127.0.0.1");
-        // m_engineType = LLMProcessSettings::LLMEngineType::LlamaCpp;
-        // m_engineType = m_settings.engineType;
     }
     else
     {
@@ -67,7 +67,10 @@ bool LLMProcessManagerKoboldCpp::startEngine()
     if (!m_settings.external)
     {
 
-        if (!m_settings.isValid() || m_settings.mmprojPath.isEmpty())
+        if (
+            !m_settings.isValid() || 
+            (m_settings.mmprojPath.isEmpty() && LLMProcessSettings::LLMEngineType::KoboldCpp == m_engineType)
+           )
         {
             qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot start KoboldCpp engine: invalid settings";
             return false;
@@ -89,18 +92,35 @@ bool LLMProcessManagerKoboldCpp::startEngine()
             }
             args << QStringLiteral("--contextsize")             << QString::number(m_settings.contextSize)
                  << QStringLiteral("--chatcompletionsadapter")  << m_settings.chatCompletionsAdapter
-                 << QStringLiteral("--visionmaxres")            << QStringLiteral("2048");
+                 << QStringLiteral("--visionmaxres")            << QStringLiteral("2048")
+                 << QStringLiteral("--gpulayers")               << QStringLiteral("-1");
+
         }
         else if (LLMProcessSettings::LLMEngineType::LlamaCpp == m_engineType)
         {
             // args << QStringLiteral("--model")                   << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/google_gemma-3-4b-it-Q6_K.gguf")
             //      << QStringLiteral("--mmproj")                  << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/mmproj-google_gemma-3-4b-it-f16.gguf") 
-            args << QStringLiteral("--model")                   << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/Qwen2-VL-2B-Instruct-Q6_K.gguf")
-                 << QStringLiteral("--mmproj")                  << QStringLiteral("/Users/michmill/Projects/ImageIndexer/resources/mmproj-Qwen2-VL-2B-Instruct-f16.gguf") 
-                 << QStringLiteral("--ctx-size")                << QString::number(m_settings.contextSize);
+            // args << QStringLiteral("--model")                   << QStringLiteral("/Users/michmill/Projects/koboldcpp/Qwen2-VL-2B-Instruct-Q6_K.gguf")
+            //      << QStringLiteral("--mmproj")                  << QStringLiteral("/Users/michmill/Projects/koboldcpp/mmproj-Qwen2-VL-2B-Instruct-f16.gguf") 
+            args << QStringLiteral("--hf-repo")                 << m_settings.modelPath
+                 << QStringLiteral("--ctx-size")                << QString::number(m_settings.contextSize)
+                 << QStringLiteral("--n-gpu-layers")            << QStringLiteral("-1");
+                //  << QStringLiteral("-v");
+
+            // set the environment variables for llama.cpp
+
+            QString cacheDir        = LLMProcessManager::getBaseEnginePath() + QStringLiteral("/cache");
+            cacheDir                = QDir::toNativeSeparators(cacheDir);
+
+            QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+            env.insert(QStringLiteral("LLAMA_CACHE_DIR"), cacheDir);
+
+            m_process->setProcessEnvironment(env);            
         }
 
-        args << QStringLiteral("--host")                        << m_settings.apiHost    
+        args << QStringLiteral("--threads")                     << QString::number(m_settings.threads)
+        // args << QStringLiteral("--threads")                     << QString::number(8)
+             << QStringLiteral("--host")                        << m_settings.apiHost    
              << QStringLiteral("--port")                        << QString::number(m_settings.apiPort);
 
         // used for testing engine startup failure
@@ -123,7 +143,8 @@ bool LLMProcessManagerKoboldCpp::startEngine()
         {
             // llamacpp path
 
-            m_executablePath = getEnginePath() + QStringLiteral("/llama-server");
+            QString executablePath  = LLMProcessManager::getBaseEnginePath() + QStringLiteral("/llamacpp/llama-server");
+            m_executablePath        = QDir::toNativeSeparators(executablePath);
         }
     }
     
@@ -134,7 +155,7 @@ void LLMProcessManagerKoboldCpp::abortInference()
 {
     if (!isEngineRunning())
     {
-        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot abort inference: KoboldCpp engine is not running";
+        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Cannot abort inference: OpenAI engine is not running";
         return;
     }
 
@@ -161,11 +182,11 @@ void LLMProcessManagerKoboldCpp::abortInference()
 
     if (!response.isEmpty())
     {
-        qCDebug(DIGIKAM_LLMENGINE_LOG) << "Successfully aborted KoboldCpp inference";
+        qCDebug(DIGIKAM_LLMENGINE_LOG) << "Successfully aborted OpenAI inference";
     }
     else
     {
-        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Failed to abort KoboldCpp inference";
+        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Failed to abort OpenAI inference";
     }
 }
 
@@ -275,6 +296,7 @@ QByteArray LLMProcessManagerKoboldCpp::submitRequest(const QString& function, co
     // Prepare the URL for the API endpoint
     QUrl url(baseUrl + function);
     QNetworkRequest request(url);
+    request.setTransferTimeout(10 * 60 * 1000); // 10 minutes timeout
     request.setHeader(QNetworkRequest::ContentTypeHeader, QStringLiteral("application/json"));
 
     // Convert payload to JSON

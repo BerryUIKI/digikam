@@ -59,7 +59,7 @@ connect(installer, &Digikam::LLMEngineInstaller::installationFinished,
 
 // Start the installation
 QString destDir = "/path/to/install";
-installer->start(destDir, "b5432", "auto");  // Version and GPU type are optional
+installer->start(destDir, "b5519", "auto");  // Version and GPU type are optional
 ```
 
 ## Installation Options
@@ -67,7 +67,7 @@ installer->start(destDir, "b5432", "auto");  // Version and GPU type are optiona
 The installer supports the following options:
 
 1. **Destination Directory**: Where to install the llama.cpp binaries
-2. **Version**: The version tag from llama.cpp GitHub releases (default: b5432)
+2. **Version**: The version tag from llama.cpp GitHub releases (default: b5519)
 3. **GPU Type**: The GPU acceleration to use:
    - `auto`: Auto-detect available GPU support
    - `cuda`: NVIDIA CUDA support
