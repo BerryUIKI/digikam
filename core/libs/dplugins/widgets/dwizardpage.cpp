@@ -28,6 +28,7 @@
 // Local includes
 
 #include "digikam_globals.h"
+#include "dexpanderbox.h"
 
 namespace Digikam
 {
@@ -38,16 +39,23 @@ public:
 
     Private() = default;
 
+public:
+
     bool         isComplete      = true;
     int          id              = -1;
 
     QWidget*     leftView        = nullptr;
     QLabel*      logo            = nullptr;
     QLabel*      leftBottomPix   = nullptr;
+    DLineWidget* vline           = nullptr;
 
     QHBoxLayout* hlay            = nullptr;
+    QVBoxLayout* vlay            = nullptr;
 
     QWizard*     dlg             = nullptr;
+    QScrollArea* sv              = nullptr;
+
+    const int spacing            = layoutSpacing();
 };
 
 DWizardPage::DWizardPage(QWizard* const dlg, const QString& title)
@@ -56,13 +64,10 @@ DWizardPage::DWizardPage(QWizard* const dlg, const QString& title)
 {
     setTitle(title);
 
-    const int spacing     = layoutSpacing();
-
-
-    QScrollArea* const sv = new QScrollArea(this);
-    QWidget* const panel  = new QWidget(sv->viewport());
-    sv->setWidget(panel);
-    sv->setWidgetResizable(true);
+    d->sv      = new QScrollArea(this);
+    QWidget* const panel       = new QWidget(d->sv->viewport());
+    d->sv->setWidget(panel);
+    d->sv->setWidgetResizable(true);
 
     d->hlay                    = new QHBoxLayout(panel);
     d->leftView                = new QWidget(panel);
@@ -71,33 +76,27 @@ DWizardPage::DWizardPage(QWizard* const dlg, const QString& title)
     d->logo->setAlignment(Qt::AlignTop);
     d->logo->setPixmap(QIcon::fromTheme(QLatin1String("digikam")).pixmap(QSize(128, 128)));
 
-    QWidget* const space = new QLabel(d->leftView);
-    d->leftBottomPix     = new QLabel(d->leftView);
+    QWidget* const space       = new QLabel(d->leftView);
+    d->leftBottomPix           = new QLabel(d->leftView);
     d->leftBottomPix->setAlignment(Qt::AlignBottom);
 
     vboxLay->addWidget(d->logo);
     vboxLay->addWidget(space);
     vboxLay->addWidget(d->leftBottomPix);
     vboxLay->setStretchFactor(space, 10);
-    vboxLay->setContentsMargins(spacing, spacing, spacing, spacing);
-    vboxLay->setSpacing(spacing);
+    vboxLay->setContentsMargins(d->spacing, d->spacing, d->spacing, d->spacing);
+    vboxLay->setSpacing(d->spacing);
 
-    QFrame* const vline = new QFrame(panel);
-    vline->setLineWidth(1);
-    vline->setMidLineWidth(0);
-    vline->setFrameShape(QFrame::VLine);
-    vline->setFrameShadow(QFrame::Sunken);
-    vline->setMinimumSize(2, 0);
-    vline->updateGeometry();
+    d->vline                   = new DLineWidget(Qt::Vertical, panel);
 
     d->hlay->addWidget(d->leftView);
-    d->hlay->addWidget(vline);
-    d->hlay->setContentsMargins(QMargins());
-    d->hlay->setSpacing(spacing);
+    d->hlay->addWidget(d->vline);
+    d->hlay->setContentsMargins(QMargins(d->spacing, d->spacing, d->spacing, d->spacing));
+    d->hlay->setSpacing(d->spacing);
 
-    QVBoxLayout* const layout = new QVBoxLayout;
-    layout->addWidget(sv);
-    setLayout(layout);
+    d->vlay = new QVBoxLayout;
+    d->vlay->addWidget(d->sv);
+    setLayout(d->vlay);
 
     d->dlg = dlg;
     d->id  = d->dlg->addPage(this);
@@ -111,6 +110,7 @@ DWizardPage::~DWizardPage()
 void DWizardPage::setComplete(bool b)
 {
     d->isComplete = b;
+
     Q_EMIT completeChanged();
 }
 
@@ -127,6 +127,24 @@ int DWizardPage::id() const
 void DWizardPage::setShowLeftView(bool v)
 {
     d->leftView->setVisible(v);
+    d->vline->setVisible(v);
+
+    if (v)
+    {
+        d->hlay->setContentsMargins(QMargins(d->spacing, d->spacing, d->spacing, d->spacing));
+        d->hlay->setSpacing(d->spacing);
+        d->sv->setContentsMargins(d->spacing, d->spacing, d->spacing, d->spacing);
+        d->vlay->setContentsMargins(QMargins(d->spacing, d->spacing, d->spacing, d->spacing));
+        d->vlay->setSpacing(d->spacing);
+    }
+    else
+    {
+        d->hlay->setContentsMargins(QMargins(0, 0, 0, 0));
+        d->hlay->setSpacing(0);
+        d->sv->setContentsMargins(0, 0, 0, 0);
+        d->vlay->setContentsMargins(QMargins(0, 0, 0, 0));
+        d->vlay->setSpacing(0);
+    }
 }
 
 void DWizardPage::setPageWidget(QWidget* const w)
