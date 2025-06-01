@@ -4890,7 +4890,7 @@ void CoreDB::writeSettings()
     group.writeEntry(d->configRecentlyUsedTags, d->recentlyAssignedTags);
 }
 
-QList<qlonglong> CoreDB::getNextLLMItemsToScan() const
+QList<qlonglong> CoreDB::getNextLLMItemsToScan(qlonglong limit) const
 {
     QList<QVariant> values;
     
@@ -4902,8 +4902,10 @@ QList<qlonglong> CoreDB::getNextLLMItemsToScan() const
                                      "LEFT JOIN ImageComments ON Images.id = ImageComments.imageid "
                                      "WHERE ImageComments.id IS NULL OR ImageComments.comment IS NULL "
                                      "AND Images.category = ? "
-                                     "ORDER BY Images.id DESC; "),
+                                     "ORDER BY Images.id DESC "
+                                     "LIMIT ?; "),
                    DatabaseItem::Category::Image,
+                   limit,
                    &values);
 
     QList<qlonglong> imageIds;

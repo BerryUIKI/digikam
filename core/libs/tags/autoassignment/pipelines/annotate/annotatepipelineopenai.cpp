@@ -253,7 +253,7 @@ bool AnnotatePipelineOpenAI::finder()
     {
         // Add images without comments to the queue using CoreDB method
 
-        QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan();
+        QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan(100 + m_imageIdsInProgress.size());
 
         // Q_EMIT the updated total item count
         qlonglong itemCount = totalItemCount + imageIdsWithoutComments.size() - m_imageIdsInProgress.size();
