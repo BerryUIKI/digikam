@@ -46,10 +46,6 @@ private Q_SLOTS:
 
 private:
 
-    void setThumbnail(QTreeWidgetItem* const item, const QPixmap& pix);
-
-private:
-
     class Private;
     Private* const d = nullptr;
 };
