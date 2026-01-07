@@ -43,6 +43,7 @@
 #include "tableview.h"
 #include "trashview.h"
 #include "dimg.h"
+#include "surveywindow.h"
 
 #ifdef HAVE_MEDIAPLAYER
 #   include "itempreviewvideo.h"
@@ -97,6 +98,8 @@ StackedView::StackedView(QWidget* const parent)
       d             (new Private)
 {
     d->imageIconView    = new DigikamItemView(this);
+    SurveyWindow::surveyWindow()->init(d->imageIconView);
+
     d->imagePreviewView = new ItemPreviewView(this);
     d->thumbBarDock     = new ThumbBarDock();
     d->thumbBar         = new ItemThumbnailBar(d->thumbBarDock);
