@@ -90,7 +90,8 @@ public:
 
     ItemPreviewCanvas*     item                 = nullptr;
 
-    HostActionsMap         hostActions;
+    HostActionsMap         hostActions;                         ///< Comming from host window.
+    HostActionsMap         previewActions;                      ///< Shared with host window
 
     QAction*               prevAction           = nullptr;
     QAction*               nextAction           = nullptr;
@@ -292,6 +293,24 @@ ItemPreviewView::ItemPreviewView(QWidget* const parent, Mode mode, Album* const 
 
     // ---
 
+    // Faces
+    d->previewActions.insert(QLatin1String("image_preview_people_toggle"),    d->peopleToggleAction);
+    d->previewActions.insert(QLatin1String("image_preview_add_person"),       d->addPersonAction);
+    d->previewActions.insert(QLatin1String("image_preview_forget_faces"),     d->forgetFacesAction);
+    d->previewActions.insert(QLatin1String("image_preview_mark_as_ignored"),  d->markAsIgnoredAction);
+
+    // Focus Point
+    d->previewActions.insert(QLatin1String("image_preview_add_focus_point"),  d->addFocusPointAction);
+    d->previewActions.insert(QLatin1String("image_preview_show_focus_point"), d->showFocusPointAction);
+
+    // Extra
+    d->previewActions.insert(QLatin1String("image_preview_magnifier"),        d->magnifierAction);
+    d->previewActions.insert(QLatin1String("image_preview_under_exposure"),   d->underExposureAction);
+    d->previewActions.insert(QLatin1String("image_preview_over_exposure"),    d->overExposureAction);
+    d->previewActions.insert(QLatin1String("image_preview_show_properties"),  d->showPropertiesAction);
+
+    // ---
+
     connect(d->prevAction, SIGNAL(triggered()),
             this, SIGNAL(toPreviousImage()));
 
@@ -411,14 +430,6 @@ ItemPreviewView::ItemPreviewView(QWidget* const parent, Mode mode, Album* const 
         }
     );
 
-    connect(d->showPropertiesAction, &QAction::toggled,
-            this, [this](bool checked)
-        {
-            d->osd->setOsdEnabled(checked);
-            ApplicationSettings::instance()->setPreviewOverlay(checked);
-        }
-    );
-
     connect(d->fullscreenAction, SIGNAL(triggered()),
             this, SLOT(slotSlideShowCurrent()));
 
@@ -497,6 +508,14 @@ void ItemPreviewView::setupOverlays()
         }
     );
 
+    connect(d->showPropertiesAction, &QAction::toggled,
+            this, [this](bool checked)
+        {
+            d->osd->setOsdEnabled(checked);
+            ApplicationSettings::instance()->setPreviewOverlay(checked);
+        }
+    );
+
     // ---
 
     QGridLayout* const grid = new QGridLayout(this);
@@ -513,7 +532,7 @@ void ItemPreviewView::setupOverlays()
 
 void ItemPreviewView::setHostWindowActions(const HostActionsMap& actions)
 {
-    d->hostActions  = actions;
+    d->hostActions = actions;
     setupOverlays();
     slotSetupChanged();
 }
@@ -521,6 +540,11 @@ void ItemPreviewView::setHostWindowActions(const HostActionsMap& actions)
 void ItemPreviewView::reload()
 {
     previewItem()->reload();
+}
+
+HostActionsMap ItemPreviewView::previewImageActions() const
+{
+    return d->previewActions;
 }
 
 void ItemPreviewView::slotItemLoaded()
@@ -639,6 +663,33 @@ void ItemPreviewView::showEvent(QShowEvent* e)
     d->focusPointGroup->setVisible(d->showFocusPointAction->isChecked());
     d->showPropertiesAction->setChecked(ApplicationSettings::instance()->getPreviewOverlay());
     d->osd->setVisible(ApplicationSettings::instance()->getPreviewOverlay());
+
+    const HostActionsMap map = previewImageActions();
+
+    for (HostActionsMap::const_iterator it = map.constBegin() ; it != map.constEnd() ; ++it)
+    {
+        it.value()->setEnabled(true);
+    }
+}
+
+void ItemPreviewView::hideEvent(QHideEvent* e)
+{
+    GraphicsDImgView::hideEvent(e);
+    d->faceGroup->setVisible(d->peopleToggleAction->isChecked());
+    d->focusPointGroup->setVisible(d->showFocusPointAction->isChecked());
+    d->showPropertiesAction->setChecked(ApplicationSettings::instance()->getPreviewOverlay());
+
+    if (d->osd)
+    {
+        d->osd->setVisible(ApplicationSettings::instance()->getPreviewOverlay());
+    }
+
+    const HostActionsMap map = previewImageActions();
+
+    for (HostActionsMap::const_iterator it = map.constBegin() ; it != map.constEnd() ; ++it)
+    {
+        it.value()->setEnabled(false);
+    }
 }
 
 void ItemPreviewView::slotShowContextMenu(QGraphicsSceneContextMenuEvent* event)

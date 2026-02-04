@@ -941,6 +941,13 @@ void DigikamApp::setupActions()
 
     loadThemesActions();
 
+    const HostActionsMap map = d->view->previewImageActions();
+
+    for (HostActionsMap::const_iterator it = map.constBegin() ; it != map.constEnd() ; ++it)
+    {
+        ac->addAction(it.key(), it.value());
+    }
+
     createGUI(xmlFile());
 
     registerPluginsActions();

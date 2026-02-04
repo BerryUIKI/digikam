@@ -35,6 +35,15 @@ void ItemIconView::setHostWindowActions(const HostActionsMap& actions)
 
 }
 
+HostActionsMap ItemIconView::previewImageActions() const
+{
+    HostActionsMap map;
+
+    map.insert(d->stackedView->imagePreviewView()->previewImageActions());
+
+    return map;
+}
+
 void ItemIconView::connectIconViewFilter(FilterStatusBar* const filterbar)
 {
     ItemAlbumFilterModel* const model = d->iconView->itemAlbumFilterModel();

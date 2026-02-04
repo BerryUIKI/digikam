@@ -402,6 +402,8 @@ private Q_SLOTS:
 public:
 
     void setHostWindowActions(const HostActionsMap& actions);
+    HostActionsMap previewImageActions()                                           const;
+
     void setToolsIconView(DCategorizedView* const view);
     void toggleShowBar(bool);
     void toggleFullScreen(bool set);

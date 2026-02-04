@@ -116,14 +116,6 @@ ItemPreviewVideo::ItemPreviewVideo(QWidget* const parent)
 
     // ---
 
-    connect(d->showPropertiesAction, &QAction::toggled,
-            this, [this](bool checked)
-        {
-            d->osd->setOsdEnabled(checked);
-            ApplicationSettings::instance()->setPreviewOverlay(checked);
-        }
-    );
-
     connect(d->ratingWidget, SIGNAL(signalRatingChanged(int)),
             this, SLOT(slotAssignRating(int)));
 
@@ -156,6 +148,14 @@ void ItemPreviewVideo::setupOverlays()
     setToolbarExtraWidget(d->labelsBox);
 
     d->osd = new ItemPreviewOsd(&d->osdSettings, this);
+
+    connect(d->showPropertiesAction, &QAction::toggled,
+            this, [this](bool checked)
+        {
+            d->osd->setOsdEnabled(checked);
+            ApplicationSettings::instance()->setPreviewOverlay(checked);
+        }
+    );
 
     setOsdWidget(d->osd);
 }

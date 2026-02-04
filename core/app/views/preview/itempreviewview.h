@@ -62,7 +62,16 @@ public:
     void reload();
     void setImagePath(const QString& path = QString());
     void setPreviousNextPaths(const QString& previous, const QString& next);
+
+    /**
+     * Set Actions from Host Window.
+     */
     void setHostWindowActions(const HostActionsMap& actions);
+
+    /**
+     * Share actions to host window.
+     */
+    HostActionsMap previewImageActions() const;
 
 Q_SIGNALS:
 
@@ -89,6 +98,7 @@ protected:
     void mousePressEvent(QMouseEvent* e)    override;
     void leaveEvent(QEvent* e)              override;
     void showEvent(QShowEvent* e)           override;
+    void hideEvent(QHideEvent* e)           override;
     void dropEvent(QDropEvent* e)           override;
     void dragMoveEvent(QDragMoveEvent* e)   override;
     void dragEnterEvent(QDragEnterEvent* e) override;
