@@ -214,6 +214,11 @@ typedef QMap<QString, QAction*> HostActionsMap;
 // --------------------------------------------------------
 
 /**
+ * Convenience method for creating an action hosting a title for a sub-menu.
+ */
+DIGIKAM_EXPORT QAction* menuTitleAction(const QString& text, QObject* const parent = nullptr);
+
+/**
  * Convenience method for creating keyboard shortcuts.
  */
 DIGIKAM_EXPORT QShortcut* defineShortcut(QWidget* const w, const QKeySequence& key, const QObject* receiver, const char* slot);

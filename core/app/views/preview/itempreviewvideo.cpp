@@ -61,7 +61,8 @@ public:
 
 public:
 
-    HostActionsMap         hostActions;
+    HostActionsMap         hostActions;                         //< Comming from host window.
+    HostActionsMap         previewActions;                      ///< Shared with host window
 
     QAction*               showPropertiesAction = nullptr;
 
@@ -113,6 +114,25 @@ ItemPreviewVideo::ItemPreviewVideo(QWidget* const parent)
     d->ratingWidget->setFading(false);
     d->ratingWidget->setFocusPolicy(Qt::NoFocus);
     d->labelsBox->layout()->setAlignment(d->ratingWidget, Qt::AlignVCenter | Qt::AlignLeft);
+
+    // ---
+
+    HostActionsMap map = actionsList();
+
+    d->previewActions.insert(QLatin1String("video_section_title"),            menuTitleAction(i18n("Video"), this));
+
+    // Naviguate
+    d->previewActions.insert(QLatin1String("video_preview_play"),             map.value(QLatin1String("video_preview_play")));
+    d->previewActions.insert(QLatin1String("video_preview_forward"),          map.value(QLatin1String("video_preview_forward")));
+
+    // Playback
+    d->previewActions.insert(QLatin1String("video_preview_grab"),             map.value(QLatin1String("video_preview_grab")));
+    d->previewActions.insert(QLatin1String("video_preview_rotate_left"),      map.value(QLatin1String("video_preview_rotate_left")));
+    d->previewActions.insert(QLatin1String("video_preview_rotate_right"),     map.value(QLatin1String("video_preview_rotate_right")));
+    d->previewActions.insert(QLatin1String("video_preview_frame_rate"),       map.value(QLatin1String("video_preview_frame_rate")));
+
+    // Extra
+    d->previewActions.insert(QLatin1String("video_preview_show_properties"),  d->showPropertiesAction);
 
     // ---
 
@@ -316,6 +336,43 @@ void ItemPreviewVideo::slotImageTagChange(const ImageTagChangeset& changeset)
     if (TagsCache::instance()->colorLabelFromTags(changeset.tags()) > 0)
     {
         d->clWidget->setColorLabel((ColorLabel)d->info.colorLabel());
+    }
+}
+
+void ItemPreviewVideo::showEvent(QShowEvent* e)
+{
+    MediaPlayerView::showEvent(e);
+    d->showPropertiesAction->setChecked(ApplicationSettings::instance()->getPreviewOverlay());
+    d->osd->setVisible(ApplicationSettings::instance()->getPreviewOverlay());
+
+    const HostActionsMap map = previewVideoActions();
+
+    for (HostActionsMap::const_iterator it = map.constBegin() ; it != map.constEnd() ; ++it)
+    {
+        it.value()->setEnabled(true);
+    }
+}
+
+HostActionsMap ItemPreviewVideo::previewVideoActions() const
+{
+    return d->previewActions;
+}
+
+void ItemPreviewVideo::hideEvent(QHideEvent* e)
+{
+    MediaPlayerView::hideEvent(e);
+    d->showPropertiesAction->setChecked(ApplicationSettings::instance()->getPreviewOverlay());
+
+    if (d->osd)
+    {
+        d->osd->setVisible(ApplicationSettings::instance()->getPreviewOverlay());
+    }
+
+    const HostActionsMap map = previewVideoActions();
+
+    for (HostActionsMap::const_iterator it = map.constBegin() ; it != map.constEnd() ; ++it)
+    {
+        it.value()->setEnabled(false);
     }
 }
 

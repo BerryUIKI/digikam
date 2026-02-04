@@ -39,15 +39,29 @@ class ItemPreviewVideo : public MediaPlayerView
 public:
 
     explicit ItemPreviewVideo(QWidget* const parent);
-    ~ItemPreviewVideo() override;
+    ~ItemPreviewVideo()                     override;
 
     void setItemInfo(const ItemInfo& info, const ItemInfo& previous, const ItemInfo& next);
+
+    /**
+     * Set Actions from Host Window.
+     */
     void setHostWindowActions(const HostActionsMap& actions);
+
+    /**
+     * Share actions to host window.
+     */
+    HostActionsMap previewVideoActions() const;
 
 Q_SIGNALS:
 
     void signalDeleteItem();
     void signalPopupTagsView();
+
+protected:
+
+    void showEvent(QShowEvent* e)           override;
+    void hideEvent(QHideEvent* e)           override;
 
 private Q_SLOTS:
 

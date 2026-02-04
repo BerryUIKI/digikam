@@ -35,11 +35,17 @@ void ItemIconView::setHostWindowActions(const HostActionsMap& actions)
 
 }
 
-HostActionsMap ItemIconView::previewImageActions() const
+HostActionsMap ItemIconView::previewActions() const
 {
     HostActionsMap map;
 
     map.insert(d->stackedView->imagePreviewView()->previewImageActions());
+
+#ifdef HAVE_MEDIAPLAYER
+
+    map.insert(d->stackedView->mediaPlayerView()->previewVideoActions());
+
+#endif // HAVE_MEDIAPLAYER
 
     return map;
 }

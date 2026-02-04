@@ -293,6 +293,8 @@ ItemPreviewView::ItemPreviewView(QWidget* const parent, Mode mode, Album* const 
 
     // ---
 
+    d->previewActions.insert(QLatin1String("image_section_title"),            menuTitleAction(i18n("Image"), this));
+
     // Faces
     d->previewActions.insert(QLatin1String("image_preview_people_toggle"),    d->peopleToggleAction);
     d->previewActions.insert(QLatin1String("image_preview_add_person"),       d->addPersonAction);

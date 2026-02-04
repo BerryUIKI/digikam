@@ -42,6 +42,8 @@
 #include <QElapsedTimer>
 #include <QCoreApplication>
 #include <QTime>
+#include <QLabel>
+#include <QWidgetAction>
 
 // KDE includes
 

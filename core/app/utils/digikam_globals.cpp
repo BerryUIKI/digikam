@@ -19,6 +19,18 @@ namespace Digikam
 
 QString DATETIMEFORMATSTRING = QLocale().dateTimeFormat(QLocale::ShortFormat);
 
+QAction* menuTitleAction(const QString& text, QObject* const parent)
+{
+    QWidgetAction* titleAction = new QWidgetAction(parent);
+    QLabel* const label        = new QLabel(text);
+    label->setAlignment(Qt::AlignCenter);
+    label->setStyleSheet(QLatin1String("font-weight: bold; font-size: 10pt; margin: 2px; color: #333;"));
+    titleAction->setDefaultWidget(label);
+    titleAction->setEnabled(false);
+
+    return titleAction;
+}
+
 QShortcut* defineShortcut(QWidget* const w, const QKeySequence& key, const QObject* receiver, const char* slot)
 {
     QShortcut* const s = new QShortcut(w);

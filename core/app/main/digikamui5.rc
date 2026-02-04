@@ -1,5 +1,5 @@
 <!DOCTYPE kpartgui SYSTEM "kpartgui.dtd">
-<gui version="905" name="digikam" translationDomain="digikam" >
+<gui version="906" name="digikam" translationDomain="digikam" >
 
  <MenuBar>
 
@@ -68,8 +68,7 @@
      <Action name="image_set_exif_orientation" />
   </Menu>
 
-  <Menu name="Edit" >
-   <text>&amp;Edit</text>
+  <Menu name="Edit" ><text>&amp;Edit</text>
      <Action name="cut_album_selection" />
      <Action name="copy_album_selection" />
      <Action name="paste_album_selection" />
@@ -80,6 +79,7 @@
    </Menu>
 
    <Menu name="Preview"><text>&amp;Preview</text>
+     <Action name="image_section_title" />
      <Action name="image_preview_people_toggle" />
      <Action name="image_preview_add_person" />
      <Action name="image_preview_forget_faces" />
@@ -91,6 +91,14 @@
      <Action name="image_preview_over_exposure" />
      <Action name="image_preview_show_properties" />
      <Separator/>
+     <Action name="video_section_title" />
+     <Action name="video_preview_play" />
+     <Action name="video_preview_forward" />
+     <Action name="video_preview_grab" />
+     <Action name="video_preview_rotate_left" />
+     <Action name="video_preview_rotate_right" />
+     <Action name="video_preview_frame_rate" />
+     <Action name="video_preview_show_properties" />
   </Menu>
 
   <Menu name="View" ><text>&amp;View</text>
