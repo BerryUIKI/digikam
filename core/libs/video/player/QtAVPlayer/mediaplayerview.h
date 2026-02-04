@@ -25,6 +25,7 @@
 // Local includes
 
 #include "digikam_export.h"
+#include "digikam_globals.h"
 #include "dinfointerface.h"
 #include "dvideowidget.h"
 
@@ -66,7 +67,7 @@ public:
     /**
      * @return the list of action available in the toolbar.
      */
-    QList<QAction*> actionsList() const;
+    HostActionsMap actionsList() const;
 
 Q_SIGNALS:
 

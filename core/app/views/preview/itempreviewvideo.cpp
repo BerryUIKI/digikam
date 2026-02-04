@@ -186,11 +186,11 @@ void ItemPreviewVideo::slotContextMenu()
 
     // --------------------------------------------------------
 
-    const auto acl = actionsList();
+    const HostActionsMap map = actionsList();
 
-    for (auto* const ac : acl)
+    for (HostActionsMap::const_iterator it = map.constBegin() ; it != map.constEnd() ; ++it)
     {
-        cmHelper.addAction(ac, true);
+        cmHelper.addAction(it.value(), true);
     }
 
     cmHelper.addSeparator();

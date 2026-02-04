@@ -558,16 +558,23 @@ MediaPlayerView::~MediaPlayerView()
     delete d;
 }
 
-QList<QAction*> MediaPlayerView::actionsList() const
+HostActionsMap MediaPlayerView::actionsList() const
 {
-    return QList<QAction*>() << d->prevAction
-                             << d->nextAction
-                             << d->playAction
-                             << d->forwAction
-                             << d->grabAction
-                             << d->rotlAction
-                             << d->rotrAction
-                             << d->rateButton->menu()->menuAction();
+    HostActionsMap map;
+
+    // Naviguate
+    map.insert(QLatin1String("video_preview_previous"),         d->prevAction);
+    map.insert(QLatin1String("video_preview_next"),             d->nextAction);
+    map.insert(QLatin1String("video_preview_play"),             d->playAction);
+    map.insert(QLatin1String("video_preview_forward"),          d->forwAction);
+
+    // Playback
+    map.insert(QLatin1String("video_preview_grab"),             d->grabAction);
+    map.insert(QLatin1String("video_preview_rotate_left"),      d->rotlAction);
+    map.insert(QLatin1String("video_preview_rotate_right"),     d->rotrAction);
+    map.insert(QLatin1String("video_preview_frame_rate"),       d->rateButton->menu()->menuAction());
+
+    return map;
 }
 
 void MediaPlayerView::setToolbarVisible(bool b)
