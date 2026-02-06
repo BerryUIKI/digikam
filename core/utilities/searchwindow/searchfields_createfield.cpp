@@ -8,6 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2026      by Srirupa Datta <srirupa dot sps at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -798,9 +799,15 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
     }
     else if (name == QLatin1String("creator"))
     {
-        SearchFieldText* const field = new SearchFieldText(parent);
+        SearchFieldChoice* const field = new SearchFieldChoice(parent);
         field->setFieldName(name);
-        field->setText(i18nc("@label: item creator", "Creator"), i18n("Return items created by"));
+        field->setText(i18nc("@label: item creator", "Creator"),
+                    i18n("Return items created by"));
+
+        QStringList creators = CoreDbAccess().db()->getAllImageCopyrightValues(QLatin1String("creator"));
+        creators += creators;
+        creators.sort();
+        field->setChoice(creators);
 
         return field;
     }
@@ -814,9 +821,15 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
     }
     else if (name == QLatin1String("commentauthor"))
     {
-        SearchFieldText* const field = new SearchFieldText(parent);
+        SearchFieldChoice* const field = new SearchFieldChoice(parent);
         field->setFieldName(name);
-        field->setText(i18n("Author"), i18n("Return items commented by"));
+        field->setText(i18n("Author"),
+                    i18n("Return items commented by"));
+
+        QStringList authors = CoreDbAccess().db()->getAllCommentAuthors(DatabaseComment::Comment);
+        authors += authors;
+        authors.sort();
+        field->setChoice(authors);
 
         return field;
     }
