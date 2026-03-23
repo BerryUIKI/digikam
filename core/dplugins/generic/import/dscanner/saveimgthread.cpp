@@ -6,7 +6,7 @@
  * Date        : 2009-10-11
  * Description : save image thread for scanned data
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -28,6 +28,7 @@
 #include "digikam_debug.h"
 #include "dimg.h"
 #include "dmetadata.h"
+#include "actionthreadbase.h"
 
 using namespace Digikam;
 using namespace KSaneIface;
@@ -40,6 +41,8 @@ class Q_DECL_HIDDEN SaveImgThread::Private
 public:
 
     Private() = default;
+
+public:
 
 #if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
@@ -124,6 +127,8 @@ void SaveImgThread::setScannerModel(const QString& make, const QString& model)
 
 void SaveImgThread::run()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String("SaveImgThread"));       // To customize thread name
+
     Q_EMIT signalProgress(d->newUrl, 10);
 
 #if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
@@ -242,7 +247,7 @@ void SaveImgThread::run()
 
     if (!sixteenBit)
     {
-        uchar* src = (uchar*)d->ksaneData.data();
+        uchar* src = reinterpret_cast<uchar*>(d->ksaneData.data());
         uchar* dst = img.bits();
 
         for (int h = 0 ; h < d->height ; ++h)

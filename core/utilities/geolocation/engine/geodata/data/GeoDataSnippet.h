@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -35,7 +35,7 @@ public:
      * Create a new snippet with the given @p text and @p maxLines maximum of lines.
      *
      * @param text the text
-     * @param maxLines the maximum nuber of lines
+     * @param maxLines the maximum number of lines
      */
     explicit GeoDataSnippet(const QString& text = QString(), int maxLines = 0);
 

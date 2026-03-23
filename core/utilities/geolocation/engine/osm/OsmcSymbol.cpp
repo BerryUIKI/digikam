@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -87,9 +87,21 @@ bool OsmcSymbol::parseTag(const QString& tag)
     }
 
     // Determine way color
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
+
+    if (QColor::isValidColorName(parts.at(0)))
+    {
+        m_wayColor.fromString(parts.at(0));
+
+#else
+
     if (QColor::isValidColor(parts.at(0)))
     {
         m_wayColor.setNamedColor(parts.at(0));
+
+#endif
+
     }
 
     else
@@ -102,51 +114,83 @@ bool OsmcSymbol::parseTag(const QString& tag)
         return false;
     }
 
-    if (parts.size() == 3)
+    if      (parts.size() == 3)
     {
         m_foreground = parseForeground(parts.at(2));
     }
-
     else if (parts.size() == 4)
     {
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
+
+        if (QColor::isValidColorName(parts.at(3)))
+
+#else
+
         if (QColor::isValidColor(parts.at(3)))
+
+#endif
+
         {
             m_text = parts.at(2);
             m_textColor = parts.at(3);
         }
-
         else
         {
             m_foreground = parseForeground(parts.at(2));
             m_foreground2 = parseForeground(parts.at(3));
         }
     }
-
     else if (parts.size() == 5)
     {
         m_foreground = parseForeground(parts.at(2));
 
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
+
+        if (QColor::isValidColorName(parts.at(4)))
+
+#else
+
         if (QColor::isValidColor(parts.at(4)))
+
+#endif
+
         {
             m_text = parts.at(3);
             m_textColor = parts.at(4);
         }
-
         else
         {
             return false;
         }
     }
-
     else if (parts.size() == 6)
     {
-        m_foreground = parseForeground(parts.at(2));
+        m_foreground  = parseForeground(parts.at(2));
         m_foreground2 = parseForeground(parts.at(3));
 
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
+
+        if (QColor::isValidColorName(parts.at(5)))
+
+#else
+
         if (QColor::isValidColor(parts.at(5)))
+
+#endif
+
         {
             m_text = parts.at(4);
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
+
+            m_textColor.fromString(parts.at(5));
+
+#else
+
             m_textColor.setNamedColor(parts.at(5));
+
+#endif
         }
 
         else
@@ -166,23 +210,53 @@ bool OsmcSymbol::parseTag(const QString& tag)
 bool OsmcSymbol::parseBackground(const QString& bg)
 {
     QString color = bg.section(QString::fromUtf8("_"), 0, 0);
-    QString type = bg.section(QString::fromUtf8("_"), 1, -1);
+    QString type  = bg.section(QString::fromUtf8("_"), 1, -1);
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
+
+    if (!QColor::isValidColorName(color))
+
+#else
 
     if (!QColor::isValidColor(color))
+
+#endif
+
     {
         return false;
     }
 
     // Plain color was provided
-    if (type.isEmpty())
+
+    if      (type.isEmpty())
     {
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
+
+        m_backgroundColor.fromString(color);
+
+#else
+
         m_backgroundColor.setNamedColor(color);
+
+#endif
+
         m_backgroundType = type;
     }
 
     else if (m_backgroundTypes.contains(type))
     {
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
+
+        m_backgroundColor.fromString(color);
+
+#else
+
         m_backgroundColor.setNamedColor(color);
+
+#endif
+
         m_backgroundType = type;
     }
 
@@ -204,9 +278,22 @@ QSvgRenderer* OsmcSymbol::parseForeground(const QString& fg)
     }
 
     QString color = fg.section(QLatin1Char('_'), 0, 0);
-    QString type = fg.section(QLatin1Char('_'), 1, -1);
+    QString type  = fg.section(QLatin1Char('_'), 1, -1);
 
-    if (QColor::isValidColor(color) && m_foregroundTypes.contains(type))
+    if (
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
+
+        QColor::isValidColorName(color) &&
+
+#else
+
+        QColor::isValidColor(color) &&
+
+#endif
+
+        m_foregroundTypes.contains(type)
+       )
     {
         // Open svg resource and load contents to QByteArray
 

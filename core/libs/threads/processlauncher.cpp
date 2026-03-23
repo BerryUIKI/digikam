@@ -6,7 +6,7 @@
  * Date        : 2015-04-13
  * Description : Generic process launcher with a capture of console output
  *
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -26,6 +26,7 @@
 
 #include "digikam_globals.h"
 #include "digikam_debug.h"
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -118,6 +119,8 @@ void ProcessLauncher::startProcess()
 
 void ProcessLauncher::run()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String("ProcessLauncher"));       // To customize thread name
+
     d->process.reset(new QProcess());
     d->process->setProcessChannelMode(QProcess::MergedChannels);
     d->process->setWorkingDirectory(d->dir);
@@ -155,7 +158,7 @@ void ProcessLauncher::run()
 
         qCInfo(DIGIKAM_GENERAL_LOG) << "=== Process execution is complete!";
         qCInfo(DIGIKAM_GENERAL_LOG) << "> Process exit code        :" << d->exitCode;
-        qCInfo(DIGIKAM_GENERAL_LOG) << "> Process elasped time (ms):" << d->elapsed;
+        qCInfo(DIGIKAM_GENERAL_LOG) << "> Process elapsed time (ms):" << d->elapsed;
     }
     else
     {

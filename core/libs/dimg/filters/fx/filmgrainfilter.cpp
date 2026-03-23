@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : filter to add Film Grain to image.
  *
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2005-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2010      by Julien Narboux <julien at narboux dot fr>
  *
@@ -31,6 +31,7 @@
 #include "dimg.h"
 #include "randomnumbergenerator.h"
 #include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -108,6 +109,8 @@ QString FilmGrainFilter::DisplayableName()
 
 void FilmGrainFilter::filmgrainMultithreaded(uint start, uint stop)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     // To emulate grain size we use a matrix [grainSize x grainSize].
     // We will parse whole image using grainSize step. Color from a reference point located
     // on the top left corner of matrix will be used to apply noise on whole matrix.

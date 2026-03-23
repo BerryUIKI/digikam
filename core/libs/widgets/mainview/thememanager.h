@@ -6,7 +6,7 @@
  * Date        : 2004-08-02
  * Description : colors theme manager
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -38,7 +38,9 @@ class DIGIKAM_EXPORT ThemeManager : public QObject
 
 public:
 
+    ThemeManager();
     ~ThemeManager()                   override;
+
     static ThemeManager* instance();
 
     QString currentThemeName() const;
@@ -62,7 +64,6 @@ private Q_SLOTS:
 private:
 
     // Disable
-    ThemeManager();
     explicit ThemeManager(QObject*);
 
     void    populateThemeMenu();
@@ -70,8 +71,6 @@ private:
     void    updateCurrentDesktopDefaultThemePreview();
 
 private:
-
-    friend class ThemeManagerCreator;
 
     class Private;
     Private* const d = nullptr;

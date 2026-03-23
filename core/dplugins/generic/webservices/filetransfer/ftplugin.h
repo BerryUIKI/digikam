@@ -4,9 +4,9 @@
  * https://www.digikam.org
  *
  * Date        : 2018-07-30
- * Description : a plugin to export and import items with a remote location.
+ * Description : a tool to export and import items with a KIO accessible location
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *

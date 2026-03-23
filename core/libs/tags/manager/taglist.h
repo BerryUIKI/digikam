@@ -7,7 +7,9 @@
  * Description : Tag List implementation as Quick Access for various
  *               subtrees in Tag Manager
  *
- * SPDX-FileCopyrightText: 2013 by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2013      by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2025 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -35,19 +37,19 @@ public:
     ~TagList() override;
 
     /**
-     * @brief saveSettings   - save settings to digiKam_tagsmanagerrc KConfig
+     * @brief save settings to digiKam_tagsmanagerrc KConfig.
      */
     void saveSettings();
 
     /**
-     * @brief restoreSettings - read settings from digikam_tagsmanagerrc
-     *                          config and populate model with data
+     * @brief read settings from digikam_tagsmanagerrc
+     *        config and populate model with data.
      */
     void restoreSettings();
 
     /**
-     * @brief enableAddButton - disable Add Button when selection is empty
-     *                           or only root tag is selected
+     * @brief disable Add Button when selection is empty
+     *        or only root tag is selected.
      */
     void enableAddButton(bool value);
 

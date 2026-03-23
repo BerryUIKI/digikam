@@ -8,7 +8,7 @@
  *               progress or a text in status bar.
  *               Progress events are dispatched to ProgressManager.
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -35,7 +35,6 @@ namespace Digikam
 
 class Q_DECL_HIDDEN StatusProgressBar::Private
 {
-
 public:
 
     enum WidgetStackEnum
@@ -44,7 +43,11 @@ public:
         ProgressBar
     };
 
+public:
+
     Private() = default;
+
+public:
 
     // For Progress Manager item
     bool                notify          = false;
@@ -114,6 +117,11 @@ void StatusProgressBar::setNotificationTitle(const QString& title, const QIcon& 
 void StatusProgressBar::setText(const QString& text)
 {
     d->textLabel->setAdjustedText(text);
+}
+
+QString StatusProgressBar::text() const
+{
+    return d->textLabel->adjustedText();
 }
 
 void StatusProgressBar::setAlignment(Qt::Alignment a)

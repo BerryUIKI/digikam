@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2008-2009 by Valerio Fuoglio <valerio dot fuoglio at gmail dot com>
  * SPDX-FileCopyrightText: 2009      by Andi Clemens <andi dot clemens at googlemail dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -372,7 +372,7 @@ void PresentationAudioWidget::slotStop()
         return;
     }
 
-    qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Stoping:" << d->urlList[d->currIndex];
+    qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Stopping:" << d->urlList[d->currIndex];
     d->playingNext = false;
     d->mediaObject->stop();
     d->currIndex   = 0;

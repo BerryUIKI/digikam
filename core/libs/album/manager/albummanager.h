@@ -7,7 +7,7 @@
  * Description : Albums manager interface.
  *
  * SPDX-FileCopyrightText: 2004      by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -64,6 +64,9 @@ class DIGIKAM_GUI_EXPORT AlbumManager : public QObject
     Q_OBJECT
 
 public:
+
+    AlbumManager();
+    ~AlbumManager() override;
 
     /**
      * A convenience function to get the instance of the AlbumManager
@@ -870,13 +873,7 @@ Q_SIGNALS:
 private:
 
     // Disable
-    AlbumManager();
     explicit AlbumManager(QObject*) = delete;
-    ~AlbumManager() override;
-
-    friend class AlbumManagerCreator;
-
-    static AlbumManager* internalInstance;
 
 public:
 

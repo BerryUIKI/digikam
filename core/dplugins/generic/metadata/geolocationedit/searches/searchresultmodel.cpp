@@ -6,7 +6,7 @@
  * Date        : 2010-06-01
  * Description : A widget to search for places.
  *
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2010-2011 by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -50,6 +50,8 @@ public:
         markerSelected    = QPixmap(markerSelectedUrl.toLocalFile());
         selectionModel    = nullptr;
     }
+
+public:
 
     QList<SearchResultModel::SearchResultItem> searchResults;
     QUrl                                       markerNormalUrl;
@@ -278,7 +280,7 @@ bool SearchResultModel::getMarkerIcon(const QModelIndex& index, QPoint* const of
 
     if (offset)
     {
-        *offset = QPoint(markerPixmap.width()/2, markerPixmap.height()-1);
+        *offset = QPoint(markerPixmap.width() / 2, markerPixmap.height() - 1);
     }
 
     return true;
@@ -302,11 +304,11 @@ void SearchResultModel::removeRowsByIndexes(const QModelIndexList& rowsList)
 
     QList<int> rowNumbers;
 
-    for (const QModelIndex& index : std::as_const(rowsList))
+    for (const QModelIndex& idx : std::as_const(rowsList))
     {
-        if (index.isValid())
+        if (idx.isValid())
         {
-            rowNumbers << index.row();
+            rowNumbers << idx.row();
         }
     }
 
@@ -319,7 +321,7 @@ void SearchResultModel::removeRowsByIndexes(const QModelIndexList& rowsList)
 
     // now delete the rows, starting with the last row:
 
-    for (int i = rowNumbers.count()-1 ; i >= 0 ; --i)
+    for (int i = (rowNumbers.count() - 1) ; i >= 0 ; --i)
     {
         const int rowNumber = rowNumbers.at(i);
 
@@ -348,7 +350,7 @@ void SearchResultModel::removeRowsBySelection(const QItemSelection& selectionLis
 
     // now delete the rows, starting with the last row:
 
-    for (int i = rowRanges.count() - 1 ; i >= 0 ; --i)
+    for (int i = (rowRanges.count() - 1) ; i >= 0 ; --i)
     {
         const QPair<int, int> currentRange = rowRanges.at(i);
 

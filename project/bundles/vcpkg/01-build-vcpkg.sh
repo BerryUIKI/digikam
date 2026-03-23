@@ -2,7 +2,7 @@
 
 # Script to build a bundle VCPKG installation with all digiKam low level dependencies in a dedicated directory.
 #
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -145,8 +145,9 @@ else
 
 fi
 
-$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install opencv[opencl,cuda,dnn,dnn-cuda]
-$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install boost
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install opencv4[opencl,dnn,openmp,thread]
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install boost-graph
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install boost-uuid
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install lcms
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install eigen3
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install expat
@@ -160,7 +161,7 @@ $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install libsnoretoast
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install hunspell
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install openal-soft
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install curl
-$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install glib
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install glib --recurse
 
 echo -e "\n"
 

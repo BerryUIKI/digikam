@@ -7,7 +7,7 @@
  * Description : Item icon view interface.
  *
  * SPDX-FileCopyrightText: 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Johannes Wienke <languitar at semipol dot de>
  * SPDX-FileCopyrightText: 2010-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -75,6 +75,7 @@ public Q_SLOTS:
     void slotImageEdit();
     void slotEditor();
     void slotLightTable();
+    void slotSurvey();
     void slotQueueMgr();
     void slotFileWithDefaultApplication();
     void slotImageLightTable();
@@ -400,6 +401,7 @@ private Q_SLOTS:
 
 public:
 
+    void setHostWindowActions(const HostActionsMap& actions);
     void setToolsIconView(DCategorizedView* const view);
     void toggleShowBar(bool);
     void toggleFullScreen(bool set);
@@ -418,6 +420,10 @@ Q_SIGNALS:
     void signalGotoAlbumAndItem(const ItemInfo&);
     void signalGotoDateAndItem(AlbumIconItem*);
     void signalGotoTagAndItem(int tagID);
+
+    void signalStartedLoading();
+    void signalLoadingProgress(float progress);
+    void signalLoadingComplete();
 
 private Q_SLOTS:
 

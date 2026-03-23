@@ -6,7 +6,7 @@
  * Date        : 2025-03-30
  * Description : Face Background Recognition Controller
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -32,6 +32,9 @@ class DIGIKAM_GUI_EXPORT FaceRecognitionBackgroundController : public QObject
 
 public:
 
+    FaceRecognitionBackgroundController();
+    ~FaceRecognitionBackgroundController() override;
+
     static FaceRecognitionBackgroundController* instance();
 
     void stop();
@@ -45,17 +48,14 @@ private Q_SLOTS:
 
 private:
 
-    FaceRecognitionBackgroundController();
-    ~FaceRecognitionBackgroundController();
-
     // Disable
     explicit FaceRecognitionBackgroundController(QObject*)                           = delete;
     FaceRecognitionBackgroundController(const FaceRecognitionBackgroundController&)  = delete;
 
+private:
+
     class Private;
     Private* const d = nullptr;
-
-    friend class FaceRecognitionBackgroundControllerCreator;
 };
 
 } // namespace Digikam

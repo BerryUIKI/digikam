@@ -6,7 +6,7 @@
  * Date        : 2021-07-24
  * Description : a plugin to share items with MJPEG Stream server.
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021      by Quoc Hưng Tran <quochungtran1999 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -44,6 +44,8 @@ void MjpegStreamPlugin::cleanUp()
     // Stop the MJPEG Server if necessary
 
     MjpegServerMngr::instance()->saveAtShutdown();
+
+    delete m_toolDlg;
 }
 
 QString MjpegStreamPlugin::name() const
@@ -82,10 +84,10 @@ QString MjpegStreamPlugin::details() const
         "<p>This tool allows users to share items on the local network through a MJPEG Stream server.</p>"
         "<p>Items to share can be selected one by one or by group through a selection of albums.</p>"
         "<p>Motion JPEG is a video compression format in which each video frame or interlaced field of "
-        "a digital video sequence is compressed separately as a JPEG image. MJPEG streams is a standard "
+        "a digital video sequence is compressed separately as a JPEG image. MJPEG stream is a standard "
         "which allows network clients to be connected without additional module. Most major web browsers "
         "and players support MJPEG stream.</p>"
-        "<p>To access to stream from your browser, use http://address:port as url, with address the MJPEG address, "   // krazy:exclude=insecurenet
+        "<p>To access the stream from your browser, use http://address:port as url, with address the MJPEG address, "   // krazy:exclude=insecurenet
         "and port the MJPEG port set in config dialog. More than one computer can be connected to the MJPEG server "
         "at the same time.</p>");
 }
@@ -120,10 +122,13 @@ void MjpegStreamPlugin::setup(QObject* const parent)
 
 void MjpegStreamPlugin::slotMjpegStream()
 {
-    QPointer<MjpegStreamDlg> w = new MjpegStreamDlg(this, infoIface(sender()));
-    w->setPlugin(this);
-    w->exec();
-    delete w;
+    if (!reactivateToolDialog(m_toolDlg))
+    {
+        delete m_toolDlg;
+        m_toolDlg = new MjpegStreamDlg(nullptr, infoIface(sender()));
+        m_toolDlg->setPlugin(this);
+        m_toolDlg->show();
+    }
 }
 
 } // namespace DigikamGenericMjpegStreamPlugin

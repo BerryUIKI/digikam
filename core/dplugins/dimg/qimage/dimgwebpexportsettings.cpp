@@ -6,7 +6,7 @@
  * Date        : 2022-04-04
  * Description : WEBP image export settings widget.
  *
- * SPDX-FileCopyrightText: 2022-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2022-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -38,10 +38,11 @@ namespace Digikam
 
 class Q_DECL_HIDDEN DImgWEBPExportSettings::Private
 {
-
 public:
 
     Private() = default;
+
+public:
 
     QGridLayout*  WEBPGrid              = nullptr;
 
@@ -65,16 +66,16 @@ DImgWEBPExportSettings::DImgWEBPExportSettings(QWidget* const parent)
                                        "<p>If this option is enabled, a lossless method will be used "
                                        "to compress WEBP pictures.</p>"));
 
-    d->WEBPcompression = new DIntNumInput(this);
+    d->WEBPcompression      = new DIntNumInput(this);
     d->WEBPcompression->setDefaultValue(75);
     d->WEBPcompression->setRange(1, 99, 1);
     d->labelWEBPcompression = new QLabel(i18n("WEBP quality:"), this);
 
-    d->WEBPcompression->setWhatsThis(i18n("<p>The quality value for WEB images:</p>"
+    d->WEBPcompression->setWhatsThis(i18n("<p>The quality value for WEBP images:</p>"
                                           "<p><b>1</b>: low quality (high compression and small "
-                                          "file size)<br/>"
-                                          "<b>50</b>: medium quality<br/>"
-                                          "<b>75</b>: good quality (default)<br/>"
+                                          "file size)<br>"
+                                          "<b>50</b>: medium quality<br>"
+                                          "<b>75</b>: good quality (default)<br>"
                                           "<b>99</b>: high quality (no compression and "
                                           "large file size)</p>"
                                           "<p><b>Note: WEBP is not a lossless image "

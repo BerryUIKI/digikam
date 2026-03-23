@@ -6,7 +6,7 @@
  * Date        : 2014-05-28
  * Description : overlay for GPS location indicator
  *
- * SPDX-FileCopyrightText: 2014-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2014-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -52,6 +52,14 @@ public:
 
     explicit ItemCoordinatesOverlay(QObject* const parent);
     CoordinatesOverlayWidget* buttonWidget() const;
+
+Q_SIGNALS:
+
+    void signalOpenGeolocationMap(const QModelIndex& index);
+
+protected Q_SLOTS:
+
+    void slotButtonClicked();
 
 protected:
 

@@ -6,7 +6,7 @@
  * Date        : 2007-03-05
  * Description : digiKam light table GUI
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -76,6 +76,8 @@ LightTableWindow::LightTableWindow()
     applySettings();
 
     setAutoSaveSettings(configGroupName(), true);
+
+    showMenuBarAction()->setChecked(!menuBar()->isHidden());  // NOTE: workaround for bug #171080
 }
 
 LightTableWindow::~LightTableWindow()
@@ -252,11 +254,11 @@ void LightTableWindow::slotRightPanelLeftButtonClicked()
 void LightTableWindow::slotLeftPreviewLoaded(bool b)
 {
     d->leftZoomBar->setEnabled(b);
-    d->leftFileName->setAdjustedText();
+    d->leftFileName->setText(QString());
 
     if (b)
     {
-        d->leftFileName->setAdjustedText(d->previewView->leftItemInfo().name());
+        d->leftFileName->setText(d->previewView->leftItemInfo().name());
         d->previewView->checkForSelection(d->thumbView->currentInfo());
         d->thumbView->setOnLeftPanel(d->previewView->leftItemInfo());
 
@@ -283,11 +285,11 @@ void LightTableWindow::slotLeftPreviewLoaded(bool b)
 void LightTableWindow::slotRightPreviewLoaded(bool b)
 {
     d->rightZoomBar->setEnabled(b);
-    d->rightFileName->setAdjustedText();
+    d->rightFileName->setText(QString());
 
     if (b)
     {
-        d->rightFileName->setAdjustedText(d->previewView->rightItemInfo().name());
+        d->rightFileName->setText(d->previewView->rightItemInfo().name());
         d->previewView->checkForSelection(d->thumbView->currentInfo());
         d->thumbView->setOnRightPanel(d->previewView->rightItemInfo());
 

@@ -35,6 +35,9 @@ class DIGIKAM_EXPORT DNNModelManager : public QObject
 
 public:
 
+    DNNModelManager();
+    ~DNNModelManager() override;
+
     /**
      * @brief Global instance of internal model manager.
      * All accessor methods are thread-safe.
@@ -62,11 +65,7 @@ public:
 
 private:
 
-    DNNModelManager();
-    ~DNNModelManager();
-
     // Disable
-
     explicit DNNModelManager(QObject*) = delete;
 
 private:
@@ -97,8 +96,6 @@ private:
 
     class Private;
     Private* const d = nullptr;
-
-    friend class DNNModelManagerCreator;
 };
 
 } // namespace Digikam

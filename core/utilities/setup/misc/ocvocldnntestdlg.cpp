@@ -6,9 +6,9 @@
  * Date        : 2025-04-26
  * Description : Test OpenCV/OpenCL for DNN usage
  *
- * SPDX-FileCopyrightText: 2025 by Michael Miller <michael underscore miller at msn dot com>
- * SPDX-FileCopyrightText: 2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
- * SPDX-FileCopyrightText: 2025 by Maik Qualmann <metzpinguin at gmail dot com>
+ * SPDX-FileCopyrightText: 2025      by Michael Miller <michael underscore miller at msn dot com>
+ * SPDX-FileCopyrightText: 2025-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2025-2026 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -50,6 +50,7 @@
 #include "dnnmodelmanager.h"
 #include "dnnmodelsface.h"
 #include "dnnmodelyunet.h"
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -84,7 +85,7 @@ OpenCVOpenCLDNNTestDlg::OpenCVOpenCLDNNTestDlg(QWidget* const parent)
     QString messageString = i18nc("@info",
                                   "This will check if your system is able to use GPU acceleration\n"
                                   "when running the AI models by validating OpenCV and OpenCL have the\n"
-                                  "required libraries and drivers installed."
+                                  "required libraries and drivers installed.\n"
                                   "\n\nDo you want to test your system now?");
 
     d->page             = new QWidget(this);
@@ -100,9 +101,9 @@ OpenCVOpenCLDNNTestDlg::OpenCVOpenCLDNNTestDlg(QWidget* const parent)
     d->progressText->setVisible(false);  // Initially hidden until test starts
 
     d->buttons          = new QDialogButtonBox(QDialogButtonBox::Help | QDialogButtonBox::Ok | QDialogButtonBox::Cancel, this);
-    d->buttons->button(QDialogButtonBox::Ok)->setText(i18n("Start"));
+    d->buttons->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button start the AI GPU test", "Start"));
     d->buttons->button(QDialogButtonBox::Ok)->setDefault(true);
-    d->buttons->button(QDialogButtonBox::Ok)->setToolTip(i18nc("@action:button", "Begin test"));
+    d->buttons->button(QDialogButtonBox::Ok)->setToolTip(i18nc("@action:button start the AI GPU test", "Begin test"));
 
     d->layoutGrid->addWidget(d->icon,          0, 0, 1, 1);
     d->layoutGrid->addWidget(d->message,       0, 1, 1, 3);
@@ -138,7 +139,7 @@ OpenCVOpenCLDNNTestDlg::~OpenCVOpenCLDNNTestDlg()
 void OpenCVOpenCLDNNTestDlg::slotStart()
 {
     d->buttons->button(QDialogButtonBox::Ok)->setEnabled(false);
-    d->buttons->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button", "Testing..."));
+    d->buttons->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button start the AI GPU test", "Testing..."));
     d->buttons->button(QDialogButtonBox::Cancel)->setEnabled(false);
 
     // Clear and show the progress text area
@@ -151,17 +152,17 @@ void OpenCVOpenCLDNNTestDlg::slotStart()
     // run the test in a separate thread
 
     d->testingWatcher.setFuture(QtConcurrent::run(
-                               QThreadPool::globalInstance(),
+                                QThreadPool::globalInstance(),
 
 #if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
-                               &OpenCVOpenCLDNNTestDlg::runTest,
-                               this
+                                &OpenCVOpenCLDNNTestDlg::runTest,
+                                this
 
 #else
 
-                               this,
-                               &OpenCVOpenCLDNNTestDlg::runTest
+                                this,
+                                &OpenCVOpenCLDNNTestDlg::runTest
 
 #endif
 
@@ -217,13 +218,16 @@ void OpenCVOpenCLDNNTestDlg::slotTestFinished(bool result)
     }
     else
     {
-        resultMessage = i18n("Test failed. Your system may not be able to use GPU acceleration for the AI models.");
+        resultMessage = i18n("Test failed. Your system may not be able to use GPU acceleration for the AI models.\n\n"
+                             "Note for the NVidia GPU users: please uses the \"Help\" button to read "
+                             "the online documentation and configure you device to be detectable and "
+                             "usable at digiKam run-time.");
     }
 
     d->progressText->append(QLatin1String("\n") + resultMessage);
 
-    d->buttons->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button", "Close"));
-    d->buttons->button(QDialogButtonBox::Ok)->setToolTip(i18nc("@action:button", "Close the test dialog"));
+    d->buttons->button(QDialogButtonBox::Ok)->setText(i18nc("@action:button start the AI GPU test", "Close"));
+    d->buttons->button(QDialogButtonBox::Ok)->setToolTip(i18nc("@action:button start the AI GPU test", "Close the test dialog"));
     d->buttons->button(QDialogButtonBox::Ok)->setEnabled(true);
 }
 
@@ -242,6 +246,8 @@ void OpenCVOpenCLDNNTestDlg::slotNotification(const QString& message)
 
 bool OpenCVOpenCLDNNTestDlg::runTest()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("OpenCLDNN").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     bool result = false;
 
     try
@@ -281,7 +287,7 @@ bool OpenCVOpenCLDNNTestDlg::runTest()
 
         // load the test file as QImage
 
-        Q_EMIT signalNotification(i18n("Loading test image..."));
+        Q_EMIT signalNotification(i18n("Loading DNN Model test image..."));
 
         DNNModelBase* const testImage = DNNModelManager::instance()->getModel(
                                                                               QLatin1String("DNNTestImage"),
@@ -290,18 +296,18 @@ bool OpenCVOpenCLDNNTestDlg::runTest()
 
         if (!QFileInfo::exists(testImage->getModelPath()))
         {
-            throw std::runtime_error(i18n("Test image not found.").toStdString());
+            throw std::runtime_error(i18n("DNN model test image not found.").toStdString());
         }
 
         QImage inputImage(testImage->getModelPath());
 
         if (inputImage.isNull())
         {
-            throw std::runtime_error(i18n("Failed to load test image from %1",
+            throw std::runtime_error(i18n("Failed to load DNN model test image from %1",
                                      testImage->getModelPath()).toStdString());
         }
 
-        Q_EMIT signalNotification(i18n("Preparing the image for processing..."));
+        Q_EMIT signalNotification(i18n("Preparing the DNN Model image for processing..."));
 
         if (inputImage.format() != QImage::Format_BGR888)
         {
@@ -406,7 +412,9 @@ bool OpenCVOpenCLDNNTestDlg::runTest()
 
 void OpenCVOpenCLDNNTestDlg::slotHelp()
 {
-    openOnlineDocumentation(QLatin1String("setup_application"), QLatin1String("miscs_settings"));
+    openOnlineDocumentation(QLatin1String("setup_application"),
+                            QLatin1String("miscs_settings"),
+                            QLatin1String("system_settings"));
 }
 
 } // namespace Digikam

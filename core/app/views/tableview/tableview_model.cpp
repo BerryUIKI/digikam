@@ -6,7 +6,7 @@
  * Date        : 2013-02-12
  * Description : Wrapper model for table view
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -35,6 +35,7 @@
 #include "itemfiltersettings.h"
 #include "applicationsettings.h"
 #include "iteminfo.h"
+#include "tableview_treeview.h"
 #include "tableview_columnfactory.h"
 #include "tableview_selection_model_syncer.h"
 
@@ -99,7 +100,11 @@ public:
 
     Private() = default;
 
+public:
+
     QList<TableViewColumn*>     columnObjects;
+    QList<qlonglong>            groupsToOpen;
+
     TableViewModel::Item*       rootItem            = nullptr;
     ItemFilterSettings          imageFilterSettings;
     int                         sortColumn          = 0;
@@ -774,6 +779,7 @@ void TableViewModel::slotClearModel(const bool sendNotifications)
     }
 
     d->outdated = true;
+    d->groupsToOpen.clear();
 
     if (sendNotifications)
     {
@@ -831,6 +837,18 @@ void TableViewModel::slotPopulateModel(const bool sendNotifications)
     if (sendNotifications)
     {
         endResetModel();
+    }
+
+    for (const qlonglong& id : std::as_const(d->groupsToOpen))
+    {
+        const QModelIndex index = indexFromImageId(id, 0);
+
+        if (index.isValid())
+        {
+            s->treeView->blockSignals(true);
+            s->treeView->setExpanded(index, true);
+            s->treeView->blockSignals(false);
+        }
     }
 }
 
@@ -916,6 +934,11 @@ void TableViewModel::addSourceModelIndex(const QModelIndex& imageModelIndex, con
 
     if (!allGroupsOpen && (d->groupingMode == GroupingShowSubItems) && imageInfo.hasGroupedImages())
     {
+        if (s->imageFilterModel->isGroupOpen(imageInfo.id()))
+        {
+            d->groupsToOpen << imageInfo.id();
+        }
+
         // the item was a group leader, add its subitems
 
         const QList<ItemInfo> groupedImages = imageInfo.groupedImages();

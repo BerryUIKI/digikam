@@ -3,7 +3,7 @@
 # Script to install extra libs dependency pass as name as first argument (ex: "kimageformats")
 # This script must be run as sudo
 #
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -39,8 +39,8 @@ cd $BUILDING_DIR
 rm -rf $BUILDING_DIR/* || true
 
 cmake $ORIG_WD/../3rdparty \
-      -DCMAKE_INSTALL_PREFIX:PATH=/usr \
-      -DINSTALL_ROOT=/usr \
+      -DCMAKE_INSTALL_PREFIX:PATH=$INSTALL_DIR \
+      -DINSTALL_ROOT=$INSTALL_DIR \
       -DEXTERNALS_DOWNLOAD_DIR=$DOWNLOAD_DIR \
       -DKA_VERSION=$DK_KA_VERSION \
       -DKDE_VERSION=$DK_KDE_VERSION \

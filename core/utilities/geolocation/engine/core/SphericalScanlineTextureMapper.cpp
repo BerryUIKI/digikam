@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -37,6 +37,9 @@
 #include "ViewportParams.h"
 #include "MathHelper.h"
 #include "digikam_debug.h"
+#include "actionthreadbase.h"
+
+using namespace Digikam;
 
 namespace Marble
 {
@@ -45,7 +48,13 @@ class Q_DECL_HIDDEN SphericalScanlineTextureMapper::RenderJob : public QRunnable
 {
 public:
 
-    RenderJob(StackedTileLoader* tileLoader, int tileLevel, QImage* canvasImage, const ViewportParams* viewport, MapQuality mapQuality, int yTop, int yBottom);
+    RenderJob(StackedTileLoader* tileLoader,
+              int tileLevel,
+              QImage* canvasImage,
+              const ViewportParams* viewport,
+              MapQuality mapQuality,
+              int yTop,
+              int yBottom);
 
     void run() override;
 
@@ -60,7 +69,13 @@ private:
     int const                   m_yBottom;
 };
 
-SphericalScanlineTextureMapper::RenderJob::RenderJob(StackedTileLoader* tileLoader, int tileLevel, QImage* canvasImage, const ViewportParams* viewport, MapQuality mapQuality, int yTop, int yBottom)
+SphericalScanlineTextureMapper::RenderJob::RenderJob(StackedTileLoader* tileLoader,
+                                                     int tileLevel,
+                                                     QImage* canvasImage,
+                                                     const ViewportParams* viewport,
+                                                     MapQuality mapQuality,
+                                                     int yTop,
+                                                     int yBottom)
     : m_tileLoader(tileLoader),
       m_tileLevel(tileLevel),
       m_canvasImage(canvasImage),
@@ -159,6 +174,8 @@ void SphericalScanlineTextureMapper::mapTexture(const ViewportParams* viewport, 
 
 void SphericalScanlineTextureMapper::RenderJob::run()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String("MarbleSphericalRenderJob"));       // To customize thread name
+
     const int imageHeight = m_canvasImage->height();
     const int imageWidth  = m_canvasImage->width();
     const qint64  radius  = m_viewport->radius();

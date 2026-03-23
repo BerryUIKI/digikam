@@ -6,7 +6,7 @@
  * Date        : 2008-05-21
  * Description : widget to display a list of items
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2008-2010 by Andi Clemens <andi dot clemens at googlemail dot com>
  * SPDX-FileCopyrightText: 2009-2010 by Luka Renko <lure at kubuntu dot org>
  *
@@ -41,7 +41,7 @@ class DItemsList;
 class DItemsListView;
 
 /**
- * Type of static fonction used to customize sort items in list.
+ * Type of static function used to customize sort items in list.
  * Sort items call this method in DItemsListViewItem::operator<.
  * To setup this method, uses DItemList::setIsLessThanHandler().
  */
@@ -251,7 +251,7 @@ public:
     QBoxLayout*         setControlButtonsPlacement(ControlButtonPlacement placement);
 
    /**
-    * Append a extra widget to the end of Control Button layout (as a progress bar for exemple).
+    * Append a extra widget to the end of Control Button layout (as a progress bar for example).
     * This method must be call before setControlButtonsPlacement().
     * Ownership of the widget is not transferred to the DItemList.
     */

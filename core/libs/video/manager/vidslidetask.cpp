@@ -6,7 +6,7 @@
  * Date        : 2017-05-25
  * Description : a tool to generate video slideshow frames from images.
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -62,6 +62,8 @@ VidSlideTask::~VidSlideTask()
 
 void VidSlideTask::run()
 {
+    ActionJob::run();       // To customize thread name
+
     FrameOsd osd;
 
     int frameId           = 1;

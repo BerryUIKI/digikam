@@ -45,6 +45,9 @@ class DIGIKAM_GUI_EXPORT DIO : public QObject
 
 public:
 
+    DIO();
+    ~DIO() override = default;
+
     static DIO* instance();
 
     static void cleanUp();
@@ -122,9 +125,7 @@ private Q_SLOTS:
 private:
 
     // Disable
-    DIO();
     explicit DIO(QObject*) = delete;
-    ~DIO() override = default;
 
 private:
 

@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  * SPDX-FileCopyrightText: 2017      by Simon Frei <freisim93 at gmail dot com>
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -59,6 +59,8 @@ public:
 
     Private() = default;
 
+public:
+
     QList<TableViewColumnProfile> columnProfiles;
     ThumbnailSize                 thumbnailSize;
     ItemViewUtilities*            imageViewUtilities = nullptr;
@@ -101,11 +103,56 @@ TableView::TableView(QItemSelectionModel* const selectionModel,
     connect(s->tableViewSelectionModel, SIGNAL(selectionChanged(QItemSelection,QItemSelection)),
             this, SIGNAL(signalItemsChanged()));
 
-    connect(s->treeView, SIGNAL(collapsed(QModelIndex)),
-            this, SIGNAL(signalItemsChanged()));
+    connect(s->treeView, &QTreeView::collapsed,
+            this, [this](const QModelIndex& index)
+        {
+            if (s->tableViewModel->groupingMode() == TableViewModel::GroupingShowSubItems)
+            {
+                const ItemInfo info = s->tableViewModel->imageInfo(index);
 
-    connect(s->treeView, SIGNAL(expanded(QModelIndex)),
-            this, SIGNAL(signalItemsChanged()));
+                if (!info.isNull())
+                {
+                    s->imageFilterModel->blockSignals(true);
+                    s->imageFilterModel->setGroupOpen(info.id(), false);
+                    s->imageFilterModel->blockSignals(false);
+                }
+            }
+        }
+    );
+
+    connect(s->treeView, &QTreeView::expanded,
+            this, [this](const QModelIndex& index)
+        {
+            if (s->tableViewModel->groupingMode() == TableViewModel::GroupingShowSubItems)
+            {
+                const ItemInfo info = s->tableViewModel->imageInfo(index);
+
+                if (!info.isNull())
+                {
+                    s->imageFilterModel->blockSignals(true);
+                    s->imageFilterModel->setGroupOpen(info.id(), true);
+                    s->imageFilterModel->blockSignals(false);
+                }
+            }
+        }
+    );
+
+    connect(s->imageFilterModel, &ItemFilterModel::signalGroupIsOpen,
+            this, [this](qlonglong group, bool open)
+        {
+            if (s->isActive && (s->tableViewModel->groupingMode() == TableViewModel::GroupingShowSubItems))
+            {
+                const QModelIndex index = s->tableViewModel->indexFromImageId(group, 0);
+
+                if (index.isValid())
+                {
+                    s->treeView->blockSignals(true);
+                    s->treeView->setExpanded(index, open);
+                    s->treeView->blockSignals(false);
+                }
+            }
+        }
+    );
 
     connect(s->tableViewModel, SIGNAL(rowsInserted(QModelIndex,int,int)),
             this, SIGNAL(signalItemsChanged()));
@@ -150,7 +197,7 @@ void TableView::doLoadState()
 
 void TableView::doSaveState()
 {
-    KConfigGroup group = getConfigGroup();
+    KConfigGroup group               = getConfigGroup();
 
     TableViewColumnProfile profile   = s->tableViewModel->getColumnProfile();
     profile.headerState              = s->treeView->header()->saveState();
@@ -378,7 +425,35 @@ void TableView::slotGoToRow(const int rowNumber, const bool relativeMove)
     {
         const QModelIndex currentTableViewIndex = s->tableViewSelectionModel->currentIndex();
         const int currentDeepRowNumber          = s->tableViewModel->indexToDeepRowNumber(currentTableViewIndex);
-        nextDeepRowNumber                      += currentDeepRowNumber;
+
+        // Check if currentDeepRowNumber is valid
+
+        if (currentDeepRowNumber < 0)
+        {
+            qCWarning(DIGIKAM_GENERAL_LOG) << "Invalid currentDeepRowNumber:" << currentDeepRowNumber;
+
+            return;
+        }
+
+        // Check if overflow in addition
+
+        if ((nextDeepRowNumber > 0) && (currentDeepRowNumber > INT_MAX - nextDeepRowNumber))
+        {
+            qCWarning(DIGIKAM_GENERAL_LOG) << "Overflow detected in slotGoToRow";
+
+            return;
+        }
+
+        nextDeepRowNumber += currentDeepRowNumber;
+    }
+
+    // Check if nextDeepRowNumber is valid before usage
+
+    if (nextDeepRowNumber < 0)
+    {
+        qCWarning(DIGIKAM_GENERAL_LOG) << "Invalid nextDeepRowNumber:" << nextDeepRowNumber;
+
+        return;
     }
 
     const QModelIndex nextIndex = s->tableViewModel->deepRowIndex(nextDeepRowNumber);
@@ -399,16 +474,54 @@ ItemInfo TableView::deepRowItemInfo(const int rowNumber, const bool relative) co
     {
         const QModelIndex& currentTableViewIndex = s->tableViewSelectionModel->currentIndex();
 
+        // Check if current index is valid
+
         if (!currentTableViewIndex.isValid())
         {
             return ItemInfo();
         }
 
-        const int currentDeepRowNumber           = s->tableViewModel->indexToDeepRowNumber(currentTableViewIndex);
-        targetRowNumber                         += currentDeepRowNumber;
+        // Get the current line number
+
+        const int currentDeepRowNumber = s->tableViewModel->indexToDeepRowNumber(currentTableViewIndex);
+
+        // Check if currentDeepRowNumber is not negative
+
+        if (currentDeepRowNumber < 0)
+        {
+            qCWarning(DIGIKAM_GENERAL_LOG) << "Invalid currentDeepRowNumber:" << currentDeepRowNumber;
+
+            return ItemInfo();
+        }
+
+        // Check the overflow before addition
+
+        if (targetRowNumber > 0 && currentDeepRowNumber > INT_MAX - targetRowNumber)
+        {
+            qCWarning(DIGIKAM_GENERAL_LOG) << "Overflow detected in deepRowItemInfo";
+
+            return ItemInfo();
+        }
+
+        // Complete the addition
+
+        targetRowNumber += currentDeepRowNumber;
     }
 
+    // Check if targetRowNumber is valid before usage
+
+    if (targetRowNumber < 0)
+    {
+        qCWarning(DIGIKAM_GENERAL_LOG) << "Invalid targetRowNumber:" << targetRowNumber;
+
+        return ItemInfo();
+    }
+
+    // Get the target index
+
     const QModelIndex targetIndex = s->tableViewModel->deepRowIndex(targetRowNumber);
+
+    // Get the information about element.
 
     return s->tableViewModel->imageInfo(targetIndex);
 }
@@ -493,7 +606,7 @@ void TableView::slotAwayFromSelection()
     if      (selection.contains(firstIndex) && selection.contains(lastIndex))
     {
         // both the first and the last index are selected, we have to
-        // select an index inbetween
+        // select an index in-between
 
         const int nextFreeDeepRow = s->tableViewModel->firstDeepRowNotInList(selection);
 
@@ -650,7 +763,7 @@ void TableView::rename()
         QPointer<AdvancedRenameDialog> dlg = new AdvancedRenameDialog(this);
         dlg->slotAddImages(urls);
 
-        if (dlg->exec() != QDialog::Accepted)
+        if (dialogExec(dlg) != QDialog::Accepted)
         {
             delete dlg;
             break;

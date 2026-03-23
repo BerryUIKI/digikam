@@ -7,7 +7,7 @@
  * Description : central place for ICC settings - Common implementations.
  *
  * SPDX-FileCopyrightText: 2005-2006 by F.J. Cruz <fj dot cruz at supercable dot es>
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -28,11 +28,6 @@ public:
 
 Q_GLOBAL_STATIC(IccSettingsCreator, creator)
 
-IccSettings* IccSettings::instance()
-{
-    return &creator->object;
-}
-
 // -----------------------------------------------------------------------------------------------
 
 IccSettings::IccSettings()
@@ -49,6 +44,11 @@ IccSettings::~IccSettings()
     delete d;
 }
 
+IccSettings* IccSettings::instance()
+{
+    return &creator->object;
+}
+
 ICCSettingsContainer IccSettings::settings()
 {
     QMutexLocker lock(&d->mutex);
@@ -61,7 +61,7 @@ IccProfile IccSettings::monitorProfile(QWidget* const widget)
 {
     // system-wide profile set?
 
-    IccProfile profile = d->profileFromWindowSystem(widget);
+    IccProfile profile = d->profileFromDesktop(widget);
 
     if (!profile.isNull())
     {
@@ -102,7 +102,7 @@ bool IccSettings::monitorProfileFromSystem() const
 
     for (QWidget* const widget : std::as_const(topLevels))
     {
-        if (!d->profileFromWindowSystem(widget).isNull())
+        if (!d->profileFromDesktop(widget).isNull())
         {
             return true;
         }

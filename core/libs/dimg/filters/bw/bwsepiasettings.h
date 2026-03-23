@@ -6,7 +6,7 @@
  * Date        : 2010-02-23
  * Description : black and white settings view.
  *
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -28,6 +28,8 @@ class KConfigGroup;
 
 namespace Digikam
 {
+
+class CurvesBox;
 
 class DIGIKAM_EXPORT BWSepiaSettings : public QWidget
 {
@@ -53,6 +55,8 @@ public:
     void setScaleType(HistogramScale scale);
 
     void startPreviewFilters();
+
+    CurvesBox* curvesBox() const;
 
 Q_SIGNALS:
 

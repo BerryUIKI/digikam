@@ -7,7 +7,7 @@
  * Description : face detection, recognition, and training controller
  *
  * SPDX-FileCopyrightText: 2010      by Aditya Bhatt <adityabhatt1991 at gmail dot com>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
@@ -466,11 +466,25 @@ void FacesEngine::slotImagesSkipped(const MLPipelinePackageNotify::Ptr& package)
 {
     Q_UNUSED(package);
 
-    advance(1);
+    uint adv = 0;
+
+    if ((adv = checkProgressNeeded()) == 0)
+    {
+        return;
+    }
+
+    advance(adv);
 }
 
 void FacesEngine::slotShowOneDetected(const MLPipelinePackageNotify::Ptr& package)
 {
+    uint adv = 0;
+
+    if ((adv = checkProgressNeeded()) == 0)
+    {
+        return;
+    }
+
     setThumbnail(package->thumbnail);
 
     QString lbl = i18n("Face Scanning: %1\n", package->name);
@@ -502,7 +516,7 @@ void FacesEngine::slotShowOneDetected(const MLPipelinePackageNotify::Ptr& packag
     d->totalFacesFound += package->processed;
 
     setLabel(lbl);
-    advance(1);
+    advance(adv);
 }
 
 QString FacesEngine::faceScanTaskToString(FaceScanSettings::FaceScanSource source)

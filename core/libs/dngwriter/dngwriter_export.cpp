@@ -6,7 +6,7 @@
  * Date        : 2008-09-25
  * Description : a tool to convert RAW file to DNG - Export to target DNG.
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2010-2011 by Jens Mueller <tschenser at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -91,8 +91,8 @@ int DNGWriter::Private::exportTarget(DNGWriterHost& host,
                                      (previewIndex > 0)
                                     );
 
-        AutoPtr<dng_preview> preview(useCompressedPreview ? (dng_preview*) new dng_jpeg_preview
-                                                          : (dng_preview*) new dng_image_preview);
+        AutoPtr<dng_preview> preview(useCompressedPreview ? reinterpret_cast<dng_preview*>(new dng_jpeg_preview)
+                                                          : reinterpret_cast<dng_preview*>(new dng_image_preview));
 
         preview->fInfo.fApplicationName.Set_ASCII(QString::fromLatin1("digiKam").toLatin1().constData());
         preview->fInfo.fApplicationVersion.Set_ASCII(digiKamVersion().toLatin1().constData());

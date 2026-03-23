@@ -6,7 +6,7 @@
  * Date        : 2012-01-13
  * Description : progress manager
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2004      by Till Adam <adam at kde dot org>
  *
@@ -401,6 +401,11 @@ ProgressManager::~ProgressManager()
     delete d;
 }
 
+ProgressManager* ProgressManager::instance()
+{
+    return (creator.isDestroyed() ? nullptr : &creator->object);
+}
+
 bool ProgressManager::isEmpty() const
 {
     return d->transactions.isEmpty();
@@ -421,11 +426,6 @@ ProgressItem* ProgressManager::findItembyId(const QString& id) const
 QString ProgressManager::getUniqueID()
 {
     return QString::number(d->uID.fetchAndAddOrdered(1));
-}
-
-ProgressManager* ProgressManager::instance()
-{
-    return (creator.isDestroyed() ? nullptr : &creator->object);
 }
 
 ProgressItem* ProgressManager::createProgressItemImpl(ProgressItem* const parent,

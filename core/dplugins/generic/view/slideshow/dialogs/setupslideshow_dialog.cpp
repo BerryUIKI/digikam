@@ -6,7 +6,7 @@
  * Date        : 2005-05-21
  * Description : setup tab for slideshow options.
  *
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2019-2020 by Minh Nghia Duong <minhnghiaduong997 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -18,12 +18,12 @@
 // Qt includes
 
 #include <QCheckBox>
-#include <QGroupBox>
 #include <QLabel>
 #include <QVBoxLayout>
 #include <QApplication>
 #include <QScreen>
 #include <QStyle>
+#include <QGroupBox>
 #include <QComboBox>
 #include <QDialogButtonBox>
 #include <QPushButton>
@@ -38,8 +38,10 @@
 #include "dlayoutbox.h"
 #include "dnuminput.h"
 #include "dfontselect.h"
+#include "dcolorselector.h"
 #include "digikam_debug.h"
 #include "slideshowsettings.h"
+#include "previewosdwidget.h"
 
 using namespace Digikam;
 
@@ -51,6 +53,8 @@ class Q_DECL_HIDDEN SetupSlideShowDialog::Private
 public:
 
     Private() = default;
+
+public:
 
     QCheckBox*         startWithCurrent     = nullptr;
     QCheckBox*         loopMode             = nullptr;
@@ -69,11 +73,15 @@ public:
     QCheckBox*         showCapIfNoTitle     = nullptr;
     QCheckBox*         showProgress         = nullptr;
 
+    QLabel*            itemBgColorLbl       = nullptr;
+
     QComboBox*         screenPlacement      = nullptr;
 
-    DFontSelect*       captionFont          = nullptr;
+    DFontSelect*       textFont             = nullptr;
     DIntNumInput*      delayInput           = nullptr;
+    DColorSelector*    itemBgColorSel       = nullptr;
 
+    PreviewOsdWidget*  osd                  = nullptr;
     SlideShowSettings* settings             = nullptr;
 };
 
@@ -83,6 +91,8 @@ SetupSlideShowDialog::SetupSlideShowDialog(SlideShowSettings* const settings, QW
     : DPluginDialog(parent, QLatin1String("Slideshow Settings")),
       d            (new Private)
 {
+    d->settings               = settings;
+
     setModal(true);
     setPlugin(settings->plugin);
     setWindowTitle(i18nc("@title:window", "Slideshow Settings"));
@@ -94,68 +104,42 @@ SetupSlideShowDialog::SetupSlideShowDialog(SlideShowSettings* const settings, QW
     QWidget* const panel      = new QWidget(this);
     const int spacing         = layoutSpacing();
 
-    DHBox* const hbox1        = new DHBox(panel);
-    new QLabel(i18n("Delay between images:"), hbox1);
-    d->delayInput             = new DIntNumInput(hbox1);
+    // ---
+
+    QGroupBox* const behavior = new QGroupBox(i18n("Behavior"), panel);
+    QGridLayout* const bgrid  = new QGridLayout(behavior);
+
+    QLabel* const delayLbl    = new QLabel(i18n("Delay between items: "), panel);
+    d->delayInput             = new DIntNumInput(panel);
     d->delayInput->setDefaultValue(5);
     d->delayInput->setRange(1, 3600, 1);
-    d->delayInput->setWhatsThis(i18n("The delay, in seconds, between images."));
+    d->delayInput->setWhatsThis(i18n("The delay, in seconds, between items."));
 
-    d->startWithCurrent       = new QCheckBox(i18n("Start with current image"), panel);
+    d->startWithCurrent       = new QCheckBox(i18n("Start with current item"), panel);
     d->startWithCurrent->setWhatsThis(i18n("If this option is enabled, the Slideshow will be started "
-                                           "with the current image selected in the images list."));
+                                           "with the current item selected in the items list."));
 
     d->loopMode               = new QCheckBox(i18n("Slideshow runs in a loop"), panel);
     d->loopMode->setWhatsThis(i18n("Run the slideshow in a loop."));
 
-    d->suffleMode             = new QCheckBox(i18n("Shuffle images"), panel);
+    d->suffleMode             = new QCheckBox(i18n("Shuffle items"), panel);
     d->suffleMode->setWhatsThis(i18n("If this option is enabled, the Slideshow will run in random order"));
 
     d->showProgress           = new QCheckBox(i18n("Show progress indicator"), panel);
     d->showProgress->setWhatsThis(i18n("Show a progress indicator with pending items to show and time progression."));
 
-    d->showName               = new QCheckBox(i18n("Show image file name"), panel);
-    d->showName->setWhatsThis(i18n("Show the image file name at the bottom of the screen."));
+    d->showLabels             = new QCheckBox(i18n("Show labels editor"), panel);
+    d->showLabels->setWhatsThis(i18n("Show the digiKam item color label and pick label editors at the bottom of the screen."));
 
-    d->showDate               = new QCheckBox(i18n("Show image creation date"), panel);
-    d->showDate->setWhatsThis(i18n("Show the image creation time/date at the bottom of the screen."));
+    d->showRating             = new QCheckBox(i18n("Show rating editor"), panel);
+    d->showRating->setWhatsThis(i18n("Show the digiKam item rating editor at the bottom of the screen."));
 
-    d->showApertureFocal      = new QCheckBox(i18n("Show camera aperture and focal length"), panel);
-    d->showApertureFocal->setWhatsThis(i18n("Show the camera aperture and focal length at the bottom of the screen."));
+    d->itemBgColorLbl         = new QLabel(i18n("Use background color for items:"), panel);
+    d->itemBgColorSel         = new DColorSelector(panel);
+    d->itemBgColorSel->setWhatsThis(i18n("Define a color to use as background to render items on screen."));
 
-    d->showExpoSensitivity    = new QCheckBox(i18n("Show camera exposure and sensitivity"), panel);
-    d->showExpoSensitivity->setWhatsThis(i18n("Show the camera exposure and sensitivity at the bottom of the screen."));
-
-    d->showMakeModel          = new QCheckBox(i18n("Show camera make and model"), panel);
-    d->showMakeModel->setWhatsThis(i18n("Show the camera make and model at the bottom of the screen."));
-
-    d->showLensModel          = new QCheckBox(i18n("Show camera lens model"), panel);
-    d->showLensModel->setWhatsThis(i18n("Show the camera lens model at the bottom of the screen."));
-
-    d->showComment            = new QCheckBox(i18n("Show image caption"), panel);
-    d->showComment->setWhatsThis(i18n("Show the image caption at the bottom of the screen."));
-
-    d->showTitle              = new QCheckBox(i18n("Show image title"), panel);
-    d->showTitle->setWhatsThis(i18n("Show the image title at the bottom of the screen."));
-
-    d->showCapIfNoTitle       = new QCheckBox(i18n("Show image caption if it has not title"), panel);
-    d->showCapIfNoTitle->setWhatsThis(i18n("Show the image caption at the bottom of the screen if no titles existed."));
-
-    d->showTags               = new QCheckBox(i18n("Show image tags"), panel);
-    d->showTags->setWhatsThis(i18n("Show the digiKam image tag names at the bottom of the screen."));
-
-    d->showLabels             = new QCheckBox(i18n("Show image labels"), panel);
-    d->showLabels->setWhatsThis(i18n("Show the digiKam image color label and pick label at the bottom of the screen."));
-
-    d->showRating             = new QCheckBox(i18n("Show image rating"), panel);
-    d->showRating->setWhatsThis(i18n("Show the digiKam image rating at the bottom of the screen."));
-
-    d->captionFont            = new DFontSelect(i18n("Caption font:"), panel);
-    d->captionFont->setToolTip(i18n("Select here the font used to display text in the slideshow."));
-
-    DHBox* const screenSelectBox = new DHBox(panel);
-    new QLabel(i18n("Screen placement:"), screenSelectBox);
-    d->screenPlacement           = new QComboBox(screenSelectBox);
+    QLabel* const screenLbl   = new QLabel(i18n("Screen placement:"), panel);
+    d->screenPlacement        = new QComboBox(panel);
     d->screenPlacement->setToolTip(i18n("In case of multi-screen computer, select here the monitor to slide contents."));
 
     QStringList choices;
@@ -171,56 +155,50 @@ SetupSlideShowDialog::SetupSlideShowDialog(SlideShowSettings* const settings, QW
 
     d->screenPlacement->addItems(choices);
 
-    QLabel* const keyNote        = new QLabel(i18n("<b>Note: This dialog for the Slideshow Settings "
-                                                   "can be activated at any time with the F2 key.</b>"), panel);
+    bgrid->addWidget(delayLbl,            0, 0, 1, 1);
+    bgrid->addWidget(d->delayInput,       0, 2, 1, 1);
+    bgrid->addWidget(d->startWithCurrent, 1, 0, 1, 1);
+    bgrid->addWidget(d->loopMode,         1, 2, 1, 1);
+    bgrid->addWidget(d->suffleMode,       2, 0, 1, 1);
+    bgrid->addWidget(d->showProgress,     2, 2, 1, 1);
+    bgrid->addWidget(d->showLabels,       3, 0, 1, 1);
+    bgrid->addWidget(d->showRating,       3, 2, 1, 1);
+    bgrid->addWidget(d->itemBgColorLbl,   4, 0, 1, 1);
+    bgrid->addWidget(d->itemBgColorSel,   4, 2, 1, 1);
+    bgrid->addWidget(screenLbl,           5, 0, 1, 1);
+    bgrid->addWidget(d->screenPlacement,  5, 2, 1, 1);
+    bgrid->setColumnStretch(1, 10);
+
+    // ---
+
+    d->osd                = new PreviewOsdWidget(&d->settings->osdSettings, panel);
+
+    // ---
+
+    QLabel* const keyNote = new QLabel(i18n("<b>Note: This dialog for the Slideshow Settings "
+                                                   "can be activated at any time with the Alt+P key.</b>"), panel);
     keyNote->setWordWrap(true);
     keyNote->setFrameStyle(QFrame::StyledPanel | QFrame::Raised);
-
-    // Disable and uncheck the "Show captions if no title" checkbox if the "Show comment" checkbox enabled
-
-    connect(d->showComment, SIGNAL(stateChanged(int)),
-            this, SLOT(slotSetUnchecked(int)));
-
-    connect(d->showComment, SIGNAL(toggled(bool)),
-            d->showCapIfNoTitle, SLOT(setDisabled(bool)));
 
     // Only digiKam support this feature, showFoto do not support digiKam database information.
 
     if (qApp->applicationName() == QLatin1String("showfoto"))
     {
-        d->showCapIfNoTitle->hide();
         d->showLabels->hide();
         d->showRating->hide();
-        d->showTitle->hide();
-        d->showTags->hide();
     }
 
+    // ---
+
     QGridLayout* const grid   = new QGridLayout(panel);
-    grid->addWidget(hbox1,                   0, 0, 1, 2);
-    grid->addWidget(d->startWithCurrent,     1, 0, 1, 1);
-    grid->addWidget(d->showRating,           1, 1, 1, 1);
-    grid->addWidget(d->suffleMode,           2, 0, 1, 1);
-    grid->addWidget(d->loopMode,             2, 1, 1, 1);
-    grid->addWidget(d->showName,             3, 0, 1, 1);
-    grid->addWidget(d->showProgress,         3, 1, 1, 1);
-    grid->addWidget(d->showApertureFocal,    4, 0, 1, 1);
-    grid->addWidget(d->showDate,             4, 1, 1, 1);
-    grid->addWidget(d->showMakeModel,        5, 0, 1, 1);
-    grid->addWidget(d->showExpoSensitivity,  5, 1, 1, 1);
-    grid->addWidget(d->showLensModel,        6, 0, 1, 1);
-    grid->addWidget(d->showComment,          6, 1, 1, 1);
-    grid->addWidget(d->showTitle,            7, 0, 1, 1);
-    grid->addWidget(d->showCapIfNoTitle,     7, 1, 1, 1);
-    grid->addWidget(d->showTags,             8, 0, 1, 1);
-    grid->addWidget(d->showLabels,           8, 1, 1, 1);
-    grid->addWidget(d->captionFont,          9, 0, 1, 2);
-    grid->addWidget(screenSelectBox,        10, 0, 1, 2);
-    grid->addWidget(keyNote,                11, 0, 1, 2);
-    grid->setRowStretch(12, 10);
+    grid->addWidget(behavior, 0, 0, 1, 1);
+    grid->addWidget(d->osd,   1, 0, 1, 1);
+    grid->addWidget(keyNote,  2, 0, 1, 1);
+    grid->setRowStretch(3, 10);
     grid->setContentsMargins(spacing, spacing, spacing, spacing);
     grid->setSpacing(spacing);
 
-    QVBoxLayout* mainLayout = new QVBoxLayout(this);
+    QVBoxLayout* const mainLayout = new QVBoxLayout(this);
     mainLayout->addWidget(panel);
     mainLayout->addWidget(m_buttons);
 
@@ -231,8 +209,6 @@ SetupSlideShowDialog::SetupSlideShowDialog(SlideShowSettings* const settings, QW
 
     connect(m_buttons->button(QDialogButtonBox::Close), SIGNAL(clicked()),
             this, SLOT(reject()));
-
-    d->settings = settings;
 
     readSettings();
 }
@@ -253,21 +229,13 @@ void SetupSlideShowDialog::slotApplySettings()
     d->settings->startWithCurrent      = d->startWithCurrent->isChecked();
     d->settings->loop                  = d->loopMode->isChecked();
     d->settings->suffle                = d->suffleMode->isChecked();
-    d->settings->printName             = d->showName->isChecked();
-    d->settings->printDate             = d->showDate->isChecked();
-    d->settings->printApertureFocal    = d->showApertureFocal->isChecked();
-    d->settings->printExpoSensitivity  = d->showExpoSensitivity->isChecked();
-    d->settings->printMakeModel        = d->showMakeModel->isChecked();
-    d->settings->printLensModel        = d->showLensModel->isChecked();
-    d->settings->printComment          = d->showComment->isChecked();
-    d->settings->printTitle            = d->showTitle->isChecked();
-    d->settings->printCapIfNoTitle     = d->showCapIfNoTitle->isChecked();
-    d->settings->printTags             = d->showTags->isChecked();
     d->settings->printLabels           = d->showLabels->isChecked();
     d->settings->printRating           = d->showRating->isChecked();
     d->settings->showProgressIndicator = d->showProgress->isChecked();
-    d->settings->captionFont           = d->captionFont->font();
+    d->settings->bgColor               = d->itemBgColorSel->color();
     d->settings->slideScreen           = d->screenPlacement->currentIndex() - 2;
+
+    d->osd->writeSettings();
 
     d->settings->writeToConfig();
 
@@ -280,20 +248,10 @@ void SetupSlideShowDialog::readSettings()
     d->startWithCurrent->setChecked(d->settings->startWithCurrent);
     d->loopMode->setChecked(d->settings->loop);
     d->suffleMode->setChecked(d->settings->suffle);
-    d->showName->setChecked(d->settings->printName);
-    d->showDate->setChecked(d->settings->printDate);
-    d->showApertureFocal->setChecked(d->settings->printApertureFocal);
-    d->showExpoSensitivity->setChecked(d->settings->printExpoSensitivity);
-    d->showMakeModel->setChecked(d->settings->printMakeModel);
-    d->showLensModel->setChecked(d->settings->printLensModel);
-    d->showComment->setChecked(d->settings->printComment);
-    d->showTitle->setChecked(d->settings->printTitle);
-    d->showCapIfNoTitle->setChecked(d->settings->printCapIfNoTitle);
-    d->showTags->setChecked(d->settings->printTags);
     d->showLabels->setChecked(d->settings->printLabels);
     d->showRating->setChecked(d->settings->printRating);
     d->showProgress->setChecked(d->settings->showProgressIndicator);
-    d->captionFont->setFont(d->settings->captionFont);
+    d->itemBgColorSel->setColor(d->settings->bgColor);
 
     const int screen = d->settings->slideScreen;
 
@@ -307,6 +265,8 @@ void SetupSlideShowDialog::readSettings()
         d->settings->slideScreen = -2;
         d->settings->writeToConfig();
     }
+
+    d->osd->readSettings();
 }
 
 } // namespace DigikamGenericSlideShowPlugin

@@ -6,7 +6,7 @@
  * Date        : 2006-30-08
  * Description : batch thumbnails generator
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -17,11 +17,10 @@
 
 // Qt includes
 
+#include <QtConcurrentRun>
+#include <QFutureWatcher>
 #include <QApplication>
 #include <QString>
-#include <QTimer>
-#include <QDir>
-#include <QFileInfo>
 #include <QPixmap>
 
 // KDE includes
@@ -30,17 +29,17 @@
 
 // Local includes
 
+#include "digikam_config.h"
 #include "coredb.h"
+#include "coredbaccess.h"
 #include "coredbalbuminfo.h"
 #include "collectionmanager.h"
-#include "albummanager.h"
 #include "applicationsettings.h"
-#include "coredbaccess.h"
+#include "albummanager.h"
 #include "iteminfo.h"
-#include "thumbsdbaccess.h"
 #include "thumbsdb.h"
+#include "thumbsdbaccess.h"
 #include "maintenancethread.h"
-#include "digikam_config.h"
 
 namespace Digikam
 {
@@ -53,13 +52,16 @@ public:
 
 public:
 
-    bool               rebuildAll = true;
+    bool                 rebuildAll = true;
 
-    AlbumList          albumList;
+    AlbumList            albumList;
 
-    QStringList        allPicturesPath;
+    QStringList          allPicturesPath;
 
-    MaintenanceThread* thread     = nullptr;
+    QFuture<void>        affectedAlbumTask;
+    QFutureWatcher<void> affectedAlbumWatcher;
+
+    MaintenanceThread*   thread     = nullptr;
 };
 
 ThumbsGenerator::ThumbsGenerator(const bool rebuildAll,
@@ -121,8 +123,48 @@ void ThumbsGenerator::slotStart()
 
     ProgressManager::addProgressItem(this);
 
-    QApplication::setOverrideCursor(Qt::WaitCursor);
+    // Activate progress bar during album calculation.
 
+    setTotalItems(1);
+
+    connect(&d->affectedAlbumWatcher, &QFutureWatcher<void>::finished,
+            this, &ThumbsGenerator::slotAffectedAlbumsFinished);
+
+    d->affectedAlbumTask =
+        QtConcurrent::run(
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+
+                          &ThumbsGenerator::calculateAffectedAlbums, this
+
+#else
+
+                          this, &ThumbsGenerator::calculateAffectedAlbums
+
+#endif
+
+                         );
+
+    d->affectedAlbumWatcher.setFuture(d->affectedAlbumTask);
+}
+
+void ThumbsGenerator::slotAffectedAlbumsFinished()
+{
+    if (d->allPicturesPath.isEmpty())
+    {
+        slotDone();
+
+        return;
+    }
+
+    setTotalItems(d->allPicturesPath.count());
+
+    d->thread->generateThumbs(d->allPicturesPath);
+    d->thread->start();
+}
+
+void ThumbsGenerator::calculateAffectedAlbums()
+{
     if (d->albumList.isEmpty())
     {
         d->albumList = AlbumManager::instance()->allPAlbums();
@@ -138,9 +180,9 @@ void ThumbsGenerator::slotStart()
 
         if      ((*it)->type() == Album::PHYSICAL)
         {
-            const auto pathes = CoreDbAccess().db()->getItemURLsInAlbum((*it)->id());
+            const auto paths = CoreDbAccess().db()->getItemURLsInAlbum((*it)->id());
 
-            for (const QString& path : pathes)
+            for (const QString& path : paths)
             {
                 if (!d->allPicturesPath.contains(path))
                 {
@@ -150,9 +192,9 @@ void ThumbsGenerator::slotStart()
         }
         else if ((*it)->type() == Album::TAG)
         {
-            const auto pathes = CoreDbAccess().db()->getItemURLsInTag((*it)->id());
+            const auto paths = CoreDbAccess().db()->getItemURLsInTag((*it)->id());
 
-            for (const QString& path : pathes)
+            for (const QString& path : paths)
             {
                 if (!d->allPicturesPath.contains(path))
                 {
@@ -201,31 +243,24 @@ void ThumbsGenerator::slotStart()
             ++it;
         }
     }
-
-    QApplication::restoreOverrideCursor();
-
-    if (d->allPicturesPath.isEmpty())
-    {
-        slotDone();
-
-        return;
-    }
-
-    setTotalItems(d->allPicturesPath.count());
-
-    d->thread->generateThumbs(d->allPicturesPath);
-    d->thread->start();
 }
 
 void ThumbsGenerator::slotAdvance(const ItemInfo& inf, const QImage& img)
 {
+    uint adv = 0;
+
+    if ((adv = checkProgressNeeded()) == 0)
+    {
+        return;
+    }
+
     QString album = CollectionManager::instance()->albumRootLabel(inf.albumRootId());
 
     QString lbl   = i18n("Thumbnail: %1\n", inf.name());
     lbl.append(i18n("Album: %1\n", album + inf.relativePath()));
     setLabel(lbl);
     setThumbnail(QPixmap::fromImage(img));
-    advance(1);
+    advance(adv);
 }
 
 void ThumbsGenerator::slotDone()

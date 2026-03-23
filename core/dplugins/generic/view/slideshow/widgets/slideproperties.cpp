@@ -6,7 +6,7 @@
  * Date        : 2014-09-19
  * Description : slide properties widget
  *
- * SPDX-FileCopyrightText: 2014-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2014-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2019-2020 by Minh Nghia Duong <minhnghiaduong997 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -21,7 +21,6 @@
 #include <QApplication>
 #include <QDateTime>
 #include <QPixmap>
-#include <QLocale>
 
 // KDE includes
 
@@ -30,6 +29,7 @@
 // Local includes
 
 #include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "dinfointerface.h"
 #include "itempropertiestab.h"
 
@@ -45,8 +45,6 @@ public:
     Private() = default;
 
 public:
-
-    const int                maxStringLen   = 80;
 
     QUrl                     url;
 
@@ -79,7 +77,7 @@ void SlideProperties::setCurrentUrl(const QUrl& url)
 void SlideProperties::paintEvent(QPaintEvent*)
 {
     QPainter p(this);
-    p.setFont(d->settings->captionFont);
+    p.setFont(d->settings->osdSettings.captionFont);
 
     DItemInfo item(d->infoMap);
 
@@ -94,48 +92,48 @@ void SlideProperties::paintEvent(QPaintEvent*)
 
     // Display tag names.
 
-    if (d->settings->printTags)
+    if (d->settings->osdSettings.printKeywords)
     {
-        printTags(p, offset, tags);
+        PreviewOsdSettings::printTags(p, offset, tags);
     }
 
     // Display Titles.
 
-    if (d->settings->printTitle)
+    if (d->settings->osdSettings.printTitle)
     {
         str.clear();
 
         if (!title.isEmpty())
         {
             str += title;
-            printInfoText(p, offset, str);
+            PreviewOsdSettings::printInfoText(p, offset, str);
         }
     }
 
     // Display Captions if no Titles.
 
-    if (d->settings->printCapIfNoTitle)
+    if (d->settings->osdSettings.printCapIfNoTitle)
     {
         str.clear();
 
         if (title.isEmpty())
         {
             str += comment;
-            printComments(p, offset, str);
+            PreviewOsdSettings::printComments(p, offset, str);
         }
     }
 
     // Display Comments.
 
-    if (d->settings->printComment)
+    if (d->settings->osdSettings.printCaption)
     {
         str = comment;
-        printComments(p, offset, str);
+        PreviewOsdSettings::printComments(p, offset, str);
     }
 
     // Display Make and Model.
 
-    if (d->settings->printMakeModel)
+    if (d->settings->osdSettings.printMakeModel)
     {
         str.clear();
 
@@ -159,12 +157,12 @@ void SlideProperties::paintEvent(QPaintEvent*)
             str += model;
         }
 
-        printInfoText(p, offset, str);
+        PreviewOsdSettings::printInfoText(p, offset, str);
     }
 
     // Display Lens model.
 
-    if (d->settings->printLensModel)
+    if (d->settings->osdSettings.printLensModel)
     {
         str.clear();
 
@@ -173,13 +171,13 @@ void SlideProperties::paintEvent(QPaintEvent*)
         if (!lens.isEmpty())
         {
             str = lens;
-            printInfoText(p, offset, str);
+            PreviewOsdSettings::printInfoText(p, offset, str);
         }
     }
 
     // Display Exposure and Sensitivity.
 
-    if (d->settings->printExpoSensitivity)
+    if (d->settings->osdSettings.printExpoSensitivity)
     {
         str.clear();
 
@@ -201,12 +199,12 @@ void SlideProperties::paintEvent(QPaintEvent*)
             str += i18n("%1 ISO", sensitivity);
         }
 
-        printInfoText(p, offset, str);
+        PreviewOsdSettings::printInfoText(p, offset, str);
     }
 
     // Display Aperture and Focal.
 
-    if (d->settings->printApertureFocal)
+    if (d->settings->osdSettings.printApertureFocal)
     {
         str.clear();
 
@@ -248,133 +246,27 @@ void SlideProperties::paintEvent(QPaintEvent*)
             }
         }
 
-        printInfoText(p, offset, str);
+        PreviewOsdSettings::printInfoText(p, offset, str);
     }
 
     // Display Creation Date.
 
-    if (d->settings->printDate)
+    if (d->settings->osdSettings.printDate)
     {
         QDateTime dateTime = item.dateTime();
 
         if (dateTime.isValid())
         {
-            str = QLocale().toString(dateTime, QLocale::ShortFormat);
-            printInfoText(p, offset, str);
+            str = asUserDateTime(dateTime);
+            PreviewOsdSettings::printInfoText(p, offset, str);
         }
     }
 
     // Display image File Name.
 
-    if (d->settings->printName)
+    if (d->settings->osdSettings.printName)
     {
-        printInfoText(p, offset, d->url.fileName());
-    }
-}
-
-void SlideProperties::printInfoText(QPainter& p, int& offset, const QString& str, const QColor& pcol)
-{
-    if (!str.isEmpty())
-    {
-        offset += QFontMetrics(p.font()).lineSpacing();
-        p.setPen(Qt::black);
-
-        for (int x = -1 ; x <= 1 ; ++x)
-        {
-            for (int y = offset + 1 ; y >= offset - 1 ; --y)
-            {
-                p.drawText(x, p.window().height() - y, str);
-            }
-        }
-
-        p.setPen(pcol);
-        p.drawText(0, p.window().height() - offset, str);
-    }
-}
-
-void SlideProperties::printComments(QPainter& p, int& offset, const QString& comments)
-{
-    QStringList commentsByLines;
-
-    uint commentsIndex = 0;     // Comments QString index
-
-    while (commentsIndex < (uint)comments.length())
-    {
-        QString newLine;
-        bool breakLine = false; // End Of Line found
-        uint currIndex;         // Comments QString current index
-
-        // Check minimal lines dimension
-
-        uint commentsLinesLengthLocal = d->maxStringLen;
-
-        for (currIndex = commentsIndex ;
-             (currIndex < (uint)comments.length()) && !breakLine ; ++currIndex)
-        {
-            if ((comments.at(currIndex) == QLatin1Char('\n')) || comments.at(currIndex).isSpace())
-            {
-                breakLine = true;
-            }
-        }
-
-        if (commentsLinesLengthLocal <= (currIndex - commentsIndex))
-        {
-            commentsLinesLengthLocal = (currIndex - commentsIndex);
-        }
-
-        breakLine = false;
-
-        for (currIndex = commentsIndex ;
-             (currIndex <= (commentsIndex + commentsLinesLengthLocal)) &&
-             (currIndex < (uint)comments.length()) && !breakLine ;
-             ++currIndex)
-        {
-            breakLine = (comments.at(currIndex) == QLatin1Char('\n')) ? true : false;
-
-            if (breakLine)
-            {
-                newLine.append(QLatin1Char(' '));
-            }
-            else
-            {
-                newLine.append(comments.at(currIndex));
-            }
-        }
-
-        commentsIndex = currIndex; // The line is ended
-
-        if (commentsIndex != (uint)comments.length())
-        {
-            while (!newLine.endsWith(QLatin1Char(' ')))
-            {
-                newLine.truncate(newLine.length() - 1);
-
-                if (commentsIndex > 0)
-                {
-                    --commentsIndex;
-                }
-            }
-        }
-
-        commentsByLines.prepend(newLine.trimmed());
-    }
-
-    for (int i = 0 ; i < (int)commentsByLines.count() ; ++i)
-    {
-        printInfoText(p, offset, commentsByLines.at(i));
-    }
-}
-
-void SlideProperties::printTags(QPainter& p, int& offset, QStringList& tags)
-{
-    tags.removeDuplicates();
-    tags.sort();
-
-    QString str = tags.join(QLatin1String(", "));
-
-    if (!str.isEmpty())
-    {
-        printInfoText(p, offset, str, qApp->palette().color(QPalette::Link).name());
+        PreviewOsdSettings::printInfoText(p, offset, d->url.fileName());
     }
 }
 

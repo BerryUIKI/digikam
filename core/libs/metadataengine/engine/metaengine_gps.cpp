@@ -7,7 +7,7 @@
  * Description : Exiv2 library interface.
  *               GPS manipulation methods
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2010-2012 by Michael G. Hansen <mike at mghansen dot de>
  *
@@ -76,7 +76,7 @@ bool MetaEngine::getGPSLatitudeNumber(double* const latitude) const
 
     if (!latRef.isEmpty() && d->decodeGPSCoordinate("Exif.GPSInfo.GPSLatitude", latitude))
     {
-        if (latRef[0] == 'S')
+        if ((latRef[0] == 'S') && (*latitude > 0.0))
         {
             *latitude *= -1.0;
         }
@@ -109,7 +109,7 @@ bool MetaEngine::getGPSLongitudeNumber(double* const longitude) const
 
     if (!lngRef.isEmpty() && d->decodeGPSCoordinate("Exif.GPSInfo.GPSLongitude", longitude))
     {
-        if (lngRef[0] == 'W')
+        if ((lngRef[0] == 'W') && (*longitude > 0.0))
         {
             *longitude *= -1.0;
         }
@@ -611,7 +611,7 @@ void MetaEngine::convertToRational(const double number, long int* const numerato
 
     while (1)
     {
-        // Jump out if we can't integer divide one.
+        // Jump out if we cannot integer divide one.
 
         if ((numTemp / 2) != trunc(numTemp / 2)) break;
         if ((denTemp / 2) != trunc(denTemp / 2)) break;

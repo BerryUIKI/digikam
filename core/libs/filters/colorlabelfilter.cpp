@@ -6,7 +6,7 @@
  * Date        : 2011-02-09
  * Description : color label filter
  *
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -18,6 +18,7 @@
 
 #include "digikam_debug.h"
 #include "albummanager.h"
+#include "tagsactionmngr.h"
 #include "tagscache.h"
 
 namespace Digikam
@@ -32,6 +33,20 @@ ColorLabelFilter::ColorLabelFilter(QWidget* const parent)
 
     connect(this, SIGNAL(signalColorLabelChanged(int)),
             this, SLOT(slotColorLabelSelectionChanged()));
+
+    connect(TagsActionMngr::defaultManager(), &TagsActionMngr::signalTagsActionCollectionsRegistered,
+            this, [this]()
+       {
+           setDescriptionBoxVisible(false);
+       }
+    );
+
+    connect(TagsActionMngr::defaultManager(), &TagsActionMngr::signalColorLabelNamesUpdated,
+            this, [this]()
+       {
+           setDescriptionBoxVisible(false);
+       }
+    );
 }
 
 void ColorLabelFilter::reset()

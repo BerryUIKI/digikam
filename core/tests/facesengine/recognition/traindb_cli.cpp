@@ -6,7 +6,7 @@
  * Date        : 2014-06-16
  * Description : CLI test program for training database
  *
- * SPDX-FileCopyrightText: 2014-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2014-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -26,6 +26,7 @@
 #include "facialrecognition_wrapper.h"
 #include "coredbaccess.h"
 #include "dbengineparameters.h"
+#include "actionthreadbase.h"
 
 using namespace Digikam;
 
@@ -46,6 +47,8 @@ public:
 
     void run() override
     {
+        ActionThreadBase::setCurrentThreadName(QLatin1String("TrainDbCliThread"));       // To customize thread name
+
         QImage* const image = new QImage(256, 256, QImage::Format_ARGB32);
         image->fill(Qt::red);
 

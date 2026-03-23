@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -106,7 +106,7 @@ install(FILES
               ${CMAKE_SOURCE_DIR}/core/libs/widgets/files/dfiledialog.h
               ${CMAKE_SOURCE_DIR}/core/libs/widgets/colors/dcolorselector.h
               ${CMAKE_SOURCE_DIR}/core/libs/widgets/graphicsview/imagezoomsettings.h
-              ${CMAKE_SOURCE_DIR}/core/libs/widgets/graphicsview/previewlayout.h
+              ${CMAKE_SOURCE_DIR}/core/libs/widgets/graphicsview/singlephotopreviewlayout.h
               ${CMAKE_SOURCE_DIR}/core/libs/widgets/graphicsview/dimgpreviewitem.h
               ${CMAKE_SOURCE_DIR}/core/libs/widgets/graphicsview/graphicsdimgview.h
               ${CMAKE_SOURCE_DIR}/core/libs/widgets/graphicsview/graphicsdimgitem.h

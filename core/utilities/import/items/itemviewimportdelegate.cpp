@@ -7,7 +7,7 @@
  * Description : Item delegate for import interface items.
  *
  * SPDX-FileCopyrightText: 2012      by Islam Wazery <wazery at ubuntu dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -28,7 +28,6 @@
 
 // Local includes
 
-#include "digikam_debug.h"
 #include "thememanager.h"
 #include "itemscanner.h"
 #include "itempropertiestab.h"
@@ -317,7 +316,7 @@ void ItemViewImportDelegate::drawCreationDate(QPainter* p, const QRect& dateRect
     Q_D(const ItemViewImportDelegate);
 
     p->setFont(d->fontXtra);
-    QString str = dateToString(date);
+    QString str = asUserDateTime(date);
     str         = i18nc("date of image creation", "created: %1", str);
     p->drawText(dateRect, Qt::AlignCenter, str);//squeezedTextCached(p, dateRect.width(), str));
 }

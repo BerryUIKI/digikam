@@ -6,7 +6,7 @@
  * Date        : 2017-05-25
  * Description : a tool to print images
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -71,6 +71,8 @@ public:
             iface    = wizard->iface();
         }
     }
+
+public:
 
     CaptionUI*        captionUi = nullptr;
     AdvPrintWizard*   wizard    = nullptr;
@@ -355,7 +357,7 @@ QString AdvPrintCaptionPage::captionFormatter(AdvPrintPhoto* const photo)
         QScopedPointer<DMetadata> meta(new DMetadata(photo->m_url.toLocalFile()));
         imageSize                    = meta->getItemDimensions();
 
-        format.replace(QString::fromUtf8("%c"), meta->getItemComments()[QLatin1String("x-default")].caption);
+        format.replace(QString::fromUtf8("%c"), meta->getItemComments().value(QLatin1String("x-default")).caption);
         format.replace(QString::fromUtf8("%d"), QLocale().toString(meta->getItemDateTime(), QLocale::ShortFormat));
         format.replace(QString::fromUtf8("%f"), fi.fileName());
 

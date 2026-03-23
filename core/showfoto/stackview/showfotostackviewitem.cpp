@@ -6,7 +6,7 @@
  * Date        : 2021-09-27
  * Description : Showfoto stack view item
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -30,6 +30,7 @@
 // Local include
 
 #include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "showfotostackviewlist.h"
 #include "showfotoitemsortsettings.h"
 #include "itempropertiestab.h"
@@ -53,7 +54,7 @@ void ShowfotoStackViewItem::setInfo(const ShowfotoItemInfo& info)
     setText(ShowfotoStackViewList::FileName, m_info.name);
 
     QDateTime dt           = (m_info.ctime.isValid() ? m_info.ctime : m_info.dtime);
-    QString str            = QLocale().toString(dt, QLocale::ShortFormat);
+    QString str            = asUserDateTime(dt);
     setText(ShowfotoStackViewList::FileDate, str);
     setData(ShowfotoStackViewList::FileDate, Qt::UserRole, dt);
 

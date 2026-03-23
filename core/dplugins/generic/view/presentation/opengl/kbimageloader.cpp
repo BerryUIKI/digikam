@@ -7,7 +7,7 @@
  * Description : a presentation tool.
  *
  * SPDX-FileCopyrightText: 2007-2009 by Valerio Fuoglio <valerio dot fuoglio at gmail dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * Parts of this code are based on smoothslidesaver by Carsten Weinhold
  * <carsten dot weinhold at gmx dot de>
@@ -25,6 +25,7 @@
 // Local includes
 
 #include "dimg.h"
+#include "actionthreadbase.h"
 #include "iccmanager.h"
 #include "iccsettings.h"
 #include "digikam_debug.h"
@@ -44,6 +45,8 @@ class Q_DECL_HIDDEN KBImageLoader::Private
 public:
 
     Private() = default;
+
+public:
 
     PresentationContainer* sharedData       = nullptr;
     int                    fileIndex        = 0;
@@ -108,6 +111,8 @@ void KBImageLoader::requestNewImage()
 
 void KBImageLoader::run()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String("KBImageLoader"));       // To customize thread name
+
     QMutexLocker locker(&d->condLock);
 
     // we enter the loop with d->needImage==true, so we will immediately
@@ -162,7 +167,7 @@ void KBImageLoader::run()
                 // generate a black dummy image
 
                 d->texture = QImage(128, 128, QImage::Format_ARGB32);
-                d->texture.fill(Qt::black);
+                d->texture.fill(d->sharedData->bgColor);
             }
 
             d->condLock.lock();
@@ -186,21 +191,21 @@ void KBImageLoader::run()
 
 bool KBImageLoader::loadImage()
 {
-    QString path  = d->sharedData->urlList[d->fileIndex].toLocalFile();
-    QImage  image = PreviewLoadThread::loadHighQualitySynchronously(path,
-                                                                    PreviewSettings::RawPreviewAutomatic,
-                                                                    d->iccProfile).copyQImage();
+    QString path = d->sharedData->urlList[d->fileIndex].toLocalFile();
+    QImage  img  = PreviewLoadThread::loadHighQualitySynchronously(path,
+                                                                   PreviewSettings::RawPreviewAutomatic,
+                                                                   d->iccProfile).copyQImage();
 
-    if (image.isNull())
+    if (img.isNull())
     {
         return false;
     }
 
     d->imageLock.lock();
 
-    d->textureAspect = (float)image.width() / (float)image.height();
-    d->texture       = image.scaled(d->width, d->height,
-                                    Qt::KeepAspectRatio, Qt::SmoothTransformation);
+    d->textureAspect = (float)img.width() / (float)img.height();
+    d->texture       = img.scaled(d->width, d->height,
+                                  Qt::KeepAspectRatio, Qt::SmoothTransformation);
 
     d->imageLock.unlock();
 

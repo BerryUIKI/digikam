@@ -6,7 +6,7 @@
  * Date        : 2008-06-17
  * Description : Find Duplicates tree-view search album item.
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -24,7 +24,6 @@
 
 #include "album.h"
 #include "iteminfo.h"
-#include "thumbnailloadthread.h"
 
 namespace Digikam
 {
@@ -58,6 +57,11 @@ public:
     void calculateInfos(const QList<qlonglong>& deletedImages = QList<qlonglong>());
 
     /**
+     * @brief Waits until calculateInfos() is finished.
+     */
+    void waitForCalculate();
+
+    /**
      * @return The item count.
      */
     int itemCount()                              const;
@@ -70,6 +74,10 @@ public:
 
     bool operator<(const QTreeWidgetItem& other) const override;
     QList<ItemInfo> duplicatedItems();
+
+private:
+
+    void calculateInfosMultithreaded(const QList<qlonglong>& deletedImages);
 
 private:
 

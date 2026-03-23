@@ -6,7 +6,7 @@
  * Date        : 2009-07-07
  * Description : country selector combo-box.
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -112,7 +112,7 @@ public:
         countryCodeMap.insert(QLatin1String("ERI"), i18nc("@info: country code", "Eritrea"));
         countryCodeMap.insert(QLatin1String("EST"), i18nc("@info: country code", "Estonia"));
         countryCodeMap.insert(QLatin1String("ETH"), i18nc("@info: country code", "Ethiopia"));
-        countryCodeMap.insert(QLatin1String("FRO"), i18nc("@info: country code", "Faeroe Islands"));
+        countryCodeMap.insert(QLatin1String("FRO"), i18nc("@info: country code", "Faeroe Islands"));        // codespell:ignore fro
         countryCodeMap.insert(QLatin1String("FLK"), i18nc("@info: country code", "Falkland Islands"));
         countryCodeMap.insert(QLatin1String("FJI"), i18nc("@info: country code", "Fiji Islands"));
         countryCodeMap.insert(QLatin1String("FIN"), i18nc("@info: country code", "Finland"));
@@ -170,7 +170,7 @@ public:
         countryCodeMap.insert(QLatin1String("LTU"), i18nc("@info: country code", "Lithuania"));
         countryCodeMap.insert(QLatin1String("LUX"), i18nc("@info: country code", "Luxembourg"));
         countryCodeMap.insert(QLatin1String("MAC"), i18nc("@info: country code", "Macao"));
-        countryCodeMap.insert(QLatin1String("MKD"), i18nc("@info: country code", "Macedonia"));
+        countryCodeMap.insert(QLatin1String("MKD"), i18nc("@info: country code", "North Macedonia"));
         countryCodeMap.insert(QLatin1String("MDG"), i18nc("@info: country code", "Madagascar"));
         countryCodeMap.insert(QLatin1String("MWI"), i18nc("@info: country code", "Malawi"));
         countryCodeMap.insert(QLatin1String("MYS"), i18nc("@info: country code", "Malaysia"));
@@ -187,6 +187,7 @@ public:
         countryCodeMap.insert(QLatin1String("MDA"), i18nc("@info: country code", "Moldova"));
         countryCodeMap.insert(QLatin1String("MCO"), i18nc("@info: country code", "Monaco"));
         countryCodeMap.insert(QLatin1String("MNG"), i18nc("@info: country code", "Mongolia"));
+        countryCodeMap.insert(QLatin1String("MNE"), i18nc("@info: country code", "Montenegro"));
         countryCodeMap.insert(QLatin1String("MSR"), i18nc("@info: country code", "Montserrat"));
         countryCodeMap.insert(QLatin1String("MAR"), i18nc("@info: country code", "Morocco"));
         countryCodeMap.insert(QLatin1String("MOZ"), i18nc("@info: country code", "Mozambique"));
@@ -233,14 +234,14 @@ public:
         countryCodeMap.insert(QLatin1String("STP"), i18nc("@info: country code", "Sao Tome and Principe"));
         countryCodeMap.insert(QLatin1String("SAU"), i18nc("@info: country code", "Saudi Arabia"));
         countryCodeMap.insert(QLatin1String("SEN"), i18nc("@info: country code", "Senegal"));
-        countryCodeMap.insert(QLatin1String("SCG"), i18nc("@info: country code", "Serbia"));
+        countryCodeMap.insert(QLatin1String("SRB"), i18nc("@info: country code", "Serbia"));
         countryCodeMap.insert(QLatin1String("SYC"), i18nc("@info: country code", "Seychelles"));
         countryCodeMap.insert(QLatin1String("SLE"), i18nc("@info: country code", "Sierra Leone"));
         countryCodeMap.insert(QLatin1String("SGP"), i18nc("@info: country code", "Singapore"));
         countryCodeMap.insert(QLatin1String("SVK"), i18nc("@info: country code", "Slovakia"));
         countryCodeMap.insert(QLatin1String("SVN"), i18nc("@info: country code", "Slovenia"));
         countryCodeMap.insert(QLatin1String("SLB"), i18nc("@info: country code", "Solomon Islands"));
-        countryCodeMap.insert(QLatin1String("SOM"), i18nc("@info: country code", "Somalia"));
+        countryCodeMap.insert(QLatin1String("SOM"), i18nc("@info: country code", "Somalia"));               // codespell:ignore som
         countryCodeMap.insert(QLatin1String("ZAF"), i18nc("@info: country code", "South Africa"));
         countryCodeMap.insert(QLatin1String("SGS"), i18nc("@info: country code", "South Georgia and the South Sandwich Islands"));
         countryCodeMap.insert(QLatin1String("ESP"), i18nc("@info: country code", "Spain"));
@@ -255,7 +256,7 @@ public:
         countryCodeMap.insert(QLatin1String("TWN"), i18nc("@info: country code", "Taiwan"));
         countryCodeMap.insert(QLatin1String("TJK"), i18nc("@info: country code", "Tajikistan"));
         countryCodeMap.insert(QLatin1String("TZA"), i18nc("@info: country code", "Tanzania"));
-        countryCodeMap.insert(QLatin1String("THA"), i18nc("@info: country code", "Thailand"));
+        countryCodeMap.insert(QLatin1String("THA"), i18nc("@info: country code", "Thailand"));              // codespell:ignore tha
         countryCodeMap.insert(QLatin1String("TLS"), i18nc("@info: country code", "Timor-Leste"));
         countryCodeMap.insert(QLatin1String("TGO"), i18nc("@info: country code", "Togo"));
         countryCodeMap.insert(QLatin1String("TKL"), i18nc("@info: country code", "Tokelau Islands"));
@@ -326,7 +327,7 @@ CountrySelector::~CountrySelector()
 
 void CountrySelector::setCountry(const QString& countryCode)
 {
-    // NOTE: if countryCode is empty or do not matches code map, unknow is selected from the list.
+    // NOTE: if countryCode is empty or do not matches code map, unknown is selected from the list.
 
     int id = count() - 1;
 
@@ -347,7 +348,7 @@ void CountrySelector::setCountry(const QString& countryCode)
 
 bool CountrySelector::country(QString& countryCode, QString& countryName) const
 {
-    // Unknow is selected ?
+    // Unknown is selected ?
 
     if (currentIndex() == count()-1)
     {

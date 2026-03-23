@@ -43,6 +43,8 @@ public:
 
     Private() = default;
 
+public:
+
     bool                   linked       = false;
 
     QString                authUrl      = QLatin1String("https://accounts.google.com/o/oauth2/auth");
@@ -66,9 +68,27 @@ GSTalkerBase::GSTalkerBase(QObject* const parent, const QStringList& scope, cons
     m_service->setClientIdentifierSharedKey(WSToolUtils::decodeKey(d->sharedKey));
     m_service->setClientIdentifier(WSToolUtils::decodeKey(d->identity));
     m_service->setContentType(QAbstractOAuth::ContentType::Json);
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 9, 0))
+
+    QSet<QByteArray> scopeba;
+
+    for (const QString& scp : std::as_const(m_scope))
+    {
+        scopeba.insert(scp.toUtf8());
+    }
+
+    m_service->setRequestedScopeTokens(scopeba);
+    m_service->setTokenUrl(QUrl(d->tokenUrl));
+
+#else
+
     m_service->setScope(m_scope.join(QLatin1String(" ")));
-    m_service->setAuthorizationUrl(QUrl(d->authUrl));
     m_service->setAccessTokenUrl(QUrl(d->tokenUrl));
+
+#endif
+
+    m_service->setAuthorizationUrl(QUrl(d->authUrl));
 
 #if QT_VERSION < QT_VERSION_CHECK(6,0,0)
 
@@ -115,8 +135,18 @@ GSTalkerBase::GSTalkerBase(QObject* const parent, const QStringList& scope, cons
     connect(m_service, &QOAuth2AuthorizationCodeFlow::granted,
             this, &GSTalkerBase::slotLinkingSucceeded);
 
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 9, 0))
+
+    connect(m_service, &QOAuth2AuthorizationCodeFlow::serverReportedErrorOccurred,
+            this, &GSTalkerBase::slotLinkingFailed);
+
+#else
+
     connect(m_service, &QOAuth2AuthorizationCodeFlow::error,
             this, &GSTalkerBase::slotLinkingFailed);
+
+#endif
+
 }
 
 GSTalkerBase::~GSTalkerBase()
@@ -201,7 +231,17 @@ void GSTalkerBase::doOAuth()
 
     if (!m_service->refreshToken().isEmpty())
     {
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 9, 0))
+
+        m_service->refreshTokens();
+
+#else
+
         m_service->refreshAccessToken();
+
+#endif
+
     }
     else
     {

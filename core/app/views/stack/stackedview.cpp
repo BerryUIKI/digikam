@@ -7,7 +7,7 @@
  * Description : A widget stack to embedded album content view
  *               or the current image preview.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  * SPDX-FileCopyrightText: 2015      by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  *
@@ -25,6 +25,7 @@
 
 #include <klocalizedstring.h>
 #include <kconfiggroup.h>
+#include <kactioncollection.h>
 
 // Local includes
 
@@ -33,20 +34,21 @@
 #include "welcomepageview.h"
 #include "digikamitemview.h"
 #include "itemiconview.h"
-#include "dbinfoiface.h"
 #include "itemalbummodel.h"
 #include "itemalbumfiltermodel.h"
 #include "dtrashitemmodel.h"
 #include "itempreviewview.h"
 #include "itemthumbnailbar.h"
 #include "loadingcacheinterface.h"
-#include "previewlayout.h"
+#include "singlephotopreviewlayout.h"
 #include "tableview.h"
 #include "trashview.h"
 #include "dimg.h"
+#include "surveywindow.h"
+#include "digikamapp.h"
 
 #ifdef HAVE_MEDIAPLAYER
-#   include "mediaplayerview.h"
+#   include "itempreviewvideo.h"
 #endif // HAVE_MEDIAPLAYER
 
 #ifdef HAVE_GEOLOCATION
@@ -61,6 +63,8 @@ class Q_DECL_HIDDEN StackedView::Private
 public:
 
     Private() = default;
+
+public:
 
     bool              needUpdateBar     = false;
     bool              syncingSelection  = false;
@@ -77,7 +81,7 @@ public:
 
 #ifdef HAVE_MEDIAPLAYER
 
-    MediaPlayerView*  mediaPlayerView   = nullptr;
+    ItemPreviewVideo* mediaPlayerView   = nullptr;
 
 #endif // HAVE_MEDIAPLAYER
 
@@ -96,7 +100,10 @@ StackedView::StackedView(QWidget* const parent)
       d             (new Private)
 {
     d->imageIconView    = new DigikamItemView(this);
+    SurveyWindow::surveyWindow()->init(d->imageIconView);
+
     d->imagePreviewView = new ItemPreviewView(this);
+
     d->thumbBarDock     = new ThumbBarDock();
     d->thumbBar         = new ItemThumbnailBar(d->thumbBarDock);
     d->thumbBar->setModelsFiltered(d->imageIconView->itemModel(),
@@ -125,9 +132,7 @@ StackedView::StackedView(QWidget* const parent)
 
 #ifdef HAVE_MEDIAPLAYER
 
-    d->mediaPlayerView  = new MediaPlayerView(this);
-    d->mediaPlayerView->setObjectName(QLatin1String("main_media_player"));
-    d->mediaPlayerView->setInfoInterface(new DBInfoIface(this, QList<QUrl>()));
+    d->mediaPlayerView  = new ItemPreviewVideo(this);
 
 #endif // HAVE_MEDIAPLAYER
 
@@ -188,8 +193,14 @@ StackedView::StackedView(QWidget* const parent)
     connect(d->thumbBar, SIGNAL(itemSelectionChanged()),
             this, SLOT(slotThumbBarSelectionChanged()));
 
+    connect(d->thumbBar, SIGNAL(signalOpenGeolocationMap()),
+            this, SIGNAL(signalOpenGeolocationMap()));
+
     connect(d->imageIconView, SIGNAL(itemSelectionChanged()),
             this, SLOT(slotIconViewSelectionChanged()));
+
+    connect(d->imageIconView, SIGNAL(signalOpenGeolocationMap()),
+            this, SIGNAL(signalOpenGeolocationMap()));
 
     connect(d->thumbBarDock, SIGNAL(dockLocationChanged(Qt::DockWidgetArea)),
             d->thumbBar, SLOT(slotDockLocationChanged(Qt::DockWidgetArea)));
@@ -207,6 +218,12 @@ StackedView::StackedView(QWidget* const parent)
 
     connect(d->mediaPlayerView, SIGNAL(signalEscapePreview()),
             this, SIGNAL(signalEscapePreview()));
+
+    connect(d->mediaPlayerView, SIGNAL(signalDeleteItem()),
+            this, SIGNAL(signalDeleteItem()));
+
+    connect(d->mediaPlayerView, SIGNAL(signalPopupTagsView()),
+            this, SIGNAL(signalPopupTagsView()));
 
 #endif // HAVE_MEDIAPLAYER
 
@@ -275,7 +292,7 @@ TrashView* StackedView::trashView() const
 
 #ifdef HAVE_MEDIAPLAYER
 
-MediaPlayerView* StackedView::mediaPlayerView() const
+ItemPreviewVideo* StackedView::mediaPlayerView() const
 {
     return d->mediaPlayerView;
 }
@@ -343,7 +360,7 @@ void StackedView::setPreviewItem(const ItemInfo& info, const ItemInfo& previous,
 #ifdef HAVE_MEDIAPLAYER
 
             setViewMode(MediaPlayerMode);
-            d->mediaPlayerView->setCurrentItem(info.fileUrl(), !previous.isNull(), !next.isNull());
+            d->mediaPlayerView->setItemInfo(info, previous, next);
 
 #endif // HAVE_MEDIAPLAYER
 
@@ -496,7 +513,10 @@ void StackedView::syncSelection(ItemCategorizedView* const from, ItemCategorized
 
 void StackedView::slotThumbBarSelectionChanged()
 {
-    if ((viewMode() != PreviewImageMode) && (viewMode() != MediaPlayerMode))
+    if (
+        (viewMode() != MediaPlayerMode)  &&
+        (viewMode() != PreviewImageMode)
+       )
     {
         return;
     }
@@ -511,7 +531,11 @@ void StackedView::slotThumbBarSelectionChanged()
 
 void StackedView::slotIconViewSelectionChanged()
 {
-    if (viewMode() != IconViewMode)
+    if (
+        (viewMode() != IconViewMode)     &&
+        (viewMode() != MediaPlayerMode)  &&
+        (viewMode() != PreviewImageMode)
+       )
     {
         return;
     }

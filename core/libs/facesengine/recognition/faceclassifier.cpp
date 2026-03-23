@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Face classifier
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -39,12 +39,17 @@
 #include "dnnmodelmanager.h"
 #include "facebackgroundrecognition.h"
 #include "systemsettings.h"
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
 
 class Q_DECL_HIDDEN FaceClassifier::Private
 {
+public:
+
+    Private() = default;
+
 public:
 
     bool                                    ready                   = false;
@@ -64,7 +69,7 @@ public:
     QThread*                                trainingThread           = nullptr;
     QMutex                                  trainingThreadMutex;
     QMutex                                  trainingMutex;
-    QMap<int, QList<cv::Mat> >              identityFeatures;
+    QHash<int, QList<cv::Mat> >             identityFeatures;
 
     /// OpenCV variables
 
@@ -98,7 +103,7 @@ public:
     FaceClassifier object;
 };
 
-Q_GLOBAL_STATIC(FaceClassifierCreator, faceClassifierCreator)
+Q_GLOBAL_STATIC(FaceClassifierCreator, creator)
 
 // -----------------------------------------------------------
 
@@ -120,7 +125,7 @@ FaceClassifier::~FaceClassifier()
 
 FaceClassifier* FaceClassifier::instance()
 {
-    return &faceClassifierCreator->object;
+    return &creator->object;
 }
 
 bool FaceClassifier::ready() const
@@ -132,7 +137,7 @@ void FaceClassifier::cancel()
 {
     // Don't restart the training thread if we are exiting.
 
-    d->exiting = true;
+    d->exiting         = true;
     d->trainingWaiting = false;
 
     // stop the training thread
@@ -154,7 +159,7 @@ void FaceClassifier::setParameters(const FaceScanSettings& parameters)
 {
     d->recognizeModel = parameters.recognizeModel;
 
-    // set the threshold for the model in case we can't get it from the model
+    // set the threshold for the model in case we cannot get it from the model
 
     threshold         = 0.5F;
 
@@ -272,13 +277,16 @@ bool FaceClassifier::retrain()
 
 bool FaceClassifier::loadTrainingData()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     // Training thread to load the training data and should have a higher priority.
+
     QMutexLocker threadLock(&d->trainingThreadMutex);
     d->trainingThread = QThread::currentThread();
     d->trainingThread->setPriority(QThread::Priority::HighPriority);
     threadLock.unlock();
 
-    qint64 ceElapsed = 0;
+    qint64 ceElapsed  = 0;
 
     QElapsedTimer timer;
     timer.start();
@@ -294,13 +302,13 @@ bool FaceClassifier::loadTrainingData()
 
         // clear the training waiting flag
 
-        d->trainingWaiting            = false;
+        d->trainingWaiting = false;
 
         try
         {
             // create new KNN and SVM classifiers.  We'll swap them in at the end
 
-            QMap<int, QList<cv::Mat> > identityFeatures;
+            QHash<int, QList<cv::Mat> > identityFeatures;
 
             // get the training data from the identity provider
 
@@ -315,9 +323,10 @@ bool FaceClassifier::loadTrainingData()
 
                 for (int i = 0 ; i < labels.rows ; ++i)
                 {
-                    int label = labels.at<int>(cv::Point(i, 0));
+                    int label = labels.at<int>(i);
                     identityFeatures[label].append(samples.row(i));
                 }
+
                 int svm_iterations = qMin(
                                           qMax(
                                                20,
@@ -328,12 +337,12 @@ bool FaceClassifier::loadTrainingData()
 
                 cv::Ptr<cv::ml::KNearest> knn = createKNearest();
                 cv::Ptr<cv::ml::SVM>      svm = createSVM(svm_iterations);
-        
+
                 if (d->initialLoad)
                 {
                     // clear initial load flag
 
-                    d->initialLoad = false;
+                    d->initialLoad   = false;
 
                     // If this is the first time we are loading the training data,
                     // we can use the FaceClassifier with just the identity features if we use full search
@@ -367,8 +376,8 @@ bool FaceClassifier::loadTrainingData()
                 {
                     knn->train(trainData);
                     svm->train(trainData);
-                                                 
-                    if(knn->isTrained() && svm->isTrained())
+
+                    if (knn->isTrained() && svm->isTrained())
                     {
                         if (d->debugLog)
                         {
@@ -418,7 +427,7 @@ bool FaceClassifier::loadTrainingData()
             }
             else
             {
-                // no training data, so we can't train the classifiers
+                // no training data, so we cannot train the classifiers
 
                 qCDebug(DIGIKAM_FACESENGINE_LOG) << "FaceClassifier::loadTrainingData: no training data available";
             }
@@ -469,7 +478,7 @@ int FaceClassifier::predict(const cv::Mat& target, const QList<int>& exclusionLa
 
     if (d->useFullSearch)
     {
-        // we don't have enough identites and samples yet to use the knn and svm classifiers
+        // we don't have enough identities and samples yet to use the knn and svm classifiers
         // so we perform a full brute-force search on all the known faces
 
         label = predictFullSearch(target, exclusionLabelList);
@@ -620,7 +629,7 @@ int FaceClassifier::predictClassifier(const cv::Mat& target, const QList<int>& e
                                       knn_neighbors,
                                       knn_distances);
 
-        QMap<int, QList<cv::Mat> > featureSet;
+        QHash<int, QList<cv::Mat> > featureSet;
 
         if ((svm_result != badLabel1) && (svm_result != badLabel2) && idProvider->isValidId(svm_result))
         {
@@ -665,14 +674,14 @@ bool FaceClassifier::validateKNNSVMResult(const cv::Mat& target, int label) cons
 }
 
 int FaceClassifier::listSearch(const cv::Mat& target,
-                               const QMap<int, QList<cv::Mat> >& identityFeatures,
+                               const QHash<int, QList<cv::Mat> >& identityFeatures,
                                const QList<int>& exclusionLabelList) const
 {
     VotingGroups votes;
 
 #if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
-    for (auto [key, value] : identityFeatures.asKeyValueRange())
+    for (const auto& [key, value] : identityFeatures.asKeyValueRange())
     {
 
 #else

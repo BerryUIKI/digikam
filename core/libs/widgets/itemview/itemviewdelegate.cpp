@@ -9,7 +9,7 @@
  * SPDX-FileCopyrightText: 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
  * SPDX-FileCopyrightText: 2009      by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -34,7 +34,6 @@
 
 // Local includes
 
-#include "digikam_debug.h"
 #include "itempropertiestab.h"
 #include "thememanager.h"
 #include "colorlabelwidget.h"
@@ -59,9 +58,10 @@ void ItemViewDelegatePrivate::init(ItemViewDelegate* const _q, QWidget* const _w
 
 void ItemViewDelegatePrivate::clearRects()
 {
-    gridSize   = QSize(0, 0);
-    rect       = QRect(0, 0, 0, 0);
-    ratingRect = QRect(0, 0, 0, 0);
+    gridSize        = QSize(0, 0);
+    rect            = QRect(0, 0, 0, 0);
+    ratingRect      = QRect(0, 0, 0, 0);
+    groupedItemRect = QRect(0, 0, 0, 0);
 }
 
 void ItemViewDelegatePrivate::makeStarPolygon()
@@ -390,7 +390,7 @@ void ItemViewDelegate::drawCreationDate(QPainter* p, const QRect& dateRect, cons
     Q_D(const ItemViewDelegate);
 
     p->setFont(d->fontXtra);
-    QString str = dateToString(date);
+    QString str = asUserDateTime(date);
 /*
     str         = i18nc("date of image creation", "created: %1", str);
 */
@@ -402,8 +402,8 @@ void ItemViewDelegate::drawModificationDate(QPainter* p, const QRect& dateRect, 
     Q_D(const ItemViewDelegate);
 
     p->setFont(d->fontXtra);
-    QString str = dateToString(date);
-    str         = i18nc("date of last image modification", "Mod.: %1",str);
+    QString str = asUserDateTime(date);
+    str         = i18nc("Date of last image modification, shortened", "Mod.: %1", str);
     p->drawText(dateRect, Qt::AlignCenter, str); //squeezedTextCached(p, dateRect.width(), str));
 }
 
@@ -459,7 +459,7 @@ void ItemViewDelegate::drawFileSize(QPainter* p, const QRect& r, qlonglong bytes
 }
 
 void ItemViewDelegate::drawTags(QPainter* p, const QRect& r, const QString& tagsString,
-                                     bool isSelected) const
+                                bool isSelected) const
 {
     Q_D(const ItemViewDelegate);
 
@@ -471,7 +471,7 @@ void ItemViewDelegate::drawTags(QPainter* p, const QRect& r, const QString& tags
 }
 
 void ItemViewDelegate::drawFocusRect(QPainter* p, const QStyleOptionViewItem& option,
-                                          bool isSelected) const
+                                     bool isSelected) const
 {
     Q_D(const ItemViewDelegate);
 
@@ -598,20 +598,35 @@ void ItemViewDelegate::drawGroupIndicator(QPainter* p, const QRect& r,
 {
     if (numberOfGroupedImages)
     {
-        QIcon icon;
-
-        if (open)
-        {
-            icon = QIcon::fromTheme(QLatin1String("folder-open")); //image-stack-open
-        }
-        else
-        {
-            icon = QIcon::fromTheme(QLatin1String("folder")); //image-stack
-        }
+        QIcon icon     = QIcon::fromTheme(QLatin1String("box"));
 
         icon.paint(p, r);
 
-        QString text = QString::number(numberOfGroupedImages + 1);
+        QPixmap pixmap = icon.pixmap(r.size());
+        QPainter iconPainter(&pixmap);
+        iconPainter.setCompositionMode(QPainter::CompositionMode_SourceIn);
+        iconPainter.fillRect(pixmap.rect(), qApp->palette().color(QPalette::Base));
+        iconPainter.end();
+        p->drawPixmap(r, pixmap);
+
+        int fontSize   = qMin(r.width(), r.height()) / 2;
+        fontSize       = qMax(fontSize, 8);
+
+        QString text   = QString::number(numberOfGroupedImages + 1);
+        QFont font     = p->font();
+        font.setBold(true);
+        font.setPixelSize(fontSize);
+        p->setFont(font);
+
+        if (open)
+        {
+            p->setPen(qApp->palette().color(QPalette::HighlightedText));
+        }
+        else
+        {
+            p->setPen(qApp->palette().color(QPalette::Text));
+        }
+
         p->drawText(r, Qt::AlignCenter, text);
     }
 }
@@ -651,6 +666,14 @@ void ItemViewDelegate::drawMouseOverRect(QPainter* p, const QStyleOptionViewItem
         p->setPen(QPen(option.palette.color(QPalette::Highlight), 3, Qt::SolidLine));
         p->drawRect(1, 1, d->rect.width() - 3, d->rect.height() - 3);
     }
+}
+
+void ItemViewDelegate::drawGroupedRect(QPainter* p, const QStyleOptionViewItem& option) const
+{
+    Q_D(const ItemViewDelegate);
+
+    p->setPen(QPen(option.palette.color(QPalette::Highlight), 3, Qt::SolidLine));
+    p->drawRect(d->groupedItemRect);
 }
 
 void ItemViewDelegate::prepareFonts()

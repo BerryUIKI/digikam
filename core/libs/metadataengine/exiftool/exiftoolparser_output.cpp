@@ -6,7 +6,7 @@
  * Date        : 2020-11-28
  * Description : ExifTool process stream parser.
  *
- * SPDX-FileCopyrightText: 2020-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -23,13 +23,15 @@ void ExifToolParser::printExifToolOutput(const QByteArray& stdOut)
     qCDebug(DIGIKAM_METAENGINE_LOG) << "---";
     qCDebug(DIGIKAM_METAENGINE_LOG).noquote() << stdOut;
     qCDebug(DIGIKAM_METAENGINE_LOG) << "---";
+
+    d->error = stdOut.contains(QByteArray("1 files weren't updated due to errors"));
 }
 
 void ExifToolParser::cmdCompleted(const ExifToolProcess::Result& result)
 {
     qCDebug(DIGIKAM_METAENGINE_LOG) << "ExifTool complete command for action"
                                     << d->actionString(result.cmdAction)
-                                    << "with elasped time (ms):"
+                                    << "with elapsed time (ms):"
                                     << result.elapsed;
 
     ExifToolData exifToolData;
@@ -69,7 +71,7 @@ void ExifToolParser::cmdCompleted(const ExifToolProcess::Result& result)
                 QString     tagType;
                 QStringList sections  = it.key().split(QLatin1Char(':'));
 
-                if      (sections.size() == 6)      // With ExifTool > 12.00 (at least under Windows or MacOS), groups are return with 6 sections.
+                if      (sections.size() == 6)      // With ExifTool > 12.00 (at least under Windows or macOS), groups are return with 6 sections.
                 {
                     tagNameExifTool = QString::fromLatin1("%1.%2.%3.%4")
                                           .arg(sections[0])
@@ -422,6 +424,7 @@ void ExifToolParser::errorOccurred(const ExifToolProcess::Result& result,
                                       << "exited with error:"
                                       << error;
 
+    d->error       = true;
     d->errorString = description;
 
     Q_EMIT signalExifToolDataAvailable();

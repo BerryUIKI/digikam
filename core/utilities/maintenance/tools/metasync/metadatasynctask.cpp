@@ -6,7 +6,7 @@
  * Date        : 2013-08-09
  * Description : Thread actions task for metadata synchronizer.
  *
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -72,6 +72,8 @@ void MetadataSyncTask::setMaintenanceData(MaintenanceData* const data)
 
 void MetadataSyncTask::run()
 {
+    ActionJob::run();       // To customize thread name
+
     // While we have data (using this as check for non-null).
 
     while (d->data)

@@ -4,7 +4,7 @@
 # This script must be run as sudo
 #
 # SPDX-FileCopyrightText: 2015      by Shanti <listaccount at revenant dot org>
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -98,25 +98,25 @@ if [[ $CONTINUE_INSTALL == 0 ]]; then
 
     # Use this section if you want to install Homebrew to a custom location
 
-    sudo mkdir $INSTALL_PREFIX
-    sudo chown -R ${USER} $INSTALL_PREFIX
-    git clone https://github.com/Homebrew/brew $INSTALL_PREFIX
-    eval "$($INSTALL_PREFIX/bin/brew shellenv)"
+    # sudo mkdir $INSTALL_PREFIX
+    # sudo chown -R ${USER} $INSTALL_PREFIX
+    # git clone https://github.com/Homebrew/brew $INSTALL_PREFIX
+    # eval "$($INSTALL_PREFIX/bin/brew shellenv)"
 
     export HOMEBREW_NO_AUTO_UPDATE=1
 
-    export HOMEBREW_CELLAR="$INSTALL_PREFIX/Cellar"
-    export HOMEBREW_PREFIX="$INSTALL_PREFIX"
-    export HOMEBREW_REPOSITORY="$INSTALL_PREFIX"
-    export HOMEBREW_CACHE="$INSTALL_PREFIX/cache"
+    # export HOMEBREW_CELLAR="$INSTALL_PREFIX/Cellar"
+    # export HOMEBREW_PREFIX="$INSTALL_PREFIX"
+    # export HOMEBREW_REPOSITORY="$INSTALL_PREFIX"
+    # export HOMEBREW_CACHE="$INSTALL_PREFIX/cache"
 
-    brew update --force
-    chmod -R go-w "$(brew --prefix)/share/zsh"
+    # brew update --force
+    # chmod -R go-w "$(brew --prefix)/share/zsh"
 
     
     # Use this section to do a default Homebrew installation - not recommended
     
-    # NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
+    NONINTERACTIVE=1 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
     # (echo; echo 'eval "$(/opt/homebrew/bin/brew shellenv)"') >> /Users/${USER}/.zprofile
     # #eval "$(/opt/homebrew/bin/brew shellenv)"
 

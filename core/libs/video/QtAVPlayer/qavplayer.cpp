@@ -48,9 +48,9 @@ class QAVPlayerPrivate
 public:
     QAVPlayerPrivate(QAVPlayer *q)
         : q_ptr(q)
-        , videoQueue(AVMEDIA_TYPE_VIDEO, demuxer)
-        , audioQueue(AVMEDIA_TYPE_AUDIO, demuxer)
-        , subtitleQueue(AVMEDIA_TYPE_SUBTITLE, demuxer)
+        , videoQueue(AVMEDIA_TYPE_VIDEO)
+        , audioQueue(AVMEDIA_TYPE_AUDIO)
+        , subtitleQueue(AVMEDIA_TYPE_SUBTITLE)
     {
         threadPool.setMaxThreadCount(4);
     }
@@ -497,7 +497,13 @@ void QAVPlayerPrivate::applyFilters(bool reset, const QAVFrame &frame)
     if ((filterDescs == filters.filterDescs()) && !reset)
         return;
     qCDebug(lcAVPlayer) << __FUNCTION__ << ":" << filters.filterDescs() << "->" << filterDescs << "reset:" << reset;
-    int ret = filters.createFilters(filterDescs, frame, demuxer);
+    const auto videoStreams = demuxer.currentVideoStreams();
+    const auto audioStreams = demuxer.currentAudioStreams();
+    int ret = filters.createFilters(
+        filterDescs,
+        frame,
+        !videoStreams.isEmpty() ? videoStreams.first() : QAVStream(),
+        !audioStreams.isEmpty() ? audioStreams.first() : QAVStream());
     if (ret < 0) {
         setError(QAVPlayer::FilterError, QLatin1String("Could not create filters: ") + err_str(ret));
         return;
@@ -618,7 +624,8 @@ void QAVPlayerPrivate::doDemux()
             }
         }
 
-        auto packet = demuxer.read();
+        QAVPacket packet;
+        int ret = demuxer.read(packet);
         if (packet.stream()) {
             muxer.write(packet);
             endOfFile(false);
@@ -637,6 +644,10 @@ void QAVPlayerPrivate::doDemux()
                     break;
             }
         } else {
+            if (ret < 0 && ret != AVERROR_EOF) {
+                setError(QAVPlayer::ResourceError, err_str(ret));
+                break;
+            }
             if (demuxer.eof()
                 && videoQueue.isEmpty()
                 && audioQueue.isEmpty()

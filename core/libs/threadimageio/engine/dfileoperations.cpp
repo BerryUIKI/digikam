@@ -6,7 +6,7 @@
  * Date        : 2008-12-10
  * Description : misc file operation methods
  *
- * SPDX-FileCopyrightText: 2014-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2014-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -294,7 +294,9 @@ void DFileOperations::openInFileManager(const QList<QUrl>& urls)
 
 #ifdef Q_OS_WIN
 
+    QFileInfo info(path);
     QString dopusPath = findExecutable(QLatin1String("DOpus"));
+    QString winPath   = QDir::toNativeSeparators(info.absoluteFilePath());
 
     if (!dopusPath.isEmpty())
     {
@@ -309,7 +311,7 @@ void DFileOperations::openInFileManager(const QList<QUrl>& urls)
                 QProcess process;
                 process.setProgram(dopusrt.filePath());
                 process.setNativeArguments(QString::fromUtf8("/CMD Go \"%1\"")
-                                           .arg(QDir::toNativeSeparators(path)));
+                                           .arg(winPath));
 
                 if (process.startDetached())
                 {
@@ -319,21 +321,19 @@ void DFileOperations::openInFileManager(const QList<QUrl>& urls)
         }
     }
 
-    QStringList args;
-    QFileInfo info(path);
+    QString arg;
 
     if (info.isFile())
     {
-        args << QLatin1String("/select,");
+        arg = QString::fromUtf8("/select, \"%1\"").arg(winPath);
+    }
+    else
+    {
+        arg = QString::fromUtf8("\"%1\"").arg(winPath);
     }
 
-    qDebug() << "Explorer 1:" << info.absoluteFilePath();
-    qDebug() << "Explorer 2:" << info.canonicalFilePath();
-
-    args << QDir::toNativeSeparators(info.absoluteFilePath());
-
     QProcess process;
-    process.setArguments(args);
+    process.setNativeArguments(arg);
     process.setProgram(QLatin1String("explorer.exe"));
 
     if (process.startDetached())
@@ -413,7 +413,9 @@ bool DFileOperations::copyFolderRecursively(const QString& srcPath,
     {
         int count = 0;
 
-        QDirIterator it(srcDir.path(), QDir::Files,
+        QDirIterator it(srcDir.path(), QDir::Files   |
+                                       QDir::Hidden  |
+                                       QDir::NoDotAndDotDot,
                                        QDirIterator::Subdirectories);
 
         while (it.hasNext())
@@ -430,7 +432,9 @@ bool DFileOperations::copyFolderRecursively(const QString& srcPath,
         }
     }
 
-    const auto list = srcDir.entryInfoList(QDir::Files);
+    const auto list = srcDir.entryInfoList(QDir::Files   |
+                                           QDir::Hidden  |
+                                           QDir::NoDotAndDotDot);
 
     for (const QFileInfo& fileInfo : list)
     {
@@ -457,7 +461,9 @@ bool DFileOperations::copyFolderRecursively(const QString& srcPath,
         }
     }
 
-    const auto list2 = srcDir.entryInfoList(QDir::Dirs | QDir::NoDotAndDotDot);
+    const auto list2 = srcDir.entryInfoList(QDir::Dirs    |
+                                            QDir::Hidden  |
+                                            QDir::NoDotAndDotDot);
 
     for (const QFileInfo& fileInfo : list2)
     {

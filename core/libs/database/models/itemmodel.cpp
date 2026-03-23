@@ -7,7 +7,7 @@
  * Description : Qt item model for database entries
  *
  * SPDX-FileCopyrightText: 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -749,7 +749,7 @@ void ItemModel::appendInfos(const QList<ItemInfo>& infos, const QList<QVariant>&
 void ItemModel::appendInfosChecked(const QList<ItemInfo>& infos, const QList<QVariant>& extraValues)
 {
     // This method does deduplication. It is private because in context of
-    // readding or refreshing it is of no use.
+    // re-adding or refreshing it is of no use.
 
     if (extraValues.isEmpty())
     {

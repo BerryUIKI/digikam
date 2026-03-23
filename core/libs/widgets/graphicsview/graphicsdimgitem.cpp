@@ -7,7 +7,7 @@
  * Description : Graphics View item for DImg
  *
  * SPDX-FileCopyrightText: 2010-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -31,6 +31,8 @@
 
 #include "dimg.h"
 #include "imagezoomsettings.h"
+#include "exposurecontainer.h"
+#include "editorcore.h"
 
 namespace Digikam
 {
@@ -162,6 +164,22 @@ DImg GraphicsDImgItem::image() const
     return d->image;
 }
 
+void GraphicsDImgItem::setEnableUnderExposure(bool b)
+{
+    Q_D(GraphicsDImgItem);
+
+    d->underExposure = b;
+    update();
+}
+
+void GraphicsDImgItem::setEnableOverExposure(bool b)
+{
+    Q_D(GraphicsDImgItem);
+
+    d->overExposure = b;
+    update();
+}
+
 void GraphicsDImgItem::sizeHasChanged()
 {
     Q_D(GraphicsDImgItem);
@@ -278,6 +296,40 @@ void GraphicsDImgItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* 
 
         d->cachedPixmaps.insert(scaledDrawRect, pix);
         painter->drawPixmap(drawRect, pix);
+    }
+
+    // Show the Over/Under exposure pixels indicators
+
+    if (EditorCore::defaultInstance())
+    {
+        ExposureSettingsContainer* const expoSettings = EditorCore::defaultInstance()->getExposureSettings();
+
+        if (expoSettings)
+        {
+            expoSettings->underExposureIndicator = d->underExposure;
+            expoSettings->overExposureIndicator  = d->overExposure;
+
+            if (expoSettings->underExposureIndicator || expoSettings->overExposureIndicator)
+            {
+                QSize scaledCompleteSize(
+                                         floor(dpr * completeSize.width()),
+                                         floor(dpr * completeSize.height())
+                                        );
+                DImg scaledImage = d->image.smoothScaleClipped(
+                                                               scaledCompleteSize.width(),
+                                                               scaledCompleteSize.height(),
+                                                               scaledDrawRect.x(),
+                                                               scaledDrawRect.y(),
+                                                               scaledDrawRect.width(),
+                                                               scaledDrawRect.height(),
+                                                               d->zoomSettings.getImageSmoothScale()
+                                                              );
+
+                QImage pureColorMask = scaledImage.pureColorMask(expoSettings);
+                QPixmap pixMask      = QPixmap::fromImage(pureColorMask);
+                painter->drawPixmap(drawRect, pixMask);
+            }
+        }
     }
 }
 

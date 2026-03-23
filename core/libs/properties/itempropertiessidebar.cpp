@@ -6,7 +6,7 @@
  * Date        : 2004-11-17
  * Description : item properties side bar (without support of digiKam database).
  *
- * SPDX-FileCopyrightText: 2004-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2004-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -23,6 +23,8 @@
 #include <QLocale>
 #include <QMimeDatabase>
 #include <QMimeType>
+#include <QClipboard>
+#include <QMimeData>
 
 // KDE includes
 
@@ -31,12 +33,13 @@
 
 // Local includes
 
-#include "drawdecoder.h"
 #include "digikam_debug.h"
+#include "digikam_globals.h"
+#include "drawdecoder.h"
 #include "dimg.h"
 #include "dmetadata.h"
+#include "dfileoperations.h"
 #include "itempropertiestab.h"
-#include "itemselectionpropertiestab.h"
 #include "itempropertiesmetadatatab.h"
 #include "itempropertiescolorstab.h"
 #include "itempropertiesversionstab.h"
@@ -56,12 +59,10 @@ ItemPropertiesSideBar::ItemPropertiesSideBar(QWidget* const parent,
 {
     m_propertiesStackedView  = new QStackedWidget(parent);
     m_propertiesTab          = new ItemPropertiesTab(parent);
-    m_selectionPropertiesTab = new ItemSelectionPropertiesTab(parent);
     m_metadataTab            = new ItemPropertiesMetadataTab(parent);
     m_colorTab               = new ItemPropertiesColorsTab(parent);
 
     m_propertiesStackedView->addWidget(m_propertiesTab);
-    m_propertiesStackedView->addWidget(m_selectionPropertiesTab);
 
     // NOTE: Special case with Showfoto which will only be able to load image, not video.
 
@@ -69,6 +70,14 @@ ItemPropertiesSideBar::ItemPropertiesSideBar(QWidget* const parent,
     {
         m_propertiesTab->setVideoInfoDisable(true);
     }
+
+    m_propertiesTab->widget(ItemPropertiesTab::FileProperties)->setButtonIcon(QIcon::fromTheme(QLatin1String("edit-copy")));
+    m_propertiesTab->widget(ItemPropertiesTab::FileProperties)->setButtonVisible(true);
+    m_propertiesTab->widget(ItemPropertiesTab::FileProperties)->setButtonToolTip(i18n("Copy the all properties in clipboard"));
+
+    m_propertiesTab->widget(ItemPropertiesTab::ImageProperties)->setButtonIcon(QIcon::fromTheme(QLatin1String("folder-open")));
+    m_propertiesTab->widget(ItemPropertiesTab::ImageProperties)->setButtonVisible(true);
+    m_propertiesTab->widget(ItemPropertiesTab::ImageProperties)->setButtonToolTip(i18n("Open item in the file manager"));
 
     appendTab(m_propertiesStackedView, QIcon::fromTheme(QLatin1String("configure")),        i18nc("@title: item properties", "Properties"));
     appendTab(m_metadataTab,           QIcon::fromTheme(QLatin1String("format-text-code")), i18nc("@title: item properties", "Metadata")); // krazy:exclude=iconnames
@@ -80,6 +89,9 @@ ItemPropertiesSideBar::ItemPropertiesSideBar(QWidget* const parent,
     appendTab(m_gpsTab,                QIcon::fromTheme(QLatin1String("globe")),            i18nc("@title: item properties", "Map"));
 
 #endif // HAVE_GEOLOCATION
+
+    connect(m_propertiesTab, &ItemPropertiesTab::signalItemButtonPressed,
+            this, &ItemPropertiesSideBar::slotFileButtonPressed);
 
     connect(m_metadataTab, SIGNAL(signalSetupMetadataFilters(int)),
             this, SIGNAL(signalSetupMetadataFilters(int)));
@@ -100,7 +112,7 @@ void ItemPropertiesSideBar::itemChanged(const QUrl& url, const QRect& rect, DImg
         return;
     }
 
-    m_currentURL         = url;
+    m_currentUrl         = url;
     m_currentRect        = rect;
     m_image              = img;
     m_dirtyPropertiesTab = false;
@@ -114,16 +126,15 @@ void ItemPropertiesSideBar::itemChanged(const QUrl& url, const QRect& rect, DImg
 
 void ItemPropertiesSideBar::slotNoCurrentItem()
 {
-    m_currentURL = QUrl();
+    m_currentUrl = QUrl();
 
-    m_selectionPropertiesTab->setCurrentURL();
-    m_propertiesTab->setCurrentURL();
-    m_metadataTab->setCurrentURL();
+    m_propertiesTab->setCurrentUrl();
+    m_metadataTab->setCurrentUrl();
     m_colorTab->setData();
 
 #ifdef HAVE_GEOLOCATION
 
-    m_gpsTab->setCurrentURL();
+    m_gpsTab->setCurrentUrl();
 
 #endif // HAVE_GEOLOCATION
 
@@ -150,7 +161,7 @@ void ItemPropertiesSideBar::slotImageSelectionChanged(const QRect& rect)
 
 void ItemPropertiesSideBar::slotChangedTab(QWidget* tab)
 {
-    if (!m_currentURL.isValid())
+    if (!m_currentUrl.isValid())
     {
 
 #ifdef HAVE_GEOLOCATION
@@ -166,18 +177,18 @@ void ItemPropertiesSideBar::slotChangedTab(QWidget* tab)
 
     if      ((tab == m_propertiesStackedView) && !m_dirtyPropertiesTab)
     {
-        m_propertiesTab->setCurrentURL(m_currentURL);
-        setImagePropertiesInformation(m_currentURL);
+        m_propertiesTab->setCurrentUrl(m_currentUrl);
+        setImagePropertiesInformation(m_currentUrl);
         m_dirtyPropertiesTab = true;
     }
     else if ((tab == m_metadataTab) && !m_dirtyMetadataTab)
     {
-        m_metadataTab->setCurrentURL(m_currentURL);
+        m_metadataTab->setCurrentUrl(m_currentUrl);
         m_dirtyMetadataTab = true;
     }
     else if ((tab == m_colorTab) && !m_dirtyColorTab)
     {
-        m_colorTab->setData(m_currentURL, m_currentRect, m_image);
+        m_colorTab->setData(m_currentUrl, m_currentRect, m_image);
         m_dirtyColorTab = true;
     }
 
@@ -185,7 +196,7 @@ void ItemPropertiesSideBar::slotChangedTab(QWidget* tab)
 
     else if ((tab == m_gpsTab) && !m_dirtyGpsTab)
     {
-        m_gpsTab->setCurrentURL(m_currentURL);
+        m_gpsTab->setCurrentUrl(m_currentUrl);
         m_dirtyGpsTab = true;
     }
 
@@ -210,8 +221,7 @@ void ItemPropertiesSideBar::setImagePropertiesInformation(const QUrl& url)
 
     // -- File system information -----------------------------------------
 
-    QDateTime modifiedDate = fileInfo.lastModified();
-    str = QLocale().toString(modifiedDate, QLocale::ShortFormat);
+    str = asUserDateTime(fileInfo.lastModified());
     m_propertiesTab->setFileModifiedDate(str);
 
     str = QString::fromUtf8("%1 (%2)").arg(ItemPropertiesTab::humanReadableBytesCount(fileInfo.size()))
@@ -282,7 +292,7 @@ void ItemPropertiesSideBar::setImagePropertiesInformation(const QUrl& url)
 
     if (photoInfo.dateTime.isValid())
     {
-        str = QLocale().toString(photoInfo.dateTime, QLocale::ShortFormat);
+        str = asUserDateTime(photoInfo.dateTime);
         m_propertiesTab->setPhotoDateTime(str);
     }
     else
@@ -378,7 +388,7 @@ void ItemPropertiesSideBar::setImagePropertiesInformation(const QUrl& url)
     m_propertiesTab->setTags(tagPaths);
 
     // Not supported
-    m_propertiesTab->setVersionnedInfo(QString());
+    m_propertiesTab->setVersionedInfo(QString());
     m_propertiesTab->setGroupedInfo(QString());
 
     m_propertiesTab->showOrHideCachedProperties();
@@ -435,6 +445,33 @@ void ItemPropertiesSideBar::doSaveState()
 void ItemPropertiesSideBar::slotLoadMetadataFilters()
 {
     m_metadataTab->loadFilters();
+}
+
+void ItemPropertiesSideBar::slotFileButtonPressed(int index)
+{
+    switch (index)
+    {
+        case ItemPropertiesTab::FileProperties:
+        {
+            QMimeData* const mimeData = new QMimeData();
+            mimeData->setText(m_propertiesTab->propertiesToText());
+            QApplication::clipboard()->setMimeData(mimeData, QClipboard::Clipboard);
+
+            break;
+        }
+
+        case ItemPropertiesTab::ImageProperties:
+        {
+            DFileOperations::openInFileManager(QList<QUrl>() << m_currentUrl);
+
+            break;
+        }
+
+        default:
+        {
+            break;
+        }
+    }
 }
 
 } // namespace Digikam

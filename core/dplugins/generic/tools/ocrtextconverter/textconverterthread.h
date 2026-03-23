@@ -7,7 +7,7 @@
  * Description : Text Converter threads manager
  *
  * SPDX-FileCopyrightText: 2012      by Smit Mehta <smit dot meh at gmail dot com>
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -45,7 +45,7 @@ public:
     void ocrProcessFile(const QUrl& url);
     void ocrProcessFiles(const QList<QUrl>& urlList);
 
-    void cancel();
+    void cancel()                override;
 
 Q_SIGNALS:
 

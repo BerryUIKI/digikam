@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -190,6 +190,13 @@ elif [[ $MAJOR_OSX_VERSION == "13" ]]
 
 elif [[ $MAJOR_OSX_VERSION == "14" ]]
     then OSX_CODE_NAME="Sonoma"
+
+elif [[ $MAJOR_OSX_VERSION == "15" ]]
+    then OSX_CODE_NAME="Sequoia"
+
+elif [[ $MAJOR_OSX_VERSION == "26" ]]
+    then OSX_CODE_NAME="Tahoe"
+
 fi
 
 echo -e "---------- Detected OSX version $MAJOR_OSX_VERSION.$MINOR_OSX_VERSION and code name $OSX_CODE_NAME"

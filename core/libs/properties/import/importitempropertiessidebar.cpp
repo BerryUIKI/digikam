@@ -6,7 +6,7 @@
  * Date        : 2006-02-08
  * Description : item properties side bar used by import tool.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -143,11 +143,11 @@ void ImportItemPropertiesSideBarImport::slotNoCurrentItem()
     d->dirtyGpsTab        = false;
 
     d->cameraItemTab->setCurrentItem();
-    d->metadataTab->setCurrentURL();
+    d->metadataTab->setCurrentUrl();
 
 #ifdef HAVE_GEOLOCATION
 
-    d->gpsTab->setCurrentURL();
+    d->gpsTab->setCurrentUrl();
 
 #endif // HAVE_GEOLOCATION
 

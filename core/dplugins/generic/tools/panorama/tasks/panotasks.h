@@ -22,8 +22,5 @@
 #include "autocroptask.h"
 #include "createpreviewtask.h"
 #include "createfinalptotask.h"
-#include "createmktask.h"
-#include "compilemksteptask.h"
-#include "compilemktask.h"
 #include "huginexecutortask.h"
 #include "copyfilestask.h"

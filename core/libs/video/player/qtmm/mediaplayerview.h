@@ -6,7 +6,7 @@
  * Date        : 2006-20-12
  * Description : a view to embed QtMultimedia media player.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -20,6 +20,8 @@
 #include <QEvent>
 #include <QUrl>
 #include <QMediaPlayer>
+#include <QAction>
+#include <QList>
 
 // Local includes
 
@@ -46,6 +48,26 @@ public:
     void escapePreview();
     void reload();
 
+    /**
+     * @brief plug an extra widget at end of the toolbar.
+     */
+    void setToolbarExtraWidget(QWidget* const extra);
+
+    /**
+     * @brief turn off/on toolbar visibility.
+     */
+    void setToolbarVisible(bool b);
+
+    /**
+     * @brief plug an On Screen Display widget over the player.
+     */
+    void setOsdWidget(QWidget* const osd);
+
+    /**
+     * @return the list of action available in the toolbar.
+     */
+    QList<QAction*> actionsList() const;
+
 Q_SIGNALS:
 
     void signalNextItem();
@@ -55,7 +77,8 @@ Q_SIGNALS:
 public Q_SLOTS:
 
     void slotEscapePressed();
-    void slotRotateVideo();
+    void slotRotateVideoLeft();
+    void slotRotateVideoRight();
 
 private Q_SLOTS:
 
@@ -63,6 +86,7 @@ private Q_SLOTS:
     void slotMediaStatusChanged(QMediaPlayer::MediaStatus newStatus);
     void slotHandlePlayerError(QMediaPlayer::Error, const QString&);
     void slotNativeSizeChanged();
+    void slotMetaDataChanged();
     void slotThemeChanged();
 
     /// Slidebar slots

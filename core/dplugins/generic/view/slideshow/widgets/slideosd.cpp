@@ -6,7 +6,7 @@
  * Date        : 2014-09-18
  * Description : slideshow OSD widget
  *
- * SPDX-FileCopyrightText: 2014-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2014-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2019-2020 by Minh Nghia Duong <minhnghiaduong997 at gmail dot com>
  * SPDX-FileCopyrightText:      2021 by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
@@ -71,6 +71,8 @@ class Q_DECL_HIDDEN SlideOSD::Private
 public:
 
     Private() = default;
+
+public:
 
     bool                paused          = false;
     bool                video           = false;
@@ -156,6 +158,7 @@ SlideOSD::SlideOSD(SlideShowSettings* const settings, SlideShowLoader* const par
     d->ratingWidget->setFocusPolicy(Qt::NoFocus);
     d->ratingWidget->setMouseTracking(true);
 
+    d->labelsBox->setStretchFactor(new QWidget(d->labelsBox), 10);
     d->labelsBox->layout()->setAlignment(d->ratingWidget, Qt::AlignVCenter | Qt::AlignLeft);
     d->labelsBox->setMouseTracking(true);
 
@@ -172,6 +175,13 @@ SlideOSD::SlideOSD(SlideShowSettings* const settings, SlideShowLoader* const par
 
     connect(d->plWidget, SIGNAL(signalPickLabelChanged(int)),
             parent, SLOT(slotAssignPickLabel(int)));
+
+    connect(d->settings->iface, &DInfoInterface::signalColorLabelNamesUpdated,
+            this, [this]()
+       {
+          d->clWidget->colorLabelWidget()->setDescriptionBoxVisible(false);
+       }
+    );
 
     // ---------------------------------------------------------------
 
@@ -306,19 +316,13 @@ void SlideOSD::setCurrentUrl(const QUrl& url)
 
     if (d->settings->printLabels)
     {
-        d->clWidget->blockSignals(true);
-        d->plWidget->blockSignals(true);
         d->clWidget->setColorLabel((ColorLabel)item.colorLabel());
         d->plWidget->setPickLabel((PickLabel)item.pickLabel());
-        d->clWidget->blockSignals(false);
-        d->plWidget->blockSignals(false);
     }
 
     if (d->settings->printRating)
     {
-        d->ratingWidget->blockSignals(true);
         d->ratingWidget->setRating(item.rating());
-        d->ratingWidget->blockSignals(false);
     }
 
     // Make the OSD the proper size

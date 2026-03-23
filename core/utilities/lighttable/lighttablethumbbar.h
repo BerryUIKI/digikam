@@ -6,7 +6,7 @@
  * Date        : 2007-04-11
  * Description : light table thumbs bar
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -47,6 +47,7 @@ public:
     int  countItems()                                    const;
     QModelIndex findItemByInfo(const ItemInfo& info)     const;
     ItemInfo   findItemByIndex(const QModelIndex& index) const;
+    ItemFilterModel* itemFilterModel()                   const             override;
 
 Q_SIGNALS:
 

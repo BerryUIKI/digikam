@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2005      by Renchi Raju <renchi dot raju at gmail dot com>
  * SPDX-FileCopyrightText: 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -56,7 +56,7 @@ class ThumbnailIdentifier;
 class ThumbnailInfo;
 
 /**
- * @brief The ItemInfo class contains provides access to the database for a single image.
+ * @brief The ItemInfo class contains provides access to the database for a single item.
  *        The properties can be read and written. Information will be cached.
  *
  * @note access rules for all methods in this class:
@@ -73,41 +73,41 @@ public:
 public:
 
     /**
-     * Constructor
-     * Creates a null image info
+     * @brief Constructor
+     * Creates a null item info
      */
     ItemInfo();
 
     /**
-     * Constructor. Creates an ItemInfo object without any cached data initially.
-     * @param ID the unique ID for this image
+     * @brief Constructor. Creates an ItemInfo object without any cached data initially.
+     * @param ID the unique ID for this item
      */
     explicit ItemInfo(qlonglong ID);
 
     /**
-     * Constructor. Creates an ItemInfo object where the provided information
+     * @brief Constructor. Creates an ItemInfo object where the provided information
      * will initially be available cached, without database access.
      */
     explicit ItemInfo(const ItemListerRecord& record);
 
     /**
-     * Copy constructor.
+     * @brief Copy constructor.
      */
     ItemInfo(const ItemInfo& info);
 
     /**
-     * Destructor
+     * @brief Destructor
      */
     ~ItemInfo();
 
     /**
-     * Creates an ItemInfo object from a file url.
+     * @brief Creates an ItemInfo object from a file url.
      */
     static ItemInfo fromLocalFile(const QString& path);
     static ItemInfo fromUrl(const QUrl& url);
 
     /**
-     * Create an ItemInfo object from the given combination, which
+     * @brief Create an ItemInfo object from the given combination, which
      * must be cleaned and corresponding to the values in the database
      */
     static ItemInfo fromLocationAlbumAndName(int locationId, const QString& album, const QString& name);
@@ -119,7 +119,7 @@ public:
     bool operator<(const ItemInfo& info)                                                const;
 
     /**
-     * Copy database information of this item to a newly created item
+     * @brief  Copy database information of this item to a newly created item
      * @param  dstAlbumID  destination album id
      * @param  dstFileName new filename
      * @return an ItemInfo object of the new item
@@ -127,8 +127,8 @@ public:
     ItemInfo copyItem(int dstAlbumID, const QString& dstFileName);
 
     /**
-     * Returns true if this is a valid ItemInfo,
-     * and the location of the image is currently available
+     * @return true if this is a valid ItemInfo,
+     * and the location of the item is currently available
      * (information freshly obtained from CollectionManager)
      */
     bool isLocationAvailable()                                                          const;
@@ -143,54 +143,54 @@ public:
     //@{
 
     /**
-     * Returns if this objects contains valid data
+     * @return true if this objects contains valid data
      */
     bool isNull()                                                                       const;
 
     /**
-     * @return the name of the image
+     * @return the name of the item
      */
     QString name()                                                                      const;
 
     /**
-     * @return the datetime of the image
+     * @return the datetime of the item
      */
     QDateTime dateTime()                                                                const;
 
     /**
-     * @return the modification datetime of the image
+     * @return the modification datetime of the item
      */
     QDateTime modDateTime()                                                             const;
 
     /**
-     * @return the filesize of the image
+     * @return the filesize of the item
      */
     qlonglong fileSize()                                                                const;
 
     /**
-     * @return the dimensions of the image (valid only if dimensions
+     * @return the dimensions of the item (valid only if dimensions
      * have been requested)
      */
     QSize dimensions()                                                                  const;
 
     /**
-     * Returns the file:// url.
+     * @return the file:// url.
      * This is equivalent to QUrl::fromLocalFile(filePath())
      */
     QUrl fileUrl()                                                                      const;
 
     /**
-     * Returns the file path to the image
+     * @return the file path to the item
      */
     QString filePath()                                                                  const;
 
     /**
-     * Returns the relative path part to the image
+     * @return the relative path part to the item
      */
     QString relativePath()                                                              const;
 
     /**
-     * @return the unique image id for this item
+     * @return the unique id for this item
      */
     qlonglong id()                                                                      const;
 
@@ -200,7 +200,7 @@ public:
     int albumId()                                                                       const;
 
     /**
-     * The album root id
+     * @return The album root id
      */
     int albumRootId()                                                                   const;
 
@@ -210,33 +210,33 @@ public:
     double aspectRatio()                                                                const;
 
     /**
-     * Returns the manual sort order
+     * @return the manual sort order
      */
     qlonglong manualOrder()                                                             const;
 
     /**
-     * Returns the category of the item: Image, Audio, Video
+     * @return the category of the item: Image, Audio, Video
      */
     DatabaseItem::Category category()                                                   const;
 
     /**
-     * Returns the image format / mimetype as a standardized
+     * @return the item format / mimetype as a standardized
      * string (see project/documents/DBSCHEMA.ODS).
      */
     QString format()                                                                    const;
 
     /**
-     * Returns true if the image is marked as visible in the database.
+     * @return true if the item is marked as visible in the database.
      */
     bool isVisible()                                                                    const;
 
     /**
-     * Returns true if the corresponding file was not deleted.
+     * @return true if the corresponding file was not deleted.
      */
     bool isRemoved()                                                                    const;
 
     /**
-     * Returns the orientation of the image,
+     * @return the orientation of the item,
      * (MetaEngine::ImageOrientation, EXIF standard)
      */
     int orientation()                                                                   const;
@@ -264,40 +264,40 @@ public:
     /**
      * @return the map of Tag Region (in XML form) to Suggested Names for all
      * Faces in the Image.
-     * Used to categorize images based on Face Suggestions.
+     * Used to categorize items based on Face Suggestions.
      */
     QMap<QString, QString> getSuggestedNames()                                          const;
 
     /**
-     * Set the name (write it to database)
+     * @brief Set the name (write it to database)
      * @param newName the new name.
      */
     void setName(const QString& newName);
 
     /**
-     * Set the date and time (write it to database)
+     * @brief Set the date and time (write it to database)
      * @param dateTime the new date and time.
      */
     void setDateTime(const QDateTime& dateTime);
 
     /**
-     * Set the modification date and time (write it to database)
+     * @brief Set the modification date and time (write it to database)
      * @param dateTime the new modification date and time.
      */
     void setModDateTime(const QDateTime& dateTime);
 
     /**
-     * Set the manual sorting order for the item
+     * @brief Set the manual sorting order for the item
      */
     void setManualOrder(qlonglong value);
 
     /**
-     * Set the orientation for the item
+     * @brief Set the orientation for the item
      */
     void setOrientation(int value);
 
     /**
-     * Set the visibility flag - triggers between Visible and Hidden
+     * @brief Set the visibility flag - triggers between Visible and Hidden
      */
     void setVisible(bool isVisible);
 
@@ -319,13 +319,13 @@ public:
     //@{
 
     /**
-     * Retrieve the ItemPosition object for this item.
+     * @brief Retrieve the ItemPosition object for this item.
      */
     ItemPosition imagePosition()                                                        const;
 
     /**
-     * Retrieves the coordinates and the altitude.
-     * Returns 0 if hasCoordinates(), or hasAltitude resp, is false.
+     * @brief Retrieves the coordinates and the altitude.
+     * @return 0 if hasCoordinates(), or hasAltitude resp, is false.
      */
     double longitudeNumber()                                                            const;
     double latitudeNumber()                                                             const;
@@ -345,9 +345,9 @@ public:
     //@{
 
     /**
-     * Retrieves and sets the image history from the database.
-     * Note: The image history retrieved here does typically include all
-     * steps from the original to this image, but does not reference this image
+     * @brief Retrieves and sets the item history from the database.
+     * @note: The item history retrieved here does typically include all
+     * steps from the original to this item, but does not reference this item
      * itself.
      */
     DImageHistory imageHistory()                                                        const;
@@ -355,20 +355,20 @@ public:
     bool hasImageHistory()                                                              const;
 
     /**
-     * Retrieves and sets this' images UUID
+     * @brief Retrieves and sets this' item UUID
      */
     QString uuid()                                                                      const;
     void setUuid(const QString& uuid);
 
     /**
-     * Constructs a HistoryImageId with all available information for this image.
+     * @brief Constructs a HistoryImageId with all available information for this item.
      */
     HistoryImageId historyImageId()                                                     const;
 
     /**
-     * Retrieve information about images from which this image
-     * is derived (ancestorImages) and images that have been derived
-     * from this images (derivedImages).
+     * @brief Retrieve information about items from which this item
+     * is derived (ancestorImages) and items that have been derived
+     * from this items (derivedImages).
      */
     bool hasDerivedImages()                                                             const;
     bool hasAncestorImages()                                                            const;
@@ -377,14 +377,14 @@ public:
     QList<ItemInfo> ancestorImages()                                                    const;
 
     /**
-     * Returns the cloud of all directly or indirectly related images,
-     * derived images or ancestors, in from of "a derived from b" pairs.
+     * @return the cloud of all directly or indirectly related items,
+     * derived items or ancestors, in from of "a derived from b" pairs.
      */
     QList<QPair<qlonglong, qlonglong> > relationCloud()                                 const;
 
     /**
-     * Add a relation to the database:
-     * This image is derived from the ancestorImage.
+     * @brief Add a relation to the database:
+     * This item is derived from the ancestorImage.
      */
     void markDerivedFrom(const ItemInfo& ancestorImage);
 
@@ -400,43 +400,44 @@ public:
     //@{
 
     /**
-     * The image is grouped in the group of another (leading) image.
+     * @brief The item is grouped in the group of another (leading) item.
      */
     bool isGrouped()                                                                    const;
+
     /**
-     * The image is the leading image of a group,
-     * there are other images grouped behind this one.
+     * @brief The item is the leading item of a group,
+     * there are other items grouped behind this one.
      */
     bool hasGroupedImages()                                                             const;
     int  numberOfGroupedImages()                                                        const;
 
     /**
-     * Returns the leading image of the group.
-     * Returns a null image if this image is not grouped (isGrouped())
+     * @return the leading item of the group.
+     * @return a null item if this item is not grouped (isGrouped())
      */
     ItemInfo groupImage()                                                               const;
     qlonglong groupImageId()                                                            const;
 
     /**
-     * Returns the list of images grouped behind this image (not including this
-     * image itself) and an empty list if there is none.
+     * @return the list of items grouped behind this item (not including this
+     * item itself) and an empty list if there is none.
      */
     QList<ItemInfo> groupedImages()                                                     const;
 
     /**
-     * Group this image behind the given image
+     * @brief Group this item behind the given item
      */
     void addToGroup(const ItemInfo& info);
 
     /**
-     * This image is grouped behind another image:
-     * Remove this image from its group
+     * @brief This item is grouped behind another item:
+     * Remove this item from its group
      */
     void removeFromGroup();
 
     /**
-     * This image hasGroupedImages(): Split up the group,
-     * remove all groupedImages() from this image's group.
+     * @brief This item hasGroupedImages(): Split up the group,
+     * remove all groupedImages() from this item's group.
      */
     void clearGroup();
 
@@ -452,7 +453,7 @@ public:
     //@{
 
     /**
-     * Retrieve information about the image,
+     * @brief Retrieve information about the item,
      * in form of numbers and user presentable strings,
      * for certain defined fields of information (see databaseinfocontainers.h)
      */
@@ -463,23 +464,23 @@ public:
     VideoInfoContainer     videoInfoContainer()                                         const;
 
     /**
-     * Retrieve metadata template information about the image.
+     * @brief Retrieve metadata template information about the item.
      */
     Template metadataTemplate()                                                         const;
 
     /**
-     * Set metadata template information (write it to database)
+     * @brief Set metadata template information (write it to database)
      * @param t the new template data.
      */
     void setMetadataTemplate(const Template& t);
 
     /**
-     * Remove all template info about the image from database.
+     * @brief Remove all template info about the item from database.
      */
     void removeMetadataTemplate();
 
     /**
-     * Retrieve the ItemComments object for this item.
+     * @brief Retrieve the ItemComments object for this item.
      * This object allows full read and write access to all comments
      * and their properties.
      * You need to hold CoreDbAccess to ensure the validity.
@@ -488,14 +489,14 @@ public:
     ItemComments imageComments(const CoreDbAccess& access)                                    const;
 
     /**
-     * Retrieve the ItemCopyright object for this item.
+     * @brief Retrieve the ItemCopyright object for this item.
      * This object allows full read and write access to all copyright
      * values.
      */
     ItemCopyright imageCopyright()                                                      const;
 
     /**
-     * Retrieve the ItemExtendedProperties object for this item.
+     * @brief Retrieve the ItemExtendedProperties object for this item.
      * This object allows full read and write access to all extended properties
      * values.
      */
@@ -513,31 +514,31 @@ public:
     //@{
 
     /**
-     * Adds a tag to the item (writes it to database)
+     * @brief Adds a tag to the item (writes it to database)
      * @param tagID the ID of the tag to add
      */
     void setTag(int tagID);
 
     /**
-     * Adds tags in the list to the item.
+     * @brief Adds tags in the list to the item.
      * Tags are created if they do not yet exist
      */
     void addTagPaths(const QStringList& tagPaths);
 
     /**
-     * Remove a tag from the item (removes it from database)
+     * @brief Remove a tag from the item (removes it from database)
      * @param tagID the ID of the tag to remove
      */
     void removeTag(int tagID);
 
     /**
-     * Remove all tags from the item (removes it from database)
+     * @brief Remove all tags from the item (removes it from database)
      */
     void removeAllTags();
 
     /**
-     * Retrieve an ItemTagPair object for a single tag, or for all
-     * image/tag pairs for which properties are available
+     * @brief Retrieve an ItemTagPair object for a single tag, or for all
+     * item/tag pairs for which properties are available
      * (not necessarily the assigned tags)
      */
     ItemTagPair imageTagPair(int tagId)                                                 const;
@@ -568,32 +569,32 @@ public:
     //@{
 
     /**
-     * Returns the Pick Label Id (see PickLabel values in globals.h)
+     * @return the Pick Label Id (see PickLabel values in globals.h)
      */
     int pickLabel()                                                                     const;
 
     /**
-     * Returns the Color Label Id (see ColorLabel values in globals.h)
+     * @return the Color Label Id (see ColorLabel values in globals.h)
      */
     int colorLabel()                                                                    const;
 
     /**
-     * Returns the rating
+     * @return the rating
      */
     int rating()                                                                        const;
 
     /**
-     * Set the pick Label Id for the item (see PickLabel values from globals.h)
+     * @brief Set the pick Label Id for the item (see PickLabel values from globals.h)
      */
     void setPickLabel(int value);
 
     /**
-     * Set the color Label Id for the item (see ColorLabel values from globals.h)
+     * @brief Set the color Label Id for the item (see ColorLabel values from globals.h)
      */
     void setColorLabel(int value);
 
     /**
-     * Set the rating for the item
+     * @brief Set the rating for the item
      */
     void setRating(int value);
 
@@ -610,7 +611,7 @@ public:
     //@{
 
     /**
-     * Fills a ThumbnailIdentifier / ThumbnailInfo from this ItemInfo
+     * @brief Fills a ThumbnailIdentifier / ThumbnailInfo from this ItemInfo
      */
     ThumbnailIdentifier thumbnailIdentifier()                                           const;
     ThumbnailInfo thumbnailInfo()                                                       const;
@@ -632,12 +633,12 @@ public:
     double currentSimilarity()                                                          const;
 
     /**
-     * Returns the id of the current fuzzy search reference image.
+     * @return the id of the current fuzzy search reference item.
      */
     qlonglong currentReferenceImage()                                                   const;
 
     /**
-     * Return a signature for the item.
+     * @return a signature for the item.
      */
 
 #if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
@@ -651,12 +652,12 @@ public:
 #endif
 
     /**
-     * Scans the database for items with the given signature.
+     * @brief Scans the database for items with the given signature.
      */
     QList<ItemInfo> fromUniqueHash(const QString& uniqueHash, qlonglong fileSize);
 
     /**
-     * @return the unique hash signature as string of the image.
+     * @return the unique hash signature as string of the item.
      */
     QString uniqueHash()                                                                const;
 
@@ -684,7 +685,7 @@ inline uint qHash(const ItemInfo& info)
     return info.hash();
 }
 
-//! qDebug() stream operator. Writes property @a info to the debug output in a nicely formatted way.
+//! @brief qDebug() stream operator. Writes property @a info to the debug output in a nicely formatted way.
 DIGIKAM_DATABASE_EXPORT QDebug operator<<(QDebug stream, const ItemInfo& info);
 
 } // namespace Digikam

@@ -7,7 +7,7 @@
  * Description : Item icon view interface - Album methods.
  *
  * SPDX-FileCopyrightText: 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Johannes Wienke <languitar at semipol dot de>
  * SPDX-FileCopyrightText: 2010-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2011-2013 by Michael G. Hansen <mike at mghansen dot de>
@@ -214,15 +214,15 @@ void ItemIconView::slotGotoAlbumAndItem(const ItemInfo& imageInfo)
 
     Q_EMIT signalNoCurrentItem();
 
-    PAlbum* const album = AlbumManager::instance()->findPAlbum(imageInfo.albumId());
-
-    d->albumFolderSideBar->setCurrentAlbum(album);
-    slotLeftSideBarActivate(d->albumFolderSideBar);
-
     // Set the activate item url to find in the Album View after
     // all items have be reloaded.
 
     slotSetCurrentWhenAvailable(imageInfo.id());
+
+    PAlbum* const album = AlbumManager::instance()->findPAlbum(imageInfo.albumId());
+
+    d->albumFolderSideBar->setCurrentAlbum(album);
+    slotLeftSideBarActivate(d->albumFolderSideBar);
 
     // And finally toggle album manager to handle album history and
     // reload all items.
@@ -236,16 +236,16 @@ void ItemIconView::slotGotoDateAndItem(const ItemInfo& imageInfo)
 
     Q_EMIT signalNoCurrentItem();
 
+    // Set the activate item url to find in the Album View after
+    // all items have be reloaded.
+
+    slotSetCurrentWhenAvailable(imageInfo.id());
+
     // Change to Date Album view.
     // Note, that this also opens the side bar if it is closed; this is
     // considered as a feature, because it highlights that the view was changed.
 
     slotLeftSideBarActivate(d->dateViewSideBar);
-
-    // Set the activate item url to find in the Album View after
-    // all items have be reloaded.
-
-    slotSetCurrentWhenAvailable(imageInfo.id());
 
     // Change the year and month of the iconItem (day is unused).
 

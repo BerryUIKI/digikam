@@ -7,7 +7,7 @@
  * Description : scan item controller - stop operations.
  *
  * SPDX-FileCopyrightText: 2005-2006 by Tom Albers <tomalbers at kde dot nl>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -117,13 +117,14 @@ void ScanController::shutDown()
         return;
     }
 
-    d->running                = false;
-    d->continueInitialization = false;
-    d->continueScan           = false;
-    d->continuePartialScan    = false;
-
     {
         QMutexLocker lock(&d->mutex);
+
+        d->running                = false;
+        d->continueInitialization = false;
+        d->continueScan           = false;
+        d->continuePartialScan    = false;
+
         d->condVar.wakeAll();
     }
 

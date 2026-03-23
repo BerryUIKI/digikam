@@ -6,7 +6,7 @@
  * Date        : 28/08/2021
  * Description : Extraction of focus points by exiftool data - Canon devices
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021      by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -108,11 +108,9 @@ FocusPointsExtractor::ListAFPoints FocusPointsExtractor::getAFPoints_canon() con
 
     // Get size image
 
-    QString model       = findValue(QLatin1String("EXIF.IFD0.Camera.Make")).toString();
-
     QVariant imageWidth, imageHeight;
 
-    if (model.toLower() == QLatin1String("canon eos 5d"))
+    if (model() == QLatin1String("CANON EOS 5D"))
     {
         imageWidth  = findValueFirstMatch(QStringList()
                                           << QLatin1String("MakerNotes.Canon.Image.CanonImageWidth")
@@ -142,6 +140,11 @@ FocusPointsExtractor::ListAFPoints FocusPointsExtractor::getAFPoints_canon() con
         qCDebug(DIGIKAM_METAENGINE_LOG) << "FocusPointsExtractor: invalid Canon Camera image sizes.";
 
         return getAFPoints_exif();
+    }
+
+    if (imageWidth.toInt() < imageHeight.toInt())
+    {
+        imageWidth.swap(imageHeight);
     }
 
     setOriginalSize(QSize(imageWidth.toInt(), imageHeight.toInt()));
@@ -214,12 +217,11 @@ FocusPointsExtractor::ListAFPoints FocusPointsExtractor::getAFPoints_canon() con
 
     // Get direction
 
-    QString cameraType      = findValue(TagNameRoot, QLatin1String("CameraType")).toString().toUpper();
-
-    int yDirection          = 1;
+    QString cameraType = findValue(TagNameRoot, QLatin1String("CameraType")).toString().toUpper();
+    int yDirection     = 1;
 
     if (
-        (cameraType == QLatin1String("COMPACT"))    ||
+        (cameraType == QLatin1String("COMPACT"))   ||
         (cameraType == QLatin1String("EOS HIGH-END"))
        )
     {

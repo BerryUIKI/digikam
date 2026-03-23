@@ -3,7 +3,7 @@
 # Script to bundle data using previously-built KF5 with digiKam installation
 # and create a Linux AppImage bundle file.
 #
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -145,7 +145,7 @@ else
 
     cp -r /usr/share/knotifications6                      ./usr/share
 
-    # Not avaialble with KF6
+    # Not available with KF6
 
     cp -r /usr/share/kservices6                           ./usr/share  || true
     cp -r /usr/share/kservicetypes6                       ./usr/share  || true
@@ -348,7 +348,7 @@ sed -i "/Exec=/c\Exec=digikam-camera downloadFromUdi %i" ./usr/share/solid/actio
 
 #################################################################################################
 
-echo -e "------------- Scan dependencies recurssively\n"
+echo -e "------------- Scan dependencies recursively\n"
 
 CopyReccursiveDependencies /usr/bin/digikam                  ./usr/lib
 CopyReccursiveDependencies /usr/bin/showfoto                 ./usr/lib
@@ -589,7 +589,7 @@ fi
 cd $DOWNLOAD_DIR
 
 #if [ ! -f $DOWNLOAD_DIR/Image-ExifTool.tar.gz ] ; then
-    wget --no-check-certificate https://files.kde.org/digikam/exiftool/Image-ExifTool.tar.gz -O Image-ExifTool.tar.gz
+    wget --no-check-certificate https://mirrors.xtom.de/kde-application/digikam/exiftool/Image-ExifTool.tar.gz -O Image-ExifTool.tar.gz
 #fi
 
 tar -xvf $DOWNLOAD_DIR/Image-ExifTool.tar.gz -C $APP_IMG_DIR/usr/bin
@@ -643,6 +643,8 @@ echo -e "------------- Create Bundle with AppImage SDK stage1\n"
 
 if [[ ! -s ./functions.sh ]] ; then
 
+    # TODO: port to the new AppImageTool (https://github.com/AppImage/appimagetool/releases/tag/continuous)
+
     wget --no-check-certificate https://github.com/probonopd/AppImages/raw/master/functions.sh -O ./functions.sh
 
 fi
@@ -655,19 +657,27 @@ cd $APP_IMG_DIR
 
 cp ${ORIG_WD}/data/AppRun ./
 
+# A script to run a remote GDB instance to hack dysfunction with the AppImage bundle.
+# For details: https://www.digikam.org/contribute/#appimage-bundle
+
+cp ${ORIG_WD}/data/run_digikam_gdb.sh ./
+
 # desktop integration files
 
 cp /usr/share/applications/org.kde.digikam.desktop      ./
 cp /usr/share/applications/org.kde.showfoto.desktop     ./
 
 cp /usr/share/icons/hicolor/256x256/apps/digikam.png    ./digikam.png
+cp /usr/share/icons/hicolor/256x256/apps/showfoto.png   ./showfoto.png
 cp /usr/share/icons/hicolor/256x256/apps/digikam.png    ./.DirIcon
 
 mkdir -p $APP_IMG_DIR/usr/share/icons/default/128x128/apps
 cp -r /usr/share/icons/hicolor/128x128/apps/digikam.png ./usr/share/icons/default/128x128/apps/digikam.png
+cp -r /usr/share/icons/hicolor/128x128/apps/showfoto.png ./usr/share/icons/default/128x128/apps/showfoto.png
 
 mkdir -p $APP_IMG_DIR/usr/share/icons/default/128x128/mimetypes
 cp -r /usr/share/icons/hicolor/128x128/apps/digikam.png ./usr/share/icons/default/128x128/mimetypes/application-vnd.digikam.png
+cp -r /usr/share/icons/hicolor/128x128/apps/showfoto.png ./usr/share/icons/default/128x128/mimetypes/application-vnd.showfoto.png
 
 mkdir -p $ORIG_WD/bundle
 
@@ -682,6 +692,8 @@ cd /
 APPIMGBIN=AppImageTool-x86_64.AppImage
 
 if [[ ! -s ./$APPIMGBIN ]] ; then
+
+    # TODO: port to the new AppImageTool (https://github.com/AppImage/appimagetool/releases/tag/continuous)
 
     wget --no-check-certificate https://github.com/AppImage/AppImageKit/releases/download/continuous/$APPIMGBIN -O ./$APPIMGBIN
 

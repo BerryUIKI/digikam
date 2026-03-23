@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -56,7 +56,7 @@ GeoNode* KmlndTagHandler::parse(GeoParser& parser) const
 
         if (auto lineString = geodata_cast<GeoDataLineString>(placemark->geometry()))
         {
-            // Using GeoDataPoint because GeoDataCoordinates is not a GeoNode, so it can't be returned.
+            // Using GeoDataPoint because GeoDataCoordinates is not a GeoNode, so it cannot be returned.
             GeoDataPoint* point = new GeoDataPoint(lineString->at(ndIndex));
             return point;
         }
@@ -79,7 +79,7 @@ GeoNode* KmlndTagHandler::parse(GeoParser& parser) const
     {
         GeoDataLinearRing* linearRing = parser.parentElement(1).nodeAs<GeoDataLinearRing>();
 
-        // Using GeoDataPoint because GeoDataCoordinates is not a GeoNode, so it can't be returned.
+        // Using GeoDataPoint because GeoDataCoordinates is not a GeoNode, so it cannot be returned.
         GeoDataPoint* point = new GeoDataPoint(linearRing->at(ndIndex));
         return point;
     }

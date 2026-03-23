@@ -7,7 +7,7 @@
  * Description : Listing information from database - SAlbum helpers.
  *
  * SPDX-FileCopyrightText: 2007-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2015      by Mohamed_Anwer  <m_dot_anwer at gmx dot com>
  * SPDX-FileCopyrightText: 2018      by Mario Frank    <mario dot frank at uni minus potsdam dot de>
  *
@@ -304,17 +304,17 @@ void ItemLister::listFromHaarSearch(ItemListerReceiver* const receiver,
         // Generate the query that returns the similarity as constant for a given image id.
 
         CoreDbAccess access;
-        DbEngineSqlQuery query = access.backend()->prepareQuery(QString::fromUtf8(
-                             "SELECT DISTINCT Images.id, Images.name, Images.album, "
-                             "       Albums.albumRoot, "
-                             "       ImageInformation.rating, Images.category, "
-                             "       ImageInformation.format, ImageInformation.creationDate, "
-                             "       Images.modificationDate, Images.fileSize, "
-                             "       ImageInformation.width, ImageInformation.height "
-                             " FROM Images "
-                             "       LEFT JOIN ImageInformation ON Images.id=ImageInformation.imageid "
-                             "       LEFT JOIN Albums ON Albums.id=Images.album "
-                             " WHERE Images.status=1 AND Images.id = ?;"));
+        QSqlQuery query = access.backend()->prepareQuery(QString::fromUtf8(
+                              "SELECT DISTINCT Images.id, Images.name, Images.album, "
+                              "       Albums.albumRoot, "
+                              "       ImageInformation.rating, Images.category, "
+                              "       ImageInformation.format, ImageInformation.creationDate, "
+                              "       Images.modificationDate, Images.fileSize, "
+                              "       ImageInformation.width, ImageInformation.height "
+                              " FROM Images "
+                              "       LEFT JOIN ImageInformation ON Images.id=ImageInformation.imageid "
+                              "       LEFT JOIN Albums ON Albums.id=Images.album "
+                              " WHERE Images.status=1 AND Images.id = ?;"));
 
         qlonglong imageId;
         double similarity;

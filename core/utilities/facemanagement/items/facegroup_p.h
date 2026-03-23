@@ -7,7 +7,7 @@
  * Description : Managing of face tag region items on a GraphicsDImgView
  *
  * SPDX-FileCopyrightText: 2010-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -51,6 +51,7 @@ namespace Digikam
 enum FaceGroupState
 {
     NoFaces,
+    FacesLoad,
     FacesLoaded
 };
 
@@ -63,6 +64,7 @@ public:
     explicit Private(FaceGroup* const qq);
 
     void                       applyVisible();
+    void                       clear(FaceGroupState fs);
     FaceItem*                  createItem(const FaceTagsIface& face);
     FaceItem*                  addItem(const FaceTagsIface& face);
     AssignNameWidget*          createAssignNameWidget(const FaceTagsIface& face,

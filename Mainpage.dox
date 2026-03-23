@@ -1,5 +1,5 @@
 /** \mainpage digiKam project API reference.
-    \author (c) 2001-2025 digiKam team.
+    \author (c) 2001-2026 digiKam team.
     \brief digiKam is an advanced open-source digital photo management application that runs on Linux, Windows, and macOS.
     \image html logo-digikam.png
 
@@ -56,7 +56,6 @@
 |. . . modules                                                | Cmake scripts to find extra dependencies                                |
 |. . . templates                                              | Cmake template files used at configuration time                         |
 |. . data                                                     | Application data files will be hosted here                              |
-|. . . about                                                  | Welcome page files (HTML + CSS)                                         |
 |. . . colorschemes                                           | GUI Color scheme files                                                  |
 |. . . database                                               | Database XML configuration files                                        |
 |. . . facesengine                                            | Face detection and recognition data files                               |
@@ -253,85 +252,9 @@
 
 \section externaldeps External Dependencies
 
-\subsection depscheckout Dependencies To Checkout All Source Code
+Before compiling digiKam, you need to install all required tools and libraries. See the instructions here:
 
- - Git        http://git-scm.com
-
-\subsection depstrans Dependencies To Process Translations Files (optional)
-
- - Gettext    https://www.gnu.org/software/gettext (including Msgfmt to compile po files to mo files)
-
-
-\subsection depscomplink Dependencies To Compile And Link Source Code
-
-The full list of mandatory (X) and (optional) external dependencies required to compile and link digiKam source code is listed below.
-
-| Dependency           | Requirement | Qt5 Version   | Qt6 Version   | External Links                                               | Remarks                                                | Notes                                                                                 |
-|----------------------|-------------|---------------|---------------|--------------------------------------------------------------|--------------------------------------------------------|---------------------------------------------------------------------------------------|
-| CMake                |      X      | >= 3.16.0     | >= 3.22.0     | [url](https://www.cmake.org)                                 |                                                        |                                                                                       |
-| ECM                  |      X      | >= 5.55.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/extra-cmake-modules) | Qt6 support implemented in KDE framework >= 5.91.0     |                                                                                       |
-| Qt::Core             |      X      | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtbase.git/)                |                                                        |                                                                                       |
-| Qt::Gui              |      X      | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtbase.git/)                |                                                        |                                                                                       |
-| Qt::Widgets          |      X      | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtbase.git/)                |                                                        |                                                                                       |
-| Qt::Network          |      X      | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtbase.git/)                |                                                        |                                                                                       |
-| Qt::NetworkAuth      |      X      | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtbase.git/)                |                                                        |                                                                                       |
-| Qt::Sql              |      X      | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtbase.git/)                | Including Qt::Sqlite and Qt::Mysql plugins             |                                                                                       |
-| Qt::Xml              |      X      | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtbase.git/)                |                                                        |                                                                                       |
-| Qt::Concurrent       |      X      | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtbase.git/)                |                                                        |                                                                                       |
-| Qt::PrintSupport     |      X      | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtbase.git/)                |                                                        |                                                                                       |
-| Qt::Svg              |      X      | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtsvg.git/)                 |                                                        |                                                                                       |
-| Qt::WebEngine        |      X      | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtwebengine.git/)           | To render web contents (ENABLE_QWEBENGINE=on)          |                             |
-| Qt::XmlPatterns      |   optional  | >= 5.14       | ---           | [url](https://code.qt.io/cgit/qt/qtxmlpatterns.git/)         | To parse and validate Xml                              | Used by Rajce plugin. Module removed with Qt6.                                        |
-| Qt::X11Extras        |   optional  | >= 5.14       | ---           | [url](https://code.qt.io/cgit/qt/qtx11extras.git/)           | For color management support under Linux               | Module removed with Qt6.                                                              |
-| Qt::DBus             |   optional  | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtbase.git/)                | Optional: only for Linux Desktop                       |                                                                                       |
-| Qt::OpenGL           |   optional  | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtbase.git/)                | For Presentation tool                                  |                                                                                       |
-| Qt::OpenGLWidgets    |   optional  | ---           | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtbase.git/)                | For Presentation tool                                  | With Qt6, OpenGL is separated in 2 modules: core and widgets.                         |
-| Qt::Multimedia       |   optional  | ---           | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtbase.git/)                | For Presentation tool                                  | With Qt6, OpenGL is separated in 2 modules: core and widgets.                         |
-| Qt::Test             |   optional  | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtbase.git/)                | To compile test codes (BUILD_TESTING=on)               |                                                                                       |
-| Qt::Qml              |   optional  | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtdeclarative.git/)         | To compile test codes (BUILD_TESTING=on) O2 unit tests |                                                                                       |
-| Qt::WebView          |   optional  | >= 5.14       | >= 6.4        | [url](https://code.qt.io/cgit/qt/qtwebview.git/)             | To compile test codes (BUILD_TESTING=on) O2 unit tests |                                                                                       |
-| KF::Config           |      X      | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/kconfig)             |                                                        |                                                                                       |
-| KF::XmlGui           |      X      | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/kxmlgui)             |                                                        |                                                                                       |
-| KF::I18n             |      X      | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/ki18n)               |                                                        |                                                                                       |
-| KF::WindowSystem     |      X      | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/kwindowsystem)       |                                                        |                                                                                       |
-| KF::Service          |      X      | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/kservice)            | TODO: make optional for Linux desktop (DFileOperations)|                                                                                       |
-| KF::Solid            |      X      | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/solid)               |                                                        |                                                                                       |
-| KF::CoreAddons       |      X      | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/kcoreaddons)         | Needs for KAboutData and KMemoryInfo                   |                                                                                       |
-| KF::NotifyConfig     |   optional  | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/knotifyconfig)       | For Linux desktop application notify configuration     |                                                                                       |
-| KF::Notifications    |   optional  | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/knotifications)      | For Linux desktop notifications integrations           |                                                                                       |
-| KF::ThreadWeaver     |   optional  | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/threadweaver)        | For panorama tool                                      |                                                                                       |
-| KF::IconThemes       |   optional  | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/kiconthemes)         | Optional: only for Linux Desktop (KIconDialog)         |                                                                                       |
-| KF::FileMetaData     |   optional  | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/kfilemetadata)       | Plasma desktop files indexer support                   | (ENABLE_KFILEMETADATASUPPORT=ON) Disabled by default.                                 |
-| KF::CalendarCore     |   optional  | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/kcalendarcore)       | For calendar tool to setup ical special events         |                                                                                       |
-| KF::KIO              |   optional  | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/kio)                 | Optional: only for Linux Desktop                       |                                                                                       |
-| KF::Sonnet           |   optional  | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/frameworks/sonnet)              | To perform spell-cheking in text widget (aka caption)  |                                                                                       |
-| KF::AkonadiContact   |   optional  | >= 5.95.0     | >= 5.240.0    | [url](https://invent.kde.org/pim/akonadi-contacts)           | Plasma desktop addess-book support                     | (ENABLE_AKONADICONTACTSUPPORT=ON) Disabled by default.                                |
-| libopencv            |      X      | >= 4.8        |               | [url](https://github.com/opencv/opencv)                      | OpenCV 4 recommended                                   | DNN module required for face management                                               |
-| libtiff              |      X      | >= 4.0        |               | [url](https://gitlab.com/libtiff/libtiff)                    | For DImg TIFF image loader                             |                                                                                       |
-| libpng               |      X      | >= 1.6        |               | [url](https://libpng.sourceforge.io/)                        | For DImg PNG image loader                              |                                                                                       |
-| libjpeg              |      X      | >= 8          |               | [url](https://github.com/libjpeg-turbo/libjpeg-turbo)        | jpeglib >= 8.0 required by RawEngine for DNG supporrt  |                                                                                       |
-| libboost             |      X      | >= 1.55.0     |               | [url](https://github.com/boostorg/boost)                     | For Versioning support                                 |                                                                                       |
-| liblcms              |      X      | >= 2.x        |               | [url](https://github.com/mm2/Little-CMS)                     | For Color Management support                           |                                                                                       |
-| libexpat             |      X      | >= 2.1.0      |               | [url](https://libexpat.github.io/)                           | For RAW to DNG converter                               |                                                                                       |
-| libexiv2             |      X      | >= 0.27.0     |               | [url](https://github.com/Exiv2/exiv2)                        | Metadata low level management.                         |                                                                                       |
-| libjpegxl            |   optional  | >= 0.7        |               | [url](https://github.com/libjxl/libjxl)                      | For DNGWriter and RawEngine                            | To decode and encode DNG files                                                        |
-| libheif              |   optional  | >= 1.6.0      |               | [url](https://github.com/strukturag/libheif)                 | For HEIF file format support.                          | Library must be compiled with libde265 (read) and optionally with libx265 (write).    |
-| libx265              |   optional  | >= 2.2        |               | [url](https://github.com/videolan/x265.git)                  | For HEIC encoding support                              |                                                                                       |
-| libxml2              |   optional  | >= 2.7.0      |               | [url](https://gitlab.gnome.org/GNOME/libxml2/)               | For HtmlGallery tool                                   |                                                                                       |
-| libxslt              |   optional  | >= 1.1.0      |               | [url](https://gitlab.gnome.org/GNOME/libxslt)                | For HtmlGallery tool                                   |                                                                                       |
-| Flex                 |   optional  | >= 2.5.0      |               | [url](https://github.com/westes/flex)                        | For Panorama tool                                      |                                                                                       |
-| Bison                |   optional  | >= 2.5.0      |               | [url](https://www.gnu.org/software/bison/bison.html)         | For Panorama tool                                      |                                                                                       |
-| libmesa              |   optional  | >= 11.0       |               | [url](https://gitlab.freedesktop.org/mesa/mesa/)             | For Presentation tools (Linux only)                    |                                                                                       |
-| libksane             |   optional  | >= 21.12.0    | 22.04.2       | [url](https://invent.kde.org/graphics/libksane)              | Digital scanner support                                |                                                                                       |
-| libjpasper           |   optional  | >= 1.900.1    |               | [url](https://github.com/jasper-software/jasper)             | For JPEG-2000 support                                  |                                                                                       |
-| libeigen3            |   optional  | >= 3.2        |               | [url](https://github.com/eigenteam/eigen-git-mirror)         | For Refocus tool                                       | See if Clapack from OpenCV can be used instead                                        |
-| liblensfun           |   optional  | >= 0.2.8      |               | [url](https://github.com/lensfun/lensfun)                    | For LensCorrection tool                                |                                                                                       |
-| libglib2             |   optional  | >= 2.0.0      |               | [url](https://developer.gnome.org/glib/)                     | For Liquid rescale tool                                |                                                                                       |
-| libgphoto2           |   optional  | >= 2.5        |               | [url](https://github.com/gphoto/libgphoto2)                  | Digital camera drivers support. Need libusb-1          |                                                                                       |
-| libgomp              |   optional  | >= 5.0        |               | [url](https://gcc.gnu.org/onlinedocs/libgomp)                | OpenMP support for RawEngine                           |                                                                                       |
-| libimagemagick       |   optional  | >= 6.7.0      |               | [url](https://github.com/ImageMagick/ImageMagick.git)        | ImageMagick codecs support for DImg image loader       | Version >= 7.0 recommended                                                            |
-| libffmpeg            |   optional  | >= 5.x        |               | [url](https://git.ffmpeg.org/ffmpeg.git)                     | To play video and audio (ENABLE_MEDIAPLAYER=on)        | libavformat, libavutil, libavcodec used to extract video metadata. QtAVPlayer         |
-| libvaapi             |   optional  | >= 2.4        |               | [url](https://github.com/01org/intel-vaapi-driver)           | To play video and audio (ENABLE_MEDIAPLAYER=on)        | Intel Video support in QtAVPlayer                                                     |
+https://www.digikam.org/download/git/#install-external-dependencies
 
 \section getsourcecode Get Source Code
 
@@ -415,48 +338,9 @@ See below an example of \b .gitconfig file working with a developer account:
 \section cmakeoptions Cmake Configuration Options
 
 To configure the project with CMake, use dedicated "bootstrap" script for your platform where all available configuration
-options are present with default values.
+options are present with default values. See the instructions here:
 
-There are two configuration sections : the top level and the core.
-
-\subsection topleveloptions Top Level Configuration
-
- - Packaging options:
-
-  - \b DIGIKAMSC_COMPILE_DIGIKAM             : Build digiKam core (default=ON).
-  - \b DIGIKAMSC_COMPILE_PO                  : Build application translations files. (default=OFF).
-
- - Developers only options:
-
-  - \b BUILD_TESTING=ON                      : Build tests code (default=ON).
-  - \b BUILD_WITH_QT6=ON                     : Build with Qt6 framework, else Qt5 (default=OFF).
-
-\subsection coreoptions Core Configuration
-
- - Extra feature support options:
-
-  - \b ENABLE_KFILEMETADATASUPPORT           : Build digiKam with KDE files indexer support (default=OFF).
-  - \b ENABLE_AKONADICONTACTSUPPORT          : Build digiKam with KDE Mail Contacts support (default=OFF).
-  - \b ENABLE_GEOLOCATION                    : Build digiKam with Geolocation support (default=ON).
-  - \b ENABLE_MEDIAPLAYER                    : Build digiKam with Media Player support (default=ON).
-  - \b ENABLE_DBUS                           : Build digiKam with DBUS support (default=ON).
-  - \b ENABLE_APPSTYLES                      : Build digiKam with support for changing the widget application style (default=OFF).
-  - \b ENABLE_KIO                            : Build digiKam with KIO support (default=ON).
-
- - Database options
-
-  - \b ENABLE_MYSQLSUPPORT                   : Build digiKam with MySQL dabatase support (default=ON).
-  - \b ENABLE_INTERNALMYSQL                  : Build digiKam with internal MySQL server executable (default=ON).
-
- - Showfoto application options
-
-  - \b ENABLE_SHOWFOTO                       : Build Showfoto stand-alone image editor application (default=ON).
-
- - Developers only options:
-
-  - \b ENABLE_DIGIKAM_MODELTEST              : Enable ModelTest on some models for debugging (default=OFF).
-  - \b ENABLE_SANITIZERS                     : Enable ASAN and UBSAN sanitizers when available (default=OFF).
-  - \b BUILD_WITH_CCACHE                     : Use ccache to speed up compilations (default=OFF)
+https://www.digikam.org/download/git/#configure-with-cmake
 
 \section setuplocaldev Setup Local Compilation and Run-Time
 

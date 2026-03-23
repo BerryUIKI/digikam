@@ -7,7 +7,7 @@
  * Description : A widget stack to embedded album content view
  *               or the current image preview.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -40,9 +40,9 @@ class TrashView;
 
 #ifdef HAVE_MEDIAPLAYER
 
-class MediaPlayerView;
+class ItemPreviewVideo;
 
-#endif //HAVE_MEDIAPLAYER
+#endif // HAVE_MEDIAPLAYER
 
 #ifdef HAVE_GEOLOCATION
 
@@ -86,9 +86,9 @@ public:
 
 #ifdef HAVE_MEDIAPLAYER
 
-    MediaPlayerView*  mediaPlayerView()  const;
+    ItemPreviewVideo* mediaPlayerView()  const;
 
-#endif //HAVE_MEDIAPLAYER
+#endif // HAVE_MEDIAPLAYER
 
 #ifdef HAVE_GEOLOCATION
 
@@ -140,6 +140,8 @@ Q_SIGNALS:
     void signalGotoAlbumAndItem(const ItemInfo&);
     void signalGotoDateAndItem(const ItemInfo&);
     void signalGotoTagAndItem(int);
+
+    void signalOpenGeolocationMap();
 
 private Q_SLOTS:
 

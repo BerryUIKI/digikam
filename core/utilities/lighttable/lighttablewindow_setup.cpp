@@ -6,7 +6,7 @@
  * Date        : 2004-11-22
  * Description : digiKam light table - Configure
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -81,8 +81,8 @@ void LightTableWindow::setupActions()
     connect(d->clearListAction, SIGNAL(triggered()), this, SLOT(slotClearItemsList()));
     ac->addAction(QLatin1String("lighttable_clearlist"), d->clearListAction);
     ac->setDefaultShortcut(d->clearListAction, Qt::CTRL | Qt::SHIFT | Qt::Key_K);
-
-    d->fileDeleteAction = new QAction(QIcon::fromTheme(QLatin1String("user-trash")), i18nc("Non-pluralized", "Move to Trash"), this);
+    d->fileDeleteAction = new QAction(QIcon::fromTheme(QLatin1String("albumfolder-user-trash")),  // In red - bug 513774
+                                      i18nc("Non-pluralized", "Move to Trash"), this);
     d->fileDeleteAction->setEnabled(false);
     connect(d->fileDeleteAction, SIGNAL(triggered()), this, SLOT(slotDeleteItem()));
     ac->addAction(QLatin1String("lighttable_filedelete"), d->fileDeleteAction);
@@ -268,7 +268,11 @@ void LightTableWindow::setupActions()
 
     cleanupActions();
 
-    showMenuBarAction()->setChecked(!menuBar()->isHidden());  // NOTE: workaround for bug #171080
+    HostActionsMap actions;
+    actions.insert(QLatin1String("FullScreen"),   actionCollection()->action(QLatin1String("lighttable_fullscreen")));
+    actions.insert(QLatin1String("ShowMenu"),     actionCollection()->action(QLatin1String("options_show_menubar")));
+    actions.insert(QLatin1String("ColorManaged"), actionCollection()->action(QLatin1String("color_managed_view")));
+    d->previewView->setHostWindowActions(actions);
 }
 
 void LightTableWindow::setupStatusBar()
@@ -282,7 +286,7 @@ void LightTableWindow::setupStatusBar()
     d->leftZoomBar->setEnabled(false);
     statusBar()->addWidget(d->leftZoomBar, 1);
 
-    d->leftFileName = new DAdjustableLabel(statusBar());
+    d->leftFileName = new StatusProgressBar(statusBar());
     d->leftFileName->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     statusBar()->addWidget(d->leftFileName, 10);
 
@@ -290,7 +294,7 @@ void LightTableWindow::setupStatusBar()
     d->statusProgressBar->setAlignment(Qt::AlignCenter);
     statusBar()->addWidget(d->statusProgressBar, 10);
 
-    d->rightFileName = new DAdjustableLabel(statusBar());
+    d->rightFileName = new StatusProgressBar(statusBar());
     d->rightFileName->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     statusBar()->addWidget(d->rightFileName, 10);
 
@@ -414,7 +418,51 @@ void LightTableWindow::setupConnections()
     connect(this, SIGNAL(signalWindowHasMoved()),
             d->rightZoomBar, SLOT(slotUpdateTrackerPos()));
 
-    // TODO: connect signal last image from SLideShow plugin to slotSlideShowLastItemUrl
+    // ---
+
+    connect(d->previewView, &LightTableView::signalLeftPreviewStartedLoading,
+            this, [this]()
+       {
+            d->leftFileName->setProgressBarMode(StatusProgressBar::ProgressBarMode, i18nc("@label", "Loading:"));
+       }
+    );
+
+    connect(d->previewView, &LightTableView::signalLeftPreviewLoadingProgress,
+            this, [this](float progress)
+       {
+            d->leftFileName->setProgressValue((int)(progress * 100.0));
+       }
+    );
+
+    connect(d->previewView, &LightTableView::signalLeftPreviewLoadingComplete,
+            this, [this]()
+       {
+            d->leftFileName->setProgressBarMode(StatusProgressBar::TextMode, d->leftFileName->text());
+       }
+    );
+
+    // ---
+
+    connect(d->previewView, &LightTableView::signalRightPreviewStartedLoading,
+            this, [this]()
+       {
+            d->rightFileName->setProgressBarMode(StatusProgressBar::ProgressBarMode, i18nc("@label", "Loading:"));
+       }
+    );
+
+    connect(d->previewView, &LightTableView::signalRightPreviewLoadingProgress,
+            this, [this](float progress)
+       {
+            d->rightFileName->setProgressValue((int)(progress * 100.0));
+       }
+    );
+
+    connect(d->previewView, &LightTableView::signalRightPreviewLoadingComplete,
+            this, [this]()
+       {
+            d->rightFileName->setProgressBarMode(StatusProgressBar::TextMode, d->rightFileName->text());
+       }
+    );
 
     // -- FileWatch connections ------------------------------
 
@@ -443,7 +491,7 @@ void LightTableWindow::setupUserArea()
 
     // The right sidebar.
 
-    d->rightSideBar = new ItemPropertiesSideBarDB(mainW, d->hSplitter, Qt::RightEdge, true);
+    d->rightSideBar         = new ItemPropertiesSideBarDB(mainW, d->hSplitter, Qt::RightEdge, true);
 
     hlay->addWidget(d->leftSideBar);
     hlay->addWidget(d->hSplitter);
@@ -473,6 +521,9 @@ void LightTableWindow::setupUserArea()
             d->thumbView, SLOT(slotDockLocationChanged(Qt::DockWidgetArea)));
 
     d->barViewDock->reInitialize();
+
+    d->leftSideBar->setItemFilterModel(d->thumbView->itemFilterModel());
+    d->rightSideBar->setItemFilterModel(d->thumbView->itemFilterModel());
 
     setCentralWidget(mainW);
 }

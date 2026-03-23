@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2005      by Renchi Raju <renchi dot raju at gmail dot com>
  * SPDX-FileCopyrightText: 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -60,8 +60,8 @@ void ItemInfo::addTagPaths(const QStringList& tagPaths)
         return;
     }
 
-    QList<int> tagIds = TagsCache::instance()->tagsForPaths(tagPaths);
-    CoreDbAccess().db()->addTagsToItems(QList<qlonglong>() << m_data->id, tagIds);
+    QList<int> tids = TagsCache::instance()->tagsForPaths(tagPaths);
+    CoreDbAccess().db()->addTagsToItems(QList<qlonglong>() << m_data->id, tids);
 }
 
 QList<int> ItemInfo::tagIds() const
@@ -80,42 +80,6 @@ QList<int> ItemInfo::tagIds() const
     m_data.data()->tagIdsCached = true;
 
     return ids;
-}
-
-void ItemInfoList::loadTagIds() const
-{
-    ItemInfoList infoList;
-
-    for (const ItemInfo& info : std::as_const(*this))
-    {
-        if (info.m_data && !info.m_data->tagIdsCached)
-        {
-            infoList << info;
-        }
-    }
-
-    if (infoList.isEmpty())
-    {
-        return;
-    }
-
-    QVector<QList<int> > allTagIds = CoreDbAccess().db()->getItemsTagIDs(infoList.toImageIdList());
-
-    ItemInfoWriteLocker lock;
-
-    for (int i = 0 ; i < infoList.size() ; ++i)
-    {
-        const ItemInfo& info  = infoList.at(i);
-        const QList<int>& ids = allTagIds.at(i);
-
-        if (!info.m_data)
-        {
-            continue;
-        }
-
-        info.m_data.data()->tagIds       = ids;
-        info.m_data.data()->tagIdsCached = true;
-    }
 }
 
 ItemTagPair ItemInfo::imageTagPair(int tagId) const

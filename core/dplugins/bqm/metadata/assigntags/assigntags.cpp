@@ -6,7 +6,7 @@
  * Date        : 2022-10-03
  * Description : auto assign tags batch tool.
  *
- * SPDX-FileCopyrightText: 2022-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2022-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2023      by Quoc Hung Tran <quochungtran1999 at gmail dot com>
  * SPDX-FileCopyrightText: 2025      by Michael Miller <michael underscore miller at msn dot com>
  *
@@ -15,6 +15,10 @@
  * ============================================================ */
 
 #include "assigntags.h"
+
+// C++ includes
+
+#include <memory>
 
 // Qt includes
 
@@ -155,7 +159,7 @@ bool AssignTags::toolOperations()
     }
 
     bool ret = true;
-    QScopedPointer<DMetadata> meta(new DMetadata);
+    std::unique_ptr<DMetadata> meta(new DMetadata);
 
     if (image().isNull())
     {

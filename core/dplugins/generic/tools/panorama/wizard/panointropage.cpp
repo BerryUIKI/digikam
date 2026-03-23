@@ -8,7 +8,7 @@
  * Acknowledge : based on the expoblending tool
  *
  * SPDX-FileCopyrightText: 2011-2016 by Benjamin Girault <benjamin dot girault at gmail dot com>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -39,11 +39,7 @@
 #include "autooptimiserbinary.h"
 #include "cpcleanbinary.h"
 #include "cpfindbinary.h"
-#include "enblendbinary.h"
-#include "makebinary.h"
-#include "nonabinary.h"
 #include "panomodifybinary.h"
-#include "pto2mkbinary.h"
 #include "huginexecutorbinary.h"
 #include "dlayoutbox.h"
 
@@ -106,21 +102,8 @@ PanoIntroPage::PanoIntroPage(PanoManager* const mngr, QWizard* const dlg)
     d->binariesWidget->addBinary(d->mngr->autoOptimiserBinary());
     d->binariesWidget->addBinary(d->mngr->cpCleanBinary());
     d->binariesWidget->addBinary(d->mngr->cpFindBinary());
-    d->binariesWidget->addBinary(d->mngr->enblendBinary());
-    d->binariesWidget->addBinary(d->mngr->makeBinary());
-    d->binariesWidget->addBinary(d->mngr->nonaBinary());
     d->binariesWidget->addBinary(d->mngr->panoModifyBinary());
-
-    d->mngr->checkForHugin2015();
-
-    if (d->mngr->hugin2015())
-    {
-        d->binariesWidget->addBinary(d->mngr->huginExecutorBinary());
-    }
-    else
-    {
-        d->binariesWidget->addBinary(d->mngr->pto2MkBinary());
-    }
+    d->binariesWidget->addBinary(d->mngr->huginExecutorBinary());
 
     d->mngr->checkBinaries();
 
@@ -186,7 +169,7 @@ PanoIntroPage::PanoIntroPage(PanoManager* const mngr, QWizard* const dlg)
     d->tiffRadioButton          = new QRadioButton(i18nc("@option: radio", "TIFF output"), d->formatGroupBox);
     d->tiffRadioButton->setToolTip(i18nc("@info: tooltip", "Selects a TIFF output compressed using the LZW algorithm "
                                          "(lossless compression, bigger size)."));
-    d->tiffRadioButton->setWhatsThis(i18nc("@info: whatsthis", "\"TIFF output\": Using TIFF output, you get the same color depth than "
+    d->tiffRadioButton->setWhatsThis(i18nc("@info: whatsthis", "\"TIFF output\": Using TIFF output, you get the same color depth as "
                                            "your original photos using RAW images at the cost of a bigger panorama file."));
     formatVBox->addWidget(d->tiffRadioButton);
     group->addButton(d->tiffRadioButton);
@@ -264,7 +247,7 @@ bool PanoIntroPage::binariesFound()
 
 void PanoIntroPage::slotToggleGPano(int state)
 {
-    d->mngr->setGPano(state);
+    d->mngr->setGPano((bool)state);
 }
 
 void PanoIntroPage::slotChangeFileFormat(QAbstractButton* button)

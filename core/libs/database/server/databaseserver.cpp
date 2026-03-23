@@ -7,7 +7,7 @@
  * Description : Mysql internal database server
  *
  * SPDX-FileCopyrightText: 2009-2011 by Holger Foerster <Hamsi2k at freenet dot de>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2016      by Swati Lodha <swatilodha27 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -40,6 +40,7 @@
 
 #include "digikam_debug.h"
 #include "digikam_globals.h"
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -49,6 +50,8 @@ class Q_DECL_HIDDEN DatabaseServer::Private
 public:
 
     Private() = default;
+
+public:
 
     DbEngineParameters     params;
     QProcess*              databaseProcess = nullptr;
@@ -111,6 +114,8 @@ DatabaseServer::~DatabaseServer()
 
 void DatabaseServer::run()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String("DatabaseServer"));       // To customize thread name
+
     quint64 runningTime = 0;
     int debugTime       = 0;
     int waitTime        = 1;
@@ -366,10 +371,9 @@ DatabaseServerError DatabaseServer::initMysqlConfig() const
         QFile actualFile(d->actualConfig);
 
         // Update actualconf only if either global or local is newer than actual
-        // If actual does not yet exist it was initialised with datetime 0
-        // so it will get updated too
 
         if (
+            !actualFile.exists() ||
             (QFileInfo(d->globalConfig).lastModified() > QFileInfo(actualFile).lastModified()) ||
             (QFileInfo(localConfig).lastModified()     > QFileInfo(actualFile).lastModified())
            )
@@ -519,7 +523,7 @@ DatabaseServerError DatabaseServer::createMysqlFiles() const
 
 #ifdef Q_OS_MACOS
 
-        mysqlInitCmdArgs << QDir::toNativeSeparators(QString::fromLatin1("--basedir=%1/lib/mariadb/")
+        mysqlInitCmdArgs << QDir::toNativeSeparators(QString::fromLatin1("--basedir=%1lib/mariadb/")
                                                      .arg(macOSBundlePrefix()));
 
 #endif
@@ -565,7 +569,7 @@ DatabaseServerError DatabaseServer::startMysqlServer()
 
 #ifdef Q_OS_MACOS
 
-    mysqldServCmdArgs << QDir::toNativeSeparators(QString::fromLatin1("--basedir=%1/lib/mariadb/")
+    mysqldServCmdArgs << QDir::toNativeSeparators(QString::fromLatin1("--basedir=%1lib/mariadb/")
                                                   .arg(macOSBundlePrefix()));
 
 #endif

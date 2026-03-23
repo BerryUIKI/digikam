@@ -7,7 +7,7 @@
  * Description : Item icon view interface.
  *
  * SPDX-FileCopyrightText: 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Johannes Wienke <languitar at semipol dot de>
  * SPDX-FileCopyrightText: 2010-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2011-2013 by Michael G. Hansen <mike at mghansen dot de>
@@ -36,7 +36,6 @@ ItemIconView::ItemIconView(QWidget* const parent, DModelFactory* const modelColl
     d->searchModificationHelper = new SearchModificationHelper(this, this);
 
     const int spacing           = layoutSpacing();
-
 
     d->splitter    = new SidebarSplitter;
     d->splitter->setFrameStyle(QFrame::NoFrame | QFrame::Plain);
@@ -93,6 +92,11 @@ ItemIconView::ItemIconView(QWidget* const parent, DModelFactory* const modelColl
 
     d->rightSideBar        = new ItemPropertiesSideBarDB(this, d->splitter, Qt::RightEdge, true);
     d->rightSideBar->setObjectName(QLatin1String("Digikam Right Sidebar"));
+    d->rightSideBar->setItemFilterModel(d->iconView->itemFilterModel());
+    d->rightSideBar->setShowAllPropertiesMode(true);
+
+    connect(d->stackedView, SIGNAL(signalOpenGeolocationMap()),
+            d->rightSideBar, SLOT(slotOpenGeolocationMap()));
 
     // album folder view
 
@@ -170,9 +174,6 @@ ItemIconView::ItemIconView(QWidget* const parent, DModelFactory* const modelColl
                                                      d->modelCollection->getTagFaceModel(),
                                                      d->searchModificationHelper);
 
-    connect(d->peopleSideBar, SIGNAL(requestFaceMode(bool)),
-            d->iconView, SLOT(setFaceMode(bool)));
-
     connect(d->peopleSideBar, SIGNAL(signalFindDuplicates(QList<TAlbum*>)),
             this, SLOT(slotNewDuplicatesSearch(QList<TAlbum*>)));
 
@@ -235,6 +236,15 @@ ItemIconView::ItemIconView(QWidget* const parent, DModelFactory* const modelColl
 
     connect(d->iconView, SIGNAL(signalSeparationModeChanged(int)),
             this, SIGNAL(signalSeparationModeChanged(int)));
+
+    connect(d->stackedView->imagePreviewView(), SIGNAL(signalStartedLoading()),
+            this, SIGNAL(signalStartedLoading()));
+
+    connect(d->stackedView->imagePreviewView(), SIGNAL(signalLoadingProgress(float)),
+            this, SIGNAL(signalLoadingProgress(float)));
+
+    connect(d->stackedView->imagePreviewView(), SIGNAL(signalLoadingComplete()),
+            this, SIGNAL(signalLoadingComplete()));
 }
 
 ItemIconView::~ItemIconView()

@@ -11,7 +11,7 @@
  * SPDX-FileCopyrightText: 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText:      2013 by Michael G. Hansen <mike at mghansen dot de>
  * SPDX-FileCopyrightText: 2014-2015 by Mohamed_Anwer <m_dot_anwer at gmx dot com>
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -92,6 +92,8 @@ DigikamApp::DigikamApp()
     DIO::instance();
     LocalizeSettings::instance();
     NetworkManager::instance();
+
+    AIToolsPipeline::instance()->start();
     IdentityProvider::instance();
     FaceClassifier::instance();
     FaceRecognitionBackgroundController::instance();
@@ -251,6 +253,8 @@ DigikamApp::DigikamApp()
 
     setAutoSaveSettings(configGroupName(), true);
 
+    showMenuBarAction()->setChecked(!menuBar()->isHidden());  // NOTE: workaround for bug #171080
+
     setupSelectToolsAction();
 }
 
@@ -260,6 +264,15 @@ DigikamApp::~DigikamApp()
 
     ProgressManager::instance()->slotAbortAll();
 
+    AIToolsPipeline::instance()->cancel();
+
+/*
+    while (!aiToolsPipeline->hasFinished())
+    {
+        QCoreApplication::processEvents();
+    }
+*/
+
     FacePipelineEdit::instance()->cancel();
 
     FaceRecognitionBackgroundController::instance()->stop();
@@ -268,7 +281,7 @@ DigikamApp::~DigikamApp()
     IdentityProvider::instance()->cancel();
 
     FaceClassifier::instance()->cancel();
-    
+
     ItemAttributesWatch::shutDown();
 
     // Close and delete image editor instance.
@@ -286,6 +299,15 @@ DigikamApp::~DigikamApp()
     {
         LightTableWindow::lightTableWindow()->setAttribute(Qt::WA_DeleteOnClose, true);
         LightTableWindow::lightTableWindow()->close();
+        qApp->processEvents();
+    }
+
+    // Close and delete survey instance.
+
+    if (SurveyWindow::surveyWindowCreated())
+    {
+        SurveyWindow::surveyWindow()->setAttribute(Qt::WA_DeleteOnClose, true);
+        SurveyWindow::surveyWindow()->close();
         qApp->processEvents();
     }
 
@@ -597,6 +619,7 @@ void DigikamApp::slotAlbumSelected(Album* album)
     if (album && !album->isTrashAlbum())
     {
         PAlbum* const palbum = dynamic_cast<PAlbum*>(album);
+        bool writeMetadata   = MetaEngineSettings::instance()->isMetadataWriteEnabled();
 
         if (album->type() != Album::PHYSICAL || !palbum)
         {
@@ -607,7 +630,7 @@ void DigikamApp::slotAlbumSelected(Album* album)
             d->propsEditAction->setEnabled(false);
             d->openInFileManagerAction->setEnabled(false);
             d->newAction->setEnabled(false);
-            d->writeAlbumMetadataAction->setEnabled(true);
+            d->writeAlbumMetadataAction->setEnabled(writeMetadata);
             d->readAlbumMetadataAction->setEnabled(true);
 
             d->pasteItemsAction->setEnabled(!album->isRoot());
@@ -645,7 +668,7 @@ void DigikamApp::slotAlbumSelected(Album* album)
             d->propsEditAction->setEnabled(isNormalAlbum);
             d->openInFileManagerAction->setEnabled(isNormalAlbum || isAlbumRoot);
             d->newAction->setEnabled(isNormalAlbum || isAlbumRoot);
-            d->writeAlbumMetadataAction->setEnabled(isNormalAlbum || isAlbumRoot);
+            d->writeAlbumMetadataAction->setEnabled((isNormalAlbum || isAlbumRoot) && writeMetadata);
             d->readAlbumMetadataAction->setEnabled(isNormalAlbum || isAlbumRoot);
 
             d->pasteItemsAction->setEnabled(isNormalAlbum || isAlbumRoot);
@@ -844,13 +867,13 @@ void DigikamApp::slotImageSelected(const ItemInfoList& selection, const ItemInfo
                                         numOfImagesInModel - numImagesWithGrouped);
     }
 
-    d->statusLabel->setAdjustedText(statusBarSelectionText);
+    d->statusLabel->setText(statusBarSelectionText);
     d->statusLabel->setToolTip(statusBarSelectionToolTip);
 }
 
 void DigikamApp::slotTrashSelectionChanged(const QString& text)
 {
-    d->statusLabel->setAdjustedText(text);
+    d->statusLabel->setText(text);
     d->statusLabel->setToolTip(text);
 }
 
@@ -860,6 +883,7 @@ void DigikamApp::slotSelectionChanged(int selectionCount)
     // or if multiple images are selected, but one image is the 'current image'.
 
     bool hasAtLeastCurrent = (selectionCount == 1) || ((selectionCount > 0) && d->view->hasCurrentItem());
+    bool writeMetadata     = MetaEngineSettings::instance()->isMetadataWriteEnabled();
 
     d->imagePreviewAction->setEnabled(hasAtLeastCurrent);
     d->imageViewAction->setEnabled(hasAtLeastCurrent);
@@ -878,7 +902,7 @@ void DigikamApp::slotSelectionChanged(int selectionCount)
     d->imageAddLightTableAction->setEnabled(selectionCount > 0);
     d->imageAddCurrentQueueAction->setEnabled((selectionCount > 0) && !QueueMgrWindow::queueManagerWindow()->isBusy());
     d->imageAddNewQueueAction->setEnabled((selectionCount > 0) && !QueueMgrWindow::queueManagerWindow()->isBusy());
-    d->imageWriteMetadataAction->setEnabled(selectionCount > 0);
+    d->imageWriteMetadataAction->setEnabled((selectionCount > 0) && writeMetadata);
     d->imageReadMetadataAction->setEnabled(selectionCount > 0);
     d->imageDeleteAction->setEnabled(selectionCount > 0);
     d->imageRotateActionMenu->setEnabled(selectionCount > 0);
@@ -1197,6 +1221,7 @@ void DigikamApp::customizedTrashView(bool set)
     d->imagePreviewAction->setEnabled(set);
     d->bqmAction->setEnabled(set);
     d->ltAction->setEnabled(set);
+    d->svAction->setEnabled(set);
     d->ieAction->setEnabled(set);
 
     d->imageSeparationSortOrderAction->setEnabled(set);

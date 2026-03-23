@@ -7,7 +7,7 @@
  * Description : fingerprints generator
  *
  * SPDX-FileCopyrightText: 2018      by Mario Frank <mario dot frank at uni minus potsdam dot de>
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -18,6 +18,8 @@
 
 // Qt includes
 
+#include <QtConcurrentRun>
+#include <QFutureWatcher>
 #include <QApplication>
 #include <QString>
 #include <QIcon>
@@ -32,9 +34,9 @@
 
 #include "dimg.h"
 #include "coredb.h"
+#include "coredbaccess.h"
 #include "albummanager.h"
 #include "collectionmanager.h"
-#include "coredbaccess.h"
 #include "maintenancethread.h"
 #include "dnotificationwidget.h"
 
@@ -49,11 +51,16 @@ public:
 
 public:
 
-    bool               rebuildAll   = true;
+    bool                 rebuildAll   = true;
 
-    AlbumList          albumList;
+    AlbumList            albumList;
 
-    MaintenanceThread* thread       = nullptr;
+    QList<qlonglong>     allItemIds;
+
+    QFuture<void>        affectedAlbumTask;
+    QFutureWatcher<void> affectedAlbumWatcher;
+
+    MaintenanceThread*   thread       = nullptr;
 };
 
 FingerPrintsGenerator::FingerPrintsGenerator(const bool rebuildAll, const AlbumList& list, ProgressItem* const parent)
@@ -96,16 +103,54 @@ void FingerPrintsGenerator::slotStart()
 
     ProgressManager::addProgressItem(this);
 
-    QApplication::setOverrideCursor(Qt::WaitCursor);
+    // Activate progress bar during album calculation.
 
+    setTotalItems(1);
+
+    connect(&d->affectedAlbumWatcher, &QFutureWatcher<void>::finished,
+            this, &FingerPrintsGenerator::slotAffectedAlbumsFinished);
+
+    d->affectedAlbumTask =
+        QtConcurrent::run(
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+
+                          &FingerPrintsGenerator::calculateAffectedAlbums, this
+
+#else
+
+                          this, &FingerPrintsGenerator::calculateAffectedAlbums
+
+#endif
+
+                         );
+
+    d->affectedAlbumWatcher.setFuture(d->affectedAlbumTask);
+}
+
+void FingerPrintsGenerator::slotAffectedAlbumsFinished()
+{
+    if (d->allItemIds.isEmpty())
+    {
+        slotDone();
+
+        return;
+    }
+
+    setTotalItems(d->allItemIds.count());
+
+    d->thread->generateFingerprints(d->allItemIds, d->rebuildAll);
+    d->thread->start();
+}
+
+void FingerPrintsGenerator::calculateAffectedAlbums()
+{
     if (d->albumList.isEmpty())
     {
         d->albumList = AlbumManager::instance()->allPAlbums();
     }
 
     // Get all item IDs from albums.
-
-    QList<qlonglong> itemIds;
 
     for (AlbumList::ConstIterator it = d->albumList.constBegin() ;
          !canceled() && (it != d->albumList.constEnd()) ; ++it)
@@ -116,9 +161,9 @@ void FingerPrintsGenerator::slotStart()
 
             for (const qlonglong& id : ids)
             {
-                if (!itemIds.contains(id))
+                if (!d->allItemIds.contains(id))
                 {
-                    itemIds << id;
+                    d->allItemIds << id;
                 }
             }
         }
@@ -128,38 +173,31 @@ void FingerPrintsGenerator::slotStart()
 
             for (const qlonglong& id : ids)
             {
-                if (!itemIds.contains(id))
+                if (!d->allItemIds.contains(id))
                 {
-                    itemIds << id;
+                    d->allItemIds << id;
                 }
             }
         }
     }
-
-    QApplication::restoreOverrideCursor();
-
-    if (itemIds.isEmpty())
-    {
-        slotDone();
-
-        return;
-    }
-
-    setTotalItems(itemIds.count());
-
-    d->thread->generateFingerprints(itemIds, d->rebuildAll);
-    d->thread->start();
 }
 
 void FingerPrintsGenerator::slotAdvance(const ItemInfo& inf, const QImage& img)
 {
+    uint adv = 0;
+
+    if ((adv = checkProgressNeeded()) == 0)
+    {
+        return;
+    }
+
     QString album = CollectionManager::instance()->albumRootLabel(inf.albumRootId());
 
     QString lbl = i18n("Rebuild Fingerprint: %1\n", inf.name());
     lbl.append(i18n("Album: %1", album + inf.relativePath()));
     setLabel(lbl);
     setThumbnail(QIcon(QPixmap::fromImage(img)));
-    advance(1);
+    advance(adv);
 }
 
 void FingerPrintsGenerator::slotDone()

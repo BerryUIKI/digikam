@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -65,18 +65,22 @@ class Q_DECL_HIDDEN MarbleWidgetInputHandlerPrivate
         {
             m_rubberBand.show();
         }
+
         void hide() override
         {
             m_rubberBand.hide();
         }
+
         bool isVisible() const override
         {
             return m_rubberBand.isVisible();
         }
+
         const QRect& geometry() const override
         {
             return m_rubberBand.geometry();
         }
+
         void setGeometry(const QRect& geometry) override
         {
             m_rubberBand.setGeometry(geometry);
@@ -88,13 +92,13 @@ class Q_DECL_HIDDEN MarbleWidgetInputHandlerPrivate
     };
 
 public:
+
     MarbleWidgetInputHandlerPrivate(MarbleWidgetInputHandler* handler, MarbleWidget* widget,
                                     MarbleAbstractPresenter* presenter)
-        : m_inputHandler(handler)
-        , m_marbleWidget(widget)
-        , m_marblePresenter(presenter)
-        , m_selectionRubber(widget)
-        , m_debugModeEnabled(false)
+        : m_inputHandler    (handler)
+        , m_marbleWidget    (widget)
+        , m_marblePresenter (presenter)
+        , m_selectionRubber (widget)
     {
         const auto plugs = widget->renderPlugins();
 
@@ -116,7 +120,7 @@ public:
 
     bool layersEventFilter(QObject* o, QEvent* e)
     {
-        //FIXME - this should go up in hierarchy to MarbleInputHandler
+        // FIXME - this should go up in hierarchy to MarbleInputHandler
 
         if (m_marbleWidget->popupLayer()->eventFilter(o, e))
         {
@@ -131,15 +135,14 @@ public:
         m_marbleWidget->installEventFilter(renderPlugin);
     }
 
-    MarbleWidgetInputHandler* m_inputHandler;
-    MarbleWidget* m_marbleWidget;
-    MarbleAbstractPresenter* m_marblePresenter;
+    MarbleWidgetInputHandler*   m_inputHandler      = nullptr;
+    MarbleWidget*               m_marbleWidget      = nullptr;
+    MarbleAbstractPresenter*    m_marblePresenter   = nullptr;
     MarbleWidgetSelectionRubber m_selectionRubber;
-    bool m_debugModeEnabled;
-    bool m_pinchDetected = false;
-    bool m_panDetected = false;
+    bool                        m_debugModeEnabled  = false;
+    bool                        m_pinchDetected     = false;
+    bool                        m_panDetected       = false;
 };
-
 
 void MarbleWidgetInputHandler::setCursor(const QCursor& cursor)
 {
@@ -155,52 +158,76 @@ bool MarbleWidgetInputHandler::handleKeyPress(QKeyEvent* event)
             switch (event->key())
             {
                 case Qt::Key_0:
+                {
                     d->m_marbleWidget->setLevelToDebug(0);
                     break;
+                }
 
                 case Qt::Key_1:
+                {
                     d->m_marbleWidget->setLevelToDebug(1);
                     break;
+                }
 
                 case Qt::Key_2:
+                {
                     d->m_marbleWidget->setLevelToDebug(2);
                     break;
+                }
 
                 case Qt::Key_3:
+                {
                     d->m_marbleWidget->setLevelToDebug(3);
                     break;
+                }
 
                 case Qt::Key_4:
+                {
                     d->m_marbleWidget->setLevelToDebug(4);
                     break;
+                }
 
                 case Qt::Key_5:
+                {
                     d->m_marbleWidget->setLevelToDebug(5);
                     break;
+                }
 
                 case Qt::Key_6:
+                {
                     d->m_marbleWidget->setLevelToDebug(6);
                     break;
+                }
 
                 case Qt::Key_7:
+                {
                     d->m_marbleWidget->setLevelToDebug(7);
                     break;
+                }
 
                 case Qt::Key_8:
+                {
                     d->m_marbleWidget->setLevelToDebug(8);
                     break;
+                }
 
                 case Qt::Key_9:
+                {
                     d->m_marbleWidget->setLevelToDebug(9);
                     break;
+                }
 
                 case Qt::Key_Plus:
+                {
                     d->m_marbleWidget->setLevelToDebug(d->m_marbleWidget->levelToDebug() + 1);
                     break;
+                }
 
                 case Qt::Key_Minus:
+                {
                     d->m_marbleWidget->setLevelToDebug(d->m_marbleWidget->levelToDebug() - 1);
                     break;
+                }
             }
         }
         else
@@ -208,24 +235,34 @@ bool MarbleWidgetInputHandler::handleKeyPress(QKeyEvent* event)
             switch (event->key())
             {
                 case Qt::Key_R:
+                {
                     d->m_marbleWidget->setShowRuntimeTrace(!d->m_marbleWidget->showRuntimeTrace());
                     break;
+                }
 
                 case Qt::Key_O:
+                {
                     d->m_marbleWidget->setShowDebugPlacemarks(!d->m_marbleWidget->showDebugPlacemarks());
                     break;
+                }
 
                 case Qt::Key_P:
+                {
                     d->m_marbleWidget->setShowDebugPolygons(!d->m_marbleWidget->showDebugPolygons());
                     break;
+                }
 
                 case Qt::Key_B:
+                {
                     d->m_marbleWidget->setShowDebugBatchRender(!d->m_marbleWidget->showDebugBatchRender());
                     break;
+                }
 
                 case Qt::Key_L:
+                {
                     d->m_marbleWidget->setDebugLevelTags(!d->m_marbleWidget->debugLevelTags());
                     break;
+                }
             }
         }
     }
@@ -254,9 +291,13 @@ bool MarbleWidgetInputHandler::handleTouch(QTouchEvent* event)
         if (event->type() == QEvent::TouchBegin)
         {
             d->m_pinchDetected = false;
-            d->m_panDetected = false;
+            d->m_panDetected   = false;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 4, 0))
+
+            QMouseEvent press(QMouseEvent::MouseButtonPress, p.position(), QCursor::pos(),
+
+#elif (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
             QMouseEvent press(QMouseEvent::MouseButtonPress, p.position(),
 
@@ -267,6 +308,7 @@ bool MarbleWidgetInputHandler::handleTouch(QTouchEvent* event)
 #endif
 
                               Qt::LeftButton, Qt::LeftButton, Qt::NoModifier);
+
             handleMouseEvent(&press);
         }
 
@@ -276,7 +318,11 @@ bool MarbleWidgetInputHandler::handleTouch(QTouchEvent* event)
             {
                 d->m_panDetected = true;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 4, 0))
+
+                QMouseEvent move(QMouseEvent::MouseMove, p.position(), QCursor::pos(),
+
+#elif (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
                 QMouseEvent move(QMouseEvent::MouseMove, p.position(),
 
@@ -287,6 +333,7 @@ bool MarbleWidgetInputHandler::handleTouch(QTouchEvent* event)
 #endif
 
                                  Qt::NoButton, Qt::LeftButton, Qt::NoModifier);
+
                 handleMouseEvent(&move);
             }
         }
@@ -299,7 +346,11 @@ bool MarbleWidgetInputHandler::handleTouch(QTouchEvent* event)
                 blockSignals(true);
             }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 4, 0))
+
+            QMouseEvent release(QMouseEvent::MouseButtonRelease, p.position(), QCursor::pos(),
+
+#elif (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
             QMouseEvent release(QMouseEvent::MouseButtonRelease, p.position(),
 
@@ -310,6 +361,7 @@ bool MarbleWidgetInputHandler::handleTouch(QTouchEvent* event)
 #endif
 
                                 Qt::LeftButton, Qt::LeftButton, Qt::NoModifier);
+
             handleMouseEvent(&release);
 
             if (d->m_pinchDetected || d->m_panDetected)
@@ -329,7 +381,7 @@ bool MarbleWidgetInputHandler::handleTouch(QTouchEvent* event)
 
 bool MarbleWidgetInputHandler::handleGesture(QGestureEvent* e)
 {
-    QPinchGesture* pinch = static_cast<QPinchGesture*>(e->gesture(Qt::PinchGesture));
+    QPinchGesture* const pinch = static_cast<QPinchGesture*>(e->gesture(Qt::PinchGesture));
 
     if (pinch && !d->m_panDetected)
     {
@@ -349,11 +401,15 @@ void MarbleWidgetInputHandler::handlePinchGesture(QPinchGesture* pinch)
     switch (pinch->state())
     {
         case Qt::NoGesture:
+        {
             break;
+        }
 
         case Qt::GestureStarted:
+        {
             marblePresenter->setViewContext(Animation);
             break;
+        }
 
         case Qt::GestureUpdated:
         {
@@ -386,8 +442,10 @@ void MarbleWidgetInputHandler::handlePinchGesture(QPinchGesture* pinch)
 
         case Qt::GestureFinished:
         case Qt::GestureCanceled:
+        {
             restoreViewContext();
             break;
+        }
     }
 }
 
@@ -417,7 +475,9 @@ void MarbleWidgetInputHandler::setDebugModeEnabled(bool enabled)
     d->m_debugModeEnabled = enabled;
 }
 
-//FIXME - these should be moved to superclass and popupMenu should be abstracted in MarbleAbstractPresenter
+/**
+ * FIXME - these should be moved to superclass and popupMenu should be abstracted in MarbleAbstractPresenter
+ */
 void MarbleWidgetInputHandler::showLmbMenu(int x, int y)
 {
     if (isMouseButtonPopupEnabled(Qt::LeftButton) && !d->m_pinchDetected && !d->m_panDetected)

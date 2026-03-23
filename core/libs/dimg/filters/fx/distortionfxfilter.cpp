@@ -6,7 +6,7 @@
  * Date        : 2005-07-18
  * Description : Distortion FX threaded image filter.
  *
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -37,6 +37,7 @@
 #include "dpixelsaliasfilter.h"
 #include "randomnumbergenerator.h"
 #include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -118,19 +119,19 @@ void DistortionFXFilter::filterImage()
 
         case CilindricalHor:
         {
-            cilindrical(&m_orgImage, &m_destImage, (double)l, true, false, d->antiAlias);
+            cylindrical(&m_orgImage, &m_destImage, (double)l, true, false, d->antiAlias);
             break;
         }
 
         case CilindricalVert:
         {
-            cilindrical(&m_orgImage, &m_destImage, (double)l, false, true, d->antiAlias);
+            cylindrical(&m_orgImage, &m_destImage, (double)l, false, true, d->antiAlias);
             break;
         }
 
         case CilindricalHV:
         {
-            cilindrical(&m_orgImage, &m_destImage, (double)l, true, true, d->antiAlias);
+            cylindrical(&m_orgImage, &m_destImage, (double)l, true, true, d->antiAlias);
             break;
         }
 
@@ -204,6 +205,8 @@ void DistortionFXFilter::filterImage()
 
 void DistortionFXFilter::fisheyeMultithreaded(const Args& prm)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     int Width       = prm.orgImage->width();
     int Height      = prm.orgImage->height();
     uchar* data     = prm.orgImage->bits();
@@ -347,6 +350,8 @@ void DistortionFXFilter::fisheye(DImg* orgImage, DImg* destImage, double Coeff, 
 
 void DistortionFXFilter::twirlMultithreaded(const Args& prm)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     int Width       = prm.orgImage->width();
     int Height      = prm.orgImage->height();
     uchar* data     = prm.orgImage->bits();
@@ -498,8 +503,10 @@ void DistortionFXFilter::twirl(DImg* orgImage, DImg* destImage, int dist, bool A
     }
 }
 
-void DistortionFXFilter::cilindricalMultithreaded(const Args& prm)
+void DistortionFXFilter::cylindricalMultithreaded(const Args& prm)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     int Width       = prm.orgImage->width();
     int Height      = prm.orgImage->height();
     uchar* data     = prm.orgImage->bits();
@@ -579,7 +586,7 @@ void DistortionFXFilter::cilindricalMultithreaded(const Args& prm)
  *                     Spherize use the same function but in a rectangular
  *                     environment.
  */
-void DistortionFXFilter::cilindrical(DImg* orgImage, DImg* destImage, double Coeff,
+void DistortionFXFilter::cylindrical(DImg* orgImage, DImg* destImage, double Coeff,
                                      bool Horizontal, bool Vertical, bool AntiAlias)
 
 {
@@ -618,11 +625,11 @@ void DistortionFXFilter::cilindrical(DImg* orgImage, DImg* destImage, double Coe
 
 #if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
-                                           &DistortionFXFilter::cilindricalMultithreaded, this,
+                                           &DistortionFXFilter::cylindricalMultithreaded, this,
 
 #else
 
-                                           this, &DistortionFXFilter::cilindricalMultithreaded,
+                                           this, &DistortionFXFilter::cylindricalMultithreaded,
 
 #endif
 
@@ -649,6 +656,8 @@ void DistortionFXFilter::cilindrical(DImg* orgImage, DImg* destImage, double Coe
 
 void DistortionFXFilter::multipleCornersMultithreaded(const Args& prm)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     int Width       = prm.orgImage->width();
     int Height      = prm.orgImage->height();
     uchar* data     = prm.orgImage->bits();
@@ -766,6 +775,8 @@ void DistortionFXFilter::multipleCorners(DImg* orgImage, DImg* destImage, int Fa
 
 void DistortionFXFilter::wavesHorizontalMultithreaded(const Args& prm)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     int oldProgress=0, progress=0, tx;
 
     for (int h = prm.start; runningFlag() && (h < prm.stop); ++h)
@@ -796,6 +807,8 @@ void DistortionFXFilter::wavesHorizontalMultithreaded(const Args& prm)
 
 void DistortionFXFilter::wavesVerticalMultithreaded(const Args& prm)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     int oldProgress=0, progress=0, ty;
 
     for (int w = prm.start; runningFlag() && (w < prm.stop); ++w)
@@ -924,6 +937,8 @@ void DistortionFXFilter::waves(DImg* orgImage, DImg* destImage,
 
 void DistortionFXFilter::blockWavesMultithreaded(const Args& prm)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     int Width       = prm.orgImage->width();
     int Height      = prm.orgImage->height();
     uchar* data     = prm.orgImage->bits();
@@ -1047,6 +1062,8 @@ void DistortionFXFilter::blockWaves(DImg* orgImage, DImg* destImage,
 
 void DistortionFXFilter::circularWavesMultithreaded(const Args& prm)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     int Width                = prm.orgImage->width();
     int Height               = prm.orgImage->height();
     uchar* data              = prm.orgImage->bits();
@@ -1166,6 +1183,8 @@ void DistortionFXFilter::circularWaves(DImg* orgImage, DImg* destImage, int X, i
 
 void DistortionFXFilter::polarCoordinatesMultithreaded(const Args& prm)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     int Width       = prm.orgImage->width();
     int Height      = prm.orgImage->height();
     uchar* data     = prm.orgImage->bits();
@@ -1294,6 +1313,8 @@ void DistortionFXFilter::polarCoordinates(DImg* orgImage, DImg* destImage, bool 
 
 void DistortionFXFilter::tileMultithreaded(const Args& prm)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     int tx, ty, progress=0, oldProgress=0;
 
     for (int h = prm.start; runningFlag() && (h < prm.stop); h += prm.HSize)

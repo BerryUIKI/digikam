@@ -10,7 +10,7 @@
  * SPDX-FileCopyrightText: 2006      by Ian Monroe <ian at monroe dot nu>
  * SPDX-FileCopyrightText: 2009      by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -586,7 +586,7 @@ void DeleteDialog::slotShouldDelete(bool shouldDelete)
     d->buttons->button(QDialogButtonBox::Apply)->setText(shouldDelete ? i18n("&Delete")
                                                                       : i18n("&Move to Trash"));
     d->buttons->button(QDialogButtonBox::Apply)->setIcon(shouldDelete ? QIcon::fromTheme(QLatin1String("edit-delete"))
-                                                                      : QIcon::fromTheme(QLatin1String("user-trash")));
+                                                                      : QIcon::fromTheme(QLatin1String("albumfolder-user-trash")));  // In red - bug 513774
 
     d->buttons->button(QDialogButtonBox::Apply)->setDefault(!shouldDelete);
     d->buttons->button(QDialogButtonBox::Cancel)->setDefault(shouldDelete);

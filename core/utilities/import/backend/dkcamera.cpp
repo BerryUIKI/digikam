@@ -7,7 +7,7 @@
  * Description : abstract camera interface class
  *
  * SPDX-FileCopyrightText: 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -32,14 +32,10 @@ DKCamera::DKCamera(const QString& title, const QString& model, const QString& po
       m_title                       (title)
 {
     ApplicationSettings* const settings = ApplicationSettings::instance();
-    m_imageFilter                       = settings->getImageFileFilter();
-    m_movieFilter                       = settings->getMovieFileFilter();
-    m_audioFilter                       = settings->getAudioFileFilter();
-    m_rawFilter                         = settings->getRawFileFilter();
-    m_imageFilter                       = m_imageFilter.toLower();
-    m_movieFilter                       = m_movieFilter.toLower();
-    m_audioFilter                       = m_audioFilter.toLower();
-    m_rawFilter                         = m_rawFilter.toLower();
+    m_imageFilter                       = settings->getImageFileFilter().toLower().remove(QLatin1String("*.")).split(QLatin1Char(' '));
+    m_movieFilter                       = settings->getMovieFileFilter().toLower().remove(QLatin1String("*.")).split(QLatin1Char(' '));
+    m_audioFilter                       = settings->getAudioFileFilter().toLower().remove(QLatin1String("*.")).split(QLatin1Char(' '));
+    m_rawFilter                         = settings->getRawFileFilter().toLower().remove(QLatin1String("*.")).split(QLatin1Char(' '));
 }
 
 QString DKCamera::title() const
@@ -56,13 +52,13 @@ QString DKCamera::port() const
 {
     if ((m_port.length() == 21) && m_port.startsWith(QLatin1String("ptpip:")))
     {
-        QString port = QString::fromLatin1("ptpip:%1.%2.%3.%4")
-                                .arg(m_port.mid( 6, 3).toInt())
-                                .arg(m_port.mid(10, 3).toInt())
-                                .arg(m_port.mid(14, 3).toInt())
-                                .arg(m_port.mid(18, 3).toInt());
+        QString portid = QString::fromLatin1("ptpip:%1.%2.%3.%4")
+                                  .arg(m_port.mid( 6, 3).toInt())
+                                  .arg(m_port.mid(10, 3).toInt())
+                                  .arg(m_port.mid(14, 3).toInt())
+                                  .arg(m_port.mid(18, 3).toInt());
 
-        return port;
+        return portid;
     }
 
     return m_port;
@@ -150,6 +146,8 @@ QString DKCamera::mimeType(const QString& fileext) const
     {
         mime = QLatin1String("audio/") + ext;
     }
+
+    qCDebug(DIGIKAM_IMPORTUI_LOG) << "File type:" << ext << "Mime:" << mime;
 
     return mime;
 }

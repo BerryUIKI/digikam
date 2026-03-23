@@ -6,7 +6,7 @@
  * Date        : 2020-11-28
  * Description : ExifTool process stream parser.
  *
- * SPDX-FileCopyrightText: 2020-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -39,7 +39,7 @@ bool ExifToolParser::load(const QString& path)
 /*
     TODO: better i18n support from ExifTool.
     ExifTool Translations are limited to few languages, and passing a non supported code to ExifTool
-    returns an error. So we needs a mechanism to get the complete list of cuurent i18n code supported,
+    returns an error. So we needs a mechanism to get the complete list of current i18n code supported,
     typically "exiftool -lang".
 
     // Forward GUI language code to get translated string from ExifTool (typically tags descriptions)
@@ -67,7 +67,7 @@ bool ExifToolParser::load(const QString& path)
     return (d->startProcess(cmdArgs, ExifToolProcess::LOAD_METADATA));
 }
 
-bool ExifToolParser::loadChunk(const QString& path, bool copyToAll)
+bool ExifToolParser::loadChunk(const QString& path, bool copyToAll, bool dropMakernotes)
 {
     QFileInfo fileInfo(path);
 
@@ -94,6 +94,11 @@ bool ExifToolParser::loadChunk(const QString& path, bool copyToAll)
 
     cmdArgs << cpyOpt;
     cmdArgs << QByteArray("-icc_profile");
+
+    if (dropMakernotes)
+    {
+        cmdArgs << QByteArray("--makernotes");
+    }
 
     if (copyToAll)
     {
@@ -188,8 +193,11 @@ bool ExifToolParser::applyChanges(const QString& path,
 
     if (hasExif)
     {
-        cmdArgs << QByteArray("-ifd0:all=");
         cmdArgs << QByteArray("-gps:all=");
+        cmdArgs << QByteArray("-ifd0:xptitle=");
+        cmdArgs << QByteArray("-ifd0:xpcomment=");
+        cmdArgs << QByteArray("-ifd0:xpkeywords=");
+        cmdArgs << QByteArray("-exififd:usercomment=");
     }
     else
     {
@@ -223,6 +231,7 @@ bool ExifToolParser::applyChanges(const QString& path,
 
     cmdArgs << QByteArray("-TagsFromFile");
     cmdArgs << d->filePathEncoding(QFileInfo(exvTempFile));
+
     cmdArgs << QByteArray("-all:all");
     cmdArgs << QByteArray("-icc_profile");
 
@@ -238,13 +247,6 @@ bool ExifToolParser::applyChanges(const QString& path,
     if (hasCSet)
     {
         cmdArgs << QByteArray("-codedcharacterset=UTF8");
-    }
-
-    if (hasExif)
-    {
-        cmdArgs << QByteArray("-TagsFromFile");
-        cmdArgs << QByteArray("@");
-        cmdArgs << QByteArray("-makernotes");
     }
 
     cmdArgs << QByteArray("-overwrite_original");

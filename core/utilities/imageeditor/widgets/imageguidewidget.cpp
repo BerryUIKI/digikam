@@ -6,7 +6,7 @@
  * Date        : 2004-11-16
  * Description : a widget to display an image with guides
  *
- * SPDX-FileCopyrightText: 2004-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2004-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -48,6 +48,7 @@ public:
 
 public:
 
+    bool        busy                      = false;      //< Flag about busy state while filter is rendering in a separated thread.
     bool        sixteenBit                = false;
     bool        focus                     = false;
     bool        spotVisible               = false;
@@ -150,6 +151,16 @@ ImageGuideWidget::~ImageGuideWidget()
     delete d->maskPixmap;
     delete d->previewPixmap;
     delete d;
+}
+
+void ImageGuideWidget::setBusy(bool b)
+{
+    d->busy = b;
+}
+
+bool ImageGuideWidget::isBusy() const
+{
+    return d->busy;
 }
 
 ImageIface* ImageGuideWidget::imageIface() const

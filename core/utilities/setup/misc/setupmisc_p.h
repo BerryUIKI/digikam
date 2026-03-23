@@ -7,7 +7,7 @@
  * Description : mics configuration setup tab
  *
  * SPDX-FileCopyrightText: 2004      by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2017      by Simon Frei <freisim93 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -23,6 +23,7 @@
 #include <QApplication>
 #include <QDirIterator>
 #include <QButtonGroup>
+#include <QToolButton>
 #include <QCheckBox>
 #include <QComboBox>
 #include <QFile>
@@ -57,6 +58,8 @@
 #include "onlineversionchecker.h"
 #include "setup.h"
 #include "localizeconfig.h"
+#include "facebackgroundrecognition.h"
+#include "dateformatmodifier.h"
 
 #ifdef HAVE_SONNET
 #   include "spellcheckconfig.h"
@@ -83,7 +86,11 @@ public:
     QLabel*                   stringComparisonTypeLabel                 = nullptr;
     QLabel*                   applicationStyleLabel                     = nullptr;
     QLabel*                   applicationIconLabel                      = nullptr;
+    QLabel*                   dateTimeFormatLabel                       = nullptr;
     QLabel*                   minSimilarityBoundLabel                   = nullptr;
+
+    QLineEdit*                dateTimeFormatEdit                        = nullptr;
+    QToolButton*              dateTimeFormatReset                       = nullptr;
 
     QCheckBox*                showSplashCheck                           = nullptr;
     QCheckBox*                showTrashDeleteDialogCheck                = nullptr;
@@ -121,6 +128,9 @@ public:
 
     LocalizeConfig*           localizeWidget                            = nullptr;
     QHash<int, QButtonGroup*> groupingButtons                           = QHash<int, QButtonGroup*>();
+
+    QWidget*                   parent                                   = nullptr;
+    const int                  spacing                                  = layoutSpacing();
 };
 
 } // namespace Digikam

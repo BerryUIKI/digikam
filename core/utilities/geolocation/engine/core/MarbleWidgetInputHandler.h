@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -45,19 +45,19 @@ public:
 
 private Q_SLOTS:
 
-    void installPluginEventFilter(RenderPlugin* renderPlugin) override;
-    void showLmbMenu(int x, int y) override;
-    void showRmbMenu(int x, int y) override;
-    void openItemToolTip() override;
-    void setCursor(const QCursor& cursor) override;
+    void installPluginEventFilter(RenderPlugin* renderPlugin)   override;
+    void showLmbMenu(int x, int y)                              override;
+    void showRmbMenu(int x, int y)                              override;
+    void openItemToolTip()                                      override;
+    void setCursor(const QCursor& cursor)                       override;
 
 private:
 
-    bool handleKeyPress(QKeyEvent* event) override;
-    bool handleTouch(QTouchEvent* event) override;
-    bool handleGesture(QGestureEvent* e) override;
-    AbstractSelectionRubber* selectionRubber() override;
-    bool layersEventFilter(QObject* o, QEvent* e) override;
+    bool handleKeyPress(QKeyEvent* event)                       override;
+    bool handleTouch(QTouchEvent* event)                        override;
+    bool handleGesture(QGestureEvent* e)                        override;
+    AbstractSelectionRubber* selectionRubber()                  override;
+    bool layersEventFilter(QObject* o, QEvent* e)               override;
 
     void handlePinchGesture(QPinchGesture* pinch);
 
@@ -66,7 +66,9 @@ private:
 private:
 
     using MarbleWidgetInputHandlerPrivatePtr = QSharedPointer<MarbleWidgetInputHandlerPrivate>;
+
     MarbleWidgetInputHandlerPrivatePtr d;      // cppcheck-suppress duplInheritedMember
+
     friend class MarbleWidgetInputHandlerPrivate;
 };
 

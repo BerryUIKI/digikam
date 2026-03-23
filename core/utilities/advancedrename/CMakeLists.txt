@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -29,6 +29,7 @@ set(libadvancedrename_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/parser/importrenameparser.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/parser/modifiers/casemodifier.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/parser/modifiers/dateformatmodifier.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/parser/modifiers/defaultvaluemodifier.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/parser/modifiers/rangemodifier.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/parser/modifiers/removedoublesmodifier.cpp

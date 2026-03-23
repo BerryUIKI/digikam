@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2018-06-29
- * Description : a tool to export images to Twitter social network
+ * Description : a tool to export images to Twitter (x.com) social network
  *
  * SPDX-FileCopyrightText: 2018 by Tarek Talaat <tarektalaat93 at gmail dot com>
  *
@@ -72,7 +72,7 @@ TwWindow::TwWindow(DInfoInterface* const iface,
 
     setMainWidget(d->widget);
     setModal(false);
-    setWindowTitle(i18nc("@title:window", "Export to Twitter"));
+    setWindowTitle(i18nc("@title:window", "Export to x.com (aka Twitter)"));
 
     startButton()->setText(i18nc("@action:button", "Start Upload"));
     startButton()->setToolTip(i18nc("@info:tooltip, button", "Start upload to Twitter"));
@@ -239,7 +239,7 @@ void TwWindow::slotStartTransfer()
 
     if (d->widget->imagesList()->imageUrls().isEmpty())
     {
-        QMessageBox::critical(this, i18nc("@title: window start transfert", "Error"),
+        QMessageBox::critical(this, i18nc("@title: window start transfer", "Error"),
                               i18n("No image selected. Please select which images should be uploaded."));
         return;
     }
@@ -247,12 +247,12 @@ void TwWindow::slotStartTransfer()
     if (!(d->talker->authenticated()))
     {
         QPointer<QMessageBox> warn = new QMessageBox(QMessageBox::Warning,
-                         i18nc("@title: window start transfert", "Warning"),
+                         i18nc("@title: window start transfer", "Warning"),
                          i18n("Authentication failed. Click \"Continue\" to authenticate."),
                          QMessageBox::Yes | QMessageBox::No);
 
-        (warn->button(QMessageBox::Yes))->setText(i18nc("@action: button start transfert", "Continue"));
-        (warn->button(QMessageBox::No))->setText(i18nc("@action: button start transfert", "Cancel"));
+        (warn->button(QMessageBox::Yes))->setText(i18nc("@action: button start transfer", "Continue"));
+        (warn->button(QMessageBox::No))->setText(i18nc("@action: button start transfer", "Cancel"));
 
         if (warn->exec() == QMessageBox::Yes)
         {

@@ -112,6 +112,7 @@ do                                                                              
         {                                                                                                   \
             /* Adding item to listView by creating an item and passing listView as parent */                \
             FindDuplicatesAlbumItem* const item = new FindDuplicatesAlbumItem(&w, salbum);                  \
+            item->waitForCalculate();                                                                       \
             salbum->setExtraData(this, item);                                                               \
             const auto id   = salbum->title().toLongLong();                                                 \
             ItemInfo info(id);                                                                              \
@@ -172,7 +173,7 @@ void HaarIfaceTest::startSqlite(const QDir& dbDir)
 
     if (!QSqlDatabase::isDriverAvailable(DbEngineParameters::SQLiteDatabaseType()))
     {
-        QWARN("Qt SQlite plugin is missing.");
+        qWarning() << QLatin1String("Qt SQlite plugin is missing.");
         return;
     }
 
@@ -479,10 +480,10 @@ void HaarIfaceTest::testPreferFolderWhole()
 /*!
  * @brief HaarIfaceTest::testReferenceFolderNotSelected
  * The reference folder is not in the search folders.
- * But neverthless the folder shall be checked, otherwise
- * the duplicates get not found. The Duplicatesfinder will merge interally the
+ * But nevertheless the folder shall be checked, otherwise
+ * the duplicates aren't found. The Duplicatesfinder will merge internally the
  * two album lists
- * The oposite that the folder is in both lists will be tested above, so
+ * The opposite that the folder is in both lists will be tested above, so
  * no extra test is needed.
  */
 void HaarIfaceTest::testReferenceFolderNotSelected()

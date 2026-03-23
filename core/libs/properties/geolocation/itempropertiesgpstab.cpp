@@ -6,7 +6,7 @@
  * Date        : 2006-02-22
  * Description : a tab widget to display GPS info
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2011      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -49,10 +49,11 @@
 
 // Local includes
 
+#include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "mapwidget.h"
 #include "itemmarkertiler.h"
 #include "dlayoutbox.h"
-#include "digikam_debug.h"
 #include "itemgpsmodelhelper.h"
 #include "dexpanderbox.h"
 #include "digikam_config.h"
@@ -322,7 +323,7 @@ void ItemPropertiesGPSTab::slotCopyGPSDetails()
     QApplication::clipboard()->setMimeData(mimeData, QClipboard::Clipboard);
 }
 
-void ItemPropertiesGPSTab::setCurrentURL(const QUrl& url)
+void ItemPropertiesGPSTab::setCurrentUrl(const QUrl& url)
 {
     if (url.isEmpty())
     {
@@ -414,7 +415,7 @@ void ItemPropertiesGPSTab::setGPSInfoList(const GPSItemInfo::List& list)
         d->gpsCopyBtn->setEnabled(true);
         d->latitude->setAdjustedText(QLocale().toString(coordinates.lat(), 'g', 7));
         d->longitude->setAdjustedText(QLocale().toString(coordinates.lon(), 'g', 7));
-        d->date->setAdjustedText(QLocale().toString(info.dateTime, QLocale::ShortFormat));
+        d->date->setAdjustedText(asUserDateTime(info.dateTime));
     }
     else
     {

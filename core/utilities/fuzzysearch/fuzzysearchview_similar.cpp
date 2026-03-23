@@ -7,7 +7,7 @@
  * Description : Fuzzy search sidebar tab contents - similar panel.
  *
  * SPDX-FileCopyrightText: 2016-2018 by Mario Frank <mario dot frank at uni minus potsdam dot de>
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -27,8 +27,8 @@ QWidget* FuzzySearchView::setupFindSimilarPanel() const
     DHBox* const imageBox = new DHBox();
     d->imageWidget        = new QLabel(imageBox);
     d->imageWidget->setFixedSize(256, 256);
-    d->imageWidget->setText(i18n("<p>Drag & drop an image here<br/>to perform similar<br/>items search.</p>"
-                                 "<p>You can also use the context menu<br/>when browsing through<br/>your images.</p>"));
+    d->imageWidget->setText(i18n("<p>Drag & drop an image here<br>to perform similar<br>items search.</p>"
+                                 "<p>You can also use the context menu<br>when browsing through<br>your images.</p>"));
     d->imageWidget->setAlignment(Qt::AlignCenter);
     imageBox->setFrameStyle(QFrame::StyledPanel | QFrame::Sunken);
     imageBox->setLineWidth(1);

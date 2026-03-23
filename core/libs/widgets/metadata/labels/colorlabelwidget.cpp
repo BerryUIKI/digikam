@@ -6,85 +6,16 @@
  * Date        : 2011-01-28
  * Description : color label widget
  *
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
  * ============================================================ */
 
-#include "colorlabelwidget.h"
-
-// Qt includes
-
-#include <QApplication>
-#include <QPainter>
-#include <QPixmap>
-#include <QIcon>
-#include <QLayout>
-#include <QLabel>
-#include <QButtonGroup>
-#include <QWidgetAction>
-#include <QFontMetrics>
-#include <QFont>
-#include <QToolButton>
-
-// KDE includes
-
-#if !defined(Q_OS_DARWIN) && defined(Q_CC_GNU)
-#   pragma GCC diagnostic push
-#   pragma GCC diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-#if defined(Q_CC_CLANG)
-#   pragma clang diagnostic push
-#   pragma clang diagnostic ignored "-Wdeprecated-declarations"
-#endif
-
-#include <klocalizedstring.h>
-#include <kactioncollection.h>
-
-// Restore warnings
-#if !defined(Q_OS_DARWIN) && defined(Q_CC_GNU)
-#   pragma GCC diagnostic pop
-#endif
-
-#if defined(Q_CC_CLANG)
-#   pragma clang diagnostic pop
-#endif
-
-// Local includes
-
-#include "dxmlguiwindow.h"
-#include "dexpanderbox.h"
+#include "colorlabelwidget_p.h"
 
 namespace Digikam
 {
-
-class Q_DECL_HIDDEN ColorLabelWidget::Private
-{
-public:
-
-    Private() = default;
-
-    QButtonGroup*       colorBtns   = nullptr;
-
-    QLabel*             desc        = nullptr;
-
-    QToolButton*        btnNone     = nullptr;
-    QToolButton*        btnRed      = nullptr;
-    QToolButton*        btnOrange   = nullptr;
-    QToolButton*        btnYellow   = nullptr;
-    QToolButton*        btnGreen    = nullptr;
-    QToolButton*        btnBlue     = nullptr;
-    QToolButton*        btnMagenta  = nullptr;
-    QToolButton*        btnGray     = nullptr;
-    QToolButton*        btnBlack    = nullptr;
-    QToolButton*        btnWhite    = nullptr;
-
-    DHBox*              descBox     = nullptr;
-
-    DAdjustableLabel*   shortcut    = nullptr;
-};
 
 ColorLabelWidget::ColorLabelWidget(QWidget* const parent)
     : DVBox(parent),
@@ -172,7 +103,7 @@ ColorLabelWidget::ColorLabelWidget(QWidget* const parent)
     d->descBox  = new DHBox(this);
     d->descBox->setContentsMargins(QMargins());
     d->descBox->setSpacing(0);
-    d->desc     = new QLabel(d->descBox);
+    d->desc     = new DAdjustableLabel(d->descBox);
     d->shortcut = new DAdjustableLabel(d->descBox);
     QFont fnt = d->shortcut->font();
     fnt.setItalic(true);
@@ -213,12 +144,41 @@ void ColorLabelWidget::setDescriptionBoxVisible(bool b)
 
     if (!b)
     {
-        const auto btns = d->colorBtns->buttons();
+        const auto btns    = d->colorBtns->buttons();
+        DXmlGuiWindow* app = nullptr;
+        const auto wdgs    = qApp->topLevelWidgets();
+
+        for (QWidget* const widget : wdgs)
+        {
+            app = dynamic_cast<DXmlGuiWindow*>(widget);
+
+            if (app)
+            {
+                break;
+            }
+        }
 
         for (QAbstractButton* const btn : btns)
         {
-            ColorLabel id = (ColorLabel)(d->colorBtns->id(btn));
-            btn->setToolTip(labelColorName(id));
+            ColorLabel label = (ColorLabel)(d->colorBtns->id(btn));
+
+            if (app)
+            {
+                QAction* const ac = app->actionCollection()->action(QString::fromLatin1("colorshortcut-%1").arg(label));
+
+                if (ac)
+                {
+                    btn->setToolTip(QString::fromUtf8("%1\n%2").arg(ac->toolTip()).arg(ac->shortcut().toString()));
+                }
+                else
+                {
+                    btn->setToolTip(ColorLabelWidget::labelColorName(label));
+                }
+            }
+            else
+            {
+                btn->setToolTip(ColorLabelWidget::labelColorName(label));
+            }
         }
     }
 }
@@ -230,9 +190,18 @@ void ColorLabelWidget::setButtonsExclusive(bool b)
 
 void ColorLabelWidget::updateDescription(ColorLabel label)
 {
-    d->desc->setText(labelColorName(label));
+    DXmlGuiWindow* app = nullptr;
+    const auto wdgs    = qApp->topLevelWidgets();
 
-    DXmlGuiWindow* const app = dynamic_cast<DXmlGuiWindow*>(qApp->activeWindow());
+    for (QWidget* const widget : wdgs)
+    {
+        app = dynamic_cast<DXmlGuiWindow*>(widget);
+
+        if (app)
+        {
+            break;
+        }
+    }
 
     if (app)
     {
@@ -241,7 +210,16 @@ void ColorLabelWidget::updateDescription(ColorLabel label)
         if (ac)
         {
             d->shortcut->setAdjustedText(ac->shortcut().toString());
+            d->desc->setAdjustedText(ac->toolTip());
         }
+        else
+        {
+            d->desc->setAdjustedText(ColorLabelWidget::labelColorName(label));
+        }
+    }
+    else
+    {
+        d->desc->setAdjustedText(ColorLabelWidget::labelColorName(label));
     }
 }
 
@@ -387,14 +365,14 @@ QIcon ColorLabelWidget::buildIcon(ColorLabel label, int size)
     {
         QPixmap pix(size, size);
         QPainter p(&pix);
-        p.setPen(qApp->palette().color(QPalette::Active, QPalette::ButtonText));
+        p.setPen((label == BlackLabel) ? Qt::white : Qt::black);
         p.fillRect(0, 0, pix.width()-1, pix.height()-1, labelColor(label));
         p.drawRect(0, 0, pix.width()-1, pix.height()-1);
 
         return QIcon(pix);
     }
 
-    return QIcon::fromTheme(QLatin1String("emblem-unmounted"));
+    return QIcon::fromTheme(QLatin1String("emblem-unmounted")).pixmap(size, size, QIcon::Disabled);
 }
 
 QColor ColorLabelWidget::labelColor(ColorLabel label)
@@ -534,95 +512,6 @@ QString ColorLabelWidget::labelColorName(ColorLabel label)
     }
 
     return name;
-}
-
-// -----------------------------------------------------------------------------
-
-class Q_DECL_HIDDEN ColorLabelSelector::Private
-{
-
-public:
-
-    Private() = default;
-
-    ColorLabelWidget* clw = nullptr;
-};
-
-ColorLabelSelector::ColorLabelSelector(QWidget* parent)
-    : QPushButton(parent),
-      d          (new Private)
-{
-    QMenu* const popup          = new QMenu(this);
-    setMenu(popup);
-
-    QWidgetAction* const action = new QWidgetAction(this);
-    d->clw                      = new ColorLabelWidget(this);
-    action->setDefaultWidget(d->clw);
-    popup->addAction(action);
-    slotColorLabelChanged(NoColorLabel);
-
-    connect(d->clw, SIGNAL(signalColorLabelChanged(int)),
-            this, SLOT(slotColorLabelChanged(int)));
-}
-
-ColorLabelSelector::~ColorLabelSelector()
-{
-    delete d;
-}
-
-ColorLabelWidget* ColorLabelSelector::colorLabelWidget() const
-{
-    return d->clw;
-}
-
-void ColorLabelSelector::setColorLabel(ColorLabel label)
-{
-    d->clw->setColorLabels(QList<ColorLabel>() << label);
-    slotColorLabelChanged(label);
-}
-
-ColorLabel ColorLabelSelector::colorLabel()
-{
-    QList<ColorLabel> list = d->clw->colorLabels();
-
-    if (!list.isEmpty())
-    {
-        return list.first();
-    }
-
-    return NoColorLabel;
-}
-
-void ColorLabelSelector::slotColorLabelChanged(int id)
-{
-    setText(QString());
-    setIcon(d->clw->buildIcon((ColorLabel)id));
-    setToolTip(i18nc("@info: color label selector", "Color Label: %1", d->clw->labelColorName((ColorLabel)id)));
-    menu()->close();
-
-    Q_EMIT signalColorLabelChanged(id);
-}
-
-// -----------------------------------------------------------------------------
-
-ColorLabelMenuAction::ColorLabelMenuAction(QMenu* const parent)
-    : QMenu(parent)
-{
-    setTitle(i18nc("@title: color label menu", "Color"));
-    QWidgetAction* const wa     = new QWidgetAction(this);
-    ColorLabelWidget* const clw = new ColorLabelWidget(parent);
-    wa->setDefaultWidget(clw);
-    addAction(wa);
-
-    connect(clw, SIGNAL(signalColorLabelChanged(int)),
-            this, SIGNAL(signalColorLabelChanged(int)));
-
-    connect(clw, SIGNAL(signalColorLabelChanged(int)),
-            parent, SLOT(close()));
-}
-
-ColorLabelMenuAction::~ColorLabelMenuAction()
-{
 }
 
 } // namespace Digikam

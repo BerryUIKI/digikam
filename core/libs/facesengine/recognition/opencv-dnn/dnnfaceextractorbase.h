@@ -7,7 +7,7 @@
  *               The internal DNN library interface.
  *
  * SPDX-FileCopyrightText: 2019      by Thanh Trung Dinh <dinhthanhtrung1996 at gmail dot com>
- * SPDX-FileCopyrightText: 2020-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2020      by Nghia Duong <minhnghiaduong997 at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
@@ -58,7 +58,9 @@ public:
     virtual cv::Mat alignFace(const cv::Mat& inputImage) const                              = 0;
     virtual const QPair<cv::Mat, cv::Mat> getFaceEmbedding(const cv::Mat& faceImage) const  = 0;
 
-    // UMat versions
+    /**
+     * @brief UMat versions.
+     */
     virtual cv::UMat alignFace(const cv::UMat& inputImage) const                            = 0;
     virtual const QPair<cv::Mat, cv::Mat> getFaceEmbedding(const cv::UMat& faceImage) const = 0;
 

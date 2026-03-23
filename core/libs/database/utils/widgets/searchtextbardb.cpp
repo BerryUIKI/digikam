@@ -6,7 +6,7 @@
  * Date        : 2007-11-25
  * Description : a bar used to search a string - version based on database models
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -42,6 +42,8 @@ public:
 
     Private() = default;
 
+public:
+
     QPointer<AlbumFilterModel> filterModel = nullptr;
 };
 
@@ -70,7 +72,7 @@ void SearchTextBarDb::setModel(AbstractAlbumModel* const model)
 
 void SearchTextBarDb::setFilterModel(AlbumFilterModel* const filterModel)
 {
-    // if there already was a model, disconnect from this model
+    // If there already was a model, disconnect from this model
 
     if (d->filterModel)
     {
@@ -79,7 +81,7 @@ void SearchTextBarDb::setFilterModel(AlbumFilterModel* const filterModel)
 
     d->filterModel = filterModel;
 
-    // connect to new model if desired
+    // Connect to new model if desired
 
     if (d->filterModel)
     {

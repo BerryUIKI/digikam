@@ -7,7 +7,7 @@
  * Description : Metadata info containers
  *
  * SPDX-FileCopyrightText: 2007-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -34,7 +34,7 @@ public:
     bool operator==(const IptcCoreLocationInfo& t) const;
     bool isEmpty()                                 const;
     bool isNull()                                  const;
-    void merge(const IptcCoreLocationInfo& t);
+    void merge(const IptcCoreLocationInfo& t, bool merge);
 
 public:
 
@@ -57,7 +57,7 @@ public:
     bool operator==(const IptcCoreContactInfo& t) const;
     bool isEmpty()                                const;
     bool isNull()                                 const;
-    void merge(const IptcCoreContactInfo& t);
+    void merge(const IptcCoreContactInfo& t, bool merge);
 
 public:
 

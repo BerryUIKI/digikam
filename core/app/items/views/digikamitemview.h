@@ -7,7 +7,7 @@
  * Description : Qt model-view for items
  *
  * SPDX-FileCopyrightText: 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -36,22 +36,33 @@ class DigikamItemView : public ItemCategorizedView,
 
 public:
 
+    enum SidebarViewMode
+    {
+        NormalView = 0,
+        SearchView,
+        FuzzySView,
+        PeopleView
+    };
+
+public:
+
     explicit DigikamItemView(QWidget* const parent = nullptr);
     ~DigikamItemView()                                                                             override;
 
     ItemViewUtilities* utilities()                                                           const;
 
     int  fitToWidthIcons();
-    bool getFaceMode()                                                                       const;
+    bool isPeopleViewMode()                                                                  const;
     QList<int> getFaceIds(const QList<QModelIndex>& indexes)                                 const;
 
     void setThumbnailSize(const ThumbnailSize& size)                                               override;
+    void setSidebarViewMode(int mode);
 
     ItemInfoList  allItemInfos(bool grouping = false)                                        const;
     ItemInfoList  selectedItemInfos(bool grouping = false)                                   const;
     ItemInfoList  selectedItemInfosCurrentFirst(bool grouping = false)                       const;
-    bool          allNeedGroupResolving(const OperationType type)       const;
-    bool          selectedNeedGroupResolving(const OperationType type)  const;
+    bool          allNeedGroupResolving(const OperationType type)                            const;
+    bool          selectedNeedGroupResolving(const OperationType type)                       const;
 
 public Q_SLOTS:
 
@@ -63,8 +74,6 @@ public Q_SLOTS:
     void rename();
 
     void assignRating(const QList<QModelIndex>& index, int rating);
-
-    void setFaceMode(bool on);
 
     /**
      * @brief Confirm the face with a face tag (name) in the database.
@@ -119,8 +128,11 @@ Q_SIGNALS:
                                     const QList<ItemInfo>& selectedInfos,
                                     ItemFilterModel* filterModel);
 
+    void signalOpenGeolocationMap();
+
 protected Q_SLOTS:
 
+    void slotOpenGeolocationMap(const QModelIndex& index);
     void groupIndicatorClicked(const QModelIndex& index);
     void showGroupContextMenu(const QModelIndex& index, QContextMenuEvent* event);
 
@@ -129,15 +141,15 @@ protected:
     void addRejectionOverlay(ItemDelegate* delegate = nullptr);
     void addAssignNameOverlay(ItemDelegate* delegate = nullptr);
 
-    void activated(const ItemInfo& info, Qt::KeyboardModifiers modifiers)      override;
-    void showContextMenuOnInfo(QContextMenuEvent* event, const ItemInfo& info) override;
-    void showContextMenu(QContextMenuEvent* event)                             override;
-    void slotSetupChanged()                                                    override;
+    void activated(const ItemInfo& info, Qt::KeyboardModifiers modifiers)                          override;
+    void showContextMenuOnInfo(QContextMenuEvent* event, const ItemInfo& info)                     override;
+    void showContextMenu(QContextMenuEvent* event)                                                 override;
+    void slotSetupChanged()                                                                        override;
 
-    bool hasHiddenGroupedImages(const ItemInfo& info)                    const override;
+    bool hasHiddenGroupedImages(const ItemInfo& info)                                        const override;
 
     ItemInfoList imageInfos(const QList<QModelIndex>& indexes,
-                            OperationType type)     const;
+                            OperationType type)                                              const;
 
 private Q_SLOTS:
 
@@ -146,7 +158,7 @@ private Q_SLOTS:
     void slotRotateRight(const QList<QModelIndex>&);
     void slotFullscreen(const QList<QModelIndex>&);
     void slotInitProgressIndicator();
-    void scrollTo(const QModelIndex& index, ScrollHint hint = EnsureVisible) override;
+    void scrollTo(const QModelIndex& index, ScrollHint hint = EnsureVisible)                       override;
 
 private:
 

@@ -6,7 +6,7 @@
  * Date        : 2004-07-20
  * Description : image histogram adjust levels.
  *
- * SPDX-FileCopyrightText: 2004-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2004-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -48,8 +48,8 @@ private Q_SLOTS:
     void slotAdjustMaxInputSpinBox(double val);
     void slotAdjustMinOutputSpinBox(double val);
     void slotAdjustMaxOutputSpinBox(double val);
-    void slotSpotColorChanged(const Digikam::DColor& color);
-    void slotColorSelectedFromTarget(const Digikam::DColor& color);
+    void slotSpotColorChanged(const Digikam::DColor&);
+    void slotColorSelectedFromOriginal(const Digikam::DColor&, const QPoint&);
     void slotPickerColorButtonActived(int);
     void slotShowInputHistogramGuide(double v);
     void slotShowOutputHistogramGuide(double v);

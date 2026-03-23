@@ -7,7 +7,7 @@
  * Description : Thumbnail bar for items
  *
  * SPDX-FileCopyrightText: 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -28,6 +28,7 @@
 #include "itemdragdrop.h"
 #include "itemratingoverlay.h"
 #include "itemcoordinatesoverlay.h"
+#include "groupindicatoroverlay.h"
 #include "itemthumbnaildelegate.h"
 #include "fileactionmngr.h"
 
@@ -98,13 +99,56 @@ void ItemThumbnailBar::setModelsFiltered(ItemModel* model, ImageSortFilterModel*
 
 void ItemThumbnailBar::installOverlays()
 {
+    // Rating overlay
+
     ItemRatingOverlay* const ratingOverlay = new ItemRatingOverlay(this);
     addOverlay(ratingOverlay);
 
     connect(ratingOverlay, SIGNAL(ratingEdited(QList<QModelIndex>,int)),
             this, SLOT(assignRating(QList<QModelIndex>,int)));
 
-    addOverlay(new ItemCoordinatesOverlay(this));
+    // Group overlay
+
+    GroupIndicatorOverlay* const groupOverlay = new GroupIndicatorOverlay(this);
+    addOverlay(groupOverlay);
+
+    connect(groupOverlay, SIGNAL(toggleGroupOpen(QModelIndex)),
+            this, SLOT(slotGroupIndicatorClicked(QModelIndex)));
+
+    // Geolocation overlay
+
+    ItemCoordinatesOverlay* const geoOverlay = new ItemCoordinatesOverlay(this);
+    addOverlay(geoOverlay);
+
+    connect(geoOverlay, SIGNAL(signalOpenGeolocationMap(QModelIndex)),
+            this, SLOT(slotOpenGeolocationMap(QModelIndex)));
+}
+
+void ItemThumbnailBar::slotGroupIndicatorClicked(const QModelIndex& index)
+{
+    ItemInfo info = ItemModel::retrieveItemInfo(index);
+
+    if (info.isNull())
+    {
+        return;
+    }
+
+    setCurrentIndex(index);
+    itemFilterModel()->toggleGroupOpen(info.id());
+    itemAlbumModel()->ensureHasGroupedImages(info);
+}
+
+void ItemThumbnailBar::slotOpenGeolocationMap(const QModelIndex& index)
+{
+    ItemInfo info              = itemFilterModel()->imageInfo(index);
+    ItemInfoList imageInfoList = selectedItemInfos();
+
+    if (!imageInfoList.contains(info))
+    {
+        setCurrentIndex(index);
+    }
+
+    Q_EMIT signalOpenGeolocationMap();
 }
 
 void ItemThumbnailBar::slotDockLocationChanged(Qt::DockWidgetArea area)

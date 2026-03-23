@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2008-2009 by Valerio Fuoglio <valerio dot fuoglio at gmail dot com>
  * SPDX-FileCopyrightText:      2009 by Andi Clemens <andi dot clemens at googlemail dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText:      2021 by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -60,6 +60,8 @@ class Q_DECL_HIDDEN PresentationMainPage::Private
 public:
 
     Private() = default;
+
+public:
 
     PresentationContainer* sharedData           = nullptr;
     QTime                  totalTime;
@@ -127,6 +129,7 @@ void PresentationMainPage::readSettings()
     m_printNameCheckBox->setChecked(d->sharedData->printFileName);
     m_printProgressCheckBox->setChecked(d->sharedData->printProgress);
     m_printCommentsCheckBox->setChecked(d->sharedData->printFileComments);
+    m_bgColor->setColor(d->sharedData->bgColor);
     m_loopCheckBox->setChecked(d->sharedData->loop);
     m_shuffleCheckBox->setChecked(d->sharedData->shuffle);
     m_offAutoDelayCheckBox->setChecked(d->sharedData->offAutoDelay);
@@ -161,6 +164,8 @@ void PresentationMainPage::saveSettings()
     d->sharedData->printFileName         = m_printNameCheckBox->isChecked();
     d->sharedData->printProgress         = m_printProgressCheckBox->isChecked();
     d->sharedData->printFileComments     = m_printCommentsCheckBox->isChecked();
+    d->sharedData->bgColor               = m_bgColor->color();
+
     d->sharedData->loop                  = m_loopCheckBox->isChecked();
     d->sharedData->shuffle               = m_shuffleCheckBox->isChecked();
     d->sharedData->offAutoDelay          = m_offAutoDelayCheckBox->isChecked();
@@ -328,6 +333,7 @@ void PresentationMainPage::loadEffectNamesGL()
     // Add Ken Burns effect
 
     QMap<QString, QString> effectNameKB = PresentationKB::effectNamesI18N();
+
     for (it = effectNameKB.begin(); it != effectNameKB.end(); ++it)
     {
         effectNames.insert(it.key(), it.value());
@@ -446,7 +452,7 @@ void PresentationMainPage::slotOpenGLToggled()
 
 void PresentationMainPage::slotEffectChanged()
 {
-    bool isKB = m_effectsComboBox->currentText() == i18n("Ken Burns");
+    bool isKB = (m_effectsComboBox->currentText() == i18n("Ken Burns"));
 
     m_printNameCheckBox->setEnabled(!isKB);
     m_printProgressCheckBox->setEnabled(!isKB);

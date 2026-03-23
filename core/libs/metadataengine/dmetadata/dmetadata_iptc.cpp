@@ -6,7 +6,7 @@
  * Date        : 2006-02-23
  * Description : item metadata interface - Iptc helpers.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2011      by Leif Huhn <leif at dkstat dot com>
  *
@@ -79,6 +79,10 @@ bool DMetadata::setCreatorContactInfo(const IptcCoreContactInfo& info) const
             return false;
         }
     }
+    else
+    {
+        removeXmpTag("Xmp.iptc.CreatorContactInfo/Iptc4xmpCore:CiAdrCity");
+    }
 
     if (!info.country.isEmpty())
     {
@@ -86,6 +90,10 @@ bool DMetadata::setCreatorContactInfo(const IptcCoreContactInfo& info) const
         {
             return false;
         }
+    }
+    else
+    {
+        removeXmpTag("Xmp.iptc.CreatorContactInfo/Iptc4xmpCore:CiAdrCtry");
     }
 
     if (!info.address.isEmpty())
@@ -95,6 +103,10 @@ bool DMetadata::setCreatorContactInfo(const IptcCoreContactInfo& info) const
             return false;
         }
     }
+    else
+    {
+        removeXmpTag("Xmp.iptc.CreatorContactInfo/Iptc4xmpCore:CiAdrExtadr");
+    }
 
     if (!info.postalCode.isEmpty())
     {
@@ -102,6 +114,10 @@ bool DMetadata::setCreatorContactInfo(const IptcCoreContactInfo& info) const
         {
             return false;
         }
+    }
+    else
+    {
+        removeXmpTag("Xmp.iptc.CreatorContactInfo/Iptc4xmpCore:CiAdrPcode");
     }
 
     if (!info.provinceState.isEmpty())
@@ -111,6 +127,10 @@ bool DMetadata::setCreatorContactInfo(const IptcCoreContactInfo& info) const
             return false;
         }
     }
+    else
+    {
+        removeXmpTag("Xmp.iptc.CreatorContactInfo/Iptc4xmpCore:CiAdrRegion");
+    }
 
     if (!info.email.isEmpty())
     {
@@ -118,6 +138,10 @@ bool DMetadata::setCreatorContactInfo(const IptcCoreContactInfo& info) const
         {
             return false;
         }
+    }
+    else
+    {
+        removeXmpTag("Xmp.iptc.CreatorContactInfo/Iptc4xmpCore:CiEmailWork");
     }
 
     if (!info.phone.isEmpty())
@@ -134,6 +158,10 @@ bool DMetadata::setCreatorContactInfo(const IptcCoreContactInfo& info) const
         {
             return false;
         }
+    }
+    else
+    {
+        removeXmpTag("Xmp.iptc.CreatorContactInfo/Iptc4xmpCore:CiUrlWork");
     }
 
     return true;
@@ -175,6 +203,10 @@ bool DMetadata::setIptcCoreLocation(const IptcCoreLocationInfo& location) const
                 return false;
             }
         }
+        else
+        {
+            removeXmpTag("Xmp.photoshop.Country");
+        }
 
         if (!location.countryCode.isEmpty())
         {
@@ -182,6 +214,10 @@ bool DMetadata::setIptcCoreLocation(const IptcCoreLocationInfo& location) const
             {
                 return false;
             }
+        }
+        else
+        {
+            removeXmpTag("Xmp.iptc.CountryCode");
         }
 
         if (!location.city.isEmpty())
@@ -191,6 +227,10 @@ bool DMetadata::setIptcCoreLocation(const IptcCoreLocationInfo& location) const
                 return false;
             }
         }
+        else
+        {
+            removeXmpTag("Xmp.photoshop.City");
+        }
 
         if (!location.location.isEmpty())
         {
@@ -199,6 +239,10 @@ bool DMetadata::setIptcCoreLocation(const IptcCoreLocationInfo& location) const
                 return false;
             }
         }
+        else
+        {
+            removeXmpTag("Xmp.iptc.Location");
+        }
 
         if (!location.provinceState.isEmpty())
         {
@@ -206,6 +250,10 @@ bool DMetadata::setIptcCoreLocation(const IptcCoreLocationInfo& location) const
             {
                 return false;
             }
+        }
+        else
+        {
+            removeXmpTag("Xmp.photoshop.State");
         }
     }
 
@@ -216,6 +264,10 @@ bool DMetadata::setIptcCoreLocation(const IptcCoreLocationInfo& location) const
             return false;
         }
     }
+    else
+    {
+        removeIptcTag("Iptc.Application2.CountryName");
+    }
 
     if (!location.countryCode.isEmpty())
     {
@@ -223,6 +275,10 @@ bool DMetadata::setIptcCoreLocation(const IptcCoreLocationInfo& location) const
         {
             return false;
         }
+    }
+    else
+    {
+        removeIptcTag("Iptc.Application2.CountryCode");
     }
 
     if (!location.city.isEmpty())
@@ -232,6 +288,10 @@ bool DMetadata::setIptcCoreLocation(const IptcCoreLocationInfo& location) const
             return false;
         }
     }
+    else
+    {
+        removeIptcTag("Iptc.Application2.City");
+    }
 
     if (!location.location.isEmpty())
     {
@@ -240,6 +300,10 @@ bool DMetadata::setIptcCoreLocation(const IptcCoreLocationInfo& location) const
             return false;
         }
     }
+    else
+    {
+        removeIptcTag("Iptc.Application2.SubLocation");
+    }
 
     if (!location.provinceState.isEmpty())
     {
@@ -247,6 +311,10 @@ bool DMetadata::setIptcCoreLocation(const IptcCoreLocationInfo& location) const
         {
             return false;
         }
+    }
+    else
+    {
+        removeIptcTag("Iptc.Application2.ProvinceState");
     }
 
     return true;
@@ -442,7 +510,7 @@ DMetadata::CountryCodeMap DMetadata::countryCodeMap()
     countryCodeMap.insert( QLatin1String("SV"), i18nc("@info: country code", "Swedish") );
     countryCodeMap.insert( QLatin1String("SW"), i18nc("@info: country code", "Swahili") );
     countryCodeMap.insert( QLatin1String("TA"), i18nc("@info: country code", "Tamil") );
-    countryCodeMap.insert( QLatin1String("TE"), i18nc("@info: country code", "Telugu") );
+    countryCodeMap.insert( QLatin1String("TE"), i18nc("@info: country code", "Telugu") );           // codespell:ignore te
     countryCodeMap.insert( QLatin1String("TG"), i18nc("@info: country code", "Tajik") );
     countryCodeMap.insert( QLatin1String("TH"), i18nc("@info: country code", "Thai") );
     countryCodeMap.insert( QLatin1String("TI"), i18nc("@info: country code", "Tigrinya") );
@@ -581,7 +649,7 @@ DMetadata::CountryCodeMap DMetadata::countryCodeMap2()
     countryCodeMap.insert( QLatin1String("slv"), i18nc("@info: country code", "Slovenian") );
     countryCodeMap.insert( QLatin1String("smo"), i18nc("@info: country code", "Samoan") );
     countryCodeMap.insert( QLatin1String("sna"), i18nc("@info: country code", "Shona") );
-    countryCodeMap.insert( QLatin1String("som"), i18nc("@info: country code", "Somali") );
+    countryCodeMap.insert( QLatin1String("som"), i18nc("@info: country code", "Somali") );          // codespell:ignore som
     countryCodeMap.insert( QLatin1String("sqi"), i18nc("@info: country code", "Albanian") );
     countryCodeMap.insert( QLatin1String("srp"), i18nc("@info: country code", "Serbian") );
     countryCodeMap.insert( QLatin1String("ssw"), i18nc("@info: country code", "Siswati") );
@@ -592,7 +660,7 @@ DMetadata::CountryCodeMap DMetadata::countryCodeMap2()
     countryCodeMap.insert( QLatin1String("tam"), i18nc("@info: country code", "Tamil") );
     countryCodeMap.insert( QLatin1String("tel"), i18nc("@info: country code", "Telugu") );
     countryCodeMap.insert( QLatin1String("tgk"), i18nc("@info: country code", "Tajik") );
-    countryCodeMap.insert( QLatin1String("tha"), i18nc("@info: country code", "Thai") );
+    countryCodeMap.insert( QLatin1String("tha"), i18nc("@info: country code", "Thai") );            // codespell:ignore tha
     countryCodeMap.insert( QLatin1String("tir"), i18nc("@info: country code", "Tigrinya") );
     countryCodeMap.insert( QLatin1String("tuk"), i18nc("@info: country code", "Turkmen") );
     countryCodeMap.insert( QLatin1String("tgl"), i18nc("@info: country code", "Tagalog") );
@@ -606,7 +674,7 @@ DMetadata::CountryCodeMap DMetadata::countryCodeMap2()
     countryCodeMap.insert( QLatin1String("ukr"), i18nc("@info: country code", "Ukrainian") );
     countryCodeMap.insert( QLatin1String("urd"), i18nc("@info: country code", "Urdu") );
     countryCodeMap.insert( QLatin1String("uzb"), i18nc("@info: country code", "Uzbek") );
-    countryCodeMap.insert( QLatin1String("vie"), i18nc("@info: country code", "Vietnamese") );
+    countryCodeMap.insert( QLatin1String("vie"), i18nc("@info: country code", "Vietnamese") );      // codespell:ignore vie
     countryCodeMap.insert( QLatin1String("vol"), i18nc("@info: country code", "Volapuk") );
     countryCodeMap.insert( QLatin1String("wol"), i18nc("@info: country code", "Wolof") );
     countryCodeMap.insert( QLatin1String("xho"), i18nc("@info: country code", "Xhosa") );

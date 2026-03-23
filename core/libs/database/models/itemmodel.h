@@ -7,7 +7,7 @@
  * Description : Qt item model for database entries
  *
  * SPDX-FileCopyrightText: 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -234,7 +234,7 @@ public:
     /**
      * @brief Install an object as a preprocessor for ItemInfos added to this model.
      * For every QList of ItemInfos added to addItemInfo, the signal preprocess()
-     * will be emitted. The preprocessor may process the items and shall then readd
+     * will be emitted. The preprocessor may process the items and shall then re-add
      * them by calling reAddItemInfos(). It may take some time to process.
      * It shall discard any held infos when the modelReset() signal is sent.
      * It shall call readdFinished() when no reset occurred and all infos on the way have been readded.

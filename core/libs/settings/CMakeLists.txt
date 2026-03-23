@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -12,7 +12,7 @@ set(libsettings_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/applicationsettings_p.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/applicationsettings_albums.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/applicationsettings_database.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/applicationsettings_iconview.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/applicationsettings_views.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/applicationsettings_mime.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/applicationsettings_miscs.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/applicationsettings_tooltips.cpp

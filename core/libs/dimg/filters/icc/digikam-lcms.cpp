@@ -7,7 +7,7 @@
  * Description : LCMS2 wrapper
  *
  * SPDX-FileCopyrightText: 2012      by Francesco Riosa <francesco+kde at pnpitalia dot it>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -80,8 +80,6 @@ void _l2cmsMAT3tol1LPMAT3(cmsMAT3* const l2, LPMAT3 l1)
 }
 
 //--------------------------------------------------------------------------------
-
-static const float MATRIX_DET_TOLERANCE = 0.0001F;
 
 /**
  * @brief Compute chromatic adaptation matrix using Chad as cone matrix.

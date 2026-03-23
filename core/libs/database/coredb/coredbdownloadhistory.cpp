@@ -7,7 +7,7 @@
  * Description : Core database interface to manage camera item download history.
  *
  * SPDX-FileCopyrightText: 2007-2008 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -29,9 +29,9 @@ CamItemInfo::DownloadStatus CoreDbDownloadHistory::status(const QString& identif
     QList<qint64> seconds;
     seconds << 0 << 3600 << -3600;
 
-    for (const qint64 secound : std::as_const(seconds))
+    for (const qint64 second : std::as_const(seconds))
     {
-        QDateTime dt = date.addSecs(secound);
+        QDateTime dt = date.addSecs(second);
 
         if (CoreDbAccess().db()->findInDownloadHistory(identifier, name, fileSize, dt) != -1)
         {

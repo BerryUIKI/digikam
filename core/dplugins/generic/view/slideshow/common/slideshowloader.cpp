@@ -6,7 +6,7 @@
  * Date        : 2005-04-21
  * Description : slide show tool using preview of pictures.
  *
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText:      2004 by Enrico Ros <eros dot kde at email dot it>
  * SPDX-FileCopyrightText: 2019-2020 by Minh Nghia Duong <minhnghiaduong997 at gmail dot com>
  *
@@ -54,6 +54,10 @@
 #   include "windows.h"
 #endif
 
+#ifdef Q_OS_MACOS
+#   include <IOKit/pwr_mgt/IOPMLib.h>
+#endif
+
 using namespace Digikam;
 
 namespace DigikamGenericSlideShowPlugin
@@ -61,10 +65,11 @@ namespace DigikamGenericSlideShowPlugin
 
 class Q_DECL_HIDDEN SlideShowLoader::Private
 {
-
 public:
 
     Private() = default;
+
+public:
 
     int                    fileIndex            = -1;
     int                    screenSaverCookie    = -1;
@@ -86,6 +91,13 @@ public:
     SlideShowSettings*     settings             = nullptr;
 
     QMap<QString, QString> shortcutPrefixes;
+
+#ifdef Q_OS_MACOS
+
+    IOPMAssertionID        powerAssertion       = 0;        ///< For the screen saver lock/unlock under macOS.
+
+#endif
+
 };
 
 SlideShowLoader::SlideShowLoader(SlideShowSettings* const settings)
@@ -112,7 +124,7 @@ SlideShowLoader::SlideShowLoader(SlideShowSettings* const settings)
     // ---------------------------------------------------------------
 
     d->imageView = new SlideImage(this);
-    d->imageView->setPreviewSettings(d->settings->previewSettings);
+    d->imageView->setSlideShowSettings(d->settings);
 
     connect(d->imageView, SIGNAL(signalImageLoaded(bool)),
             this, SLOT(slotImageLoaded(bool)));
@@ -669,10 +681,6 @@ void SlideShowLoader::slotMouseMoveTimeOut()
 
 }
 
-/**
- * Inspired from Okular's presentation widget
- * TODO: Add OSX support
- */
 void SlideShowLoader::inhibitScreenSaver()
 {
 
@@ -697,6 +705,19 @@ void SlideShowLoader::inhibitScreenSaver()
         d->screenSaverCookie = reply.value();
     }
 
+#elif defined Q_OS_MACOS
+
+    QString reason       = i18nc("Reason for inhibiting the screensaver activation, when the presentation mode is active",
+                                 "Giving a slideshow");
+    CFStringRef cfReason = reason.toCFString();
+
+    IOPMAssertionCreateWithName(
+                                kIOPMAssertionTypePreventUserIdleDisplaySleep,
+                                kIOPMAssertionLevelOn,
+                                cfReason,
+                                &d->powerAssertion
+                               );
+
 #endif
 
 }
@@ -718,6 +739,14 @@ void SlideShowLoader::allowScreenSaver()
                                                               QLatin1String("UnInhibit"));
         message << (uint)d->screenSaverCookie;
         QDBusConnection::sessionBus().send(message);
+    }
+
+#elif defined Q_OS_MACOS
+
+    if (d->powerAssertion != 0)
+    {
+        IOPMAssertionRelease(d->powerAssertion);
+        d->powerAssertion = 0;
     }
 
 #endif

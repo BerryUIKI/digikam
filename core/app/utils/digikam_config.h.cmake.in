@@ -6,7 +6,7 @@
  * Date        : 2009-08-03
  * Description : digiKam config header
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -42,7 +42,7 @@
 #cmakedefine HAVE_HEIF 1
 
 /* The Eigen3 version string, if found, or an empty string otherwise */
-#define EIGEN3_VERSION_STRING "${EIGEN3_VERSION}"
+#define EIGEN3_VERSION_STRING "${Eigen3_VERSION}"
 
 /* Define to 1 if GPhoto2 shared library is installed */
 #cmakedefine HAVE_GPHOTO2 1
@@ -111,3 +111,10 @@
 #cmakedefine HAVE_IMAGE_MAGICK 1
 
 #define LIBEXEC_INSTALL_DIR "${KDE_INSTALL_FULL_LIBEXECDIR}"
+
+#define CMAKE_VERSION_STRING        "${CMAKE_VERSION}"
+#define CMAKE_CXX_COMPILER_ID       "${CMAKE_CXX_COMPILER_ID}"
+#define CMAKE_CXX_COMPILER_VERSION  "${CMAKE_CXX_COMPILER_VERSION}"
+#define CMAKE_HOST_PRETTY_NAME      "${CMAKE_HOST_PRETTY_NAME}"
+#define CMAKE_SYSTEM_PROCESSOR      "${CMAKE_SYSTEM_PROCESSOR}"
+#define CMAKE_HOST_SYSTEM_PROCESSOR "${CMAKE_HOST_SYSTEM_PROCESSOR}"

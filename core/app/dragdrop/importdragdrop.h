@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2012      by Islam Wazery <wazery at ubuntu dot com>
  * SPDX-FileCopyrightText: 2020-2025 by Maik Qualmann <metzpinguin at gmail dot com>
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -50,25 +50,16 @@ public:
     QStringList    mimeTypes() const                            override;
     QMimeData*     createMimeData(const QList<QModelIndex>&)    override;
 
-private:
+private Q_SLOTS:
 
-    enum DropAction
-    {
-        NoAction,
-        CopyAction,
-        MoveAction,
-        GroupAction,
-        AssignTagAction
-    };
+    void slotUploadCamItems();
 
 private:
 
-    QAction*   addGroupAction(QMenu* const menu);
-    QAction*   addCancelAction(QMenu* const menu);
-    DropAction copyOrMove(const QDropEvent* e,
-                          QWidget* const view,
-                          bool allowMove = true,
-                          bool askForGrouping = false);
+    QAbstractItemView*    m_view       = nullptr;
+
+    Qt::KeyboardModifiers m_modifiers;
+    QPoint                m_position;
 };
 
 } // namespace Digikam

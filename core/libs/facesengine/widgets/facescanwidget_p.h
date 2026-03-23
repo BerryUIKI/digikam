@@ -7,7 +7,7 @@
  * Description : Widget to choose options for face scanning
  *
  * SPDX-FileCopyrightText: 2010-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -21,21 +21,14 @@
 // Qt includes
 
 #include <QApplication>
-#include <QButtonGroup>
-#include <QGroupBox>
-#include <QCheckBox>
-#include <QGridLayout>
-#include <QLabel>
-#include <QMouseEvent>
-#include <QKeyEvent>
 #include <QRadioButton>
-#include <QToolButton>
-#include <QIcon>
+#include <QGridLayout>
 #include <QVBoxLayout>
-#include <QPushButton>
+#include <QCheckBox>
+#include <QLabel>
 #include <QStyle>
+#include <QIcon>
 #include <QList>
-#include <QStandardItemModel>
 
 // KDE includes
 
@@ -44,20 +37,20 @@
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "digikam_config.h"
 #include "digikam_globals.h"
 #include "digikam_opencv.h"
 #include "dlayoutbox.h"
 #include "dnuminput.h"
-#include "digikam_debug.h"
 #include "albummodel.h"
 #include "albumselectors.h"
 #include "albummanager.h"
 #include "squeezedcombobox.h"
 #include "dexpanderbox.h"
 #include "facedbaccess.h"
-#include "facedb.h"
 #include "facesengine.h"
+#include "facedb.h"
 
 namespace Digikam
 {

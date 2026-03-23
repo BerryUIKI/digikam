@@ -6,7 +6,7 @@
  * Date        : 2006-21-12
  * Description : a embedded item-view to show the image preview widget.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2010-2011 by Aditya Bhatt <adityabhatt1991 at gmail dot com>
  *
@@ -34,13 +34,18 @@ public:
 
     Private() = default;
 
-    FaceGroup* group = nullptr;
-    ItemInfo   info;
+public:
+
+    ItemPreviewView* view  = nullptr;
+    FaceGroup*       group = nullptr;
+    ItemInfo         info;
 };
 
-ItemPreviewCanvas::ItemPreviewCanvas()
-    : d(new Private)
+ItemPreviewCanvas::ItemPreviewCanvas(ItemPreviewView* const view)
+    : DImgPreviewItem(),
+      d              (new Private)
 {
+    d->view = view;
     setAcceptHoverEvents(true);
 }
 
@@ -67,17 +72,26 @@ ItemInfo ItemPreviewCanvas::imageInfo() const
 
 void ItemPreviewCanvas::hoverEnterEvent(QGraphicsSceneHoverEvent* e)
 {
-    d->group->itemHoverEnterEvent(e);
+    if (!d->view->isMagnifierVisible())
+    {
+        d->group->itemHoverEnterEvent(e);
+    }
 }
 
 void ItemPreviewCanvas::hoverLeaveEvent(QGraphicsSceneHoverEvent* e)
 {
-    d->group->itemHoverLeaveEvent(e);
+    if (!d->view->isMagnifierVisible())
+    {
+        d->group->itemHoverLeaveEvent(e);
+    }
 }
 
 void ItemPreviewCanvas::hoverMoveEvent(QGraphicsSceneHoverEvent* e)
 {
-    d->group->itemHoverMoveEvent(e);
+    if (!d->view->isMagnifierVisible())
+    {
+        d->group->itemHoverMoveEvent(e);
+    }
 }
 
 } // namespace Digikam

@@ -7,7 +7,7 @@
  * Description : a tool to create panorama by fusion of several images.
  *
  * SPDX-FileCopyrightText: 2011-2016 by Benjamin Girault <benjamin dot girault at gmail dot com>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -33,11 +33,7 @@
 #include "autooptimiserbinary.h"
 #include "cpcleanbinary.h"
 #include "cpfindbinary.h"
-#include "enblendbinary.h"
-#include "makebinary.h"
-#include "nonabinary.h"
 #include "panomodifybinary.h"
-#include "pto2mkbinary.h"
 #include "huginexecutorbinary.h"
 #include "ptofile.h"
 
@@ -84,13 +80,10 @@ public:
     QUrl                           panoPtoUrl;
     QSharedPointer<PTOType>        panoPtoData                  = nullptr;
 
-    QUrl                           previewMkUrl;
     QUrl                           previewUrl;
-    QUrl                           mkUrl;
     QUrl                           panoUrl;
 
-    bool                           hugin2015                    = false;
-    bool                           gPano;
+    bool                           gPano                        = false;
 /*
     bool                           hdr;
 */
@@ -106,11 +99,7 @@ public:
     AutoOptimiserBinary            autoOptimiserBinary;
     CPCleanBinary                  cpCleanBinary;
     CPFindBinary                   cpFindBinary;
-    EnblendBinary                  enblendBinary;
-    MakeBinary                     makeBinary;
-    NonaBinary                     nonaBinary;
     PanoModifyBinary               panoModifyBinary;
-    Pto2MkBinary                   pto2MkBinary;
     HuginExecutorBinary            huginExecutorBinary;
 
     PanoWizard*                    wizard                       = nullptr;
@@ -152,45 +141,14 @@ bool PanoManager::isCreated()
     return (!internalPtr.isNull());
 }
 
-void PanoManager::checkForHugin2015()
-{
-    if (d->autoOptimiserBinary.recheckDirectories())
-    {
-        d->hugin2015 = d->autoOptimiserBinary.versionIsRight(2015.0);
-    }
-
-    qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Hugin >= 2015.0 : " << d->hugin2015;
-}
-
 bool PanoManager::checkBinaries()
 {
-    bool result = d->autoOptimiserBinary.recheckDirectories() &&
-                  d->cpCleanBinary.recheckDirectories()       &&
-                  d->cpFindBinary.recheckDirectories()        &&
-                  d->enblendBinary.recheckDirectories()       &&
-                  d->makeBinary.recheckDirectories()          &&
-                  d->nonaBinary.recheckDirectories();
-
-    if (result)
-    {
-        if (d->hugin2015)
-        {
-            qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Check for Hugin Executor";
-            result = d->huginExecutorBinary.recheckDirectories();
-        }
-        else
-        {
-            qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Check for Hugin Pto2Mk";
-            result = d->pto2MkBinary.recheckDirectories();
-        }
-    }
-
-    return result;
-}
-
-bool PanoManager::hugin2015() const
-{
-    return d->hugin2015;
+    return (
+            d->autoOptimiserBinary.recheckDirectories() &&
+            d->cpCleanBinary.recheckDirectories()       &&
+            d->cpFindBinary.recheckDirectories()        &&
+            d->huginExecutorBinary.recheckDirectories()
+           );
 }
 
 void PanoManager::setGPano(bool gPano)
@@ -250,29 +208,9 @@ CPFindBinary& PanoManager::cpFindBinary() const
     return d->cpFindBinary;
 }
 
-EnblendBinary& PanoManager::enblendBinary() const
-{
-    return d->enblendBinary;
-}
-
-MakeBinary& PanoManager::makeBinary() const
-{
-    return d->makeBinary;
-}
-
-NonaBinary& PanoManager::nonaBinary() const
-{
-    return d->nonaBinary;
-}
-
 PanoModifyBinary& PanoManager::panoModifyBinary() const
 {
     return d->panoModifyBinary;
-}
-
-Pto2MkBinary& PanoManager::pto2MkBinary() const
-{
-    return d->pto2MkBinary;
 }
 
 HuginExecutorBinary& PanoManager::huginExecutorBinary() const
@@ -532,23 +470,6 @@ void PanoManager::resetPanoPto()
     d->panoPtoUrl.clear();
 }
 
-QUrl& PanoManager::previewMkUrl() const
-{
-    return d->previewMkUrl;
-}
-
-void PanoManager::resetPreviewMkUrl()
-{
-    QFile pto(d->previewMkUrl.toLocalFile());
-
-    if (pto.exists())
-    {
-        pto.remove();
-    }
-
-    d->previewMkUrl.clear();
-}
-
 QUrl& PanoManager::previewUrl() const
 {
     return d->previewUrl;
@@ -564,23 +485,6 @@ void PanoManager::resetPreviewUrl()
     }
 
     d->previewUrl.clear();
-}
-
-QUrl& PanoManager::mkUrl() const
-{
-    return d->mkUrl;
-}
-
-void PanoManager::resetMkUrl()
-{
-    QFile pto(d->mkUrl.toLocalFile());
-
-    if (pto.exists())
-    {
-        pto.remove();
-    }
-
-    d->mkUrl.clear();
 }
 
 QUrl& PanoManager::panoUrl() const

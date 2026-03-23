@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2008-2009 by Valerio Fuoglio <valerio dot fuoglio at gmail dot com>
  * SPDX-FileCopyrightText: 2009      by Andi Clemens <andi dot clemens at googlemail dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -139,6 +139,7 @@ void PresentationDlg::readSettings()
     d->sharedData->printFileName     = grp.readEntry("Print Filename",           true);
     d->sharedData->printProgress     = grp.readEntry("Print Progress Indicator", true);
     d->sharedData->printFileComments = grp.readEntry("Print Comments",           false);
+    d->sharedData->bgColor           = grp.readEntry("Background Color",         QColor(Qt::black));
     d->sharedData->loop              = grp.readEntry("Loop",                     false);
     d->sharedData->shuffle           = grp.readEntry("Shuffle",                  false);
     d->sharedData->effectName        = grp.readEntry("Effect Name",              "Random");
@@ -243,6 +244,7 @@ void PresentationDlg::saveSettings()
     grp.writeEntry("Print Filename",           d->sharedData->printFileName);
     grp.writeEntry("Print Progress Indicator", d->sharedData->printProgress);
     grp.writeEntry("Print Comments",           d->sharedData->printFileComments);
+    grp.writeEntry("Background Color",         d->sharedData->bgColor);
     grp.writeEntry("Loop",                     d->sharedData->loop);
     grp.writeEntry("Shuffle",                  d->sharedData->shuffle);
     grp.writeEntry("Use Milliseconds",         d->sharedData->useMilliseconds);

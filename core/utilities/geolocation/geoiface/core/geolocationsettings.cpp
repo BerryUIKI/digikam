@@ -6,7 +6,7 @@
  * Date        : 2023-12-21
  * Description : Geolocation Settings.
  *
- * SPDX-FileCopyrightText: 2022-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2022-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -135,14 +135,9 @@ public:
     GeolocationSettings object;
 };
 
-Q_GLOBAL_STATIC(GeolocationSettingsCreator, geolocationSettingsCreator)
+Q_GLOBAL_STATIC(GeolocationSettingsCreator, creator)
 
 // -----------------------------------------------------------------------------------------------
-
-GeolocationSettings* GeolocationSettings::instance()
-{
-    return &geolocationSettingsCreator->object;
-}
 
 GeolocationSettings::GeolocationSettings()
     : d(new Private)
@@ -154,6 +149,11 @@ GeolocationSettings::GeolocationSettings()
 GeolocationSettings::~GeolocationSettings()
 {
     delete d;
+}
+
+GeolocationSettings* GeolocationSettings::instance()
+{
+    return &creator->object;
 }
 
 void GeolocationSettings::registerWidget(MapWidget* const widget)
@@ -194,7 +194,8 @@ void GeolocationSettings::applySettingsToWidgets(const GeolocationSettingsContai
 
 MarbleWidget* GeolocationSettings::mainMarbleWidget() const
 {
-    qDebug() << "Registered Marble Widget:" << d->widgets;
+    qCDebug(DIGIKAM_GEOIFACE_LOG) << "Registered Marble Widget:" << d->widgets;
+
     for (MapWidget* const w : std::as_const(d->widgets))
     {
         if (w)

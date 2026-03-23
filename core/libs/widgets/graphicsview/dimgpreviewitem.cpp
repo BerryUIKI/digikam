@@ -60,6 +60,12 @@ void DImgPreviewItem::DImgPreviewItemPrivate::init(DImgPreviewItem* const q)
     QObject::connect(previewThread, SIGNAL(signalImageLoaded(LoadingDescription,DImg)),
                      q, SLOT(slotGotImagePreview(LoadingDescription,DImg)));
 
+    QObject::connect(previewThread, SIGNAL(signalImageStartedLoading(LoadingDescription)),
+                     q, SIGNAL(signalStartedLoading()));
+
+    QObject::connect(previewThread, SIGNAL(signalLoadingProgress(LoadingDescription,float)),
+                     q, SLOT(slotLoadingProgress(LoadingDescription,float)));
+
     QObject::connect(preloadThread, SIGNAL(signalImageLoaded(LoadingDescription,DImg)),
                      q, SLOT(preloadNext()));
 
@@ -233,9 +239,9 @@ void DImgPreviewItem::reload()
 {
     Q_D(DImgPreviewItem);
 
-    QString path = d->path;
+    QString pth = d->path;
     d->path.clear();
-    setPath(path);
+    setPath(pth);
 }
 
 DImgPreviewItem::State DImgPreviewItem::state() const
@@ -250,6 +256,11 @@ bool DImgPreviewItem::isLoaded() const
     Q_D(const DImgPreviewItem);
 
     return (d->state == ImageLoaded);
+}
+
+void DImgPreviewItem::slotLoadingProgress(const LoadingDescription&, float progress)
+{
+    Q_EMIT signalLoadingProgress(progress);
 }
 
 void DImgPreviewItem::slotGotImagePreview(const LoadingDescription& description, const DImg& image)
@@ -279,6 +290,8 @@ void DImgPreviewItem::slotGotImagePreview(const LoadingDescription& description,
         Q_EMIT stateChanged(d->state);
         Q_EMIT loaded();
     }
+
+    Q_EMIT signalLoadingComplete();
 
     preloadNext();
 }

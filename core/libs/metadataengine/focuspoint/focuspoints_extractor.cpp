@@ -6,7 +6,7 @@
  * Date        : 28/08/2021
  * Description : Extraction of focus points by exiftool data
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021      by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -53,16 +53,24 @@ FocusPointsExtractor::FocusPointsExtractor(QObject* const parent,const QString& 
 
     d->exifToolAvailable = parser->exifToolAvailable();
     d->metadata          = parser->currentData();
-    d->make              = findValue(QLatin1String("EXIF.IFD0.Camera.Make")).toString();
-    d->make              = d->make.split(QLatin1String(" "))[0].toUpper();
-    d->model             = findValue(QLatin1String("EXIF.IFD0.Camera.Model")).toString();
-    d->model             = d->model.split(QLatin1String(" "))[0].toUpper();
+    d->make              = findValue(QLatin1String("EXIF.IFD0.Camera.Make")).toString().toUpper();
+    d->model             = findValue(QLatin1String("EXIF.IFD0.Camera.Model")).toString().toUpper();
 
     // NOTE: init image size properties with generic values taken from file by default,
-    //       this will be overwrited by delegate with findADPoints().
+    //       this will be overwritten by delegate with findADPoints().
 
-    QVariant imageWidth  = findValue(QLatin1String("File.File.Image.ImageWidth"));
-    QVariant imageHeight = findValue(QLatin1String("File.File.Image.ImageHeight"));
+    QVariant imageWidth  = findValueFirstMatch(QStringList()
+                                               << QLatin1String("File.File.Image.ImageWidth")
+                                               << QLatin1String("EXIF.IFD0.Image.ImageWidth")
+                                               << QLatin1String("EXIF.SubIFD1.Image.ImageWidth")
+    );
+
+    QVariant imageHeight = findValueFirstMatch(QStringList()
+                                               << QLatin1String("File.File.Image.ImageHeight")
+                                               << QLatin1String("EXIF.IFD0.Image.ImageHeight")
+                                               << QLatin1String("EXIF.SubIFD1.Image.ImageHeight")
+    );
+
     setOriginalSize(QSize(imageWidth.toInt(), imageHeight.toInt()));
 
     QVariant direction   = findNumValue(QLatin1String("EXIF.IFD0.Image.Orientation"));
@@ -162,35 +170,52 @@ FocusPointsExtractor::ListAFPoints FocusPointsExtractor::findAFPoints() const
 
     if (!d->make.isNull())
     {
-        if (d->make == QLatin1String("APPLE"))
+        if (d->make.contains(QLatin1String("APPLE")))
         {
             qCDebug(DIGIKAM_METAENGINE_LOG) << "FocusPointsExtractor: use Apple Exif metadata";
 
             return getAFPoints_exif();
         }
 
-        if (d->make == QLatin1String("CANON"))
+        if (d->make.contains(QLatin1String("CANON")))
         {
             qCDebug(DIGIKAM_METAENGINE_LOG) << "FocusPointsExtractor: use Canon makernotes";
 
             return getAFPoints_canon();
         }
 
-        if (d->make == QLatin1String("NIKON"))
+        if (d->make.contains(QLatin1String("FUJIFILM")))
+        {
+            qCDebug(DIGIKAM_METAENGINE_LOG) << "FocusPointsExtractor: use Fujifilm makernotes";
+
+            return getAFPoints_fujifilm();
+        }
+
+        if (d->make.contains(QLatin1String("NIKON")))
         {
             qCDebug(DIGIKAM_METAENGINE_LOG) << "FocusPointsExtractor: use Nikon makernotes";
 
             return getAFPoints_nikon();
         }
 
-        if (d->make == QLatin1String("PANASONIC"))
+        if (
+            d->make.contains(QLatin1String("OLYMPUS"))           ||
+            d->make.contains(QLatin1String("OM DIGITAL SOLUTIONS"))
+           )
+        {
+            qCDebug(DIGIKAM_METAENGINE_LOG) << "FocusPointsExtractor: use Olympus/OMDS makernotes";
+
+            return getAFPoints_olympus();
+        }
+
+        if (d->make.contains(QLatin1String("PANASONIC")))
         {
             qCDebug(DIGIKAM_METAENGINE_LOG) << "FocusPointsExtractor: use Panasonic makernotes";
 
             return getAFPoints_panasonic();
         }
 
-        if (d->make == QLatin1String("SONY"))
+        if (d->make.contains(QLatin1String("SONY")))
         {
             qCDebug(DIGIKAM_METAENGINE_LOG) << "FocusPointsExtractor: use Sony makernotes";
 

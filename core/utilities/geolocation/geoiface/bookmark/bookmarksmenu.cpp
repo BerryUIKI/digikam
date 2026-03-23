@@ -6,7 +6,7 @@
  * Date        : 2017-05-15
  * Description : menu to manage bookmarks
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -320,7 +320,7 @@ void BookmarksMenu::slotActivated(const QModelIndex& index)
 bool BookmarksMenu::prePopulated()
 {
     setModel(d->manager->bookmarksModel());
-    setRootIndex(d->manager->bookmarksModel()->index(d->manager->bookmarks()->children().first()));
+    setRootIndex(d->manager->bookmarksModel()->index(d->manager->bookmarks()->children().constFirst()));
 
     // initial actions
 

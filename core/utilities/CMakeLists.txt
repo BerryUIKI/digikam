@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -26,6 +26,7 @@ add_subdirectory(advancedrename)
 add_subdirectory(queuemanager)
 add_subdirectory(imageeditor)
 add_subdirectory(lighttable)
+add_subdirectory(survey)
 add_subdirectory(firstrun)
 add_subdirectory(import)
 add_subdirectory(setup)

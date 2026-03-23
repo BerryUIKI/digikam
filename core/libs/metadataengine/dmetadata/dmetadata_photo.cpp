@@ -6,7 +6,7 @@
  * Date        : 2006-02-23
  * Description : item metadata interface - photo info helpers.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2011      by Leif Huhn <leif at dkstat dot com>
  *
@@ -263,6 +263,7 @@ QString DMetadata::getLensDescription() const
     lensExifTags.append(QLatin1String("Exif.NikonLd1.LensIDNumber")); ///< Nikon Cameras Makernote.
     lensExifTags.append(QLatin1String("Exif.NikonLd2.LensIDNumber")); ///< Nikon Cameras Makernote.
     lensExifTags.append(QLatin1String("Exif.NikonLd3.LensIDNumber")); ///< Nikon Cameras Makernote.
+    lensExifTags.append(QLatin1String("Exif.NikonLd4.LensIDNumber")); ///< Nikon Cameras Makernote.
     lensExifTags.append(QLatin1String("Exif.Minolta.LensID"));        ///< Minolta Cameras Makernote.
     lensExifTags.append(QLatin1String("Exif.Sony1.LensID"));          ///< Sony Cameras Makernote.
     lensExifTags.append(QLatin1String("Exif.Sony2.LensID"));          ///< Sony Cameras Makernote.
@@ -282,7 +283,12 @@ QString DMetadata::getLensDescription() const
     QString make      = getExifTagString("Exif.Image.Make");
     QString lensModel = QLatin1String("Exif.Photo.LensModel");
 
-    if      (make.contains(QLatin1String("SONY"), Qt::CaseInsensitive))
+    if      (
+             make.contains(QLatin1String("SONY"), Qt::CaseInsensitive)  ||
+             make.contains(QLatin1String("NIKON"), Qt::CaseInsensitive) ||
+             make.contains(QLatin1String("RICOH"), Qt::CaseInsensitive) ||
+             make.contains(QLatin1String("PENTAX"), Qt::CaseInsensitive)
+            )
     {
         lensExifTags.prepend(lensModel);
     }

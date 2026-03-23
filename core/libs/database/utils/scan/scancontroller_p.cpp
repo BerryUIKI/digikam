@@ -7,7 +7,7 @@
  * Description : scan item controller - private containers.
  *
  * SPDX-FileCopyrightText: 2005-2006 by Tom Albers <tomalbers at kde dot nl>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -80,25 +80,6 @@ QPixmap ScanController::Private::restartPixmap()
     }
 
     return errorPix;
-}
-
-void ScanController::Private::garbageCollectHints(bool setAccessTime)
-{
-    QDateTime current = QDateTime::currentDateTime();
-
-    if (
-        idle                    &&
-        lastHintAdded.isValid() &&
-        (lastHintAdded.secsTo(current) > (5 * 60))
-       )
-    {
-        hints->clear();
-    }
-
-    if (setAccessTime)
-    {
-        lastHintAdded = current;
-    }
 }
 
 // --------------------------------------------------------------------------------------------

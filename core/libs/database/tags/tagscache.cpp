@@ -7,7 +7,7 @@
  * Description : Cache for Tag information
  *
  * SPDX-FileCopyrightText: 2010-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -336,11 +336,6 @@ Q_GLOBAL_STATIC(TagsCacheCreator, creator)
 
 // ------------------------------------------------------------------------------------------
 
-TagsCache* TagsCache::instance()
-{
-    return &creator->object;
-}
-
 TagsCache::TagsCache()
     : QObject(),
       d      (new Private(this))
@@ -350,6 +345,11 @@ TagsCache::TagsCache()
 TagsCache::~TagsCache()
 {
     delete d;
+}
+
+TagsCache* TagsCache::instance()
+{
+    return &creator->object;
 }
 
 void TagsCache::initialize()

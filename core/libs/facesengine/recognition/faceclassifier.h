@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Face classifier
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -29,6 +29,9 @@ class DIGIKAM_GUI_EXPORT FaceClassifier : public FaceClassifierBase
 
 public:
 
+    FaceClassifier();
+    ~FaceClassifier()                                                         override;
+
     static FaceClassifier* instance();
 
     /**
@@ -50,7 +53,7 @@ public:
     int predict(const cv::UMat& target, 
                 const QList<int>& exclusionLabelList = QList<int>())    const override;
 
-    bool retrain()                                                      override;
+    bool retrain()                                                            override;
 
     void cancel();
 
@@ -63,9 +66,14 @@ Q_SIGNALS:
 
 protected:
 
-    const float MAX_DISTANCE                                            = 1000.0f; // arbitrary max distance to start calculating distance
+    /**
+     * arbitrary max distance to start calculating distance.
+     */
+    const float MAX_DISTANCE = 1000.0F;
 
-    bool loadTrainingData()                                             override;
+protected:
+
+    bool loadTrainingData()                                                   override;
 
 private:
 
@@ -75,7 +83,7 @@ private:
     int                       predictFullSearch(const cv::Mat& target, const QList<int>& exclusionLabelList)        const;
     int                       predictClassifier(const cv::Mat& target, const QList<int>& exclusionLabelList)        const;
     int                       listSearch(const cv::Mat& target,
-                                         const QMap<int, QList<cv::Mat> >& identityFeatures,
+                                         const QHash<int, QList<cv::Mat> >& identityFeatures,
                                          const QList<int>& exclusionLabelList)                                      const;
 
     bool                      validateKNNSVMResult(const cv::Mat& target, int label)                                const;
@@ -89,14 +97,8 @@ private:
 private:
 
     // Disable
-    explicit FaceClassifier(QObject*)                                   = delete;
-    FaceClassifier();
-    ~FaceClassifier()                                                   override;
-    FaceClassifier(const FaceClassifier&)                               = delete;
-
-private:
-
-    friend class FaceClassifierCreator;
+    explicit FaceClassifier(QObject*)     = delete;
+    FaceClassifier(const FaceClassifier&) = delete;
 };
 
 } // namespace Digikam

@@ -45,7 +45,9 @@ public:
 
 public:
 
-    void saveSettings();
+    void    saveSettings();
+    void    applyProxySettings();
+    QString getFacesEnginePath() const;
 
 public:
 
@@ -65,7 +67,7 @@ public:
     bool    enableOpenCL      = false;
     bool    enableDnnOpenCL   = false;
     bool    dnnOpenCLTested   = false;
-    
+
 #if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
     bool    enableHWVideo     = false;
@@ -74,6 +76,10 @@ public:
     QString videoBackend      = QLatin1String("ffmpeg");
 
 #endif
+
+    // Faces Engine path.
+
+    QString facesEnginePath;
 
     // Proxy Settings.
 

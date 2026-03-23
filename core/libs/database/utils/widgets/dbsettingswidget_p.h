@@ -7,7 +7,7 @@
  * Description : database settings widget - private container
  *
  * SPDX-FileCopyrightText: 2009-2010 by Holger Foerster <Hamsi2k at freenet dot de>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -36,11 +36,13 @@
 #include <QSqlError>
 #include <QStandardPaths>
 #include <QString>
+#include <QPushButton>
 #include <QStyle>
 #include <QTabWidget>
 #include <QTemporaryFile>
 #include <QTextBrowser>
 #include <QTimer>
+#include <QHelpEvent>
 #include <QVBoxLayout>
 
 // KDE includes
@@ -89,9 +91,11 @@ public:
     QSpinBox*          hostPort                 = nullptr;
 
     QComboBox*         dbType                   = nullptr;
-    QLabel*            dbPathLabel              = nullptr;
+    QPushButton*       dbTypeBtn                = nullptr;
+    QLabel*            dbPathLbl                = nullptr;
+    QPushButton*       dbPathBtn                = nullptr;
+    QPushButton*       walModeBtn               = nullptr;
     QLabel*            dbThumbsLabel            = nullptr;
-    QLabel*            walLabel                 = nullptr;
     QTextBrowser*      sqlInit                  = nullptr;
     QGroupBox*         expertSettings           = nullptr;
     QGroupBox*         dbNoticeBox              = nullptr;

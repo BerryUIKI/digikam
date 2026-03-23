@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -79,7 +79,7 @@ public:
 GeoDataStyle::Ptr GeoGraphicsScenePrivate::highlightStyle(const GeoDataDocument* document,
                                                           const GeoDataStyleMap& styleMap)
 {
-    // @todo Consider QUrl parsing when external styles are suppported
+    // @todo Consider QUrl parsing when external styles are supported
     QString highlightStyleId = styleMap.value(QStringLiteral("highlight"));
     highlightStyleId.remove(QLatin1Char('#'));
 

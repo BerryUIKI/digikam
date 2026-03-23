@@ -6,7 +6,7 @@
  * Date        : 2018-07-30
  * Description : image editor plugin to convert 16 bits color depth to 8.
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -68,7 +68,7 @@ QString Convert16To8ToolPlugin::handbookSection() const
 
 QString Convert16To8ToolPlugin::handbookChapter() const
 {
-    return QLatin1String("color_tools");
+    return QLatin1String("colors_tools");
 }
 
 QString Convert16To8ToolPlugin::handbookReference() const

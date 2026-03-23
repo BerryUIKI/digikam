@@ -4,10 +4,10 @@
  * https://www.digikam.org
  *
  * Date        : 2010-10-09
- * Description : Face scan settings contaner.
+ * Description : Face scan settings container.
  *
  * SPDX-FileCopyrightText: 2010-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -115,8 +115,8 @@ QDebug operator<<(QDebug dbg, const FaceScanSettings& s)
     dbg.nospace() << "Recognition Model       :" << s.recognizeModel         << Qt::endl;
     dbg.nospace() << "Recognition Accuracy    :" << s.recognizeAccuracy      << Qt::endl;
     dbg.nospace() << "Whole Albums            :" << s.wholeAlbums            << Qt::endl;
-    dbg.nospace() << "Albums                  :" << s.albums                 << Qt::endl;
-    dbg.nospace() << "Image Infos             :" << s.infos                  << Qt::endl;
+    dbg.nospace() << "Albums                  :" << s.albums.count()         << Qt::endl;
+    dbg.nospace() << "Image Infos             :" << s.infos.count()          << Qt::endl;
     dbg.nospace() << "Worker Thread Priority  :" << s.workerThreadPriority   << Qt::endl;
     dbg.nospace() << "Source                  :" << s.source                 << Qt::endl;
 

@@ -1,6 +1,6 @@
 # Script to build libgphoto for digiKam bundle.
 #
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -13,7 +13,7 @@ ExternalProject_Add(ext_tiff
 
     GIT_REPOSITORY https://gitlab.com/libtiff/libtiff.git
 
-    GIT_TAG v4.7.0
+    GIT_TAG v4.7.1
 
     CONFIGURE_COMMAND <SOURCE_DIR>/configure --prefix ${EXTPREFIX_tiff}
     UPDATE_COMMAND ""

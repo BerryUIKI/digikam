@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -139,7 +139,7 @@ bool DiscCache::find(const QString& key, QByteArray& data)
 
 bool DiscCache::insert(const QString& key, const QByteArray& data)
 {
-    // If we can't open/create a file for this entry signal an error
+    // If we cannot open/create a file for this entry signal an error
     QFile file(keyToFileName(key));
 
     if (!file.open(QIODevice::WriteOnly))
@@ -175,7 +175,7 @@ void DiscCache::remove(const QString& key)
         return;
     }
 
-    // If we can't remove the file we don't remove
+    // If we cannot remove the file we don't remove
     // the entry to prevent inconsistency
     if (!QFile::remove(keyToFileName(key)))
     {

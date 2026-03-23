@@ -30,20 +30,11 @@
 
 #include "digikam_debug.h"
 #include "digikam_globals.h"
+#include "dateformatmodifier.h"
 #include "ui_dateoptiondialogwidget.h"
 
 namespace Digikam
 {
-
-static QString getDateFormatLinkText()
-{
-    const QString dateFormatLink      = QString::fromUtf8("<a href='https://doc.qt.io/qt-5.15/qdatetime.html#toString'>%1</a>");
-    const QString dateFormatLinkDescr = i18nc("@info: date format settings", "format settings");
-
-    return dateFormatLink.arg(dateFormatLinkDescr);
-}
-
-// --------------------------------------------------------
 
 DateFormat::DateFormat()
 {
@@ -102,8 +93,8 @@ QVariant DateFormat::format(const QString& identifier)
 
 // --------------------------------------------------------
 
-DateOptionDialog::DateOptionDialog(Rule* parent)
-    : RuleDialog(parent),
+DateOptionDialog::DateOptionDialog(Rule* const parent, QWidget* const widget)
+    : RuleDialog(parent, widget),
       ui        (new Ui::DateOptionDialogWidget)
 {
     QWidget* const mainWidget = new QWidget(this);
@@ -257,18 +248,21 @@ void DateOptionDialog::updateExampleLabel()
 
 // --------------------------------------------------------
 
-DateOption::DateOption()
+DateOption::DateOption(QWidget* const widget)
     : Option(i18nc("@info", "Date && Time..."),
              i18nc("@info", "Add date and time information"),
              QLatin1String("view-calendar"))
 {
     addToken(QLatin1String("[date]"),            i18nc("@item", "Date and time (standard format)"));
-    addToken(QLatin1String("[date:||key||]"),    i18nc("@item", "Date and time") + QLatin1String(" (||key|| = Standard|ISO|UnixTimeStamp|Text)"));
-    addToken(QLatin1String("[date:||format||]"), i18nc("@item", "Date and time") + QLatin1String(" (") + getDateFormatLinkText() + QLatin1Char(')'));
+    addToken(QLatin1String("[date:||key||]"),    i18nc("@item", "Date and time") +
+                                                                 QLatin1String(" (||key|| = Standard|ISO|UnixTimeStamp|Text)"));
+    addToken(QLatin1String("[date:||format||]"), i18nc("@item", "Date and time") + QLatin1String(" (") +
+                                                                 getDateFormatLinkText() + QLatin1Char(')'));
 
     QRegularExpression reg(QLatin1String("\\[date(:(.*))?\\]"));
     reg.setPatternOptions(QRegularExpression::InvertedGreedinessOption);
     setRegExp(reg);
+    setParentWidget(widget);
 }
 
 QString DateOption::parseOperation(ParseSettings& settings, const QRegularExpressionMatch& match)
@@ -376,11 +370,11 @@ void DateOption::slotTokenTriggered(const QString& token)
 {
     Q_UNUSED(token)
 
-    QPointer<DateOptionDialog> dlg = new DateOptionDialog(this);
+    QPointer<DateOptionDialog> dlg = new DateOptionDialog(this, getParentWidget());
 
     QString dateString;
 
-    if (dlg->exec() == QDialog::Accepted)
+    if (dialogExec(dlg) == QDialog::Accepted)
     {
         DateFormat df;
         int index = dlg->ui->dateFormatPicker->currentIndex();

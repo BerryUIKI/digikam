@@ -7,7 +7,7 @@
  * Description : Online version downloader.
  *
  * SPDX-FileCopyrightText: 2020-2021 by Maik Qualmann <metzpinguin at gmail dot com>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -40,6 +40,7 @@
 
 #include "digikam_debug.h"
 #include "onlineversionchecker.h"
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -245,7 +246,7 @@ void OnlineVersionDwnl::slotDownloaded(QNetworkReply* reply)
         }
 
         QTextStream in(&data);
-        QString line    = in.readLine();  // first line and section 0 constains the checksum.
+        QString line    = in.readLine();  // first line and section 0 contains the checksum.
         QString sums    = line.section(QLatin1Char(' '), 0, 0);
 
         if (sums.isEmpty())
@@ -294,6 +295,8 @@ void OnlineVersionDwnl::slotDownloaded(QNetworkReply* reply)
 
     fwatcher.setFuture(QtConcurrent::run([&hash, &data]()
         {
+            ActionThreadBase::setCurrentThreadName(QLatin1String("VersionComputeHash"));       // To customize thread name
+
             QCryptographicHash sha256(QCryptographicHash::Sha256);
             sha256.addData(data);
             hash = QString::fromLatin1(sha256.result().toHex());

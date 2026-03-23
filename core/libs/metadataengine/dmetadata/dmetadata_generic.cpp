@@ -6,7 +6,7 @@
  * Date        : 2006-02-23
  * Description : item metadata interface - generic helpers
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2011      by Leif Huhn <leif at dkstat dot com>
  *
@@ -843,7 +843,7 @@ QString DMetadata::valueToString(const QVariant& value, MetadataInfo::Field fiel
         case MetadataInfo::CreationDate:
         case MetadataInfo::DigitizationDate:
         {
-            return QLocale().toString(value.toDateTime(), QLocale::ShortFormat);
+            return asUserDateTime(value.toDateTime());
         }
 
         case MetadataInfo::Orientation:

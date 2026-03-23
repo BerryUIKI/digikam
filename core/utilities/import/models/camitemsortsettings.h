@@ -54,7 +54,10 @@ public:
         SortByCreationDate,
         SortByFileSize,
         SortByDownloadState,
-        SortByRating
+        SortByRating,
+        SortByPickLabel,
+        SortByColorLabel,
+        SortByFormat
     };
 
 public:

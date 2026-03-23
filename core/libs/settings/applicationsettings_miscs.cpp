@@ -7,7 +7,7 @@
  * Description : application settings interface
  *
  * SPDX-FileCopyrightText: 2003-2004 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2003-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2003-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2007      by Arnd Baecker <arnd dot baecker at web dot de>
  * SPDX-FileCopyrightText: 2014      by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  * SPDX-FileCopyrightText: 2014      by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
@@ -241,6 +241,16 @@ void ApplicationSettings::setIconTheme(const QString& theme)
 QString ApplicationSettings::getIconTheme() const
 {
     return d->applicationIcon;
+}
+
+void ApplicationSettings::setDateTimeFormat(const QString& fmt)
+{
+    DATETIMEFORMATSTRING = fmt;
+}
+
+QString ApplicationSettings::getDateTimeFormat() const
+{
+    return DATETIMEFORMATSTRING;
 }
 
 void ApplicationSettings::setShowThumbbar(bool val)

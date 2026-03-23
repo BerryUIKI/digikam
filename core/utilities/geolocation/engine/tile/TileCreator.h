@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -37,7 +37,7 @@ class TileCreatorPrivate;
  * Base Class for custom tile source
  *
  * Implement this class to have more control over the tile creating process. This
- * is needed when creating with a high tileLevel where the whole source image can't
+ * is needed when creating with a high tileLevel where the whole source image cannot
  * be loaded at once.
  **/
 class DIGIKAM_EXPORT TileCreatorSource

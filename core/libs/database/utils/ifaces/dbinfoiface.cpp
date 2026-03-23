@@ -6,7 +6,7 @@
  * Date        : 2017-05-06
  * Description : interface to database information for shared tools.
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2019-2020 by Minh Nghia Duong <minhnghiaduong997 at gmail dot com>
  * SPDX-FileCopyrightText: 2017      by Mario Frank <mario dot frank at uni minus potsdam dot de>
  *
@@ -67,6 +67,8 @@ class Q_DECL_HIDDEN DBInfoIface::Private
 public:
 
     Private() = default;
+
+public:
 
     AlbumManager*        albumManager     = AlbumManager::instance();
     AlbumSelectTabs*     albumsChooser    = nullptr;
@@ -298,10 +300,17 @@ DBInfoIface::DBInfoIface(QObject* const parent, const QList<QUrl>& lst,
     d->itemUrls      = lst;
     d->operationType = type;
 
-    // forward signal to DPluginAction of Digikam
+    // Forward signal to DPluginAction of Digikam
 
-    connect(TagsActionMngr::defaultManager(), SIGNAL(signalShortcutPressed(QString,int)),
-            this, SIGNAL(signalShortcutPressed(QString,int)));
+    connect(TagsActionMngr::defaultManager(), &TagsActionMngr::signalShortcutPressed,
+            this, &DBInfoIface::signalShortcutPressed);
+
+    connect(TagsActionMngr::defaultManager(), &TagsActionMngr::signalColorLabelNamesUpdated,
+            this, [this]()
+        {
+            Q_EMIT signalColorLabelNamesUpdated(TagsActionMngr::defaultManager()->colorLabelNames());
+        }
+    );
 }
 
 DBInfoIface::~DBInfoIface()
@@ -320,6 +329,11 @@ void DBInfoIface::slotDateTimeForUrl(const QUrl& url, const QDateTime& dt, bool 
         if (updModDate)
         {
             info.setModDateTime(dt);
+        }
+        else
+        {
+            QFileInfo finfo(url.toLocalFile());
+            info.setModDateTime(finfo.lastModified());
         }
     }
 
@@ -765,9 +779,15 @@ QUrl DBInfoIface::defaultUploadUrl() const
         place = QUrl::fromLocalFile(pics.first());
     }
 
-    Album* const album = AlbumManager::instance()->currentAlbums().first();
+    QList<Album*> albumList = AlbumManager::instance()->currentAlbums();
+    Album* album            = nullptr;
 
-    if (album->type() == Album::PHYSICAL)
+    if (!albumList.isEmpty())
+    {
+        album = albumList.first();
+    }
+
+    if (album && (album->type() == Album::PHYSICAL))
     {
         PAlbum* const p = dynamic_cast<PAlbum*>(album);
 

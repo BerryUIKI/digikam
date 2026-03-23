@@ -6,7 +6,7 @@
  * Date        : 2012-02-02
  * Description : maintenance tool
  *
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -44,6 +44,9 @@ public:
 public:
 
     bool          notification = true;
+    uint          advanceSteps = 1;
+
+    QTimer        progressTimer;
     QElapsedTimer duration;
 };
 
@@ -65,6 +68,7 @@ MaintenanceTool::MaintenanceTool(const QString& id, ProgressItem* const parent)
 
 #endif
 
+    d->progressTimer.setSingleShot(true);
 }
 
 MaintenanceTool::~MaintenanceTool()
@@ -75,6 +79,22 @@ MaintenanceTool::~MaintenanceTool()
 void MaintenanceTool::setNotificationEnabled(bool b)
 {
     d->notification = b;
+}
+
+uint MaintenanceTool::checkProgressNeeded() const
+{
+    if (!d->progressTimer.isActive())
+    {
+        uint adv        = d->advanceSteps;
+        d->progressTimer.start(50);
+        d->advanceSteps = 1;
+
+        return adv;
+    }
+
+    d->advanceSteps++;
+
+    return 0;
 }
 
 void MaintenanceTool::start()

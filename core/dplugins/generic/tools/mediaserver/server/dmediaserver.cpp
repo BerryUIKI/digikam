@@ -6,7 +6,7 @@
  * Date        : 2017-09-24
  * Description : a media server to export collections through DLNA.
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -110,6 +110,8 @@ public:
         NPT_LogHandler::Create("digiKam", "CustomHandler", logHandler);
         logHandler->SetCustomHandlerFunction(&UPnPLogger);
     }
+
+public:
 
     PLT_UPnP*                   upnp            = nullptr;
     NPT_LogHandler*             logHandler      = nullptr;

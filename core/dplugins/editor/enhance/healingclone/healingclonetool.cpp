@@ -6,7 +6,7 @@
  * Date        : 2017-06-15
  * Description : a tool to replace part of the image using another
  *
- * SPDX-FileCopyrightText: 2004-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2004-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2017      by Shaza Ismail Kaoud <shaza dot ismail dot k at gmail dot com>
  * SPDX-FileCopyrightText: 2019      by Ahmed Fathi <ahmed dot fathi dot abdelmageed at gmail dot com>
  *
@@ -188,14 +188,14 @@ HealingCloneTool::HealingCloneTool(QObject* const parent)
 
     // --------------------------------------------------------
 
-    QString help = i18n("<p>How To Use:<br/><br/>"
-                        "* Press <b>s</b> to switch to source-selection mode, and select source point on image.<br/>"
-                        "* Press <b>s</b> again and start cloning.<br/>"
-                        "* Press <b>[</b> and <b>]</b> to change brush size.<br/>"
-                        "* Press <b>CTRL+Mousewheel</b> to zoom in/out.<br/>"
-                        "* Press <b>m</b> to pan the image if image is larger than viewport.<br/>"
+    QString help = i18n("<p>How To Use:<br><br>"
+                        "* Press <b>s</b> to switch to source-selection mode, and select source point on image.<br>"
+                        "* Press <b>s</b> again and start cloning.<br>"
+                        "* Press <b>[</b> and <b>]</b> to change brush size.<br>"
+                        "* Press <b>CTRL+Mousewheel</b> to zoom in/out.<br>"
+                        "* Press <b>m</b> to pan the image if image is larger than viewport.<br>"
                         "* Press <b>l</b> to start lasso mode. Start drawing lasso boundary either "
-                        "continuously or discretely, then double-click or press l again to close the boundary.<br/>"
+                        "continuously or discretely, then double-click or press l again to close the boundary.<br>"
                         "* Inside lasso mode, you can clone only inside the lasso region.</p>");
 
     DTextBrowser* const label3 = new DTextBrowser(help);

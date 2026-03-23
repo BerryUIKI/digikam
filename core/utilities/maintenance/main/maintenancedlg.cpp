@@ -6,7 +6,7 @@
  * Date        : 2012-01-30
  * Description : maintenance dialog
  *
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2025      by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -75,7 +75,7 @@ MaintenanceDlg::MaintenanceDlg(QWidget* const parent)
 
     d->expanderBox->insertItem(
                                Private::NewItems,
-                               new QLabel(i18n("<qt>No option<br/>"
+                               new QLabel(i18n("<qt>No option<br>"
                                                "<i>Note: only Albums Collection are processed by this tool.</i></qt>")),
                                QIcon::fromTheme(QLatin1String("view-refresh")),
                                i18n("Scan for new items"),
@@ -89,7 +89,7 @@ MaintenanceDlg::MaintenanceDlg(QWidget* const parent)
 
     d->vbox3                   = new DVBox;
     new QLabel(i18n("<qt><i>Note: If activated, the core database is always cleaned. "
-                    "You can select additional databases for cleaning.<br/>"
+                    "You can select additional databases for cleaning.<br>"
                     "If you select one of the options below, the process may take "
                     "much time and can freeze digiKam temporarily "
                     "in order to make sure that no database corruption occurs.</i></qt>"), d->vbox3);
@@ -143,7 +143,7 @@ MaintenanceDlg::MaintenanceDlg(QWidget* const parent)
 
     // --------------------------------------------------------------------------------------
 
-    const ApplicationSettings* const settings = ApplicationSettings::instance();
+    const ApplicationSettings* const config   = ApplicationSettings::instance();
 
     d->duplicatesBox                          = new DVBox;
     d->similarityRangeBox                     = new DHBox(d->duplicatesBox);
@@ -154,11 +154,11 @@ MaintenanceDlg::MaintenanceDlg(QWidget* const parent)
     d->similarityRange                        = new DIntRangeBox(d->similarityRangeBox);
     d->similarityRange->setSuffix(QLatin1String("%"));
 
-    if (settings)
+    if (config)
     {
-        d->similarityRange->setRange(settings->getMinimumSimilarityBound(), 100);
-        d->similarityRange->setInterval(settings->getDuplicatesSearchLastMinSimilarity(),
-                                        settings->getDuplicatesSearchLastMaxSimilarity());
+        d->similarityRange->setRange(config->getMinimumSimilarityBound(), 100);
+        d->similarityRange->setInterval(config->getDuplicatesSearchLastMinSimilarity(),
+                                        config->getDuplicatesSearchLastMaxSimilarity());
     }
     else
     {
@@ -182,9 +182,9 @@ MaintenanceDlg::MaintenanceDlg(QWidget* const parent)
 
     HaarIface::DuplicatesSearchRestrictions restrictions = HaarIface::DuplicatesSearchRestrictions::None;
 
-    if (settings)
+    if (config)
     {
-        restrictions = (HaarIface::DuplicatesSearchRestrictions) settings->getDuplicatesSearchRestrictions();
+        restrictions = (HaarIface::DuplicatesSearchRestrictions) config->getDuplicatesSearchRestrictions();
     }
 
     d->searchResultRestriction->setCurrentIndex(d->searchResultRestriction->findData(restrictions));
@@ -257,7 +257,7 @@ MaintenanceDlg::MaintenanceDlg(QWidget* const parent)
 
     if (!SystemSettings(qApp->applicationName()).enableAutoTags)
     {
-        d->expanderBox->setItemExpanded(Private::AutotagsAssignment, false);    
+        d->expanderBox->setItemExpanded(Private::AutotagsAssignment, false);
         d->expanderBox->setItemEnabled(Private::AutotagsAssignment, false);
     }
 
@@ -345,7 +345,7 @@ MaintenanceDlg::MaintenanceDlg(QWidget* const parent)
             this, SLOT(slotMetadataSetup()));
 
     connect(d->resetFaceDb, &QCheckBox::toggled,
-            [this] (bool on)
+            this, [this] (bool on)
         {
             if (on)
             {

@@ -6,7 +6,7 @@
  * Date        : 2009-09-08
  * Description : global macros, variables and flags - Bundle functions.
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -165,6 +165,26 @@ QProcessEnvironment adjustedEnvironmentForAppImage()
         {
             env.remove(QLatin1String("XDG_SESSION_DESKTOP"));
         }
+
+        if (!env.value(QLatin1String("APPIMAGE_ORIGINAL_MAGICK_CODER_MODULE_PATH")).isEmpty())
+        {
+            env.insert(QLatin1String("MAGICK_CODER_MODULE_PATH"),
+                       env.value(QLatin1String("APPIMAGE_ORIGINAL_MAGICK_CODER_MODULE_PATH")));
+        }
+        else
+        {
+            env.remove(QLatin1String("MAGICK_CODER_MODULE_PATH"));
+        }
+
+        if (!env.value(QLatin1String("APPIMAGE_ORIGINAL_MAGICK_CODER_FILTER_PATH")).isEmpty())
+        {
+            env.insert(QLatin1String("MAGICK_CODER_FILTER_PATH"),
+                       env.value(QLatin1String("APPIMAGE_ORIGINAL_MAGICK_CODER_FILTER_PATH")));
+        }
+        else
+        {
+            env.remove(QLatin1String("MAGICK_CODER_FILTER_PATH"));
+        }
     }
     else
     {
@@ -305,40 +325,108 @@ void loadEcmQtTranslationFiles(QApplication& app)
 
 #if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
+    // Qt6 version
+
+    /**
+     * Translation files have been verified with the DE i18n set located at:
+     *
+     * macOS:    /Applications/digikam.org/digikam.app/Contents/Resources/locale/de/LC_MESSAGES
+     * AppImage: squashfs-root/usr/share/locale/de/LC_MESSAGES
+     * Windows:  C:\Program Files\digiKam\data\locale\de\LC_MESSAGES
+     *
+     * Bundle:                                          macOS      AppImage    Windows
+     *                                                  A  I        A  I        A  I
+     * Legend:
+     *    A = available (check with DE i18n set)
+     *    I = included
+     *    x = do not exists
+     *    ? = to check
+     */
     const QStringList ecmCatalogs =
     {
-        QLatin1String("kbookmarks6_qt"),
-        QLatin1String("kcodecs6_qt"),
-        QLatin1String("kcompletion6_qt"),
-        QLatin1String("kconfig6_qt"),
-        QLatin1String("kcoreaddons6_qt"),
-        QLatin1String("kdbusaddons6_qt"),
-        QLatin1String("kitemviews6_qt"),
-        QLatin1String("kwidgetsaddons6_qt"),
-        QLatin1String("kwindowsystem6_qt"),
-        QLatin1String("solid6_qt"),
+        QLatin1String("karchive6_qt"),          //      A  I        A  I        A  I
+        QLatin1String("kauth6_qt"),             //      A  I        A  I        x
+        QLatin1String("kbookmarks6_qt"),        //      A  I        A  I        A  I
+        QLatin1String("kcodecs6_qt"),           //      A  I        A  I        A  I
+        QLatin1String("kcompletion6_qt"),       //      A  I        A  I        A  I
+        QLatin1String("kconfig6_qt"),           //      A  I        A  I        A  I
+        QLatin1String("kcoreaddons6_qt"),       //      A  I        A  I        A  I
+        QLatin1String("kdbusaddons6_qt"),       //      A  I        A  I        A  I
+        QLatin1String("kglobalaccel6_qt"),      //      x           A  I        x
+        QLatin1String("kitemviews6_qt"),        //      A  I        A  I        A  I
+        QLatin1String("kjobwidgets6_qt"),       //      A  I        A  I        A  I
+        QLatin1String("knotifications6_qt"),    //      A  I        A  I        A  I
+        QLatin1String("kwidgetsaddons6_qt"),    //      A  I        A  I        A  I
+        QLatin1String("kwindowsystem6_qt"),     //      A  I        A  I        A  I
+        QLatin1String("solid6_qt"),             //      A  I        A  I        A  I
+        QLatin1String("sonnet6_qt"),            //      A  I        A  I        A  I
 
 #else
 
+    // Qt5 version
+
+    /**
+     * Translation files have been verified with the DE i18n set located at:
+     *
+     * macOS:    /Applications/digikam.org/digikam.app/Contents/Resources/locale/de/LC_MESSAGES
+     * AppImage: squashfs-root/usr/share/locale/de/LC_MESSAGES
+     * Windows:  C:\Program Files\digiKam\data\locale\de\LC_MESSAGES
+     *
+     * Bundle:                                          macOS      AppImage    Windows
+     *                                                  A  I        A  I        A  I
+     * Legend:
+     *    A = available (check with DE i18n set)
+     *    I = included
+     *    x = do not exists
+     *    ? = to check
+     */
+
     const QStringList ecmCatalogs =
     {
-        QLatin1String("kauth5_qt"),
-        QLatin1String("kbookmarks5_qt"),
-        QLatin1String("kcodecs5_qt"),
-        QLatin1String("kcompletion5_qt"),
-        QLatin1String("kconfig5_qt"),
-        QLatin1String("kcoreaddons5_qt"),
-        QLatin1String("kdbusaddons5_qt"),
-        QLatin1String("kde5_xml_mimetypes"),
-        QLatin1String("kglobalaccel5_qt"),
-        QLatin1String("kitemviews5_qt"),
-        QLatin1String("kwidgetsaddons5_qt"),
-        QLatin1String("kwindowsystem5_qt"),
-        QLatin1String("solid5_qt"),
+        QLatin1String("karchive5_qt"),          //      A  I        A  I        A  I
+        QLatin1String("kauth5_qt"),             //      A  I        A  I        x
+        QLatin1String("kbookmarks5_qt"),        //      A  I        A  I        A  I
+        QLatin1String("kcodecs5_qt"),           //      A  I        A  I        A  I
+        QLatin1String("kcompletion5_qt"),       //      A  I        A  I        A  I
+        QLatin1String("kconfig5_qt"),           //      A  I        A  I        A  I
+        QLatin1String("kcoreaddons5_qt"),       //      A  I        A  I        A  I
+        QLatin1String("kdbusaddons5_qt"),       //      A  I        A  I        A  I
+        QLatin1String("kglobalaccel5_qt"),      //      x           A  I        x
+        QLatin1String("kitemviews5_qt"),        //      A  I        A  I        A  I
+        QLatin1String("kjobwidgets5_qt"),       //      A  I        A  I        A  I
+        QLatin1String("knotifications5_qt"),    //      A  I        A  I        A  I
+        QLatin1String("kwidgetsaddons5_qt"),    //      A  I        A  I        A  I
+        QLatin1String("kwindowsystem5_qt"),     //      A  I        A  I        A  I
+        QLatin1String("solid5_qt"),             //      A  I        A  I        A  I
+        QLatin1String("sonnet5_qt"),            //      x           A  I        A  I
 
 #endif
 
     };
+
+    /**
+     * NOTE: these files handled by this function are .qm Qt formatted translation catalogs (Qt Compiled Translation Source File).
+     * At the same place in the bundles, the .mo translations catalogs (Machine Objects)
+     * are also present and do not need a special rules to be loaded in memory at run time
+     * as it's done automatically in another place by the KDE framework.
+     *
+     * Typically list of .mo files present in the DE i18n catalog of the Qt6 AppImage bundle is listed below:
+     *
+     * breeze_kwin_deco.mo
+     * digikam.mo
+     * kconfigwidgets6.mo
+     * kiconthemes6.mo
+     * knotifyconfig6.mo
+     * kservice6.mo
+     * kxmlgui6.mo
+     * breeze_style_config.mo
+     * exiv2.mo
+     * ki18n6.mo
+     * kio6.mo
+     * ksanecore.mo
+     * ktextwidgets6.mo
+     * libksane.mo
+     */
 
     QStringList ecmLangs = KLocalizedString::languages();
     const QString langEn = QLatin1String("en");
@@ -488,13 +576,81 @@ void setMacOSEnvironment()
 
 void setWindowsEnvironment(QApplication& app)
 {
-
-    // michmill - should probably remove QApplication app from function signature and use
-    // QCoreApplication::applicationDirPath() below but I don't have a Windows
-    // machine to test with
-
     qputenv("MAGICK_CODER_MODULE_PATH", app.applicationDirPath().toUtf8());
     qputenv("MAGICK_CODER_FILTER_PATH", app.applicationDirPath().toUtf8());
+
+}
+
+void delayForRemoteDebuging(int delaySecs)
+{
+    const QByteArray remoteDebug = qgetenv("DIGIKAM_REMOTE_DEBUG");
+
+    if (remoteDebug.toUpper() == "ON")
+    {
+        qDebug() << "Waiting" << delaySecs << "seconds for remote debugging...";
+        qDebug() << "Current process ID         :" << qApp->applicationPid();
+        qDebug() << "Current process binary path:" << qApp->applicationFilePath();
+
+#ifndef Q_OS_WIN
+
+        QString appImageGDBOpt1;
+        QString appImageGDBOpt2;
+
+        if (isRunningInAppImageBundle())
+        {
+            appImageGDBOpt1 = QString::fromUtf8("-ex \"set sysroot %1/../..\"").arg(qApp->applicationDirPath());
+            appImageGDBOpt2 = QString::fromUtf8("-ex \"set solib-search-path %1/../lib\"").arg(qApp->applicationDirPath());
+        }
+
+        qDebug() << "Command line to attach GDB :"
+                 << "sudo gdb" << qApp->applicationFilePath()                   // Absolute path to the binary.
+                               << "-p"<< qApp->applicationPid()                 // Process PID.
+                               << "-ex \"catch throw\""                         // Handle the C++ exceptions.
+                               << appImageGDBOpt1.toUtf8().constData()          // Extra option for AppImage: sandboxed area root path.
+                               << appImageGDBOpt2.toUtf8().constData()          // Extra option for AppImage: internal path to shared libs.
+                               << "-ex c"                                       // Continue the execution.
+        ;
+
+#endif
+
+        QTime dwellTime = QTime::currentTime().addSecs(delaySecs);
+        int diff        = 0;
+        QElapsedTimer etimer;
+        etimer.start();
+
+        do
+        {
+            diff = QTime::currentTime().secsTo(dwellTime);
+
+            if (etimer.elapsed() > 1000)
+            {
+                printf("Countdown: %i  \r", diff);
+                fflush(stdout);
+                QCoreApplication::processEvents(QEventLoop::AllEvents, 100);
+                etimer.restart();
+            }
+        }
+        while (diff > 0);
+    }
+}
+
+bool detectKDEDesktopIsRunning()
+{
+    const QByteArray xdgCurrentDesktop = qgetenv("XDG_CURRENT_DESKTOP");
+
+    if (!xdgCurrentDesktop.isEmpty())
+    {
+        return (xdgCurrentDesktop.toUpper() == "KDE");
+    }
+
+    // Classic fallbacks
+
+    if (!qEnvironmentVariableIsEmpty("KDE_FULL_SESSION"))
+    {
+        return true;
+    }
+
+    return false;
 }
 
 } // namespace Digikam

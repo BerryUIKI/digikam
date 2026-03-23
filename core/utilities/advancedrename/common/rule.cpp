@@ -34,6 +34,8 @@ public:
 
     Private() = default;
 
+public:
+
     bool                    useTokenMenu = false;
 
     QString                 description;
@@ -41,6 +43,8 @@ public:
     QRegularExpression      regExp;
 
     TokenList               tokens;
+
+    QWidget*                widget       = nullptr;
 };
 
 Rule::Rule(const QString& name)
@@ -225,6 +229,16 @@ TokenList& Rule::tokens() const
     return d->tokens;
 }
 
+void Rule::setParentWidget(QWidget* const widget)
+{
+    d->widget = widget;
+}
+
+QWidget* Rule::getParentWidget() const
+{
+    return d->widget;
+}
+
 void Rule::slotTokenTriggered(const QString& token)
 {
     Q_EMIT signalTokenTriggered(token);
@@ -277,7 +291,7 @@ ParseResults Rule::parse(ParseSettings& settings)
         {
             QString result = parseOperation(settings, match);
 
-            ParseResults::ResultsKey   k(pos, match.captured(0).count());
+            ParseResults::ResultsKey   k(pos, match.captured(0).size());
             ParseResults::ResultsValue v(match.captured(0), result);
             parsedResults.addEntry(k, v);
             pos           += match.capturedLength();

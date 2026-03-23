@@ -7,7 +7,7 @@
  * Description : Access to extended properties of an item in the database
  *
  * SPDX-FileCopyrightText: 2009-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -70,7 +70,7 @@ public:
 
     /**
      * Returns the Scene.
-     * &ldquo; Describes the scene of a photo content. Specifies one ore more terms from the
+     * &ldquo; Describes the scene of a photo content. Specifies one more terms from the
      *   IPTC &lsquo;Scene-NewsCodes&rsquo;. Each Scene is represented as a string of 6 digits in an unordered list.&rdquo;
      */
     QStringList scene();

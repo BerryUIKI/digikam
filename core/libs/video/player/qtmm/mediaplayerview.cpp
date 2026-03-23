@@ -6,7 +6,7 @@
  * Date        : 2006-20-12
  * Description : a view to embed QtMultimedia media player.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -24,8 +24,8 @@
 #include <QPushButton>
 #include <QToolButton>
 #include <QFileInfo>
+#include <QPointer>
 #include <QToolBar>
-#include <QAction>
 #include <QSlider>
 #include <QLabel>
 #include <QFrame>
@@ -99,13 +99,6 @@ protected:
                     {
                         mplayer->slotEscapePressed();
                     }
-                    else if (
-                             (mouseEvent->button() == Qt::RightButton) &&
-                             (event->type()        == QEvent::MouseButtonPress)
-                            )
-                    {
-                        mplayer->slotRotateVideo();
-                    }
 
                     return true;
                 }
@@ -153,7 +146,7 @@ public:
 
     enum MediaPlayerViewMode
     {
-        ErrorView = 0,
+        MessageView = 0,
         PlayerView
     };
 
@@ -163,7 +156,8 @@ public:
 
 public:
 
-    QFrame*              errorView          = nullptr;
+    QFrame*              messageView        = nullptr;
+    QLabel*              msgLabel           = nullptr;
     QFrame*              playerView         = nullptr;
 
     QAction*             prevAction         = nullptr;
@@ -172,6 +166,8 @@ public:
     QAction*             grabAction         = nullptr;
     QAction*             backAction         = nullptr;
     QAction*             forwAction         = nullptr;
+    QAction*             rotlAction         = nullptr;
+    QAction*             rotrAction         = nullptr;
 
     QToolButton*         rateButton         = nullptr;
 
@@ -179,6 +175,7 @@ public:
     QPushButton*         speaker            = nullptr;
 
     QToolBar*            toolBar            = nullptr;
+    QWidget*             osdView            = nullptr;
 
     DInfoInterface*      iface              = nullptr;
 
@@ -201,6 +198,9 @@ public:
                                                   QStandardPaths::locate(
                                                       QStandardPaths::GenericDataLocation,
                                                       QLatin1String("digikam/data/video-digikam.mp4")));
+
+    const QString        errorMsg           = i18n("An error has occurred with the media player...");
+    const QString        endMsg             = i18n("End of media.");
 
 public:
 
@@ -253,6 +253,15 @@ public:
         videoView->fitInView(videoItem, Qt::KeepAspectRatio);
         videoView->centerOn(videoItem);
         videoView->raise();
+
+        if (osdView)
+        {
+            osdView->resize(videoView->width(),
+                            videoView->height());
+            osdView->raise();
+        }
+
+        toolBar->raise();
     };
 
     int videoMediaOrientation() const
@@ -284,17 +293,29 @@ MediaPlayerView::MediaPlayerView(QWidget* const parent)
     const int spacing      = layoutSpacing();
 
     d->prevAction          = new QAction(QIcon::fromTheme(QLatin1String("go-previous")),
-                                         i18nc("go to previous image", "Back"),           this);
+                                         i18nc("go to previous image", "Back"),                    this);
+    d->prevAction->setObjectName(QLatin1String("back"));
     d->nextAction          = new QAction(QIcon::fromTheme(QLatin1String("go-next")),
-                                         i18nc("go to next image", "Forward"),            this);
+                                         i18nc("go to next image", "Forward"),                     this);
+    d->nextAction->setObjectName(QLatin1String("next"));
     d->backAction          = new QAction(QIcon::fromTheme(QLatin1String("media-seek-backward")),
-                                         i18nc("video frame backward", "Frame Backward"), this);
+                                         i18nc("video frame backward", "Frame Backward"),          this);
+    d->backAction->setObjectName(QLatin1String("back"));
     d->playAction          = new QAction(QIcon::fromTheme(QLatin1String("media-playback-start")),
-                                         i18nc("pause/play video", "Pause/Play"),         this);
+                                         i18nc("pause/play video", "Pause/Play"),                  this);
+    d->playAction->setObjectName(QLatin1String("play"));
     d->forwAction          = new QAction(QIcon::fromTheme(QLatin1String("media-seek-forward")),
-                                         i18nc("video frame forward", "Frame Forward"),   this);
+                                         i18nc("video frame forward", "Frame Forward"),            this);
+    d->forwAction->setObjectName(QLatin1String("forw"));
     d->grabAction          = new QAction(QIcon::fromTheme(QLatin1String("view-preview")),
-                                         i18nc("capture video frame", "Capture"),         this);
+                                         i18nc("capture video frame", "Capture"),                  this);
+    d->grabAction->setObjectName(QLatin1String("grab"));
+    d->rotlAction          = new QAction(QIcon::fromTheme(QLatin1String("object-rotate-left")),
+                                         i18nc("rotate video in counterclockwize", "Rotate Left"), this);
+    d->rotlAction->setObjectName(QLatin1String("rotl"));
+    d->rotrAction          = new QAction(QIcon::fromTheme(QLatin1String("object-rotate-right")),
+                                         i18nc("rotate video in clockwize", "Rotate Right"),       this);
+    d->rotrAction->setObjectName(QLatin1String("rotr"));
 
     d->rateButton          = new QToolButton(this);
     d->rateButton->setToolTip(i18nc("@info", "Change video playback rate"));
@@ -302,7 +323,8 @@ MediaPlayerView::MediaPlayerView(QWidget* const parent)
     d->rateButton->setPopupMode(QToolButton::InstantPopup);
     d->rateButton->setArrowType(Qt::NoArrow);
 
-    QMenu* const rateMenu         = new QMenu(this);
+    QMenu* const rateMenu         = new QMenu(i18n("Rate"), this);
+    rateMenu->setIcon(QIcon::fromTheme(QLatin1String("player-time")));
     QActionGroup* const rateGroup = new QActionGroup(this);
 
     QAction* const rate05         = rateGroup->addAction(i18nc("video play rate", "0.5x"));
@@ -342,32 +364,34 @@ MediaPlayerView::MediaPlayerView(QWidget* const parent)
     rateMenu->addAction(rate50);
     d->rateButton->setMenu(rateMenu);
 
-    d->errorView           = new QFrame(this);
-    QLabel* const errorMsg = new QLabel(i18n("An error has occurred with the media player..."), this);
+    // ---
 
-    errorMsg->setAlignment(Qt::AlignCenter);
-    d->errorView->setFrameStyle(QFrame::StyledPanel | QFrame::Plain);
-    d->errorView->setLineWidth(1);
+    d->messageView = new QFrame(this);
+    d->msgLabel    = new QLabel(this);
 
-    QVBoxLayout* const vbox1 = new QVBoxLayout(d->errorView);
-    vbox1->addWidget(errorMsg, 10);
+    d->msgLabel->setAlignment(Qt::AlignCenter);
+    d->messageView->setFrameStyle(QFrame::StyledPanel | QFrame::Plain);
+    d->messageView->setLineWidth(1);
+
+    QVBoxLayout* const vbox1 = new QVBoxLayout(d->messageView);
+    vbox1->addWidget(d->msgLabel, 10);
     vbox1->setContentsMargins(QMargins());
     vbox1->setSpacing(spacing);
 
-    insertWidget(Private::ErrorView, d->errorView);
+    insertWidget(Private::MessageView, d->messageView);
 
-    // --------------------------------------------------------------------------
+    // ---
 
     d->playerView = new QFrame(this);
     d->videoScene = new QGraphicsScene(this);
-    d->videoView  = new QGraphicsView(d->videoScene);
+    d->videoView  = new QGraphicsView(d->videoScene, d->playerView);
     d->videoView->setVerticalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     d->videoView->setHorizontalScrollBarPolicy(Qt::ScrollBarAlwaysOff);
     d->videoView->setSizeAdjustPolicy(QAbstractScrollArea::AdjustToContents);
     d->videoView->setFrameShape(QFrame::NoFrame);
     d->videoItem  = new QGraphicsVideoItem();
     d->player     = new QMediaPlayer(this);
-    d->audio      = new QAudioOutput;
+    d->audio      = new QAudioOutput(this);
     d->player->setAudioOutput(d->audio);
     d->player->setVideoOutput(d->videoItem);
     d->videoScene->addItem(d->videoItem);
@@ -378,13 +402,14 @@ MediaPlayerView::MediaPlayerView(QWidget* const parent)
     d->videoItem->setAspectRatioMode(Qt::IgnoreAspectRatio);
     d->videoView->setMouseTracking(true);
 
-    DHBox* const hbox = new DHBox(this);
-    d->slider         = new QSlider(Qt::Horizontal, hbox);
-    d->slider->setStyle(new PlayerVideoStyle());
+    DHBox* const hbox              = new DHBox(this);
+    d->slider                      = new QSlider(Qt::Horizontal, hbox);
+    QPointer<PlayerVideoStyle> ptr = new PlayerVideoStyle;
+    d->slider->setStyle(ptr);
     d->slider->setRange(0, 0);
-    d->tlabel         = new QLabel(hbox);
+    d->tlabel                      = new QLabel(hbox);
     d->tlabel->setText(QLatin1String("00:00:00 / 00:00:00"));
-    d->loopPlay       = new QPushButton(hbox);
+    d->loopPlay                    = new QPushButton(hbox);
     d->loopPlay->setIcon(QIcon::fromTheme(QLatin1String("media-playlist-normal")));
     d->loopPlay->setSizePolicy(QSizePolicy::Minimum, QSizePolicy::Minimum);
     d->loopPlay->setToolTip(i18n("Toggle playing in a loop"));
@@ -441,11 +466,13 @@ MediaPlayerView::MediaPlayerView(QWidget* const parent)
     d->toolBar->addAction(d->forwAction);
     d->toolBar->addWidget(d->rateButton);
     d->toolBar->addAction(d->grabAction);
+    d->toolBar->addAction(d->rotlAction);
+    d->toolBar->addAction(d->rotrAction);
     d->toolBar->setStyleSheet(toolButtonStyleSheet());
 
     setPreviewMode(Private::PlayerView);
 
-    d->errorView->installEventFilter(new MediaPlayerMouseClickFilter(this));
+    d->messageView->installEventFilter(new MediaPlayerMouseClickFilter(this));
     d->videoView->installEventFilter(new MediaPlayerMouseClickFilter(this));
     d->playerView->installEventFilter(this);
 
@@ -479,6 +506,12 @@ MediaPlayerView::MediaPlayerView(QWidget* const parent)
     connect(d->grabAction, SIGNAL(triggered()),
             this, SLOT(slotCapture()));
 
+    connect(d->rotlAction, SIGNAL(triggered()),
+            this, SLOT(slotRotateVideoLeft()));
+
+    connect(d->rotrAction, SIGNAL(triggered()),
+            this, SLOT(slotRotateVideoRight()));
+
     connect(d->slider, SIGNAL(sliderMoved(int)),
             this, SLOT(slotPosition(int)));
 
@@ -509,6 +542,9 @@ MediaPlayerView::MediaPlayerView(QWidget* const parent)
     connect(d->videoItem, SIGNAL(nativeSizeChanged(QSizeF)),
             this, SLOT(slotNativeSizeChanged()));
 
+    connect(d->player, SIGNAL(metaDataChanged()),
+            this, SLOT(slotMetaDataChanged()));
+
     connect(rateMenu, SIGNAL(triggered(QAction*)),
             this, SLOT(slotPlaybackRate(QAction*)));
 
@@ -518,9 +554,37 @@ MediaPlayerView::MediaPlayerView(QWidget* const parent)
 
 MediaPlayerView::~MediaPlayerView()
 {
-    escapePreview();
+    d->player->stop();
+    d->player->setSource(QUrl());
 
     delete d;
+}
+
+QList<QAction*> MediaPlayerView::actionsList() const
+{
+    return QList<QAction*>() << d->prevAction
+                             << d->nextAction
+                             << d->playAction
+                             << d->forwAction
+                             << d->grabAction
+                             << d->rotlAction
+                             << d->rotrAction
+                             << d->rateButton->menu()->menuAction();
+}
+
+void MediaPlayerView::setToolbarVisible(bool b)
+{
+    d->toolBar->setVisible(b);
+}
+
+void MediaPlayerView::setToolbarExtraWidget(QWidget* const extra)
+{
+    d->toolBar->addWidget(extra);
+}
+
+void MediaPlayerView::setOsdWidget(QWidget* const osd)
+{
+    d->osdView = osd;
 }
 
 void MediaPlayerView::setInfoInterface(DInfoInterface* const iface)
@@ -554,10 +618,15 @@ void MediaPlayerView::slotPlayerStateChanged(QMediaPlayer::PlaybackState newStat
            )
         {
             qCDebug(DIGIKAM_GENERAL_LOG) << "Play video with QtMultimedia completed:" << d->player->source();
+            setPreviewMode(Private::MessageView);
 
             if (d->player->error() != QMediaPlayer::NoError)
             {
-                setPreviewMode(Private::ErrorView);
+                d->msgLabel->setText(d->errorMsg);
+            }
+            else
+            {
+                d->msgLabel->setText(d->endMsg);
             }
 
             d->backAction->setEnabled(false);
@@ -568,30 +637,61 @@ void MediaPlayerView::slotPlayerStateChanged(QMediaPlayer::PlaybackState newStat
 
 void MediaPlayerView::slotMediaStatusChanged(QMediaPlayer::MediaStatus newStatus)
 {
-    if      (newStatus == QMediaPlayer::LoadedMedia)
+    if      (newStatus == QMediaPlayer::InvalidMedia)
     {
-        int rotate = d->videoMediaOrientation();
-
-        qCDebug(DIGIKAM_GENERAL_LOG) << "Found video orientation with QtMultimedia:"
-                                     << rotate;
-
-        rotate     = (-rotate) + d->videoOrientation;
-
-        if      (rotate > 270)
-        {
-            rotate = 0;
-        }
-        else if (rotate < 0)
-        {
-            rotate = 270;
-        }
-
-        d->setVideoItemOrientation(rotate);
+        setPreviewMode(Private::MessageView);
+        d->msgLabel->setText(d->errorMsg);
     }
-    else if (newStatus == QMediaPlayer::InvalidMedia)
+    else if (newStatus == QMediaPlayer::EndOfMedia)
     {
-        setPreviewMode(Private::ErrorView);
+        setPreviewMode(Private::MessageView);
+        d->msgLabel->setText(d->endMsg);
     }
+}
+
+void MediaPlayerView::slotHandlePlayerError(QMediaPlayer::Error /*error*/, const QString& errStr)
+{
+    setPreviewMode(Private::MessageView);
+    d->msgLabel->setText(i18n("%1\n\nError: \"%2\"", d->errorMsg, errStr));
+
+    qCDebug(DIGIKAM_GENERAL_LOG) << "QtMultimedia Error: " << errStr;
+}
+
+void MediaPlayerView::slotNativeSizeChanged()
+{
+    d->adjustVideoSize();
+}
+
+void MediaPlayerView::slotMetaDataChanged()
+{
+    int rotate = d->videoMediaOrientation();
+
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Found video orientation with QtMultimedia:"
+                                 << rotate;
+
+    rotate     = (-rotate) + d->videoOrientation;
+
+    if      (rotate > 270)
+    {
+        rotate = 0;
+    }
+    else if (rotate < 0)
+    {
+        rotate = 270;
+    }
+
+    d->setVideoItemOrientation(rotate);
+}
+
+void MediaPlayerView::slotThemeChanged()
+{
+    QPalette palette;
+    palette.setColor(d->messageView->backgroundRole(), qApp->palette().color(QPalette::Base));
+    d->messageView->setPalette(palette);
+
+    QPalette palette2;
+    palette2.setColor(d->playerView->backgroundRole(), qApp->palette().color(QPalette::Base));
+    d->playerView->setPalette(palette2);
 }
 
 void MediaPlayerView::escapePreview()
@@ -600,23 +700,49 @@ void MediaPlayerView::escapePreview()
     d->player->setSource(d->dummyVideo);
 }
 
-void MediaPlayerView::slotThemeChanged()
-{
-    QPalette palette;
-    palette.setColor(d->errorView->backgroundRole(), qApp->palette().color(QPalette::Base));
-    d->errorView->setPalette(palette);
-
-    QPalette palette2;
-    palette2.setColor(d->playerView->backgroundRole(), qApp->palette().color(QPalette::Base));
-    d->playerView->setPalette(palette2);
-}
-
 void MediaPlayerView::slotEscapePressed()
 {
     Q_EMIT signalEscapePreview();
 }
 
-void MediaPlayerView::slotRotateVideo()
+void MediaPlayerView::slotRotateVideoLeft()
+{
+    if (d->player->playbackState() != QMediaPlayer::StoppedState)
+    {
+        int orientation = 0;
+
+        switch (d->videoOrientation)
+        {
+            case 0:
+            {
+                orientation = 270;
+                break;
+            }
+
+            case 90:
+            {
+                orientation = 0;
+                break;
+            }
+
+            case 180:
+            {
+                orientation = 90;
+                break;
+            }
+
+            default:
+            {
+                orientation = 180;
+                break;
+            }
+        }
+
+        d->setVideoItemOrientation(orientation);
+    }
+}
+
+void MediaPlayerView::slotRotateVideoRight()
 {
     if (d->player->playbackState() != QMediaPlayer::StoppedState)
     {
@@ -657,6 +783,8 @@ void MediaPlayerView::slotPausePlay()
 {
     if (!d->player->isPlaying())
     {
+        setPreviewMode(Private::PlayerView);
+
         d->player->play();
 
         return;
@@ -798,7 +926,7 @@ int MediaPlayerView::previewMode()
 
 void MediaPlayerView::setPreviewMode(int mode)
 {
-    if ((mode != Private::ErrorView) && (mode != Private::PlayerView))
+    if ((mode != Private::MessageView) && (mode != Private::PlayerView))
     {
         return;
     }
@@ -813,7 +941,6 @@ void MediaPlayerView::setCurrentItem(const QUrl& url, bool hasPrevious, bool has
 {
     d->prevAction->setEnabled(hasPrevious);
     d->nextAction->setEnabled(hasNext);
-    d->adjustVideoSize();
 
     if (url.isEmpty())
     {
@@ -876,7 +1003,18 @@ void MediaPlayerView::setCurrentItem(const QUrl& url, bool hasPrevious, bool has
 
     d->player->setSource(d->currentItem);
     setPreviewMode(Private::PlayerView);
-    d->player->play();
+
+    KSharedConfig::Ptr config = KSharedConfig::openConfig();
+    KConfigGroup group        = config->group(QLatin1String("Album Settings"));
+
+    if (group.readEntry("Preview Auto Play", true))
+    {
+        d->player->play();
+    }
+    else
+    {
+        d->player->pause();
+    }
 
     qCDebug(DIGIKAM_GENERAL_LOG) << "Play video with QtMultimedia started:" << d->player->source();
 }
@@ -970,18 +1108,6 @@ void MediaPlayerView::slotPosition(int position)
     {
         d->player->setPosition((qint64)position);
     }
-}
-
-void MediaPlayerView::slotHandlePlayerError(QMediaPlayer::Error /*error*/, const QString& errStr)
-{
-    setPreviewMode(Private::ErrorView);
-
-    qCDebug(DIGIKAM_GENERAL_LOG) << "QtMultimedia Error: " << errStr;
-}
-
-void MediaPlayerView::slotNativeSizeChanged()
-{
-    d->adjustVideoSize();
 }
 
 bool MediaPlayerView::eventFilter(QObject* watched, QEvent* event)

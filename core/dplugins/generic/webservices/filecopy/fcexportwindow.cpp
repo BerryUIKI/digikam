@@ -7,8 +7,8 @@
  * Description : a tool to export items to a local storage
  *
  * SPDX-FileCopyrightText: 2006-2009 by Johannes Wienke <languitar at semipol dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
- * SPDX-FileCopyrightText: 2019-2020 by Maik Qualmann <metzpinguin at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2019-2025 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -18,8 +18,10 @@
 
 // Qt includes
 
+#include <QDir>
 #include <QCloseEvent>
 #include <QMessageBox>
+#include <QHBoxLayout>
 
 // KDE includes
 
@@ -45,6 +47,8 @@ public:
 
     Private() = default;
 
+public:
+
     const QString TARGET_URL_PROPERTY           = QLatin1String("targetUrl");
     const QString TARGET_SIDECARS               = QLatin1String("sidecars");
     const QString TARGET_WRITE_METADATA_TO_FILE = QLatin1String("writeMetadataToFile");
@@ -59,6 +63,9 @@ public:
     const QString IMAGE_COMPRESSION             = QLatin1String("imageCompression");
     const QString REMOVE_METADATA               = QLatin1String("removeMetadata");
 
+public:
+
+    DItemsList*          imagesList             = nullptr;
     FCExportWidget*      exportWidget           = nullptr;
     FCThread*            thread                 = nullptr;
 };
@@ -67,8 +74,39 @@ FCExportWindow::FCExportWindow(DInfoInterface* const iface, QWidget* const /*par
     : WSToolDialog(nullptr, QLatin1String("FileCopy Export Dialog")),
       d           (new Private)
 {
-    d->exportWidget = new FCExportWidget(iface, this);
-    setMainWidget(d->exportWidget);
+    QWidget* const page = new QWidget(this);
+
+    // setup image list
+
+    d->imagesList        = new DItemsList(page);
+    d->imagesList->setObjectName(QLatin1String("FCExport ImagesList"));
+    d->imagesList->setAllowRAW(true);
+    d->imagesList->setIface(iface);
+    d->imagesList->listView()->setWhatsThis(i18n("This is the list of items to copy "
+                                                 "to the specified target."));
+
+    if (iface->forceAlbumSelection)
+    {
+        iface->forceAlbumSelection = false;
+        d->imagesList->loadImagesFromCurrentAlbum();
+    }
+    else
+    {
+        d->imagesList->loadImagesFromCurrentSelection();
+    }
+
+    // Setup Settings Widget
+
+    d->exportWidget         = new FCExportWidget(iface, page);
+
+    QHBoxLayout* const hlay = new QHBoxLayout(page);
+    hlay->addWidget(d->imagesList);
+    hlay->addWidget(d->exportWidget);
+    hlay->setContentsMargins(QMargins(0, 0, 0, 0));
+    hlay->setStretchFactor(d->imagesList,   6);
+    hlay->setStretchFactor(d->exportWidget, 4);
+
+    setMainWidget(page);
 
     // -- Window setup ------------------------------------------------------
 
@@ -78,13 +116,16 @@ FCExportWindow::FCExportWindow(DInfoInterface* const iface, QWidget* const /*par
     startButton()->setText(i18nc("@action:button", "Start Export"));
     startButton()->setToolTip(i18nc("@info:tooltip, button", "Start export to the specified target"));
 
+    connect(this, SIGNAL(cancelClicked()),
+            this, SLOT(slotCancelCopy()));
+
     connect(startButton(), SIGNAL(clicked()),
             this, SLOT(slotCopy()));
 
     connect(this, SIGNAL(finished(int)),
             this, SLOT(slotFinished()));
 
-    connect(d->exportWidget->imagesList(), SIGNAL(signalImageListChanged()),
+    connect(d->imagesList, SIGNAL(signalImageListChanged()),
             this, SLOT(slotImageListChanged()));
 
     connect(d->exportWidget, SIGNAL(signalTargetUrlChanged(QUrl)),
@@ -101,12 +142,6 @@ FCExportWindow::~FCExportWindow()
     delete d;
 }
 
-void FCExportWindow::slotFinished()
-{
-    saveSettings();
-    d->exportWidget->imagesList()->listView()->clear();
-}
-
 void FCExportWindow::closeEvent(QCloseEvent* e)
 {
     if (!e)
@@ -120,7 +155,7 @@ void FCExportWindow::closeEvent(QCloseEvent* e)
 
 void FCExportWindow::reactivate()
 {
-    d->exportWidget->imagesList()->loadImagesFromCurrentSelection();
+    d->imagesList->loadImagesFromCurrentSelection();
     show();
 }
 
@@ -165,55 +200,53 @@ void FCExportWindow::saveSettings()
     group.writeEntry(d->CHANGE_IMAGE_PROPERTIES,       settings.changeImageProperties);
 }
 
-void FCExportWindow::slotImageListChanged()
-{
-    updateUploadButton();
-}
-
-void FCExportWindow::slotTargetUrlChanged(const QUrl& target)
-{
-    Q_UNUSED(target);
-    updateUploadButton();
-}
-
-void FCExportWindow::updateUploadButton()
-{
-    bool listNotEmpty = !d->exportWidget->imagesList()->imageUrls().isEmpty();
-    startButton()->setEnabled(listNotEmpty && d->exportWidget->targetUrl().isValid());
-/*
-    qCDebug(DIGIKAM_WEBSERVICES_LOG) << "Updated upload button with listNotEmpty ="
-                                     << listNotEmpty << ", targetUrl().isValid() ="
-                                     << d->exportWidget->targetUrl().isValid();
-*/
-}
-
-void FCExportWindow::slotCopyingDone(const QUrl& from, const QUrl& to)
-{
-    qCDebug(DIGIKAM_WEBSERVICES_LOG) << "Copied to:" << to.toLocalFile();
-
-    d->exportWidget->imagesList()->removeItemByUrl(from);
-}
-
-void FCExportWindow::slotCopyingFinished()
-{
-    setEnabled(true);
-
-    if (!d->exportWidget->imagesList()->imageUrls().isEmpty())
-    {
-        QMessageBox::information(this, i18nc("@title:window", "Copy not Completed"),
-                                 i18n("Some of the items have not been copied "
-                                      "and are still in the list. "
-                                      "You can retry to copy these items now."));
-    }
-}
-
 void FCExportWindow::slotCopy()
 {
     saveSettings();
 
+    int loopCheck      = 0;
+    QString targetPath = d->exportWidget->getSettings().destUrl.toLocalFile();
+
+    while (!QFile::exists(targetPath))
+    {
+        ++loopCheck;
+
+        if (loopCheck == 1)
+        {
+            if (
+                QMessageBox::question(this, i18nc("@title:window", "Target Location Error"),
+                                      i18n("The target folder does not exist. "
+                                           "Should it be created?"))
+                == QMessageBox::Yes
+               )
+            {
+                QDir().mkpath(targetPath);
+            }
+            else
+            {
+                ++loopCheck;
+                break;
+            }
+        }
+        else
+        {
+            QMessageBox::warning(this, i18nc("@title:window", "Target Location Error"),
+                                 i18n("The target folder could not be "
+                                      "created and does not exist."));
+            break;
+        }
+    }
+
+    if (loopCheck > 1)
+    {
+        return;
+    }
+
     // start copying and react on signals
 
-    setEnabled(false);
+    startButton()->setEnabled(false);
+    d->exportWidget->setEnabled(false);
+    setRejectButtonMode(QDialogButtonBox::Cancel);
 
     if (d->thread)
     {
@@ -230,10 +263,72 @@ void FCExportWindow::slotCopy()
                 this, SLOT(slotCopyingDone(QUrl,QUrl)));
     }
 
-    d->thread->createCopyJobs(d->exportWidget->imagesList()->imageUrls(),
+    d->thread->createCopyJobs(d->imagesList->imageUrls(),
                               d->exportWidget->getSettings());
 
     d->thread->start();
+}
+
+void FCExportWindow::slotImageListChanged()
+{
+    updateUploadButton();
+}
+
+void FCExportWindow::slotTargetUrlChanged(const QUrl& target)
+{
+    Q_UNUSED(target);
+
+    updateUploadButton();
+}
+
+void FCExportWindow::updateUploadButton()
+{
+    bool listNotEmpty = !d->imagesList->imageUrls().isEmpty();
+    startButton()->setEnabled(listNotEmpty && d->exportWidget->targetUrl().isValid());
+/*
+    qCDebug(DIGIKAM_WEBSERVICES_LOG) << "Updated upload button with listNotEmpty ="
+                                     << listNotEmpty << ", targetUrl().isValid() ="
+                                     << d->exportWidget->targetUrl().isValid();
+*/
+}
+
+void FCExportWindow::slotCopyingDone(const QUrl& from, const QUrl& to)
+{
+    qCDebug(DIGIKAM_WEBSERVICES_LOG) << "Copied to:" << to.toLocalFile();
+
+    d->imagesList->blockSignals(true);
+    d->imagesList->removeItemByUrl(from);
+    d->imagesList->blockSignals(false);
+}
+
+void FCExportWindow::slotCopyingFinished()
+{
+    updateUploadButton();
+    d->exportWidget->setEnabled(true);
+    setRejectButtonMode(QDialogButtonBox::Close);
+
+    if (!d->imagesList->imageUrls().isEmpty())
+    {
+        QMessageBox::information(this, i18nc("@title:window", "Copy not Completed"),
+                                 i18n("Some of the items have not been copied "
+                                      "and are still in the list. "
+                                      "You can retry to copy these items now."));
+    }
+}
+
+void FCExportWindow::slotCancelCopy()
+{
+    if (d->thread)
+    {
+        d->thread->cancel();
+    }
+}
+
+void FCExportWindow::slotFinished()
+{
+    saveSettings();
+    updateUploadButton();
+    d->imagesList->listView()->clear();
 }
 
 } // namespace DigikamGenericFileCopyPlugin

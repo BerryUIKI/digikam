@@ -6,7 +6,7 @@
  * Date        : 2008-09-24
  * Description : a plugin to convert Raw files to DNG
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -34,6 +34,11 @@ DNGConverterPlugin::DNGConverterPlugin(QObject* const parent)
 {
 }
 
+void DNGConverterPlugin::cleanUp()
+{
+    delete m_toolDlg;
+}
+
 QString DNGConverterPlugin::name() const
 {
     return i18nc("@title", "DNG Converter");
@@ -56,8 +61,8 @@ QString DNGConverterPlugin::description() const
 
 QString DNGConverterPlugin::details() const
 {
-    return i18nc("@info", "This Generic tool can convert RAW images data to DNG format.\n\n"
-                 "The Digital Negative is a lossless RAW image format created by Adobe.\n\n"
+    return i18nc("@info", "This Generic tool can convert RAW images data to DNG format.<br><br>"
+                 "The Digital Negative is a lossless RAW image format created by Adobe.<br><br>"
                  "See details on this wikipedia entry about this format: %1",
                  QLatin1String("<a href='https://en.wikipedia.org/wiki/Digital_Negative'>https://en.wikipedia.org/wiki/Digital_Negative</a>"));
 }
@@ -68,6 +73,11 @@ QString DNGConverterPlugin::handbookSection() const
 }
 
 QString DNGConverterPlugin::handbookChapter() const
+{
+    return QLatin1String("showfoto_tools");
+}
+
+QString DNGConverterPlugin::handbookReference() const
 {
     return QLatin1String("dng_converter");
 }
@@ -86,7 +96,7 @@ QList<DPluginAuthor> DNGConverterPlugin::authors() const
                              QString::fromUtf8("(C) 2008-2025"))
             << DPluginAuthor(QString::fromUtf8("Maik Qualmann"),
                              QString::fromUtf8("metzpinguin at gmail dot com"),
-                             QString::fromUtf8("(C) 2020-2024"))
+                             QString::fromUtf8("(C) 2020-2025"))
             ;
 }
 
@@ -106,10 +116,13 @@ void DNGConverterPlugin::setup(QObject* const parent)
 
 void DNGConverterPlugin::slotDNGConverter()
 {
-    QPointer<DNGConverterDialog> dialog = new DNGConverterDialog(nullptr, infoIface(sender()));
-    dialog->setPlugin(this);
-    dialog->exec();
-    delete dialog;
+    if (!reactivateToolDialog(m_toolDlg))
+    {
+        delete m_toolDlg;
+        m_toolDlg = new DNGConverterDialog(nullptr, infoIface(sender()));
+        m_toolDlg->setPlugin(this);
+        m_toolDlg->show();
+    }
 }
 
 } // namespace DigikamGenericDNGConverterPlugin

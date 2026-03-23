@@ -6,7 +6,7 @@
  * Date        : 2021-07-24
  * Description : a MJPEG Stream server to export items on the network.
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -40,6 +40,8 @@
 // Local includes
 
 #include "actionthreadbase.h"
+
+using namespace Digikam;
 
 namespace DigikamGenericMjpegStreamPlugin
 {
@@ -234,6 +236,8 @@ void MjpegServer::Private::slotClientDisconnected()
 
 void MjpegServer::Private::writerThread()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     while (isOpened())
     {
         QList <QFuture<void> > sockTasks;

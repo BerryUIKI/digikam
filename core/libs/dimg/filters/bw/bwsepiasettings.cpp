@@ -6,7 +6,7 @@
  * Date        : 2010-02-23
  * Description : black and white settings view.
  *
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -319,10 +319,15 @@ BWSepiaSettings::BWSepiaSettings(QWidget* const parent, DImg* const img)
     if (!img->isNull())
     {
         d->curvesBox = new CurvesBox(256, 192, *img, lumBox);
+        d->curvesBox->enablePickers(true);
     }
     else
     {
-        d->curvesBox = new CurvesBox(256, 192, DImg(1, 1, true, false, reinterpret_cast<unsigned char*>(const_cast<char*>("\x00\x00\x00\x00\x00\x00\x00\x00"))), lumBox);
+        d->curvesBox = new CurvesBox(256, 192,
+                                     DImg(1, 1, true, false,
+                                          reinterpret_cast<unsigned char*>(const_cast<char*>("\x00\x00\x00\x00\x00\x00\x00\x00"))),
+                                     lumBox);
+        d->curvesBox->enablePickers(false);
     }
 
     d->curvesBox->enableCurveTypes(true);
@@ -393,6 +398,11 @@ BWSepiaSettings::BWSepiaSettings(QWidget* const parent, DImg* const img)
 BWSepiaSettings::~BWSepiaSettings()
 {
     delete d;
+}
+
+CurvesBox* BWSepiaSettings::curvesBox() const
+{
+    return d->curvesBox;
 }
 
 void BWSepiaSettings::startPreviewFilters()
@@ -549,7 +559,7 @@ void BWSepiaSettings::loadSettings()
         d->curvesBox->curves()->setCurveType(d->curvesBox->channel(), ImageCurves::CURVE_SMOOTH);
         d->curvesBox->reset();
 
-        // TODO: cant we use the kconfig mechanisms provided by CurveWidget here?
+        // TODO: cannot we use the kconfig mechanisms provided by CurveWidget here?
 
         QPoint disable = ImageCurves::getDisabledValue();
         QPoint p;
@@ -603,7 +613,7 @@ void BWSepiaSettings::saveAsSettings()
         stream << d->bwTone->currentId() << "\n";
         stream << d->cInput->value() << "\n";
 
-        // TODO: cant we use the kconfig mechanisms provided by CurveWidget here?
+        // TODO: cannot we use the kconfig mechanisms provided by CurveWidget here?
 
         for (int j = 0 ; j < ImageCurves::NUMBER_OF_POINTS ; ++j)
         {

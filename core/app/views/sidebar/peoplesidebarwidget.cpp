@@ -7,7 +7,7 @@
  * Description : Side Bar Widget for People
  *
  * SPDX-FileCopyrightText: 2009-2010 by Johannes Wienke <languitar at semipol dot de>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2014      by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  * SPDX-FileCopyrightText: 2010      by Aditya Bhatt <adityabhatt1991 at gmail dot com>
@@ -111,7 +111,7 @@ PeopleSideBarWidget::PeopleSideBarWidget(QWidget* const parent,
     d->tagSearchBar->setFilterModel(d->tagFolderView->albumFilterModel());
 
     d->faceScanExpander            = new DLabelExpander(this);
-    d->faceScanExpander->setText(i18n("Scan collection for faces"));
+    d->faceScanExpander->setText(i18nc("@label short translated text about the scan for faces", "Scan for Faces"));
     d->faceScanExpander->setIcon(QIcon::fromTheme(QLatin1String("edit-find")));
     d->faceScanExpander->setObjectName(QLatin1String("FaceScanWidgetExpanded"));
 
@@ -122,7 +122,7 @@ PeopleSideBarWidget::PeopleSideBarWidget(QWidget* const parent,
 
     DHBox* const hbox = new DHBox(this);
     d->rescanButton   = new QPushButton(hbox);
-    d->rescanButton->setText(i18n("Scan collection for faces"));
+    d->rescanButton->setText(i18nc("@label short translated text about the scan for faces", "Scan for Faces"));
     d->rescanButton->setIcon(QIcon::fromTheme(QLatin1String("edit-find")));
     d->rescanButton->setWhatsThis(i18nc("@info", "Use this button to scan the selected albums for faces"));
 
@@ -193,8 +193,6 @@ void PeopleSideBarWidget::slotInit()
 
 void PeopleSideBarWidget::setActive(bool active)
 {
-    Q_EMIT requestFaceMode(active);
-
     if (active)
     {
         d->tagFolderView->setCurrentAlbums(QList<Album*>() << d->tagFolderView->currentAlbum());
@@ -290,16 +288,16 @@ void PeopleSideBarWidget::doFaceScan(const FaceScanSettings& faceScanSettings)
 
         connect(facesDetector, SIGNAL(signalComplete()),
                 d->parentInstance, SLOT(slotScanComplete()));
-    
+
         connect(facesDetector, SIGNAL(signalCanceled()),
                 d->parentInstance, SLOT(slotScanComplete()));
-    
+
         connect(facesDetector, SIGNAL(signalScanNotification(QString,int)),
                 d->parentInstance, SIGNAL(signalNotificationError(QString,int)));
-    
+
         d->settingsWdg->setEnabled(false);
         d->rescanButton->setEnabled(false);
-    
+
         facesDetector->start();    
     }
     catch (...)

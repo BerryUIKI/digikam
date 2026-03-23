@@ -7,7 +7,7 @@
  * Description : Find Duplicates View.
  *
  * SPDX-FileCopyrightText: 2016-2017 by Mario Frank <mario dot frank at uni minus potsdam dot de>
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -105,7 +105,6 @@ FindDuplicatesView::FindDuplicatesView(QWidget* const parent)
     // --- Duplicates List View
 
     d->listView        = new FindDuplicatesAlbum();
-    d->listView->setSortingEnabled(false);
     d->tab             = new QTabWidget();
 
     // --- Albums Selection
@@ -211,7 +210,7 @@ FindDuplicatesView::FindDuplicatesView(QWidget* const parent)
 
     // ---
 
-    d->similarityLabel         = new QLabel(i18nc("@label", "Similarity range:"));
+    d->similarityLabel       = new QLabel(i18nc("@label", "Similarity range:"));
     d->similarityLabel->setBuddy(d->similarityRange);
 
     d->similarityRange       = new DIntRangeBox();
@@ -266,7 +265,7 @@ FindDuplicatesView::FindDuplicatesView(QWidget* const parent)
     // --- Bottom View Buttons
 
     DHBox* const hbox     = new DHBox();
-    d->updateFingerPrtBtn = new QPushButton(i18nc("@action", "Update fingerprints"), hbox);
+    d->updateFingerPrtBtn = new QPushButton(i18nc("@action", "Update all fingerprints"), hbox);
     d->updateFingerPrtBtn->setIcon(QIcon::fromTheme(QLatin1String("run-build")));
     d->updateFingerPrtBtn->setWhatsThis(i18nc("@info", "Use this button to update all image fingerprints."));
 
@@ -348,6 +347,7 @@ FindDuplicatesView::~FindDuplicatesView()
 
 void FindDuplicatesView::initAlbumUpdateConnections()
 {
+
     connect(AlbumManager::instance(), SIGNAL(signalAlbumAdded(Album*)),
             this, SLOT(slotAlbumAdded(Album*)));
 
@@ -380,6 +380,7 @@ void FindDuplicatesView::populateTreeView()
         return;
     }
 
+    d->listView->setSortingEnabled(false);
     QElapsedTimer waitCursorTimer;
     waitCursorTimer.start();
 
@@ -407,8 +408,6 @@ void FindDuplicatesView::populateTreeView()
     }
 
     d->listView->setSortingEnabled(true);
-    d->listView->resizeColumnToContents(0);
-    d->listView->sortByColumn(1, Qt::DescendingOrder);
 
     d->albumSelectors->loadState();
     d->refImageAlbumSelector->loadState();
@@ -417,6 +416,8 @@ void FindDuplicatesView::populateTreeView()
     {
         QApplication::restoreOverrideCursor();
     }
+
+    QTimer::singleShot(250, this, SLOT(slotSelectItemsTimer()));
 }
 
 QList<SAlbum*> FindDuplicatesView::currentFindDuplicatesAlbums() const
@@ -473,8 +474,6 @@ void FindDuplicatesView::slotAlbumAdded(Album* a)
         FindDuplicatesAlbumItem* const item = new FindDuplicatesAlbumItem(d->listView, salbum);
         salbum->setExtraData(this, item);
     }
-
-    updateSimilarityRangeInterval();
 }
 
 void FindDuplicatesView::slotAlbumDeleted(Album* a)
@@ -493,8 +492,6 @@ void FindDuplicatesView::slotAlbumDeleted(Album* a)
         a->removeExtraData(this);
         delete item;
     }
-
-    updateSimilarityRangeInterval();
 }
 
 void FindDuplicatesView::slotSearchUpdated(SAlbum* a)
@@ -510,6 +507,9 @@ void FindDuplicatesView::slotSearchUpdated(SAlbum* a)
 
 void FindDuplicatesView::slotSelectItemsTimer()
 {
+    d->listView->resizeColumnToContents(0);
+    d->listView->sortByColumn(1, Qt::DescendingOrder);
+
     if (d->listView->selectedItems().isEmpty())
     {
         d->listView->selectFirstItem();
@@ -520,6 +520,7 @@ void FindDuplicatesView::slotSelectItemsTimer()
 
 void FindDuplicatesView::slotClear()
 {
+/*
     for (QTreeWidgetItemIterator it(d->listView) ; *it ; ++it)
     {
         SAlbum* const salbum = static_cast<FindDuplicatesAlbumItem*>(*it)->album();
@@ -531,6 +532,19 @@ void FindDuplicatesView::slotClear()
     }
 
     d->listView->clear();
+*/
+    AlbumList::const_iterator it;
+    const AlbumList& aList = AlbumManager::instance()->allSAlbums();
+
+    for (it = aList.constBegin() ; it != aList.constEnd() ; ++it)
+    {
+        SAlbum* const salbum = dynamic_cast<SAlbum*>(*it);
+
+        if (salbum && salbum->isDuplicatesSearch())
+        {
+            AlbumManager::instance()->deleteSAlbum(salbum);
+        }
+    }
 }
 
 void FindDuplicatesView::enableControlWidgets(bool val)
@@ -539,10 +553,10 @@ void FindDuplicatesView::enableControlWidgets(bool val)
     d->removeDuplicatesBtn->setEnabled(val);
     d->updateFingerPrtBtn->setEnabled(val);
     d->findDuplicatesBtn->setEnabled(val);
+    d->refImageSelMethod->setEnabled(val);
     d->albumTagRelation->setEnabled(val);
     d->similarityRange->setEnabled(val);
     d->albumSelectors->setEnabled(val);
-    d->refImageSelMethod->setEnabled(val);
 
     d->albumTagRelationLabel->setEnabled(val);
     d->restrictResultsLabel->setEnabled(val);
@@ -551,13 +565,13 @@ void FindDuplicatesView::enableControlWidgets(bool val)
 
 void FindDuplicatesView::slotFindDuplicates()
 {
-    d->albumSelectors->saveState();
     d->refImageAlbumSelector->saveState();
+    d->albumSelectors->saveState();
     enableControlWidgets(false);
     slotClear();
 
-    AlbumList albums;
     AlbumList tags;
+    AlbumList albums;
     AlbumList referenceImageSelector;
 
     if (d->albumTagRelation->itemData(d->albumTagRelation->currentIndex()).toInt() == HaarIface::AlbumTagRelation::NoMix)
@@ -577,7 +591,8 @@ void FindDuplicatesView::slotFindDuplicates()
         tags   = d->albumSelectors->selectedTags();
     }
 
-    const auto referenceImageSelectionMethod = (HaarIface::RefImageSelMethod)d->refImageSelMethod->itemData(d->refImageSelMethod->currentIndex()).toInt();
+    const auto referenceImageSelectionMethod = (HaarIface::RefImageSelMethod)d->refImageSelMethod->
+                                                itemData(d->refImageSelMethod->currentIndex()).toInt();
 
     if (referenceImageSelectionMethod != HaarIface::RefImageSelMethod::OlderOrLarger)
     {
@@ -596,22 +611,15 @@ void FindDuplicatesView::slotFindDuplicates()
     connect(finder, SIGNAL(signalComplete()),
             this, SLOT(slotComplete()));
 
+    connect(finder, &DuplicatesFinder::signalCanceled,
+            this, [this]()
+            {
+                d->removeDuplicatesBtn->setEnabled(false);
+            }
+    );
+
     connect(finder, SIGNAL(signalScanNotification(QString,int)),
             this, SIGNAL(signalScanNotification(QString,int)));
-
-    connect(finder, &DuplicatesFinder::signalComplete,
-            this, [this]
-       {
-            d->removeDuplicatesBtn->setEnabled(true);
-       }
-    );
-
-    connect(finder, &DuplicatesFinder::signalCanceled,
-            this, [this]
-       {
-            d->removeDuplicatesBtn->setEnabled(false);
-       }
-    );
 
     finder->start();
 }
@@ -641,7 +649,6 @@ void FindDuplicatesView::slotComplete()
 {
     enableControlWidgets(true);
     slotCheckForValidSettings();
-    populateTreeView();
 
     QTimer::singleShot(250, this, SLOT(slotSelectItemsTimer()));
 }

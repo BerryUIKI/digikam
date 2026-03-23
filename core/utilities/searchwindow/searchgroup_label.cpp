@@ -7,7 +7,7 @@
  * Description : User interface for searches
  *
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -98,11 +98,7 @@ SearchGroupLabel::SearchGroupLabel(SearchViewThemedPartsCache* const cache, Sear
         QWidget* const simpleHeader     = new QWidget;
         QVBoxLayout* const headerLayout = new QVBoxLayout;
         QLabel* const simpleLabel1      = new QLabel;
-/*
-        simpleLabel->setText(i18n("Find Pictures meeting all of these conditions"));
-        simpleLabel->setPixmap(QIcon::fromTheme(QLatin1String("edit-find")).pixmap(128));
-*/
-        simpleLabel1->setText(i18n("<qt><p>Search your collection<br/>for Items meeting the following conditions</p></qt>"));
+        simpleLabel1->setText(i18n("<qt><p>Search your collection<br>for Items meeting the following conditions</p></qt>"));
         simpleLabel1->setObjectName(QLatin1String("SearchGroupLabel_SimpleLabel"));
         headerLayout->addStretch(3);
         headerLayout->addWidget(simpleLabel1);

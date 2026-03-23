@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -73,7 +73,7 @@ BlendingFactory::BlendingFactory(const SunLocator* sunLocator)
     m_blendings.insert(QString::fromUtf8("MultiplyBlending"), new MultiplyBlending);
     m_blendings.insert(QString::fromUtf8("SubtractiveBlending"), new SubtractiveBlending);
 
-    // Lightening blendings
+    // Lightning blendings
     m_blendings.insert(QString::fromUtf8("AdditiveBlending"), new AdditiveBlending);
     m_blendings.insert(QString::fromUtf8("ColorDodgeBlending"), new ColorDodgeBlending);
     m_blendings.insert(QString::fromUtf8("GammaLightBlending"), new GammaLightBlending);

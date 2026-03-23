@@ -4,11 +4,9 @@
  * https://www.digikam.org
  *
  * Date        : 2009-08-09
- * Description : central place for ICC settings
+ * Description : route to the right wrapper to capture the monitor profile from the desktop.
  *
- * SPDX-FileCopyrightText: 2005-2006 by F.J. Cruz <fj dot cruz at supercable dot es>
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
- * SPDX-FileCopyrightText: 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -16,58 +14,16 @@
 
 #include "iccsettings_p.h"
 
-#if defined(Q_CC_CLANG)
-#    pragma clang diagnostic push
-#    pragma clang diagnostic ignored "-Wvariadic-macros"
-#endif
-
-// Note must be after all other to prevent broken compilation
-#ifdef HAVE_X11
-#   include <climits>
-#   include <X11/Xlib.h>
-#   include <X11/Xatom.h>
-#   if QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)
-#       include <private/qtx11extras_p.h>
-#   else
-#       include <QX11Info>
-#   endif
-#endif // HAVE_X11
-
-#if defined(Q_CC_CLANG)
-#    pragma clang diagnostic pop
-#endif
-
 namespace Digikam
 {
 
-/*
- * From koffice/libs/pigment/colorprofiles/KoLcmsColorProfileContainer.cpp
- * SPDX-FileCopyrightText: 2000 Matthias Elter <elter at kde dot org>
- *               2001 John Califf
- *               2004 Boudewijn Rempt <boud at valdyas dot org>
- * SPDX-FileCopyrightText: 2007 Thomas Zander <zander at kde dot org>
- * SPDX-FileCopyrightText: 2007 Adrian Page <adrian at pagenet dot plus dot com>
-*/
-IccProfile IccSettings::Private::profileFromWindowSystem(QWidget* const widget)
+IccProfile IccSettings::Private::profileFromDesktop(QWidget* const widget)
 {
-
-#ifdef HAVE_X11
-
-    if ((qApp->platformName() == QLatin1String("wayland")) || !QX11Info::isPlatformX11())
-    {
-        qCDebug(DIGIKAM_DIMG_LOG) << "Desktop platform is not X11";
-
-        return IccProfile();
-    }
-
-    unsigned long appRootWindow = 0;
-    QString       atomName;
-
     QScreen* const screen = qApp->primaryScreen();
 
     if (!screen)
     {
-        qCDebug(DIGIKAM_DIMG_LOG) << "No screen available for application";
+        qCWarning(DIGIKAM_DIMG_LOG) << "ICM Desktop: no screen instance available for the application";
 
         return IccProfile();
     }
@@ -94,93 +50,89 @@ IccProfile IccSettings::Private::profileFromWindowSystem(QWidget* const widget)
 
     int screenNumber = qMax(qApp->screens().indexOf(widgetScreen), 0);
 
+    // Look in the hash-table cache to see if profile do not exists yet.
+
     IccProfile profile;
     {
         QMutexLocker lock(&mutex);
 
         if (screenProfiles.contains(screenNumber))
         {
-            return screenProfiles.value(screenNumber);
+            profile = screenProfiles.value(screenNumber);
+
+            return profile;
         }
     }
 
-    if (screen->virtualSiblings().size() > 1)
-    {
-        appRootWindow = QX11Info::appRootWindow(QX11Info::appScreen());
-        atomName      = QString::fromLatin1("_ICC_PROFILE_%1").arg(screenNumber);
-    }
-    else
-    {
-        appRootWindow = QX11Info::appRootWindow(screenNumber);
-        atomName      = QLatin1String("_ICC_PROFILE");
-    }
+    qCDebug(DIGIKAM_DIMG_LOG) << "ICM Desktop: looking for the monitor color profile...";
 
-    Atom          type;
-    int           format;
-    unsigned long nitems      = 0;
-    unsigned long bytes_after = 0;
-    quint8*       str         = nullptr;
-    Display* const disp       = QX11Info::display();
+#if defined(Q_OS_UNIX) && !defined(Q_OS_DARWIN)
 
-    if (disp)
+    if      (qApp->platformName() != QLatin1String("wayland"))
     {
-        static Atom icc_atom  = XInternAtom(disp, atomName.toLatin1().constData(), True);
 
-        if (
-            (icc_atom != None)                                                      &&
-            (XGetWindowProperty(QX11Info::display(), appRootWindow, icc_atom,
-                               0, INT_MAX, False, XA_CARDINAL,
-                               &type, &format, &nitems, &bytes_after,
-                               reinterpret_cast<unsigned char**>(&str)) == Success) &&
-             nitems
-           )
+#   ifdef HAVE_X11
+
+        if (!profileFromX11(screen, screenNumber, profile))
         {
-            QByteArray bytes = QByteArray::fromRawData(reinterpret_cast<char*>(str), (quint32)nitems);
-
-            if (!bytes.isEmpty())
-            {
-                profile = IccProfile(bytes);
-            }
-
-            qCDebug(DIGIKAM_DIMG_LOG) << "Found X.org XICC monitor profile " << profile.description();
+            return IccProfile();
         }
-        else
+
+#   endif
+
+    }
+    else if (qApp->platformName() == QLatin1String("wayland"))
+    {
+
+#   ifdef HAVE_DBUS
+
+        if (!profileFromWayland(screen, screenNumber, profile))
         {
-            qCDebug(DIGIKAM_DIMG_LOG) << "No X.org XICC profile installed for screen " << screenNumber;
+            return IccProfile();
         }
-    }
-    else
-    {
-        qCDebug(DIGIKAM_DIMG_LOG) << "Cannot get X.org XICC profile for screen " << screenNumber;
-    }
 
-    // Insert to cache even if null
-    {
-        QMutexLocker lock(&mutex);
-        screenProfiles.insert(screenNumber, profile);
+#   endif
+
     }
 
 #elif defined Q_OS_WIN
 
-    // TODO
+    if (!profileFromWindows(screen, screenNumber, profile))
+    {
+        return IccProfile();
+    }
 
-    Q_UNUSED(widget);
+#elif defined Q_OS_DARWIN
 
-#elif defined Q_OS_MACOS
-
-    // TODO
-
-    Q_UNUSED(widget);
+    if (!profileFromMacos(screen, screenNumber, profile))
+    {
+        return IccProfile();
+    }
 
 #else
 
     // Unsupported platform
 
-    Q_UNUSED(widget);
+    qCWarning(DIGIKAM_DIMG_LOG) << "ICM Desktop: the color management from this screen platform is not supported";
+
+    return IccProfile();
 
 #endif
 
-    return IccProfile();
+    // Insert the profile to cache even if null.
+
+    {
+        QMutexLocker lock(&mutex);
+        screenProfiles.insert(screenNumber, profile);
+    }
+
+    qCDebug(DIGIKAM_DIMG_LOG) << "ICM Desktop: screen platform is :" << qApp->platformName();
+    qCDebug(DIGIKAM_DIMG_LOG) << "ICM Desktop: screen number      :" << screenNumber;
+    QScreen* const actualScreen = qApp->screens().value(screenNumber);
+    qCDebug(DIGIKAM_DIMG_LOG) << "ICM Desktop: screen description :" << actualScreen->name() << "|" << actualScreen->model();
+    qCDebug(DIGIKAM_DIMG_LOG) << "ICM Desktop: prolile description:" << profile.description();
+
+    return profile;
 }
 
 } // namespace Digikam

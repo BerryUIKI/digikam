@@ -8,7 +8,7 @@
  ;               Note: NSIS >= 3 is required to be compatible with Windows 10.
  ;
  ; SPDX-FileCopyrightText: 2005-2017 by Tim Kosse <tim dot kosse at filezilla-project dot org>
- ; SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ ; SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  ;
  ; SPDX-License-Identifier: GPL-2.0-or-later
  ;
@@ -27,7 +27,7 @@
 
     Function ${un}EnumProcesses
 
-        ; Is this really necesssary for $Rx?
+        ; Is this really necessary for $Rx?
         Push $R1
         Push $R0
         Push $R2

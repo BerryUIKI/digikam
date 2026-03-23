@@ -7,7 +7,7 @@
  * Description : a presentation tool.
  *
  * SPDX-FileCopyrightText: 2007-2008 by Valerio Fuoglio <valerio dot fuoglio at gmail dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * Parts of this code are based on smoothslidesaver by Carsten Weinhold
  * <carsten dot weinhold at gmx dot de>
@@ -61,15 +61,15 @@ KBImage* KBEffect::image(int img) const
 
 KBEffect::Type KBEffect::chooseKBEffect(KBEffect::Type oldType)
 {
-    KBEffect::Type type;
+    KBEffect::Type effType;
 
     do
     {
-        type = (QRandomGenerator::global()->bounded(2U) == 0) ? KBEffect::Fade : KBEffect::Blend;
+        effType = (QRandomGenerator::global()->bounded(2U) == 0) ? KBEffect::Fade : KBEffect::Blend;
     }
-    while ((type == oldType) && (m_numKBEffectRepeated >= 1));
+    while ((effType == oldType) && (m_numKBEffectRepeated >= 1));
 
-    if (type == oldType)
+    if (effType == oldType)
     {
         m_numKBEffectRepeated++;
     }
@@ -78,7 +78,7 @@ KBEffect::Type KBEffect::chooseKBEffect(KBEffect::Type oldType)
         m_numKBEffectRepeated = 0;
     }
 
-    return type;
+    return effType;
 }
 
 // -------------------------------------------------------------------------

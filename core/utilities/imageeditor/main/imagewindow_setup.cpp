@@ -6,7 +6,7 @@
  * Date        : 2004-11-22
  * Description : digiKam image editor - Internal setup
  *
- * SPDX-FileCopyrightText: 2004-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2004-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -49,7 +49,7 @@ void ImageWindow::setupActions()
     ac->addAction(QLatin1String("image_delete_permanently_directly"),
                                   d->fileDeletePermanentlyDirectlyAction);
 
-    d->fileTrashDirectlyAction = new QAction(QIcon::fromTheme(QLatin1String("user-trash")),
+    d->fileTrashDirectlyAction = new QAction(QIcon::fromTheme(QLatin1String("albumfolder-user-trash")),  // In red - bug 513774
                                              i18n("Move to Trash without Confirmation"), this);
     connect(d->fileTrashDirectlyAction, SIGNAL(triggered()),
             this, SLOT(slotTrashCurrentItemDirectly()));
@@ -201,6 +201,7 @@ void ImageWindow::setupUserArea()
     d->thumbBarDock->setWidget(d->thumbBar);
     d->viewContainer->addDockWidget(Qt::LeftDockWidgetArea, d->thumbBarDock);
     d->thumbBarDock->setFloating(false);
+    d->rightSideBar->setItemFilterModel(d->imageFilterModel);
 
     setCentralWidget(widget);
 }

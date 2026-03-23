@@ -6,7 +6,7 @@
  * Date        : 2008-12-10
  * Description : album icon view tool tip
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -19,14 +19,19 @@
 
 #include <QDateTime>
 #include <QLocale>
+#include <QPainter>
+#include <QPalette>
+#include <QApplication>
 
 // KDE includes
 
 #include <klocalizedstring.h>
+#include <kactioncollection.h>
 
 // Local includes
 
 #include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "albummanager.h"
 #include "collectionlocation.h"
 #include "collectionmanager.h"
@@ -39,9 +44,11 @@
 #include "iteminfo.h"
 #include "itempropertiestab.h"
 #include "colorlabelwidget.h"
+#include "ratingwidget.h"
 #include "picklabelwidget.h"
 #include "albumthumbnailloader.h"
 #include "thumbnailsize.h"
+#include "dxmlguiwindow.h"
 
 namespace Digikam
 {
@@ -80,8 +87,7 @@ QString ToolTipFiller::imageInfoTipContents(const ItemInfo& info)
 
         if (settings->getToolTipsShowFileDate())
         {
-            QDateTime modifiedDate = commonInfo.fileModificationDate;
-            str                    = QLocale().toString(modifiedDate, QLocale::ShortFormat);
+            str                    = asUserDateTime(commonInfo.fileModificationDate);
             tip                   += cnt.cellBeg + i18n("Date:") + cnt.cellMid + str + cnt.cellEnd;
         }
 
@@ -194,7 +200,7 @@ QString ToolTipFiller::imageInfoTipContents(const ItemInfo& info)
             {
                 if (commonInfo.creationDate.isValid())
                 {
-                    str = QLocale().toString(commonInfo.creationDate, QLocale::ShortFormat);
+                    str = asUserDateTime(commonInfo.creationDate);
 
                     if (str.length() > cnt.maxStringLength)
                     {
@@ -334,12 +340,12 @@ QString ToolTipFiller::imageInfoTipContents(const ItemInfo& info)
             {
                 QString durationString;
                 bool ok                = false;
-                const int durationVal  = videoInfo.duration.toInt(&ok);
+                const unsigned int durationVal  = videoInfo.duration.toUInt(&ok);
 
                 if (ok)
                 {
                     unsigned int r, d, h, m, s, f;
-                    r = qAbs(durationVal);
+                    r = durationVal;
                     d = r / 86400000;
                     r = r % 86400000;
                     h = r / 3600000;
@@ -352,7 +358,7 @@ QString ToolTipFiller::imageInfoTipContents(const ItemInfo& info)
                     durationString = QString().asprintf("%d.%02d:%02d:%02d.%03d", d, h, m, s, f);
                 }
 
-                str = videoInfo.duration.isEmpty() ? cnt.unavailable : durationString;
+                str = (videoInfo.duration.isEmpty() || !ok) ? cnt.unavailable : durationString;
 
                 if (str.length() > cnt.maxStringLength)
                 {
@@ -530,21 +536,31 @@ QString ToolTipFiller::imageInfoTipContents(const ItemInfo& info)
 
         if (settings->getToolTipsShowLabelRating())
         {
-            str        = PickLabelWidget::labelPickName((PickLabel)info.pickLabel());
+            str        = cnt.imageAsBase64(PickLabelWidget::buildIcon((PickLabel)info.pickLabel()).pixmap(16, 16).toImage());
+            str       += PickLabelWidget::labelPickName((PickLabel)info.pickLabel());
             str       += QLatin1String(" / ");
 
-            str       += ColorLabelWidget::labelColorName((ColorLabel)info.colorLabel());
-            str       += QLatin1String(" / ");
+            // ---
 
             int rating = info.rating();
 
             if ((rating > RatingMin) && (rating <= RatingMax))
             {
-                for (int i = 0 ; i < rating ; ++i)
+                QPixmap star = RatingWidget::buildIcon(rating, 32).pixmap(16, 16);
+                QPixmap pix(16 * rating, 16);
+                pix.fill(Qt::transparent);
+                QPainter painter(&pix);
+                painter.setRenderHint(QPainter::Antialiasing, true);
+                painter.setPen(qApp->palette().color(QPalette::Active, QPalette::Text));
+
+                for (int i = 0 ; i < rating ; i++)
                 {
-                    str += QChar(0x2730);
-                    str += QLatin1Char(' ');
+                    painter.drawPixmap(i * 16, 0, star);
                 }
+
+                painter.end();
+
+                str += cnt.imageAsBase64(pix.toImage());
             }
             else
             {
@@ -552,6 +568,29 @@ QString ToolTipFiller::imageInfoTipContents(const ItemInfo& info)
             }
 
             tip += cnt.cellSpecBeg + i18n("Labels:") + cnt.cellSpecMid + str + cnt.cellSpecEnd;
+
+            // ---
+
+            DXmlGuiWindow* const app = dynamic_cast<DXmlGuiWindow*>(qApp->activeWindow());
+            QString color            = cnt.imageAsBase64(ColorLabelWidget::buildIcon((ColorLabel)info.colorLabel()).pixmap(16, 16).toImage()) + QLatin1Char(' ');
+
+            if (app)
+            {
+                QAction* const ac = app->actionCollection()->action(QString::fromLatin1("colorshortcut-%1").arg(info.colorLabel()));
+
+                if (ac)
+                {
+                    tip += cnt.cellSpecBeg + cnt.cellSpecMid + color + ac->toolTip() + cnt.cellSpecEnd;
+                }
+                else
+                {
+                    tip += cnt.cellSpecBeg + cnt.cellSpecMid + color + ColorLabelWidget::labelColorName((ColorLabel)info.colorLabel()) + cnt.cellSpecEnd;
+                }
+            }
+            else
+            {
+                tip += cnt.cellSpecBeg + cnt.cellSpecMid + color + ColorLabelWidget::labelColorName((ColorLabel)info.colorLabel()) + cnt.cellSpecEnd;
+            }
         }
     }
 

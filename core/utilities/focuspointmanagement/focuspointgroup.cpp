@@ -6,7 +6,7 @@
  * Date        : 28/08/2021
  * Description : Managing of focus point items on a GraphicsDImgView
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021 by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -30,10 +30,7 @@ FocusPointGroup::FocusPointGroup(GraphicsDImgView* const view)
     d->view                 = view;
     d->visibilityController = new ItemVisibilityController(this);
     d->visibilityController->setShallBeShown(false);
-/*
-    connect(AlbumManager::instance(), SIGNAL(signalAlbumRenamed(Album*)),
-            this, SLOT(slotAlbumRenamed(Album*)));
-*/
+
     connect(AlbumManager::instance(), SIGNAL(signalAlbumsUpdated(int)),
             this, SLOT(slotAlbumsUpdated(int)));
 
@@ -104,7 +101,6 @@ void FocusPointGroup::setVisible(bool visible)
 
     if (visible)
     {
-        clear();
         load();
     }
 
@@ -119,12 +115,11 @@ void FocusPointGroup::setVisibleItem(RegionFrameItem* const item)
 
 void FocusPointGroup::setInfo(const ItemInfo& info)
 {
-    if ((d->info == info) && (d->state != NoPoints))
+    if (d->info != info)
     {
-        return;
+        d->clear(NoPoints);
     }
 
-    clear();
     d->info = info;
 
     if (d->visibilityController->shallBeShown())
@@ -140,7 +135,7 @@ void FocusPointGroup::aboutToSetInfoAfterRotate(const ItemInfo& info)
         return;
     }
 
-    clear();
+    d->clear(NoPoints);
 }
 
 void FocusPointGroup::leaveEvent(QEvent*)
@@ -153,65 +148,55 @@ void FocusPointGroup::leaveEvent(QEvent*)
 
 void FocusPointGroup::load()
 {
-    if (d->state != NoPoints)
+    if (d->state == PointsLoad)
     {
-        qCDebug(DIGIKAM_GENERAL_LOG) << "FocusPointsGroup: no Point to show";
         return;
     }
 
-    d->state      = LoadingPoints;
+    d->state      = PointsLoad;
     d->exifRotate = (
-                     MetaEngineSettings::instance()->settings().exifRotate            ||
-                     (
-                      (d->view->previewItem()->image().detectedFormat() == DImg::RAW) &&
-                      !d->view->previewItem()->image().attribute(QLatin1String("fromRawEmbeddedPreview")).toBool()
-                     )
+                        MetaEngineSettings::instance()->settings().exifRotate            ||
+                        (
+                         (d->view->previewItem()->image().detectedFormat() == DImg::RAW) &&
+                         !d->view->previewItem()->image().attribute(QLatin1String("fromRawEmbeddedPreview")).toBool()
+                        )
                     );
 
     if (d->info.isNull())
     {
-        d->state = PointsLoaded;
         qCDebug(DIGIKAM_GENERAL_LOG) << "FocusPointsGroup: no Point to load";
+
+        d->clear(PointsLoaded);
 
         return;
     }
 
     QList<FocusPoint> points = FocusPointsExtractor(this, d->info.filePath()).get_af_points();
 
-    d->visibilityController->clear();
-
-    if (!points.isEmpty())
+    if (points.isEmpty())
     {
-        d->view->setFocus();
+        qCDebug(DIGIKAM_GENERAL_LOG) << "FocusPointsGroup: no Point to load";
+
+        d->clear(PointsLoaded);
+
+        return;
     }
+
+    d->clear(PointsLoad);
 
     for (const auto& point : std::as_const(points))
     {
         d->addItem(point);
     }
 
-    d->state = PointsLoaded;
-
     if (d->view->previewItem()->isLoaded())
     {
         d->visibilityController->show();
     }
 
+    d->state = PointsLoaded;
+
     qCDebug(DIGIKAM_GENERAL_LOG) << "FocusPointGroup: points to show:" << points;
-}
-
-void FocusPointGroup::clear()
-{
-    slotCancelAddItem();
-    d->visibilityController->clear();
-
-    for (RegionFrameItem* const item : std::as_const(d->items))
-    {
-        delete item;
-    }
-
-    d->items.clear();
-    d->state = NoPoints;
 }
 
 void FocusPointGroup::slotAlbumsUpdated(int type)
@@ -226,30 +211,8 @@ void FocusPointGroup::slotAlbumsUpdated(int type)
         return;
     }
 
-    clear();
     load();
 }
-
-/*
-void FocusPointGroup::slotAlbumRenamed(Album* const album)
-{
-    if (!album || (album->type() != Album::TAG))
-    {
-        return;
-    }
-
-    for (FocusPointItem* const item : std::as_const(d->items))
-    {
-        if (
-            !item->point().isNull() &&
-            (item->point().tagId() == album->id())
-           )
-        {
-            item->updateCurrentTag();
-        }
-    }
-}
-*/
 
 void FocusPointGroup::addPoint()
 {

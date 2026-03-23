@@ -9,7 +9,7 @@
  * SPDX-FileCopyrightText: 2005      by Renchi Raju <renchi dot raju at gmail dot com>
  * SPDX-FileCopyrightText: 2005-2006 by Tom Albers <tomalbers at kde dot nl>
  * SPDX-FileCopyrightText: 2007-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -194,8 +194,7 @@ public:
 
 protected:
 
-    void scanForStaleAlbums(const QList<CollectionLocation>& locations);
-    void scanForStaleAlbums(const QList<int>& locationIdsToScan);
+    void scanForStaleAlbums(const CollectionLocation& location, const QString& album);
     void scanAlbumRoot(const CollectionLocation& location);
     void scanAlbum(const CollectionLocation& location, const QString& album, bool checkDate = false);
     void scanExistingFile(const QFileInfo& fi, qlonglong id);
@@ -243,6 +242,8 @@ protected:
 
     void markDatabaseAsScanned();
     void mainEntryPoint(bool complete);
+    void readDirectoryInCache(int& items, const QString& path);
+    int  createAlbumDateCache(const CollectionLocation& location, const QString& album);
     int  checkAlbum(const CollectionLocation& location, const QString& album);
     void itemsWereRemoved(const QList<qlonglong>& removedIds);
     void updateRemovedItemsTime();
@@ -250,7 +251,6 @@ protected:
     void resetDeleteRemovedSettings();
     bool checkDeleteRemoved();
     void loadNameFilters();
-    int  countItemsInFolder(const QString& path);
     DatabaseItem::Category category(const QFileInfo& info);
 
     //@}

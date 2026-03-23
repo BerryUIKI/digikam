@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025, Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026, Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -8,14 +8,42 @@ set(CMAKE_MIN_VERSION   "3.16")
 
 cmake_minimum_required(VERSION ${CMAKE_MIN_VERSION})
 
-message(STATUS "CMake version: ${CMAKE_VERSION}")
+message(STATUS "CMake version       : ${CMAKE_VERSION}")
+
+# -- Check host computer info used to compile ----------------------------------
+
+if(APPLE)
+
+    # NOTE: cmake 3.31 return an empty string with cmake_host_system_information()
+
+    execute_process(
+      COMMAND sw_vers -productName
+      OUTPUT_VARIABLE MACOS_PRODUCT_NAME
+      OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+
+    execute_process(
+      COMMAND sw_vers -productVersion
+      OUTPUT_VARIABLE MACOS_PRODUCT_VERSION
+      OUTPUT_STRIP_TRAILING_WHITESPACE
+    )
+
+    set(CMAKE_HOST_PRETTY_NAME "${MACOS_PRODUCT_NAME} ${MACOS_PRODUCT_VERSION}")
+
+else()
+
+    cmake_host_system_information(RESULT CMAKE_HOST_PRETTY_NAME QUERY DISTRIB_PRETTY_NAME)
+
+endif()
+
+message(STATUS "Host used to compile: ${CMAKE_HOST_PRETTY_NAME}")
 
 # ==============================================================================
 # Information to update before to release this package.
 
 # digiKam version
-set(DIGIKAM_MAJOR_VERSION "8")
-set(DIGIKAM_MINOR_VERSION "7")
+set(DIGIKAM_MAJOR_VERSION "9")
+set(DIGIKAM_MINOR_VERSION "1")
 set(DIGIKAM_PATCH_VERSION "0")
 
 # Suffix to add at end of version string. Usual values are:
@@ -63,7 +91,7 @@ message(STATUS "Target Build Type: ${CMAKE_BUILD_TYPE}")
 
 set(QT5_MIN_VERSION       "5.14.0")
 set(QT6_MIN_VERSION       "6.4.0")
-set(CMAKE_MODULE_PATH 
+set(CMAKE_MODULE_PATH
                       ${CMAKE_SOURCE_DIR}/core/cmake/modules
                       ${CMAKE_SOURCE_DIR}/core/cmake/macros
                       ${CMAKE_SOURCE_DIR}/core/cmake/rules
@@ -79,7 +107,7 @@ else()
     set(ECM_MIN_VERSION "5.55.0")
 endif()
 
-if ("${QT_VERSION}" VERSION_GREATER 6.6.99)
+if("${QT_VERSION}" VERSION_GREATER 6.6.99)
     set(CMAKE_CXX_STANDARD      20)
 else()
     set(CMAKE_CXX_STANDARD      17)
@@ -122,6 +150,7 @@ include(FeatureSummary)
 # Local macros
 include(MacroUtils)
 include(MacroCompiler)
+include(MacroCcache)
 include(MacroOpenCV)
 include(MacroJPEG)
 include(MacroBoolTo01)
@@ -132,21 +161,21 @@ APPLY_COMMON_POLICIES()
 
 set(CMAKE_POSITION_INDEPENDENT_CODE ON)
 set(CMAKE_AUTOMOC ON)
-#set(CMAKE_AUTOUIC ON)
-#set(CMAKE_AUTORCC ON)
 
 if(MSVC)
-    set(CMAKE_WINDOWS_EXPORT_ALL_SYMBOLS ON)
     set(CMAKE_CXX_FLAGS "${CMAKE_CXX_FLAGS} /permissive-")
+    add_compile_options(/bigobj)
 endif()
 
 set_property(GLOBAL PROPERTY USE_FOLDERS ON)
 set_property(GLOBAL PROPERTY AUTOGEN_TARGETS_FOLDER "Generated")
 
+message(STATUS "Compiler is         : ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
+
 ### COMPILATION OPTIONS MANAGEMENT ####################################################################################
 
-option(DIGIKAMSC_COMPILE_PO              "Build translations files (default=ON)"                                                  ON)
-option(DIGIKAMSC_COMPILE_DIGIKAM         "Build digiKam core (default=ON)"                                                        ON)
+option(DIGIKAMSC_COMPILE_PO              "Build translations files (default=ON)" ON)
+option(DIGIKAMSC_COMPILE_DIGIKAM         "Build digiKam core (default=ON)"       ON)
 
 #######################################################################################################################
 
@@ -167,7 +196,7 @@ message(STATUS "")
 if(DIGIKAMSC_COMPILE_DIGIKAM)
     if(NOT EXISTS ${CMAKE_SOURCE_DIR}/core)
         message(STATUS "${PROJECT_NAME} will be compiled....................... NO (source code not available)")
-        set (DIGIKAMSC_COMPILE_DIGIKAM OFF)
+        set(DIGIKAMSC_COMPILE_DIGIKAM OFF)
     else()
         message(STATUS "${PROJECT_NAME} will be compiled....................... YES")
     endif()
@@ -208,10 +237,11 @@ if(BUILD_TESTING)
     # For CI runners to run tests, the following custom target serves to perform the download automatically.
     # If the directory "test-data" has already been created, the target becomes a "no-op".
     #
-    add_custom_command(OUTPUT ${CMAKE_SOURCE_DIR}/test-data 
+    add_custom_command(OUTPUT  ${CMAKE_SOURCE_DIR}/test-data
                        COMMENT "Checkout unit-test data repository. Please wait..."
                        COMMAND git
-                       ARGS clone https://invent.kde.org/graphics/digikam-test-data.git ${CMAKE_SOURCE_DIR}/test-data)
+                       ARGS    clone https://invent.kde.org/graphics/digikam-test-data.git ${CMAKE_SOURCE_DIR}/test-data
+    )
     add_custom_target(test-data ALL DEPENDS ${CMAKE_SOURCE_DIR}/test-data)
 
 endif()

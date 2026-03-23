@@ -6,7 +6,7 @@
  * Date        : 2011-02-14
  * Description : pick label widget
  *
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -61,6 +61,8 @@ public:
      * Return the list of Pick Label buttons turned on or an empty list of none.
      */
     QList<PickLabel> pickLabels() const;
+
+public:
 
     static QString labelPickName(PickLabel label);
 

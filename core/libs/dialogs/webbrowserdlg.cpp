@@ -6,7 +6,7 @@
  * Date        : 2017-06-21
  * Description : a simple web browser dialog based on Qt WebEngine.
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -73,7 +73,7 @@ WebBrowserDlg::WebBrowserDlg(const QUrl& url, QWidget* const parent, bool hideDe
     d->home    = url;
 
     d->browser = new QWebEngineView(this);
-    d->browser->settings()->setAttribute(QWebEngineSettings::WebGLEnabled, false);
+    d->browser->settings()->setAttribute(QWebEngineSettings::WebGLEnabled, true);
     d->browser->settings()->setAttribute(QWebEngineSettings::Accelerated2dCanvasEnabled, false);
     d->browser->page()->profile()->cookieStore()->deleteAllCookies();
 

@@ -4,7 +4,7 @@
 # This script must be run as sudo
 #
 # SPDX-FileCopyrightText: 2015      by Shanti <listaccount at revenant dot org>
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -128,13 +128,13 @@ if [[ $CONTINUE_INSTALL == 0 ]]; then
 
         if [ -z $MP_LASTEST_VER ] ; then
 
-            echo "---------- Cannot check the lastest Macports verion from $MP_URL"
+            echo "---------- Cannot check the latest Macports version from $MP_URL"
             echo "---------- Aborting..."
             exit;
 
         fi
 
-        echo "---------- Detected lastest Macports version : $MP_LASTEST_VER"
+        echo "---------- Detected latest Macports version : $MP_LASTEST_VER"
 
         MP_VERSION=$MP_LASTEST_VER
 
@@ -193,12 +193,12 @@ if [[ $CONTINUE_INSTALL == 0 ]]; then
 startupitem_type none
 startupitem_install no
 macosx_deployment_target $OSX_MIN_TARGET
-build_arch $ARCH_TARGET
+build_arch $HOST_ARCH
 EOF
 
-    if [[ $ARCH_TARGET = "arm64" && $DK_UNIVERSAL == 1 ]] ; then
+    if [[ $HOST_ARCH = "arm64" && $MP_UNIVERSAL == 1 ]] ; then
 
-        # Build with both architectures embeded (x86 and ARM) for Apple Silicon target
+        # Build with both architectures embedded (x86 and ARM) for Apple Silicon target
 
         cat << EOF >> "$INSTALL_PREFIX/etc/macports/variants.conf"
 +universal
@@ -214,6 +214,10 @@ fi
 echo -e "\n"
 echo "---------- Updating MacPorts"
 port -v selfupdate
+
+#cd patches
+#./applypatches.sh
+cd $ORIG_WD
 
 if [[ $CONTINUE_INSTALL == 0 ]]; then
 
@@ -265,7 +269,7 @@ fi
 
 echo -e "\n"
 
-if [[ $ARCH_TARGET = "x86_64" ]] ; then
+if [[ $HOST_ARCH = "x86_64" ]] ; then
 
     port install ld64 +ld64_xcode
 
@@ -297,11 +301,6 @@ port install lcms2
 port install expat
 port install libxml2
 port install libxslt
-port install py311-wheel
-port install py312-wheel
-port install py313-gobject3
-port install avahi +python27
-port install libical
 port install bison
 port install x265
 port install libde265
@@ -313,44 +312,44 @@ port install xvid
 port install libass
 port install opus-tools
 port install libvpx
-port install x264
 port install aom
 port install libusb
 port install libgphoto2
 port install wget +ssl
+port install libical
 
 port install libheif +x265 -tests -rav1e -kvazaar
-port install ffmpeg7 +gpl2 +nonfree
+port install ffmpeg8 +gpl2 +nonfree
 
 if [ ! -f $INSTALL_PREFIX/bin/ffmpeg ] ; then
 
-    # Need to push ffmpeg7 from $INSTALL_PREFIX/libexec/ffmpeg7 to $INSTALL_PREFIX
-    cp -r $INSTALL_PREFIX/libexec/ffmpeg7/include $INSTALL_PREFIX
-    cp -r $INSTALL_PREFIX/libexec/ffmpeg7/lib     $INSTALL_PREFIX
-    mv $INSTALL_PREFIX/bin/ffmpeg7 $INSTALL_PREFIX/bin/ffmpeg
+    # Need to push ffmpeg8 from $INSTALL_PREFIX/libexec/ffmpeg8 to $INSTALL_PREFIX
+    cp -r $INSTALL_PREFIX/libexec/ffmpeg8/include $INSTALL_PREFIX
+    cp -r $INSTALL_PREFIX/libexec/ffmpeg8/lib     $INSTALL_PREFIX
+    mv $INSTALL_PREFIX/bin/ffmpeg8 $INSTALL_PREFIX/bin/ffmpeg
 
 fi
 
-port install qt$DK_QTVERSION$MP_QTSUBVERSION-qtbase -examples -tests
-port install qt$DK_QTVERSION$MP_QTSUBVERSION-qtdeclarative -examples -tests
+port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtbase -examples -tests
+port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtdeclarative -examples -tests
 
 if [[ $DK_QTVERSION = 5 ]] ; then
 
-    port install qt$DK_QTVERSION$MP_QTSUBVERSION-qtmacextras -examples -tests
-    port install qt$DK_QTVERSION$MP_QTSUBVERSION-qtquickcontrols -examples -tests
-    port install qt$DK_QTVERSION$MP_QTSUBVERSION-qtxmlpatterns -examples -tests
+    port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtmacextras -examples -tests
+    port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtquickcontrols -examples -tests
+    port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtxmlpatterns -examples -tests
 fi
 
-port install qt$DK_QTVERSION$MP_QTSUBVERSION-qtscxml -examples -tests
-port install qt$DK_QTVERSION$MP_QTSUBVERSION-qtsvg -examples -tests
-port install qt$DK_QTVERSION$MP_QTSUBVERSION-qttools -examples -tests
-port install qt$DK_QTVERSION$MP_QTSUBVERSION-qttranslations
-port install qt$DK_QTVERSION$MP_QTSUBVERSION-qtimageformats -examples -tests
-port install qt$DK_QTVERSION$MP_QTSUBVERSION-qtmultimedia -examples -tests
-port install qt$DK_QTVERSION$MP_QTSUBVERSION-qtnetworkauth -examples -tests
-port install qt$DK_QTVERSION$MP_QTSUBVERSION-sqlite-plugin
-port install qt$DK_QTVERSION$MP_QTSUBVERSION-mysql-plugin $MP_MARIADB_VARIANT
-port install qt$DK_QTVERSION$MP_QTSUBVERSION-qtwebengine -examples -tests
+port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtscxml -examples -tests
+port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtsvg -examples -tests
+port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qttools -examples -tests
+port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qttranslations
+port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtimageformats -examples -tests
+port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtmultimedia -examples -tests
+port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtnetworkauth -examples -tests
+port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-sqlite-plugin
+port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-mysql-plugin $MP_MARIADB_VARIANT
+port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtwebengine -examples -tests
 
 port install boost
 
@@ -363,7 +362,7 @@ cmake $ORIG_WD/../3rdparty \
        -DKDE_VERSION=$DK_KDE_VERSION \
        -DENABLE_QTVERSION=$DK_QTVERSION \
        -DDK_APPLE_PACKAGE_MANAGER=$DK_APPLE_PACKAGE_MANAGER \
-       -DARCH_TARGET=$ARCH_TARGET \
+       -DARCH_TARGET=$TARGET_ARCH \
        -Wno-dev
 
 cmake --build . --config RelWithDebInfo --target ext_opencv      -- -j$CPU_CORES

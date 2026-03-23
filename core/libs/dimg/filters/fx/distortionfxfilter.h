@@ -6,7 +6,7 @@
  * Date        : 2005-07-18
  * Description : Distortion FX threaded image filter.
  *
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -136,9 +136,9 @@ private:
     void twirl(DImg* orgImage, DImg* destImage, int dist, bool AntiAlias = true);
     void twirlMultithreaded(const Args& prm);
 
-    void cilindrical(DImg* orgImage, DImg* destImage, double Coeff,
+    void cylindrical(DImg* orgImage, DImg* destImage, double Coeff,
                      bool Horizontal, bool Vertical, bool AntiAlias = true);
-    void cilindricalMultithreaded(const Args& prm);
+    void cylindricalMultithreaded(const Args& prm);
 
     void multipleCorners(DImg* orgImage, DImg* destImage, int Factor, bool AntiAlias = true);
     void multipleCornersMultithreaded(const Args& prm);

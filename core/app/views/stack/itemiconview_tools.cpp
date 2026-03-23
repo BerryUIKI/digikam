@@ -7,7 +7,7 @@
  * Description : Item icon view interface - Tools methods.
  *
  * SPDX-FileCopyrightText: 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Johannes Wienke <languitar at semipol dot de>
  * SPDX-FileCopyrightText: 2010-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2011-2013 by Michael G. Hansen <mike at mghansen dot de>
@@ -56,6 +56,18 @@ void ItemIconView::slotLightTable()
     const ItemInfo currentItemInfo  = currentInfo();
 
     d->utilities->insertToLightTableAuto(allInfoList, selectedList, currentItemInfo);
+}
+
+void ItemIconView::slotSurvey()
+{
+    SurveyWindow* const svview = SurveyWindow::surveyWindow();
+
+    if (svview->isHidden())
+    {
+        svview->show();
+    }
+
+    svview->unminimizeAndActivateWindow();
 }
 
 void ItemIconView::slotQueueMgr()

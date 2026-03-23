@@ -6,7 +6,7 @@
  * Date        : 2007-31-01
  * Description : main digiKam interface implementation
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2014      by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -114,6 +114,7 @@
 #include "iteminfo.h"
 #include "imagewindow.h"
 #include "lighttablewindow.h"
+#include "surveywindow.h"
 #include "queuemgrwindow.h"
 #include "loadingcache.h"
 #include "loadingcacheinterface.h"
@@ -130,6 +131,7 @@
 #include "tagsactionmngr.h"
 #include "databaseserverstarter.h"
 #include "metaenginesettings.h"
+#include "statusprogressbar.h"
 #include "statusbarprogresswidget.h"
 #include "dbmigrationdlg.h"
 #include "progressmanager.h"
@@ -152,6 +154,10 @@
 #include "faceclassifier.h"
 #include "facesengine.h"
 #include "identityprovider.h"
+#include "aitoolspipeline.h"
+#include "systemsettings.h"
+#include "facetrainingupgradedlg.h"
+#include "peoplesidebarwidget.h"
 
 #ifdef HAVE_GEOLOCATION
 #   include "geolocationsettings.h"
@@ -286,8 +292,9 @@ public:
     QAction*                            imageDeleteAction                       = nullptr;
     QMenu*                              imageExifOrientationActionMenu          = nullptr;
     QAction*                            openWithAction                          = nullptr;
-    QAction*                            ieAction                                = nullptr;
-    QAction*                            ltAction                                = nullptr;
+    QAction*                            ieAction                                = nullptr;          // Image Editor
+    QAction*                            ltAction                                = nullptr;          // Light Table
+    QAction*                            svAction                                = nullptr;          // Survey
 
     //@}
 
@@ -360,7 +367,7 @@ public:
     CameraList*                         cameraList                              = nullptr;
     TagsActionMngr*                     tagsActionManager                       = nullptr;
     DZoomBar*                           zoomBar                                 = nullptr;
-    DAdjustableLabel*                   statusLabel                             = nullptr;
+    StatusProgressBar*                  statusLabel                             = nullptr;
 
     DModelFactory*                      modelCollection                         = nullptr;
 };

@@ -6,7 +6,7 @@
  * Date        : 2006-02-22
  * Description : a generic widget to display metadata
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -65,6 +65,8 @@ class Q_DECL_HIDDEN MetadataWidget::Private
 public:
 
     Private() = default;
+
+public:
 
     QAction*               noneAction       = nullptr;
     QAction*               photoAction      = nullptr;
@@ -363,9 +365,9 @@ QString MetadataWidget::metadataToText() const
 
                     if (lvItem2)
                     {
-                        textmetadata.append(lvItem2->text(0));
+                        textmetadata.append(lvItem2->getTitle());
                         textmetadata.append(QLatin1String(" : "));
-                        textmetadata.append(lvItem2->text(1));
+                        textmetadata.append(lvItem2->getFullValue());
                         textmetadata.append(QLatin1Char('\n'));
                     }
                 }
@@ -428,7 +430,7 @@ QUrl MetadataWidget::saveMetadataToFile(const QString& caption, const QString& f
         return QUrl();
     }
 
-    QUrl url = fileSaveDialog->selectedUrls().first();
+    QUrl url = fileSaveDialog->selectedUrls().constFirst();
     delete fileSaveDialog;
 
     return url;

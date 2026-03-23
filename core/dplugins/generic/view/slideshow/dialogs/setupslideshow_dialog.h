@@ -6,7 +6,7 @@
  * Date        : 2005-05-21
  * Description : setup tab for slideshow options.
  *
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2019-2020 by Minh Nghia Duong <minhnghiaduong997 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -36,7 +36,8 @@ class SetupSlideShowDialog : public DPluginDialog
 
 public:
 
-    explicit SetupSlideShowDialog(SlideShowSettings* const settings, QWidget* const parent = nullptr);
+    explicit SetupSlideShowDialog(SlideShowSettings* const settings,
+                                  QWidget* const parent = nullptr);
     ~SetupSlideShowDialog() override;
 
 public Q_SLOTS:

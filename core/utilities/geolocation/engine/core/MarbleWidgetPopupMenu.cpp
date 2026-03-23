@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -901,7 +901,7 @@ void MarbleWidgetPopupMenu::slotCopyCoordinates()
                                               "</gpx>\n"
                                           ).arg(latitude_degrees, 0, 'f', 10).arg(longitude_degrees, 0, 'f', 10);
 
-        QString  positionString = coordinates.toString();
+        QString  positionString = coordinates.toString(GeoDataCoordinates::Simply);
 
         QMimeData* const myMimeData = new QMimeData();
         myMimeData->setText(positionString);

@@ -7,7 +7,9 @@
  * Description : Tag Properties widget to display tag properties
  *               when a tag or multiple tags are selected
  *
- * SPDX-FileCopyrightText: 2013 by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2013      by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2025 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -40,6 +42,7 @@ public:
         EnabledAll,
         IconOnly
     };
+    Q_ENUM(ItemsEnable);
 
 public:
 
@@ -67,10 +70,10 @@ private Q_SLOTS:
 private:
 
     /**
-     * @brief enableItems - enable items based on selection.
-     *                      If no item is selected, disable all,
-     *                      if one item selected, enable all,
-     *                      if multiple selected, enable icon & icon button
+     * @brief enable items based on selection.
+     *        If no item is selected, disable all.
+     *        If one item selected, enable all.
+     *        If multiple selected, enable icon & icon button.
      */
     void enableItems(ItemsEnable value);
 

@@ -6,7 +6,7 @@
  * Date        : 2006-01-20
  * Description : core image editor GUI implementation
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2015      by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  *
@@ -15,8 +15,7 @@
  * ============================================================ */
 
 #include "editorwindow_p.h"
-#include "autorotator.h"
-#include "systemsettings.h"
+
 namespace Digikam
 {
 
@@ -309,7 +308,7 @@ void EditorWindow::setupStandardActions()
     ac->setDefaultShortcut(d->openWithAction, QKeySequence(Qt::CTRL | Qt::Key_F4));
     d->openWithAction->setEnabled(false);
 
-    m_fileDeleteAction = new QAction(QIcon::fromTheme(QLatin1String("user-trash")),
+    m_fileDeleteAction = new QAction(QIcon::fromTheme(QLatin1String("albumfolder-user-trash")),  // In red - bug 513774
                                      i18nc("@action: Non-pluralized", "Move to Trash"), this);
     connect(m_fileDeleteAction, SIGNAL(triggered()), this, SLOT(slotDeleteCurrentItem()));
     ac->addAction(QLatin1String("editorwindow_delete"), m_fileDeleteAction);
@@ -1912,7 +1911,7 @@ bool EditorWindow::showFileSaveDialog(const QUrl& initialUrl, QUrl& newURL)
         return false;
     }
 
-    newURL = imageFileSaveDialog->selectedUrls().first();
+    newURL = imageFileSaveDialog->selectedUrls().constFirst();
     newURL.setPath(QDir::cleanPath(newURL.path()));
 
     QFileInfo fi(newURL.fileName());

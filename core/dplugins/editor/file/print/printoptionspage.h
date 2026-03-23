@@ -7,7 +7,7 @@
  * Description : image editor printing interface.
  *
  * SPDX-FileCopyrightText: 2009      by Angelo Naselli <anaselli at linux dot it>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -54,7 +54,7 @@ public:
 public:
 
     explicit PrintOptionsPage(QWidget* const parent, const QSize& imageSize);
-    ~PrintOptionsPage() override;
+    ~PrintOptionsPage()                        override;
 
     void loadConfig();
     void saveConfig();

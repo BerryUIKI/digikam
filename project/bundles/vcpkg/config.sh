@@ -1,18 +1,18 @@
 #!/bin/bash
 
-# SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
 ########################################################################
 
-# About short pathes to use with VCPKG, see https://github.com/microsoft/vcpkg/issues/24751
+# About short paths to use with VCPKG, see https://github.com/microsoft/vcpkg/issues/24751
 # /c/ is C:/ drive
 # /e/ is E:/ drive
 
 # Absolute path where are installed VCPKG scripts, portfiles, and configurations.
-VCPKG_DIR="/c/vcpkg"
+VCPKG_DIR="/e/vcpkg"
 
 # Absolute path where are installed all compiled targets.
 INSTALL_DIR="/e/dk"
@@ -103,15 +103,15 @@ else
 
     # KDE KF6 frameworks version.
     # See official release here: https://download.kde.org/stable/frameworks/
-    DK_KDE_VERSION="v6.12.0"
+    DK_KDE_VERSION="v6.24.0"
 
     # KDE Plasma version.
     # See official release here: https://download.kde.org/stable/plasma/
-    DK_KP_VERSION="v6.3.4"
+    DK_KP_VERSION="v6.6.2"
 
     # KDE Application version.
     # See official release here: https://download.kde.org/stable/release-service/
-    DK_KA_VERSION="v24.12.3"
+    DK_KA_VERSION="v25.12.3"
 
     DK_UPLOADDIR="/srv/archives/files/digikam"
 

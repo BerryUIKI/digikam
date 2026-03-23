@@ -7,7 +7,7 @@
  * Description : scan item controller.
  *
  * SPDX-FileCopyrightText: 2005-2006 by Tom Albers <tomalbers at kde dot nl>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -37,12 +37,14 @@ ScanController::FileMetadataWrite::~FileMetadataWrite()
 
 // ----------------------------------------------------------------------------
 
-Q_GLOBAL_STATIC(ScanControllerCreator, creator)
-
-ScanController* ScanController::instance()
+class Q_DECL_HIDDEN ScanControllerCreator
 {
-    return &creator->object;
-}
+public:
+
+    ScanController object;
+};
+
+Q_GLOBAL_STATIC(ScanControllerCreator, creator)
 
 // ----------------------------------------------------------------------------
 
@@ -111,7 +113,13 @@ ScanController::~ScanController()
 
     delete d->progressDialog;
     delete d->hints;
+
     delete d;
+}
+
+ScanController* ScanController::instance()
+{
+    return &creator->object;
 }
 
 void ScanController::setInitializationMessage()
@@ -195,7 +203,7 @@ void ScanController::run()
             {
                 // d->completeScanDeferredAlbums is only accessed from the thread, no need to copy
 
-             doFinishScan  = true;
+                doFinishScan  = true;
             }
             else if (!d->scanTasks.isEmpty() && !d->scanSuspended)
             {

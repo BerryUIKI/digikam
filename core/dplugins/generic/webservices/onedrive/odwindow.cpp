@@ -72,10 +72,10 @@ ODWindow::ODWindow(DInfoInterface* const iface,
 
     setMainWidget(d->widget);
     setModal(false);
-    setWindowTitle(i18nc("@title:window", "Export to Onedrive"));
+    setWindowTitle(i18nc("@title:window", "Export to OneDrive"));
 
     startButton()->setText(i18nc("@action:button", "Start Upload"));
-    startButton()->setToolTip(i18nc("@info:tooltip, button", "Start upload to Onedrive"));
+    startButton()->setToolTip(i18nc("@info:tooltip, button", "Start upload to OneDrive"));
 
     d->widget->setMinimumSize(700, 500);
 
@@ -235,7 +235,7 @@ void ODWindow::slotStartTransfer()
 
     if (d->widget->imagesList()->imageUrls().isEmpty())
     {
-        QMessageBox::critical(this, i18nc("@title: window start transfert", "Error"),
+        QMessageBox::critical(this, i18nc("@title: window start transfer", "Error"),
                               i18nc("@info", "No image selected. Please select which images should be uploaded."));
         return;
     }
@@ -243,12 +243,12 @@ void ODWindow::slotStartTransfer()
     if (!(d->talker->authenticated()))
     {
         QPointer<QMessageBox> warn = new QMessageBox(QMessageBox::Warning,
-                         i18nc("@title: window start transfert", "Warning"),
+                         i18nc("@title: window start transfer", "Warning"),
                          i18nc("@info", "Authentication failed. Click \"Continue\" to authenticate."),
                          QMessageBox::Yes | QMessageBox::No);
 
-        (warn->button(QMessageBox::Yes))->setText(i18nc("@action: button start transfert", "Continue"));
-        (warn->button(QMessageBox::No))->setText(i18nc("@action: button start transfert", "Cancel"));
+        (warn->button(QMessageBox::Yes))->setText(i18nc("@action: button start transfer", "Continue"));
+        (warn->button(QMessageBox::No))->setText(i18nc("@action: button start transfer", "Cancel"));
 
         if (warn->exec() == QMessageBox::Yes)
         {
@@ -280,7 +280,7 @@ void ODWindow::slotStartTransfer()
     d->widget->progressBar()->setMaximum(d->imagesTotal);
     d->widget->progressBar()->setValue(0);
     d->widget->progressBar()->show();
-    d->widget->progressBar()->progressScheduled(i18nc("@info", "Onedrive export"), true, true);
+    d->widget->progressBar()->progressScheduled(i18nc("@info", "OneDrive export"), true, true);
     d->widget->progressBar()->progressThumbnailChanged(
         QIcon::fromTheme(QLatin1String("dk-onedrive")).pixmap(22, 22));
 
@@ -391,12 +391,12 @@ void ODWindow::slotSignalLinkingSucceeded()
 
 void ODWindow::slotListAlbumsFailed(const QString& msg)
 {
-    QMessageBox::critical(this, QString(), i18nc("@info", "Onedrive call failed:\n%1", msg));
+    QMessageBox::critical(this, QString(), i18nc("@info", "OneDrive call failed:\n%1", msg));
 }
 
 void ODWindow::slotCreateFolderFailed(const QString& msg)
 {
-    QMessageBox::critical(this, QString(), i18nc("@info", "Onedrive call failed:\n%1", msg));
+    QMessageBox::critical(this, QString(), i18nc("@info", "OneDrive call failed:\n%1", msg));
 }
 
 void ODWindow::slotCreateFolderSucceeded()

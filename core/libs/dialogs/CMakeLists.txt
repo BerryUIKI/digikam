@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -22,6 +22,8 @@ include_directories(
     $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::ConfigCore,INTERFACE_INCLUDE_DIRECTORIES>
     $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::CoreAddons,INTERFACE_INCLUDE_DIRECTORIES>
     $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::Solid,INTERFACE_INCLUDE_DIRECTORIES>
+
+    ${CMAKE_BINARY_DIR}/core/app/utils
 )
 
 if(KF${QT_VERSION_MAJOR}Sonnet_FOUND)
@@ -41,6 +43,12 @@ set(libdialogs_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/imagedialog_tooltip.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/infodlg.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/libsinfodlg.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/libsinfodlg_p.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/libsinfodlg_features.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/libsinfodlg_libraries.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/libsinfodlg_buildtools.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/libsinfodlg_manifest.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/libsinfodlg_opencv.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/rawcameradlg.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/solidhardwaredlg.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dconfigdlg.cpp

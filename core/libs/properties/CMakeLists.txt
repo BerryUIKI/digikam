@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -28,7 +28,6 @@ set(libitemproperties_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/itempropertiestab.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/itempropertiestab_helpers.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/itempropertiestab_setters.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/itemselectionpropertiestab.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/itempropertiesmetadatatab.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/itempropertiescolorstab.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/itempropertiestxtlabel.cpp
@@ -60,6 +59,11 @@ set(libitemversionssidebar_SRCS
 
 set(libitempropertiesdigikam_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/itempropertiessidebardb.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/itemselectionpropertiestab.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/itemsgroupedview.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/itemsgroupedviewitem.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/itemsgroupedtooltip.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/itemsgroupedtoolbar.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/import/importitempropertiessidebar.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/import/importitempropertiestab.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/captions/itemdescedittab.cpp

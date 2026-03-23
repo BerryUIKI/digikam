@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -644,26 +644,26 @@ void MeasureToolPlugin::drawInfobox(GeoPainter* painter) const
 
     if (m_paintMode == Polygon)
     {
-        boxContent += QLatin1String("<strong>") + i18n("Polygon Ruler") + QLatin1String(":</strong><br/>\n");
+        boxContent += QLatin1String("<strong>") + i18n("Polygon Ruler") + QLatin1String(":</strong><br>\n");
     }
 
     else /* Circular */
     {
-        boxContent += QLatin1String("<strong>") + i18n("Circle Ruler") + QLatin1String(":</strong><br/>\n");
+        boxContent += QLatin1String("<strong>") + i18n("Circle Ruler") + QLatin1String(":</strong><br>\n");
     }
 
     if (m_paintMode == Polygon)
     {
-        boxContent += i18n("Total Distance: %1<br/>\n").arg(meterToPreferredUnit(m_totalDistance));
+        boxContent += i18n("Total Distance: %1<br>\n").arg(meterToPreferredUnit(m_totalDistance));
 
         if (m_showPolygonArea)
         {
-            boxContent += i18n("Area: %1<br/>\n").arg(meterToPreferredUnit(m_polygonArea, true));
+            boxContent += i18n("Area: %1<br>\n").arg(meterToPreferredUnit(m_polygonArea, true));
         }
 
         if (m_showPerimeter)
         {
-            boxContent += i18n("Perimeter: %1<br/>\n").arg(meterToPreferredUnit(m_perimeter));
+            boxContent += i18n("Perimeter: %1<br>\n").arg(meterToPreferredUnit(m_perimeter));
         }
     }
 
@@ -671,17 +671,17 @@ void MeasureToolPlugin::drawInfobox(GeoPainter* painter) const
     {
         if (m_showRadius)
         {
-            boxContent += i18n("Radius: %1<br/>\n").arg(meterToPreferredUnit(m_radius));
+            boxContent += i18n("Radius: %1<br>\n").arg(meterToPreferredUnit(m_radius));
         }
 
         if (m_showCircumference)
         {
-            boxContent += i18n("Circumference: %1<br/>\n").arg(meterToPreferredUnit(m_circumference));
+            boxContent += i18n("Circumference: %1<br>\n").arg(meterToPreferredUnit(m_circumference));
         }
 
         if (m_showCircularArea)
         {
-            boxContent += i18n("Area: %1<br/>\n").arg(meterToPreferredUnit(m_circularArea, true));
+            boxContent += i18n("Area: %1<br>\n").arg(meterToPreferredUnit(m_circularArea, true));
         }
     }
 

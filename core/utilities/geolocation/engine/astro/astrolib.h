@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -167,7 +167,7 @@ private:
     Vec3     rint;              // intersection shadow axis - Earth surface
 
     double   t          = 0.0;  // time in Julian Centuries
-    double   ep2        = 0.0;  // correction for Apparent Sideral Time
+    double   ep2        = 0.0;  // correction for Apparent Sidereal Time
     double   d_umbra    = 0.0;  // diameter of umbra in Earth Radii
     double   d_penumbra = 0.0;  // diameter of penumbra in Earth Radii
 

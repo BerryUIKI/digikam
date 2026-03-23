@@ -7,7 +7,7 @@
  * Description : file action manager
  *
  * SPDX-FileCopyrightText: 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -45,12 +45,9 @@ public:
     FileActionMngr object;
 };
 
-Q_GLOBAL_STATIC(FileActionMngrCreator, metadataManagercreator)
+Q_GLOBAL_STATIC(FileActionMngrCreator, creator)
 
-FileActionMngr* FileActionMngr::instance()
-{
-    return &metadataManagercreator->object;
-}
+// --------------------------------------------
 
 FileActionMngr::FileActionMngr()
     : QObject(),
@@ -61,8 +58,8 @@ FileActionMngr::FileActionMngr()
 
     // connect AI Tools pipeline signals to the file worker
 
-    connect(d->aiToolsPipeline, SIGNAL(signalTransform(QList<ItemInfo>,MetaEngineRotation::TransformationAction)),
-            this, SLOT(transform(QList<ItemInfo>, MetaEngineRotation::TransformationAction)));
+    connect(AIToolsPipeline::instance(), SIGNAL(signalTransform(QList<ItemInfo>,MetaEngineRotation::TransformationAction)),
+            this, SLOT(transform(QList<ItemInfo>,MetaEngineRotation::TransformationAction)));
 
     // add other AI Tools connections here as other AI tools are added
 }
@@ -71,6 +68,11 @@ FileActionMngr::~FileActionMngr()
 {
     shutDown();
     delete d;
+}
+
+FileActionMngr* FileActionMngr::instance()
+{
+    return &creator->object;
 }
 
 bool FileActionMngr::requestShutDown()
@@ -197,11 +199,11 @@ void FileActionMngr::assignRating(const QList<ItemInfo>& infos, int rating)
     d->assignRating(taskList, rating);
 }
 
-void FileActionMngr::addToGroup(const ItemInfo& pick, const QList<ItemInfo>& infos)
+void FileActionMngr::addToGroup(const ItemInfo& stack, const QList<ItemInfo>& infos)
 {
     FileActionItemInfoList taskList = FileActionItemInfoList::create(infos);
     taskList.schedulingForDB(i18n("Editing group"), d->dbProgressCreator());
-    d->editGroup(AddToGroup, pick, taskList);
+    d->editGroup(AddToGroup, stack, taskList);
 }
 
 void FileActionMngr::removeFromGroup(const ItemInfo& info)

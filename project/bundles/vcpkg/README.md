@@ -3,7 +3,7 @@ Scripts to install compiled digiKam dependencies with MSVC under Windows
 
 * RESUME
 
-    These scripts build a binary digiKam installer for Windows under Windows using VCPKG, MSVC tool-chain,
+    These scripts build a binary digiKam installer for Windows x86_64 under Windows using VCPKG, MSVC tool-chain,
     and NSIS application.
 
     These scripts follow instructions from Qt bundle deployment for Windows as shared libraries
@@ -16,7 +16,7 @@ Scripts to install compiled digiKam dependencies with MSVC under Windows
 * DESCRIPTION
 
     These files and scripts are used to make binary installer of the digiKam
-    Software Collection for Windows 64 bits. In addition to this README,
+    Software Collection for Windows Intel 64 bits. In addition to this README,
     there are comments in the scripts that provide some additional explanations for
     how they work.
 
@@ -80,10 +80,6 @@ Scripts to install compiled digiKam dependencies with MSVC under Windows
         + Checkout/Commit Unix EOL
         + MinTTY Terminal
 
-    - CMake 3.27 or later                               https://cmake.org/download/
-        + Install to default path
-        + Add CMake path to current user                Cmake needs to be installed outside Msys2
-
     - NSIS 3.x                                          https://nsis-dev.github.io/
 
     - IcoUtils 0.32 or later                            https://sourceforge.net/projects/unix-utils/files/icoutils/
@@ -92,11 +88,16 @@ Scripts to install compiled digiKam dependencies with MSVC under Windows
     - WinFlexBison 2.5 or later                         https://github.com/lexxmark/winflexbison/releases
         + Uncompress the binary archive to C:/bison
 
-    - RSync 3.2 or later for git-bash                   Tutorial: https://prasaz.medium.com/add-rsync-to-windows-git-bash-f42736bae1b3
-        + Install Msys/RSync and deps packages          MSys repo: https://repo.msys2.org/msys/x86_64/
+    - RSync 3.2 or later for git-bash                   MSys repo: https://repo.msys2.org/msys/x86_64/
+        + Tutorial                                      https://prasaz.medium.com/add-rsync-to-windows-git-bash-f42736bae1b3
+        + Install Msys/RSync and deps packages          
         + target: git-bash/usr install directory        C:/Program Files/Git/usr/
 
-    - Visual Studio 2022                                https://learn.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2022
+    - MC 4.8 or later for git-bash                      MSys repo: https://repo.msys2.org/msys/x86_64/
+        + Install Msys/mc and deps packages             libssh2 ; glib2
+        + target: git-bash/usr install directory        C:/Program Files/Git/usr/
+
+    - Visual Studio 2022 or later                       https://learn.microsoft.com/en-us/visualstudio/install/install-visual-studio?view=vs-2022
         + Desktop development with C++
             + C++ core desktop features
             + MSVC v143 - VS2022 C++ x64/x86
@@ -116,10 +117,6 @@ Scripts to install compiled digiKam dependencies with MSVC under Windows
         + Disable all others features                   Note: in 'Addition Tasks' step
         + Use default install path in C:/
 
-    - NVIDIA CUDA + cuDNN Sdks for Windows 10 64 bits Intel
-        + Install CUDA toolkit from https://developer.nvidia.com/cuda-downloads
-        + Install cuDNN toolkit from https://developer.nvidia.com/cudnn-downloads
-
 * BUILD
 
     You must set the digiKam git tags to checkout right source code in installer.
@@ -138,7 +135,7 @@ Scripts to install compiled digiKam dependencies with MSVC under Windows
     To build and install the base of VCPKG tools-chain including Qt framework and all low level dependencies.
 
     NOTE: due to long path problems while compiling under Windows and MSVC, VCPKG working directories must adjusted as shortest as possible:
-        VCPKG_DIR=C:/vcpkg/
+        VCPKG_DIR=E:/vcpkg/
         INSTALL_DIR=E:/dk/
         DOWNLOAD_DIR=E:/d/
         BUILDING_DIR=E:/b/

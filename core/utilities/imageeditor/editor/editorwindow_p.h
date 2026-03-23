@@ -6,7 +6,7 @@
  * Date        : 2006-01-20
  * Description : core image editor GUI implementation private data.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -141,6 +141,8 @@
 #include "dnotificationpopup.h"
 #include "dimgloader.h"
 #include "categorizeditemmodel.h"
+#include "autorotator.h"
+#include "systemsettings.h"
 
 namespace Digikam
 {

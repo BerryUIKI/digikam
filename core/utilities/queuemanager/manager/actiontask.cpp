@@ -6,7 +6,7 @@
  * Date        : 2009-02-06
  * Description : Thread actions task.
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Pankaj Kumar <me at panks dot me>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -118,6 +118,8 @@ void ActionTask::emitActionData(ActionData::ActionStatus st,
 
 void ActionTask::run()
 {
+    ActionJob::run();       // To customize thread name
+
     if (d->cancel)
     {
         return;
@@ -140,9 +142,10 @@ void ActionTask::run()
 
     // ItemInfo must be tread-safe.
 
-    ItemInfo source      = ItemInfo::fromUrl(d->tools.m_itemUrl);
-    bool noWriteMetadata = false;
-    bool timeAdjust      = false;
+    ItemInfo source           = ItemInfo::fromUrl(d->tools.m_itemUrl);
+    bool resetExifOrientation = false;
+    bool noWriteMetadata      = false;
+    bool timeAdjust           = false;
 
     for (const BatchToolSet& set : std::as_const(d->tools.m_toolsList))
     {
@@ -163,12 +166,15 @@ void ActionTask::run()
         d->tool->setToolTitle(tool->toolTitle());
         d->tool->setToolDescription(tool->toolDescription());
 
+        // If a tool resets the Exif orientation, it must be
+        // copy to all tools so that the last tool applies it.
+
+        resetExifOrientation |= tool->getNeedResetExifOrientation();
+        d->tool->setNeedResetExifOrientation(resetExifOrientation);
+
         // Only true if it is also the last tool
 
-        noWriteMetadata |= (
-                            (set.group == BatchTool::MetadataTool)  &&
-                            (set.name  != QLatin1String("TimeAdjust"))
-                           );
+        noWriteMetadata |= (set.group == BatchTool::MetadataTool);
 
         timeAdjust      |= (set.name == QLatin1String("TimeAdjust"));
         inUrl            = outUrl;

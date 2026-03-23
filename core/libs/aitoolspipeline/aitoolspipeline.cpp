@@ -6,7 +6,8 @@
  * Date        : 2025-05-02
  * Description : AI tools pipeline class
  *
- * SPDX-FileCopyrightText : 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
+ * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
+ *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
  * ============================================================ */
@@ -16,10 +17,9 @@
 // Qt includes
 
 #include <QApplication>
-#include <QDebug>
 #include <QFileInfo>
-#include <QList>
 #include <QString>
+#include <QList>
 
 // KDE includes
 
@@ -33,6 +33,7 @@
 #include "dnnmodelmanager.h"
 #include "previewloadthread.h"
 #include "autorotator.h"
+#include "actionthreadbase.h"
 #include "collectionmanager.h"
 
 namespace Digikam
@@ -45,7 +46,7 @@ public:
     AIToolsPipeline object;
 };
 
-Q_GLOBAL_STATIC(AIToolsPipelineCreator, aiToolsPipelineCreator)
+Q_GLOBAL_STATIC(AIToolsPipelineCreator, creator)
 
 // -----------------------------------------------------------------------------------------------
 
@@ -53,12 +54,15 @@ class Q_DECL_HIDDEN AIToolsPipeline::Private
 {
 public:
 
+    Private() = default;
+
+public:
+
     bool            aiToolsEnabled  = false;
     bool            isStarted       = false;
     bool            batchCancelled  = false;
     AutoRotator*    rotator         = nullptr;
     QRecursiveMutex progressMutex;
-
 };
 
 AIToolsPipeline::AIToolsPipeline(QObject* const parent)
@@ -66,6 +70,12 @@ AIToolsPipeline::AIToolsPipeline(QObject* const parent)
       d                   (new Private)
 {
     setParent(parent);
+
+    // For the signal and slot usages.
+
+    qRegisterMetaType<MLPipelinePackageNotify>("MLPipelinePackageNotify");
+    qRegisterMetaType<MLPipelinePackageNotify::Ptr>("MLPipelinePackageNotifyPtr");
+
     d->aiToolsEnabled = SystemSettings(qApp->applicationName()).enableAIAutoTools;
 }
 
@@ -76,7 +86,7 @@ AIToolsPipeline::~AIToolsPipeline()
 
 AIToolsPipeline* AIToolsPipeline::instance()
 {
-    return &aiToolsPipelineCreator->object;
+    return &creator->object;
 }
 
 bool AIToolsPipeline::start()
@@ -126,14 +136,14 @@ bool AIToolsPipeline::start()
         connect(this, SIGNAL(scheduled()),
                 this, SLOT(slotScheduled()));
 
-        connect(this, SIGNAL(started(const QString&)),
-                this, SLOT(slotStarted(const QString&)));
+        connect(this, SIGNAL(started(QString)),
+                this, SLOT(slotStarted(QString)));
 
-        connect(this, SIGNAL(processed(const MLPipelinePackageNotify::Ptr&)),
-                this, SLOT(slotProcessed(const MLPipelinePackageNotify::Ptr&)));
+        connect(this, SIGNAL(processed(MLPipelinePackageNotify::Ptr)),
+                this, SLOT(slotProcessed(MLPipelinePackageNotify::Ptr)));
 
-        connect(this, SIGNAL(skipped(const MLPipelinePackageNotify::Ptr&)),
-                this, SLOT(slotSkipped(const MLPipelinePackageNotify::Ptr&)));
+        connect(this, SIGNAL(skipped(MLPipelinePackageNotify::Ptr)),
+                this, SLOT(slotSkipped(MLPipelinePackageNotify::Ptr)));
 
         connect(this, SIGNAL(finished()),
                 this, SLOT(slotFinished()));
@@ -228,6 +238,8 @@ bool AIToolsPipeline::process(const DImg& image,
 
 bool AIToolsPipeline::loader()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("AITools%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Loader, MLPipelineStage::Classifier);
     AIToolsPipelinePackage* package = nullptr;
 
@@ -239,8 +251,8 @@ bool AIToolsPipeline::loader()
      * is at least 1. More instances are created by addMoreWorkers if needed.
      */
 
-    DNNModelBase* model = DNNModelManager::instance()->getModel(QLatin1String("AutoRotate"),
-                                                                DNNModelUsage::DNNUsageAutoRotate);
+    DNNModelBase* const model = DNNModelManager::instance()->getModel(QLatin1String("AutoRotate"),
+                                                                      DNNModelUsage::DNNUsageAutoRotate);
 
     MLPIPELINE_LOOP_START(MLPipelineStage::Loader, thisQueue);
     package = static_cast<AIToolsPipelinePackage*>(mlpackage);
@@ -291,6 +303,8 @@ bool AIToolsPipeline::loader()
 
 bool AIToolsPipeline::classifier()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("AITools%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Classifier, MLPipelineStage::Writer);
     AIToolsPipelinePackage* package = nullptr;
 
@@ -359,6 +373,8 @@ bool AIToolsPipeline::classifier()
 
 bool AIToolsPipeline::writer()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("AITools%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Writer, MLPipelineStage::None);
     AIToolsPipelinePackage* package = nullptr;
 
@@ -442,11 +458,6 @@ void AIToolsPipeline::addMoreWorkers()
     // Add workers to each stage as needed
 }
 
-/**
- * Check if there's an existing progress item for AIToolPipeline.
- * If not found, create a new one.
- * @return The existing or newly created ProgressItem
- */
 ProgressItem* AIToolsPipeline::getProgressItem()
 {
     QMutexLocker lock(&d->progressMutex);
@@ -497,10 +508,10 @@ void AIToolsPipeline::slotProcessed(const MLPipelinePackageNotify::Ptr& package)
         return;
     }
 
-    ProgressItem* item = getProgressItem();
+    ProgressItem* const item = getProgressItem();
     item->setThumbnail(package->thumbnail);
 
-    QString lbl        = i18n("Auto-rotating: %1\n", package->name);
+    QString lbl              = i18n("Auto-rotating: %1\n", package->name);
     lbl.append(i18n("Album: %1\n", package->path));
     lbl.append(i18n("Rotation: %1\n", package->displayData));
 
@@ -537,7 +548,7 @@ void AIToolsPipeline::slotFinished()
         return;
     }
 
-    ProgressItem* item = getProgressItem();
+    ProgressItem* const item = getProgressItem();
 
     item->setComplete();
 }
@@ -562,7 +573,7 @@ void AIToolsPipeline::slotBatchCancel()
 
     QMutexLocker lock(&d->progressMutex);
 
-    ProgressItem* item = getProgressItem();
+    ProgressItem* const item = getProgressItem();
 
     // Clear only the specified stages
 
@@ -572,13 +583,13 @@ void AIToolsPipeline::slotBatchCancel()
 
         if (queues.contains(stage))
         {
-            MLPipelineQueue* queue = queues[stage];
+            MLPipelineQueue* const queue = queues[stage];
 
             // Clear the queue
 
             while (!queue->isEmpty())
             {
-                MLPipelinePackageFoundation* package = queue->pop_front();
+                MLPipelinePackageFoundation* const package = queue->pop_front();
 
                 // Make sure we don't delete the queue end signal
 

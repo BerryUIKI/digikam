@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -133,7 +133,7 @@ void VectorTileModel::setViewport(const GeoDataLatLonBox& latLonBox)
     /** LOGIC FOR DOWNLOADING ALL THE TILES THAT ARE INSIDE THE SCREEN AT THE CURRENT ZOOM LEVEL **/
 
     // New tiles X and Y for moved screen coordinates
-    // More info: https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Subtiles
+    // More info: https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#Subtiles         // codespell:ignore
     // More info: https://wiki.openstreetmap.org/wiki/Slippy_map_tilenames#C.2FC.2B.2B
 
     const QRect rect = m_layer->tileProjection()->tileIndexes(latLonBox, tileLoadLevel);

@@ -7,7 +7,7 @@
  * Description : Qt model-view for items - the delegate
  *
  * SPDX-FileCopyrightText: 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
@@ -77,12 +77,11 @@ void DigikamItemDelegate::updateRects()
 
     if (albumSettings->getIconShowPickLabel())
     {
-        const int pickIconSize               = qBound(16, iconSize, 28);
-        d->pickLabelRect                     = QRect(d->margin, y - d->margin, pickIconSize, pickIconSize);
+        d->pickLabelRect                     = QRect(d->margin, y - iconSize, iconSize, iconSize);
     }
 
     d->coordinatesRect                       = QRect(d->contentWidth - iconSize + 2, d->pixmapRect.top(), iconSize, iconSize);
-    d->groupRect                             = QRect(d->contentWidth - iconSize + d->margin, y - d->margin, iconSize, iconSize);
+    d->groupRect                             = QRect(d->contentWidth - iconSize + d->margin, y - iconSize, iconSize, iconSize);
     const bool showInfos                     = ((d->contentWidth - 2 * d->radius) > ThumbnailSize::Small);
 
     if (albumSettings->getIconShowRating())
@@ -147,8 +146,9 @@ void DigikamItemDelegate::updateRects()
 
     d->imageInformationRect.setBottom(y);
 
-    d->rect     = QRect(0, 0, d->contentWidth + 2 * d->margin, y + d->margin + d->radius);
-    d->gridSize = QSize(d->rect.width() + d->spacing, d->rect.height() + d->spacing);
+    d->rect            = QRect(0, 0, d->contentWidth + 2 * d->margin, y + d->margin + d->radius);
+    d->gridSize        = QSize(d->rect.width() + d->spacing, d->rect.height() + d->spacing);
+    d->groupedItemRect = QRect(1, 1, d->rect.width() - 3, d->rect.height() - 3);
 }
 
 } // namespace Digikam

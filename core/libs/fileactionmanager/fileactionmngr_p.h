@@ -7,7 +7,7 @@
  * Description : file action manager
  *
  * SPDX-FileCopyrightText: 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -119,9 +119,9 @@ public:
         Q_EMIT signalAssignRating(infos, rating);
     }
 
-    void editGroup(int groupAction, const ItemInfo& pick, const FileActionItemInfoList& infos)
+    void editGroup(int groupAction, const ItemInfo& stack, const FileActionItemInfoList& infos)
     {
-        Q_EMIT signalEditGroup(groupAction, pick, infos);
+        Q_EMIT signalEditGroup(groupAction, stack, infos);
     }
 
     void setExifOrientation(const FileActionItemInfoList& infos, int orientation)
@@ -184,8 +184,6 @@ public:
 
     PrivateProgressItemCreator            dbProgress;
     PrivateProgressItemCreator            fileProgress;
-
-    AIToolsPipeline*                      aiToolsPipeline = nullptr;
 };
 
 } // namespace Digikam

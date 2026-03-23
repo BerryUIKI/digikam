@@ -7,7 +7,7 @@
  * Description : helper class used to modify tag albums in views
  *
  * SPDX-FileCopyrightText: 2009-2010 by Johannes Wienke <languitar at semipol dot de>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -68,7 +68,7 @@ public:
 public Q_SLOTS:
 
     /**
-     * Creates one ore more new tags under the given parent. If only the parent
+     * Creates one more new tags under the given parent. If only the parent
      * is given, then a dialog is shown to create new tags. Else, if also a
      * title and optionally an icon are given, then these values will be used
      * directly to create the tag.

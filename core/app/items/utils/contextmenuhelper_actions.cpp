@@ -7,7 +7,7 @@
  * Description : contextmenu helper class - Actions methods.
  *
  * SPDX-FileCopyrightText: 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -179,7 +179,7 @@ void ContextMenuHelper::addStandardActionPaste(QObject* const recv, const char* 
 
 void ContextMenuHelper::addStandardActionItemDelete(QObject* const recv, const char* const slot, int quantity)
 {
-    QAction* const trashAction = new QAction(QIcon::fromTheme(QLatin1String("user-trash")),
+    QAction* const trashAction = new QAction(QIcon::fromTheme(QLatin1String("albumfolder-user-trash")),  // In red - bug 513774
                                              i18ncp("@action:inmenu Pluralized",
                                                     "Move to Trash", "Move %1 Files to Trash",
                                                     quantity), d->parent);

@@ -6,7 +6,7 @@
  * Date        : 2007-09-09
  * Description : scanner dialog
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -48,6 +48,8 @@ public:
 
     Private() = default;
 
+public:
+
     QString            targetDir;
     StatusProgressBar* progress     = nullptr;
     KSaneWidget*       saneWidget   = nullptr;
@@ -59,6 +61,9 @@ ScanDialog::ScanDialog(KSaneWidget* const saneWdg, QWidget* const parent)
 {
     setWindowTitle(i18nc("@title:window", "Scan Image"));
     setModal(false);
+
+    m_buttons->addButton(QDialogButtonBox::Close);
+    m_buttons->button(QDialogButtonBox::Close)->setAutoDefault(false);
 
     d->saneWidget          = saneWdg;
     d->progress            = new StatusProgressBar(this);
@@ -94,6 +99,9 @@ ScanDialog::ScanDialog(KSaneWidget* const saneWdg, QWidget* const parent)
 
     connect(this, &QDialog::finished,
             this, &ScanDialog::slotDialogFinished);
+
+    connect(m_buttons->button(QDialogButtonBox::Close), &QPushButton::clicked,
+            this, &ScanDialog::close);
 }
 
 ScanDialog::~ScanDialog()
@@ -128,7 +136,7 @@ void ScanDialog::slotSaveImage(const QImage& image_data)
 
 #elif KSANE_VERSION < QT_VERSION_CHECK(21,8,0)
 
-// cppcheck-suppress constParameter
+// cppcheck-suppress constParameterCallback
 void ScanDialog::slotSaveImage(QByteArray& ksane_data, int width, int height, int bytes_per_line, int ksaneformat)
 
 #else
@@ -160,7 +168,8 @@ void ScanDialog::slotSaveImage(const QImage& image_data)
     QLatin1String defaultMimeType("image/png");
     QLatin1String defaultFileName("image.png");
 
-    QPointer<DFileDialog> imageFileSaveDialog = new DFileDialog(nullptr, i18nc("@title:window", "New Image File Name"), d->targetDir);
+    QPointer<DFileDialog> imageFileSaveDialog = new DFileDialog(nullptr, i18nc("@title:window",
+                                                                "New Image File Name"), d->targetDir);
     imageFileSaveDialog->setAcceptMode(QFileDialog::AcceptSave);
     imageFileSaveDialog->setMimeTypeFilters(writableMimetypes);
     imageFileSaveDialog->selectMimeTypeFilter(defaultMimeType);
@@ -177,7 +186,7 @@ void ScanDialog::slotSaveImage(const QImage& image_data)
         return;
     }
 
-    QUrl newURL                  = imageFileSaveDialog->selectedUrls().first();
+    QUrl newURL                  = imageFileSaveDialog->selectedUrls().constFirst();
     QFileInfo fi(newURL.toLocalFile());
 
     // Parse name filter and extract file extension
@@ -297,7 +306,8 @@ void ScanDialog::slotThreadDone(const QUrl& url, bool success)
 {
     if (!success)
     {
-        QMessageBox::critical(nullptr, i18nc("@title:window", "File Not Saved"), i18n("Cannot save \"%1\" file", url.fileName()));
+        QMessageBox::critical(nullptr, i18nc("@title:window", "File Not Saved"),
+                              i18n("Cannot save \"%1\" file", url.fileName()));
     }
 
     d->progress->setProgressText(QString());

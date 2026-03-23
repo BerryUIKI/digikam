@@ -6,7 +6,7 @@
  * Date        : 2013-02-28
  * Description : Table view column helpers: Digikam properties
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -42,16 +42,17 @@ public:
         SubColumnColorLabel = 2,
         SubColumnTitle      = 3,
         SubColumnCaption    = 4,
-        SubColumnTags       = 5
+        SubColumnTags       = 5,
+        SubColumnGrouped    = 6,
+        SubColumnVersioned  = 7
     };
 
 public:
 
-    explicit ColumnDigikamProperties(
-            TableViewShared* const tableViewShared,
-            const TableViewColumnConfiguration& pConfiguration,
-            const SubColumn pSubColumn,
-            QObject* const parent = nullptr);
+    explicit ColumnDigikamProperties(TableViewShared* const tableViewShared,
+                                     const TableViewColumnConfiguration& pConfiguration,
+                                     const SubColumn pSubColumn,
+                                     QObject* const parent = nullptr);
     ~ColumnDigikamProperties()                                                                              override = default;
 
     QString getTitle()                                                                                const override;
@@ -59,6 +60,8 @@ public:
     QVariant data(TableViewModel::Item* const item, const int role)                                   const override;
     ColumnCompareResult compare(TableViewModel::Item* const itemA, TableViewModel::Item* const itemB) const override;
     bool columnAffectedByChangeset(const ImageChangeset& imageChangeset)                              const override;
+
+public:
 
     static TableViewColumnDescription getDescription();
     static QStringList getSubColumns();

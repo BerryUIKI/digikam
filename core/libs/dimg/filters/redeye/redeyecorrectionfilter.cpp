@@ -6,7 +6,7 @@
  * Date        : 17-8-2016
  * Description : A Red-Eye automatic detection and correction filter.
  *
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2016      by Omar Amin <Omar dot moh dot amin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -103,10 +103,17 @@ void RedEyeCorrectionFilter::filterImage()
     if (!d->model)
     {
         d->model = static_cast<DNNModelYuNet*>(DNNModelManager::instance()->getModel(QLatin1String("YuNet"), DNNModelUsage::DNNUsageFaceDetection));
+
+        if (!d->model)
+        {
+            qCDebug(DIGIKAM_DIMG_LOG) << "RedEyeCorrectionFilter::filterImage: Error get YuNet model";
+            return;
+        }
+
         d->model->getNet();
     }
 
-    if (!d->model && !d->model->modelLoaded)
+    if (!d->model->modelLoaded)
     {
         qCDebug(DIGIKAM_DIMG_LOG) << "RedEyeCorrectionFilter::filterImage: Error loading YuNet model";
         return;

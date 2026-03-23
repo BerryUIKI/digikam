@@ -6,7 +6,7 @@
  * Date        : 28/08/2021
  * Description : Item icon view interface - Image Quality Sorting.
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021      by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -17,7 +17,7 @@
 
 // Local includes
 
-#include "maintenancethread.h"
+#include "imagequalitysorter.h"
 
 namespace Digikam
 {
@@ -35,13 +35,8 @@ void ItemIconView::slotImageQualitySorter()
     ImageQualitySettings settings;
     settings.readFromConfig();
 
-    MaintenanceThread* const thread = new MaintenanceThread(this);
-
-    thread->sortByImageQuality(paths, settings);
-    thread->start();
-
-    connect(thread, &QThread::finished,
-            thread, &QObject::deleteLater);
+    ImageQualitySorter* const tool = new ImageQualitySorter(paths, settings);
+    tool->start();
 }
 
 } // namespace Digikam

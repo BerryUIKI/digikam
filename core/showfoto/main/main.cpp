@@ -8,7 +8,7 @@
  *               editor with no support of digiKam database.
  *
  * SPDX-FileCopyrightText: 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2004-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2004-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -165,6 +165,16 @@ extern "C" MAIN_EXPORT int MAIN_FN(int argc, char** argv)
 #endif
 
     QApplication app(argc, argv);
+
+#ifdef Q_OS_WIN
+
+    QDir::setCurrent(qApp->applicationDirPath());
+
+#endif
+
+    delayForRemoteDebuging();
+
+    system.applyProxySettings();
 
     digikamSetDebugFilterRules(system.enableLogging);
 

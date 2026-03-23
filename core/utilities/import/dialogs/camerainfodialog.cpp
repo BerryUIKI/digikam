@@ -7,7 +7,7 @@
  * Description : a dialog to display camera information.
  *
  * SPDX-FileCopyrightText: 2003-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -54,7 +54,7 @@ CameraInfoDialog::CameraInfoDialog(QWidget* const parent,
 
     QTextEdit* const summaryView    = new QTextEdit(this);
     summaryView->setWordWrapMode(QTextOption::WordWrap);
-    summaryView->setPlainText(summary);
+    summaryView->setText(summary);
     summaryView->setReadOnly(true);
     tab->insertTab(0, summaryView, QIcon::fromTheme(QLatin1String("dialog-information")), i18nc("@title", "Device Summary"));
 
@@ -62,7 +62,7 @@ CameraInfoDialog::CameraInfoDialog(QWidget* const parent,
 
     QTextEdit* const manualView     = new QTextEdit(this);
     manualView->setWordWrapMode(QTextOption::WordWrap);
-    manualView->setPlainText(manual);
+    manualView->setText(manual);
     manualView->setReadOnly(true);
     tab->insertTab(1, manualView, QIcon::fromTheme(QLatin1String("help-contents")), i18nc("@title", "Device Manual"));
 
@@ -70,7 +70,7 @@ CameraInfoDialog::CameraInfoDialog(QWidget* const parent,
 
     QTextEdit* const aboutView      = new QTextEdit(this);
     aboutView->setWordWrapMode(QTextOption::WordWrap);
-    aboutView->setPlainText(about);
+    aboutView->setText(about);
     aboutView->setReadOnly(true);
     tab->insertTab(2, aboutView, QIcon::fromTheme(QLatin1String("camera-photo")), i18nc("@title", "About Driver"));
 

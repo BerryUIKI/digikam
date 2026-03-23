@@ -7,7 +7,7 @@
  * Description : database settings widget
  *
  * SPDX-FileCopyrightText: 2009-2010 by Holger Foerster <Hamsi2k at freenet dot de>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -48,6 +48,16 @@ public:
     explicit DatabaseSettingsWidget(QWidget* const parent = nullptr);
     ~DatabaseSettingsWidget() override;
 
+private:
+
+    void setupMainArea();
+
+private Q_SLOTS:
+
+    void slotUpdateSqlInit();
+
+// --- Properties ----------------------------------------
+
 public:
 
     void setParametersFromSettings(const ApplicationSettings* const settings,
@@ -72,13 +82,9 @@ public:
 
 private:
 
-    void setupMainArea();
     void handleInternalServer(int index);
     void setDatabaseInputFields(int index);
     bool isNotEqualToThumbName(const QString& name);
-    bool checkMysqlServerConnection(QString& error);
-    bool checkMysqlServerConnectionConfig(QString& error);
-    bool checkMysqlServerDbNamesConfig(QString& error);
     bool checkDatabasePath();
 
 private Q_SLOTS:
@@ -86,9 +92,21 @@ private Q_SLOTS:
     void slotHandleDBTypeIndexChanged(int index);
     void slotDatabasePathEditedDelayed();
     void slotDatabasePathEdited();
-    void slotUpdateSqlInit();
+
+// --- Mysql ----------------------------------------------
+
+private:
+
+    bool checkMysqlServerConnection(QString& error);
+    bool checkMysqlServerConnectionConfig(QString& error);
+    bool checkMysqlServerDbNamesConfig(QString& error);
+
+private Q_SLOTS:
+
     void slotCheckMysqlServerConnection();
     void slotResetMysqlServerDBNames();
+
+// --------------------------------------------------------
 
 private:
 

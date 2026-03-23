@@ -6,7 +6,7 @@
  * Date        : 2018-07-30
  * Description : image editor plugin to adjust color levels.
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -67,7 +67,7 @@ QString AdjustLevelsToolPlugin::handbookSection() const
 
 QString AdjustLevelsToolPlugin::handbookChapter() const
 {
-    return QLatin1String("color_tools");
+    return QLatin1String("colors_tools");
 }
 
 QString AdjustLevelsToolPlugin::handbookReference() const

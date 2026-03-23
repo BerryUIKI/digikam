@@ -6,7 +6,7 @@
  * Date        : 2010-08-20
  * Description : central place for MetaEngine settings
  *
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -32,6 +32,9 @@ class DIGIKAM_EXPORT MetaEngineSettings : public QObject
 
 public:
 
+    MetaEngineSettings();
+    ~MetaEngineSettings() override;
+
     /**
      * Global container for Metadata settings. All accessor methods are thread-safe.
      */
@@ -48,6 +51,11 @@ public:
     void setSettings(const MetaEngineSettingsContainer& settings);
 
     /**
+     * Shortcut to get if metadata write using one option is enabled.
+     */
+    bool isMetadataWriteEnabled()          const;
+
+    /**
      * Shortcut to get exif rotation settings from container.
      */
     bool exifRotate()                      const;
@@ -62,9 +70,7 @@ Q_SIGNALS:
 private:
 
     // Disabled
-    MetaEngineSettings();
     explicit MetaEngineSettings(QObject*);
-    ~MetaEngineSettings() override;
 
     void readFromConfig();
 
@@ -72,8 +78,6 @@ private:
 
     class Private;
     Private* const d = nullptr;
-
-    friend class MetaEngineSettingsCreator;
 };
 
 } // namespace Digikam

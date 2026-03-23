@@ -6,7 +6,7 @@
  * Date        : 2021-07-24
  * Description : frame on screen display.
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021      by Quoc Hưng Tran <quochungtran1999 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -30,6 +30,7 @@
 // Local includes
 
 #include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "itempropertiestab.h"
 
 namespace Digikam
@@ -81,7 +82,7 @@ void FrameOsd::populateOSD(const QUrl& url,
 
         if (dateTime.isValid())
         {
-            str = QLocale().toString(dateTime, QLocale::ShortFormat);
+            str = asUserDateTime(dateTime);
             m_desc.append(QString::fromLatin1("\n%1").arg(str));
         }
     }

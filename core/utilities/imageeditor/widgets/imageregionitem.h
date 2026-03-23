@@ -7,7 +7,7 @@
  * Description : image region widget item for image editor.
  *
  * SPDX-FileCopyrightText: 2013-2014 by Yiou Wang <geow812 at gmail dot com>
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -38,12 +38,16 @@ public:
     explicit ImageRegionItem(ImageRegionWidget* const view, bool paintExtras = true);
     ~ImageRegionItem()                                                                     override;
 
+    QSize imageSize();
+    DColor getPixelColor(const QPoint&);
+
+    void initOriginalImage();
     void setTargetImage(const DImg& img);
     void setHighLightPoints(const QPolygon& pointsList);
     void setRenderingPreviewMode(int mode);
 
     void  paintExtraData(QPainter* const painter);
-    QRect getImageRegion() const;
+    QRect getImageRegion()                                                           const;
 
     void paint(QPainter* painter, const QStyleOptionGraphicsItem* option, QWidget* widget) override;
     void hoverEnterEvent(QGraphicsSceneHoverEvent*)                                        override;

@@ -7,7 +7,7 @@
  * Description : image region widget item for image editor.
  *
  * SPDX-FileCopyrightText: 2013-2014 by Yiou Wang <geow812 at gmail dot com>
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -45,6 +45,8 @@ public:
 
     Private() = default;
 
+public:
+
     bool               paintExtras                  = true;
     bool               onMouseMovePreviewToggled    = true;
     int                renderingPreviewMode         = PreviewToolBar::PreviewBothImagesVertCont;
@@ -58,7 +60,8 @@ public:
 };
 
 ImageRegionItem::ImageRegionItem(ImageRegionWidget* const widget, bool paintExtras)
-    : dd(new Private)
+    : GraphicsDImgItem(),
+      dd              (new Private)
 {
     dd->view        = widget;
     dd->iface       = new ImageIface;
@@ -66,7 +69,6 @@ ImageRegionItem::ImageRegionItem(ImageRegionWidget* const widget, bool paintExtr
 
     setDisplayWidget(widget);
     setAcceptHoverEvents(true);
-    setImage(dd->iface->original() ? dd->iface->original()->copy() : DImg());
 }
 
 ImageRegionItem::~ImageRegionItem()
@@ -75,9 +77,28 @@ ImageRegionItem::~ImageRegionItem()
     delete dd;
 }
 
+QSize ImageRegionItem::imageSize()
+{
+    Q_D(GraphicsDImgItem);
+
+    return d->image.size();
+}
+
+DColor ImageRegionItem::getPixelColor(const QPoint& pt)
+{
+    Q_D(GraphicsDImgItem);
+
+    return d->image.getPixelColor(pt.x(), pt.y());
+}
+
 QRect ImageRegionItem::getImageRegion() const
 {
     return dd->drawRect;
+}
+
+void ImageRegionItem::initOriginalImage()
+{
+    setImage(dd->iface->original() ? dd->iface->original()->copy() : DImg());
 }
 
 void ImageRegionItem::setTargetImage(const DImg& img)
@@ -164,7 +185,7 @@ void ImageRegionItem::paint(QPainter* painter, const QStyleOptionGraphicsItem* o
         painter->drawPixmap(dd->drawRect.topLeft(), pix);
     }
 
-    if (dd->paintExtras)
+    if (dd->paintExtras && !dd->view->isBusy())
     {
         paintExtraData(painter);
     }
@@ -309,7 +330,6 @@ void ImageRegionItem::paintExtraData(QPainter* const p)
     {
         QPoint pt;
         QRectF hpArea;
-
 
         for (int i = 0 ; i < dd->hightlightPoints.count() ; ++i)
         {

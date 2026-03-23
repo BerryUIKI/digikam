@@ -49,6 +49,7 @@ public:
 
     NewNameInfo          currentInfo;
     NewNamesList         newNameList;
+    NewNamesList         repeatList;
     NewNamesList         failedList;
 
     bool                 overwrite          = false;
@@ -92,6 +93,9 @@ AdvancedRenameProcessDialog::AdvancedRenameProcessDialog(const NewNamesList& lis
 
 AdvancedRenameProcessDialog::~AdvancedRenameProcessDialog()
 {
+    d->thumbLoadThread->stopAllTasks();
+    d->thumbLoadThread->wait();
+
     delete d->thumbLoadThread;
     delete d;
 }
@@ -176,12 +180,14 @@ void AdvancedRenameProcessDialog::slotRenameFinished()
 
             if      (result == QMessageBox::Cancel)
             {
+                d->repeatList.clear();
                 d->failedList.clear();
                 complete();
             }
             else if (result == QMessageBox::No)
             {
                 d->newNameList = d->failedList;
+                d->repeatList.clear();
                 d->failedList.clear();
                 d->overwrite   = true;
 
@@ -215,6 +221,16 @@ void AdvancedRenameProcessDialog::slotRenameFailed(const QUrl& url)
         return;
     }
 
+    if (!d->repeatList.contains(d->currentInfo))
+    {
+        int pos = d->newNameList.size() - d->repeatList.size();
+        d->newNameList.insert(pos, d->currentInfo);
+        d->repeatList << d->currentInfo;
+        incrementMaximum(1);
+
+        return;
+    }
+
     d->failedList << d->currentInfo;
 
     setLabel(i18n("<b>Renaming images. Errors: %1</b>",
@@ -230,6 +246,7 @@ void AdvancedRenameProcessDialog::closeEvent(QCloseEvent* e)
 void AdvancedRenameProcessDialog::abort()
 {
     d->cancel = true;
+    d->repeatList.clear();
     d->failedList.clear();
 }
 
@@ -249,8 +266,14 @@ void AdvancedRenameProcessDialog::getNextThumbnail()
 {
     if (!d->newNameList.isEmpty())
     {
+        QPixmap pix;
         QString path = d->newNameList.first().first.toLocalFile();
-        d->thumbLoadThread->find(ThumbnailIdentifier(path));
+
+        if (d->thumbLoadThread->find(ThumbnailIdentifier(path), pix, 256, true))
+        {
+            d->thumbPixmap = pix;
+            d->thumbPath   = path;
+        }
     }
 }
 

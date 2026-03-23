@@ -6,7 +6,7 @@
  * Date        : 2005-02-01
  * Description : collections setup tab
  *
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -38,7 +38,7 @@
 #include "applicationsettings.h"
 #include "setupcollectionview.h"
 #include "scancontroller.h"
-#include "setuputils.h"
+#include "setup.h"
 
 namespace Digikam
 {
@@ -114,7 +114,7 @@ SetupCollections::SetupCollections(QWidget* const parent)
                                                         "changes (requires restart)"), albumPanel);
 
     QLabel* const monitoringNote   = new QLabel(i18n("<b>Note: Album monitoring consumes system resources and "
-                                                     "can slow down digiKam. If you are using MacOS and network "
+                                                     "can slow down digiKam. If you are using macOS and network "
                                                      "collections, you should not activate album monitoring.</b>"));
     monitoringNote->setWordWrap(true);
     monitoringNote->setFrameStyle(QFrame::StyledPanel | QFrame::Raised);
@@ -142,6 +142,7 @@ SetupCollections::SetupCollections(QWidget* const parent)
                                                       "store thumbnails. To avoid digiKam inserting the original "
                                                       "photo and its corresponding thumbnail twice, @eaDir is "
                                                       "ignored by default.</p>"
+                                                      "<p>Wildcard characters such as '*' or '?' are supported.</p>"
                                                       "<p>To re-include directories that are ignored by default "
                                                       "prefix it with a minus, e.g. -@eaDir.</p>"),
                                                  ignorePanel);
@@ -214,7 +215,7 @@ void SetupCollections::applySettings()
     if (d->ignoreEdit->text() != ignoreDirectory)
     {
         CoreDbAccess().db()->setUserIgnoreDirectoryFilterSettings(
-            cleanUserFilterString(d->ignoreEdit->text(), true, true));
+            Setup::cleanUserFilterString(d->ignoreEdit->text(), true, true));
 
         ScanController::instance()->completeCollectionScanInBackground(false, false);
     }
@@ -244,7 +245,7 @@ void SetupCollections::slotShowCurrentIgnoredDirectoriesSettings() const
     CoreDbAccess().db()->getIgnoreDirectoryFilterSettings(&ignoreDirectoryList);
 
     QString text = i18n("<p>Directories starting with a dot are ignored by "
-                        "default.<br/> <code>%1</code></p>",
+                        "default.<br> <code>%1</code></p>",
                         ignoreDirectoryList.join(QLatin1Char(';')));
 
     QWhatsThis::showText(d->ignoreLabel->mapToGlobal(QPoint(0, 0)), text, d->ignoreLabel);

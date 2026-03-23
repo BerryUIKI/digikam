@@ -7,7 +7,7 @@
  * Description : a widget to display 2 preview image on
  *               lightable to compare pictures.
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -17,12 +17,14 @@
 
 // Qt includes
 
+#include <QAction>
 #include <QFrame>
 #include <QString>
 
 // Local includes
 
 #include "iteminfo.h"
+#include "lighttablepreview.h"
 
 namespace Digikam
 {
@@ -47,6 +49,7 @@ public:
     ItemInfo leftItemInfo()  const;
     ItemInfo rightItemInfo() const;
 
+    void   setHostWindowActions(const HostActionsMap& actions);
     void   setPreviewSettings(const PreviewSettings& settings);
 
     void   checkForSelection(const ItemInfo& info);
@@ -93,6 +96,14 @@ Q_SIGNALS:
     void signalDeleteItem(const ItemInfo&);
     void signalEditItem(const ItemInfo&);
     void signalToggleOnSyncPreview(bool);
+
+    void signalLeftPreviewStartedLoading();
+    void signalLeftPreviewLoadingProgress(float progress);
+    void signalLeftPreviewLoadingComplete();
+
+    void signalRightPreviewStartedLoading();
+    void signalRightPreviewLoadingProgress(float progress);
+    void signalRightPreviewLoadingComplete();
 
 public Q_SLOTS:
 

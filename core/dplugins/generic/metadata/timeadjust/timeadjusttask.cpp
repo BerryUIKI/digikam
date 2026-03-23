@@ -7,7 +7,7 @@
  * Description : time adjust actions using threads.
  *
  * SPDX-FileCopyrightText: 2012      by Smit Mehta <smit dot meh at gmail dot com>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2018-2021 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -71,6 +71,8 @@ void TimeAdjustTask::setSettings(const TimeAdjustContainer& settings)
 
 void TimeAdjustTask::run()
 {
+    ActionJob::run();       // To customize thread name
+
     if (m_cancel)
     {
         return;
@@ -309,6 +311,8 @@ void TimePreviewTask::setSettings(const TimeAdjustContainer& settings)
 
 void TimePreviewTask::run()
 {
+    ActionJob::run();       // To customize thread name
+
     if (m_cancel)
     {
         return;

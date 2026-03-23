@@ -6,7 +6,7 @@
  * Date        : 2008-11-21
  * Description : Batch Queue Manager GUI
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -78,6 +78,8 @@ QueueMgrWindow::QueueMgrWindow()
     applySettings();
 
     setAutoSaveSettings(configGroupName(), true);
+
+    showMenuBarAction()->setChecked(!menuBar()->isHidden());  // NOTE: workaround for bug #171080
 
     populateToolsList();
     slotQueueContentsChanged();
@@ -375,8 +377,6 @@ void QueueMgrWindow::setupActions()
 
     createGUI(xmlFile());
     cleanupActions();
-
-    showMenuBarAction()->setChecked(!menuBar()->isHidden());  // NOTE: workaround for bug #171080
 }
 
 void QueueMgrWindow::refreshView()

@@ -6,7 +6,7 @@
  * Date        : 2006-02-08
  * Description : A tab to display import item information
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -31,6 +31,7 @@
 
 // Local includes
 
+#include "digikam_globals.h"
 #include "itempropertiestxtlabel.h"
 #include "dlayoutbox.h"
 #include "itempropertiestab.h"
@@ -371,7 +372,7 @@ void ImportItemPropertiesTab::setCurrentItem(const CamItemInfo& itemInfo, DMetad
 
     if (itemInfo.ctime.isValid())
     {
-        d->labelFileDate->setAdjustedText(QLocale().toString(itemInfo.ctime, QLocale::ShortFormat));
+        d->labelFileDate->setAdjustedText(asUserDateTime(itemInfo.ctime));
     }
     else
     {
@@ -474,7 +475,7 @@ void ImportItemPropertiesTab::setCurrentItem(const CamItemInfo& itemInfo, DMetad
 
     if (photoInfo.dateTime.isValid())
     {
-        str = QLocale().toString(photoInfo.dateTime, QLocale::ShortFormat);
+        str = asUserDateTime(photoInfo.dateTime);
         d->labelPhotoDateTime->setAdjustedText(str);
     }
     else

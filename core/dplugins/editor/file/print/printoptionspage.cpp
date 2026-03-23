@@ -7,7 +7,7 @@
  * Description : image editor printing interface.
  *
  * SPDX-FileCopyrightText: 2009      by Angelo Naselli <anaselli at linux dot it>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -314,11 +314,11 @@ void PrintOptionsPage::loadConfig()
 
 void PrintOptionsPage::saveConfig()
 {
-    int position        = d->positionGroup.checkedId();
+    int position   = d->positionGroup.checkedId();
     PrintConfig::setPrintPosition(position);
 
-    ScaleMode scaleMode = ScaleMode(d->scaleGroup.checkedId());
-    PrintConfig::setPrintScaleMode(scaleMode);
+    ScaleMode mode = ScaleMode(d->scaleGroup.checkedId());
+    PrintConfig::setPrintScaleMode(mode);
 
     d->configDialogManager->updateSettings();
 

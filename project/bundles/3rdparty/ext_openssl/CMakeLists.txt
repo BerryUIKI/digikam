@@ -1,6 +1,6 @@
 # Script to build static version of OpenSSL for AppImage bundle.
 #
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -12,7 +12,7 @@ if (NOT APPLE)
     ExternalProject_Add(ext_openssl
 
         GIT_REPOSITORY https://github.com/jimmy-park/openssl-cmake.git
-        GIT_TAG 3.4.1
+        GIT_TAG 3.6.1
 
         INSTALL_DIR ${EXTPREFIX_openssl}
 

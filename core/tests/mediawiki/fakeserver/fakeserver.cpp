@@ -6,7 +6,7 @@
  * Date        : 2011-03-22
  * Description : a MediaWiki C++ interface
  *
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2011      by Alexandre Mendes <alex dot mendes1988 at gmail dot com>
  * SPDX-FileCopyrightText: 2011      by Hormiere Guillaume <hormiere dot guillaume at gmail dot com>
  * SPDX-FileCopyrightText: 2011      by Manuel Campomanes <campomanes dot manuel at gmail dot com>
@@ -25,6 +25,12 @@
 
 #include <QFile>
 #include <QRegularExpression>
+
+// Local includes
+
+#include "actionthreadbase.h"
+
+using namespace Digikam;
 
 FakeServer::FakeServer(QObject* const parent)
     :  QThread       (parent),
@@ -105,6 +111,8 @@ void FakeServer::dataAvailable()
 
 void FakeServer::run()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String("FakeServer"));       // To customize thread name
+
     m_tcpServer = new QTcpServer();
 
     if (!m_tcpServer->listen(QHostAddress(QHostAddress::LocalHost), 12566))

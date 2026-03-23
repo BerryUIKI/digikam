@@ -6,7 +6,7 @@
  * Date        : 2020-11-28
  * Description : ExifTool process stream parser - private container.
  *
- * SPDX-FileCopyrightText: 2020-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -33,6 +33,7 @@ ExifToolParser::Private::~Private()
 
 void ExifToolParser::Private::prepareProcess()
 {
+    error = false;
     currentPath.clear();
     errorString.clear();
     exifToolData.clear();
@@ -85,7 +86,7 @@ bool ExifToolParser::Private::startProcess(const QByteArrayList& cmdArgs,
 
     jumpToResultCommand(result, cmdId);
 
-    return true;
+    return !error;
 }
 
 void ExifToolParser::Private::prepareFileAndSidecar(QByteArrayList& cmdArgs, const QFileInfo& fi)

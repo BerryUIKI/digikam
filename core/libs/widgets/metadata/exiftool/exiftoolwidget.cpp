@@ -6,7 +6,7 @@
  * Date        : 2021-04-18
  * Description : ExifTool metadata widget.
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -317,9 +317,9 @@ QString ExifToolWidget::metadataToText() const
 
                     if (lvItem2)
                     {
-                        textmetadata.append(lvItem2->text(0));
+                        textmetadata.append(lvItem2->getTitle());
                         textmetadata.append(QLatin1String(" : "));
-                        textmetadata.append(lvItem2->text(1));
+                        textmetadata.append(lvItem2->getFullValue());
                         textmetadata.append(QLatin1Char('\n'));
                     }
                 }
@@ -397,7 +397,7 @@ void ExifToolWidget::slotSaveMetadataToFile()
         return;
     }
 
-    QUrl url = fileSaveDialog->selectedUrls().first();
+    QUrl url = fileSaveDialog->selectedUrls().constFirst();
     delete fileSaveDialog;
 
     QFile file(url.toLocalFile());

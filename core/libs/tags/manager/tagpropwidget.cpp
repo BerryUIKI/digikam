@@ -7,7 +7,9 @@
  * Description : Tag Properties widget to display tag properties
  *               when a tag or multiple tags are selected
  *
- * SPDX-FileCopyrightText: 2013 by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2013      by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2025 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -30,6 +32,7 @@
 
 #include <klocalizedstring.h>
 #include <kkeysequencewidget.h>
+#include <kxmlgui_version.h>
 
 #ifdef HAVE_KICONTHEMES
 #   include <kicondialog.h>
@@ -57,6 +60,8 @@ public:
 
     Private() = default;
 
+public:
+
     QLabel*             topLabel        = nullptr;
 
     QString             icon;
@@ -75,18 +80,18 @@ TagPropWidget::TagPropWidget(QWidget* const parent)
     : QWidget(parent),
       d      (new Private)
 {
-    const int spacing = layoutSpacing();
-    const int cmargin = layoutMargin();
-    QGridLayout* const grid = new QGridLayout(this);
-    QLabel* const logo      = new QLabel(this);
+    const int spacing        = layoutSpacing();
+    const int cmargin        = layoutMargin();
+    QGridLayout* const grid  = new QGridLayout(this);
+    QLabel* const logo       = new QLabel(this);
 
     logo->setPixmap(QIcon::fromTheme(QLatin1String("tag-properties")).pixmap(30,30));
-    d->topLabel             = new QLabel(this);
+    d->topLabel              = new QLabel(this);
     d->topLabel->setText(i18nc("@label", "Tag Properties"));
     d->topLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
     d->topLabel->setWordWrap(false);
 
-    DLineWidget* const line = new DLineWidget(Qt::Horizontal, this);
+    DLineWidget* const line  = new DLineWidget(Qt::Horizontal, this);
 
     // --------------------------------------------------------
 
@@ -137,13 +142,23 @@ TagPropWidget::TagPropWidget(QWidget* const parent)
 
     d->keySeqWidget            = new KKeySequenceWidget(this);
     kscTextLabel->setBuddy(d->keySeqWidget);
+
+#if (KXMLGUI_VERSION >= QT_VERSION_CHECK(6, 12, 0))
+
+    d->keySeqWidget->setPatterns(d->keySeqWidget->patterns() | KKeySequenceRecorder::Key);
+
+#else
+
     d->keySeqWidget->setModifierlessAllowed(true);
+
+#endif
+
     d->keySeqWidget->setCheckActionCollections(TagsActionMngr::defaultManager()->actionCollections());
 
     QLabel* const tipLabel2    = new QLabel(this);
     tipLabel2->setTextFormat(Qt::RichText);
     tipLabel2->setWordWrap(true);
-    tipLabel2->setText(QString::fromUtf8("<p><b>%1:</b> <i>%2.</i></p>")
+    tipLabel2->setText(QString::fromUtf8("<p><b>%1:</b> <i>%2</i></p>")
                        .arg(i18nc("@label", "Note"))
                        .arg(i18nc("@label", "This shortcut can be used "
                                   "to assign or unassign tag to items.")));

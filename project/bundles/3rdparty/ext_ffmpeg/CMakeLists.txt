@@ -1,6 +1,6 @@
 # Script to build ffmpeg libraries for digiKam bundle.
 #
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -45,8 +45,8 @@ set(FFmpeg_Conf --prefix=${PREFIX_ext_ffmpeg}
 
 ExternalProject_Add(ext_ffmpeg
     DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
-    URL https://ffmpeg.org/releases/ffmpeg-6.1.2.tar.xz
-    URL_MD5 42f9bb3aacdd5c5907d1af1811738c00
+    URL https://ffmpeg.org/releases/ffmpeg-8.0.1.tar.xz
+    URL_MD5 b4e86cef7b3333034977ae9df391896d
 
     CONFIGURE_COMMAND <SOURCE_DIR>/configure ${FFmpeg_Conf}
     UPDATE_COMMAND ""

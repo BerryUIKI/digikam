@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -400,6 +400,62 @@ void ItemDelegate::paint(QPainter* p, const QStyleOptionViewItem& option, const 
     if (d->drawMouseOverFrame)
     {
         drawMouseOverRect(p, option);
+    }
+
+    /**
+     * Rules to show grouped items when a group is open.
+     * The idea is to use the mouse over rectangle highlightment to surround all items from a group.
+     */
+
+    qlonglong gid                     = -1;
+    bool groupOpen                    = false;
+    bool grouped                      = info.isGrouped();
+    QAbstractItemModel* const model   = const_cast<QAbstractItemModel*>(index.model());
+    ItemFilterModel* const fmodel     = dynamic_cast<ItemFilterModel*>(model);
+
+    if (fmodel)
+    {
+        // Icon-view case.
+
+        gid = info.groupImageId();
+
+        if (gid > 0)
+        {
+            QModelIndex gindex = fmodel->indexForImageId(gid);
+            groupOpen          = gindex.data(ItemFilterModel::GroupIsOpenRole).toBool();
+        }
+
+        bool isGroupedItem  = (grouped && groupOpen);
+
+        if (d->drawMouseOverFrame && isGroupedItem)
+        {
+            drawGroupedRect(p, option);
+        }
+    }
+    else
+    {
+        ImageSortFilterModel* const imodel = dynamic_cast<ImageSortFilterModel*>(model);
+
+        if (imodel)
+        {
+            // Thumbbar-view case
+
+            gid = info.groupImageId();
+
+            if (gid > 0)
+            {
+                QModelIndex gindex = imodel->indexForImageId(gid);
+                groupOpen          = gindex.data(ItemFilterModel::GroupIsOpenRole).toBool();
+
+            }
+        }
+
+        bool isGroupedItem  = (grouped && groupOpen);
+
+        if (isGroupedItem)
+        {
+            drawGroupedRect(p, option);
+        }
     }
 
     p->restore();

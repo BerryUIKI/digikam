@@ -1,6 +1,6 @@
 # Script to build AOM library for digiKam bundle.
 #
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -25,7 +25,7 @@ ExternalProject_Add(ext_libaom
 
     DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
     GIT_REPOSITORY https://aomedia.googlesource.com/aom
-    GIT_TAG v3.12.0
+    GIT_TAG v3.13.1
 
     CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${PREFIX_libaom}
                -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}

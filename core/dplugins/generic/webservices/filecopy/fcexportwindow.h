@@ -7,8 +7,8 @@
  * Description : a tool to export items to a local storage
  *
  * SPDX-FileCopyrightText: 2006-2009 by Johannes Wienke <languitar at semipol dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
- * SPDX-FileCopyrightText: 2019-2020 by Maik Qualmann <metzpinguin at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2019-2025 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -63,14 +63,14 @@ public:
 private Q_SLOTS:
 
     /**
-     * Processes changes on the image list.
-     */
-    void slotImageListChanged();
-
-    /**
      * Starts copy the selected images.
      */
     void slotCopy();
+
+    /**
+     * Processes changes on the image list.
+     */
+    void slotImageListChanged();
 
     /**
      * Processes changes in the target url.
@@ -87,6 +87,11 @@ private Q_SLOTS:
      * something didn't work.
      */
     void slotCopyingFinished();
+
+    /**
+     * Re-enables the dialog after cancel clicked.
+     */
+    void slotCancelCopy();
 
     void slotFinished();
 

@@ -6,7 +6,7 @@
  * Date        : 2004-08-02
  * Description : colors theme manager - private classes
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2007      by Matthew Woehlke <mw_triad at users dot sourceforge dot net>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -262,7 +262,7 @@ QColor tint(const QColor& base, const QColor& color, qreal amount = 0.3)
  * first using the specified composition mode.
  *
  * @param base the base color (alpha channel is ignored).
- * @param paint the color to be overlayed onto the base color.
+ * @param paint the color to be overlaid onto the base color.
  * @param comp the CompositionMode used to do the blending.
  */
 QColor overlayColors(const QColor& base, const QColor& paint,

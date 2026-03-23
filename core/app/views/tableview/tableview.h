@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  * SPDX-FileCopyrightText: 2017      by Simon Frei <freisim93 at gmail dot com>
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -73,15 +73,15 @@ public:
     ItemInfoList allItemInfos(bool grouping = false)                                        const;
     ItemInfoList selectedItemInfos(bool grouping = false)                                   const;
     ItemInfoList selectedItemInfosCurrentFirst(bool grouping = false)                       const;
-    bool          allNeedGroupResolving(const OperationType type)      const;
-    bool          selectedNeedGroupResolving(const OperationType type) const;
+    bool          allNeedGroupResolving(const OperationType type)                           const;
+    bool          selectedNeedGroupResolving(const OperationType type)                      const;
 
 protected:
 
-    void doLoadState() override;
-    void doSaveState() override;
+    void doLoadState()                                                                            override;
+    void doSaveState()                                                                            override;
 
-    bool eventFilter(QObject* watched, QEvent* event) override;
+    bool eventFilter(QObject* watched, QEvent* event)                                             override;
     QList<QAction*> getExtraGroupingActions();
 
 public Q_SLOTS:

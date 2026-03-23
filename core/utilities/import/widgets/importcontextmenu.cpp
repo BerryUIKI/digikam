@@ -7,7 +7,7 @@
  * Description : Modified context menu helper for import tool
  *
  * SPDX-FileCopyrightText: 2012      by Islam Wazery <wazery at ubuntu dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -95,6 +95,13 @@ public:
     KActionCollection*           stdActionCollection = nullptr;
 
     ImportContextMenuHelper*     q                   = nullptr;
+
+#ifdef Q_OS_WIN
+
+    QString                      lpVerbWin;
+    QString                      lpFileWin;
+
+#endif
 
 public:
 
@@ -383,13 +390,16 @@ void ImportContextMenuHelper::slotOpenWith(QAction* action)
 
         if (list.size() == 1)
         {
-            SHELLEXECUTEINFO sei = {};
-            memset(&sei, 0, sizeof(sei));
-            sei.cbSize           = sizeof(sei);
-            sei.fMask            = SEE_MASK_INVOKEIDLIST | SEE_MASK_NOASYNC;
-            sei.nShow            = SW_SHOWNORMAL;
-            sei.lpVerb           = (LPCWSTR)QString::fromLatin1("openas").utf16();
-            sei.lpFile           = (LPCWSTR)QDir::toNativeSeparators(list.first().toLocalFile()).utf16();
+            d->lpVerbWin          = QLatin1String("openas");
+            d->lpFileWin          = QDir::toNativeSeparators(list.first().toLocalFile());
+
+            SHELLEXECUTEINFOW sei = {};
+            sei.cbSize            = sizeof(sei);
+            sei.fMask             = SEE_MASK_INVOKEIDLIST | SEE_MASK_NOASYNC;
+            sei.nShow             = SW_SHOWNORMAL;
+            sei.lpVerb            = (LPCWSTR)d->lpVerbWin.utf16();
+            sei.lpFile            = (LPCWSTR)d->lpFileWin.utf16();
+
             ShellExecuteEx(&sei);
 
             qCDebug(DIGIKAM_GENERAL_LOG) << "ShellExecuteEx::openas return code:" << GetLastError();

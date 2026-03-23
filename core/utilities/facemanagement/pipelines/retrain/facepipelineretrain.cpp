@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Performs face detection and recognition
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -85,6 +85,8 @@ bool FacePipelineRetrain::start()
 
 bool FacePipelineRetrain::finder()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceRetrain%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_FINDER_START(settings.workerThreadPriority, MLPipelineStage::Loader);
 
     /* =========================================================================================
@@ -150,6 +152,8 @@ bool FacePipelineRetrain::finder()
 
 bool FacePipelineRetrain::loader()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceRetrain%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     return commonFaceThumbnailLoader(QStringLiteral("FacePipelineRetrain"),
                                      QThread::LowPriority,
                                      MLPipelineStage::Loader,
@@ -158,6 +162,8 @@ bool FacePipelineRetrain::loader()
 
 bool FacePipelineRetrain::extractor()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceRetrain%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     return commonFaceThumbnailExtractor(QStringLiteral("FacePipelineRetrain"),
                                         QThread::LowPriority,
                                         MLPipelineStage::Extractor,
@@ -165,13 +171,10 @@ bool FacePipelineRetrain::extractor()
                                         true);
 }
 
-bool FacePipelineRetrain::classifier()
-{
-    return false;
-}
-
 bool FacePipelineRetrain::writer()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceRetrain%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Writer, MLPipelineStage::None);
     FacePipelinePackageBase* package   = nullptr;
 
@@ -186,7 +189,7 @@ bool FacePipelineRetrain::writer()
     FaceUtils utils;
     IdentityProvider* const idProvider = IdentityProvider::instance();
 
-    // clear all identites and training from recognition DB before
+    // clear all identities and training from recognition DB before
     // we start looping through the results from the pipeline
 
     idProvider->clearAllTraining();

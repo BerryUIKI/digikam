@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -113,11 +113,13 @@ export PATH="\
 $PATH:\
 /c/bison:\
 /c/icoutils/bin:\
+$VCPKG_INSTALL_PREFIX/tools/gettext/bin:\
 $VCPKG_INSTALL_PREFIX/tools/gperf:\
 $VCPKG_INSTALL_PREFIX/tools/curl:\
-$VCPKG_INSTALL_PREFIX/tools/python3:\
 $VCPKG_INSTALL_PREFIX/tools/pkgconf:\
 $VCPKG_INSTALL_PREFIX/bin:\
+$DOWNLOAD_DIR/tools/python/python-3.14.2-x64-1:\
+$DOWNLOAD_DIR/tools/ninja-1.13.2-windows:\
 "
 
 if [[ $DK_QTVERSION = 6 ]] ; then
@@ -151,7 +153,7 @@ export PKG_CONFIG_PATH=$VCPKG_INSTALL_PREFIX/lib/pkgconfig:$PKG_CONFIG_PATH
 UploadWithRetry()
 {
 
-# Disable errors expection handling
+# Disable errors exception handling
 set +e
 
 MAX_RETRIES=10
@@ -177,5 +179,23 @@ done
 
 # Re-enable halt and catch errors
 set -eE
+
+}
+
+ChecksCmakeBin()
+{
+
+# Check if the Cmake CLI tool is installed with Visual Studio.
+
+CMAKE_BIN="`find "/c/Program Files/Microsoft Visual Studio/" -name "cmake.exe" -type f -executable`"
+echo "$CMAKE_BIN"
+
+if [ ! -f "$CMAKE_BIN" ] ; then
+    echo "CMake CLI tool is not installed"
+    echo "Install VSCommunity C++ CMake tools component."
+    exit 1
+else
+    echo "Check CMake CLI tools passed..."
+fi
 
 }

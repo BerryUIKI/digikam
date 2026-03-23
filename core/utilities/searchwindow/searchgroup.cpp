@@ -7,7 +7,8 @@
  * Description : User interface for searches
  *
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2026 by Srirupa Datta <srirupa dot sps at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -79,7 +80,7 @@ void SearchGroup::setup(Type type)
     // ----- //
 
     label = new SearchFieldGroupLabel(this);
-    label->setTitle(i18n("Picture Properties"));
+    label->setTitle(i18n("Item Properties"));
     group = new SearchFieldGroup(this);
     group->setLabel(label);
 
@@ -98,6 +99,7 @@ void SearchGroup::setup(Type type)
     group->addField(SearchField::createField(QLatin1String("colormodel"),       group));
     group->addField(SearchField::createField(QLatin1String("modificationdate"), group));
     group->addField(SearchField::createField(QLatin1String("digitizationdate"), group));
+    group->addField(SearchField::createField(QLatin1String("modifiedrecent"), group));
     group->addField(SearchField::createField(QLatin1String("filesize"),         group));
     group->addField(SearchField::createField(QLatin1String("bytesize"),         group));
     group->addField(SearchField::createField(QLatin1String("monthday"),         group));
@@ -156,6 +158,7 @@ void SearchGroup::setup(Type type)
     group->addField(SearchField::createField(QLatin1String("make"),                         group));
     group->addField(SearchField::createField(QLatin1String("model"),                        group));
     group->addField(SearchField::createField(QLatin1String("lenses"),                       group));
+    group->addField(SearchField::createField(QLatin1String("nocamera"),                     group));
     group->addField(SearchField::createField(QLatin1String("aperture"),                     group));
     group->addField(SearchField::createField(QLatin1String("focallength"),                  group));
     group->addField(SearchField::createField(QLatin1String("focallength35"),                group));
@@ -170,6 +173,7 @@ void SearchGroup::setup(Type type)
     group->addField(SearchField::createField(QLatin1String("meteringmode"),                 group));
     group->addField(SearchField::createField(QLatin1String("subjectdistance"),              group));
     group->addField(SearchField::createField(QLatin1String("subjectdistancecategory"),      group));
+    group->addField(SearchField::createField(QLatin1String("nocapturesettings"),                     group));
 
     m_fieldLabels << label;
     m_fieldGroups << group;
@@ -193,6 +197,7 @@ void SearchGroup::setup(Type type)
     group->addField(SearchField::createField(QLatin1String("provinceState"), group));
     group->addField(SearchField::createField(QLatin1String("city"),          group));
     group->addField(SearchField::createField(QLatin1String("location"),      group));
+    group->addField(SearchField::createField(QLatin1String("noplaces"),      group));
 
     m_fieldLabels << label;
     m_fieldGroups << group;

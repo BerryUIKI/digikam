@@ -7,7 +7,7 @@
  * Description : main program from digiKam
  *
  * SPDX-FileCopyrightText: 2002-2006 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -192,6 +192,16 @@ extern "C" MAIN_EXPORT int MAIN_FN(int argc, char** argv)
 
     QApplication app(argc, argv);
 
+#ifdef Q_OS_WIN
+
+    QDir::setCurrent(qApp->applicationDirPath());
+
+#endif
+
+    delayForRemoteDebuging();
+
+    system.applyProxySettings();
+
     digikamSetDebugFilterRules(system.enableLogging);
 
 #ifdef HAVE_IMAGE_MAGICK
@@ -365,22 +375,7 @@ extern "C" MAIN_EXPORT int MAIN_FN(int argc, char** argv)
     {
         FirstRunDlg firstRun;
 
-        QEventLoop loop;
-        bool rejected = true;
-
-        QObject::connect(&firstRun, &QDialog::finished,
-                         &firstRun, [&loop, &rejected](int result)
-            {
-                rejected = (result == QDialog::Rejected);
-                loop.quit();
-            }
-        );
-
-        firstRun.open();
-
-        loop.exec();
-
-        if (rejected)
+        if (dialogExec(&firstRun) == QDialog::Rejected)
         {
             return 1;
         }

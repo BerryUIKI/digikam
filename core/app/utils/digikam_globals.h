@@ -7,7 +7,7 @@
  * Description : global macros, variables and flags
  *
  * SPDX-FileCopyrightText: 2009-2010 by Andi Clemens <andi dot clemens at gmail dot com>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -17,21 +17,23 @@
 
 // Qt includes
 
-#include <QStringList>
 #include <QDateTime>
 #include <QIODevice>
+#include <QStringList>
 #include <QProcessEnvironment>
 
 // Local includes
 
 #include "digikam_export.h"
 
+class QDate;
 class QWidget;
 class QObject;
+class QDialog;
 class QShortcut;
 class QKeySequence;
 class QApplication;
-class QDate;
+class QAction;
 
 /**
  * Macros for image filters.
@@ -83,6 +85,31 @@ static const int MAX_SEGMENT_8BIT   = NUM_SEGMENTS_8BIT  - 1;
  * See bug #286263 for details.
  */
 static const int AUTOEXPANDDELAY    = 800;
+
+// --------------------------------------------------------
+
+/**
+ * Color label in enum order as text
+ */
+static const QStringList ColorLabelAsText({QLatin1String("NoColor"),
+                                           QLatin1String("Red"),
+                                           QLatin1String("Orange"),
+                                           QLatin1String("Yellow"),
+                                           QLatin1String("Green"),
+                                           QLatin1String("Blue"),
+                                           QLatin1String("Purple"),
+                                           QLatin1String("Gray"),
+                                           QLatin1String("Black"),
+                                           QLatin1String("White")}
+                                         );
+
+// --------------------------------------------------------
+
+/**
+ * String for the date/time format used in the application
+ */
+
+DIGIKAM_EXPORT extern QString DATETIMEFORMATSTRING;
 
 // --------------------------------------------------------
 
@@ -203,6 +230,21 @@ enum OperationType
 // --------------------------------------------------------
 
 /**
+ * Map of [name, action instance] from the managed by the parent window
+ * to be hosted the toolbar or the context menu from the preview view (image or video).
+ * See ItemPreviewView and ItemPreviewVideo classes for the usage.
+ *
+ * Know action names:
+ *
+ *  "FullScreen"  : Switch the window in fullscreen mode.
+ *  "ShowMenu"    : Turn on/off the window main menu visibility.
+ *  "ColorManaged": Turn on/off Color Managed view to render the content.
+  */
+typedef QMap<QString, QAction*> HostActionsMap;
+
+// --------------------------------------------------------
+
+/**
  * Convenience method for creating keyboard shortcuts.
  */
 DIGIKAM_EXPORT QShortcut* defineShortcut(QWidget* const w, const QKeySequence& key, const QObject* receiver, const char* slot);
@@ -239,6 +281,11 @@ DIGIKAM_EXPORT int layoutSpacing();
  * Default margin to use in layout.
  */
 DIGIKAM_EXPORT int layoutMargin();
+
+/**
+ * Show a QDialog with show() and wait for the result.
+ */
+DIGIKAM_EXPORT int dialogExec(QDialog* const dlg);
 
 // --- Static functions for the bundles ---
 
@@ -317,6 +364,16 @@ DIGIKAM_EXPORT QDateTime asDateTimeUTC(const QDateTime& dt);
 DIGIKAM_EXPORT QDateTime asDateTimeLocal(const QDateTime& dt);
 
 /**
+ * This method returns QString as user QDateTime.
+ */
+DIGIKAM_EXPORT QString asUserDateTime(const QDateTime& dt);
+
+/**
+ * This method returns QString as link to the QDateTime doc.
+ */
+DIGIKAM_EXPORT QString getDateFormatLinkText();
+
+/**
  * Open online handbook at the section/chapter/reference page.
  *
  * if section and chapter and reference are empty, front page is open.  (https://en.wikipedia.org/wiki/Matrix_(protocol)#Bridges)
@@ -325,5 +382,17 @@ DIGIKAM_EXPORT QDateTime asDateTimeLocal(const QDateTime& dt);
  * else reference at chapter from section page is open.                 (as: https://docs.digikam.org/en/main_window/people_view.html#face-recognition)
  */
 DIGIKAM_EXPORT void openOnlineDocumentation(const QString& section = QString(), const QString& chapter = QString(), const QString& reference = QString());
+
+/**
+ * @brief function to wait attachment from a remote debugger before continuing execution.
+ * This method must be called just after the QApplication instance.
+ * This method is only active if the DIGIKAM_REMOTE_DEBUG env.var is declared to ON before to start the program.
+ */
+DIGIKAM_EXPORT void delayForRemoteDebuging(int delaySecs = 30);
+
+/**
+ * @return true if the KDE desktop (eg. Plasma) is running.
+ */
+DIGIKAM_EXPORT bool detectKDEDesktopIsRunning();
 
 } // namespace Digikam

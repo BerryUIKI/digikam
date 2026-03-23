@@ -6,7 +6,7 @@
  * Date        : 2013-08-19
  * Description : Image quality Settings Container.
  *
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021-2022 by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -152,7 +152,7 @@ QDebug operator<<(QDebug dbg, const ImageQualitySettings& s)
     dbg.nospace() << "Compression Weight :" << s.compressionWeight  << Qt::endl;
     dbg.nospace() << "Exposure Weight    :" << s.exposureWeight     << Qt::endl;
     dbg.nospace() << "Whole Albums       :" << s.wholeAlbums        << Qt::endl;
-    dbg.nospace() << "Albums             :" << s.albums             << Qt::endl;
+    dbg.nospace() << "Albums             :" << s.albums.count()     << Qt::endl;
 
     return dbg.space();
 }

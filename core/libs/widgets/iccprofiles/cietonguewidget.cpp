@@ -6,7 +6,7 @@
  * Date        : 2006-01-10
  * Description : a widget to display CIE tongue from an ICC profile.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * Any source code are inspired from lprof project and
  * SPDX-FileCopyrightText: 1998-2001 Marti Maria <info at littlecms dot com>
@@ -52,7 +52,7 @@ namespace Digikam
  * with Planck's law for the energy spectrum of a black body at a given
  * temperature to plot the black body curve on the CIE chart.
  *
- * The following table gives the spectral chromaticity co-ordinates
+ * The following table gives the spectral chromaticity coordinates
  * \f$x(\lambda)\f$ and \f$y(\lambda)\f$ for wavelengths in 5 nanometer
  * increments from 380 nm through 780 nm. These coordinates represent the
  * position in the CIE x-y space of pure spectral colors of the given

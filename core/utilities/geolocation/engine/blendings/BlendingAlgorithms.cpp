@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -275,7 +275,7 @@ qreal SubtractiveBlending::blendChannel(qreal const bottomColorIntensity,
 }
 
 
-// Lightening blendings
+// Lightning blendings
 
 qreal AdditiveBlending::blendChannel(qreal const bottomColorIntensity,
                                      qreal const topColorIntensity) const

@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -22,9 +22,15 @@ set(libsetupshowfoto_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/editor/setupeditoriface.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/editor/setupiofiles.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/editor/setupraw.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/setupicc.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/icc/setupicc.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/icc/setupicc_helpers.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/icc/setupicc_settings.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/icc/setupicc_slots.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/downloader/filesdownloader.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/downloader/filesdownloader_helpers.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/downloader/filesdownloader_slots.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/downloader/downloadinfo.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/misc/systemsettingswidget.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/misc/systemsettings.cpp
@@ -52,15 +58,33 @@ target_compile_definitions(core_setupcommon_obj
 # ---------------------------------------------------------------------
 
 set(libsetup_SRCS
-    ${CMAKE_CURRENT_SOURCE_DIR}/setup.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/setuptooltip.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/setuptemplate.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/setupplugins.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/setuplighttable.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/setupplugins.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/setupsurvey.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/setupdatabase.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/setuputils.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/setup.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/setup_p.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/setup_utils.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/setup_exec.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/setup_slots.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/setup_helpers.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/template/setuptemplate.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/template/setuptemplate_settings.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/template/setuptemplate_slots.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/tooltip/setuptooltip.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/tooltip/setuptooltip_settings.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/tooltip/setuptooltip_icon.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/tooltip/setuptooltip_album.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/tooltip/setuptooltip_import.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/misc/setupmisc.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/misc/setupmisc_behavior.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/misc/setupmisc_appearance.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/misc/setupmisc_grouping.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/misc/setupmisc_settings.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/llm/setupllm.cpp
 
@@ -68,8 +92,14 @@ set(libsetup_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/editor/setupversioning.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/album/setupalbumview.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/album/setupalbumview_iconview.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/album/setupalbumview_treeview.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/album/setupalbumview_preview.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/album/setupalbumview_settings.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/album/setupcategory.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/album/setupmime.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/album/setupmime_setup.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/album/setupmime_settings.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/metadata/setupmetadata.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/metadata/setupmetadata_p.cpp

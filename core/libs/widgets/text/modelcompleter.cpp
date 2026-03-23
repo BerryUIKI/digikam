@@ -6,7 +6,7 @@
  * Date        : 2010-06-13
  * Description : A QCompleter for AbstractAlbumModels
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2010 by Johannes Wienke <languitar at semipol dot de>
  * SPDX-FileCopyrightText: 2010-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
@@ -119,7 +119,7 @@ void ModelCompleter::setItemModel(QAbstractItemModel* const model, int uniqueIdR
         connect(d->model, SIGNAL(modelReset()),
                 this, SLOT(slotModelReset()));
 
-        // Do an initial sync wit the new model.
+        // Do an initial sync with the new model.
 
         sync(d->model);
     }

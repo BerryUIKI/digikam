@@ -6,7 +6,7 @@
  * Date        : 2012-01-13
  * Description : progress manager
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2004      by Till Adam <adam at kde dot org>
  *
@@ -266,7 +266,7 @@ private:
  *        and notifies observers (progress dialogs) when their progress percent value
  *        changes, when they are completed (by their owner), and when they are canceled.
  *        Each ProgressItem emits those signals individually and the singleton
- *        broadcasts them. Use the ::createProgressItem() statics to acquire an item
+ *        broadcasts them. Use the ::createProgressItem() static to acquire an item
  *        and then call ->setProgress( int percent ) on it every time you want to
  *        update the item and ->setComplete() when the operation is done. This will
  *        delete the item. Connect to the item's progressItemCanceled() signal to be
@@ -287,6 +287,14 @@ class DIGIKAM_EXPORT ProgressManager : public QObject
 
 public:
 
+    ProgressManager();
+    ~ProgressManager() override;
+
+    /**
+     * @return The singleton instance of this class.
+     */
+    static ProgressManager* instance();
+
     /**
      * @return true when there are no more progress items.
      */
@@ -305,11 +313,6 @@ public:
      *         the overall progress.
      */
     ProgressItem* singleItem()                      const;
-
-    /**
-     * @return The singleton instance of this class.
-     */
-    static ProgressManager* instance();
 
     /**
      * @brief Use this to acquire a unique id number which can be used to discern
@@ -490,10 +493,8 @@ private Q_SLOTS:
 private:
 
     // Disable
-    ProgressManager();
     ProgressManager(QObject*);
     ProgressManager(const ProgressManager&);
-    ~ProgressManager() override;
 
     void emitShowProgressViewImpl();
 
@@ -517,8 +518,6 @@ private:
 
     class Private;
     Private* const d = nullptr;
-
-    friend class ProgressManagerCreator;
 };
 
 } // namespace Digikam

@@ -7,7 +7,7 @@
  * Description : image data interface for image tools
  *
  * SPDX-FileCopyrightText: 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2004-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2004-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -87,6 +87,7 @@ public:
      * Return current image selection position and size into original image coordinates.
      */
     QRect selectionRect()                                   const;
+    void  setSelectedRect(const QRect& rect);
 
     /**
      * Return a DImg object representing the current original image selection.

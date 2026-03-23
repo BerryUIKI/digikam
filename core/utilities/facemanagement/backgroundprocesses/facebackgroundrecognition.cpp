@@ -6,7 +6,7 @@
  * Date        : 2025-03-30
  * Description : Face Background Recognition Controller
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -17,19 +17,15 @@
 
 // Qt includes
 
+#include <QTimer>
+#include <QThread>          // For QThread::msleep
 #include <QException>
 #include <QCoreApplication> // For QCoreApplication::processEvents
-#include <QThread>          // For QThread::msleep
-#include <QTimer>
 
-// KDE includes
+// Local includes
 
-#include <klocalizedstring.h>
-
-// local includes
-
-#include "applicationsettings.h"
 #include "digikam_debug.h"
+#include "applicationsettings.h"
 #include "facescansettings.h"
 #include "facesengine.h"
 #include "albummanager.h"
@@ -55,7 +51,9 @@ public:
     FaceRecognitionBackgroundController object;
 };
 
-Q_GLOBAL_STATIC(FaceRecognitionBackgroundControllerCreator, faceBackgroundRecognitionControllerCreator)
+Q_GLOBAL_STATIC(FaceRecognitionBackgroundControllerCreator, creator)
+
+// -----------------------------------------------------------------
 
 FaceRecognitionBackgroundController::FaceRecognitionBackgroundController()
     : QObject(),
@@ -85,11 +83,13 @@ FaceRecognitionBackgroundController::~FaceRecognitionBackgroundController()
         d->facesEngine->cancel();
         waitForDone();
     }
+
+    delete d;
 }
 
 FaceRecognitionBackgroundController* FaceRecognitionBackgroundController::instance()
 {
-    return (&faceBackgroundRecognitionControllerCreator->object);
+    return &creator->object;
 }
 
 void FaceRecognitionBackgroundController::slotSetEnabled(bool enabled)
@@ -97,7 +97,7 @@ void FaceRecognitionBackgroundController::slotSetEnabled(bool enabled)
     if (enabled)
     {
         connect(FaceClassifier::instance(), &FaceClassifier::signalTrainingComplete,
-                this, &FaceRecognitionBackgroundController::slotRescan);    
+                this, &FaceRecognitionBackgroundController::slotRescan);
     }
     else
     {
@@ -185,6 +185,7 @@ bool FaceRecognitionBackgroundController::slotRescan()
 
     catch(const QException& e)
     {
+        Q_UNUSED(e);
         qCDebug(DIGIKAM_FACESENGINE_LOG) << "FaceRecognitionBackgroundController::start: exception";
     }
 

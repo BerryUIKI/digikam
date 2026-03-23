@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2003-2004 by Renchi Raju <renchi dot raju at gmail dot com>
  * SPDX-FileCopyrightText: 2005      by Tom Albers <tomalbers at kde dot nl>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -145,6 +145,7 @@ AlbumPropsEdit::AlbumPropsEdit(PAlbum* const album, bool create)
 
     d->categoryCombo                  = new QComboBox(page);
     d->categoryCombo->setEditable(true);
+    d->categoryCombo->lineEdit()->setClearButtonEnabled(true);
     categoryLabel->setBuddy(d->categoryCombo);
 
     QLabel* const parentLabel         = new QLabel(page);
@@ -242,16 +243,17 @@ AlbumPropsEdit::AlbumPropsEdit(PAlbum* const album, bool create)
 
     if (settings)
     {
-        d->categoryCombo->addItem(QString());
         QStringList Categories = settings->getAlbumCategoryNames();
         d->categoryCombo->addItems(Categories);
         int categoryIndex      = Categories.indexOf(album->category());
 
         if (categoryIndex != -1)
         {
-            // + 1 because of the empty item
-
-            d->categoryCombo->setCurrentIndex(categoryIndex + 1);
+            d->categoryCombo->setCurrentIndex(categoryIndex);
+        }
+        else
+        {
+            d->categoryCombo->lineEdit()->clear();
         }
     }
 
@@ -352,9 +354,12 @@ QStringList AlbumPropsEdit::albumCategories() const
 
     QString currentCategory = d->categoryCombo->currentText();
 
-    if (Categories.indexOf(currentCategory) == -1)
+    if (!currentCategory.isEmpty())
     {
-        Categories.append(currentCategory);
+        if (Categories.indexOf(currentCategory) == -1)
+        {
+            Categories.append(currentCategory);
+        }
     }
 
     Categories.sort();
@@ -368,7 +373,7 @@ bool AlbumPropsEdit::editProps(PAlbum* const album, QString& title,
 {
     QPointer<AlbumPropsEdit> dlg = new AlbumPropsEdit(album);
 
-    bool ok = (dlg->exec() == QDialog::Accepted);
+    bool ok = (dialogExec(dlg) == QDialog::Accepted);
 
     title           = dlg->title();
     comments        = dlg->comments();
@@ -386,7 +391,7 @@ bool AlbumPropsEdit::createNew(PAlbum* const parent, QString& title, QString& co
 {
     QPointer<AlbumPropsEdit> dlg = new AlbumPropsEdit(parent, true);
 
-    bool ok = (dlg->exec() == QDialog::Accepted);
+    bool ok = (dialogExec(dlg) == QDialog::Accepted);
 
     title           = dlg->title();
     comments        = dlg->comments();
@@ -409,18 +414,18 @@ void AlbumPropsEdit::slotTitleChanged()
 
 void AlbumPropsEdit::slotNewAlbumTextChanged(int index)
 {
-    QString title;
+    QString atitle;
 
     if (index == 0)
     {
-        title = d->album->title();
+        atitle = d->album->title();
     }
     else
     {
-        title = CollectionManager::instance()->albumRootLabel(d->album->albumRootId());
+        atitle = CollectionManager::instance()->albumRootLabel(d->album->albumRootId());
     }
 
-    d->topLabel->setText(i18nc("@label: album properties", "Create new Album in\n\"%1\"", title));
+    d->topLabel->setText(i18nc("@label: album properties", "Create new Album in\n\"%1\"", atitle));
 }
 
 void AlbumPropsEdit::slotDateLowButtonClicked()
@@ -472,7 +477,7 @@ void AlbumPropsEdit::slotDateAverageButtonClicked()
 
 void AlbumPropsEdit::slotHelp()
 {
-    openOnlineDocumentation(QLatin1String("main_window"),
+    openOnlineDocumentation(QLatin1String("left_sidebar"),
                             QLatin1String("albums_view"),
                             QLatin1String("managing-albums"));
 }

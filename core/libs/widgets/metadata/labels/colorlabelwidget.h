@@ -6,7 +6,7 @@
  * Date        : 2011-01-28
  * Description : color label widget
  *
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -22,6 +22,7 @@
 #include <QList>
 #include <QMetaType>
 #include <QMenu>
+#include <QMap>
 
 // Local includes
 
@@ -61,6 +62,8 @@ public:
      * Return the list of Color Label buttons turned on or an empty list of none.
      */
     QList<ColorLabel> colorLabels() const;
+
+public:
 
     static QColor  labelColor(ColorLabel label);
     static QString labelColorName(ColorLabel label);
@@ -124,7 +127,7 @@ class DIGIKAM_EXPORT ColorLabelMenuAction : public QMenu
 public:
 
     explicit ColorLabelMenuAction(QMenu* const parent = nullptr);
-    ~ColorLabelMenuAction() override;
+    ~ColorLabelMenuAction() override = default;
 
 Q_SIGNALS:
 

@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText:      2015 by Ulf Rompe <kde dot org at rompe dot org>
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -150,4 +150,5 @@ $CMAKE_BINARY -G "$MAKEFILES_TYPE" . \
       -DENABLE_MEDIAPLAYER=ON \
       -DENABLE_DBUS=ON \
       -DENABLE_APPSTYLES=ON \
+      -DENABLE_SANITIZERS=OFF \
       $SOURCEDIR && echo "$MESSAGE"

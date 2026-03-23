@@ -6,7 +6,7 @@
  * Date        : 2014-05-28
  * Description : overlay for GPS location indicator
  *
- * SPDX-FileCopyrightText: 2014-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2014-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -51,15 +51,20 @@ CoordinatesOverlayWidget* ItemCoordinatesOverlay::buttonWidget() const
 QWidget* ItemCoordinatesOverlay::createWidget()
 {
     QAbstractButton* const button = new CoordinatesOverlayWidget(parentWidget());
-/*
     button->setCursor(Qt::PointingHandCursor);
-*/
+
     return button;
 }
 
 void ItemCoordinatesOverlay::setActive(bool active)
 {
     AbstractWidgetDelegateOverlay::setActive(active);
+
+    if (active)
+    {
+        connect(buttonWidget(), SIGNAL(clicked()),
+                this, SLOT(slotButtonClicked()));
+    }
 }
 
 void ItemCoordinatesOverlay::visualChange()
@@ -106,6 +111,11 @@ void ItemCoordinatesOverlay::slotEntered(const QModelIndex& index)
     AbstractWidgetDelegateOverlay::slotEntered(index);
     m_index = index;
     updatePosition();
+}
+
+void ItemCoordinatesOverlay::slotButtonClicked()
+{
+    Q_EMIT signalOpenGeolocationMap(m_index);
 }
 
 } // namespace Digikam

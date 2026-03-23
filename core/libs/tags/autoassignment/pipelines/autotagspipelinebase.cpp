@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Integrated, multithread object detection / recognition
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -48,7 +48,7 @@ bool AutotagsPipelineBase::start()
     return MLPipelineFoundation::start();
 }
 
-void AutotagsPipelineBase::bqmSendOne(QScopedPointer<DMetadata>& _bqmMeta,
+void AutotagsPipelineBase::bqmSendOne(std::unique_ptr<DMetadata>& _bqmMeta,
                                       const ItemInfo& info,
                                       const QUrl& outputUrl,
                                       const DImg& image)
@@ -56,7 +56,7 @@ void AutotagsPipelineBase::bqmSendOne(QScopedPointer<DMetadata>& _bqmMeta,
     if (settings.bqmMode)
     {
         bqmOutputUrl = outputUrl;
-        bqmMeta.reset(_bqmMeta.take());
+        bqmMeta.reset(_bqmMeta.release());
 
         // create a package for the image ID
         // the package should look like it just came from the finder stage

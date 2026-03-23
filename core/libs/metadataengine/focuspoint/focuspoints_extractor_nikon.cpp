@@ -6,7 +6,7 @@
  * Date        : 28/08/2021
  * Description : Extraction of focus points by exiftool data - Nikon devices
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021      by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -23,6 +23,7 @@ namespace Digikam
 {
 
 // Internal function to create af point from meta data
+
 namespace NikonInternal
 {
 
@@ -49,9 +50,7 @@ FocusPointsExtractor::ListAFPoints FocusPointsExtractor::getAFPoints_nikon() con
 
     // Filter model
 
-    QString model       = findValue(QLatin1String("EXIF.IFD0.Camera.Model")).toString().toLower();
-
-    if (!model.contains(QLatin1String("nikon z"), Qt::CaseInsensitive))
+    if (!model().contains(QLatin1String("NIKON Z")))
     {
         qCDebug(DIGIKAM_METAENGINE_LOG) << "FocusPointsExtractor: unsupported Nikon Camera.";
 
@@ -66,12 +65,16 @@ FocusPointsExtractor::ListAFPoints FocusPointsExtractor::getAFPoints_nikon() con
                                      QStringList()
                                      << QLatin1String("MakerNotes.Nikon.Camera.AFImageWidth")
                                      << QLatin1String("EXIF.ExifIFD.Image.ExifImageWidth")
+                                     << QLatin1String("EXIF.SubIFD1.Image.ImageWidth")
+                                     << QLatin1String("File.File.Image.ImageWidth")
                                     );
 
     imageHeight = findValueFirstMatch(
                                       QStringList()
                                       << QLatin1String("MakerNotes.Nikon.Camera.AFImageHeight")
                                       << QLatin1String("EXIF.ExifIFD.Image.ExifImageHeight")
+                                      << QLatin1String("EXIF.SubIFD1.Image.ImageHeight")
+                                      << QLatin1String("File.File.Image.ImageHeight")
                                      );
 
     if (imageWidth.isNull() || imageHeight.isNull())
@@ -81,9 +84,26 @@ FocusPointsExtractor::ListAFPoints FocusPointsExtractor::getAFPoints_nikon() con
         return getAFPoints_exif();
     }
 
+    if (imageWidth.toInt() < imageHeight.toInt())
+    {
+        imageWidth.swap(imageHeight);
+    }
+
     setOriginalSize(QSize(imageWidth.toInt(), imageHeight.toInt()));
 
-    if (model.compare(QLatin1String("nikon z 5"), Qt::CaseInsensitive) == 0)
+    const QStringList modelList({
+                                 QLatin1String("NIKON Z 5"),
+                                 QLatin1String("NIKON Z5_2")
+                                });
+
+    const QList<float> posList({
+                                11.5F, 11.5F, -6.5F, -6.5F,   // Z5
+                                15.5F,  9.3F,  4.8F,  7.0F    // Z5 II
+                               });
+
+    int camIdx = modelList.indexOf(model());
+
+    if (camIdx != -1)
     {
         QStringList afPointUsed = findValueFirstMatch(
                                                       QStringList()
@@ -91,15 +111,16 @@ FocusPointsExtractor::ListAFPoints FocusPointsExtractor::getAFPoints_nikon() con
                                                       true
                                                      ).toStringList();
 
-        if (!afPointUsed.isEmpty())
+        if (!afPointUsed.isEmpty() && !afPointUsed.contains(QLatin1String("(none)")))
         {
+            camIdx *= 4;
             ListAFPoints points;
 
-            float xOffset = imageWidth.toInt()  / 11.5F;
-            float yOffset = imageHeight.toInt() / 11.0F;
+            float xOffset = imageWidth.toInt()  / posList.at(camIdx + 0);
+            float yOffset = imageHeight.toInt() / posList.at(camIdx + 1);
 
-            float xShift  = imageWidth.toInt()  / 6.5F;
-            float yShift  = imageHeight.toInt() / 7.0F;
+            float xShift  = imageWidth.toInt()  / posList.at(camIdx + 2);
+            float yShift  = imageHeight.toInt() / posList.at(camIdx + 3);
 
             for (const QString& np : EXIV2_AS_CONST(afPointUsed))
             {
@@ -108,14 +129,14 @@ FocusPointsExtractor::ListAFPoints FocusPointsExtractor::getAFPoints_nikon() con
                     continue;
                 }
 
-                float xPosition = (np.mid(1).toInt() - 1)    * xOffset + xShift;
-                float yPosition = (np[0].unicode()   - 0x41) * yOffset + yShift;
+                float xPosition = (np.mid(1).toInt() - 1)    * xOffset - xShift;
+                float yPosition = (np[0].unicode()   - 0x41) * yOffset - yShift;
 
                 FocusPoint afpoint = NikonInternal::create_af_point(
                                                                     imageWidth.toFloat(),
                                                                     imageHeight.toFloat(),
-                                                                    xOffset - 40.0F,
-                                                                    yOffset - 40.0F,
+                                                                    xOffset - 30.0F,
+                                                                    yOffset - 30.0F,
                                                                     xPosition,
                                                                     yPosition
                                                                    );
@@ -177,4 +198,4 @@ FocusPointsExtractor::ListAFPoints FocusPointsExtractor::getAFPoints_nikon() con
     return points;
 }
 
-} // namspace Digikam
+} // namespace Digikam

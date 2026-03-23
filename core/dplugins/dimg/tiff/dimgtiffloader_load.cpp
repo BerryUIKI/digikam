@@ -7,7 +7,7 @@
  * Description : A TIFF IO file for DImg framework - load operations
  *
  * SPDX-FileCopyrightText: 2005      by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -157,10 +157,10 @@ bool DImgTIFFLoader::load(const QString& filePath, DImgLoaderObserver* const obs
          (photometric != PHOTOMETRIC_MINISWHITE)                          &&
          (photometric != PHOTOMETRIC_MINISBLACK)                          &&
          (
-          (photometric != PHOTOMETRIC_YCBCR) | (bits_per_sample != 8)
+          (photometric != PHOTOMETRIC_YCBCR) || (bits_per_sample != 8)
          ) &&
          (
-           (photometric != PHOTOMETRIC_SEPARATED) | (bits_per_sample != 8)
+           (photometric != PHOTOMETRIC_SEPARATED) || (bits_per_sample != 8)
          ) &&
          (m_loadFlags & LoadImageData)
        )
@@ -326,10 +326,7 @@ bool DImgTIFFLoader::load(const QString& filePath, DImgLoaderObserver* const obs
                 if (bytesRead == -1)
                 {
                     qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Failed to read strip";
-                    TIFFClose(tif);
-                    loadingFailed();
-
-                    return false;
+                    break;
                 }
 
                 if ((num_of_strips != 0) && (samples_per_pixel != 0))
@@ -626,10 +623,7 @@ bool DImgTIFFLoader::load(const QString& filePath, DImgLoaderObserver* const obs
                 if (bytesRead == -1)
                 {
                     qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Failed to read strip";
-                    TIFFClose(tif);
-                    loadingFailed();
-
-                    return false;
+                    break;
                 }
 
                 float* stripPtr = reinterpret_cast<float*>(strip.data());
@@ -640,7 +634,7 @@ bool DImgTIFFLoader::load(const QString& filePath, DImgLoaderObserver* const obs
                 }
             }
 
-            double factor = (maxValue > 10.0) ? log10(maxValue) * 1.5 : 1.0;
+            double factor = (maxValue > 10.0) ? log10(maxValue) * 1.5 : 1.0;    // cppcheck-suppress invalidFunctionArg
             double scale  = (factor > 1.0)    ? 0.75                  : 1.0;
 
             if (factor > 1.0)
@@ -670,9 +664,7 @@ bool DImgTIFFLoader::load(const QString& filePath, DImgLoaderObserver* const obs
                 if (bytesRead == -1)
                 {
                     qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Failed to read strip";
-                    TIFFClose(tif);
-                    loadingFailed();
-                    return false;
+                    break;
                 }
 
 
@@ -913,10 +905,7 @@ bool DImgTIFFLoader::load(const QString& filePath, DImgLoaderObserver* const obs
                 if (TIFFRGBAImageGet(&img, reinterpret_cast<uint32*>(strip.data()), img.width, rows_to_read) == -1)
                 {
                     qCWarning(DIGIKAM_DIMG_LOG_TIFF) << "Failed to read image data";
-                    TIFFClose(tif);
-                    loadingFailed();
-
-                    return false;
+                    break;
                 }
 
                 pixelsRead      = (qint64)rows_to_read * (qint64)img.width;

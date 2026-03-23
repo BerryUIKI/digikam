@@ -6,7 +6,7 @@
  * Date        : 2025-01-06
  * Description : autotags scanning settings container
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -99,7 +99,7 @@ QDebug operator<<(QDebug dbg, const AutotagsScanSettings& s)
     dbg.nospace() << "Confidence Threshold      :" << s.uiConfidenceThreshold    << Qt::endl;
     dbg.nospace() << "Languages                 :" << s.languages                << Qt::endl;
     dbg.nospace() << "Whole Albums              :" << s.wholeAlbums              << Qt::endl;
-    dbg.nospace() << "Albums                    :" << s.albums                   << Qt::endl;
+    dbg.nospace() << "Albums                    :" << s.albums.count()           << Qt::endl;
     dbg.nospace() << "Bqm Mode                  :" << s.bqmMode                  << Qt::endl;
 
     return dbg.space();

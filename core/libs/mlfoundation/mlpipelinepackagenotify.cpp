@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Foundation for all machine learning pipelines
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -17,6 +17,11 @@
 
 namespace Digikam
 {
+
+MLPipelinePackageNotify::MLPipelinePackageNotify()
+    : QSharedData()
+{
+}
 
 MLPipelinePackageNotify::MLPipelinePackageNotify(const QString& _name,
                                                  const QString& _path,
@@ -49,4 +54,25 @@ MLPipelinePackageNotify::MLPipelinePackageNotify(const QString& _name,
 {
 }
 
-} // namesapce Digikam
+MLPipelinePackageNotify::MLPipelinePackageNotify(const MLPipelinePackageNotify& other)
+    : QSharedData(),
+      name       (other.name),
+      path       (other.path),
+      displayData(other.displayData),
+      processed  (other.processed),
+      thumbnail  (other.thumbnail)
+{
+}
+
+MLPipelinePackageNotify& MLPipelinePackageNotify::operator=(const MLPipelinePackageNotify& other)
+{
+    name        = other.name;
+    path        = other.path;
+    displayData = other.displayData;
+    processed   = other.processed;
+    thumbnail   = other.thumbnail;
+
+    return *this;
+}
+
+} // namespace Digikam

@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
  * SPDX-FileCopyrightText: 2010-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -31,18 +31,18 @@
 namespace Digikam
 {
 
-void ItemThumbnailDelegatePrivate::init(ItemThumbnailDelegate* const q)
-{
-    QObject::connect(ApplicationSettings::instance(), SIGNAL(setupChanged()),
-                     q, SLOT(slotSetupChanged()));
-}
-
 ItemThumbnailDelegate::ItemThumbnailDelegate(ItemCategorizedView* parent)
     : ItemDelegate(*new ItemThumbnailDelegatePrivate, parent)
 {
     Q_D(ItemThumbnailDelegate);
 
     d->init(this);
+}
+
+void ItemThumbnailDelegatePrivate::init(ItemThumbnailDelegate* const q)
+{
+    QObject::connect(ApplicationSettings::instance(), SIGNAL(setupChanged()),
+                     q, SLOT(slotSetupChanged()));
 }
 
 void ItemThumbnailDelegate::setFlow(QListView::Flow flow)
@@ -112,16 +112,20 @@ void ItemThumbnailDelegate::updateRects()
     d->pixmapRect         = QRect(d->margin, d->margin, d->contentWidth, d->contentWidth);
     const int iconSize    = qBound(16, (d->contentWidth + 2*d->margin) / 8 - 2, 48);
     d->coordinatesRect    = QRect(d->contentWidth - iconSize+2, d->pixmapRect.top(), iconSize, iconSize);
-    d->pickLabelRect      = QRect(d->margin+2, d->rect.bottom() - d->margin - 18, 16, 16);
+
+    d->pickLabelRect      = QRect(d->margin + 2, d->rect.bottom() - iconSize, iconSize, iconSize);
     d->drawCoordinates    = ApplicationSettings::instance()->getIconShowCoordinates();
     d->drawImageFormat    = ApplicationSettings::instance()->getIconShowImageFormat();
     d->drawImageFormatTop = true;
+    int top               = d->rect.bottom() - d->margin - d->starPolygonSize.height() - 2;
 
     if (ApplicationSettings::instance()->getIconShowRating())
     {
-        int top       = d->rect.bottom() - d->margin - d->starPolygonSize.height() - 2;
         d->ratingRect = QRect(d->margin, top, d->contentWidth, d->starPolygonSize.height());
     }
+
+    d->groupRect          = QRect(d->contentWidth - iconSize + d->margin, d->rect.bottom() - iconSize, iconSize, iconSize);
+    d->groupedItemRect    = d->pixmapRect;
 
     if (d->flow == QListView::LeftToRight)
     {

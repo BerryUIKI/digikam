@@ -6,7 +6,7 @@
  * Date        : 2006-04-19
  * Description : A tab to display general item information
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -36,13 +36,15 @@
 // KDE includes
 
 #include <klocalizedstring.h>
+#include <kactioncollection.h>
 
 // Local includes
 
 #include "itempropertiestxtlabel.h"
 #include "picklabelwidget.h"
 #include "colorlabelwidget.h"
-#include "ditemtooltip.h"
+#include "ratingwidget.h"
+#include "dxmlguiwindow.h"
 
 namespace Digikam
 {
@@ -54,6 +56,9 @@ public:
     Private()  = default;
     ~Private() = default;
 
+public:
+
+    QGridLayout*       glay5                        = nullptr;
     DTextLabelName*    caption                      = nullptr;
     DTextLabelName*    title                        = nullptr;
     DTextLabelName*    pickLabel                    = nullptr;
@@ -61,11 +66,12 @@ public:
     DTextLabelName*    rating                       = nullptr;
     DTextLabelName*    tags                         = nullptr;
     DTextLabelName*    peoples                      = nullptr;
-    DTextLabelName*    versionned                   = nullptr;
+    DTextLabelName*    versioned                    = nullptr;
     DTextLabelName*    grouped                      = nullptr;
 
     DTextLabelValue*   labelFile                    = nullptr;
-    DTextLabelValue*   labelFolder                  = nullptr;
+    // Special case for the file path. See bug #512081
+    QLabel*            labelFolder                  = nullptr;
     DTextLabelValue*   labelSymlink                 = nullptr;
     DTextLabelValue*   labelFileModifiedDate        = nullptr;
     DTextLabelValue*   labelFileSize                = nullptr;
@@ -79,7 +85,7 @@ public:
     DTextLabelValue*   labelImageColorMode          = nullptr;
     DTextLabelValue*   labelHasSidecar              = nullptr;
     DTextLabelValue*   labelHasGPSInfo              = nullptr;
-    DTextLabelValue*   labelVersionnedInfo          = nullptr;
+    DTextLabelValue*   labelVersionedInfo           = nullptr;
     DTextLabelValue*   labelGroupedInfo             = nullptr;
 
     DTextLabelValue*   labelPhotoMake               = nullptr;
@@ -94,20 +100,6 @@ public:
     DTextLabelValue*   labelPhotoFlash              = nullptr;
     DTextLabelValue*   labelPhotoWhiteBalance       = nullptr;
 
-    // NOTE: special case for the caption and title. See bug #460134
-    QLabel*            labelCaption                 = nullptr;
-    QLabel*            labelTitle                   = nullptr;
-
-    QLabel*            labelTags                    = nullptr;
-    QLabel*            labelPeoples                 = nullptr;
-
-    QLabel*            labelLocation                = nullptr;
-    QLabel*            labelRights                  = nullptr;
-
-    DTextLabelValue*   labelPickLabel               = nullptr;
-    DTextLabelValue*   labelColorLabel              = nullptr;
-    DTextLabelValue*   labelRating                  = nullptr;
-
     DTextLabelValue*   labelVideoAspectRatio        = nullptr;
     DTextLabelValue*   labelVideoDuration           = nullptr;
     DTextLabelValue*   labelVideoFrameRate          = nullptr;
@@ -116,7 +108,20 @@ public:
     DTextLabelValue*   labelVideoAudioChannelType   = nullptr;
     DTextLabelValue*   labelVideoAudioCodec         = nullptr;
 
-    DToolTipStyleSheet cnt;
+    // NOTE: special case for the digiKam text properties. See bug #460134
+    QLabel*            labelCaption                 = nullptr;
+    QLabel*            labelTitle                   = nullptr;
+    QLabel*            labelTags                    = nullptr;
+    QLabel*            labelPeoples                 = nullptr;
+    QLabel*            labelLocation                = nullptr;
+    QLabel*            labelRights                  = nullptr;
+
+    QLabel*            labelPick                    = nullptr;
+    QLabel*            labelColor                   = nullptr;
+    QLabel*            labelRating                  = nullptr;
+
+    DTextLabelValue*   labelPickLabel               = nullptr;
+    DTextLabelValue*   labelColorLabel              = nullptr;
 };
 
 } // namespace Digikam

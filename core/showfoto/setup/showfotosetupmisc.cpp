@@ -6,7 +6,7 @@
  * Date        : 2005-04-02
  * Description : setup Misc tab.
  *
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText:      2008 by Arnd Baecker <arnd dot baecker at web dot de>
  * SPDX-FileCopyrightText:      2014 by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  *
@@ -32,6 +32,7 @@
 #include <QTabWidget>
 #include <QMessageBox>
 #include <QPushButton>
+#include <QToolButton>
 
 // KDE includes
 
@@ -72,6 +73,10 @@ public:
     QLabel*               sidebarTypeLabel      = nullptr;
     QLabel*               applicationStyleLabel = nullptr;
     QLabel*               applicationIconLabel  = nullptr;
+    QLabel*               dateTimeFormatLabel   = nullptr;
+
+    QLineEdit*            dateTimeFormatEdit    = nullptr;
+    QToolButton*          dateTimeFormatReset   = nullptr;
 
     QCheckBox*            showSplash            = nullptr;
     QCheckBox*            nativeFileDialog      = nullptr;
@@ -116,12 +121,12 @@ ShowfotoSetupMisc::ShowfotoSetupMisc(QWidget* const parent)
 
     // -- Application Behavior Options --------------------------------------------------------
 
-    QWidget* const behaviourPanel = new QWidget(d->tab);
-    QVBoxLayout* const layout     = new QVBoxLayout(behaviourPanel);
+    QWidget* const behaviorPanel = new QWidget(d->tab);
+    QVBoxLayout* const layout     = new QVBoxLayout(behaviorPanel);
 
     // -- Sort Order Options ----------------------------------
 
-    QGroupBox* const sortOptionsGroup = new QGroupBox(i18n("Thumbbar, Folder-View, and Stack-View Items Sort Order"), behaviourPanel);
+    QGroupBox* const sortOptionsGroup = new QGroupBox(i18n("Thumbbar, Folder-View, and Stack-View Items Sort Order"), behaviorPanel);
     QVBoxLayout* const gLayout4       = new QVBoxLayout();
 
     DHBox* const sortBox = new DHBox(sortOptionsGroup);
@@ -143,7 +148,7 @@ ShowfotoSetupMisc::ShowfotoSetupMisc(QWidget* const parent)
 
     // Thumbnails Options -------------------------------------
 
-    QGroupBox* const thOptionsGroup = new QGroupBox(i18n("Thumbbar Items"), behaviourPanel);
+    QGroupBox* const thOptionsGroup = new QGroupBox(i18n("Thumbbar Items"), behaviorPanel);
     QVBoxLayout* const gLayout3     = new QVBoxLayout();
 
     d->showMimeOverImage = new QCheckBox(i18n("&Show image Format"),          thOptionsGroup);
@@ -162,7 +167,7 @@ ShowfotoSetupMisc::ShowfotoSetupMisc(QWidget* const parent)
 
     // Update Options ----------------------------------------
 
-    QGroupBox* const upOptionsGroup = new QGroupBox(i18n("Updates"), behaviourPanel);
+    QGroupBox* const upOptionsGroup = new QGroupBox(i18n("Updates"), behaviorPanel);
     QVBoxLayout* const gLayout5     = new QVBoxLayout();
 
     DHBox* const updateHbox = new DHBox(upOptionsGroup);
@@ -210,26 +215,24 @@ ShowfotoSetupMisc::ShowfotoSetupMisc(QWidget* const parent)
     layout->addWidget(upOptionsGroup);
     layout->addStretch();
 
-    d->tab->insertTab(Behaviour, behaviourPanel, i18nc("@title:tab", "Behaviour"));
+    d->tab->insertTab(Behavior, behaviorPanel, i18nc("@title:tab", "Behavior"));
 
     // -- Application Appearance Options --------------------------------------------------------
 
     QWidget* const appearancePanel = new QWidget(d->tab);
-    QVBoxLayout* const layout2     = new QVBoxLayout(appearancePanel);
+    QGridLayout* const layout2     = new QGridLayout(appearancePanel);
 
-    d->showSplash       = new QCheckBox(i18n("&Show splash screen at startup"),            appearancePanel);
-    d->nativeFileDialog = new QCheckBox(i18n("Use native file dialogs from the system"),   appearancePanel);
+    d->showSplash       = new QCheckBox(i18n("&Show splash screen at startup"),          appearancePanel);
+    d->nativeFileDialog = new QCheckBox(i18n("Use native file dialogs from the system"), appearancePanel);
 
-    DHBox* const tabStyleHbox = new DHBox(appearancePanel);
-    d->sidebarTypeLabel       = new QLabel(i18n("Sidebar tab title:"), tabStyleHbox);
-    d->sidebarType            = new QComboBox(tabStyleHbox);
+    d->sidebarTypeLabel       = new QLabel(i18n("Sidebar tab title:"), appearancePanel);
+    d->sidebarType            = new QComboBox(appearancePanel);
     d->sidebarType->addItem(i18n("Only For Active Tab"), 0);
     d->sidebarType->addItem(i18n("For All Tabs"),        1);
     d->sidebarType->setToolTip(i18n("Set this option to configure how sidebars tab title are visible."));
 
-    DHBox* const appStyleHbox = new DHBox(appearancePanel);
-    d->applicationStyleLabel  = new QLabel(i18n("Widget style:"), appStyleHbox);
-    d->applicationStyle       = new QComboBox(appStyleHbox);
+    d->applicationStyleLabel  = new QLabel(i18n("Widget style:"), appearancePanel);
+    d->applicationStyle       = new QComboBox(appearancePanel);
     d->applicationStyle->setToolTip(i18n("Set this option to choose the default window decoration and looks."));
 
     const auto styles = QStyleFactory::keys();
@@ -249,13 +252,13 @@ ShowfotoSetupMisc::ShowfotoSetupMisc(QWidget* const parent)
 
     // See Bug #365262
 
-    appStyleHbox->setVisible(false);
+    d->applicationStyleLabel->setVisible(false);
+    d->applicationStyle->setVisible(false);
 
 #endif
 
-    DHBox* const iconThemeHbox = new DHBox(appearancePanel);
-    d->applicationIconLabel    = new QLabel(i18n("Icon theme (changes after restart):"), iconThemeHbox);
-    d->applicationIcon         = new QComboBox(iconThemeHbox);
+    d->applicationIconLabel    = new QLabel(i18n("Icon theme (changes after restart):"), appearancePanel);
+    d->applicationIcon         = new QComboBox(appearancePanel);
     d->applicationIcon->setToolTip(i18n("Set this option to choose the default icon theme."));
 
     QMap<QString, QString> iconThemes;
@@ -268,9 +271,9 @@ ShowfotoSetupMisc::ShowfotoSetupMisc(QWidget* const parent)
     themeWhiteList.insert(QLatin1String("humanity"),        i18nc("icon theme", "Humanity"));
     themeWhiteList.insert(QLatin1String("oxygen"),          i18nc("icon theme", "Oxygen"));
 
-    const auto pathes = QIcon::themeSearchPaths();
+    const auto paths = QIcon::themeSearchPaths();
 
-    for (const QString& path : pathes)
+    for (const QString& path : paths)
     {
         QDirIterator it(path, QDir::Dirs       |
                               QDir::NoSymLinks |
@@ -298,22 +301,47 @@ ShowfotoSetupMisc::ShowfotoSetupMisc(QWidget* const parent)
         d->applicationIcon->addItem(it.key(), it.value());
     }
 
-    d->applicationFont = new DFontSelect(i18n("Application font:"), appearancePanel);
+    d->dateTimeFormatLabel    = new QLabel(i18n("Date and time format (%1):",
+                                                getDateFormatLinkText()), appearancePanel);
+    d->dateTimeFormatLabel->setOpenExternalLinks(true);
+    d->dateTimeFormatLabel->setTextInteractionFlags(Qt::LinksAccessibleByMouse | Qt::LinksAccessibleByKeyboard);
+
+    DHBox* const dtFormatHBox = new DHBox(appearancePanel);
+    d->dateTimeFormatEdit     = new QLineEdit(dtFormatHBox);
+    d->dateTimeFormatEdit->setToolTip(i18n("This string is used as the date and time format in whole application."));
+    d->dateTimeFormatReset    = new QToolButton(dtFormatHBox);
+    d->dateTimeFormatReset->setIcon(QIcon::fromTheme(QLatin1String("document-revert")));
+    d->dateTimeFormatReset->setToolTip(i18n("Reverts to the local short date and time format"));
+
+    d->applicationFont        = new DFontSelect(i18n("Application font:"), appearancePanel);
     d->applicationFont->setToolTip(i18n("Select here the font used to display text in whole application."));
 
     // --------------------------------------------------------
 
     layout2->setContentsMargins(spacing, spacing, spacing, spacing);
     layout2->setSpacing(spacing);
-    layout2->addWidget(d->showSplash);
-    layout2->addWidget(d->nativeFileDialog);
-    layout2->addWidget(tabStyleHbox);
-    layout2->addWidget(appStyleHbox);
-    layout2->addWidget(iconThemeHbox);
-    layout2->addWidget(d->applicationFont);
-    layout2->addStretch();
+    layout2->addWidget(d->showSplash,            0, 0, 1, 2);
+    layout2->addWidget(d->nativeFileDialog,      1, 0, 1, 2);
+    layout2->addWidget(d->sidebarTypeLabel,      2, 0, 1, 1);
+    layout2->addWidget(d->sidebarType,           2, 1, 1, 1);
+    layout2->addWidget(d->applicationStyleLabel, 3, 0, 1, 1);
+    layout2->addWidget(d->applicationStyle,      3, 1, 1, 1);
+    layout2->addWidget(d->applicationIconLabel,  4, 0, 1, 1);
+    layout2->addWidget(d->applicationIcon,       4, 1, 1, 1);
+    layout2->addWidget(d->dateTimeFormatLabel,   5, 0, 1, 1);
+    layout2->addWidget(dtFormatHBox,             5, 1, 1, 1);
+    layout2->addWidget(d->applicationFont,       6, 0, 1, 2);
+    layout2->setColumnStretch(1, 10);
+    layout2->setRowStretch(7, 10);
 
     d->tab->insertTab(Appearance, appearancePanel, i18nc("@title:tab", "Appearance"));
+
+    connect(d->dateTimeFormatReset, &QToolButton::clicked,
+            this, [this]()
+            {
+                d->dateTimeFormatEdit->setText(QLocale().dateTimeFormat(QLocale::ShortFormat));
+            }
+    );
 
     // -- Spell Check and Localize Options --------------------------------------
 
@@ -407,6 +435,7 @@ void ShowfotoSetupMisc::readSettings()
 #endif
 
     d->applicationIcon->setCurrentIndex(d->applicationIcon->findData(d->settings->getIconTheme()));
+    d->dateTimeFormatEdit->setText(d->settings->getDateTimeFormat());
     d->applicationFont->setFont(d->settings->getApplicationFont());
 
     // NOTE: Spellcheck and Localize read settings is done in widget constructor.
@@ -435,6 +464,7 @@ void ShowfotoSetupMisc::applySettings()
 #endif
 
     d->settings->setIconTheme(d->applicationIcon->currentData().toString());
+    d->settings->setDateTimeFormat(d->dateTimeFormatEdit->text().trimmed());
     d->settings->setApplicationFont(d->applicationFont->font());
     d->settings->syncConfig();
 

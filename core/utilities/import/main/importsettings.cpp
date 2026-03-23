@@ -7,7 +7,7 @@
  * Description : Settings for the import tool
  *
  * SPDX-FileCopyrightText: 2012      by Islam Wazery <wazery at ubuntu dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -144,11 +144,6 @@ Q_GLOBAL_STATIC(ImportSettingsCreator, creator)
 
 // -------------------------------------------------------------------------------------------------
 
-ImportSettings* ImportSettings::instance()
-{
-    return &creator->object;
-}
-
 ImportSettings::ImportSettings()
     : QObject(),
       d      (new Private)
@@ -160,6 +155,11 @@ ImportSettings::ImportSettings()
 ImportSettings::~ImportSettings()
 {
     delete d;
+}
+
+ImportSettings* ImportSettings::instance()
+{
+    return &creator->object;
 }
 
 void ImportSettings::readSettings()

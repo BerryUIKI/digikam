@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -390,7 +390,7 @@ bool CylindricalProjectionPrivate::lineStringToPolygon(const GeoDataLineString& 
 
             else
             {
-                // special case for polys which cross dateline but have no Tesselation Flag
+                // special case for polys which cross dateline but have no Tessellation Flag
                 // the expected rendering is a screen coordinates straight line between
                 // points, but in projections with repeatX things are not smooth
                 mirrorCount = crossDateLine(*itPreviousCoords, *itCoords, x, y, polygons, mirrorCount, distance);

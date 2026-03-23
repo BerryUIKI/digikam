@@ -33,12 +33,16 @@ class SequenceNumberDialog : public RuleDialog
 
 public:
 
-    explicit SequenceNumberDialog(Rule* const parent);
-    ~SequenceNumberDialog() override;
+    explicit SequenceNumberDialog(Rule* const parent, QWidget* const widget);
+    ~SequenceNumberDialog()       override;
 
 public:
 
     Ui::SequenceNumberOptionDialogWidget* const ui = nullptr;
+
+protected:
+
+    void showEvent(QShowEvent* e) override;
 
 private:
 
@@ -56,7 +60,7 @@ class SequenceNumberOption : public Option
 
 public:
 
-    SequenceNumberOption();
+    explicit SequenceNumberOption(QWidget* const widget);
     ~SequenceNumberOption()                                      override = default;
 
 protected:

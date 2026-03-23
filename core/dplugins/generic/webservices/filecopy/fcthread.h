@@ -7,8 +7,8 @@
  * Description : file copy thread.
  *
  * SPDX-FileCopyrightText: 2012      by Smit Mehta <smit dot meh at gmail dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
- * SPDX-FileCopyrightText: 2019-2020 by Maik Qualmann <metzpinguin at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2019-2025 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -37,11 +37,11 @@ class FCThread : public ActionThreadBase
 public:
 
     explicit FCThread(QObject* const parent);
-    ~FCThread() override;
+    ~FCThread()     override;
 
     void createCopyJobs(const QList<QUrl>& itemsList,
                         const FCContainer& settings);
-    void cancel();
+    void cancel()   override;
 
 Q_SIGNALS:
 

@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2007-2008 by Marcel Wiesweg  <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2010      by Holger Foerster <hamsi2k at freenet dot de>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2018      by Mario Frank     <mario dot frank at uni minus potsdam dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -336,10 +336,30 @@ QByteArray DbEngineParameters::hash() const
     md5.addData(databaseNameSimilarity.toUtf8());
     md5.addData(connectOptions.toUtf8());
     md5.addData(hostName.toUtf8());
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 3, 0))
+
+    md5.addData(QByteArrayView(reinterpret_cast<const char*>(&port), sizeof(int)));
+
+#else
+
     md5.addData(reinterpret_cast<const char*>(&port), sizeof(int));
+
+#endif
+
     md5.addData(userName.toUtf8());
     md5.addData(password.toUtf8());
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 3, 0))
+
+    md5.addData(QByteArrayView(reinterpret_cast<const char*>(&internalServer), sizeof(bool)));
+
+#else
+
     md5.addData(reinterpret_cast<const char*>(&internalServer), sizeof(bool));
+
+#endif
+
     md5.addData(internalServerDBPath.toUtf8());
 
     return md5.result().toHex();

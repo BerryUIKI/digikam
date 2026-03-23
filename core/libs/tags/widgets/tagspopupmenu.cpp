@@ -8,7 +8,7 @@
  *               hierarchical view of digiKam tags.
  *
  * SPDX-FileCopyrightText: 2004      by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * Parts of the drawing code are inspired by from Trolltech ASA implementation.
@@ -248,7 +248,7 @@ void TagToggleMenuWidget::initMenuStyleOption(QStyleOptionMenuItem* option) cons
 */
 
     // We have a special case here: menu items which are checked are not selectable,
-    // it is an "Assign Tags" menu. To signal this, we change the pallette.
+    // it is an "Assign Tags" menu. To signal this, we change the palette.
     // But only if there is no submenu...
 
     if (m_action->isChecked() && !m_action->menu())
@@ -636,9 +636,9 @@ void TagsPopupMenu::iterateAndBuildMenu(QMenu* menu, TAlbum* album)
     for (QList<Album*>::const_iterator it = sortedTags.constBegin() ;
          it != sortedTags.constEnd() ; ++it)
     {
-        TAlbum* const a = (TAlbum*)(*it);
+        TAlbum* const a = dynamic_cast<TAlbum*>(*it);
 
-        if (a->isInternalTag())
+        if (!a || a->isInternalTag())
         {
             continue;
         }

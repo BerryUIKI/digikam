@@ -7,7 +7,7 @@
  * Description : Item icon view interface - View methods.
  *
  * SPDX-FileCopyrightText: 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Johannes Wienke <languitar at semipol dot de>
  * SPDX-FileCopyrightText: 2010-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2011-2013 by Michael G. Hansen <mike at mghansen dot de>
@@ -22,6 +22,18 @@
 
 namespace Digikam
 {
+
+void ItemIconView::setHostWindowActions(const HostActionsMap& actions)
+{
+    d->stackedView->imagePreviewView()->setHostWindowActions(actions);
+
+#ifdef HAVE_MEDIAPLAYER
+
+    d->stackedView->mediaPlayerView()->setHostWindowActions(actions);
+
+#endif // HAVE_MEDIAPLAYER
+
+}
 
 void ItemIconView::connectIconViewFilter(FilterStatusBar* const filterbar)
 {
@@ -249,7 +261,7 @@ void ItemIconView::refreshView()
 }
 
 void ItemIconView::slotShowContextMenu(QContextMenuEvent* event,
-                                      const QList<QAction*>& extraGroupingActions)
+                                       const QList<QAction*>& extraGroupingActions)
 {
     Album* const album = currentAlbum();
 
@@ -283,8 +295,8 @@ void ItemIconView::slotShowContextMenu(QContextMenuEvent* event,
 }
 
 void ItemIconView::slotShowContextMenuOnInfo(QContextMenuEvent* event, const ItemInfo& info,
-                                            const QList<QAction*>& extraGroupingActions,
-                                            ItemFilterModel* imageFilterModel)
+                                             const QList<QAction*>& extraGroupingActions,
+                                             ItemFilterModel* imageFilterModel)
 {
     QList<qlonglong> selectedImageIds = selectedInfoList(true, true).toImageIdList();
 
@@ -310,9 +322,12 @@ void ItemIconView::slotShowContextMenuOnInfo(QContextMenuEvent* event, const Ite
 
     // --------------------------------------------------------
 
-    cmHelper.addAction(QLatin1String("image_scan_for_faces"));
-    cmHelper.addAction(QLatin1String("image_recognize_faces"));
-    cmHelper.addAction(QLatin1String("image_remove_all_faces"));
+    QMenu* const fmenu = new QMenu(i18nc("@action: face workflow", "Faces"));
+    fmenu->setIcon(QIcon::fromTheme(QLatin1String("edit-image-face-show")));
+    fmenu->addAction(DigikamApp::instance()->actionCollection()->action(QLatin1String("image_scan_for_faces")));
+    fmenu->addAction(DigikamApp::instance()->actionCollection()->action(QLatin1String("image_recognize_faces")));
+    fmenu->addAction(DigikamApp::instance()->actionCollection()->action(QLatin1String("image_remove_all_faces")));
+    cmHelper.addSubMenu(fmenu);
     cmHelper.addSeparator();
 
     // --------------------------------------------------------
@@ -422,8 +437,8 @@ void ItemIconView::slotShowContextMenuOnInfo(QContextMenuEvent* event, const Ite
 }
 
 void ItemIconView::slotShowGroupContextMenu(QContextMenuEvent* event,
-                                           const QList<ItemInfo>& selectedInfos,
-                                           ItemFilterModel* imageFilterModel)
+                                            const QList<ItemInfo>& selectedInfos,
+                                            ItemFilterModel* imageFilterModel)
 {
     QList<qlonglong> selectedImageIDs;
 

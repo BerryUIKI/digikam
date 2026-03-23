@@ -7,7 +7,7 @@
  * Description : application settings interface
  *
  * SPDX-FileCopyrightText: 2003-2004 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2003-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2003-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2007      by Arnd Baecker <arnd dot baecker at web dot de>
  * SPDX-FileCopyrightText: 2014-2015 by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  * SPDX-FileCopyrightText: 2017      by Simon Frei <freisim93 at gmail dot com>
@@ -102,6 +102,9 @@ Q_SIGNALS:
 
 public:
 
+    ApplicationSettings();
+    ~ApplicationSettings() override;
+
     static ApplicationSettings* instance();
 
     void readSettings();
@@ -171,7 +174,7 @@ public:
     bool addAlbumCategoryName(const QString& name) const;
     bool delAlbumCategoryName(const QString& name) const;
 
-    // -- Icon-View Settings -------------------------------------------------------
+    // -- Views Settings -------------------------------------------------------
 
     void setDefaultIconSize(int val);
     int  getDefaultIconSize() const;
@@ -255,14 +258,29 @@ public:
     void setPreviewSettings(const PreviewSettings& settings);
     PreviewSettings getPreviewSettings() const;
 
+    void setMagnifierZoomFactor(qreal factor);
+    qreal getMagnifierZoomFactor() const;
+
+    void setMagnifierSize(int size);
+    int getMagnifierSize() const;
+
     void setPreviewShowIcons(bool val);
     bool getPreviewShowIcons() const;
+
+    void setPreviewAutoPlay(bool val);
+    bool getPreviewAutoPlay() const;
 
     void setScaleFitToWindow(bool val);
     bool getScaleFitToWindow() const;
 
     void setPreviewSmoothScaled(bool val);
     bool getPreviewSmoothScaled() const;
+
+    /**
+     * Sets the visibility of the text properties overlay over the image and video preview.
+     */
+    void setPreviewOverlay(bool val);
+    bool getPreviewOverlay() const;
 
     // -- Mime-Types Settings -------------------------------------------------------
 
@@ -453,6 +471,9 @@ public:
     void setIconTheme(const QString& theme);
     QString getIconTheme() const;
 
+    void setDateTimeFormat(const QString& fmt);
+    QString getDateTimeFormat() const;
+
     void setApplicationFont(const QFont& fnt);
     QFont getApplicationFont() const;
 
@@ -602,15 +623,11 @@ private Q_SLOTS:
 private:
 
     // Disabled
-    ApplicationSettings();
     explicit ApplicationSettings(QObject*) = delete;
-    ~ApplicationSettings() override;
 
     KConfigGroup generalConfigGroup() const;
 
 private:
-
-    friend class ApplicationSettingsCreator;
 
     class Private;
     Private* const d = nullptr;

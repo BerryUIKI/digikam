@@ -7,7 +7,7 @@
  * Description : Object detection and image auto-tagging engine
  *
  * SPDX-FileCopyrightText: 2010      by Aditya Bhatt <adityabhatt1991 at gmail dot com>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
@@ -19,32 +19,24 @@
 
 // Qt includes
 
-#include <QClipboard>
-#include <QVBoxLayout>
-#include <QTimer>
 #include <QIcon>
-#include <QPushButton>
-#include <QApplication>
-#include <QTextEdit>
 #include <QHash>
 #include <QPixmap>
+#include <QApplication>
 
 // KDE includes
 
-#include <kconfiggroup.h>
 #include <klocalizedstring.h>
-#include <ksharedconfig.h>
 
 // Local includes
 
 #include "digikam_debug.h"
-#include "dnotificationwidget.h"
+#include "coredbaccess.h"
 #include "coredb.h"
 #include "album.h"
 #include "albummanager.h"
-#include "albumpointer.h"
+#include "dnotificationwidget.h"
 #include "autotagsscansettings.h"
-#include "iteminfojob.h"
 #include "mlpipelinepackagenotify.h"
 #include "autotagspipelineobject.h"
 #include "annotatepipelineopenai.h"
@@ -61,16 +53,8 @@ public:
 public:
 
     AutotagsScanSettings            settings;
-    bool                            benchmark       = false;
 
-    AlbumPointerList<>              albumTodoList;
-    ItemInfoList                    infoTodoList;
-    QList<qlonglong>                idsTodoList;
-
-    ItemInfoJob                     albumListing;
-    AutotagsPipelineBase*           newPipeline     = nullptr;
-
-    int totalTagsAdded                              = 0;
+    AutotagsPipelineBase*           newPipeline = nullptr;
 };
 
 AutotagsEngine::AutotagsEngine(const AutotagsScanSettings& _settings, ProgressItem* const parent)

@@ -7,8 +7,8 @@
  * Description : a tool to export items to a local storage
  *
  * SPDX-FileCopyrightText: 2006-2009 by Johannes Wienke <languitar at semipol dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
- * SPDX-FileCopyrightText: 2019-2020 by Maik Qualmann <metzpinguin at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2019-2025 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -25,7 +25,6 @@
 
 #include "dinfointerface.h"
 #include "fccontainer.h"
-#include "ditemslist.h"
 
 using namespace Digikam;
 
@@ -48,22 +47,17 @@ public:
     /**
      * Destructor.
      */
-    ~FCExportWidget() override;
-
-    /**
-     * Returns a pointer to the imagelist that is displayed.
-     */
-    DItemsList* imagesList() const;
+    ~FCExportWidget()                 override;
 
     /**
      * Returns the currently selected target url. Maybe invalid.
      */
-    QUrl targetUrl() const;
+    QUrl targetUrl()            const;
 
     /**
      * Returns settings container.
      */
-    FCContainer getSettings() const;
+    FCContainer getSettings()   const;
 
     /**
      * Set widget from settings container.
@@ -73,7 +67,6 @@ public:
 private Q_SLOTS:
 
     void slotLabelUrlChanged();
-
     void slotFileCopyButtonChanged(bool enabled);
 
 Q_SIGNALS:

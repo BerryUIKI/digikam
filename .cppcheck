@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -76,14 +76,18 @@ CPPCHECK_SUPPRESSIONS="\
 --inline-suppr \
 --suppress=*:*cimg*.h \
 --suppress=*:*libraw*.h \
---suppress=*:*libpgf*.h \
---suppress=*:*upnpsdk*.h \
+--suppress=*:*libpgf/*.h \
+--suppress=*:*upnpsdk/*.h \
+--suppress=*:*o0*.h \
+--suppress=*:*o1*.h \
 --suppress=*:*o2*.h \
 --suppress=*:*lqr*.h \
+--suppress=*:*Npt*.h \
+--suppress=*:*Plt*.h \
 --suppress=*:*libjpeg*.h \
---suppress=*:*dng_sdk*.h \
+--suppress=*:*dng_sdk/*.h \
 --suppress=*:*xmp_sdk/*.h \
---suppress=*:*qav*.h \
+--suppress=*:*QtAVPlayer/*.h \
 --suppress=missingIncludeSystem \
 --suppress=missingInclude \
 --suppress=variableScope \
@@ -93,15 +97,15 @@ CPPCHECK_SUPPRESSIONS="\
 --suppress=unusedVariable \
 --suppress=unusedStructMember \
 --suppress=unusedPrivateFunction \
---suppress=unusedFunction \
---suppress=functionStatic \
 --suppress=unknownMacro \
 --suppress=unmatchedSuppression \
 --suppress=unassignedVariable \
 --suppress=class_X_Y \
 --suppress=ConfigurationNotChecked \
---suppress=checkersReport \
---suppress=constVariablePointer \
 --suppress=useStlAlgorithm \
+--suppress=constVariablePointer \
 --suppress=returnByReference \
+--suppress=checkersReport \
+--suppress=unusedFunction \
+--suppress=functionStatic \
 "

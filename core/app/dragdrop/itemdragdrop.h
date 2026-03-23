@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2020-2025 by Maik Qualmann <metzpinguin at gmail dot com>
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -65,9 +65,52 @@ Q_SIGNALS:
     void addToGroup(const ItemInfo& pick, const QList<ItemInfo>& infos);
     void dragDropSort(const ItemInfo& pick, const QList<ItemInfo>& infos);
 
+private:
+
+    enum DropAction
+    {
+        NoAction,
+        CopyAction,
+        MoveAction,
+        GroupAction,
+        SortAction,
+        GroupAndMoveAction,
+        AssignTagAction
+    };
+
+private:
+
+    DropAction copyOrMove(bool allowMove = true,
+                          bool askForGrouping = false) const;
+    DropAction tagAction(bool askForGrouping)          const;
+    DropAction groupAction()                           const;
+
+private Q_SLOTS:
+
+    void slotMoveCopyInternal();
+    void slotMoveCopyExternal();
+    void slotMoveCopyItemTags();
+    void slotDownloadCamItems();
+
+private:
+
+    QAbstractItemView*    m_view       = nullptr;
+    QObject*              m_source     = nullptr;
+    PAlbum*               m_destPAlbum = nullptr;
+    TAlbum*               m_destTAlbum = nullptr;
+
+    Qt::KeyboardModifiers m_modifiers;
+    Qt::DropAction        m_proposed   = Qt::IgnoreAction;
+    QModelIndex           m_droppedOn;
+    QPoint                m_position;
+
+    QList<int>            m_tagIDs;
+    QList<QUrl>           m_srcURLs;
+    QList<qlonglong>      m_imageIDs;
+
 protected:
 
-    bool m_readOnly = false;
+    bool                  m_readOnly   = false;
 };
 
 } // namespace Digikam

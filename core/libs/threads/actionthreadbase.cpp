@@ -6,7 +6,7 @@
  * Date        : 2011-12-28
  * Description : Low level threads management for batch processing on multi-core
  *
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText:      2014 by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
  * SPDX-FileCopyrightText: 2011-2012 by Janardhan Reddy <annapareddyjanardhanreddy at gmail dot com>
  *
@@ -15,6 +15,21 @@
  * ============================================================ */
 
 #include "actionthreadbase.h"
+
+// C includes
+
+#if defined(Q_OS_UNIX)
+#   include <sys/time.h>
+#   include <unistd.h>
+#   if defined(Q_OS_LINUX)
+#       include <sys/prctl.h>
+#   endif
+#elif defined(Q_OS_WIN)
+#   include <windows.h>
+#   include <processthreadsapi.h>
+#elif defined(Q_OS_MACOS)
+#   include <pthread.h>
+#endif
 
 // Qt includes
 
@@ -30,25 +45,6 @@
 namespace Digikam
 {
 
-ActionJob::ActionJob(QObject* const parent)
-    : QObject  (parent),
-      QRunnable()
-{
-    setAutoDelete(false);
-}
-
-ActionJob::~ActionJob()
-{
-    cancel();
-}
-
-void ActionJob::cancel()
-{
-    m_cancel = true;
-}
-
-// -----------------------------------------------------------------
-
 class Q_DECL_HIDDEN ActionThreadBase::Private
 {
 public:
@@ -57,7 +53,8 @@ public:
 
 public:
 
-    volatile bool       running = false;
+    volatile bool       running   = false;
+    volatile bool       cancelled = false;
 
     QWaitCondition      condVarJobs;
     QMutex              mutex;
@@ -82,15 +79,11 @@ ActionThreadBase::~ActionThreadBase()
 {
     // Cancel the thread
 
-    cancel(false);
+    this->cancel();
 
     // Wait for the thread to finish
 
     wait();
-
-    // Wait for the jobs to finish
-
-    d->pool->waitForDone();
 
     // Cleanup all jobs from memory
 
@@ -104,11 +97,23 @@ ActionThreadBase::~ActionThreadBase()
     delete d;
 }
 
+void ActionThreadBase::setExpiryTimeout(int timeout)
+{
+    d->pool->setExpiryTimeout(timeout);
+
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Threads Pool" << objectName() << "will use expiry time-out of" << timeout << "ms";
+}
+
+int ActionThreadBase::expiryTimeout() const
+{
+    return d->pool->expiryTimeout();
+}
+
 void ActionThreadBase::setMaximumNumberOfThreads(int n)
 {
     d->pool->setMaxThreadCount(n);
 
-    qCDebug(DIGIKAM_GENERAL_LOG) << "Using " << n << " CPU core to run threads";
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Threads Pool" << objectName() << "will use" << n << "threads";
 }
 
 int ActionThreadBase::maximumNumberOfThreads() const
@@ -146,9 +151,9 @@ void ActionThreadBase::slotJobFinished()
     d->condVarJobs.wakeAll();
 }
 
-void ActionThreadBase::cancel(bool isCancel)
+void ActionThreadBase::cancel()
 {
-    if (isCancel)
+    if (d->running)
     {
         qCDebug(DIGIKAM_GENERAL_LOG) << "Cancel Main Thread";
     }
@@ -156,6 +161,13 @@ void ActionThreadBase::cancel(bool isCancel)
     {
         qCDebug(DIGIKAM_GENERAL_LOG) << "Finish Main Thread";
     }
+
+    if (d->cancelled)
+    {
+        return;
+    }
+
+    d->cancelled = true;
 
     QMutexLocker lock(&d->mutex);
 
@@ -205,7 +217,8 @@ void ActionThreadBase::appendJobs(const ActionJobCollection& jobs)
 
 void ActionThreadBase::run()
 {
-    d->running = true;
+    d->running   = true;
+    d->cancelled = false;
 
     while (d->running)
     {
@@ -235,6 +248,37 @@ void ActionThreadBase::run()
             d->condVarJobs.wait(&d->mutex);
         }
     }
+
+    // Wait for the jobs to finish
+
+    d->pool->waitForDone();
+}
+
+void ActionThreadBase::setCurrentThreadName(const QString& name)
+{
+
+#if defined(Q_OS_LINUX)
+
+    prctl(PR_SET_NAME, (unsigned long)name.toLatin1().constData(), 0, 0, 0);
+
+#elif defined(Q_OS_MACOS)
+
+    pthread_setname_np(name.toLatin1().constData());
+
+#elif defined(Q_OS_WIN)
+
+    SetThreadDescription(GetCurrentThread(), reinterpret_cast<const wchar_t *>(name.utf16()));
+
+#elif defined(Q_OS_NETBSD)
+
+    pthread_setname_np(pthread_self(), "%s", (void*)name.toLatin1().constData());
+
+#else
+
+    qCWarning(DIGIKAM_GENERAL_LOG) << "Unsupported platform to customize the current thread name.";
+
+#endif
+
 }
 
 } // namespace Digikam

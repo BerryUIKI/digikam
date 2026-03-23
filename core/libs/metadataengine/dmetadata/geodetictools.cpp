@@ -6,10 +6,10 @@
  * Date        : 2008-05-05
  * Description : Geodetic tools based from an implementation written by
  *               Daniele Franzoni and Martin Desruisseaux from
- *               GeoTools Project Managment Committee (PMC), https://geotools.org
+ *               GeoTools Project Management Committee (PMC), https://geotools.org
  *
  * SPDX-FileCopyrightText: 2008-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -827,7 +827,7 @@ double Ellipsoid::orthodromicDistance(double x1, double y1, double x2, double y2
             if (false)
             {
                 // 'faz' and 'baz' are forward azimuths at both points.
-                // Since the current API can't returns this result, it
+                // Since the current API cannot returns this result, it
                 // doesn't worth to compute it at this time.
 
                 faz = atan2(tu1, tu2);

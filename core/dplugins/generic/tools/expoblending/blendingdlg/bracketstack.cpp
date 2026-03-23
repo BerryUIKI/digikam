@@ -6,7 +6,7 @@
  * Date        : 2009-12-13
  * Description : a tool to blend bracketed images.
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2015      by Benjamin Girault <benjamin dot girault at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -164,7 +164,7 @@ void BracketStackList::addItems(const QList<QUrl>& list)
         return;
     }
 
-    QList<QUrl> urls;
+    QList<QUrl> newList;
 
     for (const QUrl& imageUrl: list)
     {
@@ -191,16 +191,16 @@ void BracketStackList::addItems(const QList<QUrl>& list)
             BracketStackItem* const item = new BracketStackItem(this);
             item->setUrl(imageUrl);
             item->setOn(true);
-            urls.append(imageUrl);
+            newList.append(imageUrl);
         }
     }
 
-    for (const QUrl& url : std::as_const(urls))
+    for (const QUrl& url : std::as_const(newList))
     {
         ThumbnailLoadThread::defaultThread()->find(ThumbnailIdentifier(url.toLocalFile()));
     }
 
-    Q_EMIT signalAddItems(urls);
+    Q_EMIT signalAddItems(newList);
 }
 
 void BracketStackList::slotThumbnail(const LoadingDescription& desc, const QPixmap& pix)

@@ -6,7 +6,7 @@
  * Date        : 2018-07-30
  * Description : a plugin to export to Pinterest web-service.
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -61,7 +61,7 @@ QString PPlugin::description() const
 
 QString PPlugin::details() const
 {
-    return i18nc("@info", "This tool allows users to export items to Pinterest web-service.\n\n"
+    return i18nc("@info", "This tool allows users to export items to Pinterest web-service.<br><br>"
                  "See Pinterest web site for details: %1",
                  QLatin1String("<a href='https://www.pinterest.com/'>https://www.pinterest.com/</a>"));
 }

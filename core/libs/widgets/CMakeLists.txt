@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -115,10 +115,20 @@ set(libgraphicsviewwidgets_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/dimgchilditem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/dimgpreviewitem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/regionframeitem.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/regionframeitem_p.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/regionframeitem_events.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/regionframeitem_hud.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/regionframeitem_properties.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/magnifieritem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/graphicsdimgitem.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/graphicsdimgview.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/graphicsdimgview_draw.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/graphicsdimgview_pan.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/graphicsdimgview_scroll.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/graphicsdimgview_events.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/graphicsdimgview_magnifier.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/imagezoomsettings.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/previewlayout.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/singlephotopreviewlayout.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/paniconwidget.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/graphicsview/itemvisibilitycontroller.cpp
 )
@@ -134,8 +144,14 @@ set(libmetadatawidgets_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/metadata/exiv2/xmpwidget.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/metadata/labels/ratingwidget.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/metadata/labels/colorlabelwidget.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/metadata/labels/ratingwidget_box.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/metadata/labels/ratingwidget_menu.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/metadata/labels/picklabelwidget.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/metadata/labels/picklabelwidget_menu.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/metadata/labels/picklabelwidget_selector.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/metadata/labels/colorlabelwidget.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/metadata/labels/colorlabelwidget_menu.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/metadata/labels/colorlabelwidget_selector.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/metadata/config/metadataselector.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/metadata/config/metadatapanel.cpp

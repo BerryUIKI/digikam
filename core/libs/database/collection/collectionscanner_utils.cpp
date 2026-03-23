@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2005-2006 by Tom Albers <tomalbers at kde dot nl>
  * SPDX-FileCopyrightText: 2007-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -31,7 +31,7 @@ void CollectionScanner::loadNameFilters()
     CoreDbAccess().db()->getFilterSettings(&imageFilter, &videoFilter, &audioFilter);
     CoreDbAccess().db()->getIgnoreDirectoryFilterSettings(&ignoreDirectory);
 
-    // three sets to find category of a file
+    // Three sets to find category of a file
 
     d->imageFilterSet  = QSet<QString>(imageFilter.begin(),     imageFilter.end());
     d->audioFilterSet  = QSet<QString>(audioFilter.begin(),     audioFilter.end());
@@ -66,37 +66,16 @@ void CollectionScanner::safelyRemoveAlbums(const QList<int>& albumIds)
 
 int CollectionScanner::checkAlbum(const CollectionLocation& location, const QString& album)
 {
-    // get album id if album exists
+    // Get album id if album exists
 
     int albumID = CoreDbAccess().db()->getAlbumForPath(location.id(), album, false);
 
-    d->establishedSourceAlbums.remove(albumID);
-
-    // create if necessary
+    // Create if necessary
 
     if (albumID == -1)
     {
         QFileInfo fi(location.albumRootPath() + album);
         albumID = CoreDbAccess().db()->addAlbum(location.id(), album, QString(), fi.lastModified().date(), QString());
-
-        // have album this one was copied from?
-
-        if (d->hints)
-        {
-            CollectionScannerHints::Album src;
-            {
-                QReadLocker locker(&d->hints->lock);
-                src = d->hints->albumHints.value(CollectionScannerHints::DstPath(location.id(), album));
-            }
-
-            if (!src.isNull())
-            {
-                //qCDebug(DIGIKAM_DATABASE_LOG) << "Identified album" << src.albumId << "as source of new album" << fi.filePath();
-
-                CoreDbAccess().db()->copyAlbumProperties(src.albumId, albumID);
-                d->establishedSourceAlbums[albumID] = src.albumId;
-            }
-        }
     }
 
     return albumID;
@@ -174,11 +153,11 @@ void CollectionScanner::copyFileProperties(const ItemInfo& source, const ItemInf
 
 void CollectionScanner::itemsWereRemoved(const QList<qlonglong>& removedIds)
 {
-    // set time stamp
+    // Set time stamp
 
     d->removedItems();
 
-    // manage relations
+    // Manage relations
 
     QList<qlonglong> relatedImages = CoreDbAccess().db()->getOneRelatedImageEach(removedIds, DatabaseRelation::DerivedFrom);
     qCDebug(DIGIKAM_DATABASE_LOG) << "Removed items:" << removedIds << "related items:" << relatedImages;
@@ -197,47 +176,56 @@ void CollectionScanner::itemsWereRemoved(const QList<qlonglong>& removedIds)
     }
 }
 
-int CollectionScanner::countItemsInFolder(const QString& path)
+void CollectionScanner::readDirectoryInCache(int& items, const QString& path)
 {
-    QDir dir(path);
+    const auto dirList = QDir(path).entryInfoList(QDir::Dirs    |
+                                                  QDir::Files   |
+                                                  QDir::NoDotAndDotDot);
+
+    for (const auto& info : dirList)
+    {
+        if (!d->checkObserver())
+        {
+            return;
+        }
+
+        if (info.isDir())
+        {
+            if (d->checkIgnoreDirectory(info.fileName()))
+            {
+                continue;
+            }
+
+            d->albumDateCache.insert(info.filePath(),
+                                     asDateTimeUTC(info.lastModified()));
+
+            readDirectoryInCache(items, info.filePath());
+        }
+
+        ++items;
+    }
+}
+
+int CollectionScanner::createAlbumDateCache(const CollectionLocation& location, const QString& album)
+{
+    if (!location.isAvailable())
+    {
+        return 0;
+    }
+
+    QDir dir(location.albumRootPath() + album);
 
     if (!dir.exists() || !dir.isReadable())
     {
         return 0;
     }
 
-    CollectionLocation location = CollectionManager::instance()->locationForPath(path);
-
-    if (!location.isNull() && databaseInitialScanDone())
-    {
-        QString album = CollectionManager::instance()->album(path);
-        int albumID   = CoreDbAccess().db()->getAlbumForPath(location.id(), album, false);
-
-        if (albumID != -1)
-        {
-            QPair<int, int> numberPair = CoreDbAccess().db()->getNumberOfAllItemsAndAlbums(albumID);
-
-            if (numberPair.first)
-            {
-                return (numberPair.first + numberPair.second);
-            }
-        }
-    }
-
-    // Also count the current folder
-
     int items = 1;
+    QFileInfo info(dir.path());
+    d->albumDateCache.insert(info.filePath(),
+                             asDateTimeUTC(info.lastModified()));
 
-    QDirIterator it(dir.path(), QDir::Dirs    |
-                                QDir::Files   |
-                                QDir::NoDotAndDotDot,
-                                QDirIterator::Subdirectories);
-
-    while (it.hasNext())
-    {
-        it.next();
-        ++items;
-    }
+    readDirectoryInCache(items, info.filePath());
 
     return items;
 }
@@ -536,11 +524,15 @@ void CollectionScanner::scanAlbum(const QString& filePath)
 
 void CollectionScanner::scanAlbum(const QString& albumRoot, const QString& album)
 {
-    // + Adds album if it does not yet exist in the db.
-    // + Recursively scans subalbums of album.
-    // + Adds files if they do not yet exist in the db.
-    // + Adds stale files from the db to m_filesToBeDeleted
-    // - Does not add stale albums to m_foldersToBeDeleted.
+    /**
+     * This method perform following rules:
+     *
+     * + Adds album if it does not yet exist in the db.
+     * + Recursively scans subalbums of album.
+     * + Adds files if they do not yet exist in the db.
+     * + Adds stale files from the db to m_filesToBeDeleted
+     * - Does not add stale albums to m_foldersToBeDeleted.
+     */
 
     QDir dir( albumRoot + album );
 
@@ -553,7 +545,7 @@ void CollectionScanner::scanAlbum(const QString& albumRoot, const QString& album
 
     Q_EMIT startScanningAlbum(albumRoot, album);
 
-    // get album id if album exists
+    // Get album id if album exists
 
     int albumID = CoreDbAccess().db()->getAlbumForPath(albumRoot, album, false);
 
@@ -587,7 +579,8 @@ void CollectionScanner::scanAlbum(const QString& albumRoot, const QString& album
             }
             else if (fi->completeSuffix() == QLatin1String("digikamtempfile.tmp"))
             {
-                // ignore temp files we created ourselves
+                // Ignore temp files we created ourselves
+
                 continue;
             }
             else
@@ -739,6 +732,7 @@ void CollectionScanner::addItem(Digikam::CoreDbAccess& access, int albumID,
 
     // Try to get image rating from IPTC Urgency tag
     // else use file system time stamp.
+
     rating   = metadata->getItemRating();
 
     if (!datetime.isValid())

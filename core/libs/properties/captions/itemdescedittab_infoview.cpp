@@ -7,7 +7,7 @@
  * Description : Captions, Tags, and Rating properties editor - Information view.
  *
  * SPDX-FileCopyrightText: 2003-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2003-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2003-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Johannes Wienke <languitar at semipol dot de>
@@ -47,21 +47,11 @@ void ItemDescEditTab::initInformationView()
 
 void ItemDescEditTab::slotTemplateSelected()
 {
-    Template s = d->templateSelector->getTemplate();
-    Template t = d->hub->metadataTemplate();
+    Template t = d->templateSelector->getTemplate();
 
-    if (s.isNull())
+    if (t.isNull())
     {
         return;
-    }
-
-    if (s.templateTitle() == Template::removeTemplateTitle())
-    {
-        t = s;
-    }
-    else
-    {
-        t.merge(s);
     }
 
     d->hub->setMetadataTemplate(t);

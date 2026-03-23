@@ -6,7 +6,7 @@
  * Date        : 2011-01-24
  * Description : Tags Action Manager
  *
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -18,6 +18,7 @@
 
 #include <QObject>
 #include <QWidget>
+#include <QMap>
 
 class KActionCollection;
 
@@ -70,11 +71,26 @@ public:
     QString pickShortcutPrefix()                    const;
     QString colorShortcutPrefix()                   const;
 
+    /**
+     * @brief return the current map of color label names ordered by ColorLabel enum.
+     */
+    QMap<int, QString> colorLabelNames()            const;
+
+    static QStringList colorSet();
+
+public:
+
     static TagsActionMngr* defaultManager();
 
 Q_SIGNALS:
 
     void signalShortcutPressed(const QString& shortcut, int val);
+    void signalTagsActionCollectionsRegistered();
+    void signalColorLabelNamesUpdated();
+
+public Q_SLOTS:
+
+    void slotColorNameChanged(int label, const QString& name);
 
 private Q_SLOTS:
 
@@ -101,6 +117,9 @@ private:
     bool createRatingActionShortcut(KActionCollection* const ac, int rating);
     bool createPickLabelActionShortcut(KActionCollection* const ac, int pickId);
     bool createColorLabelActionShortcut(KActionCollection* const ac, int colorId);
+
+    void loadColorNames();
+    void saveColorNames();
 
 private:
 

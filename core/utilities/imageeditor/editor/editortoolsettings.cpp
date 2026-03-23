@@ -6,7 +6,7 @@
  * Date        : 2008-08-21
  * Description : Editor tool settings template box
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2008-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -39,6 +39,7 @@
 
 // Local includes
 
+#include "digikam_globals.h"
 #include "dlayoutbox.h"
 #include "dnuminput.h"
 #include "colorgradientwidget.h"
@@ -54,10 +55,11 @@ namespace Digikam
 
 class Q_DECL_HIDDEN EditorToolSettings::Private
 {
-
 public:
 
     Private() = default;
+
+public:
 
     QButtonGroup*        scaleBG            = nullptr;
 
@@ -429,7 +431,8 @@ void EditorToolSettings::slotAboutPlugin()
         if (d->tool->plugin())
         {
             QPointer<DPluginAboutDlg> dlg = new DPluginAboutDlg(d->tool->plugin());
-            dlg->exec();
+            dialogExec(dlg);
+
             delete dlg;
         }
     }

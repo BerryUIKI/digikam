@@ -6,7 +6,7 @@
  * Date        : 2023-08-16
  * Description : central place for Spell-check and localize settings
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -103,14 +103,9 @@ public:
     LocalizeSettings object;
 };
 
-Q_GLOBAL_STATIC(LocalizeSettingsCreator, localizeSettingsCreator)
+Q_GLOBAL_STATIC(LocalizeSettingsCreator, creator)
 
 // -----------------------------------------------------------------------------------------------
-
-LocalizeSettings* LocalizeSettings::instance()
-{
-    return &localizeSettingsCreator->object;
-}
 
 LocalizeSettings::LocalizeSettings()
     : QObject(),
@@ -123,6 +118,11 @@ LocalizeSettings::LocalizeSettings()
 LocalizeSettings::~LocalizeSettings()
 {
     delete d;
+}
+
+LocalizeSettings* LocalizeSettings::instance()
+{
+    return &creator->object;
 }
 
 void LocalizeSettings::openLocalizeSetup()

@@ -6,7 +6,7 @@
  * Date        : 2008-05-19
  * Description : Find Duplicates tree-view search album.
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -70,8 +70,8 @@ FindDuplicatesAlbum::FindDuplicatesAlbum(QWidget* const parent)
     header()->setSectionResizeMode(FindDuplicatesAlbumItem::REFERENCE_IMAGE, QHeaderView::Interactive);
     header()->setSectionResizeMode(FindDuplicatesAlbumItem::REFERENCE_DATE,  QHeaderView::Interactive);
     header()->setSectionResizeMode(FindDuplicatesAlbumItem::REFERENCE_ALBUM, QHeaderView::Interactive);
-    header()->setSectionResizeMode(FindDuplicatesAlbumItem::RESULT_COUNT,    QHeaderView::ResizeToContents);
-    header()->setSectionResizeMode(FindDuplicatesAlbumItem::AVG_SIMILARITY,  QHeaderView::ResizeToContents);
+    header()->setSectionResizeMode(FindDuplicatesAlbumItem::RESULT_COUNT,    QHeaderView::Interactive);
+    header()->setSectionResizeMode(FindDuplicatesAlbumItem::AVG_SIMILARITY,  QHeaderView::Interactive);
     setWhatsThis(i18n("This shows all found duplicate items."));
 
     connect(d->thumbLoadThread, SIGNAL(signalThumbnailLoaded(LoadingDescription,QPixmap)),
@@ -154,6 +154,7 @@ void FindDuplicatesAlbum::updateDuplicatesAlbumItems(const QList<SAlbum*>& sAlbu
         if (item && sAlbumsToRebuild.contains(item->album()))
         {
             item->calculateInfos(deletedImages);
+            item->waitForCalculate();
 
             if (item->itemCount() == 1)
             {

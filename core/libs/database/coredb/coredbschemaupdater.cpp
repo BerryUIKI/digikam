@@ -7,7 +7,7 @@
  * Description : Core database Schema updater
  *
  * SPDX-FileCopyrightText: 2007-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -52,7 +52,7 @@ int CoreDbSchemaUpdater::schemaVersion()
 
 int CoreDbSchemaUpdater::filterSettingsVersion()
 {
-    return 19;
+    return 20;
 }
 
 int CoreDbSchemaUpdater::uniqueHashVersion()
@@ -553,7 +553,15 @@ void CoreDbSchemaUpdater::defaultIgnoreDirectoryFilterSettings(QStringList& defa
     // NOTE: when updating this section,
     // just increment filterSettingsVersion() so that the changes take effect.
 
+    /**
+     * Synology NAS: in every directory the system creates a subdirectory @eaDir to store thumbnails.
+     */
     defaultIgnoreDirectoryFilter << QLatin1String("@eaDir");
+
+    /**
+     * Apple macOS Photo Application database hosted in ~/Pictures/
+     */
+    defaultIgnoreDirectoryFilter << QLatin1String("Photos Library.photoslibrary");
 }
 
 bool CoreDbSchemaUpdater::createFilterSettings()

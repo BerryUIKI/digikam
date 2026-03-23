@@ -6,7 +6,7 @@
  * Date        : 2018-07-30
  * Description : a BQM plugin to convert to PGF.
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -61,7 +61,7 @@ QString ConvertToPgfPlugin::details() const
 {
     return xi18nc("@info", "<para>This Batch Queue Manager tool can convert images data to PGF format.</para>"
                   "<para>The Progressive Graphics File is a wavelet-based bitmapped image format that employs lossless and lossy data compression.</para>"
-                  "<para>See details about this format from <a href='https://en.wikipedia.org/wiki/Progressive_Graphics_File'>this page</a>.</para>");
+                  "<para>See details about this format from <link url='https://en.wikipedia.org/wiki/Progressive_Graphics_File'>this page</link>.</para>");
 }
 
 QString ConvertToPgfPlugin::handbookSection() const

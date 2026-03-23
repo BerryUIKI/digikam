@@ -6,7 +6,7 @@
  * Date        : 2017-05-25
  * Description : a tool to generate video slideshow from images.
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -114,7 +114,8 @@ VidSlideOutputPage::VidSlideOutputPage(QWizard* const dialog, const QString& tit
     formatLabel->setText(i18n("Media Container Format:"));
     d->formatVal                = new QComboBox(outputBox);
     d->formatVal->setEditable(false);
-    d->formatVal->setToolTip(i18n("This control allows to choose the format of the media container to host video stream and soundtrack."));
+    d->formatVal->setToolTip(i18n("This control allows to choose the format of the media container to host video stream and soundtrack."
+                                  "The entries in this list are populated corresponding to the format supported by FFMpeg."));
     formatLabel->setBuddy(d->formatVal);
 
     QLabel* const playerLabel = new QLabel(outputBox);
@@ -322,6 +323,7 @@ void VidSlideOutputPage::initializePage()
 {
     // Populate Formats List
 
+    d->formatVal->clear();
     QMap<VidSlideSettings::VidFormat, QString> map                = VidSlideSettings::videoFormatNames();
     QMap<VidSlideSettings::VidFormat, QString>::const_iterator it = map.constBegin();
 

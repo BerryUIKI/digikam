@@ -7,7 +7,7 @@
  * Description : a tool to generate HTML image galleries
  *
  * SPDX-FileCopyrightText: 2006-2010 by Aurelien Gateau <aurelien dot gateau at free dot fr>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -26,6 +26,7 @@ GalleryElement::GalleryElement(const DInfoInterface::DInfoMap& info)
 {
     DItemInfo item(info);
     m_title       = item.name();
+    m_imageTitle  = item.title();
     m_description = item.comment();
     m_orientation = (MetaEngine::ImageOrientation)(item.orientation());
     m_time        = item.dateTime();
@@ -40,6 +41,7 @@ void GalleryElement::appendToXML(XMLWriter& xmlWriter, bool copyOriginalImage) c
 
     XMLElement imageX(xmlWriter, QLatin1String("image"));
     xmlWriter.writeElement("title",       m_title);
+    xmlWriter.writeElement("imagetitle",  m_imageTitle);
     xmlWriter.writeElement("description", m_description);
     xmlWriter.writeElement("date",        m_time.toString(QLatin1String("yyyy-MM-ddThh:mm:ss")));
     appendImageElementToXML(xmlWriter, QLatin1String("full"),      m_fullFileName, m_fullSize);

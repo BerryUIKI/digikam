@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2005-2006 by Tom Albers <tomalbers at kde dot nl>
  * SPDX-FileCopyrightText: 2007-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -39,18 +39,25 @@ void CollectionScanner::completeScan()
 
     QList<CollectionLocation> allLocations = CollectionManager::instance()->allAvailableLocations();
 
-    if (d->wantSignals && d->needTotalFiles)
+    // count for progress info and create album date cache
+
+    int count = 0;
+
+    for (const CollectionLocation& location : std::as_const(allLocations))
     {
-        // count for progress info
-
-        int count = 0;
-
-        for (const CollectionLocation& location : std::as_const(allLocations))
+        if (!d->checkObserver())
         {
-            // cppcheck-suppress useStlAlgorithm
-            count += countItemsInFolder(location.albumRootPath());
+            Q_EMIT cancelled();
+
+            return;
         }
 
+        // cppcheck-suppress useStlAlgorithm
+        count += createAlbumDateCache(location, QLatin1String("/"));
+    }
+
+    if (d->wantSignals && d->needTotalFiles)
+    {
         Q_EMIT totalFilesToScan(count);
     }
 
@@ -61,14 +68,26 @@ void CollectionScanner::completeScan()
         return;
     }
 
-    // if we have no hints to follow, clean up all stale albums
+    // clean up all stale albums
 
-    if (!d->hints || !d->hints->hasAlbumHints())
+    CoreDbAccess().db()->deleteStaleAlbums();
+
+    if (d->wantSignals)
     {
-        CoreDbAccess().db()->deleteStaleAlbums();
+        Q_EMIT startScanningForStaleAlbums();
     }
 
-    scanForStaleAlbums(allLocations);
+    for (const CollectionLocation& location : std::as_const(allLocations))
+    {
+        if (!d->checkObserver())
+        {
+            Q_EMIT cancelled();
+
+            return;
+        }
+
+        scanForStaleAlbums(location, QLatin1String("/"));
+    }
 
     if (!d->checkObserver())
     {
@@ -154,23 +173,40 @@ void CollectionScanner::finishCompleteScan(const QStringList& albumPaths)
         it = it2;
     }
 
-    if (d->wantSignals && d->needTotalFiles)
+    // count for progress info and create album date cache
+
+    int count = 0;
+
+    for (const QString& path : std::as_const(sortedPaths))
     {
-        // count for progress info
-
-        int count = 0;
-
-        for (const QString& path : std::as_const(sortedPaths))
+        if (!d->checkObserver())
         {
-            // cppcheck-suppress useStlAlgorithm
-            count += countItemsInFolder(path);
+            Q_EMIT cancelled();
+
+            return;
         }
 
+        CollectionLocation location = CollectionManager::instance()->locationForPath(path);
+        QString album               = CollectionManager::instance()->album(path);
+
+        // cppcheck-suppress useStlAlgorithm
+        count += createAlbumDateCache(location, album);
+    }
+
+    if (d->wantSignals && d->needTotalFiles)
+    {
         Q_EMIT totalFilesToScan(count);
     }
 
     for (const QString& path : std::as_const(sortedPaths))
     {
+        if (!d->checkObserver())
+        {
+            Q_EMIT cancelled();
+
+            return;
+        }
+
         CollectionLocation location = CollectionManager::instance()->locationForPath(path);
         QString album               = CollectionManager::instance()->album(path);
 
@@ -251,20 +287,13 @@ void CollectionScanner::partialScan(const QString& albumRoot, const QString& alb
         return;
     }
 
-/*
-    if (CoreDbAccess().backend()->isInTransaction())
     {
-        // Install ScanController::instance()->suspendCollectionScan around your CoreDbTransaction
+        // lock database
 
-        qCDebug(DIGIKAM_DATABASE_LOG) << "Detected an active database transaction when starting a collection scan. "
-                         "Please report this error.";
-
-        return;
+        CoreDbTransaction transaction;
+        mainEntryPoint(false);
+        d->resetRemovedItemsTime();
     }
-*/
-
-    mainEntryPoint(false);
-    d->resetRemovedItemsTime();
 
     CollectionLocation location = CollectionManager::instance()->locationForAlbumRootPath(albumRoot);
 
@@ -275,36 +304,29 @@ void CollectionScanner::partialScan(const QString& albumRoot, const QString& alb
         return;
     }
 
-    // if we have no hints to follow, clean up all stale albums
-    // Hint: Rethink with next major db update
+    // create album date cache
 
-    if (!d->hints || !d->hints->hasAlbumHints())
+    createAlbumDateCache(location, album);
+
+    if (!d->checkObserver())
     {
-        CoreDbAccess().db()->deleteStaleAlbums();
+        Q_EMIT cancelled();
+
+        return;
     }
 
-    // Usually, we can restrict stale album scanning to our own location.
-    // But when there are album hints from a second location to this location,
-    // also scan the second location
+    // clean up all stale albums
 
-    QSet<int> locationIdsToScan;
-    locationIdsToScan << location.id();
+    CoreDbAccess().db()->deleteStaleAlbums();
 
-    if (d->hints)
+    if (!d->checkObserver())
     {
-        QReadLocker locker(&d->hints->lock);
-        QHash<CollectionScannerHints::DstPath, CollectionScannerHints::Album>::const_iterator it;
+        Q_EMIT cancelled();
 
-        for (it = d->hints->albumHints.constBegin() ; it != d->hints->albumHints.constEnd() ; ++it)
-        {
-            if (it.key().albumRootId == location.id())
-            {
-                locationIdsToScan << it.key().albumRootId;
-            }
-        }
+        return;
     }
 
-    scanForStaleAlbums(locationIdsToScan.values());
+    scanForStaleAlbums(location, album);
 
     if (!d->checkObserver())
     {
@@ -462,224 +484,48 @@ qlonglong CollectionScanner::scanFile(const QFileInfo& fi, int albumId, qlonglon
     return imageId;
 }
 
-void CollectionScanner::scanAlbumRoot(const CollectionLocation& location)
+void CollectionScanner::scanForStaleAlbums(const CollectionLocation& location, const QString& album)
 {
-    if (d->wantSignals)
+    // Only handle albums on available locations
+
+    if (!location.isAvailable())
     {
-        Q_EMIT startScanningAlbumRoot(location.albumRootPath());
+        return;
     }
 
-    QMap<QString, QDateTime>::const_iterator it;
-    const QMap<QString, QDateTime>& pathDateMap = CoreDbAccess().db()->
-                                    getAlbumModificationMap(location.id());
-    bool useFastScan = MetaEngineSettings::instance()->settings().useFastScan;
+    QString relativePath = album;
 
-    if (!useFastScan || !d->performFastScan || pathDateMap.isEmpty())
+    if (album != QLatin1String("/"))
     {
-        scanAlbum(location, QLatin1String("/"));
-    }
-    else
-    {
-        for (it = pathDateMap.constBegin() ; it != pathDateMap.constEnd() ; ++it)
-        {
-            QDateTime modified;
-            QString   folder(location.albumRootPath() + it.key());
-
-            if (d->albumDateCache.contains(folder))
-            {
-                modified = d->albumDateCache.value(folder);
-            }
-            else
-            {
-                modified = asDateTimeUTC(QFileInfo(folder).lastModified());
-            }
-
-            if (s_modificationDateEquals(modified, it.value()))
-            {
-                int albumID = CoreDbAccess().db()->getAlbumForPath(location.id(), it.key(), false);
-                int counter = CoreDbAccess().db()->getNumberOfItemsInAlbum(albumID);
-
-                d->scannedAlbums << albumID;
-
-                if (d->wantSignals)
-                {
-                    Q_EMIT scannedFiles(counter + 1);
-                }
-            }
-            else
-            {
-                scanAlbum(location, it.key(), true);
-            }
-        }
-    }
-
-    if (d->wantSignals)
-    {
-        Q_EMIT finishedScanningAlbumRoot(location.albumRootPath());
-    }
-}
-
-void CollectionScanner::scanForStaleAlbums(const QList<CollectionLocation>& locations)
-{
-    QList<int> locationIdsToScan;
-
-    for (const CollectionLocation& location : std::as_const(locations))
-    {
-        locationIdsToScan << location.id();
-    }
-
-    scanForStaleAlbums(locationIdsToScan);
-}
-
-void CollectionScanner::scanForStaleAlbums(const QList<int>& locationIdsToScan)
-{
-    if (d->wantSignals)
-    {
-        Q_EMIT startScanningForStaleAlbums();
+        relativePath += QLatin1Char('/');
     }
 
     QList<AlbumShortInfo> albumList = CoreDbAccess().db()->getAlbumShortInfos();
+    QList<AlbumShortInfo>::const_iterator it;
     QList<int> toBeDeleted;
-    int counter = 0;
 
-    if (d->wantSignals && d->needTotalFiles)
+    for (it = albumList.constBegin() ; it != albumList.constEnd() ; ++it)
     {
-        Q_EMIT totalFilesToScan(albumList.count());
-    }
-
-    QList<AlbumShortInfo>::const_iterator it3;
-
-    for (it3 = albumList.constBegin() ; it3 != albumList.constEnd() ; ++it3)
-    {
-        ++counter;
-
-        if (d->wantSignals && counter && (counter % 10 == 0))
-        {
-            Q_EMIT scannedFiles(counter);
-
-            counter = 0;
-        }
-
-        if (!locationIdsToScan.contains((*it3).albumRootId) || toBeDeleted.contains((*it3).id))
+        if ((location.id() != (*it).albumRootId) || toBeDeleted.contains((*it).id))
         {
             continue;
         }
 
-        CollectionLocation location = CollectionManager::instance()->locationForAlbumRootId((*it3).albumRootId);
-
-        // Only handle albums on available locations
-
-        if (location.isAvailable())
+        if ((*it).relativePath.startsWith(relativePath) || ((*it).relativePath == album))
         {
-            QFileInfo fileInfo(location.albumRootPath() + (*it3).relativePath);
-            bool dirExist = (fileInfo.exists() && fileInfo.isDir());
+            QDir dir(location.albumRootPath() + (*it).relativePath);
+            QString path = QFileInfo(dir.path()).filePath();
 
-            if (location.asQtCaseSensitivity() == Qt::CaseInsensitive)
-            {
-                if (dirExist && !(*it3).relativePath.endsWith(QLatin1Char('/')))
-                {
-                    QDir dir(fileInfo.dir());
-                    dirExist = dir.entryList(QDir::Dirs |
-                                             QDir::NoDotAndDotDot)
-                                             .contains(fileInfo.fileName());
-                }
-            }
+            // Delete entries in the database if they do not exist in the cache.
 
-            // let digikam think that ignored directories got deleted
-            // (if they already exist in the database, this will delete them)
-
-            if (!dirExist || d->ignoreDirectory.contains(fileInfo.fileName()))
+            if (!d->albumDateCache.contains(path))
             {
                 // We have an ignored album, all sub-albums have to be ignored
 
-                QList<int> subAlbums = CoreDbAccess().db()->getAlbumAndSubalbumsForPath((*it3).albumRootId,
-                                                                                        (*it3).relativePath);
+                QList<int> subAlbums = CoreDbAccess().db()->getAlbumAndSubalbumsForPath((*it).albumRootId,
+                                                                                        (*it).relativePath);
                 toBeDeleted      << subAlbums;
                 d->scannedAlbums << subAlbums;
-            }
-            else
-            {
-                QDateTime dateTime = asDateTimeUTC(fileInfo.lastModified());
-                d->albumDateCache.insert(fileInfo.filePath(), dateTime);
-            }
-        }
-    }
-
-    // At this point, it is important to handle album renames.
-    // We can still copy over album attributes later, but we cannot identify
-    // the former album of removed images.
-    // Just renaming the album is also much cheaper than rescanning all files.
-
-    if (!toBeDeleted.isEmpty() && d->hints)
-    {
-        // shallow copy for reading without caring for locks
-
-        QHash<CollectionScannerHints::DstPath, CollectionScannerHints::Album> albumHints;
-        {
-            QReadLocker locker(&d->hints->lock);
-            albumHints = d->hints->albumHints;
-        }
-
-        // go through all album copy/move hints
-
-        QHash<CollectionScannerHints::DstPath, CollectionScannerHints::Album>::const_iterator it;
-        int toBeDeletedIndex;
-
-        for (it = albumHints.constBegin() ; it != albumHints.constEnd() ; ++it)
-        {
-            // if the src entry of a hint is found in toBeDeleted, we have a move/rename, no copy. Handle these here.
-
-            toBeDeletedIndex = toBeDeleted.indexOf(it.value().albumId);
-
-            // We must double check that not, for some reason, the target album has already been scanned.
-
-            QList<AlbumShortInfo>::const_iterator it2;
-
-            for (it2 = albumList.constBegin() ; it2 != albumList.constEnd() ; ++it2)
-            {
-                if (
-                    (it2->albumRootId  == it.key().albumRootId) &&
-                    (it2->relativePath == it.key().relativePath)
-                   )
-                {
-                    toBeDeletedIndex = -1;
-                    break;
-                }
-            }
-
-            if (toBeDeletedIndex != -1)
-            {
-                // check for existence of target
-
-                CollectionLocation location = CollectionManager::instance()->locationForAlbumRootId(it.key().albumRootId);
-
-                if (location.isAvailable())
-                {
-                    QFileInfo fileInfo(location.albumRootPath() + it.key().relativePath);
-                    bool dirExist = (fileInfo.exists() && fileInfo.isDir());
-
-                    if (location.asQtCaseSensitivity() == Qt::CaseInsensitive)
-                    {
-                        if (dirExist && !it.key().relativePath.endsWith(QLatin1Char('/')))
-                        {
-                            QDir dir(fileInfo.dir());
-                            dirExist = dir.entryList(QDir::Dirs |
-                                                     QDir::NoDotAndDotDot)
-                                                     .contains(fileInfo.fileName());
-                        }
-                    }
-
-                    if (dirExist)
-                    {
-                        // Just set a new root/relativePath to the album. Further scanning will care for all cases or error.
-
-                        CoreDbAccess().db()->renameAlbum(it.value().albumId, it.key().albumRootId, it.key().relativePath);
-
-                        // No need any more to delete the album
-
-                        toBeDeleted.removeAt(toBeDeletedIndex);
-                    }
-                }
             }
         }
     }
@@ -692,12 +538,80 @@ void CollectionScanner::scanForStaleAlbums(const QList<int>& locationIdsToScan)
     }
 }
 
+void CollectionScanner::scanAlbumRoot(const CollectionLocation& location)
+{
+    if (d->wantSignals)
+    {
+        Q_EMIT startScanningAlbumRoot(location.albumRootPath());
+    }
+
+    bool useFastScan = MetaEngineSettings::instance()->settings().useFastScan;
+
+    if (useFastScan && d->performFastScan)
+    {
+        const QMap<QString, QDateTime>& pathDateMap = CoreDbAccess().db()->
+                                        getAlbumModificationMap(location.id());
+
+        if (!pathDateMap.isEmpty())
+        {
+            QMap<QString, QDateTime>::const_iterator it;
+
+            for (it = pathDateMap.constBegin() ; it != pathDateMap.constEnd() ; ++it)
+            {
+                if (!d->checkObserver())
+                {
+                    return;
+                }
+
+                QDir dir(location.albumRootPath() + it.key());
+                QString path = QFileInfo(dir.path()).filePath();
+
+                if (s_modificationDateEquals(d->albumDateCache.value(path), it.value()))
+                {
+                    int albumID = CoreDbAccess().db()->getAlbumForPath(location.id(), it.key(), false);
+                    int counter = CoreDbAccess().db()->getNumberOfItemsInAlbum(albumID);
+
+                    d->scannedAlbums << albumID;
+
+                    if (d->wantSignals)
+                    {
+                        Q_EMIT scannedFiles(counter + 1);
+                    }
+                }
+                else
+                {
+                    scanAlbum(location, it.key(), true);
+                }
+            }
+
+            if (d->wantSignals)
+            {
+                Q_EMIT finishedScanningAlbumRoot(location.albumRootPath());
+            }
+
+            return;
+        }
+    }
+
+    scanAlbum(location, QLatin1String("/"));
+
+    if (d->wantSignals)
+    {
+        Q_EMIT finishedScanningAlbumRoot(location.albumRootPath());
+    }
+}
+
 void CollectionScanner::scanAlbum(const CollectionLocation& location, const QString& album, bool checkDate)
 {
     // + Adds album if it does not yet exist in the db.
     // + Recursively scans subalbums of album.
     // + Adds files if they do not yet exist in the db.
     // + Marks stale files as removed
+
+    if (!d->checkObserver())
+    {
+        return;
+    }
 
     QDir dir(location.albumRootPath() + album);
 
@@ -713,9 +627,9 @@ void CollectionScanner::scanAlbum(const CollectionLocation& location, const QStr
         Q_EMIT startScanningAlbum(location.albumRootPath(), album);
     }
 
-    int albumID                          = checkAlbum(location, album);
-    QDateTime albumDateTime              = asDateTimeUTC(QFileInfo(dir.path()).lastModified());
-    QDateTime albumModified              = CoreDbAccess().db()->getAlbumModificationDate(albumID);
+    int albumID             = checkAlbum(location, album);
+    QDateTime albumDateTime = asDateTimeUTC(QFileInfo(dir.path()).lastModified());
+    QDateTime albumModified = CoreDbAccess().db()->getAlbumModificationDate(albumID);
 
     if (checkDate && s_modificationDateEquals(albumDateTime, albumModified))
     {
@@ -734,6 +648,7 @@ void CollectionScanner::scanAlbum(const CollectionLocation& location, const QStr
     const QList<ItemScanInfo>& scanInfos = CoreDbAccess().db()->getItemScanInfos(albumID);
     MetaEngineSettingsContainer settings = MetaEngineSettings::instance()->settings();
     QHash<QString, int> fileNameIndexHash;
+    QHash<QString, QFileInfo> nameInfos;
     QSet<qlonglong> itemIdSet;
 
     // create a QHash filename -> index in list
@@ -748,6 +663,11 @@ void CollectionScanner::scanAlbum(const CollectionLocation& location, const QStr
                                                   QDir::Files   |
                                                   QDir::NoDotAndDotDot,
                                                   QDir::Name | QDir::DirsLast);
+
+    for (const QFileInfo& info : std::as_const(list))
+    {
+        nameInfos.insert(info.fileName(), info);
+    }
 
     int counter          = 0;
     bool updateAlbumDate = false;
@@ -804,15 +724,10 @@ void CollectionScanner::scanAlbum(const CollectionLocation& location, const QStr
                         sidecarName = info.completeBaseName() + xmpExt;
                     }
 
-                    for (int i = 0 ; i < list.size() ; ++i)
+                    if (nameInfos.contains(sidecarName))
                     {
-                        if (list.at(i).fileName() == sidecarName)
-                        {
-                            sinfo      = &list.at(i);
-                            hasSidecar = true;
-
-                            break;
-                        }
+                        sinfo      = &nameInfos[sidecarName];
+                        hasSidecar = true;
                     }
                 }
 
@@ -833,7 +748,7 @@ void CollectionScanner::scanAlbum(const CollectionLocation& location, const QStr
                 if (imageId > 0)
                 {
                     ItemInfo itemInfo(imageId);
-                    QDate itemDate    = itemInfo.dateTime().date();
+                    QDate itemDate = itemInfo.dateTime().date();
 
                     if (itemDate.isValid())
                     {
@@ -891,7 +806,7 @@ void CollectionScanner::scanAlbum(const CollectionLocation& location, const QStr
 
 #endif
 
-            if (d->ignoreDirectory.contains(info.fileName()))
+            if (d->checkIgnoreDirectory(info.fileName()))
             {
                 continue;
             }
@@ -967,38 +882,18 @@ void CollectionScanner::scanAlbum(const CollectionLocation& location, const QStr
 void CollectionScanner::scanFileNormal(const QFileInfo& fi, const ItemScanInfo& scanInfo,
                                        bool checkSidecar, const QFileInfo* const sidecarInfo)
 {
-    bool hasAnyHint            = d->hints && d->hints->hasAnyNormalHint(scanInfo.id);
+    bool hasMetadataHint       = (d->hints && d->hints->hasMetadataHint(scanInfo.id));
     QDateTime modificationDate = asDateTimeUTC(fi.lastModified());
 
     // if the date is null, this signals a full rescan
 
-    if      (
-             scanInfo.modificationDate.isNull() ||
-             (hasAnyHint && d->hints->hasRescanHint(scanInfo.id))
-            )
+    if      (scanInfo.modificationDate.isNull())
     {
-        if (hasAnyHint)
-        {
-            QWriteLocker locker(&d->hints->lock);
-            d->hints->rescanItemHints.remove(scanInfo.id);
-        }
-
         rescanFile(fi, scanInfo);
 
         return;
     }
-    else if (hasAnyHint && d->hints->hasModificationHint(scanInfo.id))
-    {
-        {
-            QWriteLocker locker(&d->hints->lock);
-            d->hints->modifiedItemHints.remove(scanInfo.id);
-        }
-
-        scanModifiedFile(fi, scanInfo);
-
-        return;
-    }
-    else if (hasAnyHint) // metadata adjustment hints
+    else if (hasMetadataHint) // metadata adjustment hints
     {
         if (d->hints->hasMetadataAboutToAdjustHint(scanInfo.id))
         {
@@ -1084,46 +979,9 @@ qlonglong CollectionScanner::scanNewFile(const QFileInfo& info, int albumId)
     ItemScanner scanner(info);
     scanner.setCategory(category(info));
 
-    // Check copy/move hints for single items
-
-    qlonglong srcId = 0;
-
-    if (d->hints)
-    {
-        QReadLocker locker(&d->hints->lock);
-        srcId = d->hints->itemHints.value(NewlyAppearedFile(albumId, info.fileName()));
-    }
-
-    if (srcId > 0)
-    {
-        scanner.copiedFrom(albumId, srcId);
-    }
-    else
-    {
-        // Check copy/move hints for whole albums
-
-        int srcAlbum = d->establishedSourceAlbums.value(albumId);
-
-        if (srcAlbum)
-        {
-            // if we have one source album, find out if there is a file with the same name
-
-            srcId = CoreDbAccess().db()->getImageId(srcAlbum, info.fileName());
-        }
-
-        if (srcId > 0)
-        {
-            scanner.copiedFrom(albumId, srcId);
-        }
-        else
-        {
-            // Establishing identity with the unique hash
-
-            scanner.newFile(albumId);
-        }
-    }
-
+    scanner.newFile(albumId);
     d->finishScanner(scanner);
+
     d->newIdsList << scanner.id();
 
     return scanner.id();
@@ -1138,6 +996,7 @@ qlonglong CollectionScanner::scanNewFileFullScan(const QFileInfo& info, int albu
 
     ItemScanner scanner(info);
     scanner.setCategory(category(info));
+
     scanner.newFileFullScan(albumId);
     d->finishScanner(scanner);
 
@@ -1153,6 +1012,7 @@ void CollectionScanner::scanModifiedFile(const QFileInfo& info, const ItemScanIn
 
     ItemScanner scanner(info, scanInfo);
     scanner.setCategory(category(info));
+
     scanner.fileModified();
     d->finishScanner(scanner);
 }
@@ -1167,6 +1027,7 @@ void CollectionScanner::scanFileUpdateHashReuseThumbnail(const QFileInfo& info, 
 
     ItemScanner scanner(info, scanInfo);
     scanner.setCategory(category(info));
+
     scanner.fileModified();
 
     QString newHash   = scanner.itemScanInfo().uniqueHash;
@@ -1208,6 +1069,7 @@ void CollectionScanner::cleanScanFile(const QFileInfo& info, const ItemScanInfo&
 
     ItemScanner scanner(info, scanInfo);
     scanner.setCategory(category(info));
+
     scanner.cleanScan();
     d->finishScanner(scanner);
 }

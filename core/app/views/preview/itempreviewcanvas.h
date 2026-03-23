@@ -6,7 +6,7 @@
  * Date        : 2006-21-12
  * Description : a embedded item-view to show the canvas preview widget.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2012 by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2010-2011 by Aditya Bhatt <adityabhatt1991 at gmail dot com>
  *
@@ -20,6 +20,7 @@
 
 #include "digikam_config.h"
 #include "dimgpreviewitem.h"
+#include "itempreviewview.h"
 #include "iteminfo.h"
 
 class QGraphicsSceneContextMenuEvent;
@@ -36,11 +37,11 @@ class ItemPreviewCanvas : public DImgPreviewItem
 
 public:
 
-    explicit ItemPreviewCanvas();
+    explicit ItemPreviewCanvas(ItemPreviewView* const view);
     ~ItemPreviewCanvas()                                      override;
 
     void setItemInfo(const ItemInfo& info);
-    ItemInfo imageInfo()                            const;
+    ItemInfo imageInfo()                                const;
 
     void setFaceGroup(FaceGroup* const group);
 

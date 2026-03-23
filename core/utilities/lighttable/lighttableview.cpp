@@ -7,7 +7,7 @@
  * Description : a widget to display 2 preview image on
  *               lightable to compare pictures.
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -27,8 +27,7 @@
 #include "dimg.h"
 #include "dzoombar.h"
 #include "thumbnailsize.h"
-#include "lighttablepreview.h"
-#include "previewlayout.h"
+#include "singlephotopreviewlayout.h"
 #include "dimgpreviewitem.h"
 
 namespace Digikam
@@ -39,6 +38,8 @@ class Q_DECL_HIDDEN LightTableView::Private
 public:
 
     Private() = default;
+
+public:
 
     bool               syncPreview  = false;
 
@@ -112,6 +113,15 @@ LightTableView::LightTableView(QWidget* const parent)
     connect(d->leftPreview, SIGNAL(signalDeleteItem()),
             this, SLOT(slotDeleteLeftItem()));
 
+    connect(d->leftPreview, SIGNAL(signalStartedLoading()),
+            this, SIGNAL(signalLeftPreviewStartedLoading()));
+
+    connect(d->leftPreview, SIGNAL(signalLoadingProgress(float)),
+            this, SIGNAL(signalLeftPreviewLoadingProgress(float)));
+
+    connect(d->leftPreview, SIGNAL(signalLoadingComplete()),
+            this, SIGNAL(signalLeftPreviewLoadingComplete()));
+
     // Right panel connections ------------------------------------------------
 
     connect(d->rightPreview, SIGNAL(signalPopupTagsView()),
@@ -137,6 +147,15 @@ LightTableView::LightTableView(QWidget* const parent)
 
     connect(d->rightPreview, SIGNAL(signalDeleteItem()),
             this, SLOT(slotDeleteRightItem()));
+
+    connect(d->rightPreview, SIGNAL(signalStartedLoading()),
+            this, SIGNAL(signalRightPreviewStartedLoading()));
+
+    connect(d->rightPreview, SIGNAL(signalLoadingProgress(float)),
+            this, SIGNAL(signalRightPreviewLoadingProgress(float)));
+
+    connect(d->rightPreview, SIGNAL(signalLoadingComplete()),
+            this, SIGNAL(signalRightPreviewLoadingComplete()));
 }
 
 LightTableView::~LightTableView()
@@ -148,6 +167,12 @@ void LightTableView::setPreviewSettings(const PreviewSettings& settings)
 {
     d->leftPreview->previewItem()->setPreviewSettings(settings);
     d->rightPreview->previewItem()->setPreviewSettings(settings);
+}
+
+void LightTableView::setHostWindowActions(const HostActionsMap& actions)
+{
+    d->leftPreview->setHostWindowActions(actions);
+    d->rightPreview->setHostWindowActions(actions);
 }
 
 void LightTableView::setSyncPreview(bool sync)
@@ -292,6 +317,7 @@ void LightTableView::slotLeftContentsMoved(int x, int y)
     {
         d->rightPreview->blockSignals(true);
         d->rightPreview->setContentsPos(x, y);
+        d->rightPreview->updatePanIconWidget();
         d->rightPreview->blockSignals(false);
     }
 }
@@ -302,6 +328,7 @@ void LightTableView::slotRightContentsMoved(int x, int y)
     {
         d->leftPreview->blockSignals(true);
         d->leftPreview->setContentsPos(x, y);
+        d->leftPreview->updatePanIconWidget();
         d->leftPreview->blockSignals(false);
     }
 }
@@ -314,6 +341,7 @@ void LightTableView::slotLeftZoomFactorChanged(double zoom)
         d->rightPreview->blockSignals(true);
 
         setRightZoomFactor(zoom);
+        d->rightPreview->updatePanIconWidget();
 
         Q_EMIT signalRightZoomFactorChanged(zoom);
 
@@ -332,6 +360,7 @@ void LightTableView::slotRightZoomFactorChanged(double zoom)
         d->leftPreview->blockSignals(true);
 
         setLeftZoomFactor(zoom);
+        d->leftPreview->updatePanIconWidget();
 
         Q_EMIT signalLeftZoomFactorChanged(zoom);
 

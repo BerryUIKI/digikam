@@ -3,7 +3,7 @@
 # Main AppImage internal startup script.
 # Wrap XDG_* variables properly for Qt.
 #
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -123,6 +123,9 @@ export IOLIBS=$DIR/usr/lib/libgphoto2_port
 
 # ImageMagick run-time environment
 
+export APPIMAGE_ORIGINAL_MAGICK_CODER_MODULE_PATH=$MAGICK_CODER_MODULE_PATH
+export APPIMAGE_ORIGINAL_MAGICK_CODER_FILTER_PATH=$MAGICK_CODER_FILTER_PATH
+
 export MAGICK_CODER_MODULE_PATH=$DIR/usr/lib/modules-Q16HDRI/coders
 export MAGICK_CODER_FILTER_PATH=$DIR/usr/lib/modules-Q16HDRI/filters
 
@@ -143,7 +146,7 @@ export APPIMAGE_ORIGINAL_XDG_SESSION_DESKTOP=$XDG_SESSION_DESKTOP
 #unset XDG_CURRENT_DESKTOP
 #unset XDG_SESSION_DESKTOP
 
-# if no customized Qt debug loggin variable is set, turn on one for a better readability
+# if no customized Qt debug login variable is set, turn on one for a better readability
 
 if [ -z "$QT_MESSAGE_PATTERN" ] ; then
 
@@ -221,23 +224,25 @@ if   [[ $1 == "showfoto" ]] ; then
 
 elif [[ $1 == "debug" ]] ; then
 
+    export DIGIKAM_REMOTE_DEBUG=ON
+
     if   [[ $2 == "showfoto" ]] ; then
 
         # Showfoto in debug mode.
 
-        echo "Starting Showfoto into GDB..."
+        echo "Starting delayed Showfoto for remote debugging..."
         echo "Use 'bt' command on debugger prompt to get a crash backtrace."
         echo "Use 'q' command to quit debugger session."
-        gdb -ex=r --args showfoto ${@:3}
+        showfoto ${@:3}
 
     else
 
         # digiKam in debug mode.
 
-        echo "Starting digiKam into GDB..."
+        echo "Starting delayed digiKam for remote debugging..."
         echo "Use 'bt' command on debugger prompt to get a crash backtrace."
         echo "Use 'q' command to quit debugger session."
-        gdb -ex=r --args digikam ${@:2}
+        digikam ${@:2}
 
     fi
 
@@ -248,8 +253,8 @@ elif [[ $1 == "help" ]] ; then
     echo "digiKam AppImage bundle CLI options:"
     echo " without option       : run digiKam."
     echo " <showfoto>           : run Showfoto instead digiKam."
-    echo " <debug>              : run digiKam into GDB."
-    echo " <debug> <showfoto>   : run Showfoto into GDB."
+    echo " <debug>              : run digiKam and wait at startup to be attached to a remote GDB instance (only suitable with the AppImage compiled with debug symbols)."
+    echo " <debug> <showfoto>   : run Showfoto and wait at startup to be attached to a remote GDB instance (only suitable with the AppImage compiled with debug symbols)."
     echo " <help>               : show these information."
 
 else

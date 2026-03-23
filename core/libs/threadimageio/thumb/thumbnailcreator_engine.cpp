@@ -7,7 +7,7 @@
  * Description : Loader for thumbnails - thumbnail generation and image handling
  *
  * SPDX-FileCopyrightText: 2003-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2003-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2003-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -155,6 +155,20 @@ ThumbnailImage ThumbnailCreator::createThumbnail(const ThumbnailInfo& info, cons
 
                 MetaEnginePreviews preview(path);
                 qimage = preview.image();
+
+                if (
+                    !qimage.isNull()                                     &&
+                    (
+                      (qimage.width()  < ThumbnailSize::maxThumbsSize()) ||
+                      (qimage.height() < ThumbnailSize::maxThumbsSize())
+                    )
+                   )
+                {
+                    qCDebug(DIGIKAM_GENERAL_LOG) << "Embedded preview too small for a thumbnail ("
+                                                 << qimage.width() << "x" << qimage.height() << ")";
+
+                    qimage = QImage();
+                }
             }
 
             // DImg-dependent loading methods: TIFF, PNG, everything supported by QImage

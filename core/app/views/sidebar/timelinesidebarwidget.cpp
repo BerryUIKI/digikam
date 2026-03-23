@@ -7,7 +7,7 @@
  * Description : Side Bar Widget for the time-line view.
  *
  * SPDX-FileCopyrightText: 2009-2010 by Johannes Wienke <languitar at semipol dot de>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2014      by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  * SPDX-FileCopyrightText: 2010      by Aditya Bhatt <adityabhatt1991 at gmail dot com>
@@ -386,8 +386,15 @@ const QString TimelineSideBarWidget::getCaption()
 void TimelineSideBarWidget::slotRefDateTimeChanged()
 {
     d->scrollBar->blockSignals(true);
-    d->scrollBar->setMaximum(d->timeLineWidget->totalIndex()-1);
-    d->scrollBar->setValue(d->timeLineWidget->indexForRefDateTime()-1);
+
+    int totalIndex = d->timeLineWidget->totalIndex()-1;
+
+    if ((totalIndex >= 0) && (d->scrollBar->maximum() != totalIndex))
+    {
+        d->scrollBar->setMaximum(totalIndex);
+        d->scrollBar->setValue(d->timeLineWidget->indexForRefDateTime()-1);
+    }
+
     d->scrollBar->blockSignals(false);
 }
 

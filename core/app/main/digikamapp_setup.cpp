@@ -6,14 +6,13 @@
  * Date        : 2002-16-10
  * Description : main digiKam interface implementation - Internal setup
  *
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
  * ============================================================ */
 
 #include "digikamapp_p.h"
-#include "systemsettings.h"
 
 namespace Digikam
 {
@@ -58,11 +57,32 @@ void DigikamApp::setupViewConnections()
 
     connect(d->view, SIGNAL(signalSwitchedToTrashView()),
             this, SLOT(slotSwitchedToTrashView()));
+
+    connect(d->view, &ItemIconView::signalStartedLoading,
+            this, [this]()
+       {
+            d->statusLabel->setProgressBarMode(StatusProgressBar::ProgressBarMode, i18nc("@label", "Loading:"));
+       }
+    );
+
+    connect(d->view, &ItemIconView::signalLoadingProgress,
+            this, [this](float progress)
+       {
+            d->statusLabel->setProgressValue((int)(progress * 100.0));
+       }
+    );
+
+    connect(d->view, &ItemIconView::signalLoadingComplete,
+            this, [this]()
+       {
+            d->statusLabel->setProgressBarMode(StatusProgressBar::TextMode, d->statusLabel->text());
+       }
+    );
 }
 
 void DigikamApp::setupStatusBar()
 {
-    d->statusLabel = new DAdjustableLabel(statusBar());
+    d->statusLabel = new StatusProgressBar(statusBar());
     d->statusLabel->setAlignment(Qt::AlignLeft|Qt::AlignVCenter);
     statusBar()->addWidget(d->statusLabel, 80);
 
@@ -409,6 +429,14 @@ void DigikamApp::setupActions()
 
     // -----------------------------------------------------------
 
+    d->svAction = new QAction(QIcon::fromTheme(QLatin1String("preview")),
+                              i18nc("@action: setup", "Survey"), this);
+    connect(d->svAction, SIGNAL(triggered()), d->view, SLOT(slotSurvey()));
+    ac->addAction(QLatin1String("survey"), d->svAction);
+    ac->setDefaultShortcut(d->svAction, Qt::SHIFT | Qt::Key_S);
+
+    // -----------------------------------------------------------
+
     d->bqmAction = new QAction(QIcon::fromTheme(QLatin1String("run-build")),
                                i18nc("@action: setup", "Batch Queue Manager"), this);
     connect(d->bqmAction, SIGNAL(triggered()), d->view, SLOT(slotQueueMgr()));
@@ -495,7 +523,7 @@ void DigikamApp::setupActions()
 
     // Pop up dialog to ask user whether to move to trash
 
-    d->imageDeleteAction = new QAction(QIcon::fromTheme(QLatin1String("user-trash")),
+    d->imageDeleteAction = new QAction(QIcon::fromTheme(QLatin1String("albumfolder-user-trash")),  // In red - bug 513774
                                        i18nc("@action: Non-pluralized", "Move to Trash"), this);
     connect(d->imageDeleteAction, SIGNAL(triggered()), d->view, SLOT(slotImageDelete()));
     ac->addAction(QLatin1String("image_delete"), d->imageDeleteAction);
@@ -596,9 +624,17 @@ void DigikamApp::setupActions()
     QAction* const sortByDateAction               = d->imageSortAction->addAction(i18nc("@action: setup", "By Creation Date"));
     QAction* const sortByModDateAction            = d->imageSortAction->addAction(i18nc("@action: setup", "By Modification Date"));
     QAction* const sortByFileSizeAction           = d->imageSortAction->addAction(i18nc("@action: setup", "By File Size"));
+    QAction* const sortByFormatAction             = d->imageSortAction->addAction(i18nc("@action: setup", "By Format"));
+    d->imageSortAction->menu()->addSeparator();
     QAction* const sortByRatingAction             = d->imageSortAction->addAction(i18nc("@action: setup", "By Rating"));
+    QAction* const sortByPickLabelAction          = d->imageSortAction->addAction(i18nc("@action: setup", "By Pick Label"));
+    QAction* const sortByColorLabelAction         = d->imageSortAction->addAction(i18nc("@action: setup", "By Color Label"));
+    d->imageSortAction->menu()->addSeparator();
     QAction* const sortByImageSizeAction          = d->imageSortAction->addAction(i18nc("@action: setup", "By Image Size"));
+    QAction* const sortByOrientationAction        = d->imageSortAction->addAction(i18nc("@action: setup", "By Orientation"));
     QAction* const sortByAspectRatioAction        = d->imageSortAction->addAction(i18nc("@action: setup", "By Aspect Ratio"));
+    QAction* const sortByGpsPositionAction        = d->imageSortAction->addAction(i18nc("@action: setup", "By Gps Position"));
+    d->imageSortAction->menu()->addSeparator();
     QAction* const sortByFacesAction              = d->imageSortAction->addAction(i18nc("@action: setup", "By Face type"));
     QAction* const sortBySimilarityAction         = d->imageSortAction->addAction(i18nc("@action: setup", "By Similarity"));
     QAction* const sortByManualOrderAndNameAction = d->imageSortAction->addAction(i18nc("@action: setup", "By Manual and Name"));
@@ -607,7 +643,9 @@ void DigikamApp::setupActions()
     // activate the sort by similarity if the fuzzy search sidebar is active. Deactivate at start.
 
     sortBySimilarityAction->setEnabled(false);
-    connect(d->view, SIGNAL(signalFuzzySidebarActive(bool)), sortBySimilarityAction, SLOT(setEnabled(bool)));
+
+    connect(d->view, SIGNAL(signalFuzzySidebarActive(bool)),
+            sortBySimilarityAction, SLOT(setEnabled(bool)));
 
     connect(sortByNameAction, &QAction::triggered,
             this, [this]() { d->view->slotSortImages((int)ItemSortSettings::SortByFileName); });
@@ -624,14 +662,29 @@ void DigikamApp::setupActions()
     connect(sortByFileSizeAction, &QAction::triggered,
             this, [this]() { d->view->slotSortImages((int)ItemSortSettings::SortByFileSize); });
 
+    connect(sortByFormatAction, &QAction::triggered,
+            this, [this]() { d->view->slotSortImages((int)ItemSortSettings::SortByFormat); });
+
     connect(sortByRatingAction, &QAction::triggered,
             this, [this]() { d->view->slotSortImages((int)ItemSortSettings::SortByRating); });
+
+    connect(sortByPickLabelAction, &QAction::triggered,
+            this, [this]() { d->view->slotSortImages((int)ItemSortSettings::SortByPickLabel); });
+
+    connect(sortByColorLabelAction, &QAction::triggered,
+            this, [this]() { d->view->slotSortImages((int)ItemSortSettings::SortByColorLabel); });
 
     connect(sortByImageSizeAction, &QAction::triggered,
             this, [this]() { d->view->slotSortImages((int)ItemSortSettings::SortByImageSize); });
 
+    connect(sortByOrientationAction, &QAction::triggered,
+            this, [this]() { d->view->slotSortImages((int)ItemSortSettings::SortByOrientation); });
+
     connect(sortByAspectRatioAction, &QAction::triggered,
             this, [this]() { d->view->slotSortImages((int)ItemSortSettings::SortByAspectRatio); });
+
+    connect(sortByGpsPositionAction, &QAction::triggered,
+            this, [this]() { d->view->slotSortImages((int)ItemSortSettings::SortByGpsPosition); });
 
     connect(sortByFacesAction, &QAction::triggered,
             this, [this]() { d->view->slotSortImages((int)ItemSortSettings::SortByFaces); });
@@ -896,6 +949,12 @@ void DigikamApp::setupActions()
 
     cleanupActions();
 
+    HostActionsMap actions;
+    actions.insert(QLatin1String("FullScreen"),   actionCollection()->action(QLatin1String("full_screen")));
+    actions.insert(QLatin1String("ShowMenu"),     actionCollection()->action(QLatin1String("options_show_menubar")));
+    actions.insert(QLatin1String("ColorManaged"), actionCollection()->action(QLatin1String("color_managed_view")));
+    d->view->setHostWindowActions(actions);
+
     // NOTE: see bug #252130 and #283281 : we need to disable these actions when BQM is running.
     // These connections must be done after loading color theme else theme menu cannot be plugged to Settings menu,
 
@@ -1148,6 +1207,7 @@ void DigikamApp::preloadWindows()
     ImageWindow::imageWindow();
     QueueMgrWindow::queueManagerWindow();
     LightTableWindow::lightTableWindow();
+    SurveyWindow::surveyWindow();
 
     d->tagsActionManager->registerTagsActionCollections();
 }
@@ -1191,7 +1251,6 @@ void DigikamApp::initGui()
     d->recurseAlbumsAction->setChecked(ApplicationSettings::instance()->getRecurseAlbums());
     d->recurseTagsAction->setChecked(ApplicationSettings::instance()->getRecurseTags());
     d->showBarAction->setChecked(ApplicationSettings::instance()->getShowThumbbar());
-    showMenuBarAction()->setChecked(!menuBar()->isHidden());                                                    // NOTE: workaround for bug #171080
 
     slotSwitchedToIconView();
 }

@@ -6,7 +6,7 @@
  * Date        : 2007-02-13
  * Description : slide show settings container.
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2019-2020 by Minh Nghia Duong <minhnghiaduong997 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -28,6 +28,7 @@
 
 #include "digikam_export.h"
 #include "previewsettings.h"
+#include "previewosdsettings.h"
 #include "dinfointerface.h"
 #include "dplugingeneric.h"
 
@@ -68,56 +69,6 @@ public:
      * Auto-rotate image accordingly with Exif Rotation tag
      */
     bool                         exifRotate                 = true;
-
-    /**
-     * Print picture file name while slide
-     */
-    bool                         printName                  = true;
-
-    /**
-     * Print picture creation date while slide
-     */
-    bool                         printDate                  = false;
-
-    /**
-     * Print camera Aperture and Focal while slide
-     */
-    bool                         printApertureFocal         = false;
-
-    /**
-     * Print camera Make and Model while slide
-     */
-    bool                         printMakeModel             = false;
-
-    /**
-     * Print camera Lens model while slide
-     */
-    bool                         printLensModel             = false;
-
-    /**
-     * Print camera Exposure and Sensitivity while slide
-     */
-    bool                         printExpoSensitivity       = false;
-
-    /**
-     * Print picture comment while slide
-     */
-    bool                         printComment               = false;
-
-    /**
-     * Print image title while slide
-     */
-    bool                         printTitle                 = false;
-
-    /**
-     * Print image captions if no title available while slide
-     */
-    bool                         printCapIfNoTitle          = false;
-
-    /**
-     * Print tag names while slide
-     */
-    bool                         printTags                  = false;
 
     /**
      * Print color label and pick label while slide
@@ -165,6 +116,11 @@ public:
     PreviewSettings              previewSettings;
 
     /**
+     * On Screen Display configuration.
+     */
+    PreviewOsdSettings           osdSettings;
+
+    /**
      * List of pictures URL to slide
      */
     QList<QUrl>                  fileList;
@@ -180,9 +136,9 @@ public:
     QUrl                         imageUrl;
 
     /**
-     * Font for the display of caption text
+     * Uses a background color to render pictures.
      */
-    QFont                        captionFont                = QFontDatabase::systemFont(QFontDatabase::GeneralFont);
+    QColor                       bgColor                    = QColor(Qt::black);
 
     /**
      * Interface to access to host application data
@@ -196,7 +152,7 @@ public:
 
 private:
 
-    const QString configGroupName                           = QLatin1String("ImageViewer Settings");
+    const QString configGroupName                           = QLatin1String("SlideShow Settings");
     const QString configSlideShowStartCurrentEntry          = QLatin1String("SlideShowStartCurrent");
     const QString configSlideShowDelayEntry                 = QLatin1String("SlideShowDelay");
     const QString configSlideShowLoopEntry                  = QLatin1String("SlideShowLoop");
@@ -214,6 +170,7 @@ private:
     const QString configSlideShowPrintLabelsEntry           = QLatin1String("SlideShowPrintLabels");
     const QString configSlideShowPrintRatingEntry           = QLatin1String("SlideShowPrintRating");
     const QString configSlideShowProgressIndicatorEntry     = QLatin1String("SlideShowProgressIndicator");
+    const QString configSlideShowBgColorEntry               = QLatin1String("SlideShowBgColor");
     const QString configSlideShowCaptionFontEntry           = QLatin1String("SlideShowCaptionFont");
     const QString configSlideScreenEntry                    = QLatin1String("SlideScreen");
 };

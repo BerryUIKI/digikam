@@ -1,10 +1,10 @@
 #! /bin/bash
 
 # Script to give a console with port CLI tool branched to Homebrew bundle repository
-# Use this console to run code analyis tools in project/reports
+# Use this console to run code analysis tools in project/reports
 # This script must be run as sudo
 #
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #

@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2005      by Renchi Raju <renchi dot raju at gmail dot com>
  * SPDX-FileCopyrightText: 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -55,43 +55,6 @@ qlonglong ItemInfo::groupImageId() const
     m_data.data()->groupImageCached = true;
 
     return m_data->groupImage;
-}
-
-void ItemInfoList::loadGroupImageIds() const
-{
-    ItemInfoList infoList;
-
-    for (const ItemInfo& info : std::as_const(*this))
-    {
-        if (info.m_data && !info.m_data->groupImageCached)
-        {
-            infoList << info;
-        }
-    }
-
-    if (infoList.isEmpty())
-    {
-        return;
-    }
-
-    QVector<QList<qlonglong> > allGroupIds = CoreDbAccess().db()->getImagesRelatedFrom(infoList.toImageIdList(),
-                                                                                       DatabaseRelation::Grouped);
-
-    ItemInfoWriteLocker lock;
-
-    for (int i = 0 ; i < infoList.size() ; ++i)
-    {
-        const ItemInfo& info             = infoList.at(i);
-        const QList<qlonglong>& groupIds = allGroupIds.at(i);
-
-        if (!info.m_data)
-        {
-            continue;
-        }
-
-        info.m_data.data()->groupImage       = groupIds.isEmpty() ? -1 : groupIds.first();
-        info.m_data.data()->groupImageCached = true;
-    }
 }
 
 bool ItemInfo::isGrouped() const

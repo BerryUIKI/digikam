@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Foundation for all machine learning pipelines
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -34,6 +34,7 @@
 #include "mlpipelinepackagefoundation.h"
 #include "sharedqueue.h"
 #include "mlpipelinemacros.h"
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -102,23 +103,35 @@ public:
 
 Q_SIGNALS:
 
-    /// @brief Emitted when processing is scheduled.
+    /**
+     * @brief Emitted when processing is scheduled.
+     */
     void scheduled();
 
-    /// @brief Emitted when processing has started.
+    /**
+     * @brief Emitted when processing has started.
+     */
     void started(const QString& message);
 
-    /// @brief Emitted when one package begins processing.
+    /**
+     * @brief Emitted when one package begins processing.
+     */
     void processing(const MLPipelinePackageNotify::Ptr& package);
 
-    /// @brief Emitted when one package has finished processing.
+    /**
+     * @brief Emitted when one package has finished processing.
+     */
     void processed(const MLPipelinePackageNotify::Ptr& package);
     void progressValueChanged(float progress);
 
-    /// @brief Emitted when the last package has finished processing.
+    /**
+     * @brief Emitted when the last package has finished processing.
+     */
     void finished();
 
-    /// @brief Emitted when one or several packages were skipped, usually because they have already been scanned.
+    /**
+     * @brief Emitted when one or several packages were skipped, usually because they have already been scanned.
+     */
     void skipped(const MLPipelinePackageNotify::Ptr& package);
 
     void signalAddMoreWorkers();
@@ -154,7 +167,7 @@ protected:
     virtual bool finder()                                        = 0;
     virtual bool loader()                                        = 0;
     virtual bool extractor()                                     = 0;
-    virtual bool classifier()                                    = 0;       // TODO: rename to postprocessor
+    virtual bool classifier()                                    = 0;       ///< @todo rename to postprocessor
     virtual bool trainer()                                       = 0;
     virtual bool writer()                                        = 0;
 
@@ -162,7 +175,9 @@ protected:
 
     bool checkMoreWorkers(int totalItemCount, int currentItemCount, bool useFullCpu);
 
-    // Queue helper functions
+    /**
+     * @brief Queue helper functions
+     */
 
     MLPipelinePackageFoundation* queueEndSignal() const
     {
@@ -215,8 +230,9 @@ protected:
      */
     void emitSignalUpdateItemCount(const qlonglong itemCount);
 
-    // Pipeline performance profiling
-
+    /**
+     * @brief Methods to profile the Pipeline performance.
+     */
     void pipelinePerformanceStart(const MLPipelineStage& stage, QElapsedTimer& timer);
     void pipelinePerformanceEnd(const MLPipelineStage& stage, QElapsedTimer& timer);
     void pipelinePerformanceEnd(const MLPipelineStage& stage, int totalItemCount, QElapsedTimer& timer);
@@ -225,7 +241,7 @@ protected:
 private:
 
     // Disable
-    MLPipelineFoundation(QObject* const)                         = delete;
+    explicit MLPipelineFoundation(QObject* const)                = delete;
     MLPipelineFoundation(const MLPipelineFoundation&)            = delete;
     MLPipelineFoundation& operator=(const MLPipelineFoundation&) = delete;
 };

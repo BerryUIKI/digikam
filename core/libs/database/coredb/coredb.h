@@ -7,10 +7,10 @@
  * Description : Core database interface.
  *
  * SPDX-FileCopyrightText: 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2012      by Andi Clemens <andi dot clemens at gmail dot com>
- *
+ * SPDX-FileCopyrightText: 2026      by Srirupa Datta <srirupa dot sps at gmail dot com>
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
  * ============================================================ */
@@ -36,7 +36,6 @@
 #include "coredbfields.h"
 #include "coredbaccess.h"
 #include "coredbconstants.h"
-#include "dbenginesqlquery.h"
 #include "album.h"
 
 namespace Digikam
@@ -780,9 +779,9 @@ public:
     QList<qlonglong> getItemIDsInTag(int tagID, bool recursive = false)                                             const;
 
     /**
-     * Returns a QVariantList of creationDate of all items
+     * Returns a QHash of creationDate of all items and count of dates
      */
-    QVariantList getAllCreationDates()                                                                              const;
+    QHash<QDateTime, int> getAllCreationDates()                                                                     const;
 
     /**
      * Get obsolete item Ids.
@@ -1122,6 +1121,9 @@ public:
     void removeAllImageProperties(qlonglong imageID);
 
     QStringList getAllImagePropertiesByName(const QString& property)                                                const;
+    QStringList getAllImageCopyrightValues(const QString& property) const;
+    QStringList getAllCommentAuthors(int type) const;
+
 
     /**
      * Returns the copyright properties of the specified image.
@@ -1507,8 +1509,8 @@ public:
     int addToDownloadHistory(const QString& identifier, const QString& name,
                              qlonglong fileSize, const QDateTime& date)                                             const;
 
-    QList<QVariant> getImageIdsFromArea(qreal lat1, qreal lat2, qreal lng1, qreal lng2,
-                                        int sortMode, const QString& sortBy)                                        const;
+    QVariantList getImageIdsFromArea(qreal lat1, qreal lat2, qreal lng1, qreal lng2,
+                                     int sortMode, const QString& sortBy)                                           const;
 
     // ----------- Database shrinking methods ----------
 

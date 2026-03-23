@@ -7,7 +7,7 @@
  * Description : a tool to export GPS data to KML file.
  *
  * SPDX-FileCopyrightText: 2006-2007 by Stephane Pontier <shadow dot walker at free dot fr>
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -306,7 +306,7 @@ void KmlExport::generateImagesthumb(const QUrl& imageURL, QDomElement& kmlAlbum)
             my_description = QLatin1String("<img src=\"") + m_imageDirBasename + QLatin1Char('/') + fullFileName + QLatin1String("\">");
         }
 
-        my_description += QLatin1String("<br/>") + info.comment() ;
+        my_description += QLatin1String("<br>") + info.comment() ;
 
         addKmlTextElement(kmlPlacemark, QLatin1String("description"), my_description);
         logInfo(i18n("Creation of placemark '%1'", fullFileName));

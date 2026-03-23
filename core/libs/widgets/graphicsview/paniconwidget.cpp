@@ -7,10 +7,7 @@
  * Description : a generic widget to display a panel to choose
  *               a rectangular image area.
  *
- * SPDX-FileCopyrightText: 1997      by Tim D. Gilman <tdgilman at best dot org>
- * SPDX-FileCopyrightText: 1998-2001 by Mirko Boehm <mirko at kde dot org>
- * SPDX-FileCopyrightText: 2007      by John Layt <john at layt dot net>
- * SPDX-FileCopyrightText: 2004-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2004-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -25,229 +22,16 @@
 // Qt includes
 
 #include <QPainter>
+#include <QPainterPath>
 #include <QPen>
-#include <QTimer>
-#include <QToolButton>
-#include <QIcon>
 #include <QApplication>
-#include <QEventLoop>
-#include <QKeyEvent>
-#include <QScreen>
-#include <QWindow>
 
-// KDE includes
+// Local includes
 
-#include <klocalizedstring.h>
+#include "previewtoolbar.h"
 
 namespace Digikam
 {
-
-class Q_DECL_HIDDEN PanIconFrame::Private
-{
-public:
-
-    explicit Private(PanIconFrame* const qq);
-    ~Private();
-
-public:
-
-    PanIconFrame*        q                      = nullptr;
-
-    /**
-     * The result. It is returned from exec() when the popup window closes.
-     */
-    int                  result                 = 0;    // Rejected
-
-    /**
-     * The only subwidget that uses the whole dialog window.
-     */
-    QWidget*             main                   = nullptr;
-
-    class OutsideClickCatcher;
-    OutsideClickCatcher* outsideClickCatcher    = nullptr;
-};
-
-// -------------------------------------------------------------------
-
-class Q_DECL_HIDDEN PanIconFrame::Private::OutsideClickCatcher : public QObject
-{
-    Q_OBJECT
-
-public:
-
-    explicit OutsideClickCatcher(QObject* const parent = nullptr)
-        : QObject(parent)
-    {
-    }
-
-    ~OutsideClickCatcher() override = default;
-
-    void setPopupFrame(PanIconFrame* const popup)
-    {
-        m_popup = popup;
-        popup->installEventFilter(this);
-    }
-
-    bool eventFilter(QObject* object, QEvent* event) override
-    {
-        Q_UNUSED(object);
-
-        // To catch outside clicks, it is sufficient to check for
-        // hide events on Qt::Popup type widgets
-
-        if (event->type() == QEvent::Hide && m_popup)
-        {
-            // do not set d->result here, because the popup
-            // hides itself after leaving the event loop.
-
-            Q_EMIT m_popup->leaveModality();
-        }
-
-        return false;
-    }
-
-public:
-
-    PanIconFrame* m_popup = nullptr;
-};
-
-// -------------------------------------------------------------------
-
-PanIconFrame::Private::Private(PanIconFrame* const qq)
-    : q                  (qq),
-      outsideClickCatcher(new OutsideClickCatcher)
-{
-    outsideClickCatcher->setPopupFrame(q);
-}
-
-PanIconFrame::Private::~Private()
-{
-    delete outsideClickCatcher;
-}
-
-// -------------------------------------------------------------------
-
-PanIconFrame::PanIconFrame(QWidget* const parent)
-    : QFrame(parent, Qt::Popup),
-      d     (new Private(this))
-{
-    setFrameStyle(QFrame::Box | QFrame::Raised);
-    setMidLineWidth(2);
-}
-
-PanIconFrame::~PanIconFrame()
-{
-    delete d;
-}
-
-void PanIconFrame::keyPressEvent(QKeyEvent* e)
-{
-    if (e->key() == Qt::Key_Escape)
-    {
-        d->result = 0; // rejected
-
-        Q_EMIT leaveModality();
-    }
-}
-
-void PanIconFrame::close(int r)
-{
-    d->result = r;
-
-    Q_EMIT leaveModality();
-}
-
-void PanIconFrame::setMainWidget(QWidget* const main)
-{
-    d->main = main;
-
-    if (d->main)
-    {
-        resize(d->main->width() + 2 * frameWidth(), d->main->height() + 2 * frameWidth());
-    }
-}
-
-void PanIconFrame::resizeEvent(QResizeEvent* e)
-{
-    Q_UNUSED(e);
-
-    if (d->main)
-    {
-        d->main->setGeometry(frameWidth(), frameWidth(),
-                             width() - 2 * frameWidth(), height() - 2 * frameWidth());
-    }
-}
-
-void PanIconFrame::popup(const QPoint& pos)
-{
-    // Make sure the whole popup is visible.
-
-    QScreen* screen = qApp->primaryScreen();
-
-    if (QWidget* const widget = nativeParentWidget())
-    {
-        if (QWindow* const window = widget->windowHandle())
-        {
-            screen = window->screen();
-        }
-    }
-
-    QRect desktopGeometry = screen->geometry();
-
-    int x = pos.x();
-    int y = pos.y();
-    int w = width();
-    int h = height();
-
-    if ((x + w) > (desktopGeometry.x() + desktopGeometry.width()))
-    {
-        x = desktopGeometry.width() - w;
-    }
-
-    if ((y + h) > (desktopGeometry.y() + desktopGeometry.height()))
-    {
-        y = desktopGeometry.height() - h;
-    }
-
-    if (x < desktopGeometry.x())
-    {
-        x = 0;
-    }
-
-    if (y < desktopGeometry.y())
-    {
-        y = 0;
-    }
-
-    // Pop the thingy up.
-
-    move(x, y);
-    show();
-    d->main->setFocus();
-}
-
-int PanIconFrame::exec(const QPoint& pos)
-{
-    popup(pos);
-    repaint();
-    d->result = 0; // rejected
-    QEventLoop eventLoop;
-
-    connect(this, SIGNAL(leaveModality()),
-            &eventLoop, SLOT(quit()));
-
-    eventLoop.exec();
-    hide();
-
-    return d->result;
-}
-
-int PanIconFrame::exec(int x, int y)
-{
-    return exec(QPoint(x, y));
-}
-
-// -------------------------------------------------------------------
 
 class Q_DECL_HIDDEN PanIconWidget::Private
 {
@@ -256,41 +40,37 @@ public:
 
     Private() = default;
 
-    bool    moveSelection       = false;
-    bool    flicker             = false;
+public:
 
-    int     width               = 0;
-    int     height              = 0;
-    int     zoomedOrgWidth      = 0;
-    int     zoomedOrgHeight     = 0;
-    int     orgWidth            = 0;
-    int     orgHeight           = 0;
-    int     xpos                = 0;
-    int     ypos                = 0;
+    bool      moveSelection       = false;
 
-    double  zoomFactor          = 1.0;
+    int       width               = 0;
+    int       height              = 0;
+    int       zoomedOrgWidth      = 0;
+    int       zoomedOrgHeight     = 0;
+    int       orgWidth            = 0;
+    int       orgHeight           = 0;
+    int       xpos                = 0;
+    int       ypos                = 0;
 
-    QRect   regionSelection;                ///< Original size image selection.
-    QTimer* timer               = nullptr;
+    int       previewMode         = PreviewToolBar::PreviewOriginalImage;
 
-    QRect   rect;
-    QRect   localRegionSelection;           ///< Thumbnail size selection.
+    double    zoomFactor          = 1.0;
 
-    QPixmap pixmap;
+    QRect     regionSelection;                ///< Original size image selection.
+
+    QRect     rect;
+    QRect     localRegionSelection;           ///< Thumbnail size selection.
+
+    QPixmap   pixmap;
 };
 
 PanIconWidget::PanIconWidget(QWidget* const parent)
     : QWidget(parent),
       d      (new Private)
 {
-    d->timer = new QTimer(this);
-    d->timer->setInterval(800);
-
     setMouseTracking(true);
     setAttribute(Qt::WA_DeleteOnClose);
-
-    connect(d->timer, SIGNAL(timeout()),
-            this, SLOT(slotFlickerTimer()));
 }
 
 PanIconWidget::~PanIconWidget()
@@ -298,15 +78,9 @@ PanIconWidget::~PanIconWidget()
     delete d;
 }
 
-QToolButton* PanIconWidget::button()
+void PanIconWidget::setPreviewMode(int previewMode)
 {
-    QToolButton* const btn = new QToolButton;
-    btn->setToolButtonStyle(Qt::ToolButtonIconOnly);
-    btn->setIcon(QIcon::fromTheme(QLatin1String("transform-move")));
-    btn->hide();
-    btn->setToolTip(i18n("Pan the image to a region"));
-
-    return btn;
+    d->previewMode = previewMode;
 }
 
 void PanIconWidget::setImage(int previewWidth, int previewHeight, const QImage& image)
@@ -334,7 +108,10 @@ void PanIconWidget::setImage(const QImage& scaledPreviewImage, const QSize& full
 
     setFixedSize(d->width, d->height);
 
-    d->rect = QRect(width() / 2 - d->width / 2, height() / 2 - d->height / 2, d->width, d->height);
+    d->rect = QRect(width()  / 2 - d->width  / 2,
+                    height() / 2 - d->height / 2,
+                    d->width,
+                    d->height);
     update();
 }
 
@@ -359,6 +136,11 @@ void PanIconWidget::slotZoomFactorChanged(double factor)
 
 void PanIconWidget::setRegionSelection(const QRect& regionSelection)
 {
+    if ((d->zoomedOrgHeight == 0) || d->moveSelection)
+    {
+        return;
+    }
+
     d->regionSelection = regionSelection;
     d->localRegionSelection.setX(d->rect.x() + (int)((float)d->regionSelection.x() *
                                  ((float)d->width / (float)d->zoomedOrgWidth)));
@@ -378,19 +160,6 @@ void PanIconWidget::setRegionSelection(const QRect& regionSelection)
 QRect PanIconWidget::getRegionSelection() const
 {
     return (d->regionSelection);
-}
-
-void PanIconWidget::setCursorToLocalRegionSelectionCenter()
-{
-    QCursor::setPos(mapToGlobal(d->localRegionSelection.center()));
-}
-
-void PanIconWidget::setCenterSelection()
-{
-    setRegionSelection(QRect((int)(((float)d->zoomedOrgWidth / 2.0) - ((float)d->regionSelection.width()  / 2.0)),
-                            (int)(((float)d->zoomedOrgHeight / 2.0) - ((float)d->regionSelection.height() / 2.0)),
-                            d->regionSelection.width(),
-                            d->regionSelection.height()));
 }
 
 void PanIconWidget::regionSelectionMoved(bool targetDone)
@@ -428,15 +197,6 @@ void PanIconWidget::paintEvent(QPaintEvent*)
 
     // Drawing selection border
 
-    if (d->flicker)
-    {
-        p.setPen(QPen(Qt::white, 1, Qt::SolidLine));
-    }
-    else
-    {
-        p.setPen(QPen(Qt::red, 1, Qt::SolidLine));
-    }
-
     QRect r(d->localRegionSelection);
 
     // Clamp to widget size. Selection area must always be visible
@@ -461,51 +221,69 @@ void PanIconWidget::paintEvent(QPaintEvent*)
         r.setBottom(height() - 2);
     }
 
-    p.drawRect(r.x(), r.y(), r.width(), r.height());
+    QPainterPath maskPath;
+    maskPath.addRect(d->rect);  // Full image area
+    maskPath.addRect(r);        // Exclude the selection rectangle
 
-    if (d->flicker)
+    // Increase the contrast to decrease the luminosity outside the selection
+
+    p.save();
+    p.setClipPath(maskPath);
+    p.fillRect(d->rect, QColor(0, 0, 0, 128)); // Uses middle transparency
+    p.restore();
+
+    // Fill the non suitable area and draw the separator
+    // from the selection if necessary depending of the preview mode.
+
+    switch (d->previewMode)
     {
-        p.setPen(QPen(Qt::red, 1, Qt::DotLine));
+        case PreviewToolBar::PreviewBothImagesHorz:
+        {
+            p.fillRect(r.left(),  r.top() + r.height() / 2,
+                       r.width(), r.height() / 2, QColor(0, 0, 0, 128));
+            p.drawLine(r.left(),  r.top() + r.height() / 2,
+                       r.right(), r.top() + r.height() / 2);
+            break;
+        }
+
+        case PreviewToolBar::PreviewBothImagesHorzCont:
+        {
+            p.drawLine(r.left(),  r.top() + r.height() / 2,
+                       r.right(), r.top() + r.height() / 2);
+            break;
+        }
+
+        case PreviewToolBar::PreviewBothImagesVert:
+        {
+            p.fillRect(r.left() + r.width() / 2, r.top(),
+                       r.width() / 2, r.height(), QColor(0, 0, 0, 128));
+            p.drawLine(r.left() + r.width() / 2, r.top(),
+                       r.left() + r.width() / 2, r.bottom());
+            break;
+        }
+
+        case PreviewToolBar::PreviewBothImagesVertCont:
+        {
+            p.drawLine(r.left() + r.width() / 2, r.top(),
+                       r.left() + r.width() / 2, r.bottom());
+            break;
+        }
+
+        default:    // None
+        {
+            break;
+        }
     }
-    else
-    {
-        p.setPen(QPen(Qt::white, 1, Qt::DotLine));
-    }
 
-    p.drawRect(r.x(), r.y(), r.width(), r.height());
-}
+    // Draw the selection rectangle with a white border
 
-void PanIconWidget::setMouseFocus()
-{
-    raise();
-    d->xpos          = d->localRegionSelection.center().x();
-    d->ypos          = d->localRegionSelection.center().y();
-    d->moveSelection = true;
-    setCursor(Qt::SizeAllCursor);
+    p.setPen(QPen(QColor(255, 255, 255, 255), 2, Qt::SolidLine));
+    p.drawRect(r);
 
-    Q_EMIT signalSelectionTakeFocus();
-}
+    // Draw a rectangle around the whole image.
 
-void PanIconWidget::showEvent(QShowEvent* e)
-{
-    QWidget::showEvent(e);
-
-    d->timer->start();
-}
-
-void PanIconWidget::hideEvent(QHideEvent* e)
-{
-    QWidget::hideEvent(e);
-
-    d->timer->stop();
-
-    if (d->moveSelection)
-    {
-        d->moveSelection = false;
-        setCursor(Qt::ArrowCursor);
-
-        Q_EMIT signalHidden();
-    }
+    p.setPen(QPen(QColor(255, 255, 255, 64), 1, Qt::SolidLine));
+    p.drawRect(d->rect);
 }
 
 void PanIconWidget::mousePressEvent(QMouseEvent* e)
@@ -540,8 +318,6 @@ void PanIconWidget::mousePressEvent(QMouseEvent* e)
 
         d->moveSelection = true;
         setCursor(Qt::SizeAllCursor);
-
-        Q_EMIT signalSelectionTakeFocus();
     }
 }
 
@@ -630,14 +406,6 @@ void PanIconWidget::mouseReleaseEvent(QMouseEvent*)
     }
 }
 
-void PanIconWidget::slotFlickerTimer()
-{
-    d->flicker = !d->flicker;
-    update();
-}
-
 } // namespace Digikam
-
-#include "paniconwidget.moc"
 
 #include "moc_paniconwidget.cpp"

@@ -6,7 +6,7 @@
  * Date        : 2008-09-25
  * Description : a tool to convert RAW file to DNG - Backup RAW data.
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2010-2011 by Jens Mueller <tschenser at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -67,7 +67,7 @@ int DNGWriter::Private::backupRaw(DNGWriterHost& host,
         {
             int originalBlockLength = originalDataStream.readRawData(originalDataBlock.data(), DNGWriter::Private::CHUNK);
 
-            QByteArray compressedDataBlock = qCompress((const uchar*)originalDataBlock.data(), originalBlockLength, -1);
+            QByteArray compressedDataBlock = qCompress(reinterpret_cast<const uchar*>(originalDataBlock.data()), originalBlockLength, -1);
             compressedDataBlock.remove(0, 4);   // removes qCompress own header
             qCDebug(DIGIKAM_GENERAL_LOG) << "DNGWriter: compressed data block " << originalBlockLength << " -> " << compressedDataBlock.size();
 

@@ -6,7 +6,7 @@
 # NOTE: check version of libjpeg so that we can use the appropriate dir
 # See bug #227313 for details
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -47,19 +47,19 @@ macro(DETECT_JPEG)
 
         if(_CompileResult)
 
-            # Compile successfuly. It's not libjpeg 90. We check previous version.
+            # Compile successfully. It's not libjpeg 90. We check previous version.
 
             CompileToCheckVersion(80 _CompileResult)
 
             if(_CompileResult)
 
-                # Compile successfuly. It's not libjpeg 90. We check previous version.
+                # Compile successfully. It's not libjpeg 90. We check previous version.
 
                 CompileToCheckVersion(70 _CompileResult)
 
                 if(_CompileResult)
 
-                    # Compile successfuly. It's not libjpeg 70.
+                    # Compile successfully. It's not libjpeg 70.
                     set(JPEG_LIB_VERSION 62)
 
                 else()

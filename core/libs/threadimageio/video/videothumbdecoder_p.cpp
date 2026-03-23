@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2010      by Dirk Vanden Boer <dirk dot vdb at gmail dot com>
  * SPDX-FileCopyrightText: 2016-2018 by Maik Qualmann <metzpinguin at gmail dot com>
- * SPDX-FileCopyrightText: 2016-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2016-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -292,7 +292,14 @@ bool VideoThumbDecoder::Private::processFilterGraph(AVFrame* const dst,
         return false;
     }
 
-    av_image_copy(dst->data, dst->linesize, reinterpret_cast<uint8_t**>(filterFrame->data), filterFrame->linesize, pixfmt, width, height);
+    av_image_copy(dst->data,
+                  dst->linesize,
+                  reinterpret_cast<uint8_t**>(filterFrame->data),
+                  filterFrame->linesize,
+                  pixfmt,
+                  width,
+                  height);
+
     av_frame_unref(filterFrame);
 
     return true;

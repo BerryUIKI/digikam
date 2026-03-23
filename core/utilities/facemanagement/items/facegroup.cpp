@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2010      by Aditya Bhatt <adityabhatt1991 at gmail dot com>
  * SPDX-FileCopyrightText: 2010-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -137,7 +137,7 @@ void FaceGroup::setInfo(const ItemInfo& info)
 {
     if (d->info != info)
     {
-        clear();
+        d->clear(NoFaces);
     }
 
     d->info = info;
@@ -299,6 +299,12 @@ bool FaceGroup::hasUnconfirmed()
 
 void FaceGroup::load()
 {
+    if (d->state == FacesLoad)
+    {
+        return;
+    }
+
+    d->state      = FacesLoad;
     d->exifRotate = (
                         MetaEngineSettings::instance()->settings().exifRotate            ||
                         (
@@ -309,20 +315,26 @@ void FaceGroup::load()
 
     if (d->info.isNull())
     {
-        clear();
+        d->clear(FacesLoaded);
 
         return;
     }
 
     const QList<FaceTagsIface> faces = FaceTagsEditor().databaseFaces(d->info.id());
-    clear();
+
+    if (faces.isEmpty())
+    {
+        d->clear(FacesLoaded);
+
+        return;
+    }
+
+    d->clear(FacesLoad);
 
     for (const FaceTagsIface& face : faces)
     {
         d->addItem(face);
     }
-
-    d->state = FacesLoaded;
 
     if (d->view->previewItem()->isLoaded())
     {
@@ -335,26 +347,14 @@ void FaceGroup::load()
     {
         d->view->setFocus();
     }
-}
 
-void FaceGroup::clear()
-{
-    slotCancelAddItem();
-    d->visibilityController->clear();
-
-    for (FaceItem* const item : std::as_const(d->items))
-    {
-        delete item;
-    }
-
-    d->items.clear();
-    d->state = NoFaces;
+    d->state = FacesLoaded;
 }
 
 void FaceGroup::rejectAll()
 {
     d->newEditPipeline->removeAllFaces(d->info);
-    clear();
+    d->clear(NoFaces);
 }
 
 void FaceGroup::markAllAsIgnored()

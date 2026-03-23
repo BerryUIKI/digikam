@@ -6,7 +6,7 @@
  * Date        : 2021-09-27
  * Description : Showfoto stack view favorites item
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -67,14 +67,14 @@ public:
     QUrl currentUrl()         const;
 
     /**
-     * Helper method to get a list local paths from image urls included in favorite item.
+     * @brief helper method to get a list local paths from image urls included in favorite item.
      */
     QStringList urlsToPaths() const;
 
 public:
 
     /**
-     * Helper static method to get hierarchy path from item. 'name' is the title and 'pitem" the parent instance.
+     * @brief helper static method to get hierarchy path from item. @param name is the title and @param pitem the parent instance.
      */
     static QString hierarchyFromParent(const QString& name, ShowfotoStackViewFavoriteItem* const pitem);
 

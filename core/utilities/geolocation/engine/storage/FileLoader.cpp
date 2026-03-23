@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -45,6 +45,9 @@
 #include "MarbleModel.h"
 #include "ParsingRunnerManager.h"
 #include "digikam_debug.h"
+#include "actionthreadbase.h"
+
+using namespace Digikam;
 
 namespace Marble
 {
@@ -151,6 +154,8 @@ QString FileLoader::error() const
 
 void FileLoader::run()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String("MarbleFileLoader"));       // To customize thread name
+
     if (d->m_contents.isEmpty())
     {
         QString defaultSourceName;

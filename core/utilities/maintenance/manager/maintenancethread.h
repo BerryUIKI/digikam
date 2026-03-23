@@ -6,7 +6,7 @@
  * Date        : 2013-08-09
  * Description : Thread actions manager for maintenance tools.
  *
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2017-2018 by Mario Frank <mario dot frank at uni minus potsdam dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -43,7 +43,7 @@ class MaintenanceThread : public ActionThreadBase
 public:
 
     explicit MaintenanceThread(QObject* const parent);
-    ~MaintenanceThread() override;
+    ~MaintenanceThread()    override;
 
     void setUseMultiCore(const bool b);
 
@@ -63,7 +63,7 @@ public:
     void cleanSimilarityDb(const QList<qlonglong>& imageIds);
     void shrinkDatabases();
 
-    void cancel();
+    void cancel()           override;
 
     QString getThumbFingerprintPath();
 

@@ -8,7 +8,7 @@
  *               image white balance
  *
  * SPDX-FileCopyrightText: 2008-2009 by Guillaume Castagnino <casta at xwing dot info>
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -41,8 +41,8 @@ private Q_SLOTS:
     void slotLoadSettings()     override;
     void slotResetSettings()    override;
     void slotPickerColorButtonActived();
+    void slotSpotPositionChangedFromOriginal(const Digikam::DColor&, const QPoint&);
     void slotColorSelectedFromOriginal(const Digikam::DColor&);
-    void slotColorSelectedFromTarget(const Digikam::DColor&);
     void slotAutoAdjustExposure();
 
 private:

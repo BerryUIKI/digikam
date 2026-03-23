@@ -6,7 +6,7 @@
  * Date        : 2006-05-16
  * Description : A tool to edit geolocation
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2010-2014 by Michael G. Hansen <mike at mghansen dot de>
  * SPDX-FileCopyrightText: 2010      by Gabriel Voicu <ping dot gabi at gmail dot com>
  * SPDX-FileCopyrightText: 2014      by Justus Schwartz <justus at gmx dot li>
@@ -77,6 +77,7 @@
 #include "dxmlguiwindow.h"
 #include "gpsbookmarkowner.h"
 #include "gpsbookmarkmodelhelper.h"
+#include "actionthreadbase.h"
 
 #ifdef GPSSYNC_MODELTEST
 #   include <modeltest.h>
@@ -98,6 +99,8 @@ public:
 
     QPair<QUrl, QString> operator()(const QPersistentModelIndex& itemIndex)
     {
+        ActionThreadBase::setCurrentThreadName(QLatin1String("SaveChangedImagesHelper"));       // To customize thread name
+
         GPSItemContainer* const item = imageModel->itemFromIndex(itemIndex);
 
         if (!item)
@@ -127,6 +130,8 @@ public:
 
     QPair<QUrl, QString> operator()(const QPersistentModelIndex& itemIndex)
     {
+        ActionThreadBase::setCurrentThreadName(QLatin1String("LoadFileMetadataHelper"));       // To customize thread name
+
         GPSItemContainer* const item = imageModel->itemFromIndex(itemIndex);
 
         if (!item)

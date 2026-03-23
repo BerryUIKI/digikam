@@ -7,8 +7,8 @@
  * Description : file copy actions using threads.
  *
  * SPDX-FileCopyrightText: 2012      by Smit Mehta <smit dot meh at gmail dot com>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
- * SPDX-FileCopyrightText: 2019-2020 by Maik Qualmann <metzpinguin at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2019-2025 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -45,6 +45,8 @@ public:
 
     Private() = default;
 
+public:
+
     QUrl        srcUrl;
     FCContainer settings;
 };
@@ -66,6 +68,8 @@ FCTask::~FCTask()
 
 void FCTask::run()
 {
+    ActionJob::run();       // To customize thread name
+
     if (m_cancel)
     {
         return;

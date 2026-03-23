@@ -16,7 +16,6 @@
 
 // Qt includes
 
-#include <QDir>
 #include <QSettings>
 #include <QStandardPaths>
 #include <QNetworkProxy>
@@ -34,7 +33,7 @@ SystemSettings::SystemSettings(const QString& name)
     if (!name.isEmpty())
     {
         m_path = QStandardPaths::writableLocation(QStandardPaths::GenericConfigLocation) +
-                 QDir::separator() + name + QLatin1String("_systemrc");
+                 QLatin1Char('/') + name + QLatin1String("_systemrc");
     }
 
     readSettings();
@@ -108,6 +107,18 @@ void SystemSettings::readSettings()
     videoBackend         = settings.value(QLatin1String("videoBackend"),      QLatin1String("ffmpeg")).toString();
 
 #endif
+    // Faces Engine
+
+    QString dataPath     = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
+                                                  QLatin1String("digikam/facesengine"),
+                                                  QStandardPaths::LocateDirectory);
+    if (dataPath.isEmpty())
+    {
+        dataPath         = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation);
+        dataPath        += QLatin1String("/digikam/facesengine");
+    }
+
+    facesEnginePath      = settings.value(QLatin1String("facesEnginePath"),   dataPath).toString();
 
     // Proxy Settings
 
@@ -117,43 +128,8 @@ void SystemSettings::readSettings()
     proxyPass            = settings.value(QLatin1String("proxyPass"),         QString()).toString();
     proxyType            = settings.value(QLatin1String("proxyType"),         HttpProxy).toInt();
     proxyAuth            = settings.value(QLatin1String("proxyAuth"),         false).toBool();
+
     settings.endGroup();
-
-    QNetworkProxy proxy;
-
-    // Make sure that no proxy is used for an empty string or the default value:
-
-    if (proxyUrl.isEmpty() || (proxyUrl == QLatin1String("http://")))
-    {
-        proxy.setType(QNetworkProxy::NoProxy);
-    }
-    else
-    {
-        if      (proxyType == Socks5Proxy)
-        {
-            proxy.setType(QNetworkProxy::Socks5Proxy);
-        }
-        else if (proxyType == HttpProxy)
-        {
-            proxy.setType(QNetworkProxy::HttpProxy);
-        }
-        else
-        {
-            qCDebug(DIGIKAM_GENERAL_LOG) << "Unknown proxy type! Using Http Proxy instead.";
-            proxy.setType(QNetworkProxy::HttpProxy);
-        }
-    }
-
-    proxy.setHostName(proxyUrl);
-    proxy.setPort(proxyPort);
-
-    if (proxyAuth)
-    {
-        proxy.setUser(proxyUser);
-        proxy.setPassword(proxyPass);
-    }
-
-    QNetworkProxy::setApplicationProxy(proxy);
 }
 
 void SystemSettings::saveSettings()
@@ -197,6 +173,8 @@ void SystemSettings::saveSettings()
 
 #endif
 
+    settings.setValue(QLatin1String("facesEnginePath"),   facesEnginePath);
+
     settings.setValue(QLatin1String("proxyUrl"),          proxyUrl);
     settings.setValue(QLatin1String("proxyPort"),         proxyPort);
     settings.setValue(QLatin1String("proxyType"),         proxyType);
@@ -213,6 +191,61 @@ void SystemSettings::saveSettings()
     }
 
     settings.endGroup();
+}
+
+void SystemSettings::applyProxySettings()
+{
+    QNetworkProxy proxy;
+
+    // Make sure that no proxy is used for an empty string or the default value:
+
+    if (proxyUrl.isEmpty() || (proxyUrl == QLatin1String("http://")))
+    {
+        proxy.setType(QNetworkProxy::NoProxy);
+    }
+    else
+    {
+        if      (proxyType == Socks5Proxy)
+        {
+            proxy.setType(QNetworkProxy::Socks5Proxy);
+        }
+        else if (proxyType == HttpProxy)
+        {
+            proxy.setType(QNetworkProxy::HttpProxy);
+        }
+        else
+        {
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Unknown proxy type! Using Http Proxy instead.";
+            proxy.setType(QNetworkProxy::HttpProxy);
+        }
+    }
+
+    proxy.setHostName(proxyUrl);
+    proxy.setPort(proxyPort);
+
+    if (proxyAuth)
+    {
+        proxy.setUser(proxyUser);
+        proxy.setPassword(proxyPass);
+    }
+
+    QNetworkProxy::setApplicationProxy(proxy);
+}
+
+QString SystemSettings::getFacesEnginePath() const
+{
+    // Check if Faces Engine model data already exists in the system.
+
+    QString sysPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
+                                             QLatin1String("digikam/facesengine"),
+                                             QStandardPaths::LocateDirectory);
+
+    if (!sysPath.isEmpty() && (sysPath == facesEnginePath))
+    {
+        return sysPath;
+    }
+
+    return facesEnginePath;
 }
 
 } // namespace Digikam

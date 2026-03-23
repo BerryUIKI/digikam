@@ -43,6 +43,8 @@ AlbumsJob::AlbumsJob(const AlbumsDBJobInfo& jobInfo)
 
 void AlbumsJob::run()
 {
+    ActionJob::run();       // To customize thread name
+
     if (m_jobInfo.isFoldersJob())
     {
         const QHash<int, int>& albumNumberHash = CoreDbAccess().db()->getNumberOfImagesInAlbums();
@@ -75,36 +77,11 @@ DatesJob::DatesJob(const DatesDBJobInfo& jobInfo)
 
 void DatesJob::run()
 {
+    ActionJob::run();       // To customize thread name
+
     if (m_jobInfo.isFoldersJob())
     {
-        const QVariantList& values = CoreDbAccess().db()->getAllCreationDates();
-
-        QHash<QDateTime, int> dateNumberHash;
-        QHash<QDateTime, int>::iterator it;
-
-        for (const QVariant& value : std::as_const(values))
-        {
-            if (!value.isNull())
-            {
-                QDateTime dateTime = asDateTimeUTC(value.toDateTime());
-
-                if (!dateTime.isValid())
-                {
-                    continue;
-                }
-
-                it = dateNumberHash.find(dateTime);
-
-                if (it == dateNumberHash.end())
-                {
-                    dateNumberHash.insert(dateTime, 1);
-                }
-                else
-                {
-                    it.value()++;
-                }
-            }
-        }
+        const QHash<QDateTime, int>& dateNumberHash = CoreDbAccess().db()->getAllCreationDates();
 
         Q_EMIT foldersData(dateNumberHash);
     }
@@ -136,6 +113,8 @@ GPSJob::GPSJob(const GPSDBJobInfo& jobInfo)
 
 void GPSJob::run()
 {
+    ActionJob::run();       // To customize thread name
+
     if (m_jobInfo.isDirectQuery())
     {
         QList<QVariant> imagesInfoFromArea =
@@ -179,6 +158,8 @@ TagsJob::TagsJob(const TagsDBJobInfo& jobInfo)
 
 void TagsJob::run()
 {
+    ActionJob::run();       // To customize thread name
+
     if      (m_jobInfo.isFoldersJob())
     {
         const QHash<int, int>& tagNumberHash = CoreDbAccess().db()->getNumberOfImagesInTags();
@@ -282,6 +263,8 @@ SearchesJob::SearchesJob(const SearchesDBJobInfo& jobInfo,
 
 void SearchesJob::run()
 {
+    ActionJob::run();       // To customize thread name
+
     m_jobInfo.isDuplicatesJob() ? runFindDuplicates() : runSearches();
 }
 

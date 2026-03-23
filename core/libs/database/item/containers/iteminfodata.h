@@ -7,7 +7,7 @@
  * Description : ItemInfo common data
  *
  * SPDX-FileCopyrightText: 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -146,6 +146,7 @@ public:
     bool                                     faceCountCached            = false;
 
     bool                                     invalid                    = false;
+    bool                                     statusChanged              = false;
 
     // These two are initially true because we assume the data is there.
     // Once we query the data and find out it is missing, we set them to false.

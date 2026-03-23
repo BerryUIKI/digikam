@@ -6,7 +6,7 @@
  * Date        : 2021-09-27
  * Description : Showfoto stack view favorite item edit dialog
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -718,9 +718,9 @@ void ShowfotoStackViewFavoriteItemDlg::slotDateAverageButtonClicked()
     QList<QDate> dates = getItemDates();
     qint64 julianDays  = 0;
 
-    for (const QDate& date : std::as_const(dates))
+    for (const QDate& dt : std::as_const(dates))
     {
-        julianDays += date.toJulianDay();
+        julianDays += dt.toJulianDay();
     }
 
     QDate avDate       = QDate::fromJulianDay(julianDays / dates.size());

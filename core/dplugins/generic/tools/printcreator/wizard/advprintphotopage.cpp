@@ -6,7 +6,7 @@
  * Date        : 2017-05-25
  * Description : a tool to print images
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -420,7 +420,17 @@ void AdvPrintPhotoPage::slotXMLLoadElement(QXmlStreamReader& xmlReader)
                 if (!attr.isEmpty())
                 {
                     qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << " found " << attr.toString();
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
+
+                    pPhoto->m_pAdvPrintCaptionInfo->m_captionColor.fromString(attr.toString());
+
+#else
+
                     pPhoto->m_pAdvPrintCaptionInfo->m_captionColor.setNamedColor(attr.toString());
+
+#endif
+
                 }
 
                 attr = attrs.value(QLatin1String("size"));
@@ -1478,7 +1488,7 @@ void AdvPrintPhotoPage::parseTemplateFile(const QString& fn, const QSizeF& pageS
                                                          << size
                                                          << " page size "
                                                          << pageSize;
-                    // skipping layout it can't fit
+                    // skipping layout it cannot fit
 
                     n = n.nextSibling();
                     continue;

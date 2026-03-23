@@ -17,6 +17,7 @@
 // Qt includes
 
 #include <QException>
+#include <QElapsedTimer>
 
 // digiKam includes
 
@@ -52,8 +53,6 @@ bool AutoRotator::loadModel()
             // verify we can get the underlying neural net
 
             model->getNet();
-
-            qCDebug(DIGIKAM_AUTOROTATE_LOG) << "AutoRotator::loadModel: AutoRotate model loaded";
         }
         catch (cv::Exception& e)
         {
@@ -146,6 +145,7 @@ float AutoRotator::rotationAngle(const DImg& img, bool copyDImg)
         // make a copy of the image to avoid modifying the original
 
         DImg copy = img.copy();
+
         return privateRotationAngle(copy);
     }
     else
@@ -186,13 +186,16 @@ float AutoRotator::privateRotationAngle(const DImg& img)
     return angle;
 }
 
-MetaEngineRotation::TransformationAction AutoRotator::rotationOrientation(const DImg& image, int sensitivity, bool copyDImg)
+MetaEngineRotation::TransformationAction AutoRotator::rotationOrientation(const DImg& image,
+                                                                          int sensitivity,
+                                                                          bool copyDImg)
 {
-    // check for corrupted images that can't be loaded
+    // check for corrupted images that cannot be loaded
 
     if (image.isNull())
     {
         qCWarning(DIGIKAM_AUTOROTATE_LOG) << "AutoRotator::rotationOrientation: image is null";
+
         return MetaEngineRotation::NoTransformation;
     }
 
@@ -219,7 +222,7 @@ MetaEngineRotation::TransformationAction AutoRotator::rotationOrientation(const 
     {
         rotation = MetaEngineRotation::Rotate180;
     }
-    else if (shouldRotate(270, sensitivity, angle)) 
+    else if (shouldRotate(270, sensitivity, angle))
     {
         rotation = MetaEngineRotation::Rotate270;
     }

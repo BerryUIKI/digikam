@@ -7,7 +7,7 @@
  * Description : Captions, Tags, and Rating properties editor - Description view.
  *
  * SPDX-FileCopyrightText: 2003-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2003-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2003-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Johannes Wienke <languitar at semipol dot de>
@@ -215,8 +215,6 @@ void ItemDescEditTab::updateComments()
 
 void ItemDescEditTab::updatePickLabel()
 {
-    d->pickLabelSelector->blockSignals(true);
-
     if (d->hub->pickLabelStatus() == DisjointMetadataDataFields::MetadataDisjoint)
     {
         d->pickLabelSelector->setPickLabel(NoPickLabel);
@@ -225,14 +223,10 @@ void ItemDescEditTab::updatePickLabel()
     {
         d->pickLabelSelector->setPickLabel((PickLabel)d->hub->pickLabel());
     }
-
-    d->pickLabelSelector->blockSignals(false);
 }
 
 void ItemDescEditTab::updateColorLabel()
 {
-    d->colorLabelSelector->blockSignals(true);
-
     if (d->hub->colorLabelStatus() == DisjointMetadataDataFields::MetadataDisjoint)
     {
         d->colorLabelSelector->setColorLabel(NoColorLabel);
@@ -241,14 +235,10 @@ void ItemDescEditTab::updateColorLabel()
     {
         d->colorLabelSelector->setColorLabel((ColorLabel)d->hub->colorLabel());
     }
-
-    d->colorLabelSelector->blockSignals(false);
 }
 
 void ItemDescEditTab::updateRating()
 {
-    d->ratingWidget->blockSignals(true);
-
     if (d->hub->ratingStatus() == DisjointMetadataDataFields::MetadataDisjoint)
     {
         d->ratingWidget->setRating(0);
@@ -257,8 +247,6 @@ void ItemDescEditTab::updateRating()
     {
         d->ratingWidget->setRating(d->hub->rating());
     }
-
-    d->ratingWidget->blockSignals(false);
 }
 
 void ItemDescEditTab::updateDate()

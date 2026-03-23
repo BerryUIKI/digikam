@@ -6,7 +6,7 @@
  * Date        : 2007-11-25
  * Description : a bar used to search a string - version not based on database models
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2010 by Johannes Wienke <languitar at semipol dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -47,6 +47,8 @@ class Q_DECL_HIDDEN SearchTextBar::Private
 public:
 
     Private() = default;
+
+public:
 
     QString            optionAutoCompletionModeEntry    = QLatin1String("AutoCompletionMode");
     QString            optionCaseSensitiveEntry         = QLatin1String("CaseSensitive");
@@ -232,7 +234,7 @@ void SearchTextBar::slotTextChanged()
 
 void SearchTextBar::slotSearchResult(bool match)
 {
-    // only highlight if text is not empty or highlighting is disabled.
+    // Only highlight if text is not empty or highlighting is disabled.
 
     if (text().isEmpty() || !d->highlightOnResult)
     {

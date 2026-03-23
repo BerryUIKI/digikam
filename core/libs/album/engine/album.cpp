@@ -7,7 +7,7 @@
  * Description : digiKam album types
  *
  * SPDX-FileCopyrightText: 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2014-2015 by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -45,7 +45,7 @@ Album::~Album()
 {
     prepareForDeletion();
 
-    AlbumManager::internalInstance->notifyAlbumDeletion(this);
+    AlbumManager::instance()->notifyAlbumDeletion(this);
 }
 
 void Album::setParent(Album* const parent)

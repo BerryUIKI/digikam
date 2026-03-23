@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -99,6 +99,9 @@ set(libdimgfilters_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/filters/icc/iccsettings.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/filters/icc/iccsettings_p.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/filters/icc/iccsettings_p_desktop.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/filters/icc/iccsettings_p_wayland.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/filters/icc/iccsettings_p_windows.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/filters/icc/iccsettings_p_x11.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/filters/icc/iccsettingscontainer.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/filters/icc/digikam-lcms.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/filters/lc/localcontrastfilter.cpp
@@ -139,6 +142,13 @@ set(libdimgfilters_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/filters/redeye/redeyecorrectionsettings.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/filters/redeye/redeyecorrectioncontainer.cpp
 )
+
+if(APPLE)
+    set(libdimgfilters_SRCS
+        ${libdimgfilters_SRCS}
+        ${CMAKE_CURRENT_SOURCE_DIR}/filters/icc/iccsettings_p_macos.mm
+    )
+endif()
 
 if(GLIB2_FOUND)
 
@@ -185,8 +195,6 @@ if(Eigen3_FOUND)
         ${CMAKE_CURRENT_SOURCE_DIR}/filters/sharp/refocusmatrix.cpp
     )
 
-    include_directories(${EIGEN3_INCLUDE_DIR})
-
 endif()
 
 set(libdimgloaders_SRCS
@@ -218,6 +226,12 @@ if(X11_FOUND)
 
 endif()
 
+if(ENABLE_DBUS)
+
+    include_directories($<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::DBus,INTERFACE_INCLUDE_DIRECTORIES>)
+
+endif()
+
 # Don't process automoc on LibCImg headers
 
 file(GLOB_RECURSE cimg_headers ${CMAKE_CURRENT_SOURCE_DIR}/filters/greycstoration/cimg/*.h)
@@ -246,3 +260,9 @@ set_target_properties(core_dimg_obj
                       C_STANDARD_REQUIRED YES
                       C_EXTENSIONS NO
 )
+
+if(Eigen3_FOUND)
+
+    target_link_libraries(core_dimg_obj Eigen3::Eigen)
+
+endif()

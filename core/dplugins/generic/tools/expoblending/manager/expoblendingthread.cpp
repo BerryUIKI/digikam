@@ -6,7 +6,7 @@
  * Date        : 2009-11-13
  * Description : a tool to blend bracketed images.
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Johannes Wienke <languitar at semipol dot de>
  * SPDX-FileCopyrightText: 2012-2015 by Benjamin Girault <benjamin dot girault at gmail dot com>
  *
@@ -62,6 +62,7 @@
 #include "dimgloaderobserver.h"
 #include "drawdecoderwidget.h"
 #include "drawdecoding.h"
+#include "actionthreadbase.h"
 
 namespace DigikamGenericExpoBlendingPlugin
 {
@@ -289,6 +290,8 @@ void ExpoBlendingThread::cancel()
 
 void ExpoBlendingThread::run()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String("ExpoBlendingThread"));       // To customize thread name
+
     d->cancel = false;
 
     while (!d->cancel)
@@ -522,6 +525,8 @@ void ExpoBlendingThread::run()
 
 bool ExpoBlendingThread::preProcessingMultithreaded(const QUrl& url)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     bool error  = false;
 
     // check if we have RAW or HEIF file -> use preview image then

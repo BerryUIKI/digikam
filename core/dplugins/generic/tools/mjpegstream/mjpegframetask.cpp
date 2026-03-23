@@ -6,7 +6,7 @@
  * Date        : 2021-07-24
  * Description : a MJPEG frame generator.
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021      by Quoc Hưng Tran <quochungtran1999 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -53,6 +53,8 @@ public:
         brokenImg = QIcon::fromTheme(QLatin1String("view-preview")).pixmap(VidSlideSettings::videoSizeFromType(type)).toImage();
         endImg    = QIcon::fromTheme(QLatin1String("window-close")).pixmap(VidSlideSettings::videoSizeFromType(type)).toImage();
     }
+
+public:
 
     MjpegStreamSettings settings;               ///< The MJPEG stream settings.
     QImage              brokenImg;              ///< Image to push as frame if current item from list cannot be loaded.
@@ -113,6 +115,8 @@ QImage MjpegFrameTask::loadImageFromPreviewCache(const QString& path) const
 
 void MjpegFrameTask::run()
 {
+    ActionJob::run();       // To customize thread name
+
     QImage qiimg;   // Current image in stream.
     QImage qtimg;   // Current transition image.
     QImage qoimg;   // Next image in stream.

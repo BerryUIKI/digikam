@@ -6,7 +6,7 @@
  * Date        : 2009-11-03
  * Description : A dialog base class which can handle multiple pages.
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2007      by Matthias Kretz <kretz at kde dot org>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -335,7 +335,7 @@ public:
 
     /**
      * Returns the index for a given @see DConfigDlgWdgItem. The index is invalid if the
-     * item can't be found in the model.
+     * item cannot be found in the model.
      */
     QModelIndex index(const DConfigDlgWdgItem* item) const;
 

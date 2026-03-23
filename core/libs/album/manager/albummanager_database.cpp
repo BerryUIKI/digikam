@@ -6,7 +6,7 @@
  * Date        : 2004-06-15
  * Description : Albums manager interface - Database helpers.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2015      by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  *
@@ -142,7 +142,7 @@ bool AlbumManager::setDatabase(const DbEngineParameters& params, bool priority, 
                                                     QLatin1String("digikamrc"));
 
         databaseError     += i18n("<p>If you want to start with a new configuration and "
-                                  "with a first run wizard, delete the file:<br/>%1</p>",
+                                  "with a first run wizard, delete the file:<br>%1</p>",
                                   QDir::toNativeSeparators(configPath));
 
         return showDatabaseSetupPage(databaseError, priority, suggestedAlbumRoot);
@@ -155,7 +155,7 @@ bool AlbumManager::setDatabase(const DbEngineParameters& params, bool priority, 
         if (result.getErrorType() != DatabaseServerError::NoErrors)
         {
             databaseError = i18n("An error occurred during the internal server start."
-                                 "<p>Details:\n%1</p>", result.getErrorText());
+                                 "<p>Details:<br>%1</p>", result.getErrorText());
 
             return showDatabaseSetupPage(databaseError, priority, suggestedAlbumRoot);
         }
@@ -295,7 +295,8 @@ bool AlbumManager::setDatabase(const DbEngineParameters& params, bool priority, 
         QString locDescription;
         QStringList candidateIds, candidateDescriptions;
         CollectionManager::instance()->migrationCandidates(loc, &locDescription, &candidateIds, &candidateDescriptions);
-        qCDebug(DIGIKAM_GENERAL_LOG) << "Migration candidates for" << locDescription << ":" << candidateIds << candidateDescriptions;
+        qCDebug(DIGIKAM_GENERAL_LOG) << "Migration candidates for" << locDescription
+                                     << ":" << candidateIds << candidateDescriptions;
 
         QDialog* const dialog         = new QDialog;
         QWidget* const widget         = new QWidget(dialog);
@@ -306,8 +307,8 @@ bool AlbumManager::setDatabase(const DbEngineParameters& params, bool priority, 
         deviceIconLabel->setPixmap(QIcon::fromTheme(QLatin1String("drive-harddisk")).pixmap(64));
         mainLayout->addWidget(deviceIconLabel, 0, 0);
 
-        QLabel* const mainLabel       = new QLabel(i18n("<p>The collection </p><p><b>%1</b><br/>(%2)</p><p> is currently "
-                                                        "not found on your system.<br/> Please choose the most "
+        QLabel* const mainLabel       = new QLabel(i18n("<p>The collection </p><p><b>%1</b><br>(%2)</p><p> is currently "
+                                                        "not found on your system.<br> Please choose the most "
                                                         "appropriate  option to handle this situation:</p>",
                                                    loc.label(), QDir::toNativeSeparators(locDescription)));
         mainLabel->setWordWrap(true);
@@ -325,9 +326,9 @@ bool AlbumManager::setDatabase(const DbEngineParameters& params, bool priority, 
         if (!candidateIds.isEmpty())
         {
             migrateButton              = new QRadioButton;
-            QLabel* const migrateLabel = new QLabel(i18n("<p>The collection is still available, but the identifier changed.<br/>"
+            QLabel* const migrateLabel = new QLabel(i18n("<p>The collection is still available, but the identifier changed.<br>"
                                                          "This can be caused by restoring a backup, changing the partition layout "
-                                                         "or the file system settings.<br/>"
+                                                         "or the file system settings.<br>"
                                                          "The collection is now located at this place:</p>"));
             migrateLabel->setWordWrap(true);
 

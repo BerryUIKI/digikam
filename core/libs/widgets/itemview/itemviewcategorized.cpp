@@ -7,7 +7,7 @@
  * Description : Qt item view for images
  *
  * SPDX-FileCopyrightText: 2009-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -108,6 +108,7 @@ ItemViewCategorized::ItemViewCategorized(QWidget* const parent)
     // important optimization for layouting
 
     setBatchSize(100);
+    setMouseTracking(true);
     setUniformItemSizes(true);
     setLayoutMode(QListView::Batched);
 
@@ -115,12 +116,11 @@ ItemViewCategorized::ItemViewCategorized(QWidget* const parent)
 
     setDrawDraggedItems(false);
 
-    setSelectionMode(QAbstractItemView::ExtendedSelection);
-
     setDragEnabled(true);
-    setEditTriggers(QAbstractItemView::NoEditTriggers);
     viewport()->setAcceptDrops(true);
-    setMouseTracking(true);
+
+    setEditTriggers(QAbstractItemView::NoEditTriggers);
+    setSelectionMode(QAbstractItemView::ExtendedSelection);
 
     connect(this, SIGNAL(clicked(QModelIndex)),
             this, SLOT(slotClicked(QModelIndex)));

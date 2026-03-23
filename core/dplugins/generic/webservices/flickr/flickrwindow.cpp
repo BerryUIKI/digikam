@@ -7,7 +7,7 @@
  * Description : a tool to export images to Flickr web service
  *
  * SPDX-FileCopyrightText: 2005-2008 by Vardhman Jain <vardhman at gmail dot com>
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009      by Luka Renko <lure at kubuntu dot org>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -465,7 +465,7 @@ void FlickrWindow::slotRemoveAccount()
 
 /**
  * Try to guess a sensible set name from the urls given.
- * Currently, it extracs the last path name component, and returns the most
+ * Currently, it extracts the last path name component, and returns the most
  * frequently seen. The function could be expanded to, for example, only
  * accept the path if it occurs at least 50% of the time. It could also look
  * further up in the path name.

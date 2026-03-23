@@ -6,7 +6,9 @@
  * Date        : 20013-08-22
  * Description : List View Model with support for mime data and drag-n-drop
  *
- * SPDX-FileCopyrightText: 2013 by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2013      by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2025 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -35,23 +37,22 @@ public:
     ~TagMngrListModel() override;
 
     /**
-     * @brief addItem   - add new item to list
-     * @param values    - A list of data for item: Name as QString, QBrush as
-     *                    background and qlonglong as id
-     * @return          - pointer to newly created listitem
+     * @brief add new item to list.
+     * @param values A list of data for item: Name as QString, QBrush as
+     *               background and qlonglong as id.
+     * @return pointer to newly created listitem.
      */
     ListItem* addItem(QList<QVariant> values);
 
     /**
-     * @brief allItems  - return all items from List, usually to be saved
-     *                    in KConfig
+     * @brief return all items from List, usually to be saved in KConfig.
      */
     QList<ListItem*> allItems()                                                                 const;
 
     void deleteItem(ListItem* const item);
 
     /**
-     * Standard methods to be implemented when subcassing QAbstractItemModel
+     * Standard methods to be implemented when subcassing QAbstractItemModel.
      */
     QVariant data(const QModelIndex& index, int role)                                           const override;
 
@@ -70,8 +71,7 @@ public:
     bool setData(const QModelIndex& index, const QVariant& value, int role) override;
 
     /**
-     * Reimplemented methods for handling drag-n-drop, encoding and decoding
-     * mime types
+     * Reimplemented methods for handling drag-n-drop, encoding and decoding mime types.
      */
     Qt::DropActions supportedDropActions()                                                      const override;
     QStringList mimeTypes()                                                                     const override;

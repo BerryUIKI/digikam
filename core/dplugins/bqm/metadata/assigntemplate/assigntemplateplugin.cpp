@@ -6,7 +6,7 @@
  * Date        : 2018-07-30
  * Description : a BQM plugin to assign template
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -39,7 +39,7 @@ AssignTemplatePlugin::AssignTemplatePlugin(QObject* const parent)
 
 QString AssignTemplatePlugin::name() const
 {
-    return i18nc("@title", "Apply Metadata Template");
+    return i18nc("@title", "Apply Template");
 }
 
 QString AssignTemplatePlugin::iid() const
@@ -82,7 +82,7 @@ QList<DPluginAuthor> AssignTemplatePlugin::authors() const
     return QList<DPluginAuthor>()
             << DPluginAuthor(QString::fromUtf8("Gilles Caulier"),
                              QString::fromUtf8("caulier dot gilles at gmail dot com"),
-                             QString::fromUtf8("(C) 2009-2025"))
+                             QString::fromUtf8("(C) 2009-2026"))
             ;
 }
 

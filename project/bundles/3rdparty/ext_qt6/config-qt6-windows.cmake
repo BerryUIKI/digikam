@@ -1,9 +1,9 @@
 ################################################################################
 #
 # Script to build Qt 6 - config for Windows
-# See option details on configure-help text file
+# See option details on config-help text file
 #
-# Copyright (c) 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# Copyright (c) 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
@@ -73,8 +73,8 @@ LIST(APPEND QT_CONFIG
             -skip qtremoteobjects
             -skip qtrepotools
             -skip qtvirtualkeyboard
-            -skip qtnetworkauth               # No need network authentification support.
-            -skip qtandroidextras             # For embeded devices only
+            -skip qtnetworkauth               # No need network authentication support.
+            -skip qtandroidextras             # For embedded devices only
             -skip qtmacextras                 # For MacOS devices only
             -skip qtwebglplugin
             -skip qtwebview

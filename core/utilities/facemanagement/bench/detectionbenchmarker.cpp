@@ -7,7 +7,7 @@
  * Description : Face detection benchmarker
  *
  * SPDX-FileCopyrightText: 2010-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -142,7 +142,7 @@ QString DetectionBenchmarker::result() const
 
     if (negativeImages < (0.2 * totalImages))
     {
-        specificityWarning = QString::fromUtf8("<p><b>Note:</b><br/> "
+        specificityWarning = QString::fromUtf8("<p><b>Note:</b><br> "
                                                "Only %1 of the %2 test images have <i>no</i> depicted faces. "
                                                "This means the result is cannot be representative; "
                                                "it can only be used to compare preselected collections, "
@@ -153,7 +153,7 @@ QString DetectionBenchmarker::result() const
 
     if (trueFaces == 0)
     {
-        sensitivityWarning = QString::fromUtf8("<p><b>Note:</b><br/> "
+        sensitivityWarning = QString::fromUtf8("<p><b>Note:</b><br> "
                                                "No picture in the test collection contained a face. "
                                                "This means that sensitivity and PPV have no meaning and will be zero. </p>");
         trueFaces          = 1;
@@ -174,22 +174,22 @@ QString DetectionBenchmarker::result() const
     double ppv               = double(truePositiveFaces)   / (truePositiveFaces + falsePositiveFaces);
 
     return QString::fromUtf8("<p>"
-                             "<u>Collection Properties:</u><br/>"
-                             "%1 Images <br/>"
-                             "%2 Faces <br/>"
-                             "%3% of pixels covered by faces <br/>"
+                             "<u>Collection Properties:</u><br>"
+                             "%1 Images <br>"
+                             "%2 Faces <br>"
+                             "%3% of pixels covered by faces <br>"
                              "</p>"
                              "%8"
                              "%9"
                              "<p>"
-                             "<u>Per-Image Performance:</u> <br/>"
-                             "Specificity: %4% <br/>"
+                             "<u>Per-Image Performance:</u> <br>"
+                             "Specificity: %4% <br>"
                              "False-Positive Rate: %5%"
                              "</p>"
                              "<p>"
-                             "<u>Per-Face Performance:</u> <br/>"
-                             "Sensitivity: %6% <br/>"
-                             "Positive Predictive Value: %7% <br/>"
+                             "<u>Per-Face Performance:</u> <br>"
+                             "Sensitivity: %6% <br>"
+                             "Positive Predictive Value: %7% <br>"
                              "</p>"
                              "<p>"
                              "In other words, if a face is detected as face, it will "

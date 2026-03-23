@@ -7,7 +7,7 @@
  * Description : Media server manager
  *
  * SPDX-FileCopyrightText: 2012      by Smit Mehta <smit dot meh at gmail dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -34,6 +34,12 @@ class DMediaServerMngr : public QObject
     Q_OBJECT
 
 public:
+
+    DMediaServerMngr();
+    ~DMediaServerMngr() override;
+
+    /// This manager is a singleton. Use this method to control the DLNA server instance.
+    static DMediaServerMngr* instance();
 
     /// Setup the list of items to share with the DLNA server into a single album.
     void setItemsList(const QString& aname, const QList<QUrl>& urls);
@@ -75,22 +81,12 @@ public:
     /// Send a notification message if MediaServer have been started or not.
     void mediaServerNotification(bool started);
 
-public:
-
-    /// This manager is a singleton. Use this method to control the DLNA server instance.
-    static DMediaServerMngr* instance();
-
 private:
 
     // Disable
-
-    DMediaServerMngr();
     explicit DMediaServerMngr(QObject*) = delete;
-    ~DMediaServerMngr() override;
 
 private:
-
-    friend class DMediaServerMngrCreator;
 
     class Private;
     Private* const d = nullptr;

@@ -6,7 +6,7 @@
  * Date        : 2011-12-28
  * Description : a class to manage Raw to Png conversion using threads
  *
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText:      2014 by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -47,6 +47,8 @@ protected:
 
     void run() override
     {
+        ActionJob::run();       // To customize thread name
+
         Q_EMIT signalStarted();
 
         QImage image;

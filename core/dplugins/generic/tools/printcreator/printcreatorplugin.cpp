@@ -6,7 +6,7 @@
  * Date        : 2018-07-30
  * Description : a plugin to create print compositions.
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -61,7 +61,7 @@ QString PrintCreatorPlugin::description() const
 
 QString PrintCreatorPlugin::details() const
 {
-    return i18n("<p>This tool allows users to back-process items (as assemble) before to print.</p>"
+    return i18n("<p>This tool allows users to back-process items (e.g., assemble them) before to print.</p>"
                 "<p>Items to process can be selected one by one or by group through a selection of albums.</p>"
                 "<p>Different pre-defined paper sizes and layouts can be used to process files.</p>");
 }

@@ -6,7 +6,7 @@
  * Date        : 2006-02-23
  * Description : item metadata interface - template helpers.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2011      by Leif Huhn <leif at dkstat dot com>
  *
@@ -45,6 +45,7 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
     MetaEngine::AltLangMap copyright  = t.copyright();
     MetaEngine::AltLangMap rightUsage = t.rightUsageTerms();
     QString instructions              = t.instructions();
+    const QString xdefault            = QLatin1String("x-default");
 
     //qCDebug(DIGIKAM_METAENGINE_LOG) << "Applying Metadata Template: " << t.templateTitle() << " :: " << authors;
 
@@ -64,6 +65,11 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
                 return false;
             }
         }
+        else
+        {
+            removeXmpTag("Xmp.dc.creator");
+            removeXmpTag("Xmp.tiff.Artist");
+        }
 
         if (!authorsPosition.isEmpty())
         {
@@ -72,6 +78,10 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
                 return false;
             }
         }
+        else
+        {
+            removeXmpTag("Xmp.photoshop.AuthorsPosition");
+        }
 
         if (!credit.isEmpty())
         {
@@ -79,6 +89,10 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
             {
                 return false;
             }
+        }
+        else
+        {
+            removeXmpTag("Xmp.photoshop.Credit");
         }
 
         if (!source.isEmpty())
@@ -93,8 +107,13 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
                 return false;
             }
         }
+        else
+        {
+            removeXmpTag("Xmp.photoshop.Source");
+            removeXmpTag("Xmp.dc.source");
+        }
 
-        if (!copyright.isEmpty())
+        if (!copyright.value(xdefault).isEmpty())
         {
             if (!setXmpTagStringListLangAlt("Xmp.dc.rights", copyright))
             {
@@ -106,13 +125,22 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
                 return false;
             }
         }
+        else
+        {
+            removeXmpTag("Xmp.dc.rights");
+            removeXmpTag("Xmp.tiff.Copyright");
+        }
 
-        if (!rightUsage.isEmpty())
+        if (!rightUsage.value(xdefault).isEmpty())
         {
             if (!setXmpTagStringListLangAlt("Xmp.xmpRights.UsageTerms", rightUsage))
             {
                 return false;
             }
+        }
+        else
+        {
+             removeXmpTag("Xmp.xmpRights.UsageTerms");
         }
 
         if (!instructions.isEmpty())
@@ -121,6 +149,10 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
             {
                 return false;
             }
+        }
+        else
+        {
+            removeXmpTag("Xmp.photoshop.Instructions");
         }
     }
 
@@ -135,6 +167,10 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
             return false;
         }
     }
+    else
+    {
+        removeIptcTag("Iptc.Application2.Byline");
+    }
 
     if (!authorsPosition.isEmpty())
     {
@@ -142,6 +178,10 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
         {
             return false;
         }
+    }
+    else
+    {
+        removeIptcTag("Iptc.Application2.BylineTitle");
     }
 
     if (!credit.isEmpty())
@@ -151,6 +191,10 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
             return false;
         }
     }
+    else
+    {
+        removeIptcTag("Iptc.Application2.Credit");
+    }
 
     if (!source.isEmpty())
     {
@@ -159,21 +203,33 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
             return false;
         }
     }
-
-    if (!copyright[QLatin1String("x-default")].isEmpty())
+    else
     {
-        if (!setIptcTag(copyright[QLatin1String("x-default")], 128, "Copyright",     "Iptc.Application2.Copyright"))
+        removeIptcTag("Iptc.Application2.Source");
+    }
+
+    if (!copyright.value(xdefault).isEmpty())
+    {
+        if (!setIptcTag(copyright[xdefault],   128, "Copyright",      "Iptc.Application2.Copyright"))
         {
             return false;
         }
     }
+    else
+    {
+        removeIptcTag("Iptc.Application2.Copyright");
+    }
 
     if (!instructions.isEmpty())
     {
-        if (!setIptcTag(instructions,           256, "Instructions",  "Iptc.Application2.SpecialInstructions"))
+        if (!setIptcTag(instructions,          256, "Instructions",   "Iptc.Application2.SpecialInstructions"))
         {
             return false;
         }
+    }
+    else
+    {
+        removeIptcTag("Iptc.Application2.SpecialInstructions");
     }
 
     if (!setIptcCoreLocation(t.locationInfo()))
@@ -195,6 +251,10 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
                 return false;
             }
         }
+    }
+    else
+    {
+        removeXmpTag("Xmp.iptc.SubjectCode");
     }
 
     // Synchronize Iptc subjects tags with Xmp subjects tags.
@@ -218,6 +278,38 @@ bool DMetadata::setMetadataTemplate(const Template& t) const
         {
             return false;
         }
+    }
+    else
+    {
+        removeIptcTag("Iptc.Application2.Subject");
+    }
+
+    // Synchronize Exif Tags. See bug #392451
+
+    if (!authors.isEmpty())
+    {
+        // All properties must be list in a single string separated by semi-colons.
+
+        if (!setExifTagString("Exif.Image.Artist", authors.join(QLatin1Char(';'))))
+        {
+            return false;
+        }
+    }
+    else
+    {
+        removeExifTag("Exif.Image.Artist");
+    }
+
+    if (!copyright.value(xdefault).isEmpty())
+    {
+        if (!setExifTagString("Exif.Image.Copyright", copyright.value(xdefault)))
+        {
+            return false;
+        }
+    }
+    else
+    {
+        removeExifTag("Exif.Image.Copyright");
     }
 
     return true;
@@ -274,6 +366,11 @@ bool DMetadata::removeMetadataTemplate() const
 
     removeXmpTag("Xmp.iptc.SubjectCode");
     removeIptcTag("Iptc.Application2.Subject");
+
+    // Remove extra Exif Tags.
+
+    removeExifTag("Exif.Image.Artist");
+    removeExifTag("Exif.Image.Copyright");
 
     return true;
 }

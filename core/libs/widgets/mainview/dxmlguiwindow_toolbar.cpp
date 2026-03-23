@@ -6,7 +6,7 @@
  * Date        : 2013-04-29
  * Description : digiKam XML GUI window - Tool-bar methods.
  *
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -22,9 +22,9 @@ void DXmlGuiWindow::slotConfToolbars()
     KConfigGroup group = KSharedConfig::openConfig()->group(configGroupName());
     saveMainWindowSettings(group);
 
-    KEditToolBar dlg(factory(), this);
+    QPointer<KEditToolBar> dlg = new KEditToolBar(factory(), this);
 
-    QDialogButtonBox* const btnbox = dlg.findChild<QDialogButtonBox*>();
+    QDialogButtonBox* const btnbox = dlg->findChild<QDialogButtonBox*>();
 
     if (btnbox)
     {
@@ -38,10 +38,11 @@ void DXmlGuiWindow::slotConfToolbars()
         );
     }
 
-    connect(&dlg, SIGNAL(newToolbarConfig()),
-            this, SLOT(slotNewToolbarConfig()));
+    connect(dlg, &KEditToolBar::newToolBarConfig,
+            this, &DXmlGuiWindow::slotNewToolbarConfig);
 
-    (void)dlg.exec();
+    (void)dialogExec(dlg);
+    delete dlg;
 }
 
 void DXmlGuiWindow::slotNewToolbarConfig()

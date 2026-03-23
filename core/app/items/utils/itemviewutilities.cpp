@@ -7,7 +7,7 @@
  * Description : Various operation on items
  *
  * SPDX-FileCopyrightText: 2002-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2009-2010 by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -42,6 +42,7 @@
 #include "dio.h"
 #include "imagewindow.h"
 #include "lighttablewindow.h"
+#include "surveywindow.h"
 #include "loadingcacheinterface.h"
 #include "queuemgrwindow.h"
 #include "thumbnailloadthread.h"
@@ -462,7 +463,7 @@ void ItemViewUtilities::createGroupByFilenameFromInfoList(const ItemInfoList& it
     for (it = groupingList.begin() ; it != groupingList.end() ; )
     {
         QList<ItemInfo> group;
-        QString fname = it->name().left(it->name().lastIndexOf(QLatin1Char('.')));
+        QString fname = it->name().left(it->name().indexOf(QLatin1Char('.')));
 
         // don't know the leader yet so put first element also in group
 
@@ -470,7 +471,7 @@ void ItemViewUtilities::createGroupByFilenameFromInfoList(const ItemInfoList& it
 
         for (it2 = it + 1 ; it2 != groupingList.end() ; ++it2)
         {
-            QString fname2 = it2->name().left(it2->name().lastIndexOf(QLatin1Char('.')));
+            QString fname2 = it2->name().left(it2->name().indexOf(QLatin1Char('.')));
 
             if (fname == fname2)
             {

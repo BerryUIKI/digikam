@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -11,6 +11,8 @@ set(libthreadimageio_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/preview/previewloadthread.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/preview/previewtask.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/preview/previewsettings.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/preview/previewosdsettings.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/preview/previewosdwidget.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/thumb/thumbnailcreator.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/thumb/thumbnailcreator_basic.cpp

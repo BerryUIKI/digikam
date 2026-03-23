@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2012      by Smit Mehta <smit dot meh at gmail dot com>
  * SPDX-FileCopyrightText: 2003-2005 by Jesper Pedersen <blackie at kde dot org>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2018-2021 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -187,11 +187,8 @@ TimeAdjustDialog::TimeAdjustDialog(QWidget* const parent, DInfoInterface* const 
     connect(d->settingsView, SIGNAL(signalSrcTimestampChanged()),
             d->thread, SLOT(slotSrcTimestampChanged()));
 
-    connect(d->settingsView, SIGNAL(signalSettingsChangedTool()),
-            this, SLOT(slotPreviewTimestamps()));
-
     connect(d->settingsView, SIGNAL(signalSettingsChanged()),
-            this, SLOT(slotPreviewTimestamps()));
+            d->previewTimer, SLOT(start()));
 
     connect(this, SIGNAL(finished(int)),
             this, SLOT(slotDialogFinished()));
@@ -220,7 +217,7 @@ TimeAdjustDialog::TimeAdjustDialog(QWidget* const parent, DInfoInterface* const 
         ++index;
     }
 
-    slotPreviewTimestamps();
+    d->previewTimer->start();
 }
 
 TimeAdjustDialog::~TimeAdjustDialog()
@@ -320,17 +317,6 @@ void TimeAdjustDialog::saveSettings()
     group.writeEntry(QLatin1String("File Timestamp Type"),             prm.fileDateSource);
 }
 
-void TimeAdjustDialog::slotPreviewTimestamps()
-{
-    if (d->thread->isRunning())
-    {
-        d->thread->cancel();
-        d->thread->wait();
-    }
-
-    d->previewTimer->start();
-}
-
 void TimeAdjustDialog::slotUpdateTimestamps()
 {
     if (d->thread->isRunning())
@@ -358,6 +344,16 @@ void TimeAdjustDialog::slotOkExitTimestamps()
 
 void TimeAdjustDialog::slotPreviewTimer()
 {
+    if      (d->thread->isRunning() && d->isProcessed)
+    {
+        return;
+    }
+    else if (d->thread->isRunning())
+    {
+        d->thread->cancel();
+        d->thread->wait();
+    }
+
     d->listView->setWaitStatus();
 
     d->thread->setSettings(d->settingsView->settings());
@@ -370,6 +366,7 @@ void TimeAdjustDialog::slotUpdateTimer()
     d->listView->setWaitStatus();
 
     d->progressBar->show();
+    d->progressBar->reset();
     d->progressBar->setMaximum(d->itemsUsedMap.size());
     d->progressBar->progressScheduled(i18nc("@info", "Adjust Time and Date"), true, true);
     d->progressBar->progressThumbnailChanged(QIcon::fromTheme(QLatin1String("appointment-new")).pixmap(22, 22));

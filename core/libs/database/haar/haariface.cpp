@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2016-2018 by Mario Frank <mario dot frank at uni minus potsdam dot de>
  * SPDX-FileCopyrightText: 2003      by Ricardo Niederberger Cabral <nieder at mail dot ru>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
  *
@@ -416,13 +416,13 @@ QPair<double, QMap<qlonglong, double> > HaarIface::bestMatchesWithThreshold(qlon
 
     // Debug output
 
-    if (bestMatches.count() > 1)
+    if (bestMatches.size() > 1)
     {
         // The average percentage is the sum of all percentages
         // (without the original picture) divided by the count of pictures -1.
         // Subtracting 1 is necessary since the original picture is not used for the calculation.
 
-        avgPercentage = avgPercentage / (bestMatches.count() - 1);
+        avgPercentage = avgPercentage / (bestMatches.size() - 1);
 
         qCDebug(DIGIKAM_DATABASE_LOG) << "Duplicates with id and score:";
 
@@ -602,7 +602,6 @@ void HaarIface::getBestAndWorstPossibleScore(Haar::SignatureData* const sig,
     *lowestAndBestScore = score;
 }
 
-
 QMap<QString, QString> HaarIface::writeSAlbumQueries(const DuplicatesResultsMap& searchResults)
 {
     // Build search XML from the results. Store list of ids of similar images.
@@ -777,8 +776,9 @@ HaarIface::DuplicatesResultsMap HaarIface::findDuplicates(const QSet<qlonglong>&
     QPair<double, QMap<qlonglong, double> > bestMatches;
     QList<qlonglong>                        duplicates;
     QSet<qlonglong>                         resultsCandidates;
-    const bool                              singleThread = ((rangeBegin == images2Scan.constBegin()) &&
-                                                            (rangeEnd   == images2Scan.constEnd()));
+    int                                     duplicatesFound = 0;
+    const bool                              singleThread    = ((rangeBegin == images2Scan.constBegin()) &&
+                                                               (rangeEnd   == images2Scan.constEnd()));
 
     // create signature cache map for fast lookup
 
@@ -810,23 +810,25 @@ HaarIface::DuplicatesResultsMap HaarIface::findDuplicates(const QSet<qlonglong>&
         {
             // find images with required similarity
 
-            bestMatches = bestMatchesForImageWithThreshold(*images2ScanIterator,
-                                                           requiredPercentage,
-                                                           maximumPercentage,
-                                                           emptyTargetAlbums,
-                                                           searchResultRestriction,
-                                                           ScannedSketch);
+            bestMatches  = bestMatchesForImageWithThreshold(*images2ScanIterator,
+                                                            requiredPercentage,
+                                                            maximumPercentage,
+                                                            emptyTargetAlbums,
+                                                            searchResultRestriction,
+                                                            ScannedSketch);
 
             // We need only the image ids from the best matches map.
 
-            duplicates = bestMatches.second.keys();
+            duplicates   = bestMatches.second.keys();
 
             // the list will usually contain one image: the original. Filter out.
 
             if (
-                !(duplicates.isEmpty())     &&
-                !((duplicates.count() == 1) &&
-                (duplicates.first() == *images2ScanIterator))
+                !duplicates.isEmpty()                       &&
+                !(
+                  (duplicates.count() == 1)                 &&
+                  (duplicates.first() == *images2ScanIterator)
+                 )
                )
             {
                 DEBUG_DUPLICATES("\tHas duplicates");
@@ -972,7 +974,7 @@ HaarIface::DuplicatesResultsMap HaarIface::findDuplicates(const QSet<qlonglong>&
                             {
                                 const QString path = info.filePath();
                                 const QString name = info.name();
-                                DEBUG_DUPLICATES("\t\tUse as eference image: " << name << "Path: " << path << ", Id: " << info.id() << "Pixelsize: " << infoPixelSize << ", File size: " << refFileSize << ", Datetime: " << refDateTime);
+                                DEBUG_DUPLICATES("\t\tUse as reference image: " << name << "Path: " << path << ", Id: " << info.id() << "Pixelsize: " << infoPixelSize << ", File size: " << refFileSize << ", Datetime: " << refDateTime);
                             }
 
 #endif
@@ -983,6 +985,7 @@ HaarIface::DuplicatesResultsMap HaarIface::findDuplicates(const QSet<qlonglong>&
                             }
                         }
                     }
+
                 }
 
                 resultsMap.insert(reference, qMakePair(bestMatches.first, duplicates));
@@ -1007,8 +1010,10 @@ HaarIface::DuplicatesResultsMap HaarIface::findDuplicates(const QSet<qlonglong>&
             observer->imageProcessed(
                                      info,
                                      QImage(),              // See bug 496691: performance issue - do not forward a loaded preview.
-                                     duplicates.count()
+                                     resultsCandidates.size() - duplicatesFound
                                     );
+
+            duplicatesFound = resultsCandidates.size();
         }
     }
 

@@ -23,6 +23,7 @@
 // Local includes
 
 #include "iteminfo.h"
+#include "itemposition.h"
 #include "coredbfields.h"
 #include "facetagseditor.h"
 
@@ -117,19 +118,24 @@ Qt::SortOrder ItemSortSettings::defaultSortOrderForSortRole(SortRole role)
     {
         case SortByFilePath:
         case SortByFileName:
+        case SortByFormat:
         case SortByCreationDate:
         case SortByModificationDate:
         case SortByManualOrderAndName:
         case SortByManualOrderAndDate:
         case SortByFaces:
+        case SortByGpsPosition:
         {
             return Qt::AscendingOrder;
         }
 
         case SortByRating:
+        case SortByPickLabel:
+        case SortByColorLabel:
         case SortByFileSize:
         case SortByImageSize:
         case SortBySimilarity:
+        case SortByOrientation:
         case SortByAspectRatio:
         {
             return Qt::DescendingOrder;
@@ -341,6 +347,11 @@ bool ItemSortSettings::lessThan(const ItemInfo& left, const ItemInfo& right) con
         return (result < 0);
     }
 
+    if ((result = compare(left, right, SortByFormat)) != 0)
+    {
+        return (result < 0);
+    }
+
     if ((result = compare(left, right, SortByCreationDate)) != 0)
     {
         return (result < 0);
@@ -357,6 +368,11 @@ bool ItemSortSettings::lessThan(const ItemInfo& left, const ItemInfo& right) con
     }
 
     if ((result = compare(left, right, SortByFileSize)) != 0)
+    {
+        return (result < 0);
+    }
+
+    if ((result = compare(left, right, SortByGpsPosition)) != 0)
     {
         return (result < 0);
     }
@@ -409,6 +425,17 @@ int ItemSortSettings::compare(const ItemInfo& left, const ItemInfo& right, SortR
                                  );
         }
 
+        case SortByFormat:
+        {
+            return naturalCompare(
+                                  left.format(),
+                                  right.format(),
+                                  currentSortOrder,
+                                  sortCaseSensitivity,
+                                  strTypeNatural
+                                 );
+        }
+
         case SortByFileSize:
         {
             return compareByOrder(left.fileSize(), right.fileSize(), currentSortOrder);
@@ -431,6 +458,16 @@ int ItemSortSettings::compare(const ItemInfo& left, const ItemInfo& right, SortR
             return (- compareByOrder(left.rating(), right.rating(), currentSortOrder));
         }
 
+        case SortByPickLabel:
+        {
+            return (- compareByOrder(left.pickLabel(), right.pickLabel(), currentSortOrder));
+        }
+
+        case SortByColorLabel:
+        {
+            return (- compareByOrder(left.colorLabel(), right.colorLabel(), currentSortOrder));
+        }
+
         case SortByImageSize:
         {
             QSize leftSize  = left.dimensions();
@@ -441,6 +478,11 @@ int ItemSortSettings::compare(const ItemInfo& left, const ItemInfo& right, SortR
             return compareByOrder(leftPixels, rightPixels, currentSortOrder);
         }
 
+        case SortByOrientation:
+        {
+            return (- compareByOrder(left.orientation(), right.orientation(), currentSortOrder));
+        }
+
         case SortByAspectRatio:
         {
             QSize leftSize  = left.dimensions();
@@ -449,6 +491,30 @@ int ItemSortSettings::compare(const ItemInfo& left, const ItemInfo& right, SortR
             int rightAR     = (double(rightSize.width()) / double(rightSize.height())) * 1000000;
 
             return compareByOrder(leftAR, rightAR, currentSortOrder);
+        }
+
+        case SortByGpsPosition:
+        {
+            ItemPosition leftPos  = left.imagePosition();
+            ItemPosition rightPos = right.imagePosition();
+
+            // Check if position are valid.
+
+            if (!leftPos.isEmpty() || !rightPos.isEmpty())
+            {
+                return 1;
+            }
+
+            // Compare by latitude and next by longitude.
+
+            int latCompare = (- compareByOrder(leftPos.latitudeNumber(), rightPos.latitudeNumber(), currentSortOrder));
+
+            if (latCompare != 0)
+            {
+                return latCompare;
+            }
+
+            return (- compareByOrder(leftPos.longitudeNumber(), rightPos.longitudeNumber(), currentSortOrder));
         }
 
         case SortBySimilarity:
@@ -717,6 +783,12 @@ DatabaseFields::Set ItemSortSettings::watchFlags() const
             break;
         }
 
+        case SortByFormat:
+        {
+            set |= DatabaseFields::Format;
+            break;
+        }
+
         case SortByFileSize:
         {
             set |= DatabaseFields::FileSize;
@@ -741,15 +813,39 @@ DatabaseFields::Set ItemSortSettings::watchFlags() const
             break;
         }
 
+        case SortByPickLabel:
+        {
+            set |= DatabaseFields::PickLabel;
+            break;
+        }
+
+        case SortByColorLabel:
+        {
+            set |= DatabaseFields::ColorLabel;
+            break;
+        }
+
         case SortByImageSize:
         {
             set |= DatabaseFields::Width | DatabaseFields::Height;
             break;
         }
 
+        case SortByOrientation:
+        {
+            set |= DatabaseFields::Orientation;
+            break;
+        }
+
         case SortByAspectRatio:
         {
             set |= DatabaseFields::Width | DatabaseFields::Height;
+            break;
+        }
+
+        case SortByGpsPosition:
+        {
+            set |= DatabaseFields::LatitudeNumber | DatabaseFields::LongitudeNumber;
             break;
         }
 

@@ -6,7 +6,7 @@
  * Date        : 2015-04-13
  * Description : Generic process launcher with a capture of console output
  *
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -62,12 +62,12 @@ public:
     qint64 elapsedTime()    const;
 
     /**
-     * Return the process outout as string.
+     * Return the process output as string.
      */
     QString output()        const;
 
     /**
-     * Return true if the process is startd and completed without error.
+     * Return true if the process is started and completed without error.
      */
     bool success()          const;
 

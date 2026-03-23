@@ -6,7 +6,7 @@
  * Date        : 2006-09-19
  * Description : Thread for correlator for tracks and images
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2010      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -18,6 +18,10 @@
 // Qt includes
 
 #include <QTimeZone>
+
+// Local includes
+
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -34,6 +38,8 @@ TrackCorrelatorThread::TrackCorrelatorThread(QObject* const parent)
 
 void TrackCorrelatorThread::run()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String("TrackCorrelatorThread"));       // To customize thread name
+
     // sort the items to correlate by time:
 
     std::sort(itemsToCorrelate.begin(), itemsToCorrelate.end(), TrackCorrelationLessThan);

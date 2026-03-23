@@ -6,7 +6,7 @@
  * Date        : 2008-12-10
  * Description : tool tip widget for iconview, thumbbar, and folderview items
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -119,7 +119,7 @@ QString DToolTipStyleSheet::breakString(const QString& input) const
         if ((count >= maxStringLength) && str.at(i).isSpace())
         {
             count = 0;
-            br.append(QLatin1String("<br/>"));
+            br.append(QLatin1String("<br>"));
         }
         else
         {

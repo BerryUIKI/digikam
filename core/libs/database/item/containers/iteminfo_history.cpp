@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2005      by Renchi Raju <renchi dot raju at gmail dot com>
  * SPDX-FileCopyrightText: 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -79,18 +79,18 @@ HistoryImageId ItemInfo::historyImageId() const
         return HistoryImageId();
     }
 
-    HistoryImageId id(uuid());
-    id.setCreationDate(dateTime());
-    id.setFileName(name());
-    id.setPathOnDisk(filePath());
+    HistoryImageId hid(uuid());
+    hid.setCreationDate(dateTime());
+    hid.setFileName(name());
+    hid.setPathOnDisk(filePath());
 
     if (CoreDbAccess().db()->getUniqueHashVersion() > 1)
     {
         ItemScanInfo info = CoreDbAccess().db()->getItemScanInfo(m_data->id);
-        id.setUniqueHash(info.uniqueHash, info.fileSize);
+        hid.setUniqueHash(info.uniqueHash, info.fileSize);
     }
 
-    return id;
+    return hid;
 }
 
 bool ItemInfo::hasDerivedImages() const

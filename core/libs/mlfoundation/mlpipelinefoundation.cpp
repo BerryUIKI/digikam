@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Foundation for all machine learning pipelines
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -37,7 +37,7 @@ MLPipelineFoundation::MLPipelineFoundation()
     : QObject()
 {
     threadPool = new QThreadPool(this);
-    threadPool->setMaxThreadCount(qMax(8, QThread::idealThreadCount()*2));
+    threadPool->setMaxThreadCount(qMax(8, QThread::idealThreadCount() * 2));
 
     connect(this, &MLPipelineFoundation::signalAddMoreWorkers,
             this, &MLPipelineFoundation::slotAddMoreWorkers);
@@ -701,12 +701,13 @@ void MLPipelineFoundation::showPipelinePerformance() const
 
         if (profile.itemCount > 0)
         {
-            qCDebug(DIGIKAM_MLPIPELINEFOUNDATION_LOG) << "Stage:" << stage << " Items Processed:" << profile.itemCount
-                                                      << " Max Thread Count:" << profile.maxThreadCount
-                                                      << " Max Queue Depth:" << profile.maxQueueCount
-                                                      << " Total Elapsed:" << profile.elapsedTime
-                                                      << " Max Elapsed:" << profile.maxElapsedTime
-                                                      << " Avg Elapsed:" << profile.elapsedTime / profile.itemCount;
+            qCDebug(DIGIKAM_MLPIPELINEFOUNDATION_LOG) << "Stage:"               << stage
+                                                      << " Items Processed:"    << profile.itemCount
+                                                      << " Max Thread Count:"   << profile.maxThreadCount
+                                                      << " Max Queue Depth:"    << profile.maxQueueCount
+                                                      << " Total Elapsed:"      << profile.elapsedTime
+                                                      << " Max Elapsed:"        << profile.maxElapsedTime
+                                                      << " Avg Elapsed:"        << profile.elapsedTime / profile.itemCount;
         }
     }
 

@@ -1,6 +1,6 @@
 #!/usr/bin/perl
 
-# SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
@@ -42,7 +42,7 @@ foreach my $line (@content) {
         my $num = sprintf("%03d", $count);
         my($bugnum, $desc) = $line =~ /(\d+),"(.+)"/;
         $desc =~ s/\"\"/\"/g;
-        $fixed_bugs .= "$num ==> $bugnum - $desc\n";
+        $fixed_bugs .= "$num --> $bugnum - $desc\n";
     }
     $count++;
 }

@@ -6,7 +6,7 @@
  * Date        : 2014-09-18
  * Description : slideshow image widget
  *
- * SPDX-FileCopyrightText: 2014-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2014-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2019-2020 by Minh Nghia Duong <minhnghiaduong997 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -25,6 +25,7 @@
 #include "digikam_export.h"
 #include "loadingdescription.h"
 #include "previewsettings.h"
+#include "slideshowsettings.h"
 #include "dimg.h"
 
 using namespace Digikam;
@@ -41,7 +42,7 @@ public:
     explicit SlideImage(QWidget* const parent);
     ~SlideImage()                   override;
 
-    void setPreviewSettings(const PreviewSettings& settings);
+    void setSlideShowSettings(SlideShowSettings* const settings);
     void setLoadUrl(const QUrl& url);
     void setPreloadUrl(const QUrl& url);
 

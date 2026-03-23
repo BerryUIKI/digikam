@@ -6,7 +6,7 @@
  * Date        : 2017-05-25
  * Description : a tool to generate video slideshow from images.
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -102,9 +102,9 @@ VidSlideIntroPage::VidSlideIntroPage(QWizard* const dialog, const QString& title
     binaryBox->setTitle(i18nc("@title:group", "FFmpeg Binary"));
     d->binSearch = new DBinarySearch(binaryBox);
     d->binSearch->addBinary(d->ffmpegBin);
-    const auto pathes = d->wizard->settings()->defaultFFmpegSearchPaths();
+    const auto paths = d->wizard->settings()->defaultFFmpegSearchPaths();
 
-    for (const QString& path : pathes)
+    for (const QString& path : paths)
     {
         d->binSearch->addDirectory(path);
     }

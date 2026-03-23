@@ -7,7 +7,7 @@
  * Description : a presentation tool.
  *
  * SPDX-FileCopyrightText: 2007-2009 by Valerio Fuoglio <valerio dot fuoglio at gmail dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * Parts of this code are based on
  * smoothslidesaver by Carsten Weinhold <carsten dot weinhold at gmx dot de>
@@ -536,7 +536,17 @@ void PresentationKB::applyTexture(KBImage* const img, const QImage &texture)
     /* create the texture */
 
     img->m_texture = new QOpenGLTexture(QOpenGLTexture::Target2D);
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 9, 0))
+
+    img->m_texture->setData(texture.flipped());
+
+#else
+
     img->m_texture->setData(texture.mirrored());
+
+#endif
+
     img->m_texture->setMinificationFilter(QOpenGLTexture::LinearMipMapLinear);
     img->m_texture->setMagnificationFilter(QOpenGLTexture::Linear);
     img->m_texture->bind();
@@ -613,7 +623,17 @@ void PresentationKB::endOfShow()
     /* create the texture */
 
     d->endTexture = new QOpenGLTexture(QOpenGLTexture::Target2D);
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 9, 0))
+
+    d->endTexture->setData(pix.toImage().flipped());
+
+#else
+
     d->endTexture->setData(pix.toImage().mirrored());
+
+#endif
+
     d->endTexture->setMinificationFilter(QOpenGLTexture::LinearMipMapLinear);
     d->endTexture->setMagnificationFilter(QOpenGLTexture::Linear);
     d->endTexture->bind();

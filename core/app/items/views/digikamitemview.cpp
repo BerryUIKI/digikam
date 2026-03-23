@@ -7,7 +7,7 @@
  * Description : Qt model-view for items
  *
  * SPDX-FileCopyrightText: 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2011      by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  * SPDX-FileCopyrightText: 2014      by Mohamed_Anwer <m_dot_anwer at gmx dot com>
@@ -73,10 +73,6 @@ DigikamItemView::DigikamItemView(QWidget* const parent)
 {
     installDefaultModels();
 
-    // d->editPipeline.plugDatabaseEditor();
-    // d->editPipeline.plugTrainer();
-    // d->editPipeline.construct();
-
     d->newEditPipeline = FacePipelineEdit::instance();
     d->newEditPipeline->start();
 
@@ -102,9 +98,12 @@ DigikamItemView::DigikamItemView(QWidget* const parent)
     itemAlbumModel()->setPreloadThumbnails(true);
 
     itemModel()->setDragDropHandler(new ItemDragDropHandler(itemModel()));
+
+    setAutoScroll(true);
     setDragEnabled(true);
-    setAcceptDrops(true);
+    //setAcceptDrops(true);
     setDropIndicatorShown(false);
+    setDragDropMode(QAbstractItemView::InternalMove);
 
     setToolTipEnabled(settings->showToolTipsIsValid());
     itemFilterModel()->setStringTypeNatural(settings->isStringTypeNatural());
@@ -113,33 +112,43 @@ DigikamItemView::DigikamItemView(QWidget* const parent)
     itemFilterModel()->setCategorizationMode((ItemSortSettings::CategorizationMode)settings->getImageSeparationMode());
     itemFilterModel()->setCategorizationSortOrder((ItemSortSettings::SortOrder) settings->getImageSeparationSortOrder());
 
-    // selection overlay
+    // --- Plug icon-view overlays 
+
+    // Selection overlay
 
     addSelectionOverlay(d->normalDelegate);
     addSelectionOverlay(d->faceDelegate);
 
-    // rotation overlays
+    // Rotation overlay
 
     d->rotateLeftOverlay  = ItemRotateOverlay::left(this);
     d->rotateRightOverlay = ItemRotateOverlay::right(this);
     d->fullscreenOverlay  = ItemFullScreenOverlay::instance(this);
     d->updateOverlays();
 
-    // rating overlay
+    // Rating overlay
 
     ItemRatingOverlay* const ratingOverlay = new ItemRatingOverlay(this);
     addOverlay(ratingOverlay);
 
-    // face overlays
-    // NOTE: order to plug this overlay is important, else rejection cant be suitable (see bug #324759).
+    // Face overlay
+    // NOTE: order to plug this overlay is important, else rejection cannot be suitable (see bug #324759).
 
     addAssignNameOverlay(d->faceDelegate);
     addRejectionOverlay(d->faceDelegate);
 
+    // Group overlay
+
     GroupIndicatorOverlay* const groupOverlay = new GroupIndicatorOverlay(this);
     addOverlay(groupOverlay);
 
-    addOverlay(new ItemCoordinatesOverlay(this));
+    // Geolocation overlay
+
+    ItemCoordinatesOverlay* const geoOverlay = new ItemCoordinatesOverlay(this);
+    addOverlay(geoOverlay);
+
+    connect(geoOverlay, SIGNAL(signalOpenGeolocationMap(QModelIndex)),
+            this, SLOT(slotOpenGeolocationMap(QModelIndex)));
 
     connect(ratingOverlay, SIGNAL(ratingEdited(QList<QModelIndex>,int)),
             this, SLOT(assignRating(QList<QModelIndex>,int)));
@@ -149,6 +158,8 @@ DigikamItemView::DigikamItemView(QWidget* const parent)
 
     connect(groupOverlay, SIGNAL(showButtonContextMenu(QModelIndex,QContextMenuEvent*)),
             this, SLOT(showGroupContextMenu(QModelIndex,QContextMenuEvent*)));
+
+    // ---
 
     d->utilities = new ItemViewUtilities(this);
 
@@ -175,10 +186,12 @@ DigikamItemView::DigikamItemView(QWidget* const parent)
 DigikamItemView::~DigikamItemView()
 {
     d->newEditPipeline->cancel();
+
     while (!d->newEditPipeline->hasFinished())
     {
         QThread::msleep(10);
     }
+
     delete d;
 }
 
@@ -305,9 +318,11 @@ void DigikamItemView::slotSetupChanged()
 
 bool DigikamItemView::hasHiddenGroupedImages(const ItemInfo& info) const
 {
-    return (info.hasGroupedImages()                &&
+    return (
+            info.hasGroupedImages()               &&
             !itemFilterModel()->isAllGroupsOpen() &&
-            !itemFilterModel()->isGroupOpen(info.id()));
+            !itemFilterModel()->isGroupOpen(info.id())
+           );
 }
 
 ItemInfoList DigikamItemView::imageInfos(const QList<QModelIndex>& indexes,
@@ -323,45 +338,54 @@ ItemInfoList DigikamItemView::imageInfos(const QList<QModelIndex>& indexes,
     return infos;
 }
 
-bool DigikamItemView::getFaceMode() const
+bool DigikamItemView::isPeopleViewMode() const
 {
-    return d->faceMode;
+    return (d->sidebarViewMode == PeopleView);
 }
 
-void DigikamItemView::setFaceMode(bool on)
+void DigikamItemView::setSidebarViewMode(int mode)
 {
-    d->faceMode = on;
+    d->sidebarViewMode     = mode;
 
-    if (on)
+    // Groups open view and separation mode from settings default.
+
+    QString tagListing;
+    ItemDelegate* delegate = d->normalDelegate;
+    bool showGroupsOpen    = ApplicationSettings::instance()->getAllGroupsOpen();
+    int separationMode     = ApplicationSettings::instance()->getImageSeparationMode();
+
+    if      (mode == SearchView)
     {
-        // See ItemLister, which creates a search the implements listing tag in the ioslave
-
-        itemAlbumModel()->setSpecialTagListing(QLatin1String("faces"));
-        setItemDelegate(d->faceDelegate);
-
-        // grouping is not very much compatible with faces
-
-        itemFilterModel()->setAllGroupsOpen(true);
-
-        // by default, Face View is categorized by Faces.
-
-        itemFilterModel()->setCategorizationMode(ItemSortSettings::CategoryByFaces);
-
-        Q_EMIT signalSeparationModeChanged((int)ItemSortSettings::CategoryByFaces);
+        showGroupsOpen = true;
     }
-    else
+    else if (mode == FuzzySView)
     {
-        itemAlbumModel()->setSpecialTagListing(QString());
-        setItemDelegate(d->normalDelegate);
-
-        bool open = ApplicationSettings::instance()->getAllGroupsOpen();
-        int separationMode = ApplicationSettings::instance()->getImageSeparationMode();
-
-        itemFilterModel()->setAllGroupsOpen(open);
-        itemFilterModel()->setCategorizationMode((ItemSortSettings::CategorizationMode)separationMode);
-
-        Q_EMIT signalSeparationModeChanged((int)separationMode);
+        showGroupsOpen = true;
     }
+    else if (mode == PeopleView)
+    {
+        // See ItemLister, which creates a search the
+        // implements listing tag in the ioslave
+
+        tagListing     = QLatin1String("faces");
+        delegate       = d->faceDelegate;
+
+        // Grouping is not very much compatible with faces.
+
+        showGroupsOpen = true;
+
+        // By default, Face View is categorized by Faces.
+
+        separationMode = ItemSortSettings::CategoryByFaces;
+    }
+
+    itemAlbumModel()->setSpecialTagListing(tagListing);
+    setItemDelegate(delegate);
+
+    itemFilterModel()->setAllGroupsOpen(showGroupsOpen);
+    itemFilterModel()->setCategorizationMode((ItemSortSettings::CategorizationMode)separationMode);
+
+    Q_EMIT signalSeparationModeChanged(separationMode);
 }
 
 void DigikamItemView::addRejectionOverlay(ItemDelegate* delegate)
@@ -429,7 +453,7 @@ void DigikamItemView::confirmFaces(const QList<QModelIndex>& indexes, int tagId)
 
     if (album)
     {
-        needFastRemove = (d->faceMode && (tagId != album->id()));
+        needFastRemove = (isPeopleViewMode() && (tagId != album->id()));
     }
 
     for (const QModelIndex& index : std::as_const(indexes))
@@ -733,6 +757,19 @@ void DigikamItemView::assignRating(const QList<QModelIndex>& indexes, int rating
     FileActionMngr::instance()->assignRating(infos, rating);
 }
 
+void DigikamItemView::slotOpenGeolocationMap(const QModelIndex& index)
+{
+    ItemInfo info              = itemFilterModel()->imageInfo(index);
+    ItemInfoList imageInfoList = selectedItemInfos(true);
+
+    if (!imageInfoList.contains(info))
+    {
+        setCurrentIndex(index);
+    }
+
+    Q_EMIT signalOpenGeolocationMap();
+}
+
 void DigikamItemView::groupIndicatorClicked(const QModelIndex& index)
 {
     ItemInfo info = itemFilterModel()->imageInfo(index);
@@ -767,7 +804,7 @@ void DigikamItemView::rename()
         QPointer<AdvancedRenameDialog> dlg = new AdvancedRenameDialog(this);
         dlg->slotAddImages(urls);
 
-        if (dlg->exec() != QDialog::Accepted)
+        if (dialogExec(dlg) != QDialog::Accepted)
         {
             delete dlg;
             break;
@@ -864,8 +901,8 @@ void DigikamItemView::slotInitProgressIndicator()
 
 void DigikamItemView::scrollTo(const QModelIndex& index, ScrollHint hint)
 {
-    // we do not want to change the view, when in the "Thumbnails" view in "People"
-    // see bugs 444692, 40232, ...
+    // We do not want to change the view, when in the "Thumbnails" view in "People"
+    // See bugs 444692, 440232, ...
 
     bool runningFaceAction = (
                               ProgressManager::instance()->findItembyId(FacesEngine::faceScanTaskToString(FaceScanSettings::FaceScanSource::FaceScanWidget)) ||
@@ -875,7 +912,7 @@ void DigikamItemView::scrollTo(const QModelIndex& index, ScrollHint hint)
                               ProgressManager::instance()->findItembyId(FacesEngine::faceScanTaskToString(FaceScanSettings::FaceScanSource::BQM))
                              );
 
-    if ((viewMode() == QListView::IconMode) && getFaceMode() && runningFaceAction)
+    if ((viewMode() == QListView::IconMode) && isPeopleViewMode() && runningFaceAction)
     {
         return;
     }

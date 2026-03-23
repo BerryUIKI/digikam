@@ -6,7 +6,7 @@
  * Date        : 2021-09-27
  * Description : List-view for the Showfoto stack view.
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -318,7 +318,7 @@ ShowfotoItemInfo ShowfotoStackViewList::infoFromIndex(const QModelIndex& index) 
 void ShowfotoStackViewList::slotOpenInFileManager()
 {
     QModelIndex index  = currentIndex();
-    QList<QUrl> urls;
+    QList<QUrl> urlList;
 
     if (index.isValid())
     {
@@ -326,9 +326,9 @@ void ShowfotoStackViewList::slotOpenInFileManager()
 
         if (sitem)
         {
-            urls << QUrl::fromLocalFile(sitem->info().url.toLocalFile());
+            urlList << QUrl::fromLocalFile(sitem->info().url.toLocalFile());
 
-            DFileOperations::openInFileManager(urls);
+            DFileOperations::openInFileManager(urlList);
         }
     }
 }

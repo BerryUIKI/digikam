@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Mohamed_Anwer, <m_dot_anwer at gmx dot com>
 # SPDX-FileCopyrightText: 2018      by Mario Frank,   <mario dot frank at uni minus potsdam dot de>
@@ -49,7 +49,6 @@ set(libdatabasecore_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/engine/dbengineguierrorhandler.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/engine/dbengineparameters.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/engine/dbenginebackend.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/engine/dbenginesqlquery.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/engine/dbengineaccess.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/tags/tagregion.cpp
@@ -223,6 +222,8 @@ endif()
 set(libdatabasemain_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/dbstatdlg.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/dbsettingswidget.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/dbsettingswidget_mysql.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/dbsettingswidget_properties.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/dbmigrationdlg.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/mysqlupgradebinary.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/mysqlserverbinary.cpp

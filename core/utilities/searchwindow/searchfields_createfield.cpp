@@ -7,7 +7,8 @@
  * Description : User interface for searches
  *
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2026      by Srirupa Datta <srirupa dot sps at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -178,6 +179,14 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setText(i18n("Digitization"), i18n("Return items digitized between"));
         field->setBetweenText(i18nc("'Return items digitized between...and...", "and"));
 
+        return field;
+    }
+    else if (name == QLatin1String("modifiedrecent"))
+    {
+        SearchFieldRecentModified* const field = new SearchFieldRecentModified(parent);
+        field->setFieldName(name);
+        field->setText(i18n("Modified last"),
+                    i18n("Return items modified within the last"));
         return field;
     }
     else if (name == QLatin1String("creationtime"))
@@ -361,10 +370,15 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         {
             QString shortName = make[i];
             ItemPropertiesTab::shortenedMakeInfo(shortName);
-            makeMap.insert(shortName, wildcard.arg(shortName));
+
+            if (!shortName.isEmpty())
+            {
+                makeMap.insert(shortName, wildcard.arg(shortName));
+            }
         }
 
         make.clear();
+        
         QMap<QString, QString>::const_iterator it;
 
         for (it = makeMap.constBegin() ; it != makeMap.constEnd() ; ++it)
@@ -392,10 +406,15 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         {
             QString shortName = model[i];
             ItemPropertiesTab::shortenedModelInfo(shortName);
-            modelMap.insert(shortName, wildcard.arg(model[i]));
+
+            if (!shortName.isEmpty())
+            {
+                modelMap.insert(shortName, wildcard.arg(model[i]));
+            }
         }
 
         model.clear();
+
         QMap<QString, QString>::const_iterator it;
 
         for (it = modelMap.constBegin() ; it != modelMap.constEnd() ; ++it)
@@ -418,6 +437,23 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         lens += lens;
         lens.sort();
         field->setChoice(lens);
+
+        return field;
+    }
+    else if (name == QLatin1String("nocamera"))
+    {
+        // choice
+
+        SearchFieldChoice* const field = new SearchFieldChoice(parent);
+        field->setFieldName(name);
+        field->setText(i18n("Camera"), i18n("Return items without a camera ..."));
+
+        QStringList noCamera;
+        noCamera << QLatin1String("make")  << i18nc("Camera", "Make")
+                 << QLatin1String("model") << i18nc("Camera", "Model")
+                 << QLatin1String("lens")  << i18nc("Camera", "Lens Type");
+
+        field->setChoice(noCamera);
 
         return field;
     }
@@ -620,6 +656,34 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
 
         return field;
     }
+    else if (name == QLatin1String("nocapturesettings"))
+    {
+        SearchFieldChoice* const field = new SearchFieldChoice(parent);
+        field->setFieldName(name);
+        field->setText(i18n("Capture Settings"), i18n("Return items without selected capture settings ..."));
+
+        QStringList noCaptureSettings;
+        noCaptureSettings
+        << QLatin1String("aperture")   << i18n("Aperture")
+        << QLatin1String("focallength")<< i18n("Focal length")
+        << QLatin1String("focallength35") << i18n("35mm equivalent focal length")
+        << QLatin1String("exposuretime")  << i18n("Exposure time")
+        << QLatin1String("exposureprogram") << i18n("Automatic exposure program")
+        << QLatin1String("exposuremode")    << i18n("Automatic or manual exposure")
+        << QLatin1String("sensitivity")     << i18n("ISO film speed")
+        << QLatin1String("meteringmode")    << i18n("Metering mode")
+        << QLatin1String("flashmode")       << i18nc("@label: flash mode used", "Flash mode")
+        << QLatin1String("whitebalance")    << i18n("White balance")
+        << QLatin1String("whitebalancecolortemperature") << i18n("White balance color temperature")
+        << QLatin1String("subjectdistance") << i18n("Subject Distance")
+        << QLatin1String("subjectdistancecategory") << i18n("Subject Distance Category");
+
+
+        field->setChoice(noCaptureSettings);
+
+        return field;
+    }
+
 
     else if (name == QLatin1String("latitude"))
     {
@@ -723,11 +787,35 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
 
         return field;
     }
+    else if (name == QLatin1String("noplaces"))
+    {
+        SearchFieldChoice* const field = new SearchFieldChoice(parent);
+        field->setFieldName(name);
+
+        field->setText(i18n("Place"), i18n("Return items without selected place information ..."));
+
+        QStringList noPlaceFields;
+        noPlaceFields
+            << QLatin1String("country")       << i18n("Country")
+            << QLatin1String("provinceState") << i18n("State/Province")
+            << QLatin1String("city")          << i18n("City")
+            << QLatin1String("location")      << i18n("Sublocation");
+
+        field->setChoice(noPlaceFields);
+
+        return field;
+    }
     else if (name == QLatin1String("creator"))
     {
-        SearchFieldText* const field = new SearchFieldText(parent);
+        SearchFieldChoice* const field = new SearchFieldChoice(parent);
         field->setFieldName(name);
-        field->setText(i18nc("@label: item creator", "Creator"), i18n("Return items created by"));
+        field->setText(i18nc("@label: item creator", "Creator"),
+                    i18n("Return items created by"));
+
+        QStringList creators = CoreDbAccess().db()->getAllImageCopyrightValues(QLatin1String("creator"));
+        creators += creators;
+        creators.sort();
+        field->setChoice(creators);
 
         return field;
     }
@@ -741,9 +829,15 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
     }
     else if (name == QLatin1String("commentauthor"))
     {
-        SearchFieldText* const field = new SearchFieldText(parent);
+        SearchFieldChoice* const field = new SearchFieldChoice(parent);
         field->setFieldName(name);
-        field->setText(i18n("Author"), i18n("Return items commented by"));
+        field->setText(i18n("Author"),
+                    i18n("Return items commented by"));
+
+        QStringList authors = CoreDbAccess().db()->getAllCommentAuthors(DatabaseComment::Comment);
+        authors += authors;
+        authors.sort();
+        field->setChoice(authors);
 
         return field;
     }
@@ -775,7 +869,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
     {
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
         field->setFieldName(name);
-        field->setText(i18n("Empty Text"), i18n("Return items without text in:"));
+        field->setText(i18n("Empty Text"), i18n("Return items without text in"));
         QStringList comments;
         comments << QLatin1String("creator")  << i18nc("@label: search items without creator property",  "Creator");
         comments << QLatin1String("comment")  << i18nc("@label: search items without caption property",  "Caption");
@@ -1007,7 +1101,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         type << QLatin1String("mp3")                << QLatin1String("MP3 (MPEG audio layer 3)");
         type << QLatin1String("mp3adu")             << QLatin1String("ADU (Application Data Unit) MP3 (MPEG audio layer 3)");
         type << QLatin1String("mp3on4")             << QLatin1String("MP3 on MP4");
-        type << QLatin1String("mp4als")             << QLatin1String("MPEG-4 Audio Lossless Coding (ALS)");
+        type << QLatin1String("mp4als")             << QLatin1String("MPEG-4 Audio Lossless Coding (ALS)");     // codespell:ignore als
         type << QLatin1String("musepack7")          << QLatin1String("Musepack SV7");
         type << QLatin1String("musepack8")          << QLatin1String("Musepack SV8");
         type << QLatin1String("nellymoser")         << QLatin1String("Nellymoser Asao");

@@ -6,7 +6,7 @@
  * Date        : 2008-07-11
  * Description : general info list dialog
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -89,7 +89,7 @@ InfoDlg::InfoDlg(QWidget* const parent)
 
     QLabel* const header    = new QLabel(d->page);
     header->setWordWrap(true);
-    header->setText(i18n("<font size=\"5\">%1</font><br/><b>Version %2</b>"
+    header->setText(i18n("<font size=\"5\">%1</font><br><b>Version %2</b>"
                          "<p>%3</p><p><i>%4</i></p>",
                          QApplication::applicationName(),
                          QApplication::applicationVersion(),

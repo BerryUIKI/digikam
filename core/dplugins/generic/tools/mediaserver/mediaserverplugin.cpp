@@ -6,7 +6,7 @@
  * Date        : 2018-07-30
  * Description : a plugin to share items with DLNA server.
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -43,6 +43,8 @@ void MediaServerPlugin::cleanUp()
     // Stop the Media Server if necessary
 
     DMediaServerMngr::instance()->saveAtShutdown();
+
+    delete m_toolDlg;
 }
 
 QString MediaServerPlugin::name() const
@@ -96,7 +98,7 @@ QList<DPluginAuthor> MediaServerPlugin::authors() const
                              QString::fromUtf8("(C) 2012-2013"))
             << DPluginAuthor(QString::fromUtf8("Gilles Caulier"),
                              QString::fromUtf8("caulier dot gilles at gmail dot com"),
-                             QString::fromUtf8("(C) 2012-2024"),
+                             QString::fromUtf8("(C) 2012-2025"),
                              i18n("Developer and Maintainer"))
             ;
 }
@@ -117,10 +119,13 @@ void MediaServerPlugin::setup(QObject* const parent)
 
 void MediaServerPlugin::slotMediaServer()
 {
-    QPointer<DMediaServerDlg> w = new DMediaServerDlg(this, infoIface(sender()));
-    w->setPlugin(this);
-    w->exec();
-    delete w;
+    if (!reactivateToolDialog(m_toolDlg))
+    {
+        delete m_toolDlg;
+        m_toolDlg = new DMediaServerDlg(nullptr, infoIface(sender()));
+        m_toolDlg->setPlugin(this);
+        m_toolDlg->show();
+    }
 }
 
 } // namespace DigikamGenericMediaServerPlugin

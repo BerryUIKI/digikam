@@ -6,7 +6,7 @@
  * Date        : 2009-06-20
  * Description : metadata template manager.
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -36,6 +36,11 @@ class DIGIKAM_GUI_EXPORT TemplateManager : public QObject
 
 public:
 
+    TemplateManager();
+    ~TemplateManager() override;
+
+    static TemplateManager* defaultManager();
+
     bool load();
     bool save();
     void clear();
@@ -47,8 +52,6 @@ public:
     Template findByTitle(const QString& title)    const;
     Template findByContents(const Template& tref) const;
     QList<Template> templateList()                const;
-
-    static TemplateManager* defaultManager();
 
 Q_SIGNALS:
 
@@ -63,13 +66,9 @@ private:
 private:
 
     // Disable
-    TemplateManager();
     explicit TemplateManager(QObject*);
-    ~TemplateManager() override;
 
 private:
-
-    friend class TemplateManagerCreator;
 
     class Private;
     Private* const d = nullptr;

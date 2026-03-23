@@ -6,7 +6,7 @@
  * Date        : 2004-12-01
  * Description : image histogram adjust curves.
  *
- * SPDX-FileCopyrightText: 2004-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2004-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -40,7 +40,7 @@ private Q_SLOTS:
     void slotResetSettings()    override;
     void slotPickerColorButtonActived(int);
     void slotSpotColorChanged();
-    void slotColorSelectedFromTarget(const Digikam::DColor&);
+    void slotColorSelectedFromOriginal(const Digikam::DColor&, const QPoint&);
     void slotResetCurrentChannel();
     void slotChannelChanged()   override;                       // cppcheck-suppress virtualCallInConstructor
     void slotScaleChanged()     override;                       // cppcheck-suppress virtualCallInConstructor

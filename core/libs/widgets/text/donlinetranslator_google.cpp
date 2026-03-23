@@ -7,7 +7,7 @@
  * Description : A text translator using web-services - Google methods.
  *
  * SPDX-FileCopyrightText: 2018-2022 by Hennadii Chernyshchyk <genaloner at gmail dot com>
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -156,7 +156,7 @@ void DOnlineTranslator::slotParseGoogleTranslate()
 void DOnlineTranslator::buildGoogleStateMachine()
 {
     // States (Google sends translation, translit and dictionary in one request,
-    // that will be splited into several by the translation limit)
+    // that will be split into several by the translation limit)
 
     auto* translationState = new QState(d->stateMachine);
     auto* finalState       = new QFinalState(d->stateMachine);

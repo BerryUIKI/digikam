@@ -7,7 +7,7 @@
  * Description : application settings interface
  *
  * SPDX-FileCopyrightText: 2003-2004 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2003-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2003-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2007      by Arnd Baecker <arnd dot baecker at web dot de>
  * SPDX-FileCopyrightText: 2014-2015 by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  * SPDX-FileCopyrightText: 2014      by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
@@ -34,11 +34,6 @@ Q_GLOBAL_STATIC(ApplicationSettingsCreator, creator)
 
 // -------------------------------------------------------------------------------------------------
 
-ApplicationSettings* ApplicationSettings::instance()
-{
-    return &creator->object;
-}
-
 ApplicationSettings::ApplicationSettings()
     : QObject(),
       d      (new Private(this))
@@ -55,6 +50,11 @@ ApplicationSettings::ApplicationSettings()
 ApplicationSettings::~ApplicationSettings()
 {
     delete d;
+}
+
+ApplicationSettings* ApplicationSettings::instance()
+{
+    return &creator->object;
 }
 
 QString ApplicationSettings::generalConfigGroupName() const
@@ -200,7 +200,11 @@ void ApplicationSettings::readSettings()
     setPreviewSmoothScaled(d->imageSmoothScaled);
 
     d->scaleFitToWindow                  = group.readEntry(d->configPreviewScaleFitToWindowEntry,      false);
+    d->magnifierZoomFactor               = group.readEntry(d->configPreviewMagnifierZoomFactorEntry,   1.5);
+    d->magnifierSize                     = group.readEntry(d->configPreviewMagnifierSizeEntry,         150);
     d->previewShowIcons                  = group.readEntry(d->configPreviewShowIconsEntry,             true);
+    d->previewAutoPlay                   = group.readEntry(d->configPreviewAutoPlayEntry,              true);
+    d->previewOverlay                    = group.readEntry(d->configPreviewOverlayEntry,               false);
     d->showThumbbar                      = group.readEntry(d->configShowThumbbarEntry,                 true);
 
     d->showFolderTreeViewItemsCount      = group.readEntry(d->configShowFolderTreeViewItemsCountEntry, false);
@@ -231,7 +235,7 @@ void ApplicationSettings::readSettings()
     d->scrollItemToCenter                = group.readEntry(d->configScrollItemToCenterEntry,                          false);
     d->showOnlyPersonTagsInPeopleSidebar = group.readEntry(d->configShowOnlyPersonTagsInPeopleSidebarEntry,           true);
     d->detectFacesInNewImages            = group.readEntry(d->configDetectFacesInNewImagesEntry,                      false);
-    d->faceRecognitionBackgroundScan     = group.readEntry(d->configFaceRecognitionBackgroundScanEntry,               true);
+    d->faceRecognitionBackgroundScan     = group.readEntry(d->configFaceRecognitionBackgroundScanEntry,               false);
     d->stringComparisonType              = (StringComparisonType)
                                                group.readEntry(d->configStringComparisonTypeEntry,                    (int) Natural);
 
@@ -264,7 +268,11 @@ void ApplicationSettings::readSettings()
 
     d->applicationIcon                   = group.readEntry(d->configIconThemeEntry,                                   QString());
 
-    setApplicationFont(group.readEntry(d->configApplicationFontEntry, QFontDatabase::systemFont(QFontDatabase::GeneralFont)));
+    setDateTimeFormat(group.readEntry(d->configDateTimeFormatEntry,
+                                      QLocale().dateTimeFormat(QLocale::ShortFormat)));
+
+    setApplicationFont(group.readEntry(d->configApplicationFontEntry,
+                                       QFontDatabase::systemFont(QFontDatabase::GeneralFont)));
 
     d->scanAtStart                       = group.readEntry(d->configScanAtStartEntry,                                 true);
     d->cleanAtStart                      = group.readEntry(d->configCleanAtStartEntry,                                false);
@@ -442,8 +450,12 @@ void ApplicationSettings::saveSettings()
 
     group.writeEntry(d->configPreviewConvertToEightBitEntry,            d->previewSettings.convertToEightBit);
     group.writeEntry(d->configPreviewImageSmoothScaledEntry,            d->imageSmoothScaled);
+    group.writeEntry(d->configPreviewMagnifierZoomFactorEntry,          d->magnifierZoomFactor);
+    group.writeEntry(d->configPreviewMagnifierSizeEntry,                d->magnifierSize);
     group.writeEntry(d->configPreviewScaleFitToWindowEntry,             d->scaleFitToWindow);
     group.writeEntry(d->configPreviewShowIconsEntry,                    d->previewShowIcons);
+    group.writeEntry(d->configPreviewAutoPlayEntry,                     d->previewAutoPlay);
+    group.writeEntry(d->configPreviewOverlayEntry,                      d->previewOverlay);
     group.writeEntry(d->configShowThumbbarEntry,                        d->showThumbbar);
     group.writeEntry(d->configShowFolderTreeViewItemsCountEntry,        d->showFolderTreeViewItemsCount);
 
@@ -473,6 +485,7 @@ void ApplicationSettings::saveSettings()
 #endif
 
     group.writeEntry(d->configIconThemeEntry,                           d->applicationIcon);
+    group.writeEntry(d->configDateTimeFormatEntry,                      DATETIMEFORMATSTRING);
     group.writeEntry(d->configApplicationFontEntry,                     d->applicationFont);
 
     group.writeEntry(d->configScanAtStartEntry,                         d->scanAtStart);

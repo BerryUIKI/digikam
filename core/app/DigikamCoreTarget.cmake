@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -117,6 +117,9 @@ add_library(digikamcore
             ${DIGIKAMCORE_OBJECTS}
 )
 
+add_dependencies(digikamcore digikam-gitversion)
+add_dependencies(digikamcore digikam-builddate)
+
 set_target_properties(digikamcore PROPERTIES
                       VERSION ${DIGIKAM_VERSION_SHORT}
                       SOVERSION ${DIGIKAM_VERSION_SHORT}
@@ -131,9 +134,6 @@ target_include_directories(digikamcore
                            PRIVATE
                            ${DIGIKAM_TARGET_INCLUDES}
 )
-
-add_dependencies(digikamcore digikam-gitversion)
-add_dependencies(digikamcore digikam-builddate)
 
 # All codes from this target are exported with digikam_core_export.h header and DIGIKAM_EXPORT macro.
 generate_export_header(digikamcore
@@ -156,6 +156,7 @@ target_link_libraries(digikamcore
                       Qt${QT_VERSION_MAJOR}::PrintSupport
                       Qt${QT_VERSION_MAJOR}::Concurrent
                       Qt${QT_VERSION_MAJOR}::Svg
+                      Qt${QT_VERSION_MAJOR}::WebEngineWidgets
 
                       KF${QT_VERSION_MAJOR}::Solid
                       KF${QT_VERSION_MAJOR}::WindowSystem
@@ -222,10 +223,6 @@ if(Qt6_FOUND)
 
 endif()
 
-target_link_libraries(digikamcore
-                      PRIVATE
-                      Qt${QT_VERSION_MAJOR}::WebEngineWidgets
-)
 
 if(ENABLE_DBUS)
 
@@ -421,6 +418,9 @@ if(APPLE)
     target_link_libraries(digikamcore
                           PRIVATE
                           "-framework AppKit"
+                          "-framework IOKit"
+                          "-framework CoreGraphics"
+                          "-framework ColorSync"
     )
 
 endif()
@@ -436,6 +436,7 @@ if(WIN32)
                           ${NETAPI32_LIBRARY}
                           ${USEENV_LIBRARY}
                           ${PSAPI_LIBRARY}
+                          ${MSCMS_LIBRARY}
     )
 
 endif()

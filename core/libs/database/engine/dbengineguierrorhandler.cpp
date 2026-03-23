@@ -7,7 +7,7 @@
  * Description : Database engine gui error handler
  *
  * SPDX-FileCopyrightText: 2009-2010 by Holger Foerster <Hamsi2k at freenet dot de>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -236,7 +236,7 @@ void DbEngineGuiErrorHandler::consultUserForError(DbEngineErrorAnswer* answer, c
     // Handle all other database errors
 
     QString message = i18n("<p><b>A database error occurred.</b></p>"
-                           "Details:\n %1", error.text());
+                           "Details:<br> %1", error.text());
     QMessageBox::critical(parent, qApp->applicationName(), message);
     answer->connectionErrorAbortQueries();
 }

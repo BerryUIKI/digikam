@@ -6,7 +6,7 @@
  * Date        : 2018-07-30
  * Description : a plugin to export to Rajce web-service.
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -65,7 +65,7 @@ QString RajcePlugin::description() const
 
 QString RajcePlugin::details() const
 {
-    return i18nc("@info", "This tool allows users to export items to Rajce web-service.\n\n"
+    return i18nc("@info", "This tool allows users to export items to Rajce web-service.<br><br>"
                  "See Rajce web site for details: %1",
                  QLatin1String("<a href='https://www.rajce.idnes.cz/'>https://www.rajce.idnes.cz/</a>"));
 }

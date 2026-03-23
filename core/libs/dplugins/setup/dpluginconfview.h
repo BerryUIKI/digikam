@@ -6,7 +6,7 @@
  * Date        : 2018-12-31
  * Description : configuration view for external plugin
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -35,6 +35,18 @@ class DIGIKAM_EXPORT DPluginConfView : public QTreeWidget
 
 public:
 
+    enum Columns
+    {
+        Name            = 0,
+        Categories      = 1,
+        Tools           = 2,
+        Description     = 3,
+
+        NumberOfColumns
+    };
+
+public:
+
     /**
      * Default constructor.
      */
@@ -49,7 +61,7 @@ public:
     /**
      * Return the number of plugins active in the list.
      */
-    int actived()                                const;
+    int activated()                              const;
 
     /**
      * Return the total number of plugins in the list.

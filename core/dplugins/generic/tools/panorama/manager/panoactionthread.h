@@ -7,7 +7,7 @@
  * Description : a tool to create panorama by fusion of several images.
  *
  * SPDX-FileCopyrightText: 2011-2016 by Benjamin Girault <benjamin dot girault at gmail dot com>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Johannes Wienke <languitar at semipol dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -70,29 +70,16 @@ public:
 
     void generatePanoramaPreview(QSharedPointer<const PTOType> ptoData,
                                  QUrl& previewPtoUrl,
-                                 QUrl& previewMkUrl,
                                  QUrl& previewUrl,
                                  const PanoramaItemUrlsMap& preProcessedUrlsMap,
-                                 const QString& makePath,
-                                 const QString& pto2mkPath,
-                                 const QString& huginExecutorPath,
-                                 bool hugin2015,
-                                 const QString& enblendPath,
-                                 const QString& nonaPath);
+                                 const QString& huginExecutorPath);
 
     void compileProject(QSharedPointer<const PTOType> basePtoData,
                         QUrl& panoPtoUrl,
-                        QUrl& mkUrl,
                         QUrl& panoUrl,
-                        const PanoramaItemUrlsMap& preProcessedUrlsMap,
                         PanoramaFileType fileType,
                         const QRect& crop,
-                        const QString& makePath,
-                        const QString& pto2mkPath,
-                        const QString& huginExecutorPath,
-                        bool hugin2015,
-                        const QString& enblendPath,
-                        const QString& nonaPath);
+                        const QString& huginExecutorPath);
 
     void copyFiles(const QUrl& ptoUrl,
                    const QUrl& panoUrl,
@@ -121,20 +108,6 @@ private Q_SLOTS:
     void slotDone(ThreadWeaver::JobPointer j);
     void slotStepDone(ThreadWeaver::JobPointer j);
     void slotStarting(ThreadWeaver::JobPointer j);
-
-private:
-
-    void appendStitchingJobs(const QSharedPointer<ThreadWeaver::Sequence>& js,
-                             const QUrl& ptoUrl,
-                             QUrl& mkUrl,
-                             QUrl& outputUrl,
-                             const PanoramaItemUrlsMap& preProcessedUrlsMap,
-                             PanoramaFileType fileType,
-                             const QString& makePath,
-                             const QString& pto2mkPath,
-                             const QString& enblendPath,
-                             const QString& nonaPath,
-                             bool preview);
 
 private:
 

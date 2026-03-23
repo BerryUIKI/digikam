@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -152,7 +152,7 @@ QImage RemoteIconLoader::load(const QUrl& url)
     /*
      * All the downloaded images are saved on disk
      * at location cache/icons/ ( relative location ).
-     * If the rquested icon is present at this location then
+     * If the requested icon is present at this location then
      * return it.
      */
     else if (d->loadFromDiskCache(url))

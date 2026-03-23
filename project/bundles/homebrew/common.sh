@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -284,7 +284,7 @@ _already_scanned_libs=()
 CopyReccursiveDependencies()
 {
 
-# Check if file have not alredy scanned
+# Check if file has not been already scanned
 echo ${_already_scanned_libs[@]} | grep -q "$1" && return;
 
 DEPS=$(otool -L $INSTALL_PREFIX/$1 | grep $INSTALL_PREFIX | awk -F ' \\\(' '{print $1}')

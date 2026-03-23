@@ -12,7 +12,7 @@
  *                      www.iptc.org/std/Iptc4xmpCore/1.0/specification/Iptc4xmpCore_1.0-spec-XMPSchema_8.pdf
  *               Paper: www.metadataworkinggroup.com/pdf/mwg_guidance.pdf
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -72,7 +72,7 @@ MetaEngine& MetaEngine::operator=(const MetaEngine& metadata)
     return *this;
 }
 
-//-- Statics methods ----------------------------------------------
+//-- Static methods ----------------------------------------------
 
 bool MetaEngine::initializeExiv2()
 {
@@ -266,6 +266,8 @@ bool MetaEngine::loadFromData(const QByteArray& imgData)
 
     QMutexLocker lock(&s_metaEngineMutex);
 
+    s_metaEngineWarnOrError = false;
+
     try
     {
         Exiv2::Image::AutoPtr image = Exiv2::ImageFactory::open(
@@ -310,14 +312,29 @@ bool MetaEngine::loadFromData(const QByteArray& imgData)
 
 #if EXIV2_TEST_VERSION(0,27,99)
 
-        d->iccProfileBuf() = image->iccProfile();
+            d->iccProfileBuf() = image->iccProfile();
 
 #else
 
-        d->iccProfileBuf() = *(image->iccProfile());
+            d->iccProfileBuf() = *(image->iccProfile());
 
 #endif
 
+        }
+
+        if (s_metaEngineWarnOrError)
+        {
+            d->itemComments().clear();
+            d->exifMetadata().clear();
+            d->iptcMetadata().clear();
+
+#ifdef _XMP_SUPPORT_
+
+            d->xmpMetadata().clear();
+
+#endif // _XMP_SUPPORT_
+
+            return false;
         }
 
         return true;

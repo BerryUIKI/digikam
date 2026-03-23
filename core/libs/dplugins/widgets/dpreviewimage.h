@@ -6,7 +6,7 @@
  * Date        : 2009-12-13
  * Description : a widget to preview image effect.
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2008      by Kare Sars <kare dot sars at iki dot fi>
  * SPDX-FileCopyrightText: 2012      by Benjamin Girault <benjamin dot girault at gmail dot com>
  *
@@ -114,6 +114,10 @@ public:
      */
     void   setSelectionArea(const QRectF& rectangle);
     QRectF getSelectionArea()           const;
+
+Q_SIGNALS:
+
+    void signalSelectionChanged(const QRectF&);
 
 public Q_SLOTS:
 

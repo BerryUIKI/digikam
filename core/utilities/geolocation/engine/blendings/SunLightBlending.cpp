@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -173,7 +173,7 @@ int SunLightBlending::maxDivisor(int maximum, int fullLength)
     for (int it = 1; it <= maximum; ++it)
     {
         // The optimum is the interval which results in the least amount
-        // supporting points taking into account the rest which can't
+        // supporting points taking into account the rest which cannot
         // get used for interpolation.
         int nEval = fullLength / it + fullLength % it;
 

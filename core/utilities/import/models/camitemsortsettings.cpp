@@ -112,6 +112,7 @@ Qt::SortOrder CamItemSortSettings::defaultSortOrderForSortRole(SortRole role)
     {
         case SortByFileName:
         case SortByFilePath:
+        case SortByFormat:
         {
             return Qt::AscendingOrder;
         }
@@ -132,6 +133,8 @@ Qt::SortOrder CamItemSortSettings::defaultSortOrderForSortRole(SortRole role)
         }
 
         case SortByRating:
+        case SortByPickLabel:
+        case SortByColorLabel:
         {
             return Qt::DescendingOrder;
         }
@@ -204,12 +207,27 @@ bool CamItemSortSettings::lessThan(const CamItemInfo& left, const CamItemInfo& r
         return (result < 0);
     }
 
+    if ((result = compare(left, right, SortByFormat)) != 0)
+    {
+        return (result < 0);
+    }
+
     if ((result = compare(left, right, SortByFileSize)) != 0)
     {
         return (result < 0);
     }
 
     if ((result = compare(left, right, SortByRating)) != 0)
+    {
+        return (result < 0);
+    }
+
+    if ((result = compare(left, right, SortByPickLabel)) != 0)
+    {
+        return (result < 0);
+    }
+
+    if ((result = compare(left, right, SortByColorLabel)) != 0)
     {
         return (result < 0);
     }
@@ -243,6 +261,12 @@ int CamItemSortSettings::compare(const CamItemInfo& left, const CamItemInfo& rig
                                   currentSortOrder, sortCaseSensitivity, strTypeNatural);
         }
 
+        case SortByFormat:
+        {
+            return naturalCompare(left.mime, right.mime,
+                                  currentSortOrder, sortCaseSensitivity, strTypeNatural);
+        }
+
         case SortByFileSize:
         {
             return compareByOrder(left.size, right.size, currentSortOrder);
@@ -257,6 +281,16 @@ int CamItemSortSettings::compare(const CamItemInfo& left, const CamItemInfo& rig
         case SortByRating:
         {
             return compareByOrder(left.rating, right.rating, currentSortOrder);
+        }
+
+        case SortByPickLabel:
+        {
+            return compareByOrder(left.pickLabel, right.pickLabel, currentSortOrder);
+        }
+
+        case SortByColorLabel:
+        {
+            return compareByOrder(left.colorLabel, right.colorLabel, currentSortOrder);
         }
 
         case SortByDownloadState:

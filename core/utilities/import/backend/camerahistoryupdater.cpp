@@ -7,7 +7,7 @@
  * Description : history updater thread for importui
  *
  * SPDX-FileCopyrightText: 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -88,6 +88,8 @@ void CameraHistoryUpdater::slotCancel()
 
 void CameraHistoryUpdater::run()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String("CameraHistoryUpdater"));       // To customize thread name
+
     while (d->running)
     {
         CHUpdateItem item;

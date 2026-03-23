@@ -7,13 +7,12 @@
  * Description : DImg interface for image editor
  *
  * SPDX-FileCopyrightText: 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2004-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2004-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
  * ============================================================ */
 
-#include "editorcore.h"
 #include "editorcore_p.h"
 
 // C++ includes
@@ -237,7 +236,7 @@ void EditorCore::slotImageLoaded(const LoadingDescription& loadingDescription, c
     }
 
     // RAW tool active? Discard previous loaded image
-    // Special case for Jenkins, no Editor window also no EditorToolIface
+    // Special case for the Gitlab-CI, no Editor window also no EditorToolIface
 /*
     if (EditorToolIface::editorToolIface())
     {

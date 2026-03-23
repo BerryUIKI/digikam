@@ -1,11 +1,13 @@
 # Macro to create git version header
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
 macro(GIT_HEADER)
+
+    message(STATUS "Configuring git header target...")
 
     # We only do this IF we are in a .git dir
 

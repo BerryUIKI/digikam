@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Face classifier training data provider
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -31,6 +31,11 @@ namespace Digikam
 class DIGIKAM_GUI_EXPORT IdentityProvider : public QObject
 {
     Q_OBJECT
+
+public:
+
+    IdentityProvider();
+    ~IdentityProvider() override;
 
 public:
 
@@ -112,7 +117,7 @@ public:
     bool clearTraining(const QString& hash);
 
     /**
-     * @brief Clears all identites and face training
+     * @brief Clears all identities and face training
      * from the recognition DB
      */
     void clearAllTraining();
@@ -166,12 +171,9 @@ private:
 
 private:
 
-    IdentityProvider();
-    ~IdentityProvider();
-
     // Disable
-    explicit IdentityProvider(QObject*)                           = delete;
-    IdentityProvider(const IdentityProvider&)                     = delete;
+    explicit IdentityProvider(QObject*)       = delete;
+    IdentityProvider(const IdentityProvider&) = delete;
 
 private:
 
@@ -180,7 +182,6 @@ private:
 
 private:
 
-    friend class IdentityProviderCreator;
     friend class Identity;
     friend class FaceClassifier;
 };

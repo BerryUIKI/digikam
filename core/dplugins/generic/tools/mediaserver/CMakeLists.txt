@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2017      by Ahmed Fathi, <ahmed dot fathi dot abdelmageed at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -179,7 +179,7 @@ set_property(TARGET mediaserverbackend PROPERTY CXX_STANDARD 17)
 
 if(MSVC)
 
-    target_compile_options(mediaserverbackend PRIVATE /w)
+    target_compile_options(mediaserverbackend PRIVATE /W0)
 
 else()
 

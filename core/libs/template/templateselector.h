@@ -6,7 +6,7 @@
  * Date        : 2009-06-23
  * Description : a widget to select metadata template.
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -24,7 +24,7 @@ namespace Digikam
 
 class Template;
 
-class DIGIKAM_GUI_EXPORT TemplateSelector : public DHBox
+class DIGIKAM_GUI_EXPORT TemplateSelector : public DVBox
 {
     Q_OBJECT
 
@@ -54,6 +54,7 @@ Q_SIGNALS:
 private Q_SLOTS:
 
     void slotOpenSetup();
+    void slotTemplateSelected();
     void slotTemplateListChanged();
 
 private:

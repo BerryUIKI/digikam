@@ -6,7 +6,7 @@
  * Date        : 2004-08-20
  * Description : a widget to display an image with guides
  *
- * SPDX-FileCopyrightText: 2004-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2004-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -74,7 +74,7 @@ public:
     int         previewMode()                  const;
 
     void   setSpotVisible(bool spotVisible, bool blink = false);
-    void setSpotVisibleNoUpdate(bool spotVisible);
+    void   setSpotVisibleNoUpdate(bool spotVisible);
     void   resetSpotPosition();
     void   updatePreview();
     void   setPoints(const QPolygon& p, bool drawLine = false);
@@ -89,6 +89,9 @@ public:
     void   setBackgroundColor(const QColor&);
     void   ICCSettingsChanged();
     void   exposureSettingsChanged();
+
+    void   setBusy(bool b);
+    bool   isBusy()                            const;
 
 public Q_SLOTS:
 

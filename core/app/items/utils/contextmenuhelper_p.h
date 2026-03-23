@@ -7,7 +7,7 @@
  * Description : contextmenu helper class - Private container.
  *
  * SPDX-FileCopyrightText: 2009-2011 by Andi Clemens <andi dot clemens at gmail dot com>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -78,6 +78,7 @@
 #include "itemfiltermodel.h"
 #include "itemviewutilities.h"
 #include "lighttablewindow.h"
+#include "surveywindow.h"
 #include "queuemgrwindow.h"
 #include "metadataremover.h"
 #include "picklabelwidget.h"
@@ -130,6 +131,13 @@ public:
     KActionCollection*           stdActionCollection    = nullptr;
 
     ContextMenuHelper*           q                      = nullptr;
+
+#ifdef Q_OS_WIN
+
+    QString                      lpVerbWin;
+    QString                      lpFileWin;
+
+#endif
 
 public:
 

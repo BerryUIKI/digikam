@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -46,7 +46,7 @@ GeoDataDocument* GpsbabelRunner::parseFile(const QString& fileName, DocumentRole
     if (!QFileInfo::exists(fileName))
     {
         error = QStringLiteral("File %1 does not exist").arg(fileName);
-        qCDebug(DIGIKAM_GEOENGINE_LOG) << error;
+        qCWarning(DIGIKAM_GEOENGINE_LOG) << error;
 
         return nullptr;
     }
@@ -70,14 +70,22 @@ GeoDataDocument* GpsbabelRunner::parseFile(const QString& fileName, DocumentRole
     if (inputFileType.isEmpty())
     {
         error = QStringLiteral("Unsupported file extension for").arg(fileName);
-        qCDebug(DIGIKAM_GEOENGINE_LOG) << error;
+        qCWarning(DIGIKAM_GEOENGINE_LOG) << error;
+
         return nullptr;
     }
 
     // Set up temporary file to hold output KML from gpsbabel executable
 
     QTemporaryFile tempKmlFile(QDir::tempPath() + QLatin1String("/marble-gpsbabel-XXXXXX.kml"));
-    tempKmlFile.open();
+
+    if (!tempKmlFile.open())
+    {
+        qCWarning(DIGIKAM_GEOENGINE_LOG) << "Cannot open KML temp file" << tempKmlFile.fileName();
+
+        return nullptr;
+    }
+
     QFile kmlFile(tempKmlFile.fileName());
 
     // Set up gpsbabel command line
@@ -100,15 +108,21 @@ GeoDataDocument* GpsbabelRunner::parseFile(const QString& fileName, DocumentRole
 
     if (exitStatus == 0)
     {
-        kmlFile.open(QIODevice::ReadWrite);
+        if (!kmlFile.open(QIODevice::ReadWrite))
+        {
+            qCWarning(DIGIKAM_GEOENGINE_LOG) << "Cannot open KML file" << kmlFile.fileName();
+
+            return nullptr;
+        }
+
         GeoDataParser parser(GeoData_KML);
         parser.read(&kmlFile);
-        GeoDataDocument* document = dynamic_cast<GeoDataDocument*>(parser.releaseDocument());
+        GeoDataDocument* const document = dynamic_cast<GeoDataDocument*>(parser.releaseDocument());
 
         if (!document)
         {
             error = parser.errorString();
-            qCDebug(DIGIKAM_GEOENGINE_LOG) << error;
+            qCWarning(DIGIKAM_GEOENGINE_LOG) << error;
 
             return nullptr;
         }
@@ -117,11 +131,10 @@ GeoDataDocument* GpsbabelRunner::parseFile(const QString& fileName, DocumentRole
 
         return document;
     }
-
     else
     {
         error = QStringLiteral("Gpsbabel returned error code %1").arg(exitStatus);
-        qCDebug(DIGIKAM_GEOENGINE_LOG) << error;
+        qCWarning(DIGIKAM_GEOENGINE_LOG) << error;
 
         return nullptr;
     }

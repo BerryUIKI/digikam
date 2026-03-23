@@ -7,7 +7,7 @@
  * Description : a dialog to see preview ICC color correction
  *               before to apply color profile.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -201,20 +201,20 @@ QLayout* ColorCorrectionDlg::createHeading() const
 
     if      (d->mode == ProfileMismatch)
     {
-        message->setText(i18n("<p>This image has an <b>embedded color profile</b><br/> "
-                              "which does not match your working space color profile.<br/>"
+        message->setText(i18n("<p>This image has an <b>embedded color profile</b><br> "
+                              "which does not match your working space color profile.<br>"
                               "How do you want to proceed?</p>"));
     }
     else if (d->mode == MissingProfile)
     {
-        message->setText(i18n("<p>This image has <b>no information about the color space</b><br/>"
-                              "that was used when creating the image. <br/>"
+        message->setText(i18n("<p>This image has <b>no information about the color space</b><br>"
+                              "that was used when creating the image. <br>"
                               "How do you want to proceed?</p>"));
 
     }
     else if (d->mode == UncalibratedColor)
     {
-        message->setText(i18n("<p>The color information of this image is uncalibrated.<br/>"
+        message->setText(i18n("<p>The color information of this image is uncalibrated.<br>"
                               "How do you want to proceed?</p>"));
     }
 
@@ -696,31 +696,31 @@ ICCSettingsContainer::Behavior ColorCorrectionDlg::currentBehavior() const
             return ICCSettingsContainer::NoColorManagement;
         }
 
-        ICCSettingsContainer::Behavior behavior;
+        ICCSettingsContainer::Behavior bhvr;
 
         if      (d->keepProfile->isChecked())
         {
-            behavior |= ICCSettingsContainer::KeepProfile;
+            bhvr |= ICCSettingsContainer::KeepProfile;
         }
         else if (d->convertToWorkingSpace->isChecked())
         {
-            behavior |= ICCSettingsContainer::ConvertToWorkspace;
+            bhvr |= ICCSettingsContainer::ConvertToWorkspace;
         }
 
         if      (d->imageSRGB->isChecked())
         {
-            behavior |= ICCSettingsContainer::UseSRGB;
+            bhvr |= ICCSettingsContainer::UseSRGB;
         }
         else if (d->imageWorkingSpace->isChecked())
         {
-            behavior |= ICCSettingsContainer::UseWorkspace;
+            bhvr |= ICCSettingsContainer::UseWorkspace;
         }
         else if (d->imageOtherSpace->isChecked())
         {
-            behavior |= ICCSettingsContainer::UseSpecifiedProfile;
+            bhvr |= ICCSettingsContainer::UseSpecifiedProfile;
         }
 
-        return behavior;
+        return bhvr;
     }
     else if (d->mode == UncalibratedColor)
     {

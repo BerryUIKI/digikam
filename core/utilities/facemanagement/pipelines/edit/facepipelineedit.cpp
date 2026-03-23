@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Performs face detection and recognition
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -56,9 +56,9 @@ public:
     FacePipelineEdit object;
 };
 
-Q_GLOBAL_STATIC(FacePipelineEditCreator, facePipelineEditCreator)
+Q_GLOBAL_STATIC(FacePipelineEditCreator, creator)
 
-// -----------------------------------------------------------------------------------------------
+// ----------------------------------------------
 
 FacePipelineEdit::FacePipelineEdit()
     : FacePipelineBase(FaceScanSettings())
@@ -68,7 +68,7 @@ FacePipelineEdit::FacePipelineEdit()
 
 FacePipelineEdit* FacePipelineEdit::instance()
 {
-    return &facePipelineEditCreator->object;
+    return &creator->object;
 }
 
 FaceTagsIface FacePipelineEdit::confirmFace(const ItemInfo& info,
@@ -79,14 +79,27 @@ FaceTagsIface FacePipelineEdit::confirmFace(const ItemInfo& info,
 {
     if (debugConfirmTimer.elapsed() < 250)
     {
-            qCDebug(DIGIKAM_FACESENGINE_LOG) << "FacePipelineEdit::confirmFace(): INFO: more than 1 "
-                                                "face confirmed in less than 0.25 seconds";
+        qCDebug(DIGIKAM_FACESENGINE_LOG) << "FacePipelineEdit::confirmFace(): INFO: more than 1 "
+                                            "face confirmed in less than 0.25 seconds";
     }
 
     debugConfirmTimer.restart();
 
-    MLPipelineQueue* const nextQueue       = queues.value(MLPipelineStage::Loader);
     FaceTagsIface newFace                  = getRejectedFaceTagList(face);
+
+    // CR #1680458 optimization: Check if the queue exists before allocating 'package'.
+    // This avoids unnecessary memory allocation and eliminates the need
+    // for manual 'delete' in error cases, preventing potential memory leaks.
+    // The 'package' object is only created if the queue is available.
+
+    if (!queues.contains(MLPipelineStage::Writer))
+    {
+        qCWarning(DIGIKAM_FACESENGINE_LOG) << "No next queue found for MLPipelineStage::Writer";
+
+        return (FaceTagsEditor::confirmedEntry(newFace, tagId, region));
+    }
+
+    MLPipelineQueue* const nextQueue       = queues.value(MLPipelineStage::Loader);
     FacePipelinePackageBase* const package = new FacePipelinePackageBase(info,
                                                                          newFace,
                                                                          tagId,
@@ -109,8 +122,21 @@ FaceTagsIface FacePipelineEdit::confirmFace(const ItemInfo& info,
 void FacePipelineEdit::removeFace(const ItemInfo& info,
                                   const FaceTagsIface& face)
 {
-    MLPipelineQueue* const nextQueue       = queues.value(MLPipelineStage::Writer);
     FaceTagsIface newFace                  = getRejectedFaceTagList(face);
+
+    // Optimization: Check if the queue exists before allocating 'package'.
+    // This avoids unnecessary memory allocation and eliminates the need
+    // for manual 'delete' in error cases, preventing potential memory leaks.
+    // The 'package' object is only created if the queue is available.
+
+    if (!queues.contains(MLPipelineStage::Writer))
+    {
+        qCWarning(DIGIKAM_FACESENGINE_LOG) << "No next queue found for MLPipelineStage::Writer";
+
+        return;
+    }
+
+    MLPipelineQueue* const nextQueue       = queues.value(MLPipelineStage::Writer);
     FacePipelinePackageBase* const package = new FacePipelinePackageBase(info,
                                                                          newFace,
                                                                          newFace.tagId(),
@@ -131,6 +157,18 @@ void FacePipelineEdit::removeFace(const ItemInfo& info,
 
 void FacePipelineEdit::removeAllFaces(const ItemInfo& info)
 {
+    // Optimization: Check if the queue exists before allocating 'package'.
+    // This avoids unnecessary memory allocation and eliminates the need
+    // for manual 'delete' in error cases, preventing potential memory leaks.
+    // The 'package' object is only created if the queue is available.
+
+    if (!queues.contains(MLPipelineStage::Writer))
+    {
+        qCWarning(DIGIKAM_FACESENGINE_LOG) << "No next queue found for MLPipelineStage::Writer";
+
+        return;
+    }
+
     MLPipelineQueue* const nextQueue       = queues.value(MLPipelineStage::Writer);
     FacePipelinePackageBase* const package = new FacePipelinePackageBase(info,
                                                                          FacePipelinePackageBase::EditPipelineAction::RemoveAll);
@@ -149,8 +187,21 @@ FaceTagsIface FacePipelineEdit::editTag(const ItemInfo& info,
                                         const FaceTagsIface& face,
                                         int newTagId)
 {
-    MLPipelineQueue* const nextQueue       = queues.value(MLPipelineStage::Writer);
     FaceTagsIface newFace                  = getRejectedFaceTagList(face);
+
+    // Optimization: Check if the queue exists before allocating 'package'.
+    // This avoids unnecessary memory allocation and eliminates the need
+    // for manual 'delete' in error cases, preventing potential memory leaks.
+    // The 'package' object is only created if the queue is available.
+
+    if (!queues.contains(MLPipelineStage::Writer))
+    {
+        qCWarning(DIGIKAM_FACESENGINE_LOG) << "No next queue found for MLPipelineStage::Writer";
+
+        return newFace;
+    }
+
+    MLPipelineQueue* const nextQueue       = queues.value(MLPipelineStage::Writer);
     FacePipelinePackageBase* const package = new FacePipelinePackageBase(info,
                                                                          newFace,
                                                                          newTagId,
@@ -180,8 +231,21 @@ FaceTagsIface FacePipelineEdit::editRegion(const ItemInfo& info,
                                            int tagId,
                                            bool retrain)
 {
-    MLPipelineQueue* const nextQueue       = queues.value(MLPipelineStage::Writer);
     FaceTagsIface newFace                  = getRejectedFaceTagList(face);
+
+    // Optimization: Check if the queue exists before allocating 'package'.
+    // This avoids unnecessary memory allocation and eliminates the need
+    // for manual 'delete' in error cases, preventing potential memory leaks.
+    // The 'package' object is only created if the queue is available.
+
+    if (!queues.contains(MLPipelineStage::Writer))
+    {
+        qCWarning(DIGIKAM_FACESENGINE_LOG) << "No next queue found for MLPipelineStage::Writer";
+
+        return newFace;
+    }
+
+    MLPipelineQueue* const nextQueue       = queues.value(MLPipelineStage::Writer);
     FacePipelinePackageBase* const package = new FacePipelinePackageBase(info,
                                                                          newFace,
                                                                          tagId,
@@ -215,10 +279,23 @@ FaceTagsIface FacePipelineEdit::addManually(const ItemInfo& info,
                                             const TagRegion& region,
                                             bool retrain)
 {
-    MLPipelineQueue* const nextQueue       = queues.value(MLPipelineStage::Writer);
     FaceTagsIface newFace                  = FaceTagsEditor::unconfirmedEntry(info.id(),
                                                                               FaceClassifier::UNKNOWN_LABEL_ID,
                                                                               region, QList<int>());
+
+    // Optimization: Check if the queue exists before allocating 'package'.
+    // This avoids unnecessary memory allocation and eliminates the need
+    // for manual 'delete' in error cases, preventing potential memory leaks.
+    // The 'package' object is only created if the queue is available.
+
+    if (!queues.contains(MLPipelineStage::Writer))
+    {
+        qCWarning(DIGIKAM_FACESENGINE_LOG) << "No next queue found for MLPipelineStage::Writer";
+
+        return newFace;
+    }
+
+    MLPipelineQueue* const nextQueue       = queues.value(MLPipelineStage::Writer);
     FacePipelinePackageBase* const package = new FacePipelinePackageBase(info,
                                                                          newFace,
                                                                          newFace.tagId(),
@@ -242,9 +319,9 @@ FaceTagsIface FacePipelineEdit::addManually(const ItemInfo& info,
 QList<FaceTagsIface> FacePipelineEdit::deleteRejectedFaceTagLists(const ItemInfo& info)
 {
     QList<FaceTagsIface> result;
-    QList<FaceTagsIface> faces             = utils.databaseFaces(info.id());
+    QList<FaceTagsIface> faces = FaceUtils().databaseFaces(info.id());
 
-    for (const FaceTagsIface& face : faces)
+    for (const FaceTagsIface& face : std::as_const(faces))
     {
         result << deleteRejectedFaceTagList(face);
     }
@@ -254,9 +331,22 @@ QList<FaceTagsIface> FacePipelineEdit::deleteRejectedFaceTagLists(const ItemInfo
 
 FaceTagsIface FacePipelineEdit::deleteRejectedFaceTagList(const FaceTagsIface& face)
 {
-    MLPipelineQueue* const nextQueue       = queues.value(MLPipelineStage::Writer);
     FaceTagsIface newFace(face);
     newFace.clearRejectedFaceTagList();
+
+    // Optimization: Check if the queue exists before allocating 'package'.
+    // This avoids unnecessary memory allocation and eliminates the need
+    // for manual 'delete' in error cases, preventing potential memory leaks.
+    // The 'package' object is only created if the queue is available.
+
+    if (!queues.contains(MLPipelineStage::Writer))
+    {
+        qCWarning(DIGIKAM_FACESENGINE_LOG) << "No next queue found for MLPipelineStage::Writer";
+
+        return newFace;
+    }
+
+    MLPipelineQueue* const nextQueue       = queues.value(MLPipelineStage::Writer);
     FacePipelinePackageBase* const package = new FacePipelinePackageBase(ItemInfo(face.imageId()),
                                                                          face,
                                                                          face.tagId(),
@@ -310,6 +400,8 @@ bool FacePipelineEdit::start()
 
 bool FacePipelineEdit::loader()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceEdit%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     return commonFaceThumbnailLoader(QStringLiteral("FacePipelineEdit"),
                                      QThread::NormalPriority,
                                      MLPipelineStage::Loader,
@@ -318,6 +410,8 @@ bool FacePipelineEdit::loader()
 
 bool FacePipelineEdit::extractor()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceEdit%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     return commonFaceThumbnailExtractor(QStringLiteral("FacePipelineEdit"),
                                         QThread::NormalPriority,
                                         MLPipelineStage::Extractor,
@@ -327,6 +421,8 @@ bool FacePipelineEdit::extractor()
 
 bool FacePipelineEdit::writer()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceEdit%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(QThread::NormalPriority, MLPipelineStage::Writer, MLPipelineStage::None);
     FacePipelinePackageBase* package = nullptr;
 
@@ -357,6 +453,8 @@ bool FacePipelineEdit::writer()
      */
 
     {
+        FaceUtils utils;
+
         switch (package->action)
         {
             case FacePipelinePackageBase::EditPipelineAction::Confirm:
@@ -532,7 +630,7 @@ FaceTagsIface FacePipelineEdit::getRejectedFaceTagList(const FaceTagsIface& face
 
     FaceTagsIface newFace(face);
 
-    QList<FaceTagsIface> faces = utils.databaseFaces(face.imageId());
+    QList<FaceTagsIface> faces = FaceUtils().databaseFaces(face.imageId());
 
     for (const FaceTagsIface& f : std::as_const(faces))
     {

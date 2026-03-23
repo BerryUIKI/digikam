@@ -69,15 +69,15 @@ Q_GLOBAL_STATIC(DIOCreator, creator)
 
 // ------------------------------------------------------------------------------------------------
 
-DIO* DIO::instance()
-{
-    return &creator->object;
-}
-
 DIO::DIO()
     : QObject()
 {
     qRegisterMetaType<QMap<QString,int> >("QMap<QString,int>");
+}
+
+DIO* DIO::instance()
+{
+    return &creator->object;
 }
 
 void DIO::cleanUp()
@@ -675,7 +675,7 @@ void DIO::slotOneProccessed(const QUrl& url)
                     QString relativePath = access.db()->getAlbumRelativePath(albumId);
                     relativePath         = relativePath.section(basePath, 1, -1);
                     relativePath         = destPath + newName + relativePath;
-                    int copyId           = access.db()->addAlbum(data->srcAlbum()->albumRootId(),
+                    int copyId           = access.db()->addAlbum(data->destAlbum()->albumRootId(),
                                                                  relativePath, QString(), QDate(), QString());
 
                     access.db()->copyAlbumProperties(albumId, copyId);
@@ -851,9 +851,10 @@ void DIO::slotOneProccessed(const QUrl& url)
 
                 ThumbsDbAccess().db()->renameByFilePath(oldPath, newPath);
 
-                // Remove old thumbnails and images from the cache
+                // Remove old and new thumbnails and images from the cache
 
                 LoadingCacheInterface::fileChanged(oldPath, false);
+                LoadingCacheInterface::fileChanged(newPath, false);
 
                 // Rename in ItemInfo and database
 

@@ -5,7 +5,7 @@
 # This script must be run as sudo
 #
 # SPDX-FileCopyrightText: 2015      by Shanti, <listaccount at revenant dot org>
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -76,7 +76,7 @@ Applications/digiKam.org \
 
 # Other apps - non-MacOS binaries & libraries to be included with required dylibs
 
-if [[ $ARCH_TARGET = "x86_64" ]] ; then
+if [[ $TARGET_ARCH = "x86_64" ]] ; then
     QT_PLUGIN_EXT="so"
 else
     QT_PLUGIN_EXT="dylib"
@@ -410,7 +410,7 @@ echo "---------- Create package pre-install script"
 cat << EOF > "$PROJECTDIR/preinstall"
 #!/bin/bash
 
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -467,7 +467,7 @@ echo "---------- Create package post-install script"
 cat << EOF > "$PROJECTDIR/postinstall"
 #!/bin/bash
 
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -743,7 +743,7 @@ ln -sv "../../../../digikam.app/Contents/lib/mariadb"                           
 cd $DOWNLOAD_DIR
 
 #if [ ! -f "$DOWNLOAD_DIR/Image-ExifTool.tar.gz" ] ; then
-    wget https://files.kde.org/digikam/exiftool/Image-ExifTool.tar.gz -O Image-ExifTool.tar.gz
+    wget https://mirrors.xtom.de/kde-application/digikam/exiftool/Image-ExifTool.tar.gz -O Image-ExifTool.tar.gz
 #fi
 
 tar -xvf "$DOWNLOAD_DIR/Image-ExifTool.tar.gz" -C "$TEMPROOT/digikam.app/Contents/bin"
@@ -783,7 +783,7 @@ else
 
 fi
 
-TARGET_INSTALLER=digiKam-$DKRELEASEID$DK_SUBVER$QT_SUF-MacOS-$ARCH_TARGET$DEBUG_SUF.pkg
+TARGET_INSTALLER=digiKam-$DKRELEASEID$DK_SUBVER$QT_SUF-MacOS-$TARGET_ARCH$DEBUG_SUF.pkg
 TARGET_PKG_FILE=$BUILDDIR/bundle/$TARGET_INSTALLER
 echo -e "Target PKG file : $TARGET_PKG_FILE"
 

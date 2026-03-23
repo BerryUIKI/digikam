@@ -7,7 +7,8 @@
  * Description : User interface for searches
  *
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2026      by Srirupa Datta <srirupa dot sps at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -66,9 +67,9 @@ public:
 
 public:
 
-    static SearchField* createField(const QString& fieldName, SearchFieldGroup* const parent);
-
     explicit SearchField(QObject* const parent);
+
+public:
 
     void setup(QGridLayout* const layout, int row = -1);
     void setFieldName(const QString& fieldName);
@@ -86,6 +87,8 @@ public:
 
     void setVisible(bool visible) override;
     bool isVisible()              override;
+
+    static SearchField* createField(const QString& fieldName, SearchFieldGroup* const parent);
 
 Q_SIGNALS:
 
@@ -134,6 +137,8 @@ public:
 
     explicit SearchFieldText(QObject* const parent);
 
+public:
+
     void setupValueWidgets(QGridLayout* layout, int row, int column)    override;
     void read(SearchXmlCachingReader& reader)                           override;
     void write(SearchXmlWriter& writer)                                 override;
@@ -148,6 +153,12 @@ protected Q_SLOTS:
 protected:
 
     QLineEdit* m_edit = nullptr;
+
+private:
+
+    // Disable
+    SearchFieldText(const SearchFieldText&)            = delete;
+    SearchFieldText& operator=(const SearchFieldText&) = delete;
 };
 
 //-----------------------------------------------------------------------------
@@ -160,8 +171,16 @@ public:
 
     explicit SearchFieldKeyword(QObject* const parent);
 
+public:
+
     void read(SearchXmlCachingReader& reader) override;
     void write(SearchXmlWriter& writer)       override;
+
+private:
+
+    // Disable
+    SearchFieldKeyword(const SearchFieldKeyword&)            = delete;
+    SearchFieldKeyword& operator=(const SearchFieldKeyword&) = delete;
 };
 
 //-----------------------------------------------------------------------------
@@ -173,6 +192,8 @@ class SearchFieldRangeInt : public SearchField
 public:
 
     explicit SearchFieldRangeInt(QObject* const parent);
+
+public:
 
     void setBetweenText(const QString& text);
     void setNoValueText(const QString& text);
@@ -221,6 +242,8 @@ class SearchFieldRangeDouble : public SearchField
 public:
 
     explicit SearchFieldRangeDouble(QObject* const parent);
+
+public:
 
     void setBetweenText(const QString& text);
     void setNoValueText(const QString& text);
@@ -278,6 +301,8 @@ public:
 
     SearchFieldRangeDate(QObject* const parent, Type type);
 
+public:
+
     void setBetweenText(const QString& between);
     void setBoundary(const QDateTime& min, const QDateTime& max);
 
@@ -319,6 +344,8 @@ public:
 
     explicit SearchFieldRangeTime(QObject* const parent);
 
+public:
+
     void setBetweenText(const QString& between);
     void setBoundary(const QTime& min, const QTime& max);
 
@@ -348,6 +375,51 @@ private:
 
 //-----------------------------------------------------------------------------
 
+class SearchFieldRecentModified : public SearchField
+{
+    Q_OBJECT
+
+public:
+
+    explicit SearchFieldRecentModified(QObject* const parent);
+
+public:
+
+    void setupValueWidgets(QGridLayout* layout, int row, int column)    override;
+
+    void read(SearchXmlCachingReader& reader)                           override;
+    void write(SearchXmlWriter& writer)                                 override;
+
+    void reset()                                                        override;
+
+    void setValueWidgetsVisible(bool visible)                           override;
+    QList<QRect> valueWidgetRects()                               const override;
+
+    qint64 deltaSeconds()                                         const;
+
+private Q_SLOTS:
+
+    void unitChanged();
+
+private:
+
+    void applySeconds(int seconds);
+
+private:
+
+    QSpinBox*  m_amountBox      = nullptr;
+    QComboBox* m_unitCombo      = nullptr;
+    int        m_pendingSeconds = -1;
+
+private:
+
+    // Disable
+    SearchFieldRecentModified(const SearchFieldRecentModified&)            = delete;
+    SearchFieldRecentModified& operator=(const SearchFieldRecentModified&) = delete;
+};
+
+//-----------------------------------------------------------------------------
+
 class SearchFieldChoice : public SearchField
 {
     Q_OBJECT
@@ -355,6 +427,8 @@ class SearchFieldChoice : public SearchField
 public:
 
     explicit SearchFieldChoice(QObject* const parent);
+
+public:
 
     void setChoice(const QMap<int, QString>& map);
     void setChoice(const QStringList& choice);
@@ -431,6 +505,8 @@ public:
 
     SearchFieldAlbum(QObject* const parent, Type type);
 
+public:
+
     void setupValueWidgets(QGridLayout* layout, int row, int column)    override;
     void read(SearchXmlCachingReader& reader)                           override;
     void write(SearchXmlWriter& writer)                                 override;
@@ -444,12 +520,18 @@ protected Q_SLOTS:
 
 protected:
 
-    QWidget*                             m_wrapperBox       = nullptr;
-    AlbumTreeViewSelectComboBox*         m_albumComboBox    = nullptr;
-    TagTreeViewSelectComboBox*           m_tagComboBox      = nullptr;
-    SqueezedComboBox*                    m_operation        = nullptr;
-    Type                                 m_type             = TypeAlbum;
-    AbstractCheckableAlbumModel*         m_model            = nullptr;
+    QWidget*                     m_wrapperBox    = nullptr;
+    AlbumTreeViewSelectComboBox* m_albumComboBox = nullptr;
+    TagTreeViewSelectComboBox*   m_tagComboBox   = nullptr;
+    SqueezedComboBox*            m_operation     = nullptr;
+    Type                         m_type          = TypeAlbum;
+    AbstractCheckableAlbumModel* m_model         = nullptr;
+
+private:
+
+    // Disable
+    SearchFieldAlbum(const SearchFieldAlbum&)            = delete;
+    SearchFieldAlbum& operator=(const SearchFieldAlbum&) = delete;
 };
 
 //-----------------------------------------------------------------------------
@@ -461,6 +543,8 @@ class SearchFieldRating : public SearchField
 public:
 
     explicit SearchFieldRating(QObject* const parent);
+
+public:
 
     void setBetweenText(const QString& text);
 
@@ -499,6 +583,8 @@ public:
 
     explicit SearchFieldComboBox(QObject* const  parent);
 
+public:
+
     void setupValueWidgets(QGridLayout* layout, int row, int column)    override;
     void write(SearchXmlWriter& writer)                                 override;
     void reset()                                                        override;
@@ -512,6 +598,12 @@ protected Q_SLOTS:
 protected:
 
     QComboBox* m_comboBox = nullptr;
+
+private:
+
+    // Disable
+    SearchFieldComboBox(const SearchFieldComboBox&)            = delete;
+    SearchFieldComboBox& operator=(const SearchFieldComboBox&) = delete;
 };
 
 //-----------------------------------------------------------------------------
@@ -523,6 +615,8 @@ class SearchFieldCheckBox : public SearchField
 public:
 
     explicit SearchFieldCheckBox(QObject* const parent);
+
+public:
 
     void setLabel(const QString& text);
 
@@ -541,6 +635,12 @@ protected:
 
     QCheckBox* m_checkBox = nullptr;
     QString    m_text;
+
+private:
+
+    // Disable
+    SearchFieldCheckBox(const SearchFieldCheckBox&)            = delete;
+    SearchFieldCheckBox& operator=(const SearchFieldCheckBox&) = delete;
 };
 
 //-----------------------------------------------------------------------------
@@ -553,8 +653,16 @@ public:
 
     explicit SearchFieldColorDepth(QObject* const parent);
 
+public:
+
     void setupValueWidgets(QGridLayout* layout, int row, int column) override;
     void read(SearchXmlCachingReader& reader)                        override;
+
+private:
+
+    // Disable
+    SearchFieldColorDepth(const SearchFieldColorDepth&)            = delete;
+    SearchFieldColorDepth& operator=(const SearchFieldColorDepth&) = delete;
 };
 
 //-----------------------------------------------------------------------------
@@ -567,8 +675,16 @@ public:
 
     explicit SearchFieldPageOrientation(QObject* const parent);
 
+public:
+
     void setupValueWidgets(QGridLayout* layout, int row, int column) override;
     void read(SearchXmlCachingReader& reader)                        override;
+
+private:
+
+    // Disable
+    SearchFieldPageOrientation(const SearchFieldPageOrientation&)            = delete;
+    SearchFieldPageOrientation& operator=(const SearchFieldPageOrientation&) = delete;
 };
 
 //-----------------------------------------------------------------------------
@@ -580,6 +696,8 @@ class SearchFieldLabels : public SearchField
 public:
 
     explicit SearchFieldLabels(QObject* const parent);
+
+public:
 
     void setupValueWidgets(QGridLayout* layout, int row, int column)    override;
     void read(SearchXmlCachingReader& reader)                           override;
@@ -596,6 +714,12 @@ protected:
 
     PickLabelFilter*  m_pickLabelFilter  = nullptr;
     ColorLabelFilter* m_colorLabelFilter = nullptr;
+
+private:
+
+    // Disable
+    SearchFieldLabels(const SearchFieldLabels&)            = delete;
+    SearchFieldLabels& operator=(const SearchFieldLabels&) = delete;
 };
 
 //-----------------------------------------------------------------------------
@@ -607,6 +731,8 @@ class SearchFieldMonthDay : public SearchField
 public:
 
     explicit SearchFieldMonthDay(QObject* const parent);
+
+public:
 
     void setupValueWidgets(QGridLayout* layout, int row, int column)    override;
     void read(SearchXmlCachingReader& reader)                           override;
@@ -624,6 +750,12 @@ protected:
     QLabel*    m_dayLabel   = nullptr;
     QComboBox* m_monthBox   = nullptr;
     QComboBox* m_dayBox     = nullptr;
+
+private:
+
+    // Disable
+    SearchFieldMonthDay(const SearchFieldMonthDay&)            = delete;
+    SearchFieldMonthDay& operator=(const SearchFieldMonthDay&) = delete;
 };
 
 } // namespace Digikam

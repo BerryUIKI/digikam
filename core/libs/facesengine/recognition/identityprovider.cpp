@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Face classifier training data provider
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -17,7 +17,6 @@
 
 // Qt includes
 
-#include <QException>
 #include <QReadWriteLock>
 #include <QUuid>
 #include <QThread>
@@ -38,6 +37,7 @@
 #include "facescansettings.h"
 #include "faceclassifier.h"
 #include "recognitiontrainingupdatequeue.h"
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -47,6 +47,10 @@ QString IdentityProvider::ExtractorModel      = QLatin1String("SFace");
 
 class Q_DECL_HIDDEN IdentityProvider::Private
 {
+public:
+
+    Private() = default;
+
 public:
 
     bool                            dbAvailable             = false;
@@ -67,7 +71,7 @@ public:
     IdentityProvider object;
 };
 
-Q_GLOBAL_STATIC(IdentityProviderCreator, identityProviderCreator)
+Q_GLOBAL_STATIC(IdentityProviderCreator, creator)
 
 // ---------------------------------------------------------------------------
 
@@ -79,11 +83,11 @@ IdentityProvider::IdentityProvider()
 
     FaceScanSettings prm;
     prm.readFromConfig();
-    prm.detectModel    = FaceScanSettings::FaceDetectionModel::YuNet;
-    prm.recognizeModel = FaceScanSettings::FaceRecognitionModel::SFace;
+    prm.detectModel     = FaceScanSettings::FaceDetectionModel::YuNet;
+    prm.recognizeModel  = FaceScanSettings::FaceRecognitionModel::SFace;
     prm.writeToConfig();
 
-    d->removeQueue = new RecognitionTrainingUpdateQueue();
+    d->removeQueue      = new RecognitionTrainingUpdateQueue();
 
     // initialize the database
 
@@ -131,14 +135,6 @@ IdentityProvider::~IdentityProvider()
 {
     cancel();
 
-    // delete the remove queue
-
-    if (d->removeQueue)
-    {
-        delete d->removeQueue;
-        d->removeQueue = nullptr;
-    }
-
     // final cleanup
 
     delete d;
@@ -146,7 +142,7 @@ IdentityProvider::~IdentityProvider()
 
 IdentityProvider* IdentityProvider::instance()
 {
-    return &identityProviderCreator->object;
+    return &creator->object;
 }
 
 bool IdentityProvider::initialize()
@@ -182,7 +178,7 @@ bool IdentityProvider::initialize()
 
 void IdentityProvider::cancel()
 {
-    if (d && d->removeThreadResult.isRunning())
+    if (d->removeThreadResult.isRunning())
     {
         qCDebug(DIGIKAM_FACESENGINE_LOG) << "IdentityProvider::cancel: sent queue end signal";
 
@@ -195,10 +191,12 @@ void IdentityProvider::cancel()
         d->removeThreadResult.waitForFinished();
     }
 
+    // delete the remove queue
+
     if (d->removeQueue)
     {
-        delete  d->removeQueue;
-        d->removeQueue = nullptr;    
+        delete d->removeQueue;
+        d->removeQueue = nullptr;
     }
 }
 
@@ -208,8 +206,9 @@ bool IdentityProvider::checkRetrainingRequired() const
     {
         // don't use this if we're not initialized
 
-        qCDebug(DIGIKAM_FACESENGINE_LOG) << "IdentityProvider not initialized or database not available";
-        QException().raise();
+        qCWarning(DIGIKAM_FACESENGINE_LOG) << "IdentityProvider not initialized or database not available";
+
+        return false;
     }
 
     // return false if there are no identities in the database
@@ -219,6 +218,7 @@ bool IdentityProvider::checkRetrainingRequired() const
         // write the current version to the database
 
         FaceDbAccess().db()->setTrainingVersionInfo(IdentityProvider::FaceTrainingVersion, IdentityProvider::ExtractorModel);
+
         return false;
     }
 
@@ -509,6 +509,11 @@ void IdentityProvider::deleteIdentity(const Identity& identityToBeDeleted)
 
 void IdentityProvider::deleteIdentities(QList<Identity> identitiesToBeDeleted)
 {
+    if (!d->dbAvailable)
+    {
+        return;
+    }
+
     QList<Identity>::iterator _identity = identitiesToBeDeleted.begin();
 
     while (_identity != identitiesToBeDeleted.end())
@@ -521,18 +526,23 @@ void IdentityProvider::deleteIdentities(QList<Identity> identitiesToBeDeleted)
 
 void IdentityProvider::renameIdentity(const QString& uuid, const QString& newName)
 {
+    if (!d->dbAvailable)
+    {
+        return;
+    }
+
     Identity _identity = findIdentity(QLatin1String("uuid"), uuid);
 
     if (!_identity.isNull())
     {
         // remove the old name and fullName attributes
 
-        _identity.deleteAttributeValue(QLatin1String("name"), _identity.attribute(QLatin1String("name")));
+        _identity.deleteAttributeValue(QLatin1String("name"),     _identity.attribute(QLatin1String("name")));
         _identity.deleteAttributeValue(QLatin1String("fullName"), _identity.attribute(QLatin1String("fullName")));
 
         // add the new name and fullName attributes
 
-        _identity.setAttribute(QLatin1String("name"), newName);
+        _identity.setAttribute(QLatin1String("name"),     newName);
         _identity.setAttribute(QLatin1String("fullName"), newName);
 
         // lock for write
@@ -555,6 +565,11 @@ void IdentityProvider::renameIdentity(const QString& uuid, const QString& newNam
 
 bool IdentityProvider::clearTraining(const QString& hash)
 {
+    if (!d->dbAvailable)
+    {
+        return false;
+    }
+
     d->trainingLock.lockForWrite();
 
     bool result = FaceDbAccess().db()->removeFaceVector(hash);
@@ -582,6 +597,11 @@ void IdentityProvider::clearAllTraining()
 
 int IdentityProvider::addTraining(const Identity& identity, const QString& hash, const cv::Mat& feature)
 {
+    if (!d->dbAvailable)
+    {
+        return -1;
+    }
+
     d->trainingLock.lockForWrite();
 
     int result = FaceDbAccess().db()->insertFaceVector(feature, identity.id(), hash);
@@ -629,7 +649,7 @@ bool IdentityProvider::identityContains(const Identity& _identity,
 }
 
 Identity IdentityProvider::findByAttribute(const QString& attribute,
-                                        const QString& value) const
+                                           const QString& value) const
 {
     d->trainingLock.lockForRead();
 
@@ -680,6 +700,8 @@ Identity IdentityProvider::findByAttributes(const QString& attribute,
 
 bool IdentityProvider::trainingRemoveConcurrent()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     QString hash;
 
     while (true && d->removeQueue)

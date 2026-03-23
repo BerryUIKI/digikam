@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2020-2025 by Maik Qualmann <metzpinguin at gmail dot com>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -43,6 +43,26 @@ public:
 
     QStringList mimeTypes() const override;
     QMimeData* createMimeData(const QList<Album*>&)      override;
+
+private Q_SLOTS:
+
+    void slotMoveCopyAlbum();
+    void slotMoveCopyItems();
+    void slotCopyFromCamera();
+    void slotMoveCopyExtern();
+
+private:
+
+    QAbstractItemView*    m_view         = nullptr;
+    QObject*              m_source       = nullptr;
+    PAlbum*               m_destAlbum    = nullptr;
+    PAlbum*               m_droppedAlbum = nullptr;
+
+    Qt::KeyboardModifiers m_modifiers;
+    QPoint                m_position;
+
+    QList<QUrl>           m_srcURLs;
+    QList<qlonglong>      m_imageIDs;
 };
 
 } // namespace Digikam

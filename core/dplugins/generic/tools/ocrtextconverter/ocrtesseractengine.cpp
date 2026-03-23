@@ -6,7 +6,7 @@
  * Date        : 2022-08-26
  * Description : OCR Tesseract engine
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2022      by Quoc Hung Tran <quochungtran1999 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -134,7 +134,7 @@ int OcrTesseractEngine::runOcrProcess()
         args << QLatin1String("--psm") << val;
     }
 
-    // OCR enginge mode
+    // OCR engine mode
 
     val = d->opt.OemCodeToValue(static_cast<OcrOptions::EngineModes>(d->opt.oem));
 

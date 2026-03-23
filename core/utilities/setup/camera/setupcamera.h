@@ -7,7 +7,7 @@
  * Description : camera setup tab.
  *
  * SPDX-FileCopyrightText: 2003-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2003-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2003-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -83,6 +83,7 @@ private Q_SLOTS:
     void slotAddFilter();
     void slotRemoveFilter();
     void slotEditFilter();
+    void slotResetFilter();
     void slotPreviewItemsClicked();
     void slotPreviewFullImageSizeClicked();
 

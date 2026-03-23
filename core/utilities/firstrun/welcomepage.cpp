@@ -6,7 +6,7 @@
  * Date        : 2009-28-04
  * Description : first run assistant dialog
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -55,7 +55,7 @@ WelcomePage::WelcomePage(QWizard* const dlg)
 
 #if defined Q_OS_MACOS
 
-    // MacOS settings place.
+    // macOS settings place.
 
     newPlace         = QLatin1String("~/Library/Preferences/");
     oldPlace         = QLatin1String("~/Library/Preferences/KDE/share/config/");
@@ -63,7 +63,7 @@ WelcomePage::WelcomePage(QWizard* const dlg)
 #endif
 
     text.append(i18n(
-                     "<qt><br/>"
+                     "<qt><br>"
                      "<p>You can ignore the following if you use digiKam "
                      "for the first time:</p>"
                      "<p><b>Transition from digiKam 4</b></p>"
@@ -75,9 +75,9 @@ WelcomePage::WelcomePage(QWizard* const dlg)
                      "before proceeding.</p>"
                      "<p>The new location for configuration files is "
                      "%1 (old %2). "
-                     "There are unresolved problems reported when re-using old "
+                     "There are unresolved problems reported when reusing old "
                      "configuration files, so it is not recommended to do it "
-                     "for the moment, and at your own risk.</p>"
+                     "for the moment, and therefore use at your own risk.</p>"
                      "</qt>",
                      newPlace,
                      oldPlace));

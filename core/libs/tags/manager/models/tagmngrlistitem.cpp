@@ -6,7 +6,9 @@
  * Date        : 20013-08-22
  * Description : List View Item for List View Model
  *
- * SPDX-FileCopyrightText: 2013 by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2013      by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2025 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -32,6 +34,8 @@ class Q_DECL_HIDDEN ListItem::Private
 public:
 
     Private() = default;
+
+public:
 
     QList<ListItem*> childItems;
     QList<ListItem*> toDelItems;
@@ -190,7 +194,7 @@ int ListItem::row() const
 
 ListItem* ListItem::containsItem(ListItem* const item) const
 {
-    // We need to compare items and not pointers
+    // NOTE: We need to compare items and not pointers
 
     for (int it = 0 ; it < d->childItems.size() ; ++it)
     {

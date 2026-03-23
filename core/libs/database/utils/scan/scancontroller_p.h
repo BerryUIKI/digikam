@@ -7,7 +7,7 @@
  * Description : scan item controller - private containers.
  *
  * SPDX-FileCopyrightText: 2005-2006 by Tom Albers <tomalbers at kde dot nl>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -108,8 +108,6 @@ public:
     QPixmap errorPixmap();
     QPixmap restartPixmap();
 
-    void garbageCollectHints(bool setAccessTime);
-
 public:
 
     bool                            running                 = false;
@@ -148,8 +146,6 @@ public:
 
     CollectionScannerHintContainer* hints                   = CollectionScanner::createHintContainer();
 
-    QDateTime                       lastHintAdded;
-
     DProgressDlg*                   progressDialog          = nullptr;
 
     ScanController::Advice          advice                  = ScanController::Success;
@@ -159,15 +155,6 @@ public:
     int                             totalFilesToScan        = 0;
 
     QList<qlonglong>                newIdsList;
-};
-
-// ------------------------------------------------------------------------------
-
-class Q_DECL_HIDDEN ScanControllerCreator
-{
-public:
-
-    ScanController object;
 };
 
 } // namespace Digikam

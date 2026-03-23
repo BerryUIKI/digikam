@@ -3,7 +3,7 @@
 # Script to build extra libraries using MacPorts env.
 # This script must be run as sudo
 #
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -45,7 +45,11 @@ OsxCodeName
 ORIG_PATH="$PATH"
 ORIG_WD="`pwd`"
 
-export PATH=$INSTALL_PREFIX/bin:/$INSTALL_PREFIX/sbin:/$INSTALL_PREFIX/libexec/qt$DK_QTVERSION/bin:$ORIG_PATH
+export PATH="$INSTALL_PREFIX/bin:$INSTALL_PREFIX/sbin:$INSTALL_PREFIX/libexec/qt$DK_QTVERSION/bin:$ORIG_PATH"
+
+# Typically, for the Breeze-icons python3 generation icons script (do not work yet with macports).
+port select --set python3 python312
+export PYTHONPATH="$INSTALL_PREFIX/bin:$PYTHONPATH"
 
 #################################################################################################
 
@@ -70,7 +74,7 @@ cmake $ORIG_WD/../3rdparty \
        -DKDE_VERSION=$DK_KDE_VERSION \
        -DENABLE_QTVERSION=$DK_QTVERSION \
        -DDK_APPLE_PACKAGE_MANAGER=$DK_APPLE_PACKAGE_MANAGER \
-       -DARCH_TARGET=$ARCH_TARGET \
+       -DARCH_TARGET=$TARGET_ARCH \
        -Wno-dev
 
 # NOTE: The order to compile each component here is very important.
@@ -108,6 +112,13 @@ cmake --build . --config RelWithDebInfo --target ext_kbookmarks          -- -j$C
 cmake --build . --config RelWithDebInfo --target ext_kimageformats       -- -j$CPU_CORES
 
 # Extra support for digiKam
+
+# Desktop integration support
+cmake --build . --config RelWithDebInfo --target ext_knotifications      -- -j$CPU_CORES
+cmake --build . --config RelWithDebInfo --target ext_kjobwidgets         -- -j$CPU_CORES
+
+cmake --build . --config RelWithDebInfo --target ext_kio                 -- -j$CPU_CORES
+cmake --build . --config RelWithDebInfo --target ext_knotifyconfig       -- -j$CPU_CORES
 
 if [[ $DK_QTVERSION == 6 ]] ; then
 

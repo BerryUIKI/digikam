@@ -6,7 +6,7 @@
  * Date        : 2017-05-24
  * Description : images transition manager.
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -84,7 +84,7 @@ int TransitionMngr::Private::transitionMosaic(bool aInit)
 
     if (aInit)
     {
-        eff_i           = 30; // giri totaly
+        eff_i           = 30; // giri totally
         eff_pixelMatrix = new bool*[eff_outSize.width()];
 
         for (int x = 0 ; x < eff_outSize.width() ; ++x)

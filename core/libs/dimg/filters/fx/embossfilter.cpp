@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : Emboss threaded image filter.
  *
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -33,6 +33,7 @@
 
 #include "dimg.h"
 #include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -70,6 +71,8 @@ QString EmbossFilter::DisplayableName()
  */
 void EmbossFilter::embossMultithreaded(uint start, uint stop, uint h, double Depth)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     int Width         = m_orgImage.width();
     int Height        = m_orgImage.height();
     bool sixteenBit   = m_orgImage.sixteenBit();

@@ -6,7 +6,7 @@
  * Date        : 2020-12-31
  * Description : Online version dialog.
  *
- * SPDX-FileCopyrightText: 2020-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -274,7 +274,7 @@ void OnlineVersionDlg::slotNewVersionAvailable(const QString& version)
         d->label->setText(i18n("<p>Current <b>%1</b> pre-release date is <i>%2</i>.</p>"
                                "<p>New pre-release built on <i>%3</i> is available on this <a href='%4'>repository</a>.</p>"
                                "<p>Press <b>Download</b> to get the file...</p>"
-                               "<p>Note: from Setup/Misc panel, you can switch to check for stable release only.<br/>"
+                               "<p>Note: from Setup/Misc panel, you can switch to check for stable release only.<br>"
                                "Stable versions are safe to use in production.</p>"
                                "<p>Press <b>Configure</b> if you want to customize update options from setup dialog.</p>",
                                qApp->applicationName(),
@@ -287,9 +287,9 @@ void OnlineVersionDlg::slotNewVersionAvailable(const QString& version)
         d->label->setText(i18n("<p>Current <b>%1</b> stable version is <i>%2</i></p>"
                                "<p>New stable version <i>%3</i> is available on this <a href='%4'>repository</a>.</p>"
                                "<p>Press <b>Download</b> to get the file...</p>"
-                               "<p>Note: from Setup/Misc panel, you can switch to check for weekly pre-release.<br/>"
-                               "Pre-release versions are dedicated to test quickly new features.<br/>"
-                               "It is not recommended to use pre-releases in production as bugs can remain,<br/>"
+                               "<p>Note: from Setup/Misc panel, you can switch to check for weekly pre-release.<br>"
+                               "Pre-release versions are dedicated to test quickly new features.<br>"
+                               "It is not recommended to use pre-releases in production as bugs can remain,<br>"
                                "unless you know what you are doing.</p>"
                                "<p>Press <b>Configure</b> if you want to customize update options from setup dialog.</p>",
                                qApp->applicationName(),
@@ -616,7 +616,7 @@ void OnlineVersionDlg::slotHelp()
 {
     openOnlineDocumentation(QLatin1String("setup_application"),
                             QLatin1String("miscs_settings"),
-                            QLatin1String("updates-settings"));
+                            QLatin1String("application-updates"));
 }
 
 void OnlineVersionDlg::slotSetupUpdate()

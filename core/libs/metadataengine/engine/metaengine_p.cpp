@@ -7,7 +7,7 @@
  * Description : Exiv2 library interface.
  *               Internal private container.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -411,6 +411,17 @@ bool MetaEngine::Private::saveUsingExiv2(const QFileInfo& finfo,
 
             if (image->imageType() == Exiv2::ImageType::xmp)
             {
+                // See Bug 509796, darktable ignores the sidecar
+                // if this structured metadata is present.
+
+                Exiv2::XmpKey xmpMMDF("Xmp.xmpMM.DerivedFrom");
+                Exiv2::XmpData::iterator it3 = image->xmpData().findKey(xmpMMDF);
+
+                if (it3 != image->xmpData().end())
+                {
+                    image->xmpData().eraseFamily(it3);
+                }
+
                 QList<QPair<QString, QString> > pairedTags;
                 typedef QPair<QString, QString> StringPair;
 
@@ -451,13 +462,15 @@ bool MetaEngine::Private::saveUsingExiv2(const QFileInfo& finfo,
         // cppcheck-suppress knownConditionTrueFalse
         if      (!wroteComment && !wroteEXIF && !wroteIPTC && !wroteXMP)
         {
-            qCDebug(DIGIKAM_METAENGINE_LOG) << "Writing metadata is not supported for file" << finfo.fileName();
+            qCDebug(DIGIKAM_METAENGINE_LOG) << "Writing metadata with Exiv2 is not supported for file"
+                                            << finfo.fileName();
 
-            return false;
+            return saveUsingExifTool(finfo, modTime);
         }
         else if (!wroteEXIF || !wroteIPTC || !wroteXMP)
         {
-            qCDebug(DIGIKAM_METAENGINE_LOG) << "Support for writing metadata is limited for file" << finfo.fileName();
+            qCDebug(DIGIKAM_METAENGINE_LOG) << "Support for writing metadata with Exiv2 is limited for file"
+                                            << finfo.fileName();
         }
 
         image->writeMetadata();
@@ -618,10 +631,10 @@ QString MetaEngine::Private::convertCommentValue(const Exiv2::Exifdatum& exifDat
         QByteArray rawComment(exifDatum.size(), '\0');
         exifDatum.copy(reinterpret_cast<Exiv2::byte*>(const_cast<char*>(rawComment.data())), exifByteOrder());
 
-        if (
-            (rawComment.size() > 8) &&
-            rawComment.startsWith(QByteArray("UNICODE\0"))
-           )
+        if      (
+                 (rawComment.size() > 8) &&
+                  rawComment.startsWith(QByteArray("UNICODE\0"))
+                )
         {
             rawComment = rawComment.mid(8);
 
@@ -647,6 +660,23 @@ QString MetaEngine::Private::convertCommentValue(const Exiv2::Exifdatum& exifDat
             }
 
             return QString::fromUtf16(reinterpret_cast<char16_t*>(rawComment.data()), rawComment.size() / 2);
+        }
+        else if (
+                 (rawComment.size() > 8) &&
+                  rawComment.startsWith(QByteArray("ASCII\0\0\0"))
+                )
+        {
+            QByteArray tmpComment;
+
+            for (int i = 0 ; i < rawComment.mid(8).size() ; ++i)
+            {
+                if (rawComment.mid(8).at(i) != '\0')
+                {
+                    tmpComment.append(rawComment.mid(8).at(i));
+                }
+            }
+
+            return QString::fromLatin1(tmpComment);
         }
 
         std::string comment;
@@ -1058,7 +1088,20 @@ void MetaEngine::Private::loadSidecarData(Exiv2::Image::AutoPtr xmpsidecar)
                         << QLatin1String("Exif.Image.YResolution")
                         << QLatin1String("Exif.Image.ResolutionUnit")
                         << QLatin1String("Exif.Image.Software")
-                        << QLatin1String("Exif.Photo.RelatedSoundFile");
+                        << QLatin1String("Exif.Photo.RelatedSoundFile")
+                        << QLatin1String("Exif.GPSInfo.GPSVersionID")
+                        << QLatin1String("Exif.GPSInfo.GPSLatitude")
+                        << QLatin1String("Exif.GPSInfo.GPSLatitudeRef")
+                        << QLatin1String("Exif.GPSInfo.GPSLongitude")
+                        << QLatin1String("Exif.GPSInfo.GPSLongitudeRef")
+                        << QLatin1String("Exif.GPSInfo.GPSAltitude")
+                        << QLatin1String("Exif.GPSInfo.GPSAltitudeRef")
+                        << QLatin1String("Exif.GPSInfo.GPSTimeStamp")
+                        << QLatin1String("Exif.GPSInfo.GPSSpeed")
+                        << QLatin1String("Exif.GPSInfo.GPSSpeedRef")
+                        << QLatin1String("Exif.GPSInfo.GPSSatellites")
+                        << QLatin1String("Exif.GPSInfo.GPSMeasureMode")
+                        << QLatin1String("Exif.GPSInfo.GPSDOP");
     exifWritebackHelper.mergeFields(xmpsidecar->exifData(), exifMetadata());
 
     // IPTC

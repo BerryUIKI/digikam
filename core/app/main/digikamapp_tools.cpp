@@ -6,16 +6,13 @@
  * Date        : 2002-16-10
  * Description : main digiKam interface implementation - Extra tools
  *
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
  * ============================================================ */
 
 #include "digikamapp_p.h"
-#include "facetrainingupgradedlg.h"
-#include "peoplesidebarwidget.h"
-#include "systemsettings.h"
 
 namespace Digikam
 {
@@ -36,6 +33,7 @@ void DigikamApp::setupSelectToolsAction()
     actionModel->addAction(d->maintenanceAction,          mainCategory);
     actionModel->addAction(d->scanNewItemsAction,         mainCategory);
     actionModel->addAction(d->ltAction,                   mainCategory);
+    actionModel->addAction(d->svAction,                   mainCategory);
     actionModel->addAction(d->advSearchAction,            mainCategory);
 
     QString postCategory   = i18nc("@title Post Processing Tools", "Post-Processing");
@@ -100,7 +98,7 @@ void DigikamApp::slotMaintenance()
 {
     QPointer<MaintenanceDlg> dlg = new MaintenanceDlg(this);
 
-    if (dlg->exec() == QDialog::Accepted)
+    if (dialogExec(dlg) == QDialog::Accepted)
     {
         d->maintenanceAction->setEnabled(false);
         d->scanNewItemsAction->setEnabled(false);
@@ -153,6 +151,11 @@ void DigikamApp::slotMaintenanceDone()
         LightTableWindow::lightTableWindow()->refreshView();
     }
 
+    if (SurveyWindow::surveyWindowCreated())
+    {
+        SurveyWindow::surveyWindow()->refreshView();
+    }
+
     if (QueueMgrWindow::queueManagerWindowCreated())
     {
         QueueMgrWindow::queueManagerWindow()->refreshView();
@@ -198,7 +201,7 @@ void DigikamApp::slotDetectFaces()
 void DigikamApp::slotDatabaseMigration()
 {
     QPointer<DatabaseMigrationDialog> dlg = new DatabaseMigrationDialog(this);
-    (void)dlg->exec();
+    (void)dialogExec(dlg);
     delete dlg;
 }
 

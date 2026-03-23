@@ -7,7 +7,7 @@
  * Description : A text translator using web-services - Properties methods.
  *
  * SPDX-FileCopyrightText: 2018-2022 by Hennadii Chernyshchyk <genaloner at gmail dot com>
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -100,7 +100,7 @@ void DOnlineTranslator::setEngineApiKey(Engine engine, const QByteArray& apiKey)
 
 QJsonDocument DOnlineTranslator::toJson() const
 {
-    QJsonObject translationOptions;
+    QJsonObject translateOptions;
 
     for (auto it = d->translationOptions.cbegin() ; it != d->translationOptions.cend() ; ++it)
     {
@@ -111,7 +111,7 @@ QJsonDocument DOnlineTranslator::toJson() const
             arr.append(option.toJson());
         }
 
-        translationOptions.insert(it.key(), arr);
+        translateOptions.insert(it.key(), arr);
     }
 
     QJsonObject object
@@ -120,7 +120,7 @@ QJsonDocument DOnlineTranslator::toJson() const
         { QLatin1String("sourceTranscription"),  d->sourceTranscription      },
         { QLatin1String("sourceTranslit"),       d->sourceTranslit           },
         { QLatin1String("translation"),          d->translation              },
-        { QLatin1String("translationOptions"),   qMove(translationOptions)   },
+        { QLatin1String("translationOptions"),   qMove(translateOptions)     },
         { QLatin1String("translationTranslit"),  d->translationTranslit      },
     };
 

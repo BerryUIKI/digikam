@@ -7,7 +7,7 @@
  * Description : a widget to edit Application2 ObjectAttribute
  *               Iptc tag.
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -46,6 +46,8 @@ class Q_DECL_HIDDEN ObjectAttributesEdit::Private
 public:
 
     Private() = default;
+
+public:
 
     QStringList       oldValues;
 
@@ -102,10 +104,10 @@ ObjectAttributesEdit::ObjectAttributesEdit(QWidget* const parent, int size)
     d->dataList->addSqueezedItem(QLatin1String("007 - ") + i18nc("Content type", "History"));
     d->dataList->addSqueezedItem(QLatin1String("008 - ") + i18nc("Content type", "Obituary"));
     d->dataList->addSqueezedItem(QLatin1String("009 - ") + i18nc("Content type", "Opinion"));
-    d->dataList->addSqueezedItem(QLatin1String("010 - ") + i18nc("Content type", "Polls & Surveys"));
+    d->dataList->addSqueezedItem(QLatin1String("010 - ") + i18nc("Content type", "Polls and Surveys"));
     d->dataList->addSqueezedItem(QLatin1String("011 - ") + i18nc("Content type", "Profile"));
-    d->dataList->addSqueezedItem(QLatin1String("012 - ") + i18nc("Content type", "Results Listings & Table"));
-    d->dataList->addSqueezedItem(QLatin1String("013 - ") + i18nc("Content type", "Side bar & Supporting information"));
+    d->dataList->addSqueezedItem(QLatin1String("012 - ") + i18nc("Content type", "Results Listings and Table"));
+    d->dataList->addSqueezedItem(QLatin1String("013 - ") + i18nc("Content type", "Side bar and Supporting information"));
     d->dataList->addSqueezedItem(QLatin1String("014 - ") + i18nc("Content type", "Summary"));
     d->dataList->addSqueezedItem(QLatin1String("015 - ") + i18nc("Content type", "Transcript & Verbatim"));
     d->dataList->addSqueezedItem(QLatin1String("016 - ") + i18nc("Content type", "Interview"));

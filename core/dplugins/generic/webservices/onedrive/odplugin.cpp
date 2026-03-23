@@ -6,7 +6,7 @@
  * Date        : 2018-07-30
  * Description : a plugin to export to OneDrive web-service.
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -61,7 +61,7 @@ QString ODPlugin::description() const
 
 QString ODPlugin::details() const
 {
-    return i18nc("@info", "This tool allows users to export items to OneDrive web-service.\n\n"
+    return i18nc("@info", "This tool allows users to export items to OneDrive web-service.<br><br>"
                  "See OneDrive web site for details: %1",
                  QLatin1String("<a href='https://onedrive.live.com/'>https://onedrive.live.com/</a>"));
 }
@@ -89,7 +89,7 @@ void ODPlugin::setup(QObject* const parent)
 {
     DPluginAction* const ac = new DPluginAction(parent);
     ac->setIcon(icon());
-    ac->setText(i18nc("@action", "Export to &Onedrive..."));
+    ac->setText(i18nc("@action", "Export to &OneDrive..."));
     ac->setObjectName(QLatin1String("export_onedrive"));
     ac->setActionCategory(DPluginAction::GenericExport);
     ac->setShortcut(Qt::CTRL | Qt::ALT | Qt::SHIFT | Qt::Key_O);

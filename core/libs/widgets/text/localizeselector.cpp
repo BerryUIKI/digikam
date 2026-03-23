@@ -6,7 +6,7 @@
  * Date        : 2009-06-15
  * Description : localize selector widget
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -312,7 +312,7 @@ bool s_inlineTranslateString(const QString& text, const QString& trCode, QString
     trengine->translate(text,                                                            // String to translate
                         LocalizeSettings::instance()->settings().translatorEngine,       // Web service
                         trLang,                                                          // Target language
-                        srcLang,                                                         // Source langage
+                        srcLang,                                                         // Source language
                         DOnlineTranslator::Auto);
 
     waitingLoop->exec(QEventLoop::ExcludeUserInputEvents);

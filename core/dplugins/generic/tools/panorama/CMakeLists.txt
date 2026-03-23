@@ -40,7 +40,7 @@ ADD_FLEX_BISON_DEPENDENCY(PTOScanner PTOParser)
 if(MSVC)
 
     set_source_files_properties(${CMAKE_CURRENT_BINARY_DIR}/panoScanner.c
-                                PROPERTIES COMPILE_FLAGS "/w")
+                                PROPERTIES COMPILE_FLAGS "/W0")
 
 else()
 
@@ -96,9 +96,6 @@ set(panoramaplugin_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/tasks/cpcleantask.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tasks/optimisationtask.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tasks/autocroptask.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/tasks/createmktask.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/tasks/compilemksteptask.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/tasks/compilemktask.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tasks/huginexecutortask.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tasks/copyfilestask.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tasks/createpreviewtask.cpp
@@ -107,12 +104,8 @@ set(panoramaplugin_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/autooptimiserbinary.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/cpcleanbinary.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/cpfindbinary.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/tools/enblendbinary.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/huginexecutorbinary.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/tools/makebinary.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/tools/nonabinary.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/panomodifybinary.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/tools/pto2mkbinary.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/manager/panoactionthread.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/manager/panomanager.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/wizard/panointropage.cpp

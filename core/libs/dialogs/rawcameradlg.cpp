@@ -6,7 +6,7 @@
  * Date        : 2008-04-07
  * Description : Raw camera list dialog
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -122,9 +122,9 @@ void RawCameraDlg::updateHeader(int results)
 
     if (!results)
     {
-        d->header->setText(i18np("Using LibRaw version %2<br/>"
+        d->header->setText(i18np("Using LibRaw version %2<br>"
                                  "1 model on the list",
-                                 "Using LibRaw version %2<br/>"
+                                 "Using LibRaw version %2<br>"
                                  "%1 models on the list",
                                  list.count(),
                                  librawVer
@@ -132,9 +132,9 @@ void RawCameraDlg::updateHeader(int results)
     }
     else
     {
-        d->header->setText(i18np("Using LibRaw version %2<br/>"
+        d->header->setText(i18np("Using LibRaw version %2<br>"
                                  "1 model on the list (found: %3)",
-                                 "Using LibRaw version %2<br/>"
+                                 "Using LibRaw version %2<br>"
                                  "%1 models on the list (found: %3)",
                                  list.count(),
                                  librawVer,

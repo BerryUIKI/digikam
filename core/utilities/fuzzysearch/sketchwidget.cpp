@@ -6,7 +6,7 @@
  * Date        : 2008-05-19
  * Description : a widget to draw sketch.
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2008-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -407,7 +407,17 @@ void SketchWidget::addPath(QXmlStreamReader& reader)
 
     if (!color.isEmpty())
     {
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
+
+        event.penColor.fromString(color.toString());
+
+#else
+
         event.penColor.setNamedColor(color.toString());
+
+#endif
+
     }
 
     QPointF begin(0, 0), end(0, 0);

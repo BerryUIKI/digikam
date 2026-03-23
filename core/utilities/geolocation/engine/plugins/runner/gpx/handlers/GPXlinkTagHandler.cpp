@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -33,7 +33,7 @@ namespace gpx
 
 GPX_DEFINE_TAG_HANDLER_11(link)
 
-// Gpx link provides a linke related to the object, and is inserted into the
+// Gpx link provides a link related to the object, and is inserted into the
 // waypoint description as this seems to be the simplest means to make it
 // available to the user.
 // In addition, link properties are saved to extendedData.
@@ -64,7 +64,7 @@ GeoNode* GPXlinkTagHandler::parse(GeoParser& parser) const
 
         if (!desc.isEmpty())
         {
-            desc += QLatin1String("<br/>");
+            desc += QLatin1String("<br>");
         }
 
         placemark->setDescription(desc.append(link));

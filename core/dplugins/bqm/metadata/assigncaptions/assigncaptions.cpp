@@ -6,7 +6,7 @@
  * Date        : 2022-09-24
  * Description : assign captions metadata batch tool.
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -37,6 +37,7 @@
 #include "dmetadata.h"
 #include "dpluginbqm.h"
 #include "altlangstredit.h"
+#include "dexpanderbox.h"
 #include "dlayoutbox.h"
 #include "captionvalues.h"
 #include "captionedit.h"
@@ -59,6 +60,9 @@ public:
     CaptionEdit*        captionsWidget  = nullptr;
 
     QCheckBox*          cleanupCB       = nullptr;
+
+    DLineWidget*        lineWidget      = nullptr;
+    QLabel*             infoLabel       = nullptr;
 
     bool                changeSettings  = true;
 };
@@ -107,6 +111,12 @@ void AssignCaptions::registerSettingsWidget()
     d->cleanupCB->setToolTip(i18nc("@info", "If you turn on this options, titles and captions "
                                    "will be cleaned and replaced by the new values,\nelse "
                                    "old values will be merged with new values."));
+
+    d->lineWidget         = new DLineWidget(Qt::Horizontal, vbox),
+
+    d->infoLabel          = new QLabel(i18nc("@label", "Use the variable $ORGTEXT to insert the "
+                                                       "existing text into the new text."), vbox);
+    d->infoLabel->setWordWrap(true);
 
     m_settingsWidget      = vbox;
 
@@ -222,6 +232,7 @@ bool AssignCaptions::toolOperations()
     bool setCaptions              = settings().value(QLatin1String("SetCaptions")).toBool();
     CaptionsMap captions          = qvariant_cast<CaptionsMap>(settings().value(QLatin1String("CaptionValues")));
     bool cleanup                  = settings().value(QLatin1String("CleanUp")).toBool();
+    const QString variableOrgText(QLatin1String("$ORGTEXT"));
 
     if (setTitles)
     {
@@ -237,7 +248,10 @@ bool AssignCaptions::toolOperations()
 
         for (it = titles.constBegin() ; it != titles.constEnd() ; ++it)
         {
-            orgTitles.insert(it.key(), it.value());
+            QString value = it.value();
+            value.replace(variableOrgText,
+                          orgTitles.value(it.key()));
+            orgTitles.insert(it.key(), value);
         }
 
         CaptionsMap newTitlesMap;
@@ -259,7 +273,12 @@ bool AssignCaptions::toolOperations()
 
         for (it = captions.constBegin() ; it != captions.constEnd() ; ++it)
         {
-            orgCaptionsMap.insert(it.key(), it.value());
+            CaptionValues value = it.value();
+            value.caption.replace(variableOrgText,
+                                  orgCaptionsMap.value(it.key()).caption);
+            value.author.replace(variableOrgText,
+                                 orgCaptionsMap.value(it.key()).author);
+            orgCaptionsMap.insert(it.key(), value);
         }
 
         meta->setItemComments(orgCaptionsMap);

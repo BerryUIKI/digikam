@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Performs face detection and recognition
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -85,6 +85,8 @@ bool FacePipelineRecognize::start()
 
 bool FacePipelineRecognize::finder()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceReco%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_FINDER_START(settings.workerThreadPriority, MLPipelineStage::Loader);
 
     /* =========================================================================================
@@ -173,6 +175,8 @@ bool FacePipelineRecognize::finder()
 
 bool FacePipelineRecognize::loader()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceReco%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     return commonFaceThumbnailLoader(QStringLiteral("FacePipelineRecognize"),
                                      settings.workerThreadPriority,
                                      MLPipelineStage::Loader,
@@ -181,6 +185,8 @@ bool FacePipelineRecognize::loader()
 
 bool FacePipelineRecognize::extractor()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceReco%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     return commonFaceThumbnailExtractor(QStringLiteral("FacePipelineRecognize"),
                                         settings.workerThreadPriority,
                                         MLPipelineStage::Extractor,
@@ -189,6 +195,8 @@ bool FacePipelineRecognize::extractor()
 
 bool FacePipelineRecognize::classifier()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceReco%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(settings.workerThreadPriority, MLPipelineStage::Classifier, MLPipelineStage::Writer);
     FacePipelinePackageBase* package = nullptr;
 
@@ -247,6 +255,8 @@ bool FacePipelineRecognize::classifier()
 
 bool FacePipelineRecognize::writer()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceReco%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(settings.workerThreadPriority, MLPipelineStage::Writer, MLPipelineStage::None);
     FacePipelinePackageBase* package = nullptr;
 

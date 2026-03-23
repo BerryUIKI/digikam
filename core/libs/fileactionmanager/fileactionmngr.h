@@ -7,7 +7,7 @@
  * Description : file action manager
  *
  * SPDX-FileCopyrightText: 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -43,6 +43,9 @@ public:
 
 public:
 
+    FileActionMngr();
+    ~FileActionMngr() override;
+
     static FileActionMngr* instance();
 
     bool requestShutDown();
@@ -75,7 +78,7 @@ public Q_SLOTS:
     void assignRating(const ItemInfo& info, int rating);
     void assignRating(const QList<ItemInfo>& infos, int rating);
 
-    void addToGroup(const ItemInfo& pick, const QList<ItemInfo>& infos);
+    void addToGroup(const ItemInfo& stack, const QList<ItemInfo>& infos);
     void removeFromGroup(const ItemInfo& info);
     void removeFromGroup(const QList<ItemInfo>& infos);
     void ungroup(const ItemInfo& info);
@@ -106,13 +109,9 @@ public:
 private:
 
     // Disable
-    FileActionMngr();
     explicit FileActionMngr(QObject*);
-    ~FileActionMngr() override;
 
     Private* const d = nullptr;
-
-    friend class FileActionMngrCreator;
 };
 
 } // namespace Digikam

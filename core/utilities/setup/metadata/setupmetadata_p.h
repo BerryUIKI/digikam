@@ -7,7 +7,7 @@
  * Description : setup Metadata tab.
  *
  * SPDX-FileCopyrightText: 2003-2004 by Ralf Holzer <ralf at well dot com>
- * SPDX-FileCopyrightText: 2003-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2003-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2017      by Simon Frei <freisim93 at gmail dot com>
  *
@@ -55,11 +55,11 @@
 #include "metaengine.h"
 #include "metadatapanel.h"
 #include "metaenginesettings.h"
-#include "setuputils.h"
 #include "exiftoolconfpanel.h"
 #include "dexpanderbox.h"
 #include "dlayoutbox.h"
 #include "drawfiles.h"
+#include "setup.h"
 
 namespace Digikam
 {

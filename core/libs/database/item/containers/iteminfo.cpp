@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2005      by Renchi Raju <renchi dot raju at gmail dot com>
  * SPDX-FileCopyrightText: 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -194,6 +194,11 @@ ItemInfo ItemInfo::fromLocationAlbumAndName(int locationId, const QString& album
 
     // Cached ?
     info.m_data = ItemInfoStatic::cache()->infoForPath(locationId, album, name);
+
+    if (info.m_data && info.m_data->statusChanged)
+    {
+        info = ItemInfo();
+    }
 
     if (!info.m_data)
     {

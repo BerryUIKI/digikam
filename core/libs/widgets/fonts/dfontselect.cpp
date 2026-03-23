@@ -6,7 +6,7 @@
  * Date        : 2008-12-23
  * Description : a widget to select between system font or a custom font.
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -18,12 +18,14 @@
 
 #include <QLabel>
 #include <QEvent>
-#include <QPushButton>
-#include <QFontDatabase>
-#include <QApplication>
 #include <QStyle>
+#include <QToolTip>
 #include <QComboBox>
+#include <QHelpEvent>
+#include <QPushButton>
 #include <QFontDialog>
+#include <QApplication>
+#include <QFontDatabase>
 
 // KDE includes
 
@@ -48,6 +50,7 @@ public:
     DAdjustableLabel*     desc              = nullptr;
 
     QFont                 font;
+    QFont                 ttFont            = QToolTip::font();
 
     QPushButton*          chooseFontButton  = nullptr;
 
@@ -131,9 +134,25 @@ void DFontSelect::setFont(const QFont& font)
 
 bool DFontSelect::event(QEvent* e)
 {
-    if (e->type() == QEvent::Polish)
+    if (e->type() == QEvent::ToolTip)
     {
-        d->modeCombo->setFont(font());
+        QHelpEvent* const helpEvent = static_cast<QHelpEvent*>(e);
+
+        if (d->modeCombo == qApp->widgetAt(helpEvent->globalPos()))
+        {
+            QToolTip::setFont(font());
+            QToolTip::showText(helpEvent->globalPos(),
+                               d->modeCombo->currentText());
+            QToolTip::setFont(d->ttFont);
+        }
+        else
+        {
+            QToolTip::setFont(d->ttFont);
+            QToolTip::showText(helpEvent->globalPos(), toolTip());
+        }
+
+         e->ignore();
+         return true;
     }
 
     return DHBox::event(e);

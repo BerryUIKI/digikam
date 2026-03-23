@@ -31,6 +31,7 @@
 
 // KDE includes
 
+#include <kconfiggroup.h>
 #include <klocalizedstring.h>
 
 // Local includes
@@ -74,9 +75,12 @@ public:
 };
 
 TrashView::TrashView(QWidget* const parent)
-    : QWidget(parent),
-      d      (new Private)
+    : QWidget          (parent),
+      StateSavingObject(this),
+      d                (new Private)
 {
+    setObjectName(QLatin1String("TrashView"));
+
     // Layouts
 
     d->mainLayout    = new QVBoxLayout(this);
@@ -92,7 +96,8 @@ TrashView::TrashView(QWidget* const parent)
 
     d->tableView->setModel(d->model);
     d->tableView->setItemDelegateForColumn(0, d->thumbDelegate);
-    d->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Stretch);
+    d->tableView->horizontalHeader()->setSectionResizeMode(QHeaderView::Interactive);
+    d->tableView->horizontalHeader()->setStretchLastSection(true);                      // Stretch if no column size config are not found in settings file.
     d->tableView->verticalHeader()->setSectionResizeMode(QHeaderView::Fixed);
     d->tableView->verticalHeader()->setDefaultSectionSize(d->thumbSize.size());
     d->tableView->verticalHeader()->hide();
@@ -193,10 +198,14 @@ TrashView::TrashView(QWidget* const parent)
 
     connect(d->tableView, SIGNAL(customContextMenuRequested(QPoint)),
             this, SLOT(slotContextMenuEmptyTrash(QPoint)));
+
+    loadState();
 }
 
 TrashView::~TrashView()
 {
+    saveState();
+
     delete d;
 }
 
@@ -282,6 +291,8 @@ void TrashView::slotUndoLastDeletedItems()
 
     qCDebug(DIGIKAM_GENERAL_LOG) << "Items to Restore:\n " << items;
 
+    d->model->suspendLoadingTrashThumbs();
+
     DIO::restoreTrash(items);
 
     connect(DIO::instance(), SIGNAL(signalTrashFinished()),
@@ -306,6 +317,8 @@ void TrashView::slotRestoreSelectedItems()
     }
 
     qCDebug(DIGIKAM_GENERAL_LOG) << "Items to Restore:\n " << items;
+
+    d->model->suspendLoadingTrashThumbs();
 
     DIO::restoreTrash(items);
 
@@ -338,6 +351,8 @@ void TrashView::slotDeleteSelectedItems()
     DTrashItemInfoList items = d->model->itemsForIndexes(d->selectedIndexesToRemove);
 
     qCDebug(DIGIKAM_GENERAL_LOG) << "Items count: " << items.count();
+
+    d->model->suspendLoadingTrashThumbs();
 
     DIO::emptyTrash(items);
 
@@ -384,6 +399,8 @@ void TrashView::slotDeleteAllItems()
     }
 
     qCDebug(DIGIKAM_GENERAL_LOG) << "Removing all item from trash permanently";
+
+    d->model->suspendLoadingTrashThumbs();
 
     DIO::emptyTrash(d->model->allItems());
 
@@ -518,6 +535,32 @@ QString TrashView::statusBarText() const
     }
 
     return statusBarSelectionText;
+}
+
+void TrashView::doLoadState()
+{
+    KConfigGroup group = getConfigGroup();
+
+    QHeaderView* const header = d->tableView->horizontalHeader();
+
+    for (int i = 0 ; i < header->count() ; ++i)
+    {
+        header->resizeSection(i, group.readEntry(QString::fromLatin1("TrashViewColumn_%1").arg(i), header->sectionSize(i)));
+    }
+}
+
+void TrashView::doSaveState()
+{
+    KConfigGroup group = getConfigGroup();
+
+    QHeaderView* const header = d->tableView->horizontalHeader();
+
+    for (int i = 0 ; i < header->count() ; ++i)
+    {
+        group.writeEntry(QString::fromLatin1("TrashViewColumn_%1").arg(i), header->sectionSize(i));
+    }
+
+    group.sync();
 }
 
 // --------------------------------------------------

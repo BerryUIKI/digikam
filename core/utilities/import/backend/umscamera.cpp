@@ -7,7 +7,7 @@
  * Description : USB Mass Storage camera interface
  *
  * SPDX-FileCopyrightText: 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -58,6 +58,11 @@
 #include "dmetadata.h"
 #include "itemscanner.h"
 #include "dfileoperations.h"
+
+#ifdef HAVE_MEDIAPLAYER
+#   include "videothumbnailer.h"
+#   include "videostripfilter.h"
+#endif
 
 namespace Digikam
 {
@@ -236,13 +241,9 @@ void UMSCamera::getItemInfo(const QString& folder, const QString& itemName, CamI
 
     // if we have an image, allow previews
     // TODO allow video previews at some point?
-/*
+
     if (info.mime.startsWith(QLatin1String("image/")) ||
-    {
         info.mime.startsWith(QLatin1String("video/")))
-    }
-*/
-    if (info.mime.startsWith(QLatin1String("image/")))
     {
         info.previewPossible = true;
     }
@@ -314,7 +315,7 @@ bool UMSCamera::getThumbnail(const QString& folder, const QString& itemName, QIm
 
     // Finally, we trying to get thumbnail using DImg API (slow).
 
-    qCDebug(DIGIKAM_IMPORTUI_LOG) << "Use DImg loader to get thumbnail from : " << path;
+    qCDebug(DIGIKAM_IMPORTUI_LOG) << "Use DImg loader to get thumbnail from:" << path;
 
     DImg dimgThumb;
 
@@ -328,6 +329,21 @@ bool UMSCamera::getThumbnail(const QString& folder, const QString& itemName, QIm
 
         return true;
     }
+
+#ifdef HAVE_MEDIAPLAYER
+
+    VideoThumbnailer thumbnailer;
+    VideoStripFilter videoStrip;
+
+    thumbnailer.addFilter(&videoStrip);
+    thumbnailer.generateThumbnail(path, thumbnail);
+
+    if (!thumbnail.isNull())
+    {
+        return true;
+    }
+
+#endif
 
     return false;
 }
@@ -425,7 +441,7 @@ bool UMSCamera::setLockItem(const QString& folder, const QString& itemName, bool
     {
         // Lock the file to set read only flag
 
-        if (::chmod(QFile::encodeName(src).constData(), S_IREAD) == -1)
+        if (::chmod(src.toUtf8().constData(), S_IREAD) == -1)
         {
             return false;
         }
@@ -434,7 +450,7 @@ bool UMSCamera::setLockItem(const QString& folder, const QString& itemName, bool
     {
         // Unlock the file to set read/write flag
 
-        if (::chmod(QFile::encodeName(src).constData(), S_IREAD | S_IWRITE) == -1)
+        if (::chmod(src.toUtf8().constData(), S_IREAD | S_IWRITE) == -1)
         {
             return false;
         }
@@ -483,7 +499,7 @@ bool UMSCamera::uploadItem(const QString& folder, const QString& itemName, const
 
     if (!sFile.open(QIODevice::ReadOnly))
     {
-        qCWarning(DIGIKAM_IMPORTUI_LOG) << "Failed to open source file for reading: " << src;
+        qCWarning(DIGIKAM_IMPORTUI_LOG) << "Failed to open source file for reading:" << src;
 
         return false;
     }
@@ -491,7 +507,7 @@ bool UMSCamera::uploadItem(const QString& folder, const QString& itemName, const
     if (!dFile.open(QIODevice::WriteOnly))
     {
         sFile.close();
-        qCWarning(DIGIKAM_IMPORTUI_LOG) << "Failed to open destination file for writing: " << dest;
+        qCWarning(DIGIKAM_IMPORTUI_LOG) << "Failed to open destination file for writing:" << dest;
 
         return false;
     }
@@ -564,26 +580,26 @@ bool UMSCamera::uploadItem(const QString& folder, const QString& itemName, const
 bool UMSCamera::cameraSummary(QString& summary)
 {
     summary =  QString(i18nc("@info", "\"Mounted Camera\" driver for USB/IEEE1394 mass storage cameras and "
-                                      "Flash disk card readers.\n\n"));
+                                      "Flash disk card readers.<br><br>"));
 
     // we do not expect title/model/etc. to contain newlines,
     // so we just escape HTML characters
 
     summary += i18nc("@info List of device properties",
-                     "Title: \"%1\"\n"
-                     "Model: \"%2\"\n"
-                     "Port: \"%3\"\n"
-                     "Path: \"%4\"\n"
-                     "UUID: \"%5\"\n\n",
+                     "Title: \"%1\"<br>"
+                     "Model: \"%2\"<br>"
+                     "Port: \"%3\"<br>"
+                     "Path: \"%4\"<br>"
+                     "UUID: \"%5\"<br><br>",
                      title(), model(), port(), path(), uuid());
 
     summary += i18nc("@info List of supported device operations",
-                     "Thumbnails: \"%1\"\n"
-                     "Capture image: \"%2\"\n"
-                     "Delete items: \"%3\"\n"
-                     "Upload items: \"%4\"\n"
-                     "Create directories: \"%5\"\n"
-                     "Delete directories: \"%6\"\n\n",
+                     "Thumbnails: \"%1\"<br>"
+                     "Capture image: \"%2\"<br>"
+                     "Delete items: \"%3\"<br>"
+                     "Upload items: \"%4\"<br>"
+                     "Create directories: \"%5\"<br>"
+                     "Delete directories: \"%6\"<br><br>",
                      thumbnailSupport()    ? i18nc("@info: ums backend feature", "yes") : i18nc("@info: ums backend feature", "no"),
                      captureImageSupport() ? i18nc("@info: ums backend feature", "yes") : i18nc("@info: ums backend feature", "no"),
                      deleteSupport()       ? i18nc("@info: ums backend feature", "yes") : i18nc("@info: ums backend feature", "no"),
@@ -604,10 +620,10 @@ bool UMSCamera::cameraManual(QString& manual)
 bool UMSCamera::cameraAbout(QString& about)
 {
     about = QString(i18nc("@info", "The \"Mounted Camera\" driver is a simple interface to a camera disk "
-                                   "mounted locally on your system.\n\n"
-                                   "It does not use libgphoto2 drivers.\n\n"
-                                   "To report any problems with this driver, please contact the digiKam team at:\n\n"
-                                   "https://www.digikam.org/?q=contact"));
+                                   "mounted locally on your system.<br><br>"
+                                   "It does not use libgphoto2 drivers.<br><br>"
+                                   "To report any problems with this driver, please contact the digiKam team at:<br><br>"
+                                   "https://www.digikam.org/support/contact/"));
     return true;
 }
 

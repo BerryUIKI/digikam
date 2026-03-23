@@ -7,7 +7,7 @@
  * Description : Wavelets Noise Reduction threaded image filter.
  *               This filter work in YCrCb color space.
  *
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2008      by Marco Rossini <marco dot rossini at gmx dot net>
  * SPDX-FileCopyrightText: 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
@@ -30,6 +30,7 @@
 #include "dimg.h"
 #include "dcolor.h"
 #include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -257,6 +258,8 @@ void NRFilter::filterImage()
 
 void NRFilter::calculteStdevMultithreaded(const Args& prm)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     for (uint i = prm.start ; runningFlag() && (i < prm.stop) ; ++i)
     {
         prm.fimg[*prm.hpass][i] -= prm.fimg[*prm.lpass][i];
@@ -294,6 +297,8 @@ void NRFilter::calculteStdevMultithreaded(const Args& prm)
 
 void NRFilter::thresholdingMultithreaded(const Args& prm)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     for (uint i = prm.start ; runningFlag() && (i < prm.stop) ; ++i)
     {
         if      (prm.fimg[*prm.lpass][i] > 0.8)

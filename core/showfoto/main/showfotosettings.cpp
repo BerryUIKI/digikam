@@ -7,7 +7,7 @@
  * Description : Settings for Showfoto
  *
  * SPDX-FileCopyrightText: 2013-2014 by Mohamed_Anwer <m_dot_anwer at gmx dot com>
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -28,8 +28,9 @@
 
 // Local includes
 
-#include "digikam_config.h"
 #include "digikam_debug.h"
+#include "digikam_config.h"
+#include "digikam_globals.h"
 #include "setupmisc.h"
 #include "thememanager.h"
 
@@ -97,6 +98,7 @@ public:
     const QString configRightSideBarStyle       = QLatin1String("Sidebar Title Style");
     const QString configApplicationStyle        = QLatin1String("Application Style");
     const QString configIconTheme               = QLatin1String("Icon Theme");
+    const QString configDateTimeFormat          = QLatin1String("DateTime Format");
     const QString configApplicationFont         = QLatin1String("Application Font");
     const QString configShowFormatOverThumbnail = QLatin1String("ShowMimeOverImage");
     const QString configShowCoordinates         = QLatin1String("Show Coordinates");
@@ -142,11 +144,6 @@ Q_GLOBAL_STATIC(ShowfotoSettingsCreator, creator)
 
 // -------------------------------------------------------------------------------------------------
 
-ShowfotoSettings* ShowfotoSettings::instance()
-{
-    return &creator->object;
-}
-
 ShowfotoSettings::ShowfotoSettings()
     : QObject(),
       d      (new Private)
@@ -159,6 +156,11 @@ ShowfotoSettings::ShowfotoSettings()
 ShowfotoSettings::~ShowfotoSettings()
 {
     delete d;
+}
+
+ShowfotoSettings* ShowfotoSettings::instance()
+{
+    return &creator->object;
 }
 
 void ShowfotoSettings::readSettings()
@@ -201,7 +203,11 @@ void ShowfotoSettings::readSettings()
 
     d->applicationIcon         = group.readEntry(d->configIconTheme,               QString());
 
-    setApplicationFont(group.readEntry(d->configApplicationFont, QFontDatabase::systemFont(QFontDatabase::GeneralFont)));
+    setDateTimeFormat(group.readEntry(d->configDateTimeFormat,
+                                      QLocale().dateTimeFormat(QLocale::ShortFormat)));
+
+    setApplicationFont(group.readEntry(d->configApplicationFont,
+                                       QFontDatabase::systemFont(QFontDatabase::GeneralFont)));
 
     d->showSplash              = group.readEntry(d->configShowSplash,              true);
 
@@ -290,6 +296,11 @@ QString ShowfotoSettings::getApplicationStyle() const
 QString ShowfotoSettings::getIconTheme() const
 {
     return d->applicationIcon;
+}
+
+QString ShowfotoSettings::getDateTimeFormat() const
+{
+    return Digikam::DATETIMEFORMATSTRING;
 }
 
 QFont ShowfotoSettings::getApplicationFont() const
@@ -522,6 +533,12 @@ void ShowfotoSettings::setApplicationStyle(const QString& style)
 void ShowfotoSettings::setIconTheme(const QString& theme)
 {
     d->group.writeEntry(d->configIconTheme, theme);
+}
+
+void ShowfotoSettings::setDateTimeFormat(const QString& fmt)
+{
+    d->group.writeEntry(d->configDateTimeFormat, fmt);
+    Digikam::DATETIMEFORMATSTRING = fmt;
 }
 
 void ShowfotoSettings::setApplicationFont(const QFont& font)

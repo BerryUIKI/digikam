@@ -7,7 +7,7 @@
  * Description : Multithreaded loader for previews
  *
  * SPDX-FileCopyrightText: 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -33,9 +33,11 @@ public:
 
     explicit PreviewLoadingTask(LoadSaveThread* const thread,
                                 const LoadingDescription& description);
-    ~PreviewLoadingTask() override = default;
+    ~PreviewLoadingTask()               override = default;
 
-    void execute()        override;
+    void execute()                      override;
+    void progressInfo(float progress)   override;
+
 
 private:
 

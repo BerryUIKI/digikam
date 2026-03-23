@@ -7,7 +7,7 @@
  * Description : a media server to export collections through DLNA.
  *               Implementation inspired on Platinum File Media Server.
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -35,7 +35,7 @@ DLNAMediaServer::DLNAMediaServer(const char*  friendly_name,
 
 void DLNAMediaServer::addAlbumsOnServer(const MediaServerMap& map)
 {
-    static_cast<DLNAMediaServerDelegate*>(GetDelegate())->addAlbumsOnServer(map);
+    static_cast<DLNAMediaServerDelegate*>(GetDelegate())->DLNAMediaServerDelegate::addAlbumsOnServer(map);
 }
 
 NPT_Result DLNAMediaServer::SetupIcons()

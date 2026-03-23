@@ -6,7 +6,7 @@
  * Date        : 2009-09-08
  * Description : global macros, variables and flags
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -16,6 +16,8 @@
 
 namespace Digikam
 {
+
+QString DATETIMEFORMATSTRING = QLocale().dateTimeFormat(QLocale::ShortFormat);
 
 QShortcut* defineShortcut(QWidget* const w, const QKeySequence& key, const QObject* receiver, const char* slot)
 {
@@ -202,27 +204,27 @@ QString toolButtonStyleSheet()
 {
     return QLatin1String("QToolButton { padding: 1px; background-color: "
                          "  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
-                         "  stop: 0 rgba(100, 100, 100, 50%), "
-                         "  stop: 1 rgba(170, 170, 170, 50%)); "
+                         "  stop: 0 rgba(100, 100, 100, 70%), "
+                         "  stop: 1 rgba(170, 170, 170, 70%)); "
                          "border: 1px solid rgba(170, 170, 170, 10%); } "
 
                          "QToolButton:hover { border-color: white; } "
 
                          "QToolButton:pressed { background-color: "
                          "  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
-                         "  stop: 0 rgba(40, 40, 40, 50%), "
-                         "  stop: 1 rgba(90, 90, 90, 50%)); "
+                         "  stop: 0 rgba(40, 40, 40, 70%), "
+                         "  stop: 1 rgba(90, 90, 90, 70%)); "
                          "border-color: white; } "
 
                          "QToolButton:checked { background-color: "
                          "  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
-                         "  stop: 0 rgba(40, 40, 40, 50%), "
-                         "  stop: 1 rgba(90, 90, 90, 50%)); } "
+                         "  stop: 0 rgba(40, 40, 40, 70%), "
+                         "  stop: 1 rgba(90, 90, 90, 70%)); } "
 
                          "QToolButton:disabled { background-color: "
                          "  qlineargradient(x1: 0, y1: 0, x2: 0, y2: 1, "
-                         "  stop: 0 rgba(40, 40, 40, 50%), "
-                         "  stop: 1 rgba(50, 50, 50, 50%)); }");
+                         "  stop: 0 rgba(40, 40, 40, 70%), "
+                         "  stop: 1 rgba(50, 50, 50, 70%)); }");
 }
 
 int layoutSpacing()
@@ -244,6 +246,27 @@ int layoutMargin()
                      )
                 )
            );
+}
+
+int dialogExec(QDialog* const dlg)
+{
+    if (dlg)
+    {
+        QEventLoop loop;
+
+        QObject::connect(dlg, &QDialog::finished,
+                         &loop, &QEventLoop::quit);
+
+        dlg->open();
+        loop.exec();
+
+        if (dlg)
+        {
+            return dlg->result();
+        }
+    }
+
+    return QDialog::Rejected;
 }
 
 QDateTime startOfDay(const QDate& date)
@@ -285,6 +308,19 @@ QDateTime asDateTimeLocal(const QDateTime& dt)
     return dateTime;
 }
 
+QString asUserDateTime(const QDateTime& dt)
+{
+    return dt.toString(DATETIMEFORMATSTRING);
+}
+
+QString getDateFormatLinkText()
+{
+    const QString dateFormatLink      = QString::fromUtf8("<a href='https://doc.qt.io/qt-6/qdatetime.html#toString'>%1</a>");
+    const QString dateFormatLinkDescr = i18nc("@info: date format settings", "format settings");
+
+    return dateFormatLink.arg(dateFormatLinkDescr);
+}
+
 void openOnlineDocumentation(const QString& section, const QString& chapter, const QString& reference)
 {
     QUrl url;
@@ -319,7 +355,12 @@ void openOnlineDocumentation(const QString& section, const QString& chapter, con
         }
     }
 
-    WebBrowserDlg* const browser = new WebBrowserDlg(url, qApp->activeWindow());
+    QWidget* const activeWindow  = qApp->activeWindow();
+    WebBrowserDlg* const browser = new WebBrowserDlg(url, activeWindow);
+
+    QObject::connect(activeWindow, SIGNAL(destroyed(QObject*)),
+                     browser, SLOT(close()));
+
     browser->show();
 }
 

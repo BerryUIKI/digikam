@@ -6,7 +6,7 @@
  * Date        : 2017-05-25
  * Description : a tool to generate video slideshow from images.
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -159,6 +159,8 @@ VidSlideVideoPage::VidSlideVideoPage(QWizard* const dialog, const QString& title
     codecLabel->setWordWrap(false);
     codecLabel->setText(i18n("Video Codec:"));
     d->codecVal              = new QComboBox(main);
+    d->codecVal->setToolTip(i18n("This control allows to choose the codec used to encode the video stream."
+                                 "The entries in this list are populated corresponding to the codec supported by FFMpeg."));
     d->codecVal->setEditable(false);
     codecLabel->setBuddy(d->codecVal);
 
@@ -309,6 +311,7 @@ void VidSlideVideoPage::initializePage()
 {
     // Populate Codecs List
 
+    d->codecVal->clear();
     QMap<VidSlideSettings::VidCodec, QString> map5                = VidSlideSettings::videoCodecNames();
     QMap<VidSlideSettings::VidCodec, QString>::const_iterator it5 = map5.constBegin();
 

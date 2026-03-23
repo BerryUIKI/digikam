@@ -7,7 +7,7 @@
  * Description : database migration dialog
  *
  * SPDX-FileCopyrightText: 2009-2010 by Holger Foerster <Hamsi2k at freenet dot de>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -43,6 +43,7 @@
 #include "coredbaccess.h"
 #include "dbengineparameters.h"
 #include "coredbschemaupdater.h"
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -52,6 +53,8 @@ class Q_DECL_HIDDEN DatabaseCopyThread::Private
 public:
 
     Private() = default;
+
+public:
 
     DbEngineParameters fromDbEngineParameters;
     DbEngineParameters toDbEngineParameters;
@@ -70,6 +73,8 @@ DatabaseCopyThread::~DatabaseCopyThread()
 
 void DatabaseCopyThread::run()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String("DatabaseCopyThread"));       // To customize thread name
+
     m_copyManager.copyDatabases(d->fromDbEngineParameters, d->toDbEngineParameters);
 }
 
@@ -121,41 +126,43 @@ void DatabaseMigrationDialog::setupMainArea()
     d->copyThread                      = new DatabaseCopyThread(this);
     d->fromDatabaseSettingsWidget      = new DatabaseSettingsWidget(this);
     d->toDatabaseSettingsWidget        = new DatabaseSettingsWidget(this);
-    d->migrateButton                   = new QPushButton(i18n("Migrate ->"), this);
+    d->migrateButton                   = new QPushButton(i18n("Migrate →"), this);
     d->cancelButton                    = new QPushButton(i18n("Cancel"), this);
     d->cancelButton->setEnabled(false);
 
     QGroupBox* const progressBox       = new QGroupBox(i18n("Progress Information"), this);
-    QGridLayout* const grid            = new QGridLayout(progressBox);
+    QGridLayout* const pgrid           = new QGridLayout(progressBox);
 
     d->progressBar                     = new QProgressBar(progressBox);
+    d->progressBar->setFormat(i18nc("%p is the percent value, % is the percent sign", "%p%"));
     d->progressBar->setTextVisible(true);
     d->progressBar->setRange(0, 22);
     d->progressBarSmallStep            = new QProgressBar(progressBox);
     d->progressBarSmallStep->setTextVisible(true);
 
-    d->overallStepTitle                = new QLabel(i18n("Step Progress"), progressBox);
-    QLabel* const overallSteps         = new QLabel(i18n("Overall Progress"), progressBox);
+    d->overallStepTitle                = new QLabel(i18n("Step progress:"),    progressBox);
+    QLabel* const overallSteps         = new QLabel(i18n("Overall progress:"), progressBox);
 
-    grid->addWidget(d->overallStepTitle,     0, 0, 1, 1);
-    grid->addWidget(new QLabel(this),        0, 1, 1, 1);
-    grid->addWidget(overallSteps,            0, 2, 1, 1);
-    grid->addWidget(d->progressBarSmallStep, 1, 0, 1, 1);
-    grid->addWidget(new QLabel(this),        1, 1, 1, 1);
-    grid->addWidget(d->progressBar,          1, 2, 1, 1);
-    grid->setColumnStretch(0, 10);
-    grid->setColumnStretch(1, 2);
-    grid->setColumnStretch(2, 10);
+    pgrid->addWidget(d->overallStepTitle,     0, 0, 1, 1);
+    pgrid->addWidget(overallSteps,            1, 0, 1, 1);
+    pgrid->addWidget(d->progressBarSmallStep, 0, 1, 1, 1);
+    pgrid->addWidget(d->progressBar,          1, 1, 1, 1);
+    pgrid->setColumnStretch(1, 10);
 
     QWidget* const mainWidget = new QWidget;
-    QGridLayout* const layout = new QGridLayout;
-    mainWidget->setLayout(layout);
+    QGridLayout* const mgrid  = new QGridLayout;
+    mainWidget->setLayout(mgrid);
 
-    layout->addWidget(d->fromDatabaseSettingsWidget, 0, 0, 4, 1);
-    layout->addWidget(d->migrateButton,              1, 1);
-    layout->addWidget(d->cancelButton,               2, 1);
-    layout->addWidget(d->toDatabaseSettingsWidget,   0, 2, 4, 1);
-    layout->addWidget(progressBox,                   4, 0, 1, 3);
+    mgrid->addWidget(d->fromDatabaseSettingsWidget, 0, 0, 4, 1);
+    mgrid->addWidget(d->migrateButton,              1, 1, 1, 1);
+    mgrid->addWidget(d->cancelButton,               2, 1, 1, 1);
+    mgrid->addWidget(d->toDatabaseSettingsWidget,   0, 2, 4, 1);
+    mgrid->addWidget(progressBox,                   4, 0, 1, 3);
+    mgrid->setColumnStretch(0, 10);
+    mgrid->setColumnStretch(1, 0);
+    mgrid->setColumnStretch(2, 10);
+    mgrid->setRowStretch(0, 10);
+    mgrid->setRowStretch(3, 10);
 
     QVBoxLayout* const vbx = new QVBoxLayout(this);
     vbx->addWidget(mainWidget);
@@ -170,7 +177,7 @@ void DatabaseMigrationDialog::setupMainArea()
             this, SLOT(accept()));
 
     connect(d->buttons->button(QDialogButtonBox::Help), SIGNAL(clicked()),
-            this, SLOT(accept()));
+            this, SLOT(slotHelp()));
 
     connect(d->migrateButton, SIGNAL(clicked()),
             this, SLOT(slotPerformCopy()));
@@ -195,7 +202,9 @@ void DatabaseMigrationDialog::setupMainArea()
 
 void DatabaseMigrationDialog::slotHelp()
 {
-    openOnlineDocumentation(QLatin1String("setup_application"), QLatin1String("database_settings"), QLatin1String("database_migration"));
+    openOnlineDocumentation(QLatin1String("setup_application"),
+                            QLatin1String("database_settings"),
+                            QLatin1String("database_migration"));
 }
 
 void DatabaseMigrationDialog::slotPerformCopy()
@@ -287,7 +296,7 @@ void DatabaseMigrationDialog::slotHandleFinish(int finishState, const QString& e
 void DatabaseMigrationDialog::slotHandleStepStarted(const QString& stepName)
 {
     int progressBarValue = d->progressBar->value();
-    d->overallStepTitle->setText(i18n("Step Progress (%1)", stepName));
+    d->overallStepTitle->setText(i18n("Step progress (%1):", stepName));
     d->progressBar->setValue(++progressBarValue);
 }
 

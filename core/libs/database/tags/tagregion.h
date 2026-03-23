@@ -7,7 +7,7 @@
  * Description : Tag region formatting
  *
  * SPDX-FileCopyrightText: 2010-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -143,6 +143,13 @@ protected:
 
     QVariant m_value;
     Type     m_type = Invalid;
+
+private:
+
+    /**
+     * Helper method for a safe conversion of XML rectangle properties to int values.
+     */
+    bool safeToInt(const QString& str, int& result);
 };
 
 QDebug DIGIKAM_EXPORT operator<<(QDebug dbg, const TagRegion& r);

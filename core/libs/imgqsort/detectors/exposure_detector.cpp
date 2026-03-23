@@ -6,7 +6,7 @@
  * Date        : 28/08/2021
  * Description : Image Quality Parser - Exposure detection  basic factor
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021-2022 by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * References  : https://cse.buffalo.edu/~siweilyu/papers/ijcv14.pdf
@@ -92,7 +92,17 @@ int ExposureDetector::count_by_condition(const cv::Mat& image, int minVal, int m
 {
     try
     {
-        cv::Mat mat = (image >= minVal) & (image < maxVal);
+        /**
+         * Note: The bitwise operator '&' is intentionally used here for element-wise logical AND between two cv::Mat masks.
+         * (image >= minVal) generates a binary mask where pixels >= minVal are set to 255 (true), and others to 0 (false).
+         * (image < maxVal) does the same for pixels < maxVal.
+         * The '&' operator performs a per-pixel bitwise AND, effectively combining the two conditions:
+         *   minVal <= pixel < maxVal.
+         * This is the idiomatic way to combine conditions on cv::Mat objects in OpenCV.
+         * cv::countNonZero then counts the number of pixels that satisfy both conditions.
+         */
+        cv::Mat mat = (image >= minVal) & (image < maxVal);         // cppcheck-suppress bitwiseOnBoolean
+
 
         return cv::countNonZero(mat);
     }

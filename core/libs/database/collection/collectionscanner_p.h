@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2005-2006 by Tom Albers <tomalbers at kde dot nl>
  * SPDX-FileCopyrightText: 2007-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -31,7 +31,6 @@
 
 #include <QDir>
 #include <QFileInfo>
-#include <QDirIterator>
 #include <QWriteLocker>
 #include <QReadWriteLock>
 #include <QReadLocker>
@@ -69,55 +68,15 @@ bool s_modificationDateEquals(const QDateTime& a, const QDateTime& b);
 
 // --------------------------------------------------------------------
 
-class Q_DECL_HIDDEN NewlyAppearedFile
-{
-
-public:
-
-    NewlyAppearedFile() = default;
-    NewlyAppearedFile(int albumId, const QString& fileName);
-
-    bool operator==(const NewlyAppearedFile& other) const;
-
-public:
-
-    int     albumId = 0;
-    QString fileName;
-};
-
-// --------------------------------------------------------------------
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-inline size_t qHash(const NewlyAppearedFile& file)
-
-#else
-
-inline uint qHash(const NewlyAppearedFile& file)
-
-#endif
-
-{
-    return (::qHash(file.albumId) ^ ::qHash(file.fileName));
-}
-
-// --------------------------------------------------------------------
-
 class Q_DECL_HIDDEN CollectionScannerHintContainerImplementation : public CollectionScannerHintContainer
 {
 public:
 
-    void recordHints(const QList<AlbumCopyMoveHint>& hints) override;
-    void recordHints(const QList<ItemCopyMoveHint>& hints)  override;
-    void recordHints(const QList<ItemChangeHint>& hints)    override;
     void recordHint(const ItemMetadataAdjustmentHint& hint) override;
 
-    void clear() override;
+    void clear()                                            override;
 
-    bool hasAnyNormalHint(qlonglong id);
-    bool hasAlbumHints();
-    bool hasModificationHint(qlonglong id);
-    bool hasRescanHint(qlonglong id);
+    bool hasMetadataHint(qlonglong id);
     bool hasMetadataAboutToAdjustHint(qlonglong id);
     bool hasMetadataAdjustedHint(qlonglong id);
 
@@ -125,10 +84,6 @@ public:
 
     QReadWriteLock                                                        lock;
 
-    QHash<CollectionScannerHints::DstPath, CollectionScannerHints::Album> albumHints;
-    QHash<NewlyAppearedFile, qlonglong>                                   itemHints;
-    QSet<qlonglong>                                                       modifiedItemHints;
-    QSet<qlonglong>                                                       rescanItemHints;
     QHash<qlonglong, QDateTime>                                           metadataAboutToAdjustHints;
     QHash<qlonglong, QDateTime>                                           metadataAdjustedHints;
 };
@@ -147,8 +102,9 @@ public:
     void resetRemovedItemsTime();
     void removedItems();
 
-    bool checkObserver();
+    bool checkObserver()                              const;
     bool checkDeferred(const QFileInfo& info);
+    bool checkIgnoreDirectory(const QString& dirName) const;
 
     void finishScanner(ItemScanner& scanner);
 
@@ -168,7 +124,6 @@ public:
     QDateTime                                     removedItemsTime;
 
     CollectionScannerHintContainerImplementation* hints                     = nullptr;
-    QHash<int, int>                               establishedSourceAlbums;
     bool                                          updatingHashHint          = false;
 
     bool                                          recordHistoryIds          = false;

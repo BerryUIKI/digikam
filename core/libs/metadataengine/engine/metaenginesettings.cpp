@@ -6,7 +6,7 @@
  * Date        : 2010-08-20
  * Description : central place for MetaEngine settings
  *
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -86,14 +86,9 @@ public:
     MetaEngineSettings object;
 };
 
-Q_GLOBAL_STATIC(MetaEngineSettingsCreator, metaEngineSettingsCreator)
+Q_GLOBAL_STATIC(MetaEngineSettingsCreator, creator)
 
 // -----------------------------------------------------------------------------------------------
-
-MetaEngineSettings* MetaEngineSettings::instance()
-{
-    return &metaEngineSettingsCreator->object;
-}
 
 MetaEngineSettings::MetaEngineSettings()
     : QObject(),
@@ -108,17 +103,17 @@ MetaEngineSettings::~MetaEngineSettings()
     delete d;
 }
 
+MetaEngineSettings* MetaEngineSettings::instance()
+{
+    return &creator->object;
+}
+
 MetaEngineSettingsContainer MetaEngineSettings::settings() const
 {
     QMutexLocker lock(&d->mutex);
     MetaEngineSettingsContainer s(d->settings);
 
     return s;
-}
-
-bool MetaEngineSettings::exifRotate() const
-{
-    return d->settings.exifRotate;
 }
 
 void MetaEngineSettings::setSettings(const MetaEngineSettingsContainer& settings)
@@ -129,6 +124,16 @@ void MetaEngineSettings::setSettings(const MetaEngineSettingsContainer& settings
     Q_EMIT signalSettingsChanged();
 
     d->writeToConfig();
+}
+
+bool MetaEngineSettings::isMetadataWriteEnabled() const
+{
+    return d->settings.isMetadataWriteEnabled();
+}
+
+bool MetaEngineSettings::exifRotate() const
+{
+    return d->settings.exifRotate;
 }
 
 void MetaEngineSettings::readFromConfig()

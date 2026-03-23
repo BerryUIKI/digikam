@@ -7,8 +7,8 @@
  * Description : a tool to export items to a local storage
  *
  * SPDX-FileCopyrightText: 2006-2009 by Johannes Wienke <languitar at semipol dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
- * SPDX-FileCopyrightText: 2019-2020 by Maik Qualmann <metzpinguin at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2019-2025 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -21,7 +21,7 @@
 #include <QApplication>
 #include <QRadioButton>
 #include <QButtonGroup>
-#include <QVBoxLayout>
+#include <QGridLayout>
 #include <QCheckBox>
 #include <QGroupBox>
 #include <QComboBox>
@@ -35,6 +35,7 @@
 // Local includes
 
 #include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "dfileselector.h"
 #include "wstoolutils.h"
 #include "dlayoutbox.h"
@@ -50,9 +51,10 @@ public:
 
     Private() = default;
 
+public:
+
     DInfoInterface* iface                   = nullptr;
     DFileSelector*  selector                = nullptr;
-    DItemsList*     imageList               = nullptr;
 
     QCheckBox*      sidecars                = nullptr;
     QCheckBox*      writeMetadataToFile     = nullptr;
@@ -67,7 +69,6 @@ public:
     QUrl            targetUrl;
 
     QGroupBox*      imageChangeGroupBox     = nullptr;
-    QCheckBox*      changeImagesProp        = nullptr;
     QCheckBox*      removeMetadataProp      = nullptr;
 
     QSpinBox*       imageCompression        = nullptr;
@@ -79,17 +80,15 @@ FCExportWidget::FCExportWidget(DInfoInterface* const iface, QWidget* const paren
     : QWidget(parent),
       d      (new Private)
 {
-    d->iface = iface;
+    d->iface                    = iface;
 
     // setup local target selection
 
     const int spacing           = layoutSpacing();
 
-
-    DHBox* const hbox           = new DHBox(this);
-    QLabel* const locationLabel = new QLabel(hbox);
+    QLabel* const locationLabel = new QLabel(this);
     locationLabel->setText(i18n("Target location: "));
-    d->selector                 = new DFileSelector(hbox);
+    d->selector                 = new DFileSelector(this);
     d->selector->setFileDlgMode(QFileDialog::Directory);
     d->selector->setFileDlgOptions(QFileDialog::ShowDirsOnly);
     d->selector->setFileDlgTitle(i18nc("@title:window", "Target Folder"));
@@ -102,19 +101,16 @@ FCExportWidget::FCExportWidget(DInfoInterface* const iface, QWidget* const paren
     d->relativeButton           = new QRadioButton(i18n("Create relative symlinks"), this);
 
     d->sidecars                 = new QCheckBox(i18n("Include the sidecar of the items"), this);
-    d->writeMetadataToFile      = new QCheckBox(i18n("Write sidecar metadata to the items"), this);
     d->overwrite                = new QCheckBox(i18n("Overwrite existing items in the target"), this);
+    d->writeMetadataToFile      = new QCheckBox(i18n("Write sidecar metadata to the items"), this);
     d->albumPath                = new QCheckBox(i18n("Use the album path of the items in the target"), this);
 
-    if (!d->iface->supportAlbums())
-    {
-        d->albumPath->hide();
-    }
+    d->albumPath->setDisabled(!d->iface->supportAlbums());
 
-    if (MetaEngineSettings::instance()->settings().metadataWritingMode != MetaEngine::WRITE_TO_SIDECAR_ONLY)
-    {
-        d->writeMetadataToFile->hide();
-    }
+    d->writeMetadataToFile->setDisabled
+    (
+        MetaEngineSettings::instance()->settings().metadataWritingMode != MetaEngine::WRITE_TO_SIDECAR_ONLY
+    );
 
     d->targetButtonGroup->addButton(d->fileCopyButton, FCContainer::CopyFile);
     d->targetButtonGroup->addButton(d->symLinkButton,  FCContainer::FullSymLink);
@@ -124,15 +120,12 @@ FCExportWidget::FCExportWidget(DInfoInterface* const iface, QWidget* const paren
 
     //---------------------------------------------
 
-    d->changeImagesProp = new QCheckBox(i18n("Adjust image properties"), this);
-    d->changeImagesProp->setChecked(false);
-    d->changeImagesProp->setWhatsThis(i18n("If you enable this option, "
-                                           "all images to be sent can be "
-                                           "resized and recompressed."));
-
-    //---------------------------------------------
-
-    d->imageChangeGroupBox          = new QGroupBox(i18n("Image Properties"), this);
+    d->imageChangeGroupBox          = new QGroupBox(i18n("Adjust Image Properties"), this);
+    d->imageChangeGroupBox->setCheckable(true);
+    d->imageChangeGroupBox->setChecked(false);
+    d->imageChangeGroupBox->setWhatsThis(i18n("If you enable this option, "
+                                              "all images to be sent can be "
+                                              "resized and recompressed."));
 
     d->imageResize                  = new QSpinBox(d->imageChangeGroupBox);
     d->imageResize->setRange(300, 6000);
@@ -166,10 +159,10 @@ FCExportWidget::FCExportWidget(DInfoInterface* const iface, QWidget* const paren
     d->imageCompression->setSingleStep(1);
     d->imageCompression->setValue(75);
     d->imageCompression->setWhatsThis(i18n("<p>The new compression value of JPEG images to be sent:</p>"
-                                           "<p><b>1</b>: very high compression<br/>"
-                                           "<b>25</b>: high compression<br/>"
-                                           "<b>50</b>: medium compression<br/>"
-                                           "<b>75</b>: low compression (default value)<br/>"
+                                           "<p><b>1</b>: very high compression<br>"
+                                           "<b>25</b>: high compression<br>"
+                                           "<b>50</b>: medium compression<br>"
+                                           "<b>75</b>: low compression (default value)<br>"
                                            "<b>100</b>: no compression</p>"));
 
     QLabel* const labelImageCompression = new QLabel(i18n("Image quality:"), d->imageChangeGroupBox);
@@ -197,43 +190,24 @@ FCExportWidget::FCExportWidget(DInfoInterface* const iface, QWidget* const paren
 
     //---------------------------------------------
 
-    // setup image list
+    // Layout Widget
 
-    d->imageList = new DItemsList(this);
-    d->imageList->setObjectName(QLatin1String("FCExport ImagesList"));
-    d->imageList->listView()->setWhatsThis(i18n("This is the list of items to copy "
-                                                "to the specified target."));
-    d->imageList->setAllowRAW(true);
-    d->imageList->setIface(d->iface);
+    QGridLayout* const grid = new QGridLayout(this);
 
-    if (d->iface->forceAlbumSelection)
-    {
-        d->iface->forceAlbumSelection = false;
-        d->imageList->loadImagesFromCurrentAlbum();
-    }
-    else
-    {
-        d->imageList->loadImagesFromCurrentSelection();
-    }
-
-    // layout dialog
-
-    QVBoxLayout* const layout = new QVBoxLayout(this);
-
-    layout->addWidget(hbox);
-    layout->addWidget(targetLabel);
-    layout->addWidget(d->fileCopyButton);
-    layout->addWidget(d->symLinkButton);
-    layout->addWidget(d->relativeButton);
-    layout->addWidget(d->sidecars);
-    layout->addWidget(d->writeMetadataToFile);
-    layout->addWidget(d->overwrite);
-    layout->addWidget(d->albumPath);
-    layout->addWidget(d->imageList);
-    layout->addWidget(d->changeImagesProp);
-    layout->addWidget(d->imageChangeGroupBox);
-    layout->setSpacing(spacing);
-    layout->setContentsMargins(QMargins());
+    grid->addWidget(locationLabel,           0, 0, 1, 1);
+    grid->addWidget(d->selector,             1, 0, 1, 1);
+    grid->addWidget(targetLabel,             2, 0, 1, 1);
+    grid->addWidget(d->fileCopyButton,       3, 0, 1, 1);
+    grid->addWidget(d->symLinkButton,        4, 0, 1, 1);
+    grid->addWidget(d->relativeButton,       5, 0, 1, 1);
+    grid->addWidget(d->sidecars,             6, 0, 1, 1);
+    grid->addWidget(d->overwrite,            7, 0, 1, 1);
+    grid->addWidget(d->writeMetadataToFile,  8, 0, 1, 1);
+    grid->addWidget(d->albumPath,            9, 0, 1, 1);
+    grid->addWidget(d->imageChangeGroupBox, 10, 0, 1, 1);
+    grid->setRowStretch(11, 10);
+    grid->setSpacing(spacing);
+    grid->setContentsMargins(QMargins());
 
     // ------------------------------------------------------------------------
 
@@ -245,20 +219,11 @@ FCExportWidget::FCExportWidget(DInfoInterface* const iface, QWidget* const paren
 
     connect(d->fileCopyButton, SIGNAL(toggled(bool)),
             this, SLOT(slotFileCopyButtonChanged(bool)));
-
-    connect(d->changeImagesProp, SIGNAL(toggled(bool)),
-            d->imageChangeGroupBox, SLOT(setEnabled(bool)));
-
 }
 
 FCExportWidget::~FCExportWidget()
 {
     delete d;
-}
-
-DItemsList* FCExportWidget::imagesList() const
-{
-    return d->imageList;
 }
 
 QUrl FCExportWidget::targetUrl() const
@@ -281,7 +246,7 @@ FCContainer FCExportWidget::getSettings() const
     settings.overwrite             = d->overwrite->isChecked();
     settings.albumPath             = d->albumPath->isChecked();
     settings.removeMetadata        = d->removeMetadataProp->isChecked();
-    settings.changeImageProperties = d->changeImagesProp->isChecked();
+    settings.changeImageProperties = d->imageChangeGroupBox->isChecked();
 
     return settings;
 }
@@ -305,7 +270,9 @@ void FCExportWidget::setSettings(const FCContainer& settings)
     d->overwrite->setChecked(settings.overwrite);
     d->albumPath->setChecked(settings.albumPath);
     d->removeMetadataProp->setChecked(settings.removeMetadata);
-    d->changeImagesProp->setChecked(settings.changeImageProperties);
+    d->imageChangeGroupBox->setChecked(settings.changeImageProperties);
+
+    slotFileCopyButtonChanged(d->fileCopyButton->isChecked());
 }
 
 void FCExportWidget::slotLabelUrlChanged()
@@ -319,14 +286,10 @@ void FCExportWidget::slotFileCopyButtonChanged(bool enabled)
 {
     if (!enabled)
     {
-        d->changeImagesProp->setChecked(false);
+        d->imageChangeGroupBox->setChecked(false);
     }
 
-    d->changeImagesProp->setEnabled(enabled);
-
-    // The changeImagesProp is by default and on each change unchecked
-
-    d->imageChangeGroupBox->setEnabled(false);
+    d->imageChangeGroupBox->setEnabled(enabled);
 }
 
 } // namespace DigikamGenericFileCopyPlugin

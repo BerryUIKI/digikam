@@ -6,7 +6,7 @@
  * Date        : 2008-07-30
  * Description : digiKam about data.
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -41,7 +41,7 @@ const QString DAboutData::digiKamSloganFormated()
     return i18nc("This is the slogan formatted string displayed in splashscreen. "
                  "Please translate using short words else the slogan can be truncated.",
                  "<qt><font color=\"white\">"
-                 "<b>Professional</b> Photo <b>Management</b><br/>with the Power of <b>Open Source</b>"
+                 "<b>Professional</b> Photo <b>Management</b><br>with the Power of <b>Open Source</b>"
                  "</font></qt>"
                 );
 }
@@ -58,7 +58,7 @@ const QString DAboutData::digiKamFamily()
 
 const QString DAboutData::copyright()
 {
-    return i18n("(c) 2001-2025, digiKam developers team");
+    return i18n("(c) 2001-2026, digiKam developers team");
 }
 
 const QUrl DAboutData::webProjectUrl()

@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2008-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2008      by Peter Penz <peter dot penz at gmx dot at>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -116,7 +116,7 @@ bool GroupIndicatorOverlay::checkIndex(const QModelIndex& index) const
         QString tip = i18ncp("@info:tooltip",
                              "1 grouped item.\n",
                              "%1 grouped items.\n",
-                             info.numberOfGroupedImages());
+                             info.numberOfGroupedImages() + 1);
 
         if (index.data(ItemFilterModel::GroupIsOpenRole).toBool())
         {

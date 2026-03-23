@@ -6,7 +6,7 @@
  * Date        : 2024-12-23
  * Description : Helper methods to convert OpenCV image to Qt containers and vis-versa.
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  * SPDX-FileCopyrightText: 2012-2015 by Debao Zhang    <hello at debao dot me>
  *
@@ -28,12 +28,10 @@
 namespace Digikam
 {
 
-/**
- * Convert ARGB to BGRA
- */
 cv::Mat QtOpenCVImg::argb2bgra(const cv::Mat& mat)
 {
     Q_ASSERT(mat.channels() == 4);
+
     cv::Mat newMat(mat.rows, mat.cols, mat.type());
     int from_to[] = { 0, 3, 1, 2, 2, 1, 3, 0 };
 
@@ -178,6 +176,7 @@ QImage::Format QtOpenCVImg::findClosestFormat(QImage::Format formatHint)
         case QImage::Format_RGB666:
         {
             format = QImage::Format_RGB888;
+
             break;
         }
 
@@ -219,15 +218,13 @@ QtOpenCVImg::MatColorOrder QtOpenCVImg::getColorOrderOfRGB32Format()
 
 }
 
-/**
- * Convert DImg to cv::Mat
- */
 cv::Mat QtOpenCVImg::image2Mat(const DImg& img, int requiredMatType, MatColorOrder requiredOrder)
 {
     int targetDepth    = CV_MAT_DEPTH(requiredMatType);
     int targetChannels = CV_MAT_CN(requiredMatType);
 
     Q_ASSERT((targetChannels == CV_CN_MAX) || (targetChannels == 1)   || (targetChannels == 3)  || (targetChannels == 4));
+
     Q_ASSERT((targetDepth == CV_8U)        || (targetDepth == CV_16U) || (targetDepth == CV_32F));
 
     if (img.isNull())
@@ -245,13 +242,16 @@ cv::Mat QtOpenCVImg::image2Mat(const DImg& img, int requiredMatType, MatColorOrd
 
     try
     {
-        mat0 = cv::Mat(img.height(), img.width(), type, img.bits());
+        // deep copy is necessary here otherwise the memory of DImg will be changed
+
+        mat0 = cv::Mat(img.height(), img.width(), type, img.bits()).clone();
 
         // apply scalar to 16-bit images
 
         if (CV_16UC4 == type)
         {
             // 16 bits image
+
             mat0 = mat0 / 255;
         }
 
@@ -277,7 +277,7 @@ cv::Mat QtOpenCVImg::image2Mat(const DImg& img, int requiredMatType, MatColorOrd
             {
                 case 1:
                 {
-                    if (MCO_RGB == requiredOrder)
+                    if      (MCO_RGB == requiredOrder)
                     {
                         cv::cvtColor(mat0, mat0, CV_RGBA2GRAY);
                     }
@@ -290,7 +290,7 @@ cv::Mat QtOpenCVImg::image2Mat(const DImg& img, int requiredMatType, MatColorOrd
                 }
                 case 3:
                 {
-                    if (MCO_RGB == requiredOrder)
+                    if      (MCO_RGB == requiredOrder)
                     {
                         cv::cvtColor(mat0, mat0, CV_RGBA2RGB);
                     }
@@ -320,15 +320,13 @@ cv::Mat QtOpenCVImg::image2Mat(const DImg& img, int requiredMatType, MatColorOrd
     return mat0;
 }
 
-/**
- * Convert QImage to cv::Mat
- */
 cv::Mat QtOpenCVImg::image2Mat(const QImage& img, int requiredMatType, MatColorOrder requriedOrder)
 {
     int targetDepth    = CV_MAT_DEPTH(requiredMatType);
     int targetChannels = CV_MAT_CN(requiredMatType);
 
     Q_ASSERT((targetChannels == CV_CN_MAX) || (targetChannels == 1)   || (targetChannels == 3)  || (targetChannels == 4));
+
     Q_ASSERT((targetDepth == CV_8U)        || (targetDepth == CV_16U) || (targetDepth == CV_32F));
 
     if (img.isNull())
@@ -515,12 +513,10 @@ cv::Mat QtOpenCVImg::image2Mat(const QImage& img, int requiredMatType, MatColorO
     return mat_adjustDepth;
 }
 
-/**
- * Convert cv::Mat to QImage
- */
 QImage QtOpenCVImg::mat2Image(const cv::Mat& mat, MatColorOrder order, QImage::Format formatHint)
 {
     Q_ASSERT((mat.channels() == 1)  || (mat.channels() == 3)   || (mat.channels() == 4));
+
     Q_ASSERT((mat.depth() == CV_8U) || (mat.depth() == CV_16U) || (mat.depth() == CV_32F));
 
     try
@@ -621,7 +617,7 @@ QImage QtOpenCVImg::mat2Image(const cv::Mat& mat, MatColorOrder order, QImage::F
 
             }
 
-            // Channel order requried by the target QImage
+            // Channel order required by the target QImage
 
             MatColorOrder requiredOrder = getColorOrderOfRGB32Format();
 
@@ -689,9 +685,6 @@ QImage QtOpenCVImg::mat2Image(const cv::Mat& mat, MatColorOrder order, QImage::F
     }
 }
 
-/**
- * Convert QImage to cv::Mat without data copy
- */
 cv::Mat QtOpenCVImg::image2Mat_shared(const QImage& img, MatColorOrder* const order)
 {
     if (img.isNull())
@@ -788,9 +781,6 @@ cv::Mat QtOpenCVImg::image2Mat_shared(const QImage& img, MatColorOrder* const or
     }
 }
 
-/**
- * Convert cv::Mat to QImage without data copy
- */
 QImage QtOpenCVImg::mat2Image_shared(const cv::Mat& mat, QImage::Format formatHint)
 {
     Q_ASSERT((mat.type() == CV_8UC1) || (mat.type() == CV_8UC3) || (mat.type() == CV_8UC4));

@@ -6,7 +6,7 @@
  * Date        : 2012-01-20
  * Description : Duplicates items finder.
  *
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2015      by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  *
@@ -60,6 +60,7 @@ public:
     QList<int>                   referenceAlbumsList;
     SearchesDBJobsThread*        job                        = nullptr;
     int                          duplicatesFound            = 0;
+    int                          totalItems                 = 0;
 };
 
 DuplicatesFinder::DuplicatesFinder(const AlbumList& albums,
@@ -174,6 +175,14 @@ void DuplicatesFinder::slotStart()
 void DuplicatesFinder::slotDuplicatesProgress(int percentage, const ItemInfo& inf,
                                               const QImage& /*img*/, int duplicates)
 {
+    d->totalItems++;
+    d->duplicatesFound += duplicates;
+
+    if (checkProgressNeeded() == 0)
+    {
+        return;
+    }
+
     setThumbnail(QIcon::fromTheme(QLatin1String("search")));
 
     QString album = CollectionManager::instance()->albumRootLabel(inf.albumRootId());
@@ -191,8 +200,6 @@ void DuplicatesFinder::slotDuplicatesProgress(int percentage, const ItemInfo& in
     }
 
     setLabel(lbl);
-
-    d->duplicatesFound += duplicates;
 
     setProgress(percentage);
 }
@@ -213,13 +220,13 @@ void DuplicatesFinder::slotDone()
 
     QString lbl;
 
-    if (totalItems() > 1)
+    if (d->totalItems > 1)
     {
-        lbl.append(i18n("Items scanned for duplicates: %1\n", totalItems()));
+        lbl.append(i18n("Items scanned for duplicates: %1\n", d->totalItems));
     }
     else
     {
-        lbl.append(i18n("Item scanned for duplicates: %1\n", totalItems()));
+        lbl.append(i18n("Item scanned for duplicates: %1\n", d->totalItems));
     }
 
     if (d->duplicatesFound > 1)

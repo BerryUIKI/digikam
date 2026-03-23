@@ -7,7 +7,7 @@
  * Description : Qt item view to import items - the delegate
  *
  * SPDX-FileCopyrightText: 2012      by Islam Wazery <wazery at ubuntu dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -268,11 +268,11 @@ void ImportDelegate::paint(QPainter* p, const QStyleOptionViewItem& option, cons
         pix = d->regPixmap;
     }
 
-    QRect actualPixmapRect = drawThumbnail(p, d->pixmapRect, pix, thumbnailPixmap(index));
+    QRect actualPixRect = drawThumbnail(p, d->pixmapRect, pix, thumbnailPixmap(index));
 
-    if (!actualPixmapRect.isNull())
+    if (!actualPixRect.isNull())
     {
-        const_cast<ImportDelegate*>(this)->updateActualPixmapRect(index, actualPixmapRect);
+        const_cast<ImportDelegate*>(this)->updateActualPixmapRect(index, actualPixRect);
     }
 
     if (!d->ratingRect.isNull())
@@ -354,7 +354,7 @@ void ImportDelegate::paint(QPainter* p, const QStyleOptionViewItem& option, cons
     if (d->drawImageFormat)
     {
         QString frm = info.mime;
-        drawImageFormat(p, actualPixmapRect, frm);
+        drawImageFormat(p, actualPixRect, frm);
     }
 
     if (d->drawCoordinates && info.photoInfo.hasCoordinates)

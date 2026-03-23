@@ -7,7 +7,7 @@
  * Description : Graphics View for DImg preview
  *
  * SPDX-FileCopyrightText: 2010-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -18,6 +18,7 @@
 // Qt includes
 
 #include <QGraphicsView>
+#include <QGestureEvent>
 
 // Local includes
 
@@ -29,6 +30,7 @@ namespace Digikam
 class GraphicsDImgItem;
 class DImgPreviewItem;
 class SinglePhotoPreviewLayout;
+class PanIconWidget;
 
 class DIGIKAM_EXPORT GraphicsDImgView : public QGraphicsView
 {
@@ -40,34 +42,36 @@ public:
     ~GraphicsDImgView()                           override;
 
     /**
-     * Store internal instance of item as GraphicsDImgItem. You can store DImgPreviewItem object also by this method.
+     * @brief Store internal instance of item as GraphicsDImgItem. You can store DImgPreviewItem object also by this method.
      * Use item() or previewItem() to get right version.
-     * Note: if you store a GraphicsDImgItem object, previewItem() will return 0.
+     * @note if you store a GraphicsDImgItem object, previewItem() will return 0.
      */
     void setItem(GraphicsDImgItem* const item);
 
     /**
-     * Return the instance of item set by setItem().
+     * @brief Return the instance of item set by setItem().
      */
     GraphicsDImgItem*         item()        const;
 
     /**
-     * Return a cast of item instance of item set by setItem() as DImgPreviewItem
-     * Note: if you store a GraphicsDImgItem object using setItem(), this method will return 0.
+     * @return a cast of item instance of item set by setItem() as DImgPreviewItem
+     * @note if you store a GraphicsDImgItem object using setItem(), this method will return nullptr.
      */
     DImgPreviewItem*          previewItem() const;
 
     SinglePhotoPreviewLayout* layout()      const;
 
     /**
-     * Scrolls the view such that scenePos (in scene coordinates
+     * @brief Scrolls the view such that scenePos (in scene coordinates
      * is displayed on the viewport at viewportPos (in viewport coordinates).
      * E.g., calling scrollPointOnPoint(scenePos, viewport()->rect().center()) is
      * equivalent to calling centerOn(scenePos).
      */
     void scrollPointOnPoint(const QPointF& scenePos, const QPoint& viewportPos);
 
-    // Change from protected to public to be used by ImageRegionWidget and ImageRegionItem
+    /**
+     * @note Change from protected to public to be used by ImageRegionWidget and ImageRegionItem
+     */
     void drawText(QPainter* p, const QRectF& rect, const QString& text);
 
     int   contentsX()                       const;
@@ -76,6 +80,17 @@ public:
     void  setContentsPos(int x, int y);
     void  fitToWindow();
     void  toggleFullScreen(bool set);
+
+    void  setMagnifierZoomFactor(qreal factor);
+    qreal magnifierZoomFactor()             const;
+
+    void  setMagnifierSize(int size);
+    int   magnifierSize()                   const;
+
+    void  setMagnifierVisible(bool b);
+    bool  isMagnifierVisible()              const;
+
+    void  updatePanIconWidget();
 
 Q_SIGNALS:
 
@@ -88,24 +103,25 @@ Q_SIGNALS:
     void toPreviousImage();
     void contentsMoved(bool panningFinished);
     void resized();
-/*
-    void contentTakeFocus();
-*/
+
+    void signalZoomFactorChanged();
+
     void viewportRectChanged(const QRectF& viewportRect);
 
 protected:
 
-    void drawForeground(QPainter* painter, const QRectF& rect)  override;
+    void drawForeground(QPainter* painter, const QRectF& rect)          override;
 
-    void installPanIcon();
+    virtual bool viewportEvent(QEvent*)                                 override;
+    virtual void mouseDoubleClickEvent(QMouseEvent*)                    override;
+    virtual void mousePressEvent(QMouseEvent*)                          override;
+    virtual void mouseMoveEvent(QMouseEvent*)                           override;
+    virtual void mouseReleaseEvent(QMouseEvent*)                        override;
+    virtual void wheelEvent(QWheelEvent*)                               override;
+    virtual void resizeEvent(QResizeEvent*)                             override;
+    virtual bool event(QEvent*)                                         override;
 
-    void mouseDoubleClickEvent(QMouseEvent*)                    override;
-    void mousePressEvent(QMouseEvent*)                          override;
-    void mouseMoveEvent(QMouseEvent*)                           override;
-    void mouseReleaseEvent(QMouseEvent*)                        override;
-    void wheelEvent(QWheelEvent*)                               override;
-    void resizeEvent(QResizeEvent*)                             override;
-
+    PanIconWidget* installPanIcon();
     void startPanning(const QPoint& pos);
     void continuePanning(const QPoint& pos);
     void finishPanning();
@@ -114,15 +130,20 @@ protected:
     void setScaleFitToWindow(bool value);
 
     virtual bool acceptsMouseClick(QMouseEvent* e);
-    void scrollContentsBy(int dx, int dy)                       override;
+    virtual void scrollContentsBy(int dx, int dy)                       override;
 
 protected Q_SLOTS:
 
+    void         slotZoomFactorChanged();
     void         slotContentsMoved();
-    void         slotCornerButtonPressed();
-    void         slotPanIconHidden();
+    void         slotRefreshPanIconSelection();
 
     virtual void slotPanIconSelectionMoved(const QRect&, bool);
+
+private:
+
+    void gestureEvent(QGestureEvent*);
+    void updateMagnifier();
 
 private:
 

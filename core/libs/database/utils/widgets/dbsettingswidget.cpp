@@ -7,7 +7,7 @@
  * Description : database settings widget
  *
  * SPDX-FileCopyrightText: 2009-2010 by Holger Foerster <Hamsi2k at freenet dot de>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -39,14 +39,15 @@ void DatabaseSettingsWidget::setupMainArea()
 
     const int spacing = layoutSpacing();
 
-
     QGroupBox* const dbConfigBox    = new QGroupBox(i18n("Database Configuration"), this);
     QVBoxLayout* const vlay         = new QVBoxLayout(dbConfigBox);
 
     DHBox* const typeHbox           = new DHBox();
     QLabel* const databaseTypeLabel = new QLabel(typeHbox);
     d->dbType                       = new QComboBox(typeHbox);
-    databaseTypeLabel->setText(i18n("Type:"));
+    QWidget* const spacer           = new QWidget(typeHbox);
+    databaseTypeLabel->setText(i18n("Type: "));
+    typeHbox->setStretchFactor(spacer, 10);
 
     // --------- fill with default values ---------------------
 
@@ -87,40 +88,77 @@ void DatabaseSettingsWidget::setupMainArea()
 
 #endif
 
-    d->dbType->setToolTip(tip);
+    d->dbTypeBtn           = new QPushButton(typeHbox);
+    d->dbTypeBtn->setIcon(QIcon::fromTheme(QLatin1String("dialog-information")));
+    d->dbTypeBtn->setToolTip(i18nc("@info:tooltip", "Get information about <b>Database Type</b>"));
+    d->dbTypeBtn->setWhatsThis(tip);
+
+    connect(d->dbTypeBtn, &QPushButton::clicked,
+            this, [this]()
+        {
+            qApp->postEvent(d->dbTypeBtn, new QHelpEvent(QEvent::WhatsThis, QPoint(0, 0), QCursor::pos()));
+        }
+    );
 
     // --------------------------------------------------------
 
-    d->dbPathLabel = new QLabel(i18n("<p>Set here the location where the database files will be stored on your system. "
+    DHBox* const dbPathBox = new DHBox(dbConfigBox);
+
+    d->dbPathLbl           = new QLabel(i18nc("@label:database path", "Path: "), dbPathBox);
+
+    d->dbPathEdit          = new DFileSelector(dbPathBox);
+    d->dbPathEdit->setFileDlgMode(QFileDialog::Directory);
+    d->dbPathEdit->setFileDlgOptions(QFileDialog::ShowDirsOnly);
+
+    d->dbPathBtn           = new QPushButton(dbPathBox);
+    d->dbPathBtn->setIcon(QIcon::fromTheme(QLatin1String("dialog-information")));
+    d->dbPathBtn->setToolTip(i18nc("@info:tooltip", "Get information about <b>Database Path</b>"));
+    d->dbPathBtn->setWhatsThis(i18nc("@info:tooltip",
+                                     "<p>Set here the location where the database files will be stored on your system. "
                                      "There are four databases: "
                                      "one for all collections properties, "
                                      "one to store compressed thumbnails, "
                                      "one to store faces recognition metadata, "
-                                     "and one to store similarity fingerprints.<br/>"
+                                     "and one to store similarity fingerprints.<br>"
                                      "Write access is required to be able to edit image properties.</p>"
                                      "<p>Databases are digiKam core engines. Take care to use a place hosted by fast "
                                      "hardware (eg. SSD or NVMe) with enough free space especially for thumbnails database.</p>"
                                      "<p>Note: a remote file system such as NFS, cannot be used here. "
-                                     "For performance reasons, it is also recommended not to use network storage media.</p>"
-                                     "<p></p>"), dbConfigBox);
-    d->dbPathLabel->setWordWrap(true);
-    d->dbPathEdit  = new DFileSelector(dbConfigBox);
-    d->dbPathEdit->setFileDlgMode(QFileDialog::Directory);
-    d->dbPathEdit->setFileDlgOptions(QFileDialog::ShowDirsOnly);
+                                     "For performance reasons, it is also recommended not to use network storage media.</p>"));
+
+    connect(d->dbPathBtn, &QPushButton::clicked,
+            this, [this]()
+        {
+            qApp->postEvent(d->dbPathBtn, new QHelpEvent(QEvent::WhatsThis, QPoint(0, 0), QCursor::pos()));
+        }
+    );
+
 
     // --------------------------------------------------------
 
-    d->walModeCheck = new QCheckBox(i18n("Enable WAL mode for the databases"), dbConfigBox);
+    DHBox* const walModeBox = new DHBox(dbConfigBox);
+
+    d->walModeCheck         = new QCheckBox(i18n("Enable WAL mode for the databases"), walModeBox);
     d->walModeCheck->setToolTip(i18n("The WAL (Write-Ahead Log) mode is significantly "
                                      "faster in most scenarios on supported systems."));
 
-    d->walLabel     = new QLabel(i18n("Write-Ahead Log is a mode to use a roll-forward journal that records transactions "
-                                      "that have been committed but not yet applied to the databases. It uses an auxiliary "
-                                      "journalized file to host structures for recovery transactions during a crash. The changes "
-                                      "are first recorded in the log, before the changes are written to the database. This made "
-                                      "database requests atomic and robust in extensive and critical use cases."),
-                                 dbConfigBox);
-    d->walLabel->setWordWrap(true);
+    QWidget* const spacer2  = new QWidget(walModeBox);
+    walModeBox->setStretchFactor(spacer2, 10);
+    d->walModeBtn           = new QPushButton(walModeBox);
+    d->walModeBtn->setIcon(QIcon::fromTheme(QLatin1String("dialog-information")));
+    d->walModeBtn->setToolTip(i18nc("@info:tooltip", "Get information about <b>WAL Mode</b>"));
+    d->walModeBtn->setWhatsThis(i18n("Write-Ahead Log is a mode to use a roll-forward journal that records transactions "
+                                     "that have been committed but not yet applied to the databases. It uses an auxiliary "
+                                     "journalized file to host structures for recovery transactions during a crash. The changes "
+                                     "are first recorded in the log, before the changes are written to the database. This made "
+                                     "database requests atomic and robust in extensive and critical use cases."));
+
+    connect(d->walModeBtn, &QPushButton::clicked,
+            this, [this]()
+        {
+            qApp->postEvent(d->walModeBtn, new QHelpEvent(QEvent::WhatsThis, QPoint(0, 0), QCursor::pos()));
+        }
+    );
 
     // --------------------------------------------------------
 
@@ -288,7 +326,7 @@ void DatabaseSettingsWidget::setupMainArea()
     d->dbNoticeBox           = new QGroupBox(i18n("Database Server Instructions"), this);
     QVBoxLayout* const vlay2 = new QVBoxLayout(d->dbNoticeBox);
     QLabel* const notice     = new QLabel(i18n("<p>digiKam expects that database is already created with a dedicated user account. "
-                                               "This user name <i>digikam</i> will require full access to the database.<br/>"
+                                               "This user name <i>digikam</i> will require full access to the database.<br>"
                                                "If your database is not already set up, you can use the following SQL commands "
                                                "(after replacing the <b><i>password</i></b> with the correct one).</p>"),
                                           d->dbNoticeBox);
@@ -309,7 +347,7 @@ void DatabaseSettingsWidget::setupMainArea()
                           "<p>...</p>"
                           "<p>quit</p>"
                           "<p>NOTE: If you have problems with a MySQL server on Ubuntu based Linux system, "
-                          "use the addition command in the mysql prompt to be able to create MySQL triggers.<br/>"
+                          "use the addition command in the mysql prompt to be able to create MySQL triggers.<br>"
                           "SET GLOBAL log_bin_trust_function_creators=1;</p>"
                           "<p>NOTE: If you have an enormous collection, you should start MySQL server with "
                           "mysql --max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"));
@@ -362,12 +400,11 @@ void DatabaseSettingsWidget::setupMainArea()
 
     vlay->addWidget(typeHbox);
     vlay->addWidget(new DLineWidget(Qt::Horizontal));
-    vlay->addWidget(d->dbPathLabel);
-    vlay->addWidget(d->dbPathEdit);
+    vlay->addWidget(dbPathBox);
+    vlay->addWidget(new DLineWidget(Qt::Horizontal));
     vlay->addWidget(d->mysqlCmdBox);
     vlay->addWidget(d->tab);
-    vlay->addWidget(d->walModeCheck);
-    vlay->addWidget(d->walLabel);
+    vlay->addWidget(walModeBox);
     vlay->addStretch(10);
     vlay->setContentsMargins(spacing, spacing, spacing, spacing);
     vlay->setSpacing(spacing);
@@ -405,124 +442,6 @@ void DatabaseSettingsWidget::setupMainArea()
             this, SLOT(slotUpdateSqlInit()));
 
     slotHandleDBTypeIndexChanged(d->dbType->currentIndex());
-}
-
-int DatabaseSettingsWidget::databaseType() const
-{
-    return d->dbType->currentData().toInt();
-}
-
-QString DatabaseSettingsWidget::databasePath() const
-{
-    return d->dbPathEdit->fileDlgPath();
-}
-
-void DatabaseSettingsWidget::setDatabasePath(const QString& path)
-{
-    d->dbPathEdit->setFileDlgPath(path);
-}
-
-DbEngineParameters DatabaseSettingsWidget::orgDatabasePrm() const
-{
-    return d->orgPrms;
-}
-
-QString DatabaseSettingsWidget::databaseBackend() const
-{
-    switch (databaseType())
-    {
-        case MysqlInternal:
-        case MysqlServer:
-        {
-            return DbEngineParameters::MySQLDatabaseType();
-        }
-
-        default: // SQlite
-        {
-            return DbEngineParameters::SQLiteDatabaseType();
-        }
-    }
-}
-
-void DatabaseSettingsWidget::slotResetMysqlServerDBNames()
-{
-    d->dbNameCore->setText(QLatin1String("digikam"));
-    d->dbNameThumbs->setFileDlgPath(QLatin1String("digikam"));
-    d->dbNameFace->setText(QLatin1String("digikam"));
-    d->dbNameSimilarity->setText(QLatin1String("digikam"));
-}
-
-void DatabaseSettingsWidget::slotHandleDBTypeIndexChanged(int index)
-{
-    int dbType = d->dbType->itemData(index).toInt();
-    setDatabaseInputFields(dbType);
-    handleInternalServer(dbType);
-    slotUpdateSqlInit();
-}
-
-void DatabaseSettingsWidget::setDatabaseInputFields(int index)
-{
-    switch (index)
-    {
-        case SQlite:
-        {
-            d->dbPathLabel->setVisible(true);
-            d->dbPathEdit->setVisible(true);
-            d->walModeCheck->setVisible(true);
-            d->walLabel->setVisible(true);
-            d->mysqlCmdBox->setVisible(false);
-            d->tab->setVisible(false);
-
-            connect(d->dbPathEdit->lineEdit(), SIGNAL(textChanged(QString)),
-                    this, SLOT(slotDatabasePathEditedDelayed()));
-
-            break;
-        }
-
-        case MysqlInternal:
-        {
-            d->dbPathLabel->setVisible(true);
-            d->dbPathEdit->setVisible(true);
-            d->walModeCheck->setVisible(false);
-            d->walLabel->setVisible(false);
-            d->mysqlCmdBox->setVisible(true);
-            d->tab->setVisible(false);
-
-            connect(d->dbPathEdit->lineEdit(), SIGNAL(textChanged(QString)),
-                    this, SLOT(slotDatabasePathEditedDelayed()));
-
-            break;
-        }
-
-        default: // MysqlServer
-        {
-            d->dbPathLabel->setVisible(false);
-            d->dbPathEdit->setVisible(false);
-            d->walModeCheck->setVisible(false);
-            d->walLabel->setVisible(false);
-            d->mysqlCmdBox->setVisible(false);
-            d->tab->setVisible(true);
-
-            disconnect(d->dbPathEdit->lineEdit(), SIGNAL(textChanged(QString)),
-                       this, SLOT(slotDatabasePathEditedDelayed()));
-            break;
-        }
-    }
-}
-
-void DatabaseSettingsWidget::handleInternalServer(int index)
-{
-    bool internal = (index == MysqlInternal);
-
-    d->hostName->setDisabled(internal);
-    d->hostPort->setDisabled(internal);
-    d->dbNameCore->setDisabled(internal);
-    d->dbNameThumbs->setDisabled(internal);
-    d->dbNameFace->setDisabled(internal);
-    d->dbNameSimilarity->setDisabled(internal);
-    d->userName->setDisabled(internal);
-    d->password->setDisabled(internal);
-    d->connectOpts->setDisabled(internal);
 }
 
 void DatabaseSettingsWidget::slotUpdateSqlInit()
@@ -593,358 +512,6 @@ void DatabaseSettingsWidget::slotUpdateSqlInit()
     {
         d->dbThumbsLabel->setText(i18n("Thumbs Db Name:"));
     }
-}
-
-void DatabaseSettingsWidget::slotCheckMysqlServerConnection()
-{
-    QString error;
-
-    if (checkMysqlServerConnection(error))
-    {
-        QMessageBox::information(qApp->activeWindow(), i18nc("@title:window", "Database Connection Test"),
-                                 i18n("Database connection test successful."));
-    }
-    else
-    {
-        QMessageBox::critical(qApp->activeWindow(), i18nc("@title:window", "Database Connection Test"),
-                              i18n("Database connection test was not successful. <p>Error was: %1</p>",
-                                   error));
-    }
-}
-
-bool DatabaseSettingsWidget::checkMysqlServerConnectionConfig(QString& error)
-{
-    if (d->hostName->text().isEmpty())
-    {
-        error = i18n("The server hostname is empty");
-        return false;
-    }
-
-    if (d->userName->text().isEmpty())
-    {
-        error = i18n("The server user name is empty");
-        return false;
-    }
-
-    return true;
-}
-
-bool DatabaseSettingsWidget::checkMysqlServerDbNamesConfig(QString& error)
-{
-    if (d->dbNameCore->text().isEmpty())
-    {
-        error = i18n("The core database name is empty");
-        return false;
-    }
-
-    if (d->dbNameThumbs->fileDlgPath().isEmpty())
-    {
-        error = i18n("The thumbnails database name is empty");
-        return false;
-    }
-
-    if (d->dbNameFace->text().isEmpty())
-    {
-        error = i18n("The face database name is empty");
-        return false;
-    }
-
-    if (d->dbNameSimilarity->text().isEmpty())
-    {
-        error = i18n("The similarity database name is empty");
-        return false;
-    }
-
-    return true;
-}
-
-bool DatabaseSettingsWidget::checkMysqlServerConnection(QString& error)
-{
-    if (!checkMysqlServerConnectionConfig(error))
-    {
-        return false;
-    }
-
-    bool result = false;
-
-    qApp->setOverrideCursor(Qt::WaitCursor);
-
-    QString databaseID(QLatin1String("ConnectionTest"));
-
-    {
-        QSqlDatabase testDatabase = QSqlDatabase::addDatabase(databaseBackend(), databaseID);
-
-        DbEngineParameters prm    = getDbEngineParameters();
-        qCDebug(DIGIKAM_DATABASE_LOG) << "Testing DB connection (" << databaseID << ") with these settings:";
-        qCDebug(DIGIKAM_DATABASE_LOG) << prm;
-
-        testDatabase.setHostName(prm.hostName);
-        testDatabase.setPort(prm.port);
-        testDatabase.setUserName(prm.userName);
-        testDatabase.setPassword(prm.password);
-        testDatabase.setConnectOptions(prm.connectOptions);
-
-        result = testDatabase.open();
-        error  = testDatabase.lastError().text();
-        testDatabase.close();
-    }
-
-    QSqlDatabase::removeDatabase(databaseID);
-
-    qApp->restoreOverrideCursor();
-
-    return result;
-}
-
-void DatabaseSettingsWidget::setParametersFromSettings(const ApplicationSettings* const settings,
-                                                       const bool& migration)
-{
-    d->orgPrms = settings->getDbEngineParameters();
-
-    if      (d->orgPrms.databaseType == DbEngineParameters::SQLiteDatabaseType())
-    {
-        d->dbPathEdit->setFileDlgPath(d->orgPrms.getCoreDatabaseNameOrDir());
-        d->dbType->setCurrentIndex(d->dbTypeMap[SQlite]);
-        d->walModeCheck->setChecked(d->orgPrms.walMode);
-        slotResetMysqlServerDBNames();
-
-        if (settings->getDatabaseDirSetAtCmd() && !migration)
-        {
-            d->dbType->setEnabled(false);
-            d->dbPathEdit->setEnabled(false);
-            d->dbPathLabel->setText(d->dbPathLabel->text() +
-                                    i18n("This path was set as a command line"
-                                         "option (--database-directory)."));
-        }
-    }
-
-#ifdef HAVE_MYSQLSUPPORT
-
-#   ifdef HAVE_INTERNALMYSQL
-
-    else if ((d->orgPrms.databaseType == DbEngineParameters::MySQLDatabaseType()) && d->orgPrms.internalServer)
-    {
-        d->dbPathEdit->setFileDlgPath(d->orgPrms.internalServerPath());
-        d->dbType->setCurrentIndex(d->dbTypeMap[MysqlInternal]);
-        d->mysqlUpgradeBin.setup(QFileInfo(d->orgPrms.internalServerMysqlUpgradeCmd).absolutePath());
-        d->mysqlServerBin.setup(QFileInfo(d->orgPrms.internalServerMysqlServerCmd).absolutePath());
-        d->mysqlAdminBin.setup(QFileInfo(d->orgPrms.internalServerMysqlAdminCmd).absolutePath());
-        d->mysqlInitBin.setup(QFileInfo(d->orgPrms.internalServerMysqlInitCmd).absolutePath());
-        d->dbBinariesWidget->allBinariesFound();
-        d->walModeCheck->setChecked(false);
-        slotResetMysqlServerDBNames();
-    }
-
-#   endif
-
-    else
-    {
-        d->dbType->setCurrentIndex(d->dbTypeMap[MysqlServer]);
-        d->dbNameCore->setText(d->orgPrms.databaseNameCore);
-        d->dbNameThumbs->setFileDlgPath(d->orgPrms.databaseNameThumbnails);
-        d->dbNameFace->setText(d->orgPrms.databaseNameFace);
-        d->dbNameSimilarity->setText(d->orgPrms.databaseNameSimilarity);
-        d->hostName->setText(d->orgPrms.hostName);
-        d->hostPort->setValue((d->orgPrms.port == -1) ? 3306 : d->orgPrms.port);
-        d->connectOpts->setText(d->orgPrms.connectOptions);
-        d->userName->setText(d->orgPrms.userName);
-        d->password->setText(d->orgPrms.password);
-        d->walModeCheck->setChecked(false);
-    }
-
-#endif
-
-    slotHandleDBTypeIndexChanged(d->dbType->currentIndex());
-}
-
-DbEngineParameters DatabaseSettingsWidget::getDbEngineParameters() const
-{
-    DbEngineParameters prm;
-
-    switch (databaseType())
-    {
-        case SQlite:
-        {
-            prm         = DbEngineParameters::parametersForSQLiteDefaultFile(databasePath());
-            prm.walMode = d->walModeCheck->isChecked();
-            break;
-        }
-
-        case MysqlInternal:
-        {
-            prm = DbEngineParameters::defaultParameters(databaseBackend());
-            prm.setInternalServerPath(databasePath());
-            prm.internalServerMysqlUpgradeCmd = d->mysqlUpgradeBin.path();
-            prm.internalServerMysqlServerCmd  = d->mysqlServerBin.path();
-            prm.internalServerMysqlAdminCmd   = d->mysqlAdminBin.path();
-            prm.internalServerMysqlInitCmd    = d->mysqlInitBin.path();
-            break;
-        }
-
-        default: // MysqlServer
-        {
-            prm.internalServer         = false;
-            prm.databaseType           = databaseBackend();
-            prm.databaseNameCore       = d->dbNameCore->text();
-            prm.databaseNameThumbnails = d->dbNameThumbs->fileDlgPath();
-            prm.databaseNameFace       = d->dbNameFace->text();
-            prm.databaseNameSimilarity = d->dbNameSimilarity->text();
-            prm.connectOptions         = d->connectOpts->text();
-            prm.hostName               = d->hostName->text();
-            prm.port                   = d->hostPort->value();
-            prm.userName               = d->userName->text();
-            prm.password               = d->password->text();
-            break;
-        }
-    }
-
-    return prm;
-}
-
-void DatabaseSettingsWidget::slotDatabasePathEditedDelayed()
-{
-    QTimer::singleShot(300, this, SLOT(slotDatabasePathEdited()));
-}
-
-void DatabaseSettingsWidget::slotDatabasePathEdited()
-{
-    QString newPath = databasePath();
-
-#ifndef Q_OS_WIN
-
-    if (!newPath.isEmpty() && !QDir::isAbsolutePath(newPath))
-    {
-        d->dbPathEdit->setFileDlgPath(QDir::homePath() + QLatin1Char('/') + newPath);
-    }
-
-#endif
-
-    d->dbPathEdit->setFileDlgPath(newPath);
-}
-
-bool DatabaseSettingsWidget::checkDatabaseSettings()
-{
-    switch (databaseType())
-    {
-        case SQlite:
-        {
-            return checkDatabasePath();
-        }
-
-        case MysqlInternal:
-        {
-            if (!checkDatabasePath())
-            {
-                return false;
-            }
-
-            if (!d->dbBinariesWidget->allBinariesFound())
-            {
-                return false;
-            }
-
-            return true;
-        }
-
-        default:  // MysqlServer
-        {
-            QString error;
-
-            if (!checkMysqlServerDbNamesConfig(error))
-            {
-                QMessageBox::critical(qApp->activeWindow(), i18nc("@title:window", "Database Configuration"),
-                                      i18n("The database names configuration is not valid. Error is <br/><p>%1</p><br/>"
-                                           "Please check your configuration.",
-                                           error));
-                return false;
-            }
-
-            if (!checkMysqlServerConnection(error))
-            {
-                QMessageBox::critical(qApp->activeWindow(), i18nc("@title:window", "Database Connection Test"),
-                                      i18n("Testing database connection has failed with error<br/><p>%1</p><br/>"
-                                           "Please check your configuration.",
-                                           error));
-                return false;
-            }
-        }
-    }
-
-    return true;
-}
-
-bool DatabaseSettingsWidget::checkDatabasePath()
-{
-    QString dbFolder = databasePath();
-    qCDebug(DIGIKAM_DATABASE_LOG) << "Database directory is : " << dbFolder;
-
-    if (dbFolder.isEmpty())
-    {
-        QMessageBox::information(qApp->activeWindow(), qApp->applicationName(),
-                                i18n("You must select a folder for digiKam to "
-                                     "store information and metadata in a database file."));
-        return false;
-    }
-
-    QDir targetPath(dbFolder);
-
-    if (!targetPath.exists())
-    {
-        int rc = QMessageBox::question(qApp->activeWindow(), i18nc("@title:window", "Create Database Folder?"),
-                                    i18n("<p>The folder to put your database in does not seem to exist:</p>"
-                                         "<p><b>%1</b></p>"
-                                         "Would you like digiKam to create it for you?", dbFolder));
-
-        if (rc == QMessageBox::No)
-        {
-            return false;
-        }
-
-        if (!targetPath.mkpath(dbFolder))
-        {
-            QMessageBox::information(qApp->activeWindow(), i18nc("@title:window", "Create Database Folder Failed"),
-                                    i18n("<p>digiKam could not create the folder to host your database file.\n"
-                                         "Please select a different location.</p>"
-                                         "<p><b>%1</b></p>", dbFolder));
-            return false;
-        }
-    }
-
-    QFileInfo path(dbFolder);
-
-#ifdef Q_OS_WIN
-
-    // Work around bug #189168
-
-    QTemporaryFile temp;
-    temp.setFileTemplate(path.filePath() + QLatin1String("/XXXXXX"));
-
-    if (!temp.open())
-
-#else
-
-    if (!path.isWritable())
-
-#endif
-
-    {
-        QMessageBox::information(qApp->activeWindow(), i18nc("@title:window", "No Database Write Access"),
-                                 i18n("<p>You do not seem to have write access "
-                                      "for the folder to host the database file.<br/>"
-                                      "Please select a different location.</p>"
-                                      "<p><b>%1</b></p>", dbFolder));
-        return false;
-    }
-
-    return true;
-}
-
-bool DatabaseSettingsWidget::isNotEqualToThumbName(const QString& name)
-{
-    QFileInfo thumbDB(d->dbNameThumbs->fileDlgPath());
-    bool isDir = (thumbDB.exists() && thumbDB.isDir() && thumbDB.isAbsolute());
-
-    return (!isDir && (d->dbNameThumbs->fileDlgPath() != name));
 }
 
 } // namespace Digikam

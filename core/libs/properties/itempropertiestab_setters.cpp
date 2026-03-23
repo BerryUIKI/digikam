@@ -6,7 +6,7 @@
  * Date        : 2006-04-19
  * Description : A tab to display general item information
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -18,12 +18,12 @@
 namespace Digikam
 {
 
-void ItemPropertiesTab::setCurrentURL(const QUrl& url)
+void ItemPropertiesTab::setCurrentUrl(const QUrl& url)
 {
     if (url.isEmpty())
     {
         d->labelFile->setAdjustedText();
-        d->labelFolder->setAdjustedText();
+        d->labelFolder->clear();
         d->labelSymlink->setAdjustedText();
         d->labelFileModifiedDate->setAdjustedText();
         d->labelFileSize->setAdjustedText();
@@ -36,6 +36,7 @@ void ItemPropertiesTab::setCurrentURL(const QUrl& url)
         d->labelImageBitDepth->setAdjustedText();
         d->labelImageColorMode->setAdjustedText();
         d->labelHasSidecar->setAdjustedText();
+        d->labelHasGPSInfo->setAdjustedText();
 
         d->labelPhotoMake->setAdjustedText();
         d->labelPhotoModel->setAdjustedText();
@@ -58,9 +59,15 @@ void ItemPropertiesTab::setCurrentURL(const QUrl& url)
 
         d->labelTitle->clear();
         d->labelCaption->clear();
+        d->labelPick->clear();
         d->labelPickLabel->setAdjustedText();
+        d->labelColor->clear();
         d->labelColorLabel->setAdjustedText();
-        d->labelRating->setAdjustedText();
+        d->labelRating->clear();
+        d->labelRating->setProperty("Rating", -1);
+        d->labelVersionedInfo->setAdjustedText();
+        d->labelGroupedInfo->setAdjustedText();
+
         d->labelTags->clear();
         d->labelPeoples->clear();
         d->labelPhotoDateTime->setAdjustedText();
@@ -77,7 +84,7 @@ void ItemPropertiesTab::setCurrentURL(const QUrl& url)
     QFileInfo info(url.toLocalFile());
 
     d->labelFile->setAdjustedText(info.fileName());
-    d->labelFolder->setAdjustedText(QDir::toNativeSeparators(info.path()));
+    d->labelFolder->setText(QDir::toNativeSeparators(info.path()));
     d->labelSymlink->setAdjustedText(!info.isSymLink() ? i18nc("@info: item properties", "No")
                                                        : QDir::toNativeSeparators(info.canonicalPath()));
 }
@@ -113,7 +120,7 @@ void ItemPropertiesTab::setFileName(const QString& str)
 
 void ItemPropertiesTab::setFileFolder(const QString& str)
 {
-    d->labelFolder->setAdjustedText(str);
+    d->labelFolder->setText(str);
 }
 
 void ItemPropertiesTab::setFileModifiedDate(const QString& str)
@@ -171,14 +178,19 @@ void ItemPropertiesTab::setHasGPSInfo(const QString& str)
     d->labelHasGPSInfo->setAdjustedText(str);
 }
 
-void ItemPropertiesTab::setVersionnedInfo(const QString& str)
+void ItemPropertiesTab::setVersionedInfo(const QString& str)
 {
-    d->labelVersionnedInfo->setAdjustedText(str);
+    d->labelVersionedInfo->setAdjustedText(str);
 }
 
 void ItemPropertiesTab::setGroupedInfo(const QString& str)
 {
     d->labelGroupedInfo->setAdjustedText(str);
+}
+
+void ItemPropertiesTab::setGroupedWidget(QWidget* const wdg)
+{
+    d->glay5->addWidget(wdg, 8, 0, 1, 2);
 }
 
 void ItemPropertiesTab::setPhotoMake(const QString& str)
@@ -240,25 +252,41 @@ void ItemPropertiesTab::setTitle(const QString& str)
 {
     // NOTE: special case for the title. See bug #460134
 
-    d->labelTitle->setText(d->cnt.breakString((str.size() > 100) ? str.left(100) + QLatin1String("...") : str));
+    d->labelTitle->setText((str.size() > 200) ? str.left(200) + QLatin1String("...") : str);
 }
 
 void ItemPropertiesTab::setCaption(const QString& str)
 {
     // NOTE: special case for the caption. See bug #460134
 
-    d->labelCaption->setText(d->cnt.breakString((str.size() > 100) ? str.left(100) + QLatin1String("...") : str));
+    d->labelCaption->setText((str.size() > 200) ? str.left(200) + QLatin1String("...") : str);
 }
 
 void ItemPropertiesTab::setColorLabel(int colorId)
 {
     if (colorId == NoColorLabel)
     {
+        d->labelColor->clear();
         d->labelColorLabel->setAdjustedText(QString());
     }
     else
     {
-        d->labelColorLabel->setAdjustedText(ColorLabelWidget::labelColorName((ColorLabel)colorId));
+        DXmlGuiWindow* const app = dynamic_cast<DXmlGuiWindow*>(qApp->activeWindow());
+        d->labelColor->setPixmap(ColorLabelWidget::buildIcon((ColorLabel)colorId).pixmap(16, 16));
+
+        if (app)
+        {
+            QAction* const ac = app->actionCollection()->action(QString::fromLatin1("colorshortcut-%1").arg(colorId));
+
+            if (ac)
+            {
+                d->labelColorLabel->setAdjustedText(ac->toolTip());
+            }
+        }
+        else
+        {
+            d->labelColorLabel->setAdjustedText(ColorLabelWidget::labelColorName((ColorLabel)colorId));
+        }
     }
 }
 
@@ -266,30 +294,44 @@ void ItemPropertiesTab::setPickLabel(int pickId)
 {
     if (pickId == NoPickLabel)
     {
+        d->labelPick->clear();
         d->labelPickLabel->setAdjustedText(QString());
     }
     else
     {
+        d->labelPick->setPixmap(PickLabelWidget::buildIcon((PickLabel)pickId).pixmap(16, 16));
         d->labelPickLabel->setAdjustedText(PickLabelWidget::labelPickName((PickLabel)pickId));
     }
 }
 
 void ItemPropertiesTab::setRating(int rating)
 {
-    QString str;
-
     if ((rating > RatingMin) && (rating <= RatingMax))
     {
-        str = QLatin1Char(' ');
+        double dpr   = devicePixelRatio();
+        QPixmap star = RatingWidget::buildIcon(rating, 32).pixmap(16, 16);
+        QPixmap pix(16 * rating * dpr, 16 * dpr);
+        pix.setDevicePixelRatio(dpr);
+        pix.fill(Qt::transparent);
+        QPainter painter(&pix);
+        painter.setRenderHint(QPainter::Antialiasing, true);
+        painter.setPen(palette().color(QPalette::Active, foregroundRole()));
 
-        for (int i = 0 ; i < rating ; ++i)
+        for (int i = 0 ; i < rating ; i++)
         {
-            str += QChar(0x2730);
-            str += QLatin1Char(' ');
+            painter.drawPixmap(i * 16, 0, star);
         }
+
+        painter.end();
+
+        d->labelRating->setPixmap(pix);
+    }
+    else
+    {
+        d->labelRating->setPixmap(QPixmap());
     }
 
-    d->labelRating->setAdjustedText(str);
+    d->labelRating->setProperty("Rating", rating);
 }
 
 void ItemPropertiesTab::setVideoAspectRatio(const QString& str)
@@ -328,14 +370,14 @@ void ItemPropertiesTab::setVideoDuration(const QString& str)
     // duration is given as a string in milliseconds
     // use string given as parameter by default because it contains the value for "unavailable" if needed
 
-    QString durationString = str;
-    bool ok                = false;
-    const int durationVal  = str.toInt(&ok);
+    QString durationString          = str;
+    bool ok                         = false;
+    const unsigned int durationVal  = str.toUInt(&ok);
 
     if (ok)
     {
         unsigned int rr, dd, hh, mm, ss, ff;
-        rr = qAbs(durationVal);
+        rr = durationVal;
         dd = rr / 86400000;
         rr = rr % 86400000;
         hh = rr / 3600000;
@@ -345,7 +387,12 @@ void ItemPropertiesTab::setVideoDuration(const QString& str)
         ss = rr / 1000;
         ff = rr % 1000;
 
+        // cppcheck-suppress redundantInitialization
         durationString = QString().asprintf("%d.%02d:%02d:%02d.%03d", dd, hh, mm, ss, ff);
+    }
+    else
+    {
+        durationString = i18n("unavailable");
     }
 
     d->labelVideoDuration->setAdjustedText(durationString);

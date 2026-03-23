@@ -8,7 +8,7 @@
  *               based on DMetadata. This interface is used in all cases
  *               where no database is available (aka Showfoto).
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2019-2020 by Minh Nghia Duong <minhnghiaduong997 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -44,6 +44,8 @@ class Q_DECL_HIDDEN DMetaInfoIface::Private
 public:
 
     Private() = default;
+
+public:
 
     DFileSelector* dirSelector = nullptr;
     QList<QUrl>    urls;
@@ -115,8 +117,8 @@ DMetaInfoIface::DInfoMap DMetaInfoIface::itemInfo(const QUrl& url) const
         QFileInfo info(url.toLocalFile());
 
         map.insert(QLatin1String("name"),               info.fileName());
-        map.insert(QLatin1String("title"),              meta->getItemTitles()[def].caption);
-        map.insert(QLatin1String("comment"),            meta->getItemComments()[def].caption);
+        map.insert(QLatin1String("title"),              meta->getItemTitles().value(def).caption);
+        map.insert(QLatin1String("comment"),            meta->getItemComments().value(def).caption);
         map.insert(QLatin1String("orientation"),        (int)meta->getItemOrientation());
         map.insert(QLatin1String("datetime"),           meta->getItemDateTime());
         map.insert(QLatin1String("rating"),             meta->getItemRating());

@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -28,6 +28,9 @@ set(libalbum_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/treeview/abstractcheckablealbumtreeview.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/treeview/albumtreeview.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/treeview/labelstreeview.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/treeview/labelstreeview_p.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/treeview/labelstreeview_init.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/treeview/labelstreeview_settings.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/treeview/albumlabelssearchhandler.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/treeview/tagtreeview.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/treeview/searchtreeview.cpp

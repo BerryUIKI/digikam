@@ -8,14 +8,14 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
  * ============================================================ */
 
 /***************************************************************************
-* Calculate positions and physical ephemerides of Solar System bodies.     *                                                                          *
+* Calculate positions and physical ephemerides of Solar System bodies.     *
 * The algorithm for the Modified Julian Date are based on                  *
 * O.Montebruck and T.Pfleger, "Astronomy with a PC",                       *
 * Springer Verlag, Berlin, Heidelberg, New York, 1989                      *
@@ -2233,7 +2233,7 @@ void SolarSystem::MoonDetails()
     double ae = 23454.77992; // 149597870.0/6378.14 =  1AE -> Earth Radii
     static Vec3 snc, mnc;   // position of the Sun and the Moon
     Vec3 s, rm, rs, s3;
-    double ep2;    // correction for Apparent Sideral Time
+    double ep2;    // correction for Apparent Sidereal Time
 
     if (ss_central_body != 4)   // calculate only for the Earth as reference
     {

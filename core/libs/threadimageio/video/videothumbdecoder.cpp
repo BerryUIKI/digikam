@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2010      by Dirk Vanden Boer <dirk dot vdb at gmail dot com>
  * SPDX-FileCopyrightText: 2016-2018 by Maik Qualmann <metzpinguin at gmail dot com>
- * SPDX-FileCopyrightText: 2016-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2016-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -187,8 +187,7 @@ void VideoThumbDecoder::seek(int timeInSeconds)
         timestamp = 0;
     }
 
-    int ret = av_seek_frame(d->pFormatContext, -1, timestamp,
-                            AVSEEK_FLAG_FRAME | AVSEEK_FLAG_BACKWARD);
+    int ret = av_seek_frame(d->pFormatContext, -1, timestamp, AVSEEK_FLAG_FRAME);
 
     if (ret >= 0)
     {
@@ -254,8 +253,8 @@ bool VideoThumbDecoder::decodeVideoFrame() const
 }
 
 void VideoThumbDecoder::getScaledVideoFrame(int scaledSize,
-                                       bool maintainAspectRatio,
-                                       VideoFrame& videoFrame)
+                                            bool maintainAspectRatio,
+                                            VideoFrame& videoFrame)
 {
 
 #if LIBAVUTIL_VERSION_INT >= AV_VERSION_INT(58, 7, 100)

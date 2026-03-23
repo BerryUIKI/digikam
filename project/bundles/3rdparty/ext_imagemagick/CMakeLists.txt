@@ -1,6 +1,6 @@
 # Script to build imagemagick for digiKam bundle.
 #
-# Copyright (c) 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# Copyright (c) 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # Redistribution and use is allowed according to the terms of the BSD license.
 # For details see the accompanying COPYING-CMAKE-SCRIPTS file.
@@ -36,7 +36,7 @@ set(Magick_Conf --prefix=${PREFIX_ext_imagemagick}
                 --with-xml                             # Enable XML support.
                 --with-fpx                             # Enable FlashPix Codec.
                 --with-openexr                         # Enable OpenEXR codec.
-                --with-quantum-depth=16                # Use 1§Bits quantum for color components.
+                --with-quantum-depth=16                # Use 16Bits quantum for color components.
                 --without-utilities                    # Disable CLI tools.
 )
 
@@ -52,13 +52,6 @@ ExternalProject_Add(ext_jbig
 
     GIT_REPOSITORY https://github.com/zdenop/jbigkit.git
 
-    CONFIGURE_COMMAND cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../../bootstrap.mxe <SOURCE_DIR>/. &&
-                      <SOURCE_DIR>/bootstrap.mxe ${MXE_BUILDROOT} RelWithDebInfo ${BASH_OPTIONS}
-
-    BUILD_COMMAND cd <SOURCE_DIR>/build.mxe && $(MAKE) -j
-
-    INSTALL_COMMAND cd <SOURCE_DIR>/build.mxe && $(MAKE) install/fast
-
     BUILD_IN_SOURCE 1
 
     UPDATE_COMMAND ""
@@ -72,7 +65,7 @@ ExternalProject_Add(ext_imagemagick
     DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
 
     GIT_REPOSITORY https://github.com/ImageMagick/ImageMagick.git
-    GIT_TAG 7.1.1-47
+    GIT_TAG 7.1.2-16
 
     PATCH_COMMAND ${Magick_Patch}
 

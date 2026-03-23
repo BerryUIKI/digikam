@@ -7,7 +7,7 @@
  * Description : Scanning a single item - video metadata helper.
  *
  * SPDX-FileCopyrightText: 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -194,16 +194,13 @@ void ItemScanner::scanVideoMetadata()
     if (hasValidField(metadataInfos))
     {
         d->commit.commitVideoMetadata = true;
-
-        // reuse imageMetadataInfos field
-
-        d->commit.imageMetadataInfos  = metadataInfos;
+        d->commit.videoMetadataInfos  = metadataInfos;
     }
 }
 
 void ItemScanner::commitVideoMetadata()
 {
-    CoreDbAccess().db()->addVideoMetadata(d->scanInfo.id, d->commit.imageMetadataInfos);
+    CoreDbAccess().db()->addVideoMetadata(d->scanInfo.id, d->commit.videoMetadataInfos);
 }
 
 } // namespace Digikam

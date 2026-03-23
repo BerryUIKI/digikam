@@ -6,7 +6,7 @@
  * Date        : 2003-16-10
  * Description : application settings interface
  *
- * SPDX-FileCopyrightText: 2003-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2003-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2015      by Mohamed_Anwer <m_dot_anwer at gmx dot com>
  * SPDX-FileCopyrightText: 2017      by Simon Frei <freisim93 at gmail dot com>
  * SPDX-FileCopyrightText: 2025      by Michael Miller <michael underscore miller at msn dot com>
@@ -47,6 +47,7 @@
 // Local includes
 
 #include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "previewsettings.h"
 #include "dbengineparameters.h"
 #include "imagezoomsettings.h"
@@ -181,7 +182,11 @@ public:
     const QString configPreviewConvertToEightBitEntry               = QLatin1String("Preview Convert To Eight Bit");
     const QString configPreviewImageSmoothScaledEntry               = QLatin1String("Preview Image Smooth Scaled");
     const QString configPreviewScaleFitToWindowEntry                = QLatin1String("Preview Scale Fit To Window");
+    const QString configPreviewMagnifierZoomFactorEntry             = QLatin1String("Preview Magnifier Zoom Factor");
+    const QString configPreviewMagnifierSizeEntry                   = QLatin1String("Preview Magnifier Size");
     const QString configPreviewShowIconsEntry                       = QLatin1String("Preview Show Icons");
+    const QString configPreviewAutoPlayEntry                        = QLatin1String("Preview Auto Play");
+    const QString configPreviewOverlayEntry                         = QLatin1String("Preview Overlay");
     const QString configShowThumbbarEntry                           = QLatin1String("Show Thumbbar");
     const QString configShowFolderTreeViewItemsCountEntry           = QLatin1String("Show Folder Tree View Items Count");
     const QString configShowSplashEntry                             = QLatin1String("Show Splash");
@@ -202,6 +207,7 @@ public:
     const QString configStringComparisonTypeEntry                   = QLatin1String("String Comparison Type");
     const QString configApplicationStyleEntry                       = QLatin1String("Application Style");
     const QString configIconThemeEntry                              = QLatin1String("Icon Theme");
+    const QString configDateTimeFormatEntry                         = QLatin1String("DateTime Format");
     const QString configApplicationFontEntry                        = QLatin1String("Application Font");
     const QString configScanAtStartEntry                            = QLatin1String("Scan At Start");
     const QString configCleanAtStartEntry                           = QLatin1String("Clean core DB At Start");
@@ -236,7 +242,7 @@ public:
     bool                                         showOnlyPersonTagsInPeopleSidebar                  = false;
 
     bool                                         detectFacesInNewImages                             = false;
-    bool                                         faceRecognitionBackgroundScan                      = true;
+    bool                                         faceRecognitionBackgroundScan                      = false;
 
     /// icon view settings
     bool                                         iconShowName                                       = true;
@@ -299,9 +305,13 @@ public:
 
     /// preview settings
     PreviewSettings                              previewSettings;
+    qreal                                        magnifierZoomFactor                                = 1.5;
+    int                                          magnifierSize                                      = 150;
     bool                                         imageSmoothScaled                                  = true;
     bool                                         scaleFitToWindow                                   = false;
     bool                                         previewShowIcons                                   = true;
+    bool                                         previewAutoPlay                                    = true;
+    bool                                         previewOverlay                                     = false;
     bool                                         showThumbbar                                       = true;
 
     bool                                         showFolderTreeViewItemsCount                       = false;

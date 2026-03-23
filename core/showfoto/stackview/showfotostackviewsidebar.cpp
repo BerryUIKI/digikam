@@ -6,7 +6,7 @@
  * Date        : 2021-09-27
  * Description : Side Bar Widget for the Showfoto stack view.
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -219,8 +219,8 @@ void ShowfotoStackViewSideBar::doLoadState()
 
     d->favts->readSettings();
 
-    int iconSize       = group.readEntry(entryName(d->configIconSizeEntry),      (int)ShowfotoStackViewList::SizeSmall);
-    d->view->setIconSize(QSize(iconSize, iconSize));
+    int iSize          = group.readEntry(entryName(d->configIconSizeEntry),      (int)ShowfotoStackViewList::SizeSmall);
+    d->view->setIconSize(QSize(iSize, iSize));
 
     QByteArray state   = group.readEntry(entryName(d->configSplitterStateEntry), QByteArray());
 

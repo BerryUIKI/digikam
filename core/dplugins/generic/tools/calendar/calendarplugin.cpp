@@ -6,7 +6,7 @@
  * Date        : 2018-07-30
  * Description : a plugin to create calendar.
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -32,6 +32,11 @@ namespace DigikamGenericCalendarPlugin
 CalendarPlugin::CalendarPlugin(QObject* const parent)
     : DPluginGeneric(parent)
 {
+}
+
+void CalendarPlugin::cleanUp()
+{
+    delete m_toolDlg;
 }
 
 QString CalendarPlugin::name() const
@@ -86,7 +91,7 @@ QList<DPluginAuthor> CalendarPlugin::authors() const
                              QString::fromUtf8("(C) 2006"))
             << DPluginAuthor(QString::fromUtf8("Gilles Caulier"),
                              QString::fromUtf8("caulier dot gilles at gmail dot com"),
-                             QString::fromUtf8("(C) 2004-2024"),
+                             QString::fromUtf8("(C) 2004-2025"),
                              i18n("Developer and Maintainer"))
             ;
 }
@@ -107,10 +112,13 @@ void CalendarPlugin::setup(QObject* const parent)
 
 void CalendarPlugin::slotCalendar()
 {
-    QPointer<CalWizard> wzrd = new CalWizard(nullptr, infoIface(sender()));
-    wzrd->setPlugin(this);
-    wzrd->exec();
-    delete wzrd;
+    if (!reactivateToolDialog(m_toolDlg))
+    {
+        delete m_toolDlg;
+        m_toolDlg = new CalWizard(nullptr, infoIface(sender()));
+        m_toolDlg->setPlugin(this);
+        m_toolDlg->show();
+    }
 }
 
 } // namespace DigikamGenericCalendarPlugin

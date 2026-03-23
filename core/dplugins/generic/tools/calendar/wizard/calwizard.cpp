@@ -11,7 +11,7 @@
  * SPDX-FileCopyrightText: 2007-2008 by Orgad Shaneh <orgads at gmail dot com>
  * SPDX-FileCopyrightText: 2011      by Andi Clemens <andi dot clemens at googlemail dot com>
  * SPDX-FileCopyrightText: 2012      by Angelo Naselli <anaselli at linux dot it>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -199,7 +199,7 @@ void CalWizard::slotPageSelected(int curr)
         if (d->months.isEmpty())
         {
             d->wPrintLabel->setText(QLatin1String("<qt>") +
-                                    i18n("No valid images selected for months<br/>"
+                                    i18n("No valid images selected for months<br>"
                                          "Click Back to select images") + QLatin1String("</qt>"));
             d->wFinishPage->setComplete(false);
         }
@@ -213,16 +213,16 @@ void CalWizard::slotPageSelected(int curr)
                  CalSystem().year(QDate::currentDate()) == year) ||
                  CalSystem().year(QDate::currentDate()) > year)
             {
-                extra = QLatin1String("<br/><br/><b>") +
+                extra = QLatin1String("<br><br><b>") +
                         i18n("Please note that you are making a "
-                             "calendar for<br/>the current year or a year in the "
+                             "calendar for<br>the current year or a year in the "
                              "past.") + QLatin1String("</b>");
             }
 
             QString year_locale = QLocale().toString(date, QLatin1String("yyyy"));
 
-            d->wPrintLabel->setText(i18n("Click Next to start Printing<br/><br/>"
-                                         "Following months will be printed for year %1:<br/>", year_locale)
+            d->wPrintLabel->setText(i18n("Click Next to start Printing<br><br>"
+                                         "Following months will be printed for year %1:<br>", year_locale)
                                     + printList.join(QLatin1String(" - ")) + extra);
             d->wPrintLabel->setTextFormat(Qt::RichText);
 

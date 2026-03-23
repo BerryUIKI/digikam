@@ -6,7 +6,7 @@
  * Date        : 2009-11-13
  * Description : a tool to blend bracketed images.
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Benjamin Girault <benjamin dot girault at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -41,6 +41,8 @@ public:
 
     Private() = default;
 
+public:
+
     ExpoBlendingManager* mngr = nullptr;
 };
 
@@ -61,7 +63,7 @@ ExpoBlendingLastPage::ExpoBlendingLastPage(ExpoBlendingManager* const mngr, QWiz
                                      "</qt>")
                    .arg(i18nc("@info", "Bracketed Images Pre-Processing is Done"))
                    .arg(i18nc("@info", "Congratulations. Your images are ready to be fused."))
-                   .arg(i18nc("@info", "To perform this operation, Enblend program from will be used."))
+                   .arg(i18nc("@info", "To perform this operation, Enblend program will be used."))
                    .arg(i18nc("@info", "Press \"Finish\" button to fuse your items and make a pseudo HDR image.")));
 
     vbox->setStretchFactor(new QWidget(vbox), 10);

@@ -29,19 +29,19 @@
 // Local includes
 
 #include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "ui_sequencenumberoptiondialogwidget.h"
 
 namespace Digikam
 {
 
-SequenceNumberDialog::SequenceNumberDialog(Rule* const parent)
-    : RuleDialog(parent),
-      ui(new Ui::SequenceNumberOptionDialogWidget())
+SequenceNumberDialog::SequenceNumberDialog(Rule* const parent, QWidget* const widget)
+    : RuleDialog(parent, widget),
+      ui(new Ui::SequenceNumberOptionDialogWidget)
 {
     QWidget* const mainWidget = new QWidget(this);
     ui->setupUi(mainWidget);
     setSettingsWidget(mainWidget);
-    ui->digits->setFocus();
 }
 
 SequenceNumberDialog::~SequenceNumberDialog()
@@ -49,13 +49,22 @@ SequenceNumberDialog::~SequenceNumberDialog()
     delete ui;
 }
 
+void SequenceNumberDialog::showEvent(QShowEvent* e)
+{
+    RuleDialog::showEvent(e);
+
+    ui->digits->setFocus();
+}
+
 // --------------------------------------------------------
 
-SequenceNumberOption::SequenceNumberOption()
+SequenceNumberOption::SequenceNumberOption(QWidget* const widget)
     : Option(i18nc("Sequence Number", "Number..."),
              i18n("Add a sequence number"),
              QLatin1String("accessories-calculator"))
 {
+    setParentWidget(widget);
+
     addToken(QLatin1String("#"),                                 i18n("Sequence number"));
     addToken(QLatin1String("#[||options||]"),                    i18n("Sequence number (||options||: "
                                                                       "||c|| = file counter aware, "
@@ -73,17 +82,18 @@ SequenceNumberOption::SequenceNumberOption()
 
     QRegularExpression reg(QLatin1String("(#+)(\\[(([cefr]?|ce?|re?)?,?)?((-?\\d+)(,(-?\\d+))?)?\\])?"));
     setRegExp(reg);
+    setParentWidget(widget);
 }
 
 void SequenceNumberOption::slotTokenTriggered(const QString& token)
 {
     Q_UNUSED(token)
 
-    QPointer<SequenceNumberDialog> dlg = new SequenceNumberDialog(this);
+    QPointer<SequenceNumberDialog> dlg = new SequenceNumberDialog(this, getParentWidget());
 
     QString result;
 
-    if (dlg->exec() == QDialog::Accepted)
+    if (dialogExec(dlg) == QDialog::Accepted)
     {
         int digits          = dlg->ui->digits->value();
         int start           = dlg->ui->start->value();

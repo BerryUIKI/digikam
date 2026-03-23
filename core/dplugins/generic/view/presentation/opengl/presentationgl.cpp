@@ -9,7 +9,7 @@
  * SPDX-FileCopyrightText:      2004 by Renchi Raju <renchi dot raju at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2009 by Valerio Fuoglio <valerio.fuoglio@gmail.com>
  * SPDX-FileCopyrightText:      2009 by Andi Clemens <andi dot clemens at googlemail dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText:      2021 by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -333,7 +333,7 @@ void PresentationGL::initializeGL()
     d->texture[2] = new QOpenGLTexture(QOpenGLTexture::Target2D); // end screen texture
 
     QImage black(width(), height(), QImage::Format_RGB32);
-    black.fill(QColor(0, 0, 0).rgb());
+    black.fill(d->sharedData->bgColor.rgb());
 
     d->texture[0]->setData(black);
     d->texture[0]->bind();
@@ -627,7 +627,7 @@ void PresentationGL::loadImage()
     {
         QImage black(width(), height(), QImage::Format_RGB32);
 
-        black.fill(QColor(0, 0, 0).rgb());
+        black.fill(d->sharedData->bgColor.rgb());
 
         montage(image, black);
 
@@ -656,7 +656,17 @@ void PresentationGL::loadImage()
         /* create the texture */
 
         d->texture[a]->destroy();
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 9, 0))
+
+        d->texture[a]->setData(black.flipped());
+
+#else
+
         d->texture[a]->setData(black.mirrored());
+
+#endif
+
         d->texture[a]->setMinificationFilter(QOpenGLTexture::LinearMipMapLinear);
         d->texture[a]->setMagnificationFilter(QOpenGLTexture::Linear);
         d->texture[a]->bind();
@@ -856,7 +866,17 @@ void PresentationGL::showEndOfShow()
     /* create the texture */
 
     d->texture[2]->destroy();
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 9, 0))
+
+    d->texture[2]->setData(image.flipped());
+
+#else
+
     d->texture[2]->setData(image.mirrored());
+
+#endif
+
     d->texture[2]->setMinificationFilter(QOpenGLTexture::LinearMipMapLinear);
     d->texture[2]->setMagnificationFilter(QOpenGLTexture::Linear);
     d->texture[2]->bind();

@@ -7,7 +7,7 @@
  * Description : Import tool interface
  *
  * SPDX-FileCopyrightText: 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Islam Wazery <wazery at ubuntu dot com>
@@ -68,6 +68,8 @@ ImportUI::ImportUI(const QString& cameraTitle, const QString& model,
     readSettings();
 
     setAutoSaveSettings(configGroupName(), true);
+
+    showMenuBarAction()->setChecked(!menuBar()->isHidden());  // NOTE: workaround for bug #171080
 
     // -------------------------------------------------------------------
 /*
@@ -408,12 +410,17 @@ void ImportUI::setupActions()
 
     // map to CamItemSortSettings enum
 
-    QAction* const sortByNameAction     = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By Name"));
-    QAction* const sortByPathAction     = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By Path"));
-    QAction* const sortByDateAction     = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By Date"));
-    QAction* const sortByFileSizeAction = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By Size"));
-    QAction* const sortByRatingAction   = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By Rating"));
-    QAction* const sortByDownloadAction = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By Download State"));
+    QAction* const sortByNameAction       = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By Name"));
+    QAction* const sortByPathAction       = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By Path"));
+    QAction* const sortByDateAction       = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By Date"));
+    QAction* const sortByFileSizeAction   = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By Size"));
+    QAction* const sortByFormatAction     = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By Format"));
+    d->itemSortAction->menu()->addSeparator();
+    QAction* const sortByRatingAction     = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By Rating"));
+    QAction* const sortByPickLabelAction  = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By PickLabel"));
+    QAction* const sortByColorLabelAction = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By ColorLabel"));
+    d->itemSortAction->menu()->addSeparator();
+    QAction* const sortByDownloadAction   = d->itemSortAction->addAction(i18nc("@item:inmenu Sort by", "By Download State"));
 
     connect(sortByNameAction, &QAction::triggered,
             this, [this]() { d->view->slotSortImagesBy((int)CamItemSortSettings::SortByFileName); });
@@ -427,8 +434,18 @@ void ImportUI::setupActions()
     connect(sortByFileSizeAction, &QAction::triggered,
             this, [this]() { d->view->slotSortImagesBy((int)CamItemSortSettings::SortByFileSize); });
 
+    connect(sortByFormatAction, &QAction::triggered,
+            this, [this]() { d->view->slotSortImagesBy((int)CamItemSortSettings::SortByFormat); });
+
     connect(sortByRatingAction, &QAction::triggered,
             this, [this]() { d->view->slotSortImagesBy((int)CamItemSortSettings::SortByRating); });
+
+    connect(sortByPickLabelAction, &QAction::triggered,
+            this, [this]() { d->view->slotSortImagesBy((int)CamItemSortSettings::SortByPickLabel); });
+
+    connect(sortByColorLabelAction, &QAction::triggered,
+            this, [this]() { d->view->slotSortImagesBy((int)CamItemSortSettings::SortByColorLabel); });
+
 
     connect(sortByDownloadAction, &QAction::triggered,
             this, [this]() { d->view->slotSortImagesBy((int)CamItemSortSettings::SortByDownloadState); });
@@ -560,8 +577,6 @@ void ImportUI::setupActions()
 
     createGUI(xmlFile());
     cleanupActions();
-
-    showMenuBarAction()->setChecked(!menuBar()->isHidden());  // NOTE: workaround for bug #171080
 }
 
 void ImportUI::updateActions()
@@ -2709,7 +2724,9 @@ void ImportUI::slotCollectionLocationStatusChanged(const CollectionLocation&, in
 
 void ImportUI::slotToggleShowBar()
 {
-    showThumbBar(d->showBarAction->isChecked());
+    // Method called in constructor: use dynamic binding
+
+    this->showThumbBar(d->showBarAction->isChecked());
 }
 
 void ImportUI::slotLogMsg(const QString& msg, DHistoryView::EntryType type,

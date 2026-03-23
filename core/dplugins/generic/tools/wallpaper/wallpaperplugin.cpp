@@ -7,7 +7,7 @@
  * Description : plugin to export image as wallpaper.
  *
  * SPDX-FileCopyrightText: 2019      by Igor Antropov <antropovi at yahoo dot com>
- * SPDX-FileCopyrightText: 2019-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2019-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -18,6 +18,7 @@
 // Qt includes
 
 #include <QPointer>
+#include <QEventLoop>
 
 // KDE includes
 
@@ -115,11 +116,24 @@ void WallpaperPlugin::slotWallpaper()
 #ifndef Q_OS_MACOS
 
         QPointer<WallpaperPluginDlg> dlg = new WallpaperPluginDlg(this);
+        dlg->show();
 
-        if (dlg->exec() == QDialog::Accepted)
-        {
-            setWallpaper(images[0].toString(), dlg->wallpaperLayout());
-        }
+        QEventLoop loop;
+
+        connect(dlg, &QDialog::finished,
+                this, [this, &loop, dlg, images](int result)
+            {
+                if (result == QDialog::Accepted)
+                {
+                    setWallpaper(images[0].toString(), dlg->wallpaperLayout());
+                }
+
+                loop.quit();
+                delete dlg;
+            }
+        );
+
+        loop.exec();
 
 #else
 

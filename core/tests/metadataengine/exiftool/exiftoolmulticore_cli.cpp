@@ -6,7 +6,7 @@
  * Date        : 2013-11-28
  * Description : a command line tool to check ExifTool with multicore.
  *
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -29,11 +29,14 @@
 
 #include "digikam_debug.h"
 #include "exiftoolparser.h"
+#include "actionthreadbase.h"
 
 using namespace Digikam;
 
 bool s_exifToolParseThreaded(const QString& file)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     QScopedPointer<ExifToolParser> const parser(new ExifToolParser(nullptr));
 
     // Read metadata from the file. Start ExifToolParser

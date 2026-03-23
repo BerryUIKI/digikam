@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Performs face detection and recognition
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -15,12 +15,16 @@
 
 #include "facepipelinedetectrecognize.h"
 
+// C++ includes
+
+#include <climits>
+
 // Qt includes
 
-#include <QList>
 #include <QSet>
-#include <QElapsedTimer>
+#include <QList>
 #include <QRectF>
+#include <QElapsedTimer>
 
 // KDE includes
 
@@ -33,12 +37,11 @@
 #include "sharedqueue.h"
 #include "collectionmanager.h"
 #include "album.h"
-#include "iteminfo.h"
 #include "coredb.h"
-#include "facescansettings.h"
-#include "dimg.h"
+#include "iteminfo.h"
 #include "previewloadthread.h"
 #include "faceutils.h"
+#include "facescansettings.h"
 #include "facepipelinepackagebase.h"
 #include "thumbnailloadthread.h"
 #include "faceclassifier.h"
@@ -129,6 +132,8 @@ bool FacePipelineDetectRecognize::start()
 
 bool FacePipelineDetectRecognize::finder()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceDetReco%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_FINDER_START(settings.workerThreadPriority, MLPipelineStage::Loader);
 
     /* =========================================================================================
@@ -220,6 +225,8 @@ bool FacePipelineDetectRecognize::finder()
 
 bool FacePipelineDetectRecognize::loader()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceDetReco%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Loader, MLPipelineStage::Extractor);
     FacePipelinePackageBase* package = nullptr;
 
@@ -267,7 +274,7 @@ bool FacePipelineDetectRecognize::loader()
 
             package->image = PreviewLoadThread::loadHighQualitySynchronously(package->info.filePath(), rawLoadingMode);
 
-            // check for corrupted images that can't be loaded
+            // check for corrupted images that cannot be loaded
 
             if (!package->image.isNull())
             {
@@ -321,6 +328,8 @@ bool FacePipelineDetectRecognize::loader()
 
 bool FacePipelineDetectRecognize::extractor()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceDetReco%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Extractor, MLPipelineStage::Classifier);
     FacePipelinePackageBase* package = nullptr;
 
@@ -409,6 +418,22 @@ bool FacePipelineDetectRecognize::extractor()
                 int Y       = static_cast<int>(detectionResults.at<float>(i, 1));
                 int width   = static_cast<int>(detectionResults.at<float>(i, 2));
                 int height  = static_cast<int>(detectionResults.at<float>(i, 3));
+
+                if (
+                    (X      == INT_MIN) ||
+                    (Y      == INT_MIN) ||
+                    (width  == INT_MIN) ||
+                    (height == INT_MIN)
+                   )
+                {
+                    qCWarning(DIGIKAM_FACESENGINE_LOG) << "Invalid detection rectangle"
+                                                       << "(" << X<< ", " << Y
+                                                       << "[" << width << ", " << height << "]"
+                                                       << "for image"
+                                                       << package->info.filePath();
+
+                    continue;
+                }
 
                 // Add the rect to result list.
 
@@ -554,6 +579,8 @@ bool FacePipelineDetectRecognize::extractor()
 
 bool FacePipelineDetectRecognize::classifier()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceDetReco%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Classifier, MLPipelineStage::Writer);
     FacePipelinePackageBase* package = nullptr;
 
@@ -632,6 +659,8 @@ bool FacePipelineDetectRecognize::classifier()
 
 bool FacePipelineDetectRecognize::writer()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceDetReco%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Writer, MLPipelineStage::None);
     FacePipelinePackageBase* package = nullptr;
 

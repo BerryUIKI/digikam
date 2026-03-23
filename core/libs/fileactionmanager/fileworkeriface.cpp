@@ -32,16 +32,20 @@
 #include "iteminfotasksplitter.h"
 #include "filereadwritelock.h"
 #include "scancontroller.h"
+#include "autorotator.h"
 #include "faceutils.h"
 #include "jpegutils.h"
 #include "dimg.h"
-#include "autorotator.h"
 
 namespace Digikam
 {
 
 void FileActionMngrFileWorker::writeOrientationToFiles(const FileActionItemInfoList& infos, int orientation)
 {
+    MetaEngineSettingsContainer msettings = MetaEngineSettings::instance()->settings();
+    MetaEngineSettingsContainer::RotationBehaviorFlags behavior;
+    behavior                              = msettings.rotationBehavior;
+
     QStringList failedItems;
 
     for (const ItemInfo& info : std::as_const(infos))
@@ -55,6 +59,14 @@ void FileActionMngrFileWorker::writeOrientationToFiles(const FileActionItemInfoL
         QScopedPointer<DMetadata> metadata(new DMetadata(filePath));
         DMetadata::ImageOrientation o = (DMetadata::ImageOrientation)orientation;
         metadata->setItemOrientation(o);
+
+        if (
+            (behavior & MetaEngineSettingsContainer::RotateByMetadataFlag)   &&
+            (msettings.metadataWritingMode == DMetadata::WRITE_TO_SIDECAR_ONLY)
+           )
+        {
+            metadata->setMetadataWritingMode(DMetadata::WRITE_TO_SIDECAR_AND_FILE);
+        }
 
         if (!metadata->applyChanges())
         {
@@ -167,59 +179,67 @@ void FileActionMngrFileWorker::transform(const FileActionItemInfoList& infos, in
             break;
         }
 
-        if(MetaEngineRotation::RotateAuto == action)
+        if (MetaEngineRotation::RotateAuto == action)
         {
-            if (!d->aiToolsPipeline->autoRotate(info))
+            if (!AIToolsPipeline::instance()->autoRotate(info))
             {
                 qCDebug(DIGIKAM_GENERAL_LOG) << "AI Tools pipeline not available, auto-rotation skipped";
 
                 failedItems.append(info.name());
             }
-
-            infos.writtenToOne();
-            continue;
-        }
-
-        FileWriteLocker lock(info.filePath());
-
-        QString format                                  = info.format();
-        QString filePath                                = info.filePath();
-        QSize originalSize                              = info.dimensions();
-        MetaEngine::ImageOrientation currentOrientation = (MetaEngine::ImageOrientation)info.orientation();
-        bool isRaw                                      = info.format().startsWith(QLatin1String("RAW"));
-        bool isDng                                      = (info.format() == QLatin1String("RAW-DNG"));
-        bool isWritable                                 = QFileInfo(filePath).isWritable();
-        bool rotateAsJpeg                               = false;
-        bool rotateLossy                                = false;
-
-        MetaEngineSettingsContainer::RotationBehaviorFlags behavior;
-        behavior              = MetaEngineSettings::instance()->settings().rotationBehavior;
-        bool rotateByMetadata = (behavior & MetaEngineSettingsContainer::RotateByMetadataFlag);
-
-        // Check if rotation by content, as desired, is feasible
-        // We'll later check again if it was successful
-
-        if (isWritable && (behavior & MetaEngineSettingsContainer::RotatingPixels))
-        {
-            if ((format == QLatin1String("JPG")) && JPEGUtils::isJpegImage(filePath))
+            else
             {
-                rotateAsJpeg = true;
+                Q_EMIT imageDataChanged(info.filePath(), true, true);
+
+                ItemAttributesWatch::instance()->fileMetadataChanged(info.fileUrl());
             }
 
-            if (behavior & MetaEngineSettingsContainer::RotateByLossyRotation)
+            infos.writtenToOne();
+        }
+        else
+        {
+            FileWriteLocker lock(info.filePath());
+
+            QString format                                  = info.format();
+            QString filePath                                = info.filePath();
+            QSize originalSize                              = info.dimensions();
+            MetaEngine::ImageOrientation currentOrientation = (MetaEngine::ImageOrientation)info.orientation();
+            bool isRaw                                      = info.format().startsWith(QLatin1String("RAW"));
+            bool isDng                                      = (info.format() == QLatin1String("RAW-DNG"));
+            bool isWritable                                 = QFileInfo(filePath).isWritable();
+            bool rotateAsJpeg                               = false;
+            bool rotateLossy                                = false;
+
+            MetaEngineSettingsContainer msettings           = MetaEngineSettings::instance()->settings();
+            MetaEngineSettingsContainer::RotationBehaviorFlags behavior;
+            behavior              = msettings.rotationBehavior;
+            bool rotateByMetadata = (behavior & MetaEngineSettingsContainer::RotateByMetadataFlag);
+
+            // Check if rotation by content, as desired, is feasible
+            // We'll later check again if it was successful
+
+            if (isWritable && (behavior & MetaEngineSettingsContainer::RotatingPixels))
             {
+                if ((format == QLatin1String("JPG")) && JPEGUtils::isJpegImage(filePath))
+                {
+                    rotateAsJpeg = true;
+                }
+
+                rotateLossy       = (behavior & MetaEngineSettingsContainer::RotateByLossyRotation);
                 DImg::FORMAT frmt = DImg::fileFormat(filePath);
 
                 switch (frmt)
                 {
-                    case DImg::JPEG:
                     case DImg::PNG:
                     case DImg::TIFF:
-                    case DImg::JP2K:
-                    case DImg::PGF:
-                    case DImg::HEIF:
                     {
                         rotateLossy = true;
+                        break;
+                    }
+
+                    case DImg::RAW:
+                    {
+                        rotateLossy = false;
                         break;
                     }
 
@@ -227,15 +247,7 @@ void FileActionMngrFileWorker::transform(const FileActionItemInfoList& infos, in
                     {
                         // QImage and ImageMagick codecs support
 
-                        if      (format == QLatin1String("JXL"))
-                        {
-                            rotateLossy = true;
-                        }
-                        else if (format == QLatin1String("AVIF"))
-                        {
-                            rotateLossy = true;
-                        }
-                        else if (format == QLatin1String("WEBP"))
+                        if (format == QLatin1String("BMP"))
                         {
                             rotateLossy = true;
                         }
@@ -244,126 +256,135 @@ void FileActionMngrFileWorker::transform(const FileActionItemInfoList& infos, in
                     }
                 }
             }
-        }
 
-        MetaEngineRotation matrix;
-        matrix                                        *= currentOrientation;
-        matrix                                        *= (MetaEngineRotation::TransformationAction)action;
-        MetaEngine::ImageOrientation finalOrientation  = matrix.exifOrientation();
-        bool rotatedPixels                             = false;
+            MetaEngineRotation matrix;
+            matrix                                        *= currentOrientation;
+            matrix                                        *= (MetaEngineRotation::TransformationAction)action;
+            MetaEngine::ImageOrientation finalOrientation  = matrix.exifOrientation();
+            bool rotatedPixels                             = false;
 
-        if      (rotateAsJpeg)
-        {
-            JPEGUtils::JpegRotator rotator(filePath);
-            rotator.setCurrentOrientation(currentOrientation);
-
-            if (action == MetaEngineRotation::NoTransformation)
+            if      (rotateAsJpeg)
             {
-                rotatedPixels = rotator.autoExifTransform();
-            }
-            else
-            {
-                rotatedPixels = rotator.exifTransform((MetaEngineRotation::TransformationAction)action);
-            }
+                JPEGUtils::JpegRotator rotator(filePath);
+                rotator.setCurrentOrientation(currentOrientation);
 
-            if (!rotatedPixels)
-            {
-                failedItems.append(info.name());
-            }
-        }
-        else if (rotateLossy)
-        {
-            // Non-JPEG image: DImg
-
-            DImg image;
-
-            if (!image.load(filePath))
-            {
-                failedItems.append(info.name());
-            }
-            else
-            {
                 if (action == MetaEngineRotation::NoTransformation)
                 {
-                    image.rotateAndFlip(currentOrientation);
+                    rotatedPixels = rotator.autoExifTransform();
                 }
                 else
                 {
-                    image.transform(action);
+                    rotatedPixels = rotator.exifTransform((MetaEngineRotation::TransformationAction)action);
                 }
 
-                // TODO: Atomic operation!!
-                // prepare metadata, including to reset Exif tag
-
-                image.prepareMetadataToSave(filePath, image.format(), true);
-
-                if (image.save(filePath, image.detectedFormat()))
-                {
-                    rotatedPixels = true;
-                }
-                else
+                if (!rotatedPixels)
                 {
                     failedItems.append(info.name());
                 }
             }
+            else if (rotateLossy)
+            {
+                // Non-JPEG image: DImg
+
+                DImg image;
+
+                if (!image.load(filePath))
+                {
+                    failedItems.append(info.name());
+                }
+                else
+                {
+                    if (action == MetaEngineRotation::NoTransformation)
+                    {
+                        image.rotateAndFlip(currentOrientation);
+                    }
+                    else
+                    {
+                        image.transform(action);
+                    }
+
+                    // TODO: Atomic operation!!
+                    // prepare metadata, including to reset Exif tag
+
+                    image.prepareMetadataToSave(filePath, image.format(), true);
+
+                    if (image.save(filePath, image.detectedFormat()))
+                    {
+                        rotatedPixels = true;
+                    }
+                    else
+                    {
+                        failedItems.append(info.name());
+                    }
+                }
+            }
+
+            MetaEngine::ImageOrientation metaOrientation = finalOrientation;
+
+            if (rotatedPixels)
+            {
+                metaOrientation = MetaEngine::ORIENTATION_NORMAL;
+            }
+
+            // Setting the rotation flag on Raws with embedded JPEG is a mess
+            // Can apply to the RAW data, or to the embedded JPEG, or to both.
+
+            if ((rotateByMetadata && !isRaw) || isDng)
+            {
+                QScopedPointer<DMetadata> metadata(new DMetadata(filePath));
+                metadata->setItemOrientation(metaOrientation);
+
+                if (
+                    (behavior & MetaEngineSettingsContainer::RotateByMetadataFlag)   &&
+                    (msettings.metadataWritingMode == DMetadata::WRITE_TO_SIDECAR_ONLY)
+                   )
+                {
+                    metadata->setMetadataWritingMode(DMetadata::WRITE_TO_SIDECAR_AND_FILE);
+                }
+
+                metadata->applyChanges();
+            }
+
+            // DB rotation
+
+            ItemInfo(info).setOrientation(metaOrientation);
+
+            ScanController::instance()->scannedInfo(filePath,
+                                                    CollectionScanner::ModifiedScan);
+
+            // Adjust faces in the DB
+
+            FaceUtils utils;
+
+            bool confirmed = utils.rotateFaces(info.id(), originalSize,
+                                               currentOrientation, finalOrientation);
+
+            // Write faces to metadata when confirmed names exists
+
+            if (confirmed)
+            {
+                MetadataHub hub;
+                hub.load(info);
+
+                ScanController::FileMetadataWrite writeScope(info);
+                writeScope.changed(hub.writeToMetadata(info, MetadataHub::WRITE_TAGS, true));
+            }
+            else
+            {
+                // Set the newly rotated image as not processed by the face recognition pipeline
+
+                utils.markAsScanned(info, false);
+            }
+
+            if (!failedItems.contains(info.name()))
+            {
+                Q_EMIT imageDataChanged(filePath, true, true);
+
+                ItemAttributesWatch::instance()->fileMetadataChanged(info.fileUrl());
+            }
+
+            infos.writtenToOne();
         }
-
-        MetaEngine::ImageOrientation metaOrientation = finalOrientation;
-
-        if (rotatedPixels)
-        {
-            metaOrientation = MetaEngine::ORIENTATION_NORMAL;
-        }
-
-        // Setting the rotation flag on Raws with embedded JPEG is a mess
-        // Can apply to the RAW data, or to the embedded JPEG, or to both.
-
-        if ((rotateByMetadata && !isRaw) || isDng)
-        {
-            QScopedPointer<DMetadata> metadata(new DMetadata(filePath));
-            metadata->setItemOrientation(metaOrientation);
-            metadata->applyChanges();
-        }
-
-        // DB rotation
-
-        ItemInfo(info).setOrientation(metaOrientation);
-
-        ScanController::instance()->scannedInfo(filePath,
-                                                CollectionScanner::ModifiedScan);
-
-        // Adjust faces in the DB
-
-        FaceUtils utils;
-
-        bool confirmed = utils.rotateFaces(info.id(), originalSize,
-                                           currentOrientation, finalOrientation);
-
-        // Write faces to metadata when confirmed names exists
-
-        if (confirmed)
-        {
-            MetadataHub hub;
-            hub.load(info);
-
-            ScanController::FileMetadataWrite writeScope(info);
-            writeScope.changed(hub.writeToMetadata(info, MetadataHub::WRITE_TAGS, true));
-        }
-        else
-        {
-            // Set the newly rotated image as not processed by the face recognition pipeline
-
-            utils.markAsScanned(info, false);
-        }
-
-        if (!failedItems.contains(info.name()))
-        {
-            Q_EMIT imageDataChanged(filePath, true, true);
-
-            ItemAttributesWatch::instance()->fileMetadataChanged(info.fileUrl());
-        }
-
-        infos.writtenToOne();
     }
 
     if (!failedItems.isEmpty())

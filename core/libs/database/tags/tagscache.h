@@ -7,7 +7,7 @@
  * Description : Cache for Tag information
  *
  * SPDX-FileCopyrightText: 2010-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -46,6 +46,11 @@ public:
     };
 
 public:
+
+    TagsCache();
+    ~TagsCache() override;
+
+    static TagsCache* instance();
 
     /**
      * Returns the name of the tag with the given id.
@@ -278,8 +283,6 @@ public:
 
 public:
 
-    static TagsCache* instance();
-
     static QLatin1String tagPathOfDigikamInternalTags(LeadingSlashPolicy slashPolicy = IncludeLeadingSlash);
     static QLatin1String propertyNameDigikamInternalTag();
     static QLatin1String propertyNameExcludedFromWriting();
@@ -302,9 +305,7 @@ private Q_SLOTS:
 private:
 
     // Disable
-    TagsCache();
     explicit TagsCache(QObject*) = delete;
-    ~TagsCache() override;
 
     void initialize();
     void invalidate();
@@ -312,7 +313,6 @@ private:
 private:
 
     friend class CoreDbAccess;
-    friend class TagsCacheCreator;
     friend class ChangingDB;
 
 private:

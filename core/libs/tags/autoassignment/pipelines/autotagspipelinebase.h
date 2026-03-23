@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Integrated, multithread object detection / recognition
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -14,6 +14,10 @@
  * ============================================================ */
 
 #pragma once
+
+// C++ includes
+
+#include <memory>
 
 // Qt includes
 
@@ -38,11 +42,12 @@
 #include "dnnmodelmanager.h"
 #include "dnnmodelnet.h"
 #include "dmetadata.h"
+#include "digikam_export.h"
 
 namespace Digikam
 {
 
-class AutotagsPipelineBase : public MLPipelineFoundation
+class DIGIKAM_GUI_EXPORT AutotagsPipelineBase : public MLPipelineFoundation
 {
     Q_OBJECT
 
@@ -53,7 +58,7 @@ public:
 
     virtual bool start()                                                            override;
 
-    virtual void bqmSendOne(QScopedPointer<DMetadata>& _bqmMeta,
+    virtual void bqmSendOne(std::unique_ptr<DMetadata>& _bqmMeta,
                             const ItemInfo& info,
                             const QUrl& outputUrl,
                             const DImg& image);
@@ -86,7 +91,7 @@ protected:
     const QList<AlbumRootInfo>  albumRoots;
 
     // Batch Queue Manager
-    QScopedPointer<DMetadata>   bqmMeta;
+    std::unique_ptr<DMetadata>  bqmMeta;
     QSemaphore                  bqmSemaphore;
     QUrl                        bqmOutputUrl;
 

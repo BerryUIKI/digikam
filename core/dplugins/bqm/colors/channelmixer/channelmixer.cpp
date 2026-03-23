@@ -6,7 +6,7 @@
  * Date        : 2010-02-19
  * Description : Channel Mixer batch tool.
  *
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -45,7 +45,6 @@ void ChannelMixer::registerSettingsWidget()
 {
     DVBox* const vbox    = new DVBox;
     m_settingsView       = new MixerSettings(vbox);
-    m_settingsView->setMonochromeTipsVisible(false);
     QLabel* const space  = new QLabel(vbox);
     vbox->setStretchFactor(space, 10);
 

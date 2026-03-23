@@ -1,6 +1,6 @@
 # Script to build GMic-Qt plugin for digiKam bundle.
 #
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -13,6 +13,9 @@ set(GmicQt_Conf -DGMIC_QT_HOST=digikam
                 -DENABLE_SYSTEM_GMIC=OFF
                 -DENABLE_CURL=OFF
                 -DBUILD_TESTING=OFF
+                -DZLIB_ROOT=${EXTPREFIX}
+                -DPNG_ROOT=${EXTPREFIX}
+                -DFFTW3_ROOT=${EXTPREFIX}
                 ${GLOBAL_PROFILE}
 )
 
@@ -44,3 +47,4 @@ ExternalProject_Add(ext_gmic_qt
 
     UPDATE_COMMAND ""
 )
+

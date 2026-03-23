@@ -6,7 +6,7 @@
  * Date        : 2006-30-08
  * Description : a progress dialog for digiKam
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -82,7 +82,7 @@ DProgressDlg::DProgressDlg(QWidget* const parent, const QString& caption)
     d->label                = new QLabel(page);
     d->actionPix->setFixedSize(QSize(32, 32));
 
-    d->logo->setPixmap(QIcon::fromTheme(QLatin1String("digikam")).pixmap(QSize(48,48)));
+    d->logo->setPixmap(QIcon::fromTheme(QLatin1String("digikam")).pixmap(QSize(48, 48)));
 
     grid->addWidget(d->logo,        0, 0, 3, 1);
     grid->addWidget(d->label,       0, 1, 1, 2);

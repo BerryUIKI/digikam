@@ -6,7 +6,7 @@
  * Date        : 2021-04-18
  * Description : ExifTool metadata list view item.
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -39,6 +39,7 @@ public:
 
     QString key;
     QString desc;
+    QString value;
 };
 
 ExifToolListViewItem::ExifToolListViewItem(ExifToolListViewGroup* const parent,
@@ -48,8 +49,10 @@ ExifToolListViewItem::ExifToolListViewItem(ExifToolListViewGroup* const parent,
     : QTreeWidgetItem(parent),
       d              (new Private)
 {
-    d->key  = key;
-    d->desc = desc;
+    d->key   = key;
+    d->desc  = desc;
+    d->value = value;
+
 
     setChildIndicatorPolicy(QTreeWidgetItem::DontShowIndicator);
     setDisabled(false);
@@ -111,6 +114,11 @@ QString ExifToolListViewItem::getTitle() const
 QString ExifToolListViewItem::getValue() const
 {
     return text(1);
+}
+
+QString ExifToolListViewItem::getFullValue() const
+{
+    return d->value;
 }
 
 QString ExifToolListViewItem::getDescription() const

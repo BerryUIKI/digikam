@@ -6,7 +6,7 @@
  * Date        : 2013-03-02
  * Description : Table view: Tree view subelement
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -14,9 +14,6 @@
  * ============================================================ */
 
 #include "tableview_treeview_delegate.h"
-
-// Qt includes
-
 
 // Local includes
 
@@ -44,7 +41,8 @@ TableViewItemDelegate::TableViewItemDelegate(TableViewShared* const tableViewSha
 {
 }
 
-void TableViewItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& tableViewModelIndex) const
+void TableViewItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem& option,
+                                  const QModelIndex& tableViewModelIndex) const
 {
     const int columnIndex               = tableViewModelIndex.column();
     const int columnCount               = s->tableViewModel->columnCount(QModelIndex());
@@ -72,7 +70,7 @@ void TableViewItemDelegate::paint(QPainter* painter, const QStyleOptionViewItem&
 
 QSize TableViewItemDelegate::sizeHint(const QStyleOptionViewItem& option, const QModelIndex& tableViewModelIndex) const
 {
-    const int columnIndex = tableViewModelIndex.column();
+    const int columnIndex            = tableViewModelIndex.column();
 
     /// we have to take the maximum of all columns for the height
     /// @todo somehow cache this calculation

@@ -6,7 +6,7 @@
  * Date        : 2006-04-04
  * Description : a tool to generate HTML image galleries
  *
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -135,15 +135,15 @@ void HTMLThemePage::slotThemeSelectionChanged()
 
         if (!preview.isEmpty())
         {
-            image = QString::fromUtf8("<img src='%1/%2' /><br/><br/>")
+            image = QString::fromUtf8("<img src='%1/%2' /><br><br>")
                         .arg(curTheme->directory(), curTheme->previewUrl());
         }
 
         QString advSet = (curTheme->parameterList().size() > 0) ? i18n("can be customized")
                                                                 : i18n("no customization available");
-        QString txt    = image + QString::fromUtf8("<b>%3</b><br/><br/>%4<br/><br/>")
+        QString txt    = image + QString::fromUtf8("<b>%3</b><br><br>%4<br><br>")
                                    .arg(curTheme->name(), curTheme->comment())
-                               + i18n("Author: %1<br/><br/>", author)
+                               + i18n("Author: %1<br><br>", author)
                                + QString::fromUtf8("<i>%1</i>").arg(advSet);
 
         d->themeInfo->setHtml(txt);

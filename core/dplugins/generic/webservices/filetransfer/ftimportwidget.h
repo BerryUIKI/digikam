@@ -4,10 +4,10 @@
  * https://www.digikam.org
  *
  * Date        : 04-10-2009
- * Description : main widget of the import dialog
+ * Description : a tool to import items from a KIO accessible location
  *
  * SPDX-FileCopyrightText: 2009      by Johannes Wienke <languitar at semipol dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -53,6 +53,19 @@ public:
     ~FTImportWidget() override;
 
     /**
+     * Returns the currently selected source url. Maybe invalid.
+     */
+    QUrl sourceUrl()         const;
+
+    /**
+     * Sets the source url this widget should point at.
+     */
+    void setSourceUrl(const QUrl& url);
+
+    QList<QUrl> history()    const;
+    void setHistory(const QList<QUrl>& urls);
+
+    /**
      * Returns the current list of source urls to import contained in the
      * image list.
      *
@@ -76,7 +89,12 @@ public:
 
 private Q_SLOTS:
 
+    void slotLabelUrlChanged();
     void slotShowImportDialogClicked(bool);
+
+private:
+
+    void updateSourceLabel();
 
 private:
 

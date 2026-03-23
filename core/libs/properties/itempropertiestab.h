@@ -6,7 +6,7 @@
  * Date        : 2006-04-19
  * Description : A tab to display general item information
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -58,7 +58,7 @@ public:
     ///@{
     /// Setter methods (itempropertiestab_setters.cpp)
 
-    void setCurrentURL(const QUrl& url = QUrl());
+    void setCurrentUrl(const QUrl& url = QUrl());
 
     void setPhotoInfoDisable(const bool b);
     void setVideoInfoDisable(const bool b);
@@ -77,8 +77,9 @@ public:
     void setImageColorMode(const QString& str);
     void setHasSidecar(const QString& str);
     void setHasGPSInfo(const QString& str);
-    void setVersionnedInfo(const QString& str);
+    void setVersionedInfo(const QString& str);
     void setGroupedInfo(const QString& str);
+    void setGroupedWidget(QWidget* const wdg);
 
     void setPhotoMake(const QString& str);
     void setPhotoModel(const QString& str);
@@ -110,6 +111,8 @@ public:
                  const QStringList& peopleTagPaths = QStringList(),
                  const QStringList& peopleTagNames = QStringList());
     void setTemplate(const Template& t);
+
+    QString propertiesToText() const;
 
     ///@}
 
@@ -153,6 +156,8 @@ private:
     static double doubleToHumanReadableFraction(double val, long* num, long* den, long maxden = 2);
 
     ///@}
+
+    void appendProperty(QString& data, const QString& key, const QString& value) const;
 
 private:
 

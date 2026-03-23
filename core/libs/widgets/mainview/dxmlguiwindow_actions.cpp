@@ -6,7 +6,7 @@
  * Date        : 2013-04-29
  * Description : digiKam XML GUI window - Actions methods.
  *
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -128,6 +128,14 @@ void DXmlGuiWindow::cleanupActions()
         qCDebug(DIGIKAM_WIDGETS_LOG) << "action: " << act->objectName();
     }
 */
+    // Fix the animation logo action style.
+
+    QWidget* const widget = mainToolBar()->widgetForAction(m_animLogo);
+
+    if (QToolButton* const button = qobject_cast<QToolButton*>(widget))
+    {
+        DLogoAction::applyStyleForToolBarButton(button);
+    }
 }
 
 void DXmlGuiWindow::createSidebarActions()
@@ -170,7 +178,7 @@ void DXmlGuiWindow::createSettingsActions()
 
 #ifdef Q_OS_MACOS
 
-    // Under MacOS the menu bar visibility is managed by desktop.
+    // Under macOS the menu bar visibility is managed by desktop.
 
     d->showMenuBarAction->setVisible(false);
 

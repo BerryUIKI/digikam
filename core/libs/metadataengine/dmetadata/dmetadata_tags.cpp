@@ -6,7 +6,7 @@
  * Date        : 2006-02-23
  * Description : item metadata interface - tags helpers.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2011      by Leif Huhn <leif at dkstat dot com>
  *
@@ -155,10 +155,23 @@ bool DMetadata::getItemTagsPath(QStringList& tagsPath,
                 // Try to get Tags Path list from Exif Windows keywords.
 
                 QString keyWords = getExifTagString("Exif.Image.XPKeywords", false);
+                QStringList exifTagsPath;
 
                 if (!keyWords.isEmpty())
                 {
-                    QStringList exifTagsPath = keyWords.split(entry.separator);
+                    if (entry.tagPaths == NamespaceEntry::TAGPATH)
+                    {
+                       exifTagsPath = keyWords.split(QLatin1Char(';'));
+
+                       if (entry.separator != QLatin1String("/"))
+                        {
+                            exifTagsPath.replaceInStrings(entry.separator, QLatin1String("/"));
+                        }
+                    }
+                    else
+                    {
+                        exifTagsPath = keyWords.split(entry.separator);
+                    }
 
                     if (!exifTagsPath.isEmpty())
                     {
@@ -168,7 +181,7 @@ bool DMetadata::getItemTagsPath(QStringList& tagsPath,
                         {
                             return true;
                         }
-                     }
+                    }
                 }
 
                 break;
@@ -303,9 +316,26 @@ bool DMetadata::setItemTagsPath(const QStringList& tagsPath, const DMetadataSett
                 {
                     if      (writeWithExifTool() && !newList.isEmpty())
                     {
-                        QString xpKeywords = newList.join(entry.separator);
+                        QString xpKeywords;
+
+                        if (entry.tagPaths == NamespaceEntry::TAGPATH)
+                        {
+                            newList = tagsPath;
+
+                            if (entry.separator != QLatin1String("/"))
+                            {
+                                newList.replaceInStrings(QLatin1String("/"), entry.separator);
+                            }
+
+                            xpKeywords = newList.join(QLatin1Char(';'));
+                        }
+                        else
+                        {
+                            xpKeywords = newList.join(entry.separator);
+                        }
+
                         QByteArray xpData  = QByteArray(reinterpret_cast<const char*>(xpKeywords.utf16()), xpKeywords.size() * 2);
-                        xpData.append("\x00\x00");
+                        xpData.append(2, '\0');
 
                         if (!setExifTagData(nameSpace, xpData))
                         {

@@ -7,7 +7,7 @@
  * Description : a tool to export images to Smugmug web service
  *
  * SPDX-FileCopyrightText: 2005-2008 by Vardhman Jain <vardhman at gmail dot com>
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2008-2009 by Luka Renko <lure at kubuntu dot org>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -426,7 +426,9 @@ void SmugWindow::slotLoginDone(int errCode, const QString& errMsg)
     }
     else
     {
-        QMessageBox::critical(QApplication::activeWindow(), i18nc("@title:window", "Error"), i18n("SmugMug call failed: %1\n", errMsg));
+        QMessageBox::critical(QApplication::activeWindow(),
+                              i18nc("@title:window", "Error"),
+                              i18n("SmugMug call failed: %1\n", errMsg));
     }
 }
 
@@ -435,7 +437,9 @@ void SmugWindow::slotListAlbumsDone(int errCode, const QString& errMsg,
 {
     if (errCode != 0)
     {
-        QMessageBox::critical(QApplication::activeWindow(), i18nc("@title:window", "Error"), i18n("SmugMug call failed: %1\n", errMsg));
+        QMessageBox::critical(QApplication::activeWindow(),
+                              i18nc("@title:window", "Error"),
+                              i18n("SmugMug call failed: %1\n", errMsg));
         return;
     }
 
@@ -473,7 +477,9 @@ void SmugWindow::slotListPhotosDone(int errCode, const QString& errMsg,
 {
     if (errCode != 0)
     {
-        QMessageBox::critical(QApplication::activeWindow(), i18nc("@title:window", "Error"), i18n("SmugMug call failed: %1\n", errMsg));
+        QMessageBox::critical(QApplication::activeWindow(),
+                              i18nc("@title:window", "Error"),
+                              i18n("SmugMug call failed: %1\n", errMsg));
         return;
     }
 
@@ -510,7 +516,9 @@ void SmugWindow::slotListAlbumTmplDone(int errCode, const QString& errMsg,
 
     if (errCode != 0)
     {
-        QMessageBox::critical(QApplication::activeWindow(), i18nc("@title:window", "Error"), i18n("SmugMug call failed: %1\n", errMsg));
+        QMessageBox::critical(QApplication::activeWindow(),
+                              i18nc("@title:window", "Error"),
+                              i18n("SmugMug call failed: %1\n", errMsg));
         return;
     }
 

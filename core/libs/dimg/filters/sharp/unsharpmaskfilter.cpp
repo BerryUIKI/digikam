@@ -6,7 +6,7 @@
  * Date        : 2005-17-07
  * Description : A Sharpen threaded image filter.
  *
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009      by Matthias Welwarsky <matze at welwarsky dot de>
  * SPDX-FileCopyrightText: 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  * SPDX-FileCopyrightText: 2002      by Daniel M. Duley <mosfet at kde dot org>
@@ -33,6 +33,7 @@
 #include "dcolor.h"
 #include "blurfilter.h"
 #include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -70,6 +71,8 @@ QString UnsharpMaskFilter::DisplayableName()
 
 void UnsharpMaskFilter::unsharpMaskMultithreaded(uint start, uint stop, uint y)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     long int zero  = 0;
     double   value = 0.0;
     DColor   p;

@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -266,7 +266,15 @@ GeoDataStyle::ConstPtr StyleBuilder::Private::createRelationStyle(const StylePar
             auto const colorValue = parameters.relation->osmData().tagValue(QStringLiteral("colour"));
             QString color = colorValue;
 
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
+
+            if (!QColor::isValidColorName(colorValue))
+
+#else
+
             if (!QColor::isValidColor(colorValue))
+
+#endif
             {
                 switch (parameters.relation->relationType())
                 {
@@ -310,6 +318,7 @@ GeoDataStyle::ConstPtr StyleBuilder::Private::createRelationStyle(const StylePar
             }
 
             // Take cached Style instance if possible
+
             QString const cacheKey = QStringLiteral("/route/%1/%2").arg(parameters.relation->relationType()).arg(color);
 
             if (m_styleCache.contains(cacheKey))
@@ -694,13 +703,15 @@ GeoDataStyle::ConstPtr StyleBuilder::Private::createPlacemarkStyle(const StylePa
     return style;
 }
 
-GeoDataStyle::ConstPtr StyleBuilder::Private::adjustPisteStyle(const StyleParameters& parameters, const GeoDataStyle::ConstPtr& style)
+GeoDataStyle::ConstPtr StyleBuilder::Private::adjustPisteStyle(const StyleParameters& parameters,
+                                                               const GeoDataStyle::ConstPtr& style)
 {
     // Take cached Style instance if possible
-    auto const& osmData = parameters.placemark->osmData();
+
+    auto const& osmData       = parameters.placemark->osmData();
     auto const visualCategory = parameters.placemark->visualCategory();
-    auto const difficulty = osmData.tagValue(QString::fromUtf8("piste:difficulty"));
-    QString styleCacheKey = QStringLiteral("piste/%1/%2").arg(visualCategory).arg(difficulty);
+    auto const difficulty     = osmData.tagValue(QString::fromUtf8("piste:difficulty"));
+    QString styleCacheKey     = QStringLiteral("piste/%1/%2").arg(visualCategory).arg(difficulty);
 
     if (m_styleCache.contains(styleCacheKey))
     {
@@ -709,58 +720,60 @@ GeoDataStyle::ConstPtr StyleBuilder::Private::adjustPisteStyle(const StyleParame
 
     GeoDataLineStyle lineStyle = style->lineStyle();
 
-    auto green = QColor("#006600");
-    auto red = QColor("#cc0000");
-    auto black = QColor("#151515");
-    auto yellow = Qt::yellow;
-    auto blue = QColor("#000099");
-    auto orange = QColor(255, 165, 0);
+    auto green    = QColor("#006600");
+    auto red      = QColor("#cc0000");
+    auto black    = QColor("#151515");
+    auto yellow   = Qt::yellow;
+    auto blue     = QColor("#000099");
+    auto orange   = QColor(255, 165, 0);
     auto fallBack = Qt::lightGray;
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
+
+    auto country = QLocale::system().territory();
+
+#else
+
     auto country = QLocale::system().country();
+
+#endif
 
     if (country == QLocale::Japan)
     {
-        if (difficulty == QString::fromUtf8("easy"))
+        if      (difficulty == QString::fromUtf8("easy"))
         {
             lineStyle.setColor(green);
         }
-
         else if (difficulty == QString::fromUtf8("intermediate"))
         {
             lineStyle.setColor(red);
         }
-
         else if (difficulty == QString::fromUtf8("advanced"))
         {
             lineStyle.setColor(black);
         }
-
         else
         {
             lineStyle.setColor(fallBack);
         }
     }
-
     else if (country == QLocale::UnitedStates ||
              country == QLocale::UnitedStatesMinorOutlyingIslands ||
              country == QLocale::Canada ||
              m_oceanianCountries.contains(country))
     {
-        if (difficulty == QString::fromUtf8("easy"))
+        if      (difficulty == QString::fromUtf8("easy"))
         {
             lineStyle.setColor(green);
         }
-
         else if (difficulty == QString::fromUtf8("intermediate"))
         {
             lineStyle.setColor(blue);
         }
-
         else if (difficulty == QString::fromUtf8("advanced") || difficulty == QString::fromUtf8("expert"))
         {
             lineStyle.setColor(black);
         }
-
         else
         {
             lineStyle.setColor(fallBack);
@@ -768,7 +781,6 @@ GeoDataStyle::ConstPtr StyleBuilder::Private::adjustPisteStyle(const StyleParame
 
         // fallback on Europe
     }
-
     else
     {
         if (difficulty == QString::fromUtf8("novice"))
@@ -785,12 +797,10 @@ GeoDataStyle::ConstPtr StyleBuilder::Private::adjustPisteStyle(const StyleParame
         {
             lineStyle.setColor(red);
         }
-
         else if (difficulty == QString::fromUtf8("advanced"))
         {
             lineStyle.setColor(black);
         }
-
         else if (difficulty == QString::fromUtf8("expert"))
         {
             // scandinavian countries have different colors then the rest of Europe
@@ -806,12 +816,10 @@ GeoDataStyle::ConstPtr StyleBuilder::Private::adjustPisteStyle(const StyleParame
                 lineStyle.setColor(orange);
             }
         }
-
         else if (difficulty == QString::fromUtf8("freeride"))
         {
             lineStyle.setColor(yellow);
         }
-
         else
         {
             lineStyle.setColor(fallBack);
@@ -824,6 +832,7 @@ GeoDataStyle::ConstPtr StyleBuilder::Private::adjustPisteStyle(const StyleParame
     newStyle->setPolyStyle(polyStyle);
     newStyle->setLineStyle(lineStyle);
     m_styleCache.insert(styleCacheKey, newStyle);
+
     return newStyle;
 }
 

@@ -6,7 +6,7 @@
  * Date        : 2009-12-13
  * Description : a widget to preview image effect.
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2008      by Kare Sars <kare dot sars at iki dot fi>
  * SPDX-FileCopyrightText: 2012      by Benjamin Girault <benjamin dot girault at gmail dot com>
  *
@@ -552,6 +552,12 @@ bool DPreviewImage::setImage(const QImage& img) const
         d->pixmapItem->setShapeMode(QGraphicsPixmapItem::BoundingRectShape);
         d->scene->setSceneRect(0, 0, img.width(), img.height());
 
+        if (d->enableSelection)
+        {
+            d->selection->setMaxRight(d->scene->width());
+            d->selection->setMaxBottom(d->scene->height());
+        }
+
         return true;
     }
 
@@ -586,8 +592,6 @@ bool DPreviewImage::load(const QUrl& file) const
     if (ret && d->enableSelection)
     {
         qCDebug(DIGIKAM_GENERAL_LOG) << d->scene->height() << " " << d->scene->width();
-        d->selection->setMaxRight(d->scene->width());
-        d->selection->setMaxBottom(d->scene->height());
         d->selection->setRect(d->scene->sceneRect());
     }
 
@@ -903,6 +907,8 @@ void DPreviewImage::mouseReleaseEvent(QMouseEvent* e)
 
     d->mouseDragAction = Private::NONE;
     updateHighlight();
+
+    Q_EMIT signalSelectionChanged(getSelectionArea());
 
     QGraphicsView::mouseReleaseEvent(e);
 }

@@ -6,7 +6,7 @@
  * Date        : 28/08/2021
  * Description : Image Quality Parser - Blur detection basic factor
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021-2022 by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -241,7 +241,7 @@ bool BlurDetector::isMotionBlur(const cv::Mat& frag) const
         std::vector<cv::Vec4i> lines;
         HoughLinesP(tmp, lines, 1, d->theta_resolution, d->threshold_hough, d->min_line_length, 10);
 
-        // Detect if region is motion blurred by number of paralle lines
+        // Detect if region is motion blurred by number of parallel lines
 
         if (static_cast<int>(lines.size()) > d->min_nb_lines)
         {

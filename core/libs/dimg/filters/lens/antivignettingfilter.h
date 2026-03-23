@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : Antivignetting threaded image filter.
  *
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -87,7 +87,7 @@ private:
 
     void           filterImage()                           override;
 
-    double         hypothenuse(double x, double y);
+    double         hypotenuse(double x, double y);
     uchar          clamp8bits(double x);
     unsigned short clamp16bits(double x);
     double         attenuation(double r1, double r2, double distcenter);

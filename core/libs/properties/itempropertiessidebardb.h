@@ -6,7 +6,7 @@
  * Date        : 2004-11-17
  * Description : item properties side bar using data from digiKam database.
  *
- * SPDX-FileCopyrightText: 2004-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2004-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2007-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -35,6 +35,7 @@ namespace Digikam
 class DImg;
 class SidebarSplitter;
 class ItemInfo;
+class ItemFilterModel;
 class ImageChangeset;
 class ItemDescEditTab;
 class ImageTagChangeset;
@@ -56,9 +57,19 @@ public:
     void populateTags();
     void refreshTagsView();
 
+    ItemInfoList currentSelection()                     const;
+
     /// This is for image editor to be able to update the filter list in sidebar
-    ItemPropertiesVersionsTab* getFiltersHistoryTab() const;
-    ItemDescEditTab*           imageDescEditTab()     const;
+    ItemPropertiesVersionsTab* getFiltersHistoryTab()   const;
+    ItemDescEditTab*           imageDescEditTab()       const;
+
+    /**
+     * If no item selected, show the synthesis panel with information from all items.
+     * Disabled by default.
+     */
+    void setShowAllPropertiesMode(bool b);
+
+    void setItemFilterModel(ItemFilterModel* const model);
 
     void itemChanged(const QUrl& url,
                      const QRect& rect = QRect(),
@@ -96,6 +107,7 @@ public Q_SLOTS:
 
     void slotPopupTagsView();
 
+    void slotOpenGeolocationMap();
     void slotNoCurrentItem()                            override;
 
 private Q_SLOTS:
@@ -105,6 +117,7 @@ private Q_SLOTS:
     void slotImageChangeDatabase(const ImageChangeset& changeset);
     void slotImageTagChanged(const ImageTagChangeset& changeset);
     void slotPropertiesButtonPressed(int);
+    void slotColorLabelNamesUpdated();
 
 private:
 

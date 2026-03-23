@@ -6,7 +6,7 @@
  * Date        : 2013-03-02
  * Description : Table view: Tree view subelement
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -40,9 +40,9 @@ namespace Digikam
 
 /**
  * @todo For proper drag-and-drop support, we probably have to implement more
- *        of DragDropModelImplementation's functions in the TableViewModel or
- *        in the sort model. Subclassing DragDropModelImplementation would not
- *        work there, because we want to re-use ItemDragDropHandler.
+ *       of DragDropModelImplementation's functions in the TableViewModel or
+ *       in the sort model. Subclassing DragDropModelImplementation would not
+ *       work there, because we want to reuse ItemDragDropHandler.
  */
 class TableViewTreeView : public QTreeView,
                           public DragDropViewImplementation,

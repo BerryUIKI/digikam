@@ -6,7 +6,7 @@
  * Date        : 28/08/2021
  * Description : Image Quality Parser - Aesthetic detection based on deep learning
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021-2022 by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -23,6 +23,7 @@
 // Local includes
 
 #include "digikam_debug.h"
+#include "systemsettings.h"
 
 namespace Digikam
 {
@@ -136,9 +137,8 @@ bool AestheticDetector::s_loadModel()
             return true;
         }
 
-        QString appPath = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                                 QLatin1String("digikam/facesengine"),
-                                                 QStandardPaths::LocateDirectory);
+        SystemSettings system(QLatin1String("digikam"));
+        QString appPath = system.getFacesEnginePath();
 
         QString model   = QLatin1String("weights_inceptionv3_299.pb");
         QString nnmodel = appPath + QLatin1Char('/') + model;

@@ -7,7 +7,7 @@
  * Description : A widget to host settings as expander box
  *
  * SPDX-FileCopyrightText: 2008-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText:      2010 by Manuel Viet <contact at 13zenrv dot fr>
  * SPDX-FileCopyrightText: 2001      by Frerich Raabe <raabe at kde dot org>
  *
@@ -622,6 +622,11 @@ void DLabelExpander::setButtonIcon(const QIcon& icon)
                               style()->pixelMetric(QStyle::PM_SmallIconSize)));
 }
 
+void DLabelExpander::setButtonToolTip(const QString& tip)
+{
+    d->btn->setToolTip(tip);
+}
+
 void DLabelExpander::setWidget(QWidget* const widget)
 {
     if (widget)
@@ -971,6 +976,16 @@ void DExpanderBox::setButtonIcon(int index, const QIcon& icon)
     }
 
     d->wList[index]->setButtonIcon(icon);
+}
+
+void DExpanderBox::setButtonToolTip(int index, const QString& tip)
+{
+    if ((index > d->wList.count()) || (index < 0))
+    {
+        return;
+    }
+
+    d->wList[index]->setToolTip(tip);
 }
 
 int DExpanderBox::count() const

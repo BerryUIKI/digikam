@@ -10,11 +10,17 @@
  *               below, taken from
  *               https://code.qt.io/cgit/qt/qt.git/plain/src/gui/text/qzipwriter_p.h
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-only WITH Qt-LGPL-exception-1.1 OR LGPL-3.0-only WITH Qt-LGPL-exception-1.1 OR GPL-3.0-only OR LicenseRef-Qt-Commercial
  *
  * ============================================================ */
+
+// C++ includes
+
+#include <memory>
+
+// Qt includes
 
 #include <qglobal.h>
 
@@ -22,8 +28,6 @@
 
 #   include "MarbleZipReader.h"
 #   include "MarbleZipWriter.h"
-
-// Qt includes
 
 #   include <QDateTime>
 #   include <qplatformdefs.h>
@@ -933,8 +937,8 @@ void MarbleZipWriterPrivate::addEntry(EntryType type, const QString& fileName, c
 */
 MarbleZipReader::MarbleZipReader(const QString& archive, QIODevice::OpenMode mode)
 {
-    QScopedPointer<QFile> f(new QFile(archive));
-    f->open(mode);
+    std::unique_ptr<QFile> f(new QFile(archive));
+    (void)f->open(mode);
     MarbleZipReader::Status status;
 
     if (f->error() == QFile::NoError)
@@ -965,8 +969,8 @@ MarbleZipReader::MarbleZipReader(const QString& archive, QIODevice::OpenMode mod
         }
     }
 
-    d = new MarbleZipReaderPrivate(f.data(), /*ownDevice=*/true);
-    f.take();
+    d = new MarbleZipReaderPrivate(f.get(), /*ownDevice=*/true);
+    f.release();
     d->status = status;
 }
 
@@ -982,7 +986,7 @@ MarbleZipReader::MarbleZipReader(QIODevice* device)
 }
 
 /*!
-    Desctructor
+    Destructor
 */
 MarbleZipReader::~MarbleZipReader()
 {
@@ -1308,8 +1312,8 @@ void MarbleZipReader::close()
 */
 MarbleZipWriter::MarbleZipWriter(const QString& fileName, QIODevice::OpenMode mode)
 {
-    QScopedPointer<QFile> f(new QFile(fileName));
-    f->open(mode);
+    std::unique_ptr<QFile> f(new QFile(fileName));
+    (void)f->open(mode);
     MarbleZipWriter::Status status;
 
     if (f->error() == QFile::NoError)
@@ -1340,8 +1344,8 @@ MarbleZipWriter::MarbleZipWriter(const QString& fileName, QIODevice::OpenMode mo
         }
     }
 
-    d = new MarbleZipWriterPrivate(f.data(), /*ownDevice=*/true);
-    f.take();
+    d = new MarbleZipWriterPrivate(f.get(), /*ownDevice=*/true);
+    f.release();
     d->status = status;
 }
 

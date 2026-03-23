@@ -7,7 +7,7 @@
  * Description : Exiv2 library interface.
  *               Tools for combining rotation operations.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -18,6 +18,7 @@
 
 // Qt includes
 
+#include <QObject>
 #include <QTransform>
 
 // Local includes
@@ -30,6 +31,7 @@ namespace Digikam
 
 class DIGIKAM_EXPORT MetaEngineRotation
 {
+    Q_GADGET
 
 public:
 
@@ -50,6 +52,7 @@ public:
         Rotate270        = 7, ///< 270-degree clockwise (or 90 ccw)
         RotateAuto       = 8  ///< auto-rotate based on AutoRotator class
     };
+    Q_ENUM(TransformationAction)
 
 public:
 

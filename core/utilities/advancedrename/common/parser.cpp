@@ -16,6 +16,7 @@
 
 // Qt includes
 
+#include <QWidget>
 #include <QFileInfo>
 #include <QRegularExpression>
 
@@ -29,6 +30,7 @@
 #include "metadataoption.h"
 #include "sequencenumberoption.h"
 #include "casemodifier.h"
+#include "dateformatmodifier.h"
 #include "defaultvaluemodifier.h"
 #include "rangemodifier.h"
 #include "removedoublesmodifier.h"
@@ -45,32 +47,35 @@ public:
 
     Private() = default;
 
+public:
+
     RulesList options;
     RulesList modifiers;
 };
 
 // --------------------------------------------------------
 
-Parser::Parser()
+Parser::Parser(QWidget* const widget)
     : d(new Private)
 {
     registerOption(new FilePropertiesOption());
     registerOption(new DirectoryNameOption());
     registerOption(new CameraNameOption());
-    registerOption(new SequenceNumberOption());
-    registerOption(new DateOption());
-    registerOption(new DatabaseOption());
-    registerOption(new MetadataOption());
+    registerOption(new SequenceNumberOption(widget));
+    registerOption(new DateOption(widget));
+    registerOption(new DatabaseOption(widget));
+    registerOption(new MetadataOption(widget));
 
     // --------------------------------------------------------
 
     registerModifier(new CaseModifier());
+    registerModifier(new DateFormatModifier());
     registerModifier(new TrimmedModifier());
     registerModifier(new UniqueModifier());
     registerModifier(new RemoveDoublesModifier());
-    registerModifier(new DefaultValueModifier());
-    registerModifier(new ReplaceModifier());
-    registerModifier(new RangeModifier());
+    registerModifier(new DefaultValueModifier(widget));
+    registerModifier(new ReplaceModifier(widget));
+    registerModifier(new RangeModifier(widget));
 }
 
 Parser::~Parser()
@@ -213,17 +218,17 @@ QString Parser::parse(ParseSettings& settings)
         return fi.fileName();
     }
 
-    ParseResults results;
+    ParseResults res;
 
     for (Rule* const option : std::as_const(d->options))
     {
         ParseResults r = option->parse(settings);
-        results.append(r);
+        res.append(r);
     }
 
-    settings.invalidModifiers = applyModifiers(settings, results);
-    QString newName           = results.replaceTokens(settings.parseString);
-    settings.results          = results;
+    settings.invalidModifiers = applyModifiers(settings, res);
+    QString newName           = res.replaceTokens(settings.parseString);
+    settings.results          = res;
 
     // remove invalid modifiers from the new name
 
@@ -326,7 +331,7 @@ ParseResults Parser::applyModifiers(const ParseSettings& _settings, ParseResults
         int off  = results.offset(key);
         int diff = 0;
 
-        for (int pos = off ; pos < _settings.parseString.count() ; )
+        for (int pos = off ; pos < _settings.parseString.size() ; )
         {
             if (modifierResults.hasKeyAtPosition(pos))
             {
@@ -365,7 +370,7 @@ ParseResults Parser::applyModifiers(const ParseSettings& _settings, ParseResults
                 ParseResults::ResultsValue modifierValue(modToken, modResult);
 
                 appliedModifiers.deleteEntry(modifierKey);
-                modifierKey.second += modToken.count();
+                modifierKey.second += modToken.size();
                 appliedModifiers.addEntry(modifierKey, modifierValue);
 
                 // set position to the next possible token

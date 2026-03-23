@@ -7,7 +7,7 @@
  * Description : central place for ICC settings
  *
  * SPDX-FileCopyrightText: 2005-2006 by F.J. Cruz <fj dot cruz at supercable dot es>
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -35,6 +35,9 @@ class DIGIKAM_EXPORT IccSettings : public QObject
     Q_OBJECT
 
 public:
+
+    IccSettings();
+    ~IccSettings() override;
 
     /**
      * Global container for ICC settings. All accessor methods are thread-safe.
@@ -125,9 +128,7 @@ Q_SIGNALS:
 
 private:
 
-    IccSettings();
     explicit IccSettings(QObject*);
-    ~IccSettings() override;
 
     void readFromConfig();
 
@@ -137,7 +138,6 @@ private:
     Private* const d = nullptr;
 
     friend class Private;
-    friend class IccSettingsCreator;
 };
 
 } // namespace Digikam

@@ -5,9 +5,9 @@
  *
  * Date        : 2021-02-04
  * Description : a command line tool to open file with the default
- *               MacOS apllication bundle.
+ *               macOS application bundle.
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -31,7 +31,7 @@ int main(int argc, char** argv)
 {
     if (argc != 2)
     {
-        qCDebug(DIGIKAM_TESTS_LOG) << "openfilewithapplication - Open file with default MacOS bundle Application";
+        qCDebug(DIGIKAM_TESTS_LOG) << "openfilewithapplication - Open file with default macOS bundle Application";
         qCDebug(DIGIKAM_TESTS_LOG) << "Usage: <file path>";
         return -1;
     }

@@ -6,7 +6,7 @@
  * Date        : 2012-05-28
  * Description : Media Server configuration dialog to share a single list of files
  *
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2017      by Ahmed Fathy <ahmed dot fathi dot abdelmageed at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -150,7 +150,7 @@ DMediaServerDlg::DMediaServerDlg(QObject* const /*parent*/,
     explanation->setText(i18nc("@info",
                                "The media server allows to share items through the local network "
                                "using %1 standard and %2 protocol. "
-                               "Many kind of electronic devices can support DLNA, as tablets, cellulars, TV, etc.\n\n"
+                               "Many kind of electronic devices can support DLNA, as tablets, cellulars, TV, etc.<br><br>"
                                "Note: depending of the network features and the configuration, "
                                "the delay to discover the server on client devices can take a while.",
                                QLatin1String("<a href='https://en.wikipedia.org/wiki/Digital_Living_Network_Alliance'>DLNA</a>"),

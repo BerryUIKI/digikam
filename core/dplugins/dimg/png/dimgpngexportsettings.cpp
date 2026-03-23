@@ -6,7 +6,7 @@
  * Date        : 2007-08-02
  * Description : PNG image export settings widget.
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -63,8 +63,8 @@ DImgPNGExportSettings::DImgPNGExportSettings(QWidget* parent)
 
     d->PNGcompression->setWhatsThis(i18n("<p>The compression value for PNG images:</p>"
                                          "<p><b>1</b>: low compression (large file size but "
-                                         "short compression duration - default)<br/>"
-                                         "<b>5</b>: medium compression<br/>"
+                                         "short compression duration - default)<br>"
+                                         "<b>5</b>: medium compression<br>"
                                          "<b>9</b>: high compression (small file size but "
                                          "long compression duration)</p>"
                                          "<p><b>Note: PNG is always a lossless image "

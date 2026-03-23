@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2005-2006 by F.J. Cruz <fj dot cruz at supercable dot es>
  * SPDX-FileCopyrightText: 2009      by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -82,7 +82,7 @@ public:
     Private& operator=(const Private& other)
     {
         // Attention: This is sensitive. Add any new members here.
-        // We can't use the default operator= because of handle.
+        // We cannot use the default operator= because of handle.
 
         intent             = other.intent;
         proofIntent        = other.proofIntent;

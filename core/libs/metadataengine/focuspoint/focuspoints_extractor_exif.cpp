@@ -6,7 +6,7 @@
  * Date        : 28/08/2021
  * Description : Extraction of focus points by exiftool data - Exif metadata
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021      by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -23,6 +23,7 @@ namespace Digikam
 {
 
 // Internal function to create af point from meta data
+
 namespace ExifInternal
 {
 
@@ -112,7 +113,7 @@ FocusPointsExtractor::ListAFPoints FocusPointsExtractor::getAFPoints_exif() cons
             af_x_position = af_info[0].toFloat();
             af_y_position = af_info[1].toFloat();
 
-            // Get size of af area.
+            // Get size of AF area.
 
             afPointWidth  = af_info[2].toFloat();
             afPointHeight = af_info[3].toFloat();
@@ -127,7 +128,7 @@ FocusPointsExtractor::ListAFPoints FocusPointsExtractor::getAFPoints_exif() cons
             af_x_position = af_info[0].toFloat();
             af_y_position = af_info[1].toFloat();
 
-            // Get size of af area (typically a circle transformed as rectangle).
+            // Get size of AF area (typically a circle transformed as rectangle).
 
             afPointWidth  = af_info[3].toFloat();
             afPointHeight = af_info[3].toFloat();
@@ -142,7 +143,7 @@ FocusPointsExtractor::ListAFPoints FocusPointsExtractor::getAFPoints_exif() cons
             af_x_position = af_info[0].toFloat();
             af_y_position = af_info[1].toFloat();
 
-            // Get size of af area (typically a point transformed an arbritary square of size 120 pixels).
+            // Get size of AF area (typically a point transformed an arbitrary square of size 120 pixels).
 
             afPointWidth  = 120.0F;
             afPointHeight = 120.0F;

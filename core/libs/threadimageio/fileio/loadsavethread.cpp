@@ -7,7 +7,7 @@
  * Description : image file IO threaded interface.
  *
  * SPDX-FileCopyrightText: 2005-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -31,6 +31,8 @@ class Q_DECL_HIDDEN LoadSaveThread::Private
 public:
 
     Private() = default;
+
+public:
 
     bool                             running            = true;
     bool                             blockNotification  = false;
@@ -292,7 +294,7 @@ int LoadSaveThread::exifOrientation(const QString& filePath,
     {
         // Did the user apply any additional rotation over the metadata flag?
 
-        if (dbOrientation == MetaEngine::ORIENTATION_UNSPECIFIED || dbOrientation == exifOrientation)
+        if ((dbOrientation == MetaEngine::ORIENTATION_UNSPECIFIED) || (dbOrientation == exifOrientation))
         {
             return MetaEngine::ORIENTATION_NORMAL;
         }

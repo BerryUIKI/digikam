@@ -7,7 +7,7 @@
  * Description : image file IO threaded interface.
  *
  * SPDX-FileCopyrightText: 2005-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -264,7 +264,7 @@ void SharedLoadingTask::execute()
                     }
                     else
                     {
-                            l->setResult(m_loadingDescription, m_img);
+                        l->setResult(m_loadingDescription, m_img);
                     }
                 }
             }
@@ -346,7 +346,9 @@ void SharedLoadingTask::postProcess()
     switch (m_loadingDescription.postProcessingParameters.colorManagement)
     {
         case LoadingDescription::NoColorConversion:
+        {
             break;
+        }
 
         case LoadingDescription::ApplyTransform:
         {
@@ -457,7 +459,7 @@ void SharedLoadingTask::notifyNewLoadingProcess(LoadingProcess* const process,
 
 bool SharedLoadingTask::querySendNotifyEvent() const
 {
-    return m_thread && m_thread->querySendNotifyEvent();
+    return (m_thread && m_thread->querySendNotifyEvent());
 }
 
 LoadSaveNotifier* SharedLoadingTask::loadSaveNotifier() const
@@ -483,8 +485,8 @@ SavingTask::SavingTask(LoadSaveThread* const thread,
                        const QString& format)
     : LoadSaveTask(thread),
         m_filePath(filePath),
-        m_format(format),
-        m_img(img)
+        m_format  (format),
+        m_img     (img)
 {
 }
 

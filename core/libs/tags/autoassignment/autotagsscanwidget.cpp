@@ -6,7 +6,7 @@
  * Date        : 2025-01-06
  * Description : Widget to choose options for autotags scanning
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -106,59 +106,59 @@ void AutotagsScanWidget::setupUi()
     QLabel* const scanLbl   = new QLabel(i18nc("@label with a short translated text about autotags scanning mode",
                                                "Scan Mode:"), d->settingsTab);
 
-    d->scanMode             = new QComboBox(d->settingsTab);
-    d->scanMode->addItem(i18nc("@item: all items to scan with autotags",       "All"),               AutotagsScanSettings::ScanMode::AllItems);
-    d->scanMode->addItem(i18nc("@item: autotags scan only non assigned items", "Non-Assigned Only"), AutotagsScanSettings::ScanMode::NonAssignedItems);
+    d->scanMode             = new SqueezedComboBox(d->settingsTab);
+    d->scanMode->addSqueezedItem(i18nc("@item: all items to scan with autotags",       "All"),               AutotagsScanSettings::ScanMode::AllItems);
+    d->scanMode->addSqueezedItem(i18nc("@item: autotags scan only non assigned items", "Non-Assigned Only"), AutotagsScanSettings::ScanMode::NonAssignedItems);
     d->scanMode->setToolTip(i18nc("@info:tooltip",
                                   "<p><b>All</b>: re-scan all items for tags.</p>"
                                   "<p><b>Non-Assigned Only</b>: scan only the items with no assigned autotags.</p>"));
 
     QLabel* const tmodeLbl  = new QLabel(i18nc("@label with a short translated text ",
-                                               "Auto-Tagging Mode:"), d->settingsTab);
+                                               "Tagging Mode:"), d->settingsTab);
 
-    d->tagMode              = new QComboBox(d->settingsTab);
-    d->tagMode->addItem(i18nc("@item: remplace existing autotags entries in database", "Replace Existing"), AutotagsScanSettings::TagMode::Replace);
-    d->tagMode->addItem(i18nc("@item: update the autotags entries in database",        "Update"),           AutotagsScanSettings::TagMode::Update);
+    d->tagMode              = new SqueezedComboBox(d->settingsTab);
+    d->tagMode->addSqueezedItem(i18nc("@item: replace existing autotags entries in database", "Replace Existing"), AutotagsScanSettings::TagMode::Replace);
+    d->tagMode->addSqueezedItem(i18nc("@item: update the autotags entries in database",       "Update"),           AutotagsScanSettings::TagMode::Update);
     d->tagMode->setToolTip(i18nc("@info:tooltip",
                                  "<p><b>Replace Existing</b>: clear existing auto-tags and replace with the results of the scan.</p>"
                                  "<p><b>Update</b>: add any new auto-tags found to the existing auto-tags.</p>"));
 
     QLabel* const modelLbl  = new QLabel(i18nc("@label with a short translated text about deep learning model used to detect objects to auto-tag",
-                                               "Detection Model:"), d->settingsTab);
+                                               "Model:"), d->settingsTab);
 
     DNNModelManager* const dnnModelManager        = DNNModelManager::instance();
     QList<QPair<QString, QStringList> > modelList = dnnModelManager->getModelList(DNNModelUsage::DNNUsageObjectDetection);
-    d->objectDetectModel                          = new QComboBox(d->settingsTab);
+    d->objectDetectModel                          = new SqueezedComboBox(d->settingsTab);
 
     if (modelList.isEmpty())
     {
-        d->objectDetectModel->addItem(i18n("No models available"), QStringLiteral("none"));
+        d->objectDetectModel->addSqueezedItem(i18n("No models available"), QStringLiteral("none"));
         this->parentWidget()->setEnabled(false);
     }
     else
     {
         for (const auto& model : modelList)
         {
-            d->objectDetectModel->addItem(model.second[0], model.first);
+            d->objectDetectModel->addSqueezedItem(model.second[0], model.first);
             d->objectDetectModel->setToolTip(d->objectDetectModel->toolTip() + model.second[1]);
         }
     }
 
     QLabel* const detLbl    = new QLabel(i18nc("@label with a short translated text",
-                                               "Detection Accuracy:"), d->settingsTab);
+                                               "Accuracy:"), d->settingsTab);
     d->accuracyInput        = new DIntNumInput(d->settingsTab);
     d->accuracyInput->setDefaultValue(7);
     d->accuracyInput->setRange(1, 10, 1);
     d->accuracyInput->setToolTip(i18nc("@info:tooltip",
-                                       "Adjust sensitivity versus specificity: the higher the value, the more accurately objects will\n"
-                                       "be recognized, but fewer objects will be recognized.\n"));
+                                       "Adjust sensitivity versus specificity: the higher the value, the more accurately objects will<br>"
+                                       "be recognized, but fewer objects will be recognized.<br>"));
 
     d->useFullCpuButton     = new QCheckBox(d->settingsTab);
     d->useFullCpuButton->setText(i18nc("@option:check with a short translated text",
-                                       "Work on all processor cores"));
+                                       "Uses all processors"));
     d->useFullCpuButton->setToolTip(i18nc("@info:tooltip",
-                                          "Object detection and auto-tagging are time-consuming tasks.\n"
-                                          "You can choose if you wish to employ all processor cores\n"
+                                          "Object detection and auto-tagging are time-consuming tasks.<br>"
+                                          "You can choose if you wish to employ all processor cores<br>"
                                           "on your system, or work in the background only on one core."));
 
     grid->addWidget(title,                0, 0, 1, 2);

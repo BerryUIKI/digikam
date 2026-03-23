@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -645,7 +645,7 @@ void GeoDataLineString::setTessellate(bool tessellate)
     detach();
 
     Q_D(GeoDataLineString);
-    // According to the KML reference the tesselation of line strings in Google Earth
+    // According to the KML reference the tessellation of line strings in Google Earth
     // is generally done along great circles. However for subsequent points that share
     // the same latitude the latitude circles are followed. Our Tesselate and RespectLatitude
     // Flags provide this behaviour. For true polygons the latitude circles don't get considered.

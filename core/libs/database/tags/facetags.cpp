@@ -415,16 +415,6 @@ QString FaceTags::faceNameForTag(int tagId)
 
 int FaceTags::personParentTag()
 {
-    // Check default.
-
-    QString i18nName = i18nc("People on your photos", "People");
-    int tagId        = TagsCache::instance()->tagForPath(i18nName);
-
-    if (tagId)
-    {
-        return tagId;
-    }
-
     // Employ a heuristic.
 
     QList<int> personTags = allPersonTags();
@@ -465,7 +455,9 @@ int FaceTags::personParentTag()
         }
     }
 
-    // Create default.
+    // Get or create default.
+
+    QString i18nName = i18nc("People on your photos", "People");
 
     return TagsCache::instance()->getOrCreateTag(i18nName);
 }
@@ -501,17 +493,17 @@ int FaceTags::unconfirmedPersonTagId()
         return ids.first();
     }
 
-    int unknownPersonTagId = TagsCache::instance()->getOrCreateTag(
+    int unknownPeopleTagId = TagsCache::instance()->getOrCreateTag(
                                         FaceTagsHelper::tagPath(
                                         i18nc("The list of recognized faces from the collections but not confirmed",
                                               "Unconfirmed"),
                                         personParentTag()));
 
-    TagProperties props(unknownPersonTagId);
+    TagProperties props(unknownPeopleTagId);
     props.setProperty(TagPropertyName::person(),            QString()); // No name associated.
     props.setProperty(TagPropertyName::unconfirmedPerson(), QString()); // Special property.
 
-    return unknownPersonTagId;
+    return unknownPeopleTagId;
 }
 
 int FaceTags::ignoredPersonTagId()

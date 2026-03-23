@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -121,7 +121,7 @@ bool GeoDataPolygon::tessellate() const
 
 void GeoDataPolygon::setTessellate(bool tessellate)
 {
-    // According to the KML reference the tesselation is done along great circles
+    // According to the KML reference the tessellation is done along great circles
     // for polygons in Google Earth. Our "Tesselate" flag does this.
     // Only for pure line strings and linear rings the
     // latitude circles are followed for subsequent points that share the same latitude.

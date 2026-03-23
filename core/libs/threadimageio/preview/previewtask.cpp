@@ -7,7 +7,7 @@
  * Description : Multithreaded loader for previews
  *
  * SPDX-FileCopyrightText: 2006-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -49,6 +49,11 @@ void PreviewLoadingTask::execute()
         }
 
         return;
+    }
+
+    if (m_thread)
+    {
+        m_thread->imageStartedLoading(m_loadingDescription);
     }
 
     // Check if preview is in cache first.
@@ -422,6 +427,16 @@ void PreviewLoadingTask::execute()
     {
         m_thread->taskHasFinished();
         m_thread->imageLoaded(m_loadingDescription, m_img);
+    }
+}
+
+void PreviewLoadingTask::progressInfo(float progress)
+{
+    SharedLoadingTask::progressInfo(progress);
+
+    if ((m_loadingTaskStatus == LoadingTaskStatusLoading) && m_thread)
+    {
+        m_thread->loadingProgress(m_loadingDescription, progress);
     }
 }
 

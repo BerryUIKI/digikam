@@ -6,7 +6,7 @@
  * Date        : 2006-04-19
  * Description : A tab to display general item information
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -27,8 +27,7 @@ ItemPropertiesTab::ItemPropertiesTab(QWidget* const parent)
 
     // --------------------------------------------------
 
-    const int spacing = layoutSpacing();
-
+    const int spacing                  = layoutSpacing();
 
     QWidget* const w1                  = new QWidget(this);
     QGridLayout* const glay1           = new QGridLayout(w1);
@@ -47,7 +46,9 @@ ItemPropertiesTab::ItemPropertiesTab(QWidget* const parent)
     d->labelFile->setFont(fnt);
     d->labelFile->setAlignment(Qt::AlignCenter);
 
-    d->labelFolder                     = new DTextLabelValue(QString(), w1);
+    d->labelFolder                     = new QLabel(QString(), w1);
+    d->labelFolder->setWordWrap(true);
+    d->labelFolder->setAlignment(Qt::AlignRight);
     d->labelSymlink                    = new DTextLabelValue(QString(), w1);
     d->labelFileModifiedDate           = new DTextLabelValue(QString(), w1);
     d->labelFileSize                   = new DTextLabelValue(QString(), w1);
@@ -225,54 +226,71 @@ ItemPropertiesTab::ItemPropertiesTab(QWidget* const parent)
 
     // --------------------------------------------------
 
-    QWidget* const w5        = new QWidget(this);
-    QGridLayout* const glay5 = new QGridLayout(w5);
+    QWidget* const w5                = new QWidget(this);
+    d->glay5                         = new QGridLayout(w5);
 
-    d->labelPhotoDateTime    = new DTextLabelValue(QString(), w5);
-    fnt                      = d->labelPhotoDateTime->font();
+    d->labelPhotoDateTime            = new DTextLabelValue(QString(), w5);
+    fnt                              = d->labelPhotoDateTime->font();
     fnt.setPointSize(fnt.pointSize() + 4);
     fnt.setUnderline(true);
     d->labelPhotoDateTime->setFont(fnt);
     d->labelPhotoDateTime->setAlignment(Qt::AlignCenter);
 
-    d->title                 = new DTextLabelName(i18nc("@label: item properties", "Title: "),       w5);
-    d->caption               = new DTextLabelName(i18nc("@label: item properties", "Caption: "),     w5);
-    d->pickLabel             = new DTextLabelName(i18nc("@label: item properties", "Pick label: "),  w5);
-    d->colorLabel            = new DTextLabelName(i18nc("@label: item properties", "Color label: "), w5);
-    d->rating                = new DTextLabelName(i18nc("@label: item properties", "Rating: "),      w5);
-    d->versionned            = new DTextLabelName(i18nc("@label: item properties", "Versionned: "),  w5);
-    d->grouped               = new DTextLabelName(i18nc("@label: item properties", "Grouped: "),     w5);
+    d->title                         = new DTextLabelName(i18nc("@label: item properties", "Title: "),       w5);
+    d->caption                       = new DTextLabelName(i18nc("@label: item properties", "Caption: "),     w5);
+    d->pickLabel                     = new DTextLabelName(i18nc("@label: item properties", "Pick label: "),  w5);
+    d->colorLabel                    = new DTextLabelName(i18nc("@label: item properties", "Color label: "), w5);
+    d->rating                        = new DTextLabelName(i18nc("@label: item properties", "Rating: "),      w5);
+    d->versioned                     = new DTextLabelName(i18nc("@label: item properties", "Versioned: "),   w5);
+    d->grouped                       = new DTextLabelName(i18nc("@label: item properties", "Grouped: "),     w5);
 
-    d->labelTitle            = new QLabel(QString(), w5);
+    d->labelTitle                    = new QLabel(QString(), w5);
     d->labelTitle->setWordWrap(true);
-    d->labelCaption          = new QLabel(QString(), w5);
+    d->labelTitle->setAlignment(Qt::AlignRight);
+    d->labelCaption                  = new QLabel(QString(), w5);
     d->labelCaption->setWordWrap(true);
+    d->labelCaption->setAlignment(Qt::AlignRight);
 
-    d->labelPickLabel        = new DTextLabelValue(QString(), w5);
-    d->labelColorLabel       = new DTextLabelValue(QString(), w5);
-    d->labelRating           = new DTextLabelValue(QString(), w5);
-    d->labelVersionnedInfo   = new DTextLabelValue(QString(), w5);
-    d->labelGroupedInfo      = new DTextLabelValue(QString(), w5);
+    QWidget* const labelPickBox      = new QWidget(w5);
+    QHBoxLayout* const labelPickLay  = new QHBoxLayout(labelPickBox);
+    d->labelPick                     = new QLabel(w5);
+    d->labelPickLabel                = new DTextLabelValue(QString(), w5);
+    labelPickLay->setContentsMargins(0, 0, 0, 0);
+    labelPickLay->addWidget(d->labelPickLabel);
+    labelPickLay->addWidget(d->labelPick);
 
-    glay5->addWidget(d->labelPhotoDateTime,  0, 0, 1, 2);
-    glay5->addWidget(d->title,               1, 0, 1, 1);
-    glay5->addWidget(d->labelTitle,          1, 1, 1, 1);
-    glay5->addWidget(d->caption,             2, 0, 1, 1);
-    glay5->addWidget(d->labelCaption,        2, 1, 1, 1);
-    glay5->addWidget(d->pickLabel,           3, 0, 1, 1);
-    glay5->addWidget(d->labelPickLabel,      3, 1, 1, 1);
-    glay5->addWidget(d->colorLabel,          4, 0, 1, 1);
-    glay5->addWidget(d->labelColorLabel,     4, 1, 1, 1);
-    glay5->addWidget(d->rating,              5, 0, 1, 1);
-    glay5->addWidget(d->labelRating,         5, 1, 1, 1);
-    glay5->addWidget(d->versionned,          6, 0, 1, 1);
-    glay5->addWidget(d->labelVersionnedInfo, 6, 1, 1, 1);
-    glay5->addWidget(d->grouped,             7, 0, 1, 1);
-    glay5->addWidget(d->labelGroupedInfo,    7, 1, 1, 1);
-    glay5->setContentsMargins(spacing, spacing, spacing, spacing);
-    glay5->setColumnStretch(0, 10);
-    glay5->setColumnStretch(1, 25);
-    glay5->setSpacing(0);
+    QWidget* const labelColorBox     = new QWidget(w5);
+    QHBoxLayout* const labelColorLay = new QHBoxLayout(labelColorBox);
+    d->labelColor                    = new QLabel(w5);
+    d->labelColorLabel               = new DTextLabelValue(QString(), w5);
+    labelColorLay->setContentsMargins(0, 0, 0, 0);
+    labelColorLay->addWidget(d->labelColorLabel);
+    labelColorLay->addWidget(d->labelColor);
+
+    d->labelRating                   = new QLabel(QString(), w5);
+    d->labelRating->setAlignment(Qt::AlignRight);
+    d->labelVersionedInfo            = new DTextLabelValue(QString(), w5);
+    d->labelGroupedInfo              = new DTextLabelValue(QString(), w5);
+
+    d->glay5->addWidget(d->labelPhotoDateTime, 0, 0, 1, 2);
+    d->glay5->addWidget(d->title,              1, 0, 1, 1);
+    d->glay5->addWidget(d->labelTitle,         1, 1, 1, 1);
+    d->glay5->addWidget(d->caption,            2, 0, 1, 1);
+    d->glay5->addWidget(d->labelCaption,       2, 1, 1, 1);
+    d->glay5->addWidget(d->pickLabel,          3, 0, 1, 1);
+    d->glay5->addWidget(labelPickBox,          3, 1, 1, 1);
+    d->glay5->addWidget(d->colorLabel,         4, 0, 1, 1);
+    d->glay5->addWidget(labelColorBox,         4, 1, 1, 1);
+    d->glay5->addWidget(d->rating,             5, 0, 1, 1);
+    d->glay5->addWidget(d->labelRating,        5, 1, 1, 1);
+    d->glay5->addWidget(d->versioned,          6, 0, 1, 1);
+    d->glay5->addWidget(d->labelVersionedInfo, 6, 1, 1, 1);
+    d->glay5->addWidget(d->grouped,            7, 0, 1, 1);
+    d->glay5->addWidget(d->labelGroupedInfo,   7, 1, 1, 1);
+    d->glay5->setContentsMargins(spacing, spacing, spacing, spacing);
+    d->glay5->setColumnStretch(0, 10);
+    d->glay5->setColumnStretch(1, 25);
+    d->glay5->setSpacing(0);
 
     insertItem(ItemPropertiesTab::digiKamProperties,
                w5, QIcon::fromTheme(QLatin1String("edit-text-frame-update")),
@@ -286,10 +304,15 @@ ItemPropertiesTab::ItemPropertiesTab(QWidget* const parent)
     d->tags                  = new DTextLabelName(i18nc("@label: item properties", "Keywords: "),      w6);
     d->labelTags             = new QLabel(QString(), w6);
     d->labelTags->setWordWrap(true);
+    d->labelTags->setAlignment(Qt::AlignRight);
+    QPalette pal             = d->labelTags->palette();
+    pal.setColor(QPalette::WindowText, qApp->palette().color(QPalette::Link));
+    d->labelTags->setPalette(pal);
 
     d->peoples               = new DTextLabelName(i18nc("@label: item properties", "People: "),      w6);
     d->labelPeoples          = new QLabel(QString(), w6);
     d->labelPeoples->setWordWrap(true);
+    d->labelPeoples->setAlignment(Qt::AlignRight);
 
     glay6->addWidget(d->tags,         0, 0, 1, 1);
     glay6->addWidget(d->labelTags,    0, 1, 1, 1);
@@ -311,6 +334,7 @@ ItemPropertiesTab::ItemPropertiesTab(QWidget* const parent)
 
     d->labelLocation         = new QLabel(QString(), w7);
     d->labelLocation->setWordWrap(true);
+    d->labelLocation->setAlignment(Qt::AlignRight);
 
     glay7->addWidget(d->labelLocation, 0, 0, 1, 2);
     glay7->setContentsMargins(spacing, spacing, spacing, spacing);
@@ -329,6 +353,7 @@ ItemPropertiesTab::ItemPropertiesTab(QWidget* const parent)
 
     d->labelRights           = new QLabel(QString(), w8);
     d->labelRights->setWordWrap(true);
+    d->labelRights->setAlignment(Qt::AlignRight);
     d->labelRights->setOpenExternalLinks(true);
     d->labelRights->setTextFormat(Qt::RichText);
     d->labelRights->setTextInteractionFlags(Qt::LinksAccessibleByMouse);
@@ -355,29 +380,64 @@ ItemPropertiesTab::~ItemPropertiesTab()
 
 void ItemPropertiesTab::showOrHideCachedProperties()
 {
-    bool hasTitle      = !d->labelTitle->text().isEmpty();
-    bool hasCaption    = !d->labelCaption->text().isEmpty();
-    bool hasPickLabel  = !d->labelPickLabel->adjustedText().isEmpty();
-    bool hasColorLabel = !d->labelColorLabel->adjustedText().isEmpty();
-    bool hasRating     = !d->labelRating->adjustedText().isEmpty();
     bool hasDate       = !d->labelPhotoDateTime->adjustedText().isEmpty();
-    bool hasVersionned = !d->labelVersionnedInfo->adjustedText().isEmpty();
-    bool hasGrouped    = !d->labelGroupedInfo->adjustedText().isEmpty();
-
     d->labelPhotoDateTime->setVisible(hasDate);
 
+    bool hasTitle      = !d->labelTitle->text().isEmpty();
     d->labelTitle->setVisible(hasTitle);
     d->title->setVisible(hasTitle);
+
+    bool hasCaption    = !d->labelCaption->text().isEmpty();
     d->labelCaption->setVisible(hasCaption);
     d->caption->setVisible(hasCaption);
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+
+    bool hasPickLabel  = !d->labelPick->pixmap().isNull();
+
+#else
+
+    bool hasPickLabel  = !d->labelPick->pixmap(Qt::ReturnByValue).isNull();
+
+#endif
+
     d->pickLabel->setVisible(hasPickLabel);
+    d->labelPick->setVisible(hasPickLabel);
     d->labelPickLabel->setVisible(hasPickLabel);
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+
+    bool hasColorLabel = !d->labelColor->pixmap().isNull();
+
+#else
+
+    bool hasColorLabel = !d->labelColor->pixmap(Qt::ReturnByValue).isNull();
+
+#endif
+
     d->colorLabel->setVisible(hasColorLabel);
+    d->labelColor->setVisible(hasColorLabel);
     d->labelColorLabel->setVisible(hasColorLabel);
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+
+    bool hasRating     = !d->labelRating->pixmap().isNull();
+
+
+#else
+
+    bool hasRating     = !d->labelRating->pixmap(Qt::ReturnByValue).isNull();
+
+#endif
+
     d->rating->setVisible(hasRating);
     d->labelRating->setVisible(hasRating);
-    d->versionned->setVisible(hasVersionned);
-    d->labelVersionnedInfo->setVisible(hasVersionned);
+
+    bool hasVersioned  = !d->labelVersionedInfo->adjustedText().isEmpty();
+    d->versioned->setVisible(hasVersioned);
+    d->labelVersionedInfo->setVisible(hasVersioned);
+
+    bool hasGrouped    = !d->labelGroupedInfo->adjustedText().isEmpty();
     d->grouped->setVisible(hasGrouped);
     d->labelGroupedInfo->setVisible(hasGrouped);
 
@@ -387,7 +447,7 @@ void ItemPropertiesTab::showOrHideCachedProperties()
                                                              hasPickLabel  ||
                                                              hasDate       ||
                                                              hasColorLabel ||
-                                                             hasVersionned ||
+                                                             hasVersioned  ||
                                                              hasGrouped);
 
     bool hasTags       = !d->labelTags->text().isEmpty();
@@ -407,6 +467,70 @@ void ItemPropertiesTab::showOrHideCachedProperties()
     bool hasRights = !d->labelRights->text().isEmpty();
 
     widget(ItemPropertiesTab::RightProperties)->setVisible(hasRights);
+}
+
+void ItemPropertiesTab::appendProperty(QString& data, const QString& key, const QString& value) const
+{
+    QString stripped = value;
+    stripped.remove(QLatin1String("<i>"));
+    stripped.remove(QLatin1String("</i>"));
+    stripped.replace(QLatin1Char('\n'), QLatin1Char(' '));
+    data.append(key + QLatin1String(": ") + stripped + QLatin1Char('\n'));
+}
+
+QString ItemPropertiesTab::propertiesToText() const
+{
+    QString data;
+
+    appendProperty(data, i18n("File")                    , d->labelFile->adjustedText()                 );
+    appendProperty(data, i18n("Folder")                  , d->labelFolder->text()                       );
+    appendProperty(data, i18n("Symlink")                 , d->labelSymlink->adjustedText()              );
+    appendProperty(data, i18n("Modified Date")           , d->labelFileModifiedDate->adjustedText()     );
+    appendProperty(data, i18n("Size")                    , d->labelFileSize->adjustedText()             );
+    appendProperty(data, i18n("Owner")                   , d->labelFileOwner->adjustedText()            );
+    appendProperty(data, i18n("Permissions")             , d->labelFilePermissions->adjustedText()      );
+
+    appendProperty(data, i18n("Mime")                    , d->labelImageMime->adjustedText()            );
+    appendProperty(data, i18n("Dimensions")              , d->labelImageDimensions->adjustedText()      );
+    appendProperty(data, i18n("Ratio")                   , d->labelImageRatio->adjustedText()           );
+    appendProperty(data, i18n("Bit Depth")               , d->labelImageBitDepth->adjustedText()        );
+    appendProperty(data, i18n("Color Mode")              , d->labelImageColorMode->adjustedText()       );
+    appendProperty(data, i18n("Has Sidecar")             , d->labelHasSidecar->adjustedText()           );
+    appendProperty(data, i18n("Has GPS")                 , d->labelHasGPSInfo->adjustedText()           );
+    appendProperty(data, i18n("Versioned")               , d->labelVersionedInfo->adjustedText()        );
+    appendProperty(data, i18n("Grouped")                 , d->labelGroupedInfo->adjustedText()          );
+
+    appendProperty(data, i18n("Make")                    , d->labelPhotoMake->adjustedText()            );
+    appendProperty(data, i18n("Model")                   , d->labelPhotoModel->adjustedText()           );
+    appendProperty(data, i18n("Date Time")               , d->labelPhotoDateTime->adjustedText()        );
+    appendProperty(data, i18n("Lens")                    , d->labelPhotoLens->adjustedText()            );
+    appendProperty(data, i18n("Aperture")                , d->labelPhotoAperture->adjustedText()        );
+    appendProperty(data, i18n("Focal Length")            , d->labelPhotoFocalLength->adjustedText()     );
+    appendProperty(data, i18n("Exposure Time")           , d->labelPhotoExposureTime->adjustedText()    );
+    appendProperty(data, i18n("Sensitivity")             , d->labelPhotoSensitivity->adjustedText()     );
+    appendProperty(data, i18n("Exposure Mode")           , d->labelPhotoExposureMode->adjustedText()    );
+    appendProperty(data, i18n("Flash")                   , d->labelPhotoFlash->adjustedText()           );
+    appendProperty(data, i18n("White Balance")           , d->labelPhotoWhiteBalance->adjustedText()    );
+
+    appendProperty(data, i18n("Video Aspect Ratio")      , d->labelVideoAspectRatio->adjustedText()     );
+    appendProperty(data, i18n("Video Duration")          , d->labelVideoDuration->adjustedText()        );
+    appendProperty(data, i18n("Video Frame Rate")        , d->labelVideoFrameRate->adjustedText()       );
+    appendProperty(data, i18n("Video Video Codec")       , d->labelVideoVideoCodec->adjustedText()      );
+    appendProperty(data, i18n("Video Audio Bit Rate")    , d->labelVideoAudioBitRate->adjustedText()    );
+    appendProperty(data, i18n("Video Audio Channel Type"), d->labelVideoAudioChannelType->adjustedText());
+    appendProperty(data, i18n("Video Audio Codec")       , d->labelVideoAudioCodec->adjustedText()      );
+
+    appendProperty(data, i18n("Caption")                 , d->labelCaption->text()                      );
+    appendProperty(data, i18n("Title")                   , d->labelTitle->text()                        );
+    appendProperty(data, i18n("Tags")                    , d->labelTags->text()                         );
+    appendProperty(data, i18n("Peoples")                 , d->labelPeoples->text()                      );
+    appendProperty(data, i18n("Location")                , d->labelLocation->text()                     );
+    appendProperty(data, i18n("Rights")                  , d->labelRights->text()                       );
+    appendProperty(data, i18n("Pick")                    , d->labelPickLabel->adjustedText()            );
+    appendProperty(data, i18n("Color")                   , d->labelColorLabel->adjustedText()           );
+    appendProperty(data, i18n("Rating")                  , d->labelRating->property("Rating").toString());
+
+    return data;
 }
 
 } // namespace Digikam

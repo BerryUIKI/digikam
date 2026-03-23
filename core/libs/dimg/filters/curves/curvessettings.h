@@ -6,7 +6,7 @@
  * Date        : 2010-03-01
  * Description : Curves settings view.
  *
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -56,6 +56,8 @@ public:
     void setCurrentChannel(ChannelType channel);
 
     int curvesLeftOffset() const;
+
+    void setCurveGuide(const DColor& color);
 
 Q_SIGNALS:
 

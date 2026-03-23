@@ -6,7 +6,7 @@
  * Description : Face database interface to train identities.
  *
  * SPDX-FileCopyrightText: 2012-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2019      by Thanh Trung Dinh <dinhthanhtrung1996 at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
@@ -42,9 +42,9 @@ BdEngineBackend::QueryState FaceDb::setSetting(const QString& keyword, const QSt
 
 QString FaceDb::setting(const QString& keyword) const
 {
+    QVariantList            values;
     QMap<QString, QVariant> parameters;
     parameters.insert(QLatin1String(":keyword"), keyword);
-    QList<QVariant> values;
 
     // TODO: Should really check return status here.
 
@@ -66,7 +66,8 @@ QString FaceDb::setting(const QString& keyword) const
 
 bool FaceDb::integrityCheck()
 {
-    QList<QVariant> values;
+    QVariantList values;
+
     d->db->execDBAction(d->db->getDBAction(QString::fromUtf8("checkRecognitionDbIntegrity")), &values);
 
     switch (d->db->databaseType())

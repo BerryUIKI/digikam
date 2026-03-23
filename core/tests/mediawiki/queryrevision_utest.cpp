@@ -6,7 +6,7 @@
  * Date        : 2011-03-22
  * Description : a MediaWiki C++ interface
  *
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2011      by Alexandre Mendes <alex dot mendes1988 at gmail dot com>
  * SPDX-FileCopyrightText: 2011      by Hormiere Guillaume <hormiere dot guillaume at gmail dot com>
  * SPDX-FileCopyrightText: 2011      by Manuel Campomanes <campomanes dot manuel at gmail dot com>
@@ -71,7 +71,14 @@ Revision constructRevision(int i, int p, int s, bool m,
 QString QStringFromFile(const QString& fileName)
 {
     QFile file( fileName );
-    file.open( QFile::ReadOnly );
+
+    if (!file.open( QFile::ReadOnly ))
+    {
+        qWarning() << "file" << fileName << "cannot be open";
+
+        return QString();
+    }
+
     QTextStream in(&file);
     QString scenario;
 
@@ -300,7 +307,7 @@ private Q_SLOTS:
                 << QStringLiteral("<api><error code=\"rvrevids\" info=\"\"/></api>")
                 << int(QueryRevision::WrongRevisionId);
 
-        QTest::newRow("Multilple pages")
+        QTest::newRow("Multiple pages")
                 << QStringLiteral("<api><error code=\"rvmultpages\" info=\"\"/></api>")
                 << int(QueryRevision::MultiPagesNotAllowed);
 

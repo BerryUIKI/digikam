@@ -6,7 +6,7 @@
  * Date        : 2007-08-02
  * Description : JPEG image export settings widget.
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -69,9 +69,9 @@ DImgJPEGExportSettings::DImgJPEGExportSettings(QWidget* const parent)
 
     d->JPEGcompression->setWhatsThis(i18n("<p>The JPEG quality:</p>"
                                           "<p><b>1</b>: low quality (high compression and small "
-                                          "file size)<br/>"
-                                          "<b>50</b>: medium quality<br/>"
-                                          "<b>75</b>: good quality (default)<br/>"
+                                          "file size)<br>"
+                                          "<b>50</b>: medium quality<br>"
+                                          "<b>75</b>: good quality (default)<br>"
                                           "<b>100</b>: high quality (no compression and "
                                           "large file size)</p>"
                                           "<p><b>Note: JPEG always uses lossy compression.</b></p>"));

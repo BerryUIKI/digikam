@@ -6,7 +6,7 @@
  * Date        : 2010-08-20
  * Description : MetaEngine Settings Container.
  *
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -124,6 +124,21 @@ void MetaEngineSettingsContainer::writeToConfig(KConfigGroup& group) const
     group.writeEntry("Custom Sidecar Extensions",               sidecarExtensions);
 
     group.writeEntry("ExifTool Path",                           exifToolPath);
+}
+
+bool MetaEngineSettingsContainer::isMetadataWriteEnabled() const
+{
+    return (
+            saveTags       ||
+            saveTemplate   ||
+            saveFaceTags   ||
+            savePosition   ||
+            saveComments   ||
+            saveDateTime   ||
+            savePickLabel  ||
+            saveColorLabel ||
+            saveRating
+           );
 }
 
 QStringList MetaEngineSettingsContainer::defaultExifToolSearchPaths() const

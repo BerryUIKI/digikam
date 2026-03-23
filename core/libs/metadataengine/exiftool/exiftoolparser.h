@@ -6,7 +6,7 @@
  * Date        : 2020-11-28
  * Description : ExifTool process stream parser.
  *
- * SPDX-FileCopyrightText: 2020-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -57,7 +57,7 @@ public:
      * value = the Exiv2 metadata container  (QByteArray).
      *
      * With applyChanges() method, the container is used as argument to
-     * store tupple of ExifTool tag name as key and tag value:
+     * store tuple of ExifTool tag name as key and tag value:
      * key   = ExifTool tag name             (QString).
      * value = ExifTool Tag value            (QString).
      *
@@ -78,7 +78,7 @@ public:
      *         (aka fr, en, de, es, etc.)    (QStringList).
      *
      * With tagsDatabase() method, the container is used as argument to
-     * store tupple of ExifTool tag name as key and tag description:
+     * store tuple of ExifTool tag name as key and tag description:
      * key    = ExifTool tag name            (QString).
      * values = ExifTool Tag description     (QString).
      *          ExifTool Tag type            (QString).
@@ -106,6 +106,11 @@ public:
      */
     bool exifToolAvailable()          const;
 
+    /**
+     * Check if ExifTool has reported an error.
+     */
+    bool hasError()                   const;
+
     //@}
 
 public:
@@ -124,7 +129,9 @@ public:
      * Load Exif, Iptc, and Xmp chunk as Exiv2 EXV byte-array from a file.
      * Use currentData() to get the container.
      */
-    bool loadChunk(const QString& path, bool copyToAll = false);
+    bool loadChunk(const QString& path,
+                   bool copyToAll = false,
+                   bool dropMakernotes = false);
 
     /**
      * Apply tag changes to a target file using ExifTool with a list of tag properties.

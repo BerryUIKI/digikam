@@ -6,7 +6,7 @@
  * Date        : 28/08/2021
  * Description : Extraction of focus points by exiftool data
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021      by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -77,7 +77,9 @@ private:
 
     ListAFPoints getAFPoints_canon()                                                                        const;
     ListAFPoints getAFPoints_exif()                                                                         const;
+    ListAFPoints getAFPoints_fujifilm()                                                                     const;
     ListAFPoints getAFPoints_nikon()                                                                        const;
+    ListAFPoints getAFPoints_olympus()                                                                      const;
     ListAFPoints getAFPoints_panasonic()                                                                    const;
     ListAFPoints getAFPoints_sony()                                                                         const;
     ListAFPoints getAFPoints_xmp()                                                                          const;

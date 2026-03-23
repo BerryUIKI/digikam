@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Performs autotags object detection and classification
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -39,6 +39,7 @@
 #include "album.h"
 #include "iteminfo.h"
 #include "coredb.h"
+#include "actionthreadbase.h"
 #include "autotagsscansettings.h"
 #include "dimg.h"
 #include "previewloadthread.h"
@@ -159,6 +160,8 @@ bool AutotagsPipelineObject::start()
 
 bool AutotagsPipelineObject::finder()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("Autotags%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     if (settings.bqmMode)
     {
         return true;
@@ -236,6 +239,8 @@ bool AutotagsPipelineObject::finder()
 
 bool AutotagsPipelineObject::loader()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("Autotags%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Loader, MLPipelineStage::Extractor);
     AutotagsPipelinePackageBase* package = nullptr;
 
@@ -268,7 +273,7 @@ bool AutotagsPipelineObject::loader()
 
             package->image = PreviewLoadThread::loadFastSynchronously(package->info.filePath(), model->info.imageSize);
 
-            // check for corrupted images that can't be loaded
+            // check for corrupted images that cannot be loaded
 
             if (!package->image.isNull())
             {
@@ -322,6 +327,8 @@ bool AutotagsPipelineObject::loader()
 
 bool AutotagsPipelineObject::extractor()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("Autotags%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(QThread::NormalPriority, MLPipelineStage::Extractor, MLPipelineStage::Classifier);
     AutotagsPipelinePackageBase* package = nullptr;
 
@@ -455,6 +462,8 @@ bool AutotagsPipelineObject::extractor()
 
 bool AutotagsPipelineObject::classifier()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("Autotags%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Classifier, MLPipelineStage::Writer);
     AutotagsPipelinePackageBase* package = nullptr;
 
@@ -504,6 +513,8 @@ bool AutotagsPipelineObject::classifier()
 
 bool AutotagsPipelineObject::writer()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("Autotags%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Writer, MLPipelineStage::None);
     AutotagsPipelinePackageBase* package = nullptr;
 

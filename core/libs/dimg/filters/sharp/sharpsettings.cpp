@@ -6,7 +6,7 @@
  * Date        : 2010-02-10
  * Description : sharp settings view.
  *
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -36,12 +36,13 @@
 
 // Local includes
 
+#include "digikam_debug.h"
+#include "digikam_config.h"
+#include "digikam_globals.h"
 #include "dexpanderbox.h"
 #include "dfiledialog.h"
 #include "dlayoutbox.h"
 #include "dnuminput.h"
-#include "digikam_debug.h"
-#include "digikam_config.h"
 #include "dcombobox.h"
 
 #ifdef HAVE_EIGEN3

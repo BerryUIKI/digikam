@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -52,9 +52,6 @@ target_include_directories(digikam
                            PRIVATE
                            ${DIGIKAM_TARGET_INCLUDES}
 )
-
-add_dependencies(digikam digikam-gitversion)
-add_dependencies(digikam digikam-builddate)
 
 target_link_libraries(digikam
 

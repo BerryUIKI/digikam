@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -863,7 +863,7 @@ QRectF PlacemarkLayout::roomForLabel(const GeoDataStyle::ConstPtr& style,
 
         for (int i = 0 ; i < 7 ; ++i)
         {
-            const qreal increase   = (i / 2) * (textHeight + 1); //intentional integer arithmetics
+            const qreal increase   = (i / 2) * (textHeight + 1);        // intentional integer arithmetic
             const qreal direction  = (i % 2 == 0 ? 1 : -1);
             const qreal yPos       = startY + increase * direction;
             const QRectF labelRect = QRectF(xPos, yPos, textWidth, textHeight);

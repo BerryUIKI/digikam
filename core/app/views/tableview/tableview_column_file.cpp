@@ -6,7 +6,7 @@
  * Date        : 2013-02-25
  * Description : Table view column helpers: File properties
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -29,6 +29,7 @@
 // Local includes
 
 #include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "itempropertiestab.h"
 #include "iteminfo.h"
 
@@ -175,9 +176,7 @@ QVariant ColumnFileProperties::data(TableViewModel::Item* const item, const int 
 
         case SubColumnLastModified:
         {
-            const QDateTime lastModifiedTime = info.modDateTime();
-
-            return QLocale().toString(lastModifiedTime, QLocale::ShortFormat);
+            return asUserDateTime(info.modDateTime());
         }
     }
 

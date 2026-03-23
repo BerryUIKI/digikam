@@ -6,7 +6,7 @@
  * Date        : 2022-08-26
  * Description : OCR settings widgets
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2022      by Quoc Hung Tran <quochungtran1999 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -49,6 +49,8 @@ public:
 
     Private() = default;
 
+public:
+
     // Tesseract options
 
     DComboBox*            ocrTesseractLanguageMode  = nullptr;
@@ -80,7 +82,7 @@ TextConverterSettings::TextConverterSettings(QWidget* const parent)
                                                            "In the Default mode of Language settings for digital text with multiple languages, \n"
                                                            "Tesseract can automatically recognize languages using Latin alphabets such as English or French, \n"
                                                            "but is not compatible with languages using hieroglyphs such as Chinese, Japanese.\n"
-                                                           "You can use the Orientation and Script Detection mode instead or a specific language"
+                                                           "You can use the Orientation and Script Detection mode instead or a specific language "
                                                            "module if available."));
 
     // ------------

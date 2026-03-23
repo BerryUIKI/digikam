@@ -6,7 +6,7 @@
  * Date        : 2024-11-10
  * Description : Performs face detection and recognition
  *
- * SPDX-FileCopyrightText: 2024-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2024-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -17,10 +17,8 @@
 
 // Qt includes
 
-#include <QList>
 #include <QSet>
-#include <QElapsedTimer>
-#include <QRectF>
+#include <QList>
 
 // KDE includes
 
@@ -33,14 +31,11 @@
 #include "sharedqueue.h"
 #include "collectionmanager.h"
 #include "album.h"
-#include "iteminfo.h"
 #include "coredb.h"
-#include "facescansettings.h"
-#include "dimg.h"
-#include "previewloadthread.h"
+#include "iteminfo.h"
 #include "faceutils.h"
+#include "facescansettings.h"
 #include "facepipelinepackagebase.h"
-#include "thumbnailloadthread.h"
 #include "identityprovider.h"
 #include "identity.h"
 #include "dnnsfaceextractor.h"
@@ -76,6 +71,8 @@ bool FacePipelineReset::start()
 
 bool FacePipelineReset::finder()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceReset%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_FINDER_START(settings.workerThreadPriority, MLPipelineStage::Writer);
 
     /* =========================================================================================
@@ -134,6 +131,8 @@ bool FacePipelineReset::finder()
 
 bool FacePipelineReset::writer()
 {
+    ActionThreadBase::setCurrentThreadName(QString::fromLatin1("FaceReset%1").arg(QLatin1String(__FUNCTION__)));       // To customize thread name
+
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Writer, MLPipelineStage::None);
     FacePipelinePackageBase* package = nullptr;
 
@@ -150,7 +149,7 @@ bool FacePipelineReset::writer()
     IdentityProvider* const idProvider = IdentityProvider::instance();
     QIcon icon                         = QIcon::fromTheme(QLatin1String("person"));
 
-    // clear all identites and training from recognition DB before
+    // clear all identities and training from recognition DB before
     // we start looping through the results from the pipeline
 
     idProvider->clearAllTraining();
@@ -224,6 +223,6 @@ void FacePipelineReset::addMoreWorkers()
     // reset pipeline is always single thread per stage
 }
 
-} // namepsace Digikam
+} // namespace Digikam
 
 #include "moc_facepipelinereset.cpp"

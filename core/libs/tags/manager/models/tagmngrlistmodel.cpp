@@ -6,7 +6,9 @@
  * Date        : 20013-08-22
  * Description : List View Model with support for mime data and drag-n-drop
  *
- * SPDX-FileCopyrightText: 2013 by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2013      by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2025 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -40,6 +42,8 @@ public:
 
     Private() = default;
 
+public:
+
     ListItem*  rootItem         = nullptr;
     QList<int> dragNewSelection;
 };
@@ -66,7 +70,7 @@ ListItem* TagMngrListModel::addItem(QList<QVariant> values)
     ListItem* const item = new ListItem(values, d->rootItem);
 
     /**
-     * containsItem will return a valid pointer if item with the same
+     * @note containsItem will return a valid pointer if item with the same
      * values is already added to it's children list.
      */
     ListItem* const existingItem = d->rootItem->containsItem(item);
@@ -229,8 +233,8 @@ bool TagMngrListModel::dropMimeData(const QMimeData* data, Qt::DropAction action
             finalItems.append(newItems);
 
             /**
-             * After drag-n-drop selection is messed up, store the interval were
-             * new items are and TagsMngrListView will update selection
+             * @note after drag-n-drop selection is messed up, store the interval were
+             * new items are and TagsMngrListView will update selection.
              */
             d->dragNewSelection.clear();
             d->dragNewSelection << row;

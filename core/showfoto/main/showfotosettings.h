@@ -7,7 +7,7 @@
  * Description : Settings for Showfoto
  *
  * SPDX-FileCopyrightText: 2013-2014 by Mohamed_Anwer <m_dot_anwer at gmx dot com>
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -29,6 +29,9 @@ class ShowfotoSettings : public QObject
     Q_OBJECT
 
 public:
+
+    ShowfotoSettings();
+    ~ShowfotoSettings() override;
 
     static ShowfotoSettings* instance();
 
@@ -60,6 +63,9 @@ public:
 
     QString getIconTheme() const;
     void setIconTheme(const QString& theme);
+
+    QString getDateTimeFormat() const;
+    void setDateTimeFormat(const QString& fmt);
 
     void setApplicationFont(const QFont& fnt);
     QFont getApplicationFont() const;
@@ -138,16 +144,12 @@ public:
 private:
 
     // Disable
-    ShowfotoSettings();
     explicit ShowfotoSettings(QObject*) = delete;
-    ~ShowfotoSettings() override;
 
 private:
 
     class Private;
     Private* const d = nullptr;
-
-    friend class ShowfotoSettingsCreator;
 };
 
 } // namespace Showfoto

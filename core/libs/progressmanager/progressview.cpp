@@ -6,7 +6,7 @@
  * Date        : 2012-01-13
  * Description : progress manager
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2004      by Till Adam <adam at kde dot org>
  *
@@ -123,7 +123,7 @@ void TransactionItemView::slotLayoutFirstItem()
         objects. This slot is called from the destroyed signal of an item just
         going away. That item is at that point still in the  list of children, but
         since the vtable is already gone, it will have type QObject. The first
-        one with both the right name and the right class therefor is what will
+        one with both the right name and the right class therefore is what will
         be the first item very shortly. That's the one we want to remove the
         hline for.
     */

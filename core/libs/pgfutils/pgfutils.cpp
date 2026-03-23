@@ -6,7 +6,7 @@
  * Date        : 2009-05-29
  * Description : static helper methods for PGF image format.
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -158,7 +158,7 @@ bool writePGFImageFile(const QImage& image,
 {
 #ifdef Q_OS_WIN
 
-    HANDLE fd = CreateFile((LPCWSTR)filePath.utf16(), GENERIC_READ, 0, 0, OPEN_EXISTING, 0, 0);
+    HANDLE fd = CreateFileW((LPCWSTR)filePath.utf16(), GENERIC_READ, 0, 0, OPEN_EXISTING, 0, 0);
 
     if (fd == INVALID_HANDLE_VALUE)
     {
@@ -453,7 +453,7 @@ bool loadPGFScaled(QImage& img, const QString& path, int maximumSize)
 
 #ifdef Q_OS_WIN
 
-    HANDLE fd = CreateFile((LPCWSTR)path.utf16(), GENERIC_READ, 0, 0, OPEN_EXISTING, 0, 0);
+    HANDLE fd = CreateFileW((LPCWSTR)path.utf16(), GENERIC_READ, 0, 0, OPEN_EXISTING, 0, 0);
 
     if (fd == INVALID_HANDLE_VALUE)
     {

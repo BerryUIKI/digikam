@@ -6,7 +6,7 @@
  * Date        : 2011-03-22
  * Description : a MediaWiki C++ interface
  *
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2011      by Alexandre Mendes <alex dot mendes1988 at gmail dot com>
  * SPDX-FileCopyrightText: 2011      by Hormiere Guillaume <hormiere dot guillaume at gmail dot com>
  * SPDX-FileCopyrightText: 2011      by Manuel Campomanes <campomanes dot manuel at gmail dot com>
@@ -78,13 +78,13 @@ private Q_SLOTS:
     void uploadSetters()
     {
         QFETCH(QString, request);
-        QFETCH(QString, senario);
+        QFETCH(QString, scenario);
         QFETCH(Upload*, job);
 
         uploadCount = 0;
         FakeServer fakeserver;
         fakeserver.setScenario(m_infoScenario);
-        fakeserver.addScenario(senario);
+        fakeserver.addScenario(scenario);
         fakeserver.startAndWait();
 
         connect(job, SIGNAL(result(KJob*)),
@@ -101,7 +101,7 @@ private Q_SLOTS:
     void uploadSetters_data()
     {
         QTest::addColumn<QString>("request");
-        QTest::addColumn<QString>("senario");
+        QTest::addColumn<QString>("scenario");
         QTest::addColumn<Upload*>("job");
 
         Upload* const e1 = new Upload( *m_mediaWiki, nullptr);

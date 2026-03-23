@@ -16,6 +16,7 @@
 
 // Qt includes
 
+#include <QDir>
 #include <QFileInfo>
 #include <QDateTime>
 #include <QScopedPointer>
@@ -55,7 +56,7 @@ void CopyFilesTask::run(ThreadWeaver::JobPointer, ThreadWeaver::Thread*)
     QFile     panoFile(panoUrl.toLocalFile());
     QFile     finalPanoFile(finalPanoUrl.toLocalFile());
 
-    QFileInfo fi(finalPanoUrl.toLocalFile());
+    QFileInfo fi(QDir::toNativeSeparators(finalPanoUrl.toLocalFile()));
     QUrl      finalPTOUrl = finalPanoUrl.adjusted(QUrl::RemoveFilename);
     finalPTOUrl.setPath(finalPTOUrl.path() + fi.completeBaseName() + QLatin1String(".pto"));
 
@@ -64,8 +65,8 @@ void CopyFilesTask::run(ThreadWeaver::JobPointer, ThreadWeaver::Thread*)
 
     if (!panoFile.exists())
     {
-        errString = i18n("Temporary panorama file does not exists.");
-        qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Temporary panorama file does not exists: " << panoUrl;
+        errString = i18n("Temporary panorama file does not exist.");
+        qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Temporary panorama file does not exist: " << panoUrl;
         successFlag = false;
         return;
     }
@@ -81,15 +82,15 @@ void CopyFilesTask::run(ThreadWeaver::JobPointer, ThreadWeaver::Thread*)
     if (savePTO && !ptoFile.exists())
     {
         errString = i18n("Temporary project file does not exist.");
-        qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Temporary project file does not exists: " << ptoUrl;
+        qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Temporary project file does not exist: " << ptoUrl;
         successFlag = false;
         return;
     }
 
     if (savePTO && finalPTOFile.exists())
     {
-        errString = i18n("A project file named <filename>%1</filename> already exists.", finalPTOUrl.fileName());
-        qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Final project file already exists: " << finalPTOUrl;
+        errString = i18n("A project file named <filename>%1</filename> already exist.", finalPTOUrl.fileName());
+        qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Final project file already exist: " << finalPTOUrl;
         successFlag = false;
         return;
     }

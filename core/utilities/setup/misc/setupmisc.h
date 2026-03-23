@@ -7,7 +7,7 @@
  * Description : mics configuration setup tab
  *
  * SPDX-FileCopyrightText: 2004      by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2017      by Simon Frei <freisim93 at gmail dot com>
  * SPDX-FileCopyrightText: 2025      by Michael Miller <michael underscore miller at msn dot com>
  *
@@ -32,7 +32,7 @@ public:
 
     enum MiscTab
     {
-        Behaviour = 0,
+        Behavior = 0,
         Appearance,
         Grouping,
         SpellCheck,
@@ -54,6 +54,10 @@ public:
 private:
 
     void readSettings();
+
+    void setupBehavior();
+    void setupAppearance();
+    void setupGrouping();
 
 private:
 

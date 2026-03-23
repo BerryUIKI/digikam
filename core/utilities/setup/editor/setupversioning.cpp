@@ -7,7 +7,7 @@
  * Description : setup tab for image versioning
  *
  * SPDX-FileCopyrightText: 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -168,7 +168,7 @@ SetupVersioning::SetupVersioning(QWidget* const parent)
     d->formatBox->insertSeparator(4);
 
     QString formatHelp = xi18nc("@info:whatsthis",
-                                "<title>Default File Format for Saving Versionned Images</title>"
+                                "<title>Default File Format for Saving Versioned Images</title>"
                                 "<para>Select the file format in which edited images are saved automatically. "
                                 "Format-specific options, like compression settings, "
                                 "can be configured on the <interface>Format Options</interface> tab.</para>");

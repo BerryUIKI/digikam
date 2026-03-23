@@ -7,7 +7,7 @@
  * Description : time adjust settings widget.
  *
  * SPDX-FileCopyrightText: 2012      by Smit Mehta <smit dot meh at gmail dot com>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2018      by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -149,10 +149,12 @@ TimeAdjustSettings::TimeAdjustSettings(QWidget* const parent, bool timeAdjustToo
     d->useFileDateTypeChooser   = new QComboBox(d->useSettingsBox);
     d->useFileDateTypeChooser->insertItem(TimeAdjustContainer::FILELASTMOD, i18n("File last modified"));
 
-/*
+#ifdef Q_OS_WIN
+
     // NOTE: not supported by Linux, although supported by Qt (read-only)
     d->useFileDateTypeChooser->insertItem(TimeAdjustContainer::FILECREATED, i18n("File created"));
-*/
+
+#endif
 
     d->useMetaDateBtn         = new QRadioButton(QString(), d->useSettingsBox);
     d->useMetaDateTypeChooser = new QComboBox(d->useSettingsBox);
@@ -334,7 +336,7 @@ TimeAdjustSettings::TimeAdjustSettings(QWidget* const parent, bool timeAdjustToo
             this, SIGNAL(signalSrcTimestampChanged()));
 
     connect(d->useCustDateInput, SIGNAL(dateChanged(QDate)),
-            this, SIGNAL(signalSettingsChangedTool()));
+            this, SIGNAL(signalSettingsChanged()));
 
     connect(d->useCustTimeInput, SIGNAL(editingFinished()),
             this, SIGNAL(signalSrcTimestampChanged()));
@@ -346,7 +348,7 @@ TimeAdjustSettings::TimeAdjustSettings(QWidget* const parent, bool timeAdjustToo
             this, SIGNAL(signalSrcTimestampChanged()));
 
     connect(d->useCustTimeInput, SIGNAL(timeChanged(QTime)),
-            this, SIGNAL(signalSettingsChangedTool()));
+            this, SIGNAL(signalSettingsChanged()));
 
     connect(d->adjDaysInput, SIGNAL(valueChanged(int)),
             this, SIGNAL(signalSettingsChanged()));
@@ -355,7 +357,7 @@ TimeAdjustSettings::TimeAdjustSettings(QWidget* const parent, bool timeAdjustToo
             this, SIGNAL(signalSettingsChanged()));
 
     connect(d->adjTimeInput, SIGNAL(timeChanged(QTime)),
-            this, SIGNAL(signalSettingsChangedTool()));
+            this, SIGNAL(signalSettingsChanged()));
 
     connect(d->updEXIFModDateCheck, SIGNAL(toggled(bool)),
             this, SIGNAL(signalSettingsChanged()));

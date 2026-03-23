@@ -6,7 +6,7 @@
  * Date        : 2018-12-31
  * Description : digiKam plugin about dialog
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -74,7 +74,7 @@ DPluginAboutDlg::DPluginAboutDlg(DPlugin* const tool, QWidget* const parent)
 
     QLabel* const header            = new QLabel(page);
     header->setWordWrap(true);
-    header->setText(QString::fromUtf8("<font size=\"5\">%1</font><br/>"
+    header->setText(QString::fromUtf8("<font size=\"5\">%1</font><br>"
                                       "<b>%2 %3</b>"
                                       "<p>%4</p>")
                     .arg(tool->name())
@@ -93,7 +93,7 @@ DPluginAboutDlg::DPluginAboutDlg(DPlugin* const tool, QWidget* const parent)
     details->setTextInteractionFlags(Qt::LinksAccessibleByMouse);
 
     QString txtDetails = tool->details();
-    txtDetails.replace(QLatin1String("\n"), QLatin1String("<br/>"));
+    txtDetails.replace(QLatin1String("\n"), QLatin1String("<br>"));
     details->setText(txtDetails);
 
     tab->addTab(details, i18nc("@title", "Details"));
@@ -113,7 +113,7 @@ DPluginAboutDlg::DPluginAboutDlg(DPlugin* const tool, QWidget* const parent)
         alist += QString::fromUtf8("<b>%1</b><ul>"
                                    "<li><i>%2</i></li>"
                                    "<li>%3</li>"
-                                   "<li>%4</li></ul><br/>")
+                                   "<li>%4</li></ul><br>")
                  .arg(auth.name)
                  .arg(auth.email)
                  .arg(auth.years)
@@ -143,7 +143,7 @@ DPluginAboutDlg::DPluginAboutDlg(DPlugin* const tool, QWidget* const parent)
     QFileInfo fi(tool->libraryFileName());
 
     new QTreeWidgetItem(props, QStringList() << i18nc("@item", "File Size")    << ItemPropertiesTab::humanReadableBytesCount(fi.size()));
-    new QTreeWidgetItem(props, QStringList() << i18nc("@item", "File Date")    << QLocale().toString(fi.lastModified(), QLocale::ShortFormat));
+    new QTreeWidgetItem(props, QStringList() << i18nc("@item", "File Date")    << asUserDateTime(fi.lastModified()));
     new QTreeWidgetItem(props, QStringList() << i18nc("@item", "File Owner")   << fi.owner());
     new QTreeWidgetItem(props, QStringList() << i18nc("@item", "File Group")   << fi.group());
 

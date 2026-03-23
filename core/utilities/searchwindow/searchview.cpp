@@ -150,6 +150,8 @@ public:
 
     Private() = default;
 
+public:
+
     bool                     needAnimationForReadIn = false;
 
     QVBoxLayout*             layout                 = nullptr;
@@ -293,7 +295,7 @@ QString SearchView::write() const
     SearchXmlWriter writer;
     writeGroups(writer);
     writer.finish();
-    qCDebug(DIGIKAM_GENERAL_LOG) << writer.xml();
+    qCDebug(DIGIKAM_GENERAL_LOG) << "SearchView: Generated search XML query:" << writer.xml();
 
     return writer.xml();
 }
@@ -546,7 +548,8 @@ void SearchViewBottomBar::paintEvent(QPaintEvent*)
 
 void SearchViewBottomBar::slotHelp()
 {
-    openOnlineDocumentation(QLatin1String("main_window"), QLatin1String("search_view"));
+    openOnlineDocumentation(QLatin1String("left_sidebar"),
+                            QLatin1String("search_view"));
 }
 
 } // namespace Digikam

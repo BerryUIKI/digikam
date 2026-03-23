@@ -7,7 +7,7 @@
  * Description : Managing visibility state with animations
  *
  * SPDX-FileCopyrightText: 2010-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -196,6 +196,12 @@ private:
 
     QParallelAnimationGroup*        m_animationGroup = nullptr;
     ItemVisibilityController* const m_q              = nullptr;
+
+private:
+
+    // Disable
+    AnimationControl(const AnimationControl&)            = delete;
+    AnimationControl& operator=(const AnimationControl&) = delete;
 };
 
 AnimationControl::AnimationControl(ItemVisibilityController* const q)
@@ -753,11 +759,11 @@ QList<QObject*> ItemVisibilityController::items() const
 
 QList<QObject*> ItemVisibilityController::visibleItems(IncludeFadingOutMode mode) const
 {
-    QList<QObject*> items;
+    QList<QObject*> itms;
 
     if (d->control && d->control->hasVisibleItems(mode))
     {
-        items = d->control->m_items;
+        itms = d->control->m_items;
     }
 
     for (AnimationControl* const child : std::as_const(d->childControls))
@@ -765,11 +771,11 @@ QList<QObject*> ItemVisibilityController::visibleItems(IncludeFadingOutMode mode
         if (child->hasVisibleItems(mode))
         {
             // cppcheck-suppress useStlAlgorithm
-            items += child->m_items;
+            itms += child->m_items;
         }
     }
 
-    return items;
+    return itms;
 }
 
 bool ItemVisibilityController::shallBeShown() const

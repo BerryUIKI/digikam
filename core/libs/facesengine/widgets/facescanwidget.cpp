@@ -7,7 +7,7 @@
  * Description : Widget to choose options for face scanning
  *
  * SPDX-FileCopyrightText: 2010-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -30,7 +30,6 @@ FaceScanWidget::FaceScanWidget(QWidget* const parent)
 {
     setObjectName(d->configName);
     setupUi();
-    setupConnections();
 }
 
 FaceScanWidget::~FaceScanWidget()
@@ -42,41 +41,45 @@ void FaceScanWidget::doLoadState()
 {
     KConfigGroup group = getConfigGroup();
 
-    FaceScanSettings prm;
-    prm.readFromConfig(group);
+    FaceScanSettings settings;
+    settings.readFromConfig(group);
 
     /**
      * ClearAll isn't a valid value anymore so set it Rescan.
      * ClearAll is only used by ResetFacesDb in maintenance.
      */
 
-    if (FaceScanSettings::AlreadyScannedHandling::ClearAll == prm.alreadyScannedHandling)
+    if (FaceScanSettings::AlreadyScannedHandling::ClearAll == settings.alreadyScannedHandling)
     {
-        prm.alreadyScannedHandling = FaceScanSettings::AlreadyScannedHandling::Rescan;
+        settings.alreadyScannedHandling = FaceScanSettings::AlreadyScannedHandling::Rescan;
     }
 
-    d->alreadyScannedBox->setCurrentIndex(d->alreadyScannedBox->findData(prm.alreadyScannedHandling));
-    d->detectAccuracyInput->setValue(prm.detectAccuracy);
-    d->detectSizeBox->setCurrentIndex(d->detectSizeBox->findData(prm.detectSize));
-    d->recognizeAccuracyInput->setValue(prm.recognizeAccuracy);
-    d->useFullCpuButton->setChecked(prm.useFullCpu);
+    d->alreadyScannedBox->setCurrentIndex(d->alreadyScannedBox->findData(settings.alreadyScannedHandling));
+    d->detectAccuracyInput->setValue(settings.detectAccuracy);
+    d->detectSizeBox->setCurrentIndex(d->detectSizeBox->findData(settings.detectSize));
+    d->recognizeAccuracyInput->setValue(settings.recognizeAccuracy);
+    d->useFullCpuButton->setChecked(settings.useFullCpu);
 
     d->albumSelectors->loadState();
+
+    setupConnections();
 }
 
 void FaceScanWidget::doSaveState()
 {
     KConfigGroup group = getConfigGroup();
 
-    FaceScanSettings prm;
+    FaceScanSettings settings;
 
-    prm.alreadyScannedHandling = static_cast<FaceScanSettings::AlreadyScannedHandling>(d->alreadyScannedBox->itemData(d->alreadyScannedBox->currentIndex()).toInt());
-    prm.detectAccuracy         = d->detectAccuracyInput->value();
-    prm.detectSize             = static_cast<FaceScanSettings::FaceDetectionSize>(d->detectSizeBox->currentData().toInt());
-    prm.recognizeAccuracy      = d->recognizeAccuracyInput->value();
-    prm.useFullCpu             = d->useFullCpuButton->isChecked();
+    settings.alreadyScannedHandling = static_cast<FaceScanSettings::AlreadyScannedHandling>
+                                      (d->alreadyScannedBox->itemData(d->alreadyScannedBox->currentIndex()).toInt());
+    settings.detectAccuracy         = d->detectAccuracyInput->value();
+    settings.detectSize             = static_cast<FaceScanSettings::FaceDetectionSize>
+                                      (d->detectSizeBox->currentData().toInt());
+    settings.recognizeAccuracy      = d->recognizeAccuracyInput->value();
+    settings.useFullCpu             = d->useFullCpuButton->isChecked();
 
-    prm.writeToConfig(group);
+    settings.writeToConfig(group);
 
     d->albumSelectors->saveState();
 }
@@ -98,7 +101,7 @@ void FaceScanWidget::setupUi()
 
     d->workflowWidget                   = new DHBox(d->settingsTab);
 
-    QLabel* const workflowLabel         = new QLabel(i18nc("@label short translated text about the Face Worflow.",
+    QLabel* const workflowLabel         = new QLabel(i18nc("@label short translated text about the Face Workflow.",
                                                            "Workflow:"), d->workflowWidget);
     workflowLabel->setAlignment(Qt::AlignLeft | Qt::AlignVCenter);
 
@@ -107,9 +110,9 @@ void FaceScanWidget::setupUi()
     d->alreadyScannedBox->addSqueezedItem(i18nc("@label:listbox", "Scan all images"),           FaceScanSettings::Rescan);
     d->alreadyScannedBox->addSqueezedItem(i18nc("@label:listbox", "Recognize faces only"),      FaceScanSettings::RecognizeOnly);
     d->alreadyScannedBox->setToolTip(i18nc("@info:tooltip",
-                                           "digiKam can search for faces in your photos.\n"
-                                           "When you have identified your friends on a number of photos,\n"
-                                           "it can also recognize the people shown on your photos.\n"
+                                           "digiKam can search for faces in your photos.<br>"
+                                           "When you have identified your friends on a number of photos,<br>"
+                                           "it can also recognize the people shown on your photos."
                                            "<p><b>Scan new images</b> will scan for faces and attempt recognition for new images found in the albums selected in the \"Search in\" tab.</p>"
                                            "<p><b>Scan all images</b> will scan for faces and attempt recognition for all images found in the albums selected in the \"Search in\" tab.</p>"
                                            "<p><b>Recognize faces only</b> will try to match unknown faces with confirmed faces without scanning images new faces.</p>"));
@@ -133,7 +136,7 @@ void FaceScanWidget::setupUi()
     d->detectAccuracyInput->setRange(1, 10, 1);
     d->detectAccuracyInput->setToolTip(i18nc("@info:tooltip",
                                              "Adjust sensitivity versus specificity: the higher the value, "
-                                             "the more accurately faces will\n"
+                                             "the more accurately faces will<br>"
                                              "be detected, but less faces will be detected."));
 
     QLabel* const detectSizeLabel       = new QLabel(i18nc("@label with a short translated text about the face size for detection",
@@ -165,7 +168,7 @@ void FaceScanWidget::setupUi()
     detectGrid->addWidget(detectSizeLabel,          1, 0, 1, 1);
     detectGrid->addWidget(d->detectSizeBox,         1, 2, 1, 1);
 
-    expBox->addItem(detectWidget, i18n("Face Detection Settings"),
+    expBox->addItem(detectWidget, i18nc("@title short translated text", "Detection"),
                     QLatin1String("FaceDetectionSettings"), true);
 
     // --- Recognition settings ---
@@ -181,8 +184,8 @@ void FaceScanWidget::setupUi()
     d->recognizeAccuracyInput->setDefaultValue(7);
     d->recognizeAccuracyInput->setRange(1, 10, 1);
     d->recognizeAccuracyInput->setToolTip(i18nc("@info:tooltip",
-                                                "Adjust sensitivity versus specificity: the higher the value, the more accurately faces will\n"
-                                                "be recognized, but less faces will be recognized.\n"
+                                                "Adjust sensitivity versus specificity: the higher the value, the more accurately faces will<br>"
+                                                "be recognized, but less faces will be recognized.<br>"
                                                 "Note: only faces that are very similar to pre-tagged faces are recognized."));
 
     recognizeGrid->addWidget(recognizeAccuracyLabel,    0, 0, 1, 1);
@@ -192,13 +195,13 @@ void FaceScanWidget::setupUi()
 
     d->useFullCpuButton                 = new QCheckBox(d->settingsTab);
     d->useFullCpuButton->setText(i18nc("@option:check with a short translated text",
-                                       "Work on all processor cores"));
+                                       "Uses all processors"));
     d->useFullCpuButton->setToolTip(i18nc("@info:tooltip",
-                                          "Face detection and recognition are time-consuming tasks.\n"
-                                          "You can choose if you wish to employ all processor cores\n"
+                                          "Face detection and recognition are time-consuming tasks.<br>"
+                                          "You can choose if you wish to employ all processor cores<br>"
                                           "on your system, or work in the background only on one core."));
 
-    expBox->addItem(recognizeWidget, i18n("Face Recognition Settings"),
+    expBox->addItem(recognizeWidget, i18nc("@title short translated text", "Recognition"),
                     QLatin1String("FaceRecognitionSettings"), false);
 
     expBox->addStretch();
@@ -214,14 +217,17 @@ void FaceScanWidget::setupUi()
 
 void FaceScanWidget::setupConnections()
 {
+    connect(d->useFullCpuButton, &QCheckBox::toggled,
+            this, &FaceScanWidget::slotSettingsChanged);
+
     connect(d->detectAccuracyInput, &DIntNumInput::valueChanged,
-            this, &FaceScanWidget::slotDetectAccuracyChanged);
+            this, &FaceScanWidget::slotSettingsChanged);
 
     connect(d->recognizeAccuracyInput, &DIntNumInput::valueChanged,
-            this, &FaceScanWidget::slotRecognizeAccuracyChanged);
+            this, &FaceScanWidget::slotSettingsChanged);
 
     connect(d->detectSizeBox, QOverload<int>::of(&QComboBox::currentIndexChanged),
-            this, &FaceScanWidget::slotDetectSizeChanged);
+            this, &FaceScanWidget::slotSettingsChanged);
 }
 
 void FaceScanWidget::slotPrepareForDetect(bool status)
@@ -234,28 +240,20 @@ void FaceScanWidget::slotPrepareForRecognize(bool /*status*/)
     d->alreadyScannedBox->setEnabled(false);
 }
 
-void FaceScanWidget::slotDetectAccuracyChanged()
+void FaceScanWidget::slotSettingsChanged()
 {
     KConfigGroup group = getConfigGroup();
-    FaceScanSettings prm;
-    prm.detectAccuracy = d->detectAccuracyInput->value();
-    prm.writeToConfig(group);
-}
 
-void FaceScanWidget::slotDetectSizeChanged()
-{
-    KConfigGroup group = getConfigGroup();
-    FaceScanSettings prm;
-    prm.detectSize     = static_cast<FaceScanSettings::FaceDetectionSize>(d->detectSizeBox->currentData().toInt());
-    prm.writeToConfig(group);
-}
+    FaceScanSettings settings;
+    settings.readFromConfig(group);
 
-void FaceScanWidget::slotRecognizeAccuracyChanged()
-{
-    KConfigGroup group    = getConfigGroup();
-    FaceScanSettings prm;
-    prm.recognizeAccuracy = d->recognizeAccuracyInput->value();
-    prm.writeToConfig(group);
+    settings.detectSize        = static_cast<FaceScanSettings::FaceDetectionSize>
+                                 (d->detectSizeBox->currentData().toInt());
+    settings.useFullCpu        = d->useFullCpuButton->isChecked();
+    settings.detectAccuracy    = d->detectAccuracyInput->value();
+    settings.recognizeAccuracy = d->recognizeAccuracyInput->value();
+
+    settings.writeToConfig(group);
 }
 
 bool FaceScanWidget::settingsConflicted() const
@@ -284,7 +282,7 @@ FaceScanSettings FaceScanWidget::settings() const
     settings.albums                 = d->albumSelectors->selectedAlbumsAndTags();
     settings.wholeAlbums            = d->albumSelectors->wholeAlbumsChecked();
 
-    if (d->settingsConflicted)
+    if (settings.task == FaceScanSettings::RecognizeMarkedFaces)
     {
         int numberOfIdentities      = FaceDbAccess().db()->getNumberOfIdentities();
         d->settingsConflicted       = (numberOfIdentities == 0);
@@ -292,7 +290,8 @@ FaceScanSettings FaceScanWidget::settings() const
 
     settings.detectAccuracy         = d->detectAccuracyInput->value();
     settings.detectModel            = FaceScanSettings::FaceDetectionModel::YuNet;
-    settings.detectSize             = static_cast<FaceScanSettings::FaceDetectionSize>(d->detectSizeBox->currentData().toInt());
+    settings.detectSize             = static_cast<FaceScanSettings::FaceDetectionSize>
+                                      (d->detectSizeBox->currentData().toInt());
     settings.recognizeAccuracy      = d->recognizeAccuracyInput->value();
     settings.recognizeModel         = FaceScanSettings::FaceRecognitionModel::SFace;
 

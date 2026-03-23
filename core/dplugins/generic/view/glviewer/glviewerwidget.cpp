@@ -7,7 +7,7 @@
  * Description : a tool to show image using an OpenGL interface.
  *
  * SPDX-FileCopyrightText: 2007-2008 by Markus Leuthold <kusi at forum dot titlis dot org>
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -123,7 +123,7 @@ public:
     float            zoomfactor_mousemove   = 1.03F;
     float            zoomfactor_keyboard    = 1.05F;
 
-    /// get path of nullImage in case QImage can't load the image
+    /// get path of nullImage in case QImage cannot load the image
     QPixmap          nullImage              = QIcon::fromTheme(QLatin1String("image-jpeg")).pixmap(256);
     QSize            screenSize;
 

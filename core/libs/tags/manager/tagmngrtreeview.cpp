@@ -8,7 +8,9 @@
  *               a custom context menu and some batch view options, such as
  *               expanding multiple items
  *
- * SPDX-FileCopyrightText: 2013 by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2013      by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2025 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -165,13 +167,13 @@ void TagMngrTreeView::setContexMenuItems(ContextMenuHelper& cmh, const QList<TAl
     QAction* const delTagFromImg = new QAction(QIcon::fromTheme(QLatin1String("tag-delete")),
                                                i18n("Remove Tag from Images"), this);
 
-    cmh.addAction(titleEdit,     d->tagMngr, SLOT(slotEditTagTitle()),       false);
-    cmh.addAction(resetIcon,     d->tagMngr, SLOT(slotResetTagIcon()),       false);
-    cmh.addAction(invSel,        d->tagMngr, SLOT(slotInvertSel()),          false);
-    cmh.addAction(expandSel,     this ,      SLOT(slotExpandNode()),         false);
-    cmh.addAction(expandAll,     this,       SLOT(expandAll()),              false);
-    cmh.addAction(collapseAll,   this,       SLOT(slotCollapseAllNodes()),   false);
-    cmh.addAction(delTagFromImg, d->tagMngr, SLOT(slotRemoveTagsFromImgs()), false);
+    cmh.addAction(titleEdit,     d->tagMngr, SLOT(slotEditTagTitle()),         false);
+    cmh.addAction(resetIcon,     d->tagMngr, SLOT(slotResetTagIcon()),         false);
+    cmh.addAction(invSel,        d->tagMngr, SLOT(slotInvertSelection()),      false);
+    cmh.addAction(expandSel,     this ,      SLOT(slotExpandNode()),           false);
+    cmh.addAction(expandAll,     this,       SLOT(expandAll()),                false);
+    cmh.addAction(collapseAll,   this,       SLOT(slotCollapseAllNodes()),     false);
+    cmh.addAction(delTagFromImg, d->tagMngr, SLOT(slotRemoveTagsFromImages()), false);
 
     if (isRoot)
     {

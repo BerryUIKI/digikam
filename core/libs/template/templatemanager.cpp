@@ -6,7 +6,7 @@
  * Date        : 2009-06-20
  * Description : metadata template manager.
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2010 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -60,10 +60,7 @@ public:
 
 Q_GLOBAL_STATIC(TemplateManagerCreator, creator)
 
-TemplateManager* TemplateManager::defaultManager()
-{
-    return &creator->object;
-}
+// -------------------------------------------------------------------------------------------------
 
 TemplateManager::TemplateManager()
     : QObject(),
@@ -79,6 +76,11 @@ TemplateManager::~TemplateManager()
     save();
     clear();
     delete d;
+}
+
+TemplateManager* TemplateManager::defaultManager()
+{
+    return &creator->object;
 }
 
 bool TemplateManager::load()
@@ -139,6 +141,10 @@ bool TemplateManager::load()
             if      (name2 == QLatin1String("templatetitle"))
             {
                 t.setTemplateTitle(val2);
+            }
+            else if (name2 == QLatin1String("templatemerge"))
+            {
+                t.setTemplateMerge(val2 == QLatin1String("true"));
             }
             else if (name2 == QLatin1String("authorsposition"))
             {
@@ -315,6 +321,11 @@ bool TemplateManager::save()
             QDomElement templatetitle = doc.createElement(QLatin1String("templatetitle"));
             templatetitle.setAttribute(QLatin1String("value"), t.templateTitle());
             elem.appendChild(templatetitle);
+
+            QDomElement templatemerge = doc.createElement(QLatin1String("templatemerge"));
+            templatemerge.setAttribute(QLatin1String("value"), t.templateMerge() ? QLatin1String("true")
+                                                                                 : QLatin1String("false"));
+            elem.appendChild(templatemerge);
 
             QDomElement authorsposition = doc.createElement(QLatin1String("authorsposition"));
             authorsposition.setAttribute(QLatin1String("value"), t.authorsPosition());

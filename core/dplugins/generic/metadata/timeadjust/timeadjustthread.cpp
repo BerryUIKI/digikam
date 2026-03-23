@@ -7,7 +7,7 @@
  * Description : time adjust thread.
  *
  * SPDX-FileCopyrightText: 2012      by Smit Mehta <smit dot meh at gmail dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2018-2021 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -205,6 +205,11 @@ QDateTime TimeAdjustThread::readFileNameTimestamp(const QUrl& url) const
 QDateTime TimeAdjustThread::readFileTimestamp(const QUrl& url) const
 {
     QFileInfo fileInfo(url.toLocalFile());
+
+    if (d->settings.fileDateSource == TimeAdjustContainer::FILECREATED)
+    {
+        return fileInfo.birthTime();
+    }
 
     return fileInfo.lastModified();
 }

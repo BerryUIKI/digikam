@@ -6,7 +6,7 @@
  * Date        : 2008-11-27
  * Description : a view to show Batch Tool Settings.
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -31,6 +31,7 @@
 
 // Local includes
 
+#include "digikam_globals.h"
 #include "dlayoutbox.h"
 #include "thememanager.h"
 #include "batchtoolsfactory.h"
@@ -182,7 +183,8 @@ void ToolSettingsView::slotAboutPlugin()
         if (d->tool->plugin())
         {
             QPointer<DPluginAboutDlg> dlg = new DPluginAboutDlg(dynamic_cast<DPlugin*>(d->tool->plugin()));
-            dlg->exec();
+            dialogExec(dlg);
+
             delete dlg;
         }
     }

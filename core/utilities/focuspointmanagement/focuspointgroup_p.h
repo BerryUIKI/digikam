@@ -6,7 +6,7 @@
  * Date        : 28/08/2021
  * Description : Managing of focus point items on a GraphicsDImgView
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021 by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -28,7 +28,7 @@ namespace Digikam
 enum FocusPointGroupState
 {
     NoPoints,
-    LoadingPoints,
+    PointsLoad,
     PointsLoaded
 };
 
@@ -39,9 +39,10 @@ public:
 
     explicit Private(FocusPointGroup* const qq);
 
+    void            applyVisible();
+    void            clear(FocusPointGroupState fs);
     FocusPointItem* createItem(const FocusPoint& point) const;
     FocusPointItem* addItem(const FocusPoint& point);
-    void applyVisible();
 
 public:
 

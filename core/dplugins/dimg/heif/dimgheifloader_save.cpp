@@ -6,7 +6,7 @@
  * Date        : 2019-09-26
  * Description : A HEIF IO file for DImg framework - save operations
  *
- * SPDX-FileCopyrightText: 2019-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2019-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -16,10 +16,8 @@
 
 // Qt includes
 
-#include <QFile>
 #include <QVariant>
 #include <QByteArray>
-#include <QTextStream>
 #include <QElapsedTimer>
 #include <qplatformdefs.h>
 #include <QScopedPointer>
@@ -51,43 +49,6 @@
 
 namespace Digikam
 {
-
-static struct heif_error heifQIODeviceWriter(struct heif_context* /* ctx */,
-                                             const void* data, size_t size, void* userdata)  // cppcheck-suppress constParameterCallback
-
-{
-    QFile saveFile(QString::fromUtf8(static_cast<const char*>(userdata)));
-    heif_error error;
-
-    if (!saveFile.open(QIODevice::WriteOnly))
-    {
-        qCWarning(DIGIKAM_DIMG_LOG_HEIF) << "Cannot open target image file:"
-                                         << saveFile.fileName();
-
-        error.code    = heif_error_Encoding_error;
-        error.subcode = heif_suberror_Cannot_write_output_data;
-        error.message = QByteArray("File open error").constData();
-
-        return error;
-    }
-
-    error.code          = heif_error_Ok;
-    error.subcode       = heif_suberror_Unspecified;
-    error.message       = QByteArray("Success").constData();
-
-    qint64 bytesWritten = saveFile.write(reinterpret_cast<const char*>(data), size);
-
-    if (bytesWritten < (qint64)size)
-    {
-        error.code    = heif_error_Encoding_error;
-        error.subcode = heif_suberror_Cannot_write_output_data;
-        error.message = QByteArray("File write error").constData();
-    }
-
-    saveFile.close();
-
-    return error;
-}
 
 int DImgHEIFLoader::x265MaxBitsDepth()
 {
@@ -174,15 +135,43 @@ bool DImgHEIFLoader::save(const QString& filePath, DImgLoaderObserver* const obs
     {
         qCWarning(DIGIKAM_DIMG_LOG_HEIF) << "Cannot create HEIF context!";
 
+#if LIBHEIF_NUMERIC_VERSION >= 0x010d0000
+
+        heif_deinit();
+
+#endif
+
         return false;
     }
 
-    struct heif_encoder* encoder   = nullptr;
-    struct heif_error error        = heif_context_get_encoder_for_format(ctx,
-                                                                         heif_compression_HEVC,
-                                                                         &encoder);
+    struct heif_image* image = nullptr;
+    struct heif_error error  = heif_image_create(imageWidth(),
+                                                 imageHeight(),
+                                                 heif_colorspace_RGB,
+                                                 chroma,
+                                                 &image);
+
     if (!isHeifSuccess(&error))
     {
+        heif_context_free(ctx);
+
+#if LIBHEIF_NUMERIC_VERSION >= 0x010d0000
+
+        heif_deinit();
+
+#endif
+
+        return false;
+    }
+
+    struct heif_encoder* encoder = nullptr;
+    error                        = heif_context_get_encoder_for_format(ctx,
+                                                                       heif_compression_HEVC,
+                                                                       &encoder);
+
+    if (!isHeifSuccess(&error))
+    {
+        heif_image_release(image);
         heif_context_free(ctx);
 
 #if LIBHEIF_NUMERIC_VERSION >= 0x010d0000
@@ -196,26 +185,6 @@ bool DImgHEIFLoader::save(const QString& filePath, DImgLoaderObserver* const obs
 
     heif_encoder_set_lossy_quality(encoder, quality);
     heif_encoder_set_lossless(encoder, lossless);
-
-    struct heif_image* image = nullptr;
-    error                    = heif_image_create(imageWidth(),
-                                                 imageHeight(),
-                                                 heif_colorspace_RGB,
-                                                 chroma,
-                                                 &image);
-    if (!isHeifSuccess(&error))
-    {
-        heif_encoder_release(encoder);
-        heif_context_free(ctx);
-
-#if LIBHEIF_NUMERIC_VERSION >= 0x010d0000
-
-        heif_deinit();
-
-#endif
-
-        return false;
-    }
 
     // --- Save color profile before to create image data, as converting to color space can be processed at this stage.
 
@@ -236,6 +205,7 @@ bool DImgHEIFLoader::save(const QString& filePath, DImgLoaderObserver* const obs
     if (!isHeifSuccess(&error))
     {
         heif_encoder_release(encoder);
+        heif_image_release(image);
         heif_context_free(ctx);
 
 #if LIBHEIF_NUMERIC_VERSION >= 0x010d0000
@@ -255,7 +225,9 @@ bool DImgHEIFLoader::save(const QString& filePath, DImgLoaderObserver* const obs
     if (!data || (stride <= 0))
     {
         qCWarning(DIGIKAM_DIMG_LOG_HEIF) << "HEIF data pixels information not valid!";
+
         heif_encoder_release(encoder);
+        heif_image_release(image);
         heif_context_free(ctx);
 
 #if LIBHEIF_NUMERIC_VERSION >= 0x010d0000
@@ -402,6 +374,7 @@ bool DImgHEIFLoader::save(const QString& filePath, DImgLoaderObserver* const obs
             if (!m_observer->continueQuery())
             {
                 heif_encoder_release(encoder);
+                heif_image_release(image);
                 heif_context_free(ctx);
 
 #if LIBHEIF_NUMERIC_VERSION >= 0x010d0000
@@ -432,8 +405,8 @@ bool DImgHEIFLoader::save(const QString& filePath, DImgLoaderObserver* const obs
     if (!isHeifSuccess(&error))
     {
         heif_encoding_options_free(options);
-        heif_image_handle_release(image_handle);
         heif_encoder_release(encoder);
+        heif_image_release(image);
         heif_context_free(ctx);
 
 #if LIBHEIF_NUMERIC_VERSION >= 0x010d0000
@@ -467,9 +440,10 @@ bool DImgHEIFLoader::save(const QString& filePath, DImgLoaderObserver* const obs
                                               &thumbnail_handle);
         if (!isHeifSuccess(&error))
         {
-            heif_encoding_options_free(options);
             heif_image_handle_release(image_handle);
+            heif_encoding_options_free(options);
             heif_encoder_release(encoder);
+            heif_image_release(image);
             heif_context_free(ctx);
 
 #if LIBHEIF_NUMERIC_VERSION >= 0x010d0000
@@ -484,31 +458,25 @@ bool DImgHEIFLoader::save(const QString& filePath, DImgLoaderObserver* const obs
         heif_image_handle_release(thumbnail_handle);
     }
 
-    heif_encoding_options_free(options);
-    heif_encoder_release(encoder);
-
     // --- Add Exif and XMP metadata
 
     qCDebug(DIGIKAM_DIMG_LOG_HEIF) << "HEIF metadata storage...";
 
     saveHEICMetadata(ctx, image_handle);
 
-    heif_image_handle_release(image_handle);
-
     // --- write HEIF file
 
     qCDebug(DIGIKAM_DIMG_LOG_HEIF) << "HEIF flush to file...";
     qCDebug(DIGIKAM_DIMG_LOG_HEIF) << "HEIF encoding took:" << timer.elapsed() << "ms";
 
-    heif_writer writer;
-    writer.writer_api_version = 1;
-    writer.write              = heifQIODeviceWriter;
-
-    error                     = heif_context_write(ctx, &writer,
-                                                   reinterpret_cast<void*>(const_cast<char*>(filePath.toUtf8().constData())));
+    error = heif_context_write_to_file(ctx, filePath.toUtf8().constData());
 
     if (!isHeifSuccess(&error))
     {
+        heif_image_handle_release(image_handle);
+        heif_encoding_options_free(options);
+        heif_encoder_release(encoder);
+        heif_image_release(image);
         heif_context_free(ctx);
 
 #if LIBHEIF_NUMERIC_VERSION >= 0x010d0000
@@ -520,6 +488,10 @@ bool DImgHEIFLoader::save(const QString& filePath, DImgLoaderObserver* const obs
         return false;
     }
 
+    heif_image_handle_release(image_handle);
+    heif_encoding_options_free(options);
+    heif_encoder_release(encoder);
+    heif_image_release(image);
     heif_context_free(ctx);
 
     imageSetAttribute(QLatin1String("savedFormat"), QLatin1String("HEIF"));

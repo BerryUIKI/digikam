@@ -6,7 +6,7 @@
  * Date        : 2005-05-25
  * Description : Charcoal threaded image filter.
  *
- * SPDX-FileCopyrightText: 2005-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2005-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2010      by Martin Klapetek <martin dot klapetek at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -33,6 +33,7 @@
 #include "mixerfilter.h"
 #include "invertfilter.h"
 #include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -184,6 +185,8 @@ void CharcoalFilter::filterImage()
 
 void CharcoalFilter::convolveImageMultithreaded(uint start, uint stop, double* normal_kernel, double kernelWidth)
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
+
     long    mx = 0, my = 0, sx = 0, sy = 0, mcx = 0, mcy = 0, oldProgress = 0, progress = 0;
     double  red = 0.0, green = 0.0, blue = 0.0, alpha = 0.0;
     double* k = nullptr;

@@ -6,7 +6,7 @@
  * Date        : 2023-12-21
  * Description : Geolocation Settings.
  *
- * SPDX-FileCopyrightText: 2022-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2022-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -41,6 +41,9 @@ class DIGIKAM_EXPORT GeolocationSettings : public QObject
     Q_OBJECT
 
 public:
+
+    GeolocationSettings();
+    ~GeolocationSettings() override;
 
     /**
      * Global container for Metadata settings. All accessor methods are thread-safe.
@@ -94,9 +97,7 @@ Q_SIGNALS:
 private:
 
     // Disabled
-    GeolocationSettings();
     explicit GeolocationSettings(QObject*);
-    ~GeolocationSettings() override;
 
     void readFromConfig();
 
@@ -106,8 +107,6 @@ private:
 
     class Private;
     Private* const d = nullptr;
-
-    friend class GeolocationSettingsCreator;
 };
 
 } // namespace Digikam

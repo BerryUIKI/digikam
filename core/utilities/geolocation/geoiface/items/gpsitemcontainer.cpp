@@ -6,7 +6,7 @@
  * Date        : 2010-03-21
  * Description : A container to hold GPS information about an item.
  *
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2010-2014 by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -14,6 +14,10 @@
  * ============================================================ */
 
 #include "gpsitemcontainer.h"
+
+// C++ includes
+
+#include <memory>
 
 // Qt includes
 
@@ -218,7 +222,7 @@ GPSItemContainer::GPSItemContainer(const QUrl& url)
 
 DMetadata* GPSItemContainer::getMetadataForFile() const
 {
-    QScopedPointer<DMetadata> meta(new DMetadata);
+    std::unique_ptr<DMetadata> meta(new DMetadata);
 
     if (!meta->load(m_url.toLocalFile()))
     {
@@ -231,7 +235,7 @@ DMetadata* GPSItemContainer::getMetadataForFile() const
         }
     }
 
-    return meta.take();
+    return meta.release();
 }
 
 int getWarningLevelFromGPSDataContainer(const GPSDataContainer& data)
@@ -330,15 +334,15 @@ bool GPSItemContainer::loadImageData()
 
         if (haveCoordinates)
         {
-            GeoCoordinates coordinates(lat, lng);
+            GeoCoordinates crdnts(lat, lng);
             double alt;
 
             if (meta->getGPSAltitude(&alt))
             {
-                coordinates.setAlt(alt);
+                crdnts.setAlt(alt);
             }
 
-            m_gpsData.setCoordinates(coordinates);
+            m_gpsData.setCoordinates(crdnts);
         }
     }
 
@@ -474,7 +478,7 @@ QVariant GPSItemContainer::data(const int column, const int role) const
     {
         if (m_dateTime.isValid())
         {
-            return QLocale().toString(m_dateTime, QLocale::ShortFormat);
+            return asUserDateTime(m_dateTime);
         }
 
         return i18n("Not available");

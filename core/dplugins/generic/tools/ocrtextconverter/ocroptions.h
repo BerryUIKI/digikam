@@ -6,7 +6,7 @@
  * Date        : 2022-08-26
  * Description : OCR Tesseract options
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2022      by Quoc Hung Tran <quochungtran1999 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -44,7 +44,7 @@ public:
         DEFAULT = 0,
 
         /**
-         * Orientation and Script Detection mode remplace Default mode for hieroglyphs languages.
+         * Orientation and Script Detection mode replace Default mode for hieroglyphs languages.
          * See comment on https://invent.kde.org/graphics/digikam/-/merge_requests/177#note_522008
          */
         OSD

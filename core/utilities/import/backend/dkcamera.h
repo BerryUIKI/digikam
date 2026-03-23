@@ -7,7 +7,7 @@
  * Description : abstract camera interface class
  *
  * SPDX-FileCopyrightText: 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -105,24 +105,24 @@ protected:
 
 protected:
 
-    bool    m_thumbnailSupport              = false;
-    bool    m_deleteSupport                 = false;
-    bool    m_uploadSupport                 = false;
-    bool    m_mkDirSupport                  = false;
-    bool    m_delDirSupport                 = false;
-    bool    m_captureImageSupport           = false;
-    bool    m_captureImagePreviewSupport    = false;
+    bool        m_thumbnailSupport              = false;
+    bool        m_deleteSupport                 = false;
+    bool        m_uploadSupport                 = false;
+    bool        m_mkDirSupport                  = false;
+    bool        m_delDirSupport                 = false;
+    bool        m_captureImageSupport           = false;
+    bool        m_captureImagePreviewSupport    = false;
 
-    QString m_imageFilter;
-    QString m_movieFilter;
-    QString m_audioFilter;
-    QString m_rawFilter;
+    QStringList m_imageFilter;
+    QStringList m_movieFilter;
+    QStringList m_audioFilter;
+    QStringList m_rawFilter;
 
-    QString m_model;
-    QString m_port;
-    QString m_path;
-    QString m_title;
-    QString m_uuid;
+    QString     m_model;
+    QString     m_port;
+    QString     m_path;
+    QString     m_title;
+    QString     m_uuid;
 
 Q_SIGNALS:
 

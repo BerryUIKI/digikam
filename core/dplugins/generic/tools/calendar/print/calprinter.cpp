@@ -7,7 +7,7 @@
  * Description : printer thread.
  *
  * SPDX-FileCopyrightText: 2008      by Orgad Shaneh <orgads at gmail dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -22,6 +22,9 @@
 // Local includes
 
 #include "calpainter.h"
+#include "actionthreadbase.h"
+
+using namespace Digikam;
 
 namespace DigikamGenericCalendarPlugin
 {
@@ -31,6 +34,8 @@ class Q_DECL_HIDDEN CalPrinter::Private
 public:
 
     Private() = default;
+
+public:
 
     bool             cancelled = false;
 
@@ -60,6 +65,8 @@ CalPrinter::~CalPrinter()
 
 void CalPrinter::run()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String("CalPrinter"));       // To customize thread name
+
     connect(d->painter, SIGNAL(signalTotal(int)),
             this, SIGNAL(totalBlocks(int)));
 

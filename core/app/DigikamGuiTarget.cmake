@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
@@ -42,6 +42,9 @@ set(libdigikamgui_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/dragdrop/tagdragdrop.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/filters/filtersidebarwidget.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/filters/filtersidebarwidget_properties.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/filters/filtersidebarwidget_tags.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/filters/filtersidebarwidget_faces.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/filters/tagfilterview.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/items/delegate/digikamitemdelegate.cpp
@@ -99,10 +102,15 @@ set(libdigikamgui_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/views/stack/itemiconview_zoom.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/views/stack/itemiconview_iqs.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/views/stack/welcomepageview.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/views/stack/welcomepageview_p.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/views/stack/welcomepageview_about.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/views/stack/welcomepageview_features.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/views/stack/welcomepageview_credits.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/views/stack/trashview.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/views/stack/stackedview.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/views/preview/itempreviewcanvas.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/views/preview/itempreviewview.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/views/preview/itempreviewosd.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/views/sidebar/albumfolderviewsidebarwidget.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/views/sidebar/datefolderviewsidebarwidget.cpp
@@ -119,6 +127,13 @@ set(libdigikamgui_SRCS
 
     ${digikamadaptor_SRCS}
 )
+
+if(ENABLE_MEDIAPLAYER)
+    set(libdigikamgui_SRCS
+        ${libdigikamgui_SRCS}
+        ${CMAKE_CURRENT_SOURCE_DIR}/views/preview/itempreviewvideo.cpp
+    )
+endif()
 
 if(${ENABLE_GEOLOCATION})
     set(libdigikamgui_SRCS
@@ -183,6 +198,7 @@ set(DIGIKAMGUI_OBJECTS
             # Utilities
             $<TARGET_OBJECTS:gui_setup_obj>
             $<TARGET_OBJECTS:gui_lighttable_obj>
+            $<TARGET_OBJECTS:gui_survey_obj>
             $<TARGET_OBJECTS:gui_maintenance_obj>
             $<TARGET_OBJECTS:gui_searchwindow_obj>
             $<TARGET_OBJECTS:gui_firstrun_obj>

@@ -7,7 +7,7 @@
  * Description : a generic list view item widget to
  *               display metadata
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -40,13 +40,15 @@ public:
                          const QString& title);
     ~MetadataListViewItem() override = default;
 
-    QString getKey()   const;
-    QString getTitle() const;
-    QString getValue() const;
+    QString getKey()       const;
+    QString getTitle()     const;
+    QString getValue()     const;
+    QString getFullValue() const;
 
 private:
 
     QString m_key;
+    QString m_value;
 
 private:
 

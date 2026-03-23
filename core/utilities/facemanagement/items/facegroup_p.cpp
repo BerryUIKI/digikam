@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2010      by Aditya Bhatt <adityabhatt1991 at gmail dot com>
  * SPDX-FileCopyrightText: 2010-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -49,7 +49,6 @@ void FaceGroup::Private::applyVisible()
 
         q->load();
     }
-
     else if (state == FacesLoaded)
     {
         // Show existing faces, if we have an image.
@@ -59,6 +58,20 @@ void FaceGroup::Private::applyVisible()
             visibilityController->show();
         }
     }
+}
+
+void FaceGroup::Private::clear(FaceGroupState fs)
+{
+    q->slotCancelAddItem();
+    visibilityController->clear();
+
+    for (FaceItem* const item : std::as_const(items))
+    {
+        delete item;
+    }
+
+    items.clear();
+    state = fs;
 }
 
 FaceItem* FaceGroup::Private::createItem(const FaceTagsIface& face)

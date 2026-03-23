@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -788,7 +788,7 @@ void gpyr(const Mat3& m1, double& p, double& y, double& r)
 
 void vcpy(Vec3& v, double& p, double& y)
 {
-    // Convert direction given by cartesion vector v into a corresponding
+    // Convert direction given by cartesian vector v into a corresponding
     // pitch (p) / yaw (y) sequence. The angles are in radians.
 
     p = atan20(-v[2], v[0]);

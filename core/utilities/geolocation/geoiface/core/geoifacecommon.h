@@ -6,7 +6,7 @@
  * Date        : 2010-07-14
  * Description : Common internal data structures for geolocation interface
  *
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2010-2014 by Michael G. Hansen <mike at mghansen dot de>
  * SPDX-FileCopyrightText:      2014 by Justus Schwartz <justus at gmx dot li>
  *
@@ -97,6 +97,9 @@ class DIGIKAM_EXPORT GeoIfaceGlobalObject : public QObject
 
 public:
 
+    GeoIfaceGlobalObject();
+    ~GeoIfaceGlobalObject() override;
+
     static GeoIfaceGlobalObject* instance();
 
     /// @name Shared pixmaps
@@ -119,8 +122,6 @@ private:
 
     // Disable
     explicit GeoIfaceGlobalObject(QObject*) = delete;
-    GeoIfaceGlobalObject();
-    ~GeoIfaceGlobalObject() override;
 
     Q_DISABLE_COPY(GeoIfaceGlobalObject)
 

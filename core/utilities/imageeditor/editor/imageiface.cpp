@@ -7,7 +7,7 @@
  * Description : image data interface for image tools
  *
  * SPDX-FileCopyrightText: 2004-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2004-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2004-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -294,6 +294,11 @@ bool ImageIface::originalHasAlpha() const
 QRect ImageIface::selectionRect() const
 {
     return (d->core->getSelectedArea());
+}
+
+void ImageIface::setSelectedRect(const QRect& rect)
+{
+    d->core->setSelectedArea(rect);
 }
 
 void ImageIface::convertOriginalColorDepth(int depth)

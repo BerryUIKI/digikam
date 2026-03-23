@@ -6,7 +6,7 @@
  * Date        : 2013-02-25
  * Description : Table view column helpers: Item properties
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2013      by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -26,6 +26,7 @@
 // Local includes
 
 #include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "iteminfo.h"
 #include "coredbinfocontainers.h"
 #include "itempropertiestab.h"
@@ -277,17 +278,14 @@ QVariant ColumnItemProperties::data(TableViewModel::Item* const item, const int 
 
         case SubColumnCreationDateTime:
         {
-            const QDateTime creationDateTime = info.dateTime();
-
-            return QLocale().toString(creationDateTime, QLocale::ShortFormat);
+            return asUserDateTime(info.dateTime());
         }
 
         case SubColumnDigitizationDateTime:
         {
             const ImageCommonContainer commonInfo = info.imageCommonContainer();
-            const QDateTime digitizationDateTime  = commonInfo.digitizationDate;
 
-            return QLocale().toString(digitizationDateTime, QLocale::ShortFormat);
+            return asUserDateTime(commonInfo.digitizationDate);
         }
         case SubColumnSimilarity:
         {

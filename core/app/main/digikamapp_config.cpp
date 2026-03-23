@@ -6,7 +6,7 @@
  * Date        : 2002-16-10
  * Description : main digiKam interface implementation - Configure
  *
- * SPDX-FileCopyrightText: 2002-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2002-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -70,6 +70,11 @@ void DigikamApp::slotSetupChanged()
     if (LightTableWindow::lightTableWindowCreated())
     {
         LightTableWindow::lightTableWindow()->applySettings();
+    }
+
+    if (SurveyWindow::surveyWindowCreated())
+    {
+        SurveyWindow::surveyWindow()->applySettings();
     }
 
     if (QueueMgrWindow::queueManagerWindowCreated())

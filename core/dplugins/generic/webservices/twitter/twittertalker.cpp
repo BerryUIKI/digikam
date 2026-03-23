@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2018-06-29
- * Description : a tool to export images to Twitter social network
+ * Description : a tool to export images to Twitter (x.com) social network
  *
  * SPDX-FileCopyrightText: 2018 by Tarek Talaat <tarektalaat93 at gmail dot com>
  * SPDX-FileCopyrightText: 2019 by Thanh Trung Dinh <dinhthanhtrung1996 at gmail dot com>
@@ -796,7 +796,7 @@ void TwTalker::parseResponseAddPhotoAppend(const QByteArray& /*data*/, int segme
     /* (Fev. 2019)
      * Currently, we don't parse data of response from addPhotoAppend, since the response is with HTTP 204
      * This is indeed an expected response code, because the response should be with an empty body.
-     * However, in order to keep a compatible prototype of parseResponse methodes and reserve for future change,
+     * However, in order to keep a compatible prototype of parseResponse methods and reserve for future change,
      * we should keep argument const QByteArray& data.
      */
     qCDebug(DIGIKAM_WEBSERVICES_LOG) << "parseResponseAddPhotoAppend: ";

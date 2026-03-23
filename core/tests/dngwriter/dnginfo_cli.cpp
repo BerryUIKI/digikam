@@ -7,7 +7,7 @@
  * Description : a command line tool to extract info from a DNG file
  *
  * SPDX-FileCopyrightText: 2011      by Jens Mueller <tschenser at gmx dot de>
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -263,7 +263,7 @@ int main(int argc, char** argv)
                         compressedDataBlock.prepend((uncompressedDataSize >> 24) & 0xFF);
                         forkLength -= uncompressedDataSize;
 
-                        QByteArray originalDataBlock = qUncompress((const uchar*)compressedDataBlock.data(), compressedDataBlock.size());
+                        QByteArray originalDataBlock = qUncompress(reinterpret_cast<const uchar*>(compressedDataBlock.data()), compressedDataBlock.size());
 /*
                         qCDebug(DIGIKAM_TESTS_LOG) << "compressed data block " << compressedDataBlock.size() << " -> " << originalDataBlock.size();
 */
@@ -294,7 +294,7 @@ int main(int argc, char** argv)
 
     catch (...)
     {
-        qCCritical(DIGIKAM_TESTS_LOG) << "DNGWriter: DNG SDK exception code unknow";
+        qCCritical(DIGIKAM_TESTS_LOG) << "DNGWriter: DNG SDK exception code unknown";
 
         return (-1);
     }

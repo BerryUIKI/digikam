@@ -7,7 +7,7 @@
  * Description : Scanning a single item - database helper.
  *
  * SPDX-FileCopyrightText: 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -62,11 +62,12 @@ void ItemScanner::commit()
         commitItemInformation();
     }
 
-    if      (d->commit.commitImageMetadata)
+    if (d->commit.commitImageMetadata)
     {
         commitImageMetadata();
     }
-    else if (d->commit.commitVideoMetadata)
+
+    if (d->commit.commitVideoMetadata)
     {
         commitVideoMetadata();
     }
@@ -136,26 +137,6 @@ void ItemScanner::cleanScan()
     scanFile(CleanScan);
 }
 
-void ItemScanner::copiedFrom(int albumId, qlonglong srcId)
-{
-    loadFromDisk();
-    prepareAddImage(albumId);
-
-    // first use source, if it exists
-
-    if (!copyFromSource(srcId))
-    {
-        // check if we can establish identity
-
-        if (!scanFromIdenticalFile())
-        {
-            // scan newly
-
-            scanFile(NewScan);
-        }
-    }
-}
-
 void ItemScanner::commitCopyImageAttributes()
 {
     CoreDbAccess().db()->copyImageAttributes(d->commit.copyImageAttributesId, d->scanInfo.id);
@@ -168,28 +149,6 @@ void ItemScanner::commitCopyImageAttributes()
 
     CoreDbAccess().db()->removeAllImageRelationsFrom(d->scanInfo.id, DatabaseRelation::Grouped);
     CoreDbAccess().db()->removeAllImageRelationsTo(d->scanInfo.id, DatabaseRelation::Grouped);
-}
-
-bool ItemScanner::copyFromSource(qlonglong srcId)
-{
-    // some basic validity checking
-
-    if (srcId == d->scanInfo.id)
-    {
-        return false;
-    }
-
-    ItemScanInfo info = CoreDbAccess().db()->getItemScanInfo(srcId);
-
-    if (!info.id)
-    {
-        return false;
-    }
-
-    qCDebug(DIGIKAM_DATABASE_LOG) << "Recognized" << d->fileInfo.filePath() << "as copied from" << srcId;
-    d->commit.copyImageAttributesId = srcId;
-
-    return true;
 }
 
 void ItemScanner::prepareAddImage(int albumId)
@@ -210,11 +169,14 @@ bool ItemScanner::commitAddImage()
                                                          d->scanInfo.category, d->scanInfo.fileSize,
                                                          d->scanInfo.uniqueHash);
 
-    if (imageId != -1 && (d->commit.copyImageAttributesId == -1))
+    if ((imageId != -1) && (d->commit.copyImageAttributesId == -1) && !d->settings.useXMPSidecar4Reading)
     {
-        qCDebug(DIGIKAM_DATABASE_LOG) << "Detected identical image info with id" << imageId
-                                      << "and album id NULL of a removed image for image" << d->scanInfo.itemName;
-        qCDebug(DIGIKAM_DATABASE_LOG) << "Will reuse this image info and set the status to visible and the album id to" << d->scanInfo.albumID;
+        qCDebug(DIGIKAM_DATABASE_LOG) << "Detected identical image info with id"
+                                      << imageId
+                                      << "and album id NULL of a removed image for image"
+                                      << d->scanInfo.itemName;
+        qCDebug(DIGIKAM_DATABASE_LOG) << "Will reuse this image info and set the status to visible and the album id to"
+                                      << d->scanInfo.albumID;
 
         d->scanInfo.id = imageId;
         CoreDbAccess().db()->setItemAlbum(imageId, d->scanInfo.albumID);
@@ -240,22 +202,21 @@ void ItemScanner::cleanDatabaseMetadata()
         return;
     }
 
-    const MetaEngineSettingsContainer& settings = MetaEngineSettings::instance()->settings();
     QList<int> removeTags;
 
-    if (settings.saveColorLabel)
+    if (d->settings.saveColorLabel)
     {
         const QVector<int>& colorTags = TagsCache::instance()->colorLabelTags();
         removeTags << QList<int>(colorTags.begin(), colorTags.end());
     }
 
-    if (settings.savePickLabel)
+    if (d->settings.savePickLabel)
     {
         const QVector<int>& pickTags = TagsCache::instance()->pickLabelTags();
         removeTags << QList<int>(pickTags.begin(), pickTags.end());
     }
 
-    if (settings.saveTags)
+    if (d->settings.saveTags)
     {
         const auto tags = CoreDbAccess().db()->getItemTagIDs(d->scanInfo.id);
 
@@ -273,23 +234,23 @@ void ItemScanner::cleanDatabaseMetadata()
         CoreDbAccess().db()->removeTagsFromItems(QList<qlonglong>() << d->scanInfo.id, removeTags);
     }
 
-    if (settings.savePosition)
+    if (d->settings.savePosition)
     {
         CoreDbAccess().db()->removeItemPosition(d->scanInfo.id);
     }
 
-    if (settings.saveTemplate)
+    if (d->settings.saveTemplate)
     {
         CoreDbAccess().db()->removeAllImageProperties(d->scanInfo.id);
         CoreDbAccess().db()->removeAllItemCopyrightProperties(d->scanInfo.id);
     }
 
-    if (settings.saveComments)
+    if (d->settings.saveComments)
     {
         CoreDbAccess().db()->removeAllImageComments(d->scanInfo.id);
     }
 
-    if (settings.saveFaceTags)
+    if (d->settings.saveFaceTags)
     {
         const auto props = CoreDbAccess().db()->getImageTagProperties(d->scanInfo.id);
 
@@ -302,7 +263,7 @@ void ItemScanner::cleanDatabaseMetadata()
         }
     }
 
-    if (settings.saveRating)
+    if (d->settings.saveRating)
     {
         CoreDbAccess().db()->changeItemInformation(d->scanInfo.id, QVariantList() << NoRating, DatabaseFields::Rating);
     }

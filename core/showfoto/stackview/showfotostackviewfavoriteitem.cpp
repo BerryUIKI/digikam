@@ -6,7 +6,7 @@
  * Date        : 2021-09-27
  * Description : Showfoto stack view favorites item
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -81,14 +81,14 @@ void ShowfotoStackViewFavoriteItem::setName(const QString& name)
 
 QString ShowfotoStackViewFavoriteItem::hierarchyFromParent(const QString& name, ShowfotoStackViewFavoriteItem* const pitem)
 {
-    QString hierarchy = QLatin1String("/");
+    QString hrch = QLatin1String("/");
 
     if (pitem && !name.isEmpty())
     {
-        hierarchy = pitem->hierarchy() + name + QLatin1String("/");
+        hrch = pitem->hierarchy() + name + QLatin1String("/");
     }
 
-    return hierarchy;
+    return hrch;
 }
 
 QString ShowfotoStackViewFavoriteItem::name() const

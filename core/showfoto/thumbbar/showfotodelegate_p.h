@@ -7,7 +7,7 @@
  * Description : Qt model view for Showfoto item - the delegate Private
  *
  * SPDX-FileCopyrightText: 2013      by Mohamed_Anwer <m_dot_anwer at gmx dot com>
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -51,6 +51,10 @@ public:
         actualPixmapRectCache.setMaxCost(250);
     }
 
+    void clearRects() override;
+
+public:
+
     int                    contentWidth             = 0;
 
     QRect                  dateRect;
@@ -70,10 +74,6 @@ public:
 
     ShowfotoThumbnailBar*  currentView              = nullptr;
     QAbstractItemModel*    currentModel             = nullptr;
-
-public:
-
-    void clearRects() override;
 };
 
 // --- ShowfotoThumbnailDelegate ----------------------------------------------------

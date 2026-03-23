@@ -6,7 +6,7 @@
  * Date        : 2023-08-20
  * Description : Localization of Strings Config widget.
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -224,13 +224,13 @@ LocalizeConfig::LocalizeConfig(QWidget* const parent)
     d->translatorCB->insertItem(DOnlineTranslator::Google,         QLatin1String("Google"));
     d->translatorCB->insertItem(DOnlineTranslator::Yandex,         QLatin1String("Yandex"));
     d->translatorCB->insertItem(DOnlineTranslator::Bing,           QLatin1String("Bing"));
-    d->translatorCB->insertItem(DOnlineTranslator::LibreTranslate, QLatin1String("Libre Translate"));
+//    d->translatorCB->insertItem(DOnlineTranslator::LibreTranslate, QLatin1String("Libre Translate"));
     d->translatorCB->insertItem(DOnlineTranslator::Lingva,         QLatin1String("Lingva"));
 
     d->translatorLabel      = new QLabel(xi18nc("@info", "<para>The translator engine is an online Web-service used to translate "
                                                          "text from one language to another one. This feature is available on "
                                                          "metadata option where alternative language is supported, as Title, "
-                                                         "Caption, etc. The translation process is fully automatized but it requires "
+                                                         "Caption, etc. The translation process is fully automated but it requires "
                                                          "an Internet connection to work.</para>"
                                                          "<para>User can select the more appropriate translator engine depending of "
                                                          "desired target language, as not all world-wide languages are supported "

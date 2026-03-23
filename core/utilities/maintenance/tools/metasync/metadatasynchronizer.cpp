@@ -6,7 +6,7 @@
  * Date        : 2007-22-01
  * Description : batch sync pictures metadata with database
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2012      by Andi Clemens <andi dot clemens at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -212,12 +212,19 @@ void MetadataSynchronizer::parseList()
 
 void MetadataSynchronizer::slotAdvance(const ItemInfo& inf)
 {
+    uint adv = 0;
+
+    if ((adv = checkProgressNeeded()) == 0)
+    {
+        return;
+    }
+
     QString album = CollectionManager::instance()->albumRootLabel(inf.albumRootId());
 
     QString lbl = i18n("Metadata Sync: %1\n", inf.name());
     lbl.append(i18n("Album: %1\n", album + inf.relativePath()));
     setLabel(lbl);
-    advance(1);
+    advance(adv);
 }
 
 void MetadataSynchronizer::slotDone()

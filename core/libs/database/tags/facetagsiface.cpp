@@ -8,7 +8,7 @@
  *
  * SPDX-FileCopyrightText: 2010      by Aditya Bhatt <adityabhatt1991 at gmail dot com>
  * SPDX-FileCopyrightText: 2010-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -341,7 +341,7 @@ void FaceTagsIface::removeFaceTraining() const
 }
 
 /**
- * NOTE: Feel free to optimize. QString::number is 3x slower.
+ * @note Feel free to optimize. QString::number is 3x slower.
  */
 static inline QString fastNumberToString(qlonglong id)
 {
@@ -372,10 +372,6 @@ const QString FaceTagsIface::hash() const
     return QLatin1String(hasher.result().toHex());
 }
 
-/**
- * adds a tag to the list of tags excluded from face recognition
- * so "rejected" matches are not matched again
- */
 bool FaceTagsIface::addRejectedFaceTag(int tagId)
 {
     if (!m_rejectedFaceTagList.contains(tagId))
@@ -388,9 +384,6 @@ bool FaceTagsIface::addRejectedFaceTag(int tagId)
     return true;
 }
 
-/**
- * replaces the list of tags excluded from face recognition
- */
 bool FaceTagsIface::setRejectedFaceTagList(const QList<int>& tagList)
 {
     m_rejectedFaceTagList = tagList;
@@ -398,27 +391,16 @@ bool FaceTagsIface::setRejectedFaceTagList(const QList<int>& tagList)
     return true;
 }
 
-/**
- * Clears the list of tags excluded from face recognition.
- */
 void FaceTagsIface::clearRejectedFaceTagList()
 {
     m_rejectedFaceTagList.clear();
 }
 
-/**
- * Returns the list of tags excluded from face recognition
- * so "rejected" matches are not matched again
- */
 const QList<int> FaceTagsIface::rejectedFaceTagList() const
 {
     return m_rejectedFaceTagList;
 }
 
-/**
- * Returns a string representation of m_rejectedFaceTagList
- * separated by listSeparator.
- */
 const QString FaceTagsIface::rejectedFaceTagListToString() const
 {
     QStringList strings;
@@ -432,13 +414,9 @@ const QString FaceTagsIface::rejectedFaceTagListToString() const
     return strings.join(listSeparator);
 }
 
-/**
- * Returns a QList<int> from a string representation of m_rejectedFaceTagList
- * separated by listSeparator.
- */
 const QList<int> FaceTagsIface::stringToRejectedFaceTagList(const QString& str)
 {
-    QList<int> rejectedFaceTagList;
+    QList<int> rejectedTags;
     QStringList strings = str.split(listSeparator);
 
     for (const QString& tagIdStr : std::as_const(strings))
@@ -448,16 +426,13 @@ const QList<int> FaceTagsIface::stringToRejectedFaceTagList(const QString& str)
 
         if (ok)
         {
-            rejectedFaceTagList << _tagId;
+            rejectedTags << _tagId;
         }
     }
 
-    return rejectedFaceTagList;
+    return rejectedTags;
 }
 
-/**
- * Returns a string of the rect and the rejectedFaceTagList to be saved in the DB
- */
 const QString FaceTagsIface::faceTagExtendedDataDBString() const
 {
     return (

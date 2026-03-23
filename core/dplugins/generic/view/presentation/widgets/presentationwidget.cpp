@@ -9,7 +9,7 @@
  * SPDX-FileCopyrightText: 2006-2009 by Valerio Fuoglio <valerio dot fuoglio at gmail dot com>
  * SPDX-FileCopyrightText:      2009 by Andi Clemens <andi dot clemens at googlemail dot com>
  * SPDX-FileCopyrightText: 2003-2005 by Renchi Raju <renchi dot raju at gmail dot com>
- * SPDX-FileCopyrightText: 2012-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2012-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText:      2021 by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -241,7 +241,7 @@ PresentationWidget::PresentationWidget(PresentationContainer* const sharedData)
 
     d->pa            = QPolygon(4);
     m_buffer         = QPixmap(size());
-    m_buffer.fill(Qt::black);
+    m_buffer.fill(d->sharedData->bgColor);
 
     d->imageLoader   = new PresentationLoader(d->sharedData, width(), height(), d->fileIndex);
 
@@ -334,7 +334,7 @@ void PresentationWidget::loadNextImage()
     else
     {
         m_buffer = QPixmap(size());
-        m_buffer.fill(Qt::black);
+        m_buffer.fill(d->sharedData->bgColor);
     }
 
     d->fileIndex++;
@@ -366,7 +366,7 @@ void PresentationWidget::loadNextImage()
 
     QPixmap newPixmap = QPixmap::fromImage(img);
     QPixmap pixmap(width(), height());
-    pixmap.fill(Qt::black);
+    pixmap.fill(d->sharedData->bgColor);
     QPainter p(&pixmap);
 
     p.drawPixmap((width()  - newPixmap.width())  / 2,
@@ -417,7 +417,7 @@ void PresentationWidget::loadPrevImage()
 
     QPixmap newPixmap = QPixmap::fromImage(img);
     QPixmap pixmap(width(), height());
-    pixmap.fill(Qt::black);
+    pixmap.fill(d->sharedData->bgColor);
     QPainter p(&pixmap);
 
     p.drawPixmap((width()  - newPixmap.width())  / 2,
@@ -1280,7 +1280,7 @@ int PresentationWidget::effectMosaic(bool aInit)
 
     if (aInit)
     {
-        d->i           = 30; // giri totaly
+        d->i           = 30; // giri totally
         d->pixelMatrix = new bool*[width()];
 
         for (int x = 0 ; x < width() ; ++x)

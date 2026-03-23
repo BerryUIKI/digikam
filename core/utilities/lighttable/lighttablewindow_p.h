@@ -6,7 +6,7 @@
  * Date        : 2007-03-05
  * Description : digiKam light table GUI
  *
- * SPDX-FileCopyrightText: 2007-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2007-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -150,15 +150,15 @@ public:
 
     QMainWindow*              dockArea                      = nullptr;
 
-    DAdjustableLabel*         leftFileName                  = nullptr;     ///< File name loaded in left preview and show on status bar.
-    DAdjustableLabel*         rightFileName                 = nullptr;     ///< File name loaded in right preview and show on status bar.
+    StatusProgressBar*        leftFileName                  = nullptr;     ///< File name loaded in left preview and show on status bar.
+    StatusProgressBar*        rightFileName                 = nullptr;     ///< File name loaded in right preview and show on status bar.
 
     SidebarSplitter*          hSplitter                     = nullptr;
     ThumbBarDock*             barViewDock                   = nullptr;
 
     LightTableThumbBar*       thumbView                     = nullptr;     ///< Top level view to host thumbar.
 
-    LightTableView*           previewView                   = nullptr;     ///< Central view including left and right pannels.
+    LightTableView*           previewView                   = nullptr;     ///< Central view including left and right panels.
 
     DZoomBar*                 leftZoomBar                   = nullptr;     ///< Zoom bar to control the left preview and show on status bar.
     DZoomBar*                 rightZoomBar                  = nullptr;     ///< Zoom bar to control the right preview and show on status bar.

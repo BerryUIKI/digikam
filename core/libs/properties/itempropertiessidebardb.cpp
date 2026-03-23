@@ -6,7 +6,7 @@
  * Date        : 2004-11-17
  * Description : item properties side bar using data from digiKam database.
  *
- * SPDX-FileCopyrightText: 2004-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2004-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2007-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2010-2011 by Martin Klapetek <martin dot klapetek at gmail dot com>
  * SPDX-FileCopyrightText:      2011 by Michael G. Hansen <mike at mghansen dot de>
@@ -24,6 +24,7 @@
 #include <QLocale>
 #include <QSplitter>
 #include <QFileInfo>
+#include <QHash>
 #include <QScopedPointer>
 
 // KDE includes
@@ -34,6 +35,7 @@
 // Local includes
 
 #include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "applicationsettings.h"
 #include "coredbinfocontainers.h"
 #include "coredbwatch.h"
@@ -47,8 +49,11 @@
 #include "itempropertiescolorstab.h"
 #include "itempropertiesversionstab.h"
 #include "itemposition.h"
+#include "itemfiltermodel.h"
 #include "tagscache.h"
+#include "tagsactionmngr.h"
 #include "dtrash.h"
+#include "itemsgroupedview.h"
 
 #ifdef HAVE_GEOLOCATION
 #   include "itempropertiesgpstab.h"
@@ -64,16 +69,21 @@ public:
 
     Private() = default;
 
-    bool                       dirtyDesceditTab     = false;
-    bool                       hasPrevious          = false;
-    bool                       hasNext              = false;
-    bool                       hasItemInfoOwnership = false;
+public:
 
-    ItemInfoList               currentInfos;
-    ItemInfoList               allInfos;
-    DImageHistory              currentHistory;
-    ItemDescEditTab*           desceditTab          = nullptr;
-    ItemPropertiesVersionsTab* versionsHistoryTab   = nullptr;
+    bool                        dirtyDesceditTab       = false;
+    bool                        hasPrevious            = false;
+    bool                        hasNext                = false;
+    bool                        hasItemInfoOwnership   = false;
+    bool                        showAllPropertiesMode  = false;
+
+    ItemInfoList                currentInfos;                    ///< Used if multiple items are selected.
+    ItemInfoList                allInfos;
+    DImageHistory               currentHistory;
+    ItemSelectionPropertiesTab* selectionPropertiesTab = nullptr;
+    ItemDescEditTab*            desceditTab            = nullptr;
+    ItemPropertiesVersionsTab*  versionsHistoryTab     = nullptr;
+    ItemsGroupedView*           treeGroup              = nullptr;
 };
 
 ItemPropertiesSideBarDB::ItemPropertiesSideBarDB(QWidget* const parent, SidebarSplitter* const splitter,
@@ -81,23 +91,33 @@ ItemPropertiesSideBarDB::ItemPropertiesSideBarDB(QWidget* const parent, SidebarS
     : ItemPropertiesSideBar(parent, splitter, side, mimimizedDefault),
       d                    (new Private)
 {
-    d->desceditTab        = new ItemDescEditTab(parent);
-    d->versionsHistoryTab = new ItemPropertiesVersionsTab(parent);
+    d->selectionPropertiesTab = new ItemSelectionPropertiesTab(this);
+    m_propertiesStackedView->addWidget(d->selectionPropertiesTab);
+
+    d->desceditTab            = new ItemDescEditTab(parent);
+    d->versionsHistoryTab     = new ItemPropertiesVersionsTab(parent);
 
     appendTab(d->desceditTab,        QIcon::fromTheme(QLatin1String("edit-text-frame-update")), i18nc("@title: database properties", "Captions"));
     appendTab(d->versionsHistoryTab, QIcon::fromTheme(QLatin1String("view-catalog")),           i18nc("@title: database properties", "Versions"));
 
     m_propertiesTab->widget(ItemPropertiesTab::digiKamProperties)->setButtonIcon(QIcon::fromTheme(QLatin1String("document-edit")));
     m_propertiesTab->widget(ItemPropertiesTab::digiKamProperties)->setButtonVisible(true);
+    m_propertiesTab->widget(ItemPropertiesTab::digiKamProperties)->setButtonToolTip(i18n("Open the Description tab for editing"));
 
     m_propertiesTab->widget(ItemPropertiesTab::TagsProperties)->setButtonIcon(QIcon::fromTheme(QLatin1String("document-edit")));
     m_propertiesTab->widget(ItemPropertiesTab::TagsProperties)->setButtonVisible(true);
+    m_propertiesTab->widget(ItemPropertiesTab::TagsProperties)->setButtonToolTip(i18n("Open the Tags tab for editing"));
 
     m_propertiesTab->widget(ItemPropertiesTab::LocationProperties)->setButtonIcon(QIcon::fromTheme(QLatin1String("document-edit")));
     m_propertiesTab->widget(ItemPropertiesTab::LocationProperties)->setButtonVisible(true);
+    m_propertiesTab->widget(ItemPropertiesTab::LocationProperties)->setButtonToolTip(i18n("Open the Information tab for editing"));
 
     m_propertiesTab->widget(ItemPropertiesTab::RightProperties)->setButtonIcon(QIcon::fromTheme(QLatin1String("document-edit")));
     m_propertiesTab->widget(ItemPropertiesTab::RightProperties)->setButtonVisible(true);
+    m_propertiesTab->widget(ItemPropertiesTab::RightProperties)->setButtonToolTip(i18n("Open the Information tab for editing"));
+
+    d->treeGroup = new ItemsGroupedView(this);
+    m_propertiesTab->setGroupedWidget(d->treeGroup);
 
     // ----------------------------------------------------------
 
@@ -127,11 +147,30 @@ ItemPropertiesSideBarDB::ItemPropertiesSideBarDB(QWidget* const parent, SidebarS
 
     connect(ApplicationSettings::instance(), SIGNAL(setupChanged()),
             this, SLOT(slotLoadMetadataFilters()));
+
+    connect(TagsActionMngr::defaultManager(), &TagsActionMngr::signalColorLabelNamesUpdated,
+            this, &ItemPropertiesSideBarDB::slotColorLabelNamesUpdated);
 }
 
 ItemPropertiesSideBarDB::~ItemPropertiesSideBarDB()
 {
     delete d;
+}
+
+ItemInfoList ItemPropertiesSideBarDB::currentSelection() const
+{
+    return d->currentInfos;
+}
+
+void ItemPropertiesSideBarDB::setItemFilterModel(ItemFilterModel* const model)
+{
+    d->treeGroup->setItemFilterModel(model);
+    d->selectionPropertiesTab->setItemFilterModel(model);
+}
+
+void ItemPropertiesSideBarDB::setShowAllPropertiesMode(bool b)
+{
+    d->showAllPropertiesMode = b;
 }
 
 void ItemPropertiesSideBarDB::itemChanged(const ItemInfo& info, const QRect& rect,
@@ -156,7 +195,7 @@ void ItemPropertiesSideBarDB::itemChanged(const QUrl& url,
         return;
     }
 
-    m_currentURL = url;
+    m_currentUrl = url;
 
     // Special case if item come from a trash view. ItemInfo will be empty as item is removed from the database.
     // We need to use the DMetadata based method to populated the properties view.
@@ -187,7 +226,7 @@ void ItemPropertiesSideBarDB::itemChanged(const ItemInfoList& infos, const ItemI
         return;
     }
 
-    m_currentURL = infos.first().fileUrl();
+    m_currentUrl = infos.first().fileUrl();
 
     itemChanged(infos, allInfos, QRect(), nullptr, DImageHistory());
 }
@@ -227,13 +266,17 @@ void ItemPropertiesSideBarDB::itemChanged(const ItemInfoList& infos,
 void ItemPropertiesSideBarDB::slotNoCurrentItem()
 {
     ItemPropertiesSideBar::slotNoCurrentItem();
+    d->treeGroup->setVisible(false);
+    m_dirtyPropertiesTab = false;
 
     // All tabs that store the ItemInfo list and access it after selection change
     // must release the image info here. changedTab only handles the active tab!
 
     d->desceditTab->setItem();
     d->currentInfos.clear();
-    d->dirtyDesceditTab = false;
+    d->dirtyDesceditTab  = false;
+
+    changedTab(getActiveTab());
 }
 
 void ItemPropertiesSideBarDB::populateTags()
@@ -259,22 +302,29 @@ void ItemPropertiesSideBarDB::changedTab(QWidget* const tab)
 
     if      ((tab == m_propertiesStackedView) && !m_dirtyPropertiesTab)
     {
-        m_propertiesTab->setCurrentURL(m_currentURL);
-        m_selectionPropertiesTab->setCurrentURL(m_currentURL);
+        m_propertiesTab->setCurrentUrl(m_currentUrl);
 
         if      (d->currentInfos.isEmpty())
         {
-            ItemPropertiesSideBar::setImagePropertiesInformation(m_currentURL);
+            if (!d->showAllPropertiesMode)
+            {
+                ItemPropertiesSideBar::setImagePropertiesInformation(m_currentUrl);
+            }
+            else
+            {
+                setImageSelectionPropertiesInformation();
+                m_propertiesStackedView->setCurrentWidget(d->selectionPropertiesTab);
+            }
         }
         else if (d->currentInfos.count() == 1)
         {
-            setImagePropertiesInformation(m_currentURL);
+            setImagePropertiesInformation(m_currentUrl);
             m_propertiesStackedView->setCurrentWidget(m_propertiesTab);
         }
         else
         {
             setImageSelectionPropertiesInformation();
-            m_propertiesStackedView->setCurrentWidget(m_selectionPropertiesTab);
+            m_propertiesStackedView->setCurrentWidget(d->selectionPropertiesTab);
         }
 
         m_dirtyPropertiesTab = true;
@@ -290,21 +340,21 @@ void ItemPropertiesSideBarDB::changedTab(QWidget* const tab)
 
             if (!mainItem.isNull())
             {
-                m_metadataTab->setCurrentURL(mainItem.fileUrl());
+                m_metadataTab->setCurrentUrl(mainItem.fileUrl());
             }
             else
             {
-                m_metadataTab->setCurrentURL();
+                m_metadataTab->setCurrentUrl();
             }
         }
         else if (m_image)
         {
             QScopedPointer<DMetadata> data(new DMetadata(m_image->getMetadata()));
-            m_metadataTab->setCurrentData(data.data(), m_currentURL);
+            m_metadataTab->setCurrentData(data.data(), m_currentUrl);
         }
         else
         {
-            m_metadataTab->setCurrentURL(m_currentURL);
+            m_metadataTab->setCurrentUrl(m_currentUrl);
         }
 
         m_dirtyMetadataTab = true;
@@ -329,7 +379,7 @@ void ItemPropertiesSideBarDB::changedTab(QWidget* const tab)
         }
         else
         {
-            m_colorTab->setData(m_currentURL, m_currentRect, m_image);
+            m_colorTab->setData(m_currentUrl, m_currentRect, m_image);
         }
 
         m_dirtyColorTab = true;
@@ -360,7 +410,7 @@ void ItemPropertiesSideBarDB::changedTab(QWidget* const tab)
     {
         if (d->currentInfos.count() == 0)
         {
-            m_gpsTab->setCurrentURL(m_currentURL);
+            m_gpsTab->setCurrentUrl(m_currentUrl);
         }
         else
         {
@@ -379,7 +429,7 @@ void ItemPropertiesSideBarDB::changedTab(QWidget* const tab)
 
             if (list.isEmpty())
             {
-                m_gpsTab->setCurrentURL();
+                m_gpsTab->setCurrentUrl();
             }
             else
             {
@@ -421,7 +471,7 @@ void ItemPropertiesSideBarDB::changedTab(QWidget* const tab)
 
 void ItemPropertiesSideBarDB::slotFileMetadataChanged(const QUrl& url)
 {
-    if (url == m_currentURL)
+    if (url == m_currentUrl)
     {
         // trigger an update
 
@@ -465,10 +515,11 @@ void ItemPropertiesSideBarDB::slotImageChangeDatabase(const ImageChangeset& chan
 
                 DatabaseFields::Set set = changeset.changes();
 
-                if      ((set & DatabaseFields::ImagesAll)          ||
-                         (set & DatabaseFields::ItemInformationAll) ||
-                         (set & DatabaseFields::ImageMetadataAll)   ||
-                         (set & DatabaseFields::VideoMetadataAll)   ||
+                if      ((set & DatabaseFields::ImagesAll)           ||
+                         (set & DatabaseFields::ItemInformationAll)  ||
+                         (set & DatabaseFields::ImageMetadataAll)    ||
+                         (set & DatabaseFields::VideoMetadataAll)    ||
+                         (set & DatabaseFields::ImageHistoryInfoAll) ||
                          (set & DatabaseFields::ItemCommentsAll))
                 {
                     m_dirtyPropertiesTab = false;
@@ -629,6 +680,11 @@ void ItemPropertiesSideBarDB::refreshTagsView()
 */
 }
 
+void ItemPropertiesSideBarDB::slotColorLabelNamesUpdated()
+{
+    setImagePropertiesInformation(m_currentUrl);
+}
+
 void ItemPropertiesSideBarDB::setImagePropertiesInformation(const QUrl& url)
 {
     for (const ItemInfo& info : std::as_const(d->currentInfos))
@@ -645,7 +701,7 @@ void ItemPropertiesSideBarDB::setImagePropertiesInformation(const QUrl& url)
             ImageMetadataContainer photoInfo = info.imageMetadataContainer();
             VideoMetadataContainer videoInfo = info.videoMetadataContainer();
 
-            str = QLocale().toString(commonInfo.fileModificationDate, QLocale::ShortFormat);
+            str = asUserDateTime(commonInfo.fileModificationDate);
             m_propertiesTab->setFileModifiedDate(str);
 
             str = QString::fromUtf8("%1 (%2)").arg(ItemPropertiesTab::humanReadableBytesCount(commonInfo.fileSize))
@@ -709,7 +765,7 @@ void ItemPropertiesSideBarDB::setImagePropertiesInformation(const QUrl& url)
 
             if (commonInfo.creationDate.isValid())
             {
-                str = QLocale().toString(commonInfo.creationDate, QLocale::ShortFormat);
+                str = asUserDateTime(commonInfo.creationDate);
                 m_propertiesTab->setPhotoDateTime(str);
             }
             else
@@ -792,16 +848,33 @@ void ItemPropertiesSideBarDB::setImagePropertiesInformation(const QUrl& url)
             m_propertiesTab->setTags(
                                      TagsCache::instance()->tagPaths(regularTagIds, TagsCache::NoLeadingSlash, TagsCache::NoHiddenTags),
                                      TagsCache::instance()->tagNames(regularTagIds, TagsCache::NoHiddenTags),
-                                     TagsCache::instance()->tagPaths(peopleTagIds, TagsCache::NoLeadingSlash, TagsCache::NoHiddenTags),
-                                     TagsCache::instance()->tagNames(peopleTagIds, TagsCache::NoHiddenTags)
+                                     TagsCache::instance()->tagPaths(peopleTagIds,  TagsCache::NoLeadingSlash, TagsCache::NoHiddenTags),
+                                     TagsCache::instance()->tagNames(peopleTagIds,  TagsCache::NoHiddenTags)
                                     );
 
             m_propertiesTab->setTemplate(info.metadataTemplate());
 
-            m_propertiesTab->setVersionnedInfo((info.hasDerivedImages() || info.hasAncestorImages()) ? i18nc("@info: item properties", "Yes")
-                                                                                                     : i18nc("@info: item properties", "No"));
-            m_propertiesTab->setGroupedInfo((info.isGrouped() || info.hasGroupedImages()) ? i18nc("@info: item properties", "Yes")
-                                                                                          : i18nc("@info: item properties", "No"));
+            m_propertiesTab->setVersionedInfo((info.hasDerivedImages() || info.hasAncestorImages()) ? i18nc("@info: item properties", "Yes")
+                                                                                                    : i18nc("@info: item properties", "No"));
+
+            d->treeGroup->setVisible(false);
+
+            if      (info.isGrouped())
+            {
+                m_propertiesTab->setGroupedInfo(i18nc("@info: item properties", "Yes"));
+            }
+            else if (info.hasGroupedImages())
+            {
+                m_propertiesTab->setGroupedInfo(i18nc("@info: item properties", "Yes (stack)"));
+                ItemInfoList list;
+                list.append(info);
+                d->treeGroup->setGroups(list);
+                d->treeGroup->setVisible(true);
+            }
+            else
+            {
+                m_propertiesTab->setGroupedInfo(i18nc("@info: item properties", "No"));
+            }
 
             m_propertiesTab->showOrHideCachedProperties();
 
@@ -812,33 +885,57 @@ void ItemPropertiesSideBarDB::setImagePropertiesInformation(const QUrl& url)
 
 void ItemPropertiesSideBarDB::setImageSelectionPropertiesInformation()
 {
-    // --Selection Properties------------------------------------------------------
+    // -- Items Selection Properties
 
-    m_selectionPropertiesTab->setSelectionCount(QLocale().toString(d->currentInfos.count()));
+    d->selectionPropertiesTab->setSelectionCount(d->currentInfos.count());
 
-    qint64 selectionFileSize = 0;
+    qint64 selectionFileSize   = 0;
+    auto restInfos             = d->allInfos;
+    ItemInfoList selectionGroups;
+    QHash<QString, int> selectionMimes;
 
     for (const ItemInfo& info : std::as_const(d->currentInfos))
     {
         // cppcheck-suppress useStlAlgorithm
         selectionFileSize += info.fileSize();
+        selectionMimes.insert(info.format(), selectionMimes.value(info.format()) + 1);
+
+        if (info.hasGroupedImages())
+        {
+            selectionGroups.append(info);
+        }
+
+        restInfos.removeAll(info);
     }
 
-    m_selectionPropertiesTab->setSelectionSize(ItemPropertiesTab::humanReadableBytesCount(selectionFileSize));
+    d->selectionPropertiesTab->setSelectionSize(ItemPropertiesTab::humanReadableBytesCount(selectionFileSize));
+    d->selectionPropertiesTab->setSelectionMimes(selectionMimes);
+    d->selectionPropertiesTab->setSelectionGroups(selectionGroups);
 
-    // --Total Selection Properties------------------------------------------------------
+    // -- Total Album Items Properties
 
-    m_selectionPropertiesTab->setTotalCount(QLocale().toString(d->allInfos.count()));
+    d->selectionPropertiesTab->setTotalCount(d->allInfos.count());
 
-    qint64 totalFileSize = 0;
+    qint64 totalFileSize           = selectionFileSize;
+    ItemInfoList totalGroups       = selectionGroups;
+    QHash<QString, int> totalMimes = selectionMimes;
 
-    for (const ItemInfo& info : std::as_const(d->allInfos))
+    for (const ItemInfo& info : std::as_const(restInfos))
     {
         // cppcheck-suppress useStlAlgorithm
         totalFileSize += info.fileSize();
+        totalMimes.insert(info.format(), totalMimes.value(info.format()) + 1);
+
+        if (info.hasGroupedImages())
+        {
+            totalGroups.append(info);
+        }
     }
 
-    m_selectionPropertiesTab->setTotalSize(ItemPropertiesTab::humanReadableBytesCount(totalFileSize));
+    d->selectionPropertiesTab->setTotalSize(ItemPropertiesTab::humanReadableBytesCount(totalFileSize));
+    d->selectionPropertiesTab->setTotalMimes(totalMimes);
+
+    d->selectionPropertiesTab->setTotalGroups(totalGroups);
 
     return;
 }
@@ -942,6 +1039,17 @@ void ItemPropertiesSideBarDB::slotPropertiesButtonPressed(int index)
             break;
         }
     }
+}
+
+void ItemPropertiesSideBarDB::slotOpenGeolocationMap()
+{
+
+#ifdef HAVE_GEOLOCATION
+
+    setActiveTab(m_gpsTab);
+
+#endif // HAVE_GEOLOCATION
+
 }
 
 } // namespace Digikam

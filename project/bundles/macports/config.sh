@@ -1,6 +1,6 @@
 #!/bin/bash
 
-# SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -15,10 +15,19 @@ BUILDING_DIR="`pwd`/temp.build"
 
 ########################################################################
 
-# Target macOS architecture: "x86_64" for Intel 64 bits, or "arm64" for Apple Silicon 64 bits.
-ARCH_TARGET="`uname -m`"
+# Build universal bundle (arm64 + Intel architecture). Work only with Silicon computer.
+MP_UNIVERSAL=0
 
-if [[ $ARCH_TARGET = "x86_64" ]] ; then
+# Target macOS architecture: "x86_64" for Intel 64 bits, or "arm64" for Apple Silicon 64 bits.
+# Used with the macport configuration.
+HOST_ARCH="`uname -m`"
+
+# Target bundle architecture. Used to configure CMake target and create prefix for the log files
+# and the Macports install directory.
+# Equal: "x86_64" for Intel 64 bits, "arm64" for Apple Silicon 64 bits, or "universal for both architectures.
+TARGET_ARCH=$HOST_ARCH
+
+if [[ $HOST_ARCH = "x86_64" ]] ; then
 
     # Minimum MacOS target for backward binary compatibility with Intel CPU
     # This require to install older MacOS SDKs with Xcode.
@@ -47,24 +56,31 @@ if [[ $ARCH_TARGET = "x86_64" ]] ; then
     # Older values cannot be set as it do not support x86_64.
     OSX_MIN_TARGET="10.15"
 
-elif [[ $ARCH_TARGET = "arm64" ]] ; then
+elif [[ $HOST_ARCH = "arm64" ]] ; then
 
     # Apple Silicon is supported since macOS BigSur
     OSX_MIN_TARGET="11.3"
 
+    if [[ $MP_UNIVERSAL = 1 ]] ; then
+
+        TARGET_ARCH=universal
+
+    fi
+
 else
 
-    echo "Unsupported or invalid target architecture..."
+    echo "Unsupported or invalid target architecture ($HOST_ARCH)..."
     exit -1
 
 fi
 
-echo "Target Architecture: $ARCH_TARGET"
+echo "Host Architecture  : $HOST_ARCH"
+echo "Target Architecture: $TARGET_ARCH"
 
 # Directory to build and install Macports packages.
-INSTALL_PREFIX="/opt/digikam.org.$ARCH_TARGET"
+INSTALL_PREFIX="/opt/digikam.org.$TARGET_ARCH"
 # Local install prefix which do not require sudo right
-#INSTALL_PREFIX="`pwd`/digikam.org.$ARCH_TARGET"
+#INSTALL_PREFIX="`pwd`/digikam.org.$TARGET_DIR_SUF"
 
 # Directory where target bundle contents will be installed.
 RELOCATE_PREFIX="/Applications/digiKam.org"
@@ -94,9 +110,6 @@ DK_BUILDTEMP=~/dktemp
 #DK_QTVERSION="5"
 DK_QTVERSION="6"
 
-# Build universal bundle (arm64 + Intel architecture). Work only with Silicon computer.
-DK_UNIVERSAL=0
-
 # Mariadb version to install for Qt SQL plugin.
 DK_MARIADB_VERSION="10.11"
 
@@ -118,7 +131,7 @@ DK_VERSION=master
 DK_APPLE_PACKAGE_MANAGER="macports"
 
 # Installer will include or not digiKam debug symbols
-DK_DEBUG=0
+DK_DEBUG=1
 
 # Sign bundles with GPG. Passphrase must be hosted in ~/.gnupg/dkorg-gpg-pwd.txt
 DK_SIGN=0
@@ -150,15 +163,15 @@ else
 
     # KDE KF6 frameworks version.
     # See official release here: https://download.kde.org/stable/frameworks/
-    DK_KDE_VERSION="v6.14.0"
+    DK_KDE_VERSION="v6.24.0"
 
     # KDE Plasma version.
     # See official release here: https://download.kde.org/stable/plasma/
-    DK_KP_VERSION="v6.3.5"
+    DK_KP_VERSION="v6.6.2"
 
     # KDE Application version.
     # See official release here: https://download.kde.org/stable/release-service/
-    DK_KA_VERSION="v25.04.1"
+    DK_KA_VERSION="v25.12.3"
 
     DK_UPLOADDIR="/srv/archives/files/digikam/"
 

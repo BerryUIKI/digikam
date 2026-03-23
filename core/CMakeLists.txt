@@ -1,5 +1,5 @@
 #
-# SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier, <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier, <caulier dot gilles at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Veaceslav Munteanu, <veaceslav dot munteanu90 at gmail dot com>
 # SPDX-FileCopyrightText: 2015      by Mohamed_Anwer, <m_dot_anwer at gmx dot com>
 #
@@ -19,10 +19,10 @@ message(STATUS "")
 set(KF${QT_VERSION_MAJOR}_MIN_VERSION       "5.95.0")
 set(EXIV2_MIN_VERSION                       "0.27.1")
 set(OPENCV_MIN_VERSION                      "4.8.0")
-set(LENSFUN_MIN_VERSION                     "0.2.6.0")      # For Lens auto-correction plugin
+set(LENSFUN_MIN_VERSION                     "0.2.8.0")      # For Lens auto-correction plugin
 set(KSANE_MIN_VERSION                       "21.12.0")      # For digital scanner support.
-set(CALENDAR_MIN_VERSION                    "5.89.0")       # Calendar Core dependency for plugin.
-set(AKONADI_MIN_VERSION                     "5.19.0")       # Akonadi Contact dependency.
+set(CALENDAR_MIN_VERSION                    "5.95.0")       # Calendar Core dependency for plugin.
+set(AKONADI_MIN_VERSION                     "5.95.0")       # Akonadi Contact dependency.
 
 cmake_minimum_required(VERSION ${CMAKE_MIN_VERSION})
 
@@ -39,6 +39,16 @@ include(RulesQtFramework)
 # KDE frameworks dependencies
 
 include(RulesKDEFramework)
+
+# Add rules to control the minimal Qt and KDE frameworks version 6 to support at compile time.
+
+include(ECMDeprecationSettings)
+
+ecm_set_disabled_deprecation_versions(
+# FIXME: some Qt6 API will be removed in Qt7 eg. QSqlQuery copy constructor.
+#    QT 6.9.1
+    KF 6.17.0
+)
 
 # ==============================================================================
 # Dependencies Rules
@@ -68,11 +78,11 @@ if(HEIF_FOUND)
 
 endif()
 
-# -- Exiv2 checks and adjustements ---------------------------------------------
+# -- Exiv2 checks and adjustments ----------------------------------------------
 
 include(RulesLibExiv2)
 
-# -- OpenCV checks and adjustements --------------------------------------------
+# -- OpenCV checks and adjustments ---------------------------------------------
 
 include(RulesLibOpenCV)
 
@@ -100,11 +110,11 @@ find_package(PkgConfig)
 find_package(Jasper)                               # For JPEG 2000 support.
 find_package(Eigen3)                               # For Refocus tool.
 
-# -- ImageMagick checks and adjustements --------------------------------------
+# -- ImageMagick checks and adjustments ---------------------------------------
 
 include(RulesLibMagick)
 
-# -- X11 checks and adjustements ----------------------------------------------
+# -- X11 checks and adjustments -----------------------------------------------
 
 include(RulesX11)
 
@@ -112,7 +122,7 @@ include(RulesX11)
 
 include(RulesLibOpenGL)
 
-# -- Media player dependencies checks and adjustments---------------------------
+# -- Media player dependencies checks and adjustments -------------------------
 
 include(RulesFFmpeg)
 include(RulesMediaPlayer)
@@ -121,11 +131,11 @@ include(RulesMediaPlayer)
 
 include(RulesInstallPaths)
 
-# -- Windows compilation and linking adjustements -----------------------------
+# -- Windows compilation and linking adjustments ------------------------------
 
 include(RulesWindows)
 
-# -- MacOS compilation and linking adjustements -----------------------------
+# -- MacOS compilation and linking adjustments --------------------------------
 
 include(RulesMacOS)
 
@@ -150,9 +160,7 @@ find_package(GLIB2)
 
 if(BUILD_WITH_CCACHE)
 
-    message(STATUS "Looking for ccache...")
-    find_program(CCACHE_FOUND ccache)
-    message(STATUS "ccache program found: ${CCACHE_FOUND}...")
+    MACRO_COMPILER_CCACHE()
 
 endif()
 
@@ -195,7 +203,6 @@ include(RulesLibraw)
 # -- Debug Symbols rules under MacOS -------------------------------------------
 
 MACOS_DEBUG_POLICIES()
-
 
 # -- Compilation options definitions -------------------------------------------
 
@@ -353,7 +360,7 @@ if(Boost_FOUND                          AND
 
 else()
 
-    message(FATAL_ERROR " digiKam will be compiled.................. NO  (Check dependencies from the developper documentation https://files.kde.org/digikam/api/)")
+    message(FATAL_ERROR " digiKam will be compiled.................. NO  (Check dependencies from the developer documentation https://files.kde.org/digikam/api/)")
     set(DIGIKAM_CAN_BE_COMPILED false)
 
 endif()
@@ -386,8 +393,7 @@ if(DIGIKAM_CAN_BE_COMPILED)
     if(HAVE_CCACHE)
 
         message(STATUS "Using ccache to speed-up compilations..... YES")
-        set_property(GLOBAL PROPERTY RULE_LAUNCH_COMPILE ccache)
-        set_property(GLOBAL PROPERTY RULE_LAUNCH_LINK    ccache)
+        add_definitions(-DCCACHE_VERSION="${CCACHE_VERSION}")
 
     else()
 
@@ -418,6 +424,7 @@ if(DIGIKAM_CAN_BE_COMPILED)
     # Remove Clang flags which generate a lots of compilation warnings
     REMOVE_CLANG_COMPILER_WARNINGS("-Wzero-as-null-pointer-constant")
     REMOVE_CLANG_COMPILER_WARNINGS("-Wc11-extensions")
+    REMOVE_CLANG_COMPILER_WARNINGS("-Wc++23-attribute-extensions")
 
     include(MacroSanitizers)
     ENABLE_COMPILER_SANITIZERS()
@@ -445,8 +452,6 @@ if(DIGIKAM_CAN_BE_COMPILED)
                     -DQT_NO_URL_CAST_FROM_STRING
                     -DQT_STRICT_ITERATORS
                     -DQT_NO_NARROWING_CONVERSIONS_IN_CONNECT
-                    -DQT_DEPRECATED_WARNINGS_SINCE=0x060000
-                    -DQT_DISABLE_DEPRECATED_BEFORE=0x050E00
                     -DQT_NO_KEYWORDS
                     -DQT_NO_FOREACH
     )

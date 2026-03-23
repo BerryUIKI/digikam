@@ -7,7 +7,7 @@
  * Description : a tool to create panorama by fusion of several images.
  *
  * SPDX-FileCopyrightText: 2011-2016 by Benjamin Girault <benjamin dot girault at gmail dot com>
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -39,7 +39,6 @@ class EnblendBinary;
 class MakeBinary;
 class NonaBinary;
 class PanoModifyBinary;
-class Pto2MkBinary;
 class HuginExecutorBinary;
 
 class PanoManager : public QObject
@@ -60,9 +59,6 @@ public:
 public:
 
     bool checkBinaries();
-
-    void checkForHugin2015();
-    bool hugin2015()                                    const;
 
     void setGPano(bool gPano);
     bool gPano() const;
@@ -102,12 +98,8 @@ public:
     QSharedPointer<PTOType> panoPtoData();
     void                    resetPanoPto();
 
-    QUrl&                   previewMkUrl()              const;
-    void                    resetPreviewMkUrl();
     QUrl&                   previewUrl()                const;
     void                    resetPreviewUrl();
-    QUrl&                   mkUrl()                     const;
-    void                    resetMkUrl();
     QUrl&                   panoUrl()                   const;
     void                    resetPanoUrl();
 
@@ -116,11 +108,7 @@ public:
     AutoOptimiserBinary&    autoOptimiserBinary()       const;
     CPCleanBinary&          cpCleanBinary()             const;
     CPFindBinary&           cpFindBinary()              const;
-    EnblendBinary&          enblendBinary()             const;
-    MakeBinary&             makeBinary()                const;
-    NonaBinary&             nonaBinary()                const;
     PanoModifyBinary&       panoModifyBinary()          const;
-    Pto2MkBinary&           pto2MkBinary()              const;
     HuginExecutorBinary&    huginExecutorBinary()       const;
 
     void run();

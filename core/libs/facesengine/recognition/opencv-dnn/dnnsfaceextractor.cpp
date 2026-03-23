@@ -7,7 +7,7 @@
  *               The internal DNN library interface.
  *
  * SPDX-FileCopyrightText: 2019      by Thanh Trung Dinh <dinhthanhtrung1996 at gmail dot com>
- * SPDX-FileCopyrightText: 2020-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -59,7 +59,7 @@ DNNSFaceExtractor::DNNSFaceExtractor()
     : DNNFaceExtractorBase(),
       d                   (new Private)
 {
-    // Virtual call in contructor: use dynamic binding.
+    // Virtual call in constructor: use dynamic binding.
 
     if (!this->loadModels())
     {

@@ -6,7 +6,7 @@
  * Date        : 2006-02-23
  * Description : item metadata interface - file I/O helpers.
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2011      by Leif Huhn <leif at dkstat dot com>
  *
@@ -41,6 +41,7 @@ bool DMetadata::load(const QString& filePath, bool videoAll, Backend* backend)
     FileReadLocker lock(filePath);
 
     Backend usedBackend = NoBackend;
+    bool sidecarLoaded  = false;
     bool hasLoaded      = false;
     QFileInfo info(filePath);
     QMimeDatabase mimeDB;
@@ -111,14 +112,19 @@ bool DMetadata::load(const QString& filePath, bool videoAll, Backend* backend)
             }
         }
 
-        hasLoaded |= loadFromSidecarAndMerge(filePath);
+        sidecarLoaded = loadFromSidecarAndMerge(filePath);
     }
     else
     {
         // No image files (aka video or audio), process with ExifTool and ffmpeg backends.
 
-        if      ((hasLoaded = loadUsingExifTool(filePath, videoAll)))
+        if ((hasLoaded = loadUsingExifTool(filePath, videoAll)))
         {
+            // Load and merge metadata from sidecar first
+            // before adding virtual metadata to XMP.
+
+            sidecarLoaded = loadFromSidecarAndMerge(filePath);
+
             if (videoAll && (hasLoaded = loadUsingFFmpeg(filePath)))
             {
                 usedBackend = VideoMergeBackend;
@@ -128,16 +134,19 @@ bool DMetadata::load(const QString& filePath, bool videoAll, Backend* backend)
                 usedBackend = ExifToolBackend;
             }
         }
-        else if ((hasLoaded = loadUsingFFmpeg(filePath)))
-        {
-            usedBackend = FFMpegBackend;
-        }
         else
         {
-            usedBackend = NoBackend;
-        }
+            sidecarLoaded = loadFromSidecarAndMerge(filePath);
 
-        hasLoaded |= loadFromSidecarAndMerge(filePath);
+            if (videoAll && (hasLoaded = loadUsingFFmpeg(filePath)))
+            {
+                usedBackend = FFMpegBackend;
+            }
+            else
+            {
+                usedBackend = NoBackend;
+            }
+        }
     }
 
     qCDebug(DIGIKAM_METAENGINE_LOG) << "Loading metadata with"
@@ -149,7 +158,7 @@ bool DMetadata::load(const QString& filePath, bool videoAll, Backend* backend)
         *backend = usedBackend;
     }
 
-    return hasLoaded;
+    return (hasLoaded || sidecarLoaded);
 }
 
 bool DMetadata::save(const QString& filePath, bool setVersion) const

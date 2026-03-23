@@ -6,7 +6,7 @@
  * Date        : 2009-05-07
  * Description : Context menu for GPS list view.
  *
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2009-2014 by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -170,7 +170,7 @@ bool GPSItemListContextMenu::eventFilter(QObject* watched, QEvent* event)
                 copyAvailable                   &= itemHasCoordinates;
                 removeCoordinatesAvailable      |= itemHasCoordinates;
                 removeAltitudeAvailable         |= gpsData.getCoordinates().hasAltitude();
-                removeUncertaintyAvailable      |= (int)gpsData.hasNSatellites() | (int)gpsData.hasDop() | (int)gpsData.hasFixType();
+                removeUncertaintyAvailable      |= gpsData.hasNSatellites() || gpsData.hasDop() || gpsData.hasFixType();
                 removeSpeedAvailable            |= gpsData.hasSpeed();
                 lookupMissingAltitudesAvailable |= itemHasCoordinates && !gpsData.getCoordinates().hasAltitude();
             }
@@ -249,34 +249,46 @@ bool GPSItemListContextMenu::getCurrentItemPositionAndUrl(GPSDataContainer* cons
 {
     // NOTE: currentIndex does not seem to work any more since we use KLinkItemSelectionModel.
 
-    GPSItemModel* const imageModel           = d->imagesList->getModel();
+    GPSItemModel* const imageModel            = d->imagesList->getModel();
     QItemSelectionModel* const selectionModel = d->imagesList->getSelectionModel();
     const QList<QModelIndex> selectedIndices  = selectionModel->selectedRows();
 
-    if (selectedIndices.count() != 1)
+    if (selectedIndices.size() == 0)
     {
         return false;
     }
 
-    const QModelIndex currentIndex = selectedIndices.first();
+    const QModelIndex firstIndex      = selectedIndices.first();
+    GPSItemContainer* const firstItem = imageModel->itemFromIndex(firstIndex);
 
-    if (!currentIndex.isValid())
+    if (firstItem)
     {
-        return false;
-    }
+        for (int i = 1 ; i < selectedIndices.size() ; ++i)
+        {
+            if (selectedIndices.at(i).isValid())
+            {
+                GPSItemContainer* const gpsItem = imageModel->itemFromIndex(selectedIndices.at(i));
 
-    GPSItemContainer* const gpsItem = imageModel->itemFromIndex(currentIndex);
+                if (!gpsItem || (firstItem->gpsData() != gpsItem->gpsData()))
+                {
+                    if (itemUrl)
+                    {
+                        *itemUrl = QUrl(i18n("Items have different coordinates."));
+                    }
 
-    if (gpsItem)
-    {
+                    return false;
+                }
+            }
+        }
+
         if (gpsInfo)
         {
-            *gpsInfo = gpsItem->gpsData();
+            *gpsInfo = firstItem->gpsData();
         }
 
         if (itemUrl)
         {
-            *itemUrl = gpsItem->url();
+            *itemUrl = firstItem->url();
         }
 
         return true;

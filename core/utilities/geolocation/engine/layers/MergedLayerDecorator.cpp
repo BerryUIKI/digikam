@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -570,16 +570,32 @@ void MergedLayerDecorator::Private::paintTileId(QImage* tileImage, const TileId&
     if (((qreal)(id.x()) / 2 == id.x() / 2 && (qreal)(id.y()) / 2 == id.y() / 2)
         || ((qreal)(id.x()) / 2 != id.x() / 2 && (qreal)(id.y()) / 2 != id.y() / 2)
        )
+
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
+
+    {
+        foreground.fromString(QString::fromUtf8("#FFFFFF"));
+        background.fromString(QString::fromUtf8("#000000"));
+    }
+    else
+    {
+        foreground.fromString(QString::fromUtf8("#000000"));
+        background.fromString(QString::fromUtf8("#FFFFFF"));
+    }
+
+#else
+
     {
         foreground.setNamedColor(QString::fromUtf8("#FFFFFF"));
         background.setNamedColor(QString::fromUtf8("#000000"));
     }
-
     else
     {
         foreground.setNamedColor(QString::fromUtf8("#000000"));
         background.setNamedColor(QString::fromUtf8("#FFFFFF"));
     }
+
+#endif
 
     int   strokeWidth = 10;
     QPen  testPen(foreground);
@@ -677,7 +693,7 @@ int MergedLayerDecorator::Private::maxDivisor(int maximum, int fullLength)
     for (int it = 1; it <= maximum; ++it)
     {
         // The optimum is the interval which results in the least amount
-        // supporting points taking into account the rest which can't
+        // supporting points taking into account the rest which cannot
         // get used for interpolation.
         int nEval = fullLength / it + fullLength % it;
 

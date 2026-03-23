@@ -443,7 +443,10 @@ void ItemCategorizedView::setThumbnailSize(const ThumbnailSize& s)
 
 void ItemCategorizedView::setCurrentWhenAvailable(qlonglong imageId)
 {
-    d->scrollToItemId = imageId;
+    if (!d->scrollToItemId)
+    {
+        d->scrollToItemId = imageId;
+    }
 }
 
 void ItemCategorizedView::setCurrentUrlWhenAvailable(const QUrl& url)
@@ -614,6 +617,7 @@ void ItemCategorizedView::scrollToStoredItem()
         if (d->model->hasImage(d->scrollToItemId))
         {
             QModelIndex index = d->filterModel->indexForImageId(d->scrollToItemId);
+            clearSelection();
             setCurrentIndex(index);
             scrollToRelaxed(index, QAbstractItemView::PositionAtCenter);
             d->scrollToItemId = 0;

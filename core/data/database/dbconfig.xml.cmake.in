@@ -10,7 +10,7 @@
  *
  * SPDX-FileCopyrightText:      2009 by Holger Foerster <hamsi2k at freenet dot de>
  * SPDX-FileCopyrightText: 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText:      2018 by Mario Frank    <mario dot frank at uni minus potsdam dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -1666,7 +1666,8 @@
                 The face database file contains the tables listed below:
                 Identities:         contains a list of identities with type.
                 IdentityAttributes: contains identity attributes as text name and UUID.
-                FaceMatrices:       contains face matrices data for each identity for the DNN recognition algorithm that was used when the training was done.
+                FaceMatrices:       contains face matrices data for each identity for the DNN
+                                    recognition algorithm that was used when the training was done.
                 Settings:           includes database version rules.
             -->
 
@@ -1699,7 +1700,7 @@
                 <statement mode="plain">CREATE TABLE FaceMatrices
                     (id INTEGER PRIMARY KEY AUTO_INCREMENT,
                     identity INTEGER NOT NULL,
-                    removeHash LONGTEXT CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
+                    removeHash VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL,
                     embedding BLOB NOT NULL,
                     CONSTRAINT FaceEmbedding_Identities FOREIGN KEY (identity) REFERENCES Identities (id) ON DELETE CASCADE ON UPDATE CASCADE)
                     ENGINE InnoDB;
@@ -1708,7 +1709,7 @@
 
             <dbaction name="RenameFaceDBFaceMatrices_contextcolumn_V5" mode="transaction">
                 <statement mode="plain">ALTER TABLE FaceMatrices
-                                        RENAME COLUMN `context` TO removeHash;
+                                        CHANGE `context` removeHash VARCHAR(128) CHARACTER SET utf8 COLLATE utf8_general_ci NOT NULL;
                 </statement>
             </dbaction>
 

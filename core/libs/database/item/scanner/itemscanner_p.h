@@ -7,7 +7,7 @@
  * Description : Scanning a single item - private containers.
  *
  * SPDX-FileCopyrightText: 2007-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2013-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2013-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -90,7 +90,10 @@ public:
     QVariantList                     imageInformationInfos;
 
     QVariantList                     imageMetadataInfos;
+    QVariantList                     videoMetadataInfos;
     QVariantList                     imagePositionInfos;
+
+    QStringList                      filteredKeywords;
 
     CaptionsMap                      captions;
     QString                          headline;
@@ -132,22 +135,23 @@ public:
 
 public:
 
-    bool                   hasImage             = false;
-    bool                   hasMetadata          = false;
-    bool                   loadedFromDisk       = false;
+    bool                        hasImage             = false;
+    bool                        hasMetadata          = false;
+    bool                        loadedFromDisk       = false;
 
-    QFileInfo              fileInfo;
+    QFileInfo                   fileInfo;
 
-    DMetadata*             metadata             = nullptr;
-    DImg                   img;
-    ItemScanInfo           scanInfo;
-    ItemScanner::ScanMode  scanMode             = ModifiedScan;
+    DMetadata*                  metadata             = nullptr;
+    DImg                        img;
+    ItemScanInfo                scanInfo;
+    ItemScanner::ScanMode       scanMode             = ModifiedScan;
+    MetaEngineSettingsContainer settings             = MetaEngineSettings::instance()->settings();
 
-    bool                   hasHistoryToResolve  = false;
+    bool                        hasHistoryToResolve  = false;
 
-    ItemScannerCommit      commit;
+    ItemScannerCommit            commit;
 
-    QElapsedTimer          timer;
+    QElapsedTimer                timer;
 };
 
 } // namespace Digikam

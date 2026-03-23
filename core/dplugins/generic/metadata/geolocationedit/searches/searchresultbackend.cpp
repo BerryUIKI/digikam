@@ -6,7 +6,7 @@
  * Date        : 2010-06-01
  * Description : A simple backend to search OSM and Geonames.org.
  *
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2010-2011 by Michael G. Hansen <mike at mghansen dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -132,7 +132,7 @@ void SearchResultBackend::slotFinished(QNetworkReply* reply)
 
     d->searchData.append(reply->readAll());
 
-    const QString resultString = QString::fromUtf8(d->searchData.constData(), d->searchData.count());
+    const QString resultString = QString::fromUtf8(d->searchData.constData(), d->searchData.size());
 
     if      (d->runningBackend == QLatin1String("osm"))
     {

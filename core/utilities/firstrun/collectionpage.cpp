@@ -6,7 +6,7 @@
  * Date        : 2009-28-04
  * Description : first run assistant dialog
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -76,7 +76,7 @@ CollectionPage::CollectionPage(QWizard* const dlg)
 
     QString message             = i18n("<p>Please enter a location where you keep your images.</p> "
                                        "<p>You can choose any local folder, even one that already contains images."
-                                       "<br/> "
+                                       "<br> "
                                        "More folders can be added later under the <i>Settings</i> menu. "
                                        "</p> ");
 
@@ -187,7 +187,7 @@ bool CollectionPage::checkRootAlbum(QString& rootAlbumFolder)
         if (!targetPath.mkpath(rootAlbumFolder))
         {
             QMessageBox::information(this, i18nc("@title:window", "Create Root Album Folder Failed"),
-                                     i18n("<p>digiKam could not create the folder to use as the root album.\n"
+                                     i18n("<p>digiKam could not create the folder to use as the root album.<br>"
                                           "Please select a different location.</p>"
                                           "<p><b>%1</b></p>", QDir::toNativeSeparators(rootAlbumFolder)));
             return false;

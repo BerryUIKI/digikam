@@ -7,7 +7,7 @@
  * Description : Filter values for use with ItemFilterModel
  *
  * SPDX-FileCopyrightText: 2009-2011 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText:      2010 by Andi Clemens <andi dot clemens at gmail dot com>
  * SPDX-FileCopyrightText:      2011 by Michael G. Hansen <mike at mghansen dot de>
  * SPDX-FileCopyrightText:      2014 by Mohamed_Anwer <m_dot_anwer at gmx dot com>
@@ -56,13 +56,14 @@ public:
     {
         None             = 0x00,
         ImageName        = 0x01,
-        ImageTitle       = 0x02,
-        ImageComment     = 0x04,
-        TagName          = 0x08,
-        AlbumName        = 0x10,
-        ImageAspectRatio = 0x20,
-        ImagePixelSize   = 0x40,
-        All              = ImageName | ImageTitle | ImageComment | TagName | AlbumName | ImageAspectRatio | ImagePixelSize
+        ImagePath        = 0x02,
+        ImageTitle       = 0x04,
+        ImageComment     = 0x08,
+        TagName          = 0x10,
+        AlbumName        = 0x20,
+        ImageAspectRatio = 0x40,
+        ImagePixelSize   = 0x80,
+        All              = ImageName | ImagePath | ImageTitle | ImageComment | TagName | AlbumName | ImageAspectRatio | ImagePixelSize
     };
 
 public:
@@ -73,10 +74,12 @@ public:
     {
         caseSensitive = settings.caseSensitive;
         text          = settings.text;
+        invert        = false;
         textFields    = None;
     }
 
     TextFilterFields textFields = None;
+    bool             invert     = false;
 };
 
 // ---------------------------------------------------------------------------------------

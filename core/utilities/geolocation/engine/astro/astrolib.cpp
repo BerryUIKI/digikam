@@ -8,7 +8,7 @@
  *               (c) 2007-2022 Marble Team
  *               https://invent.kde.org/education/marble/-/raw/master/data/credits_authors.html
  *
- * SPDX-FileCopyrightText: 2023-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2023-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: LGPL-2.1-or-later
  *
@@ -1026,7 +1026,7 @@ double Refract(double h, double p, double t)
 {
     /* Calculate atmospheric refraction with low precision
         h = height (in radians) of object
-        p = presure (in millibars)
+        p = pressure (in millibars)
         t = temperature (in degrees Celsius)
 
         RETURN: refraction angle in radians
@@ -2874,7 +2874,7 @@ int Eclipse::lunar(double jd, double tdut)
     s0 = abs(rm);
     umbra = 1.02 * fabs((ds - 2.0) * s0 / r2 - 2.0) * 0.5; // radius of umbra
     penumbra = 1.02 * fabs((ds + 2.0) * s0 / r2 + 2.0) * 0.5; //radius of penumbra
-    /* (the factor 1.02 allows for enlargment of shadow due to
+    /* (the factor 1.02 allows for enlargement of shadow due to
          Earth's atmosphere) */
 
     // get angular separation of center of shadow and Moon

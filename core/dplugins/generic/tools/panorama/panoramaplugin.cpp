@@ -6,7 +6,7 @@
  * Date        : 2018-07-30
  * Description : a plugin to create panorama.
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -67,8 +67,8 @@ QString PanoramaPlugin::details() const
     return i18n("<p>This tool allows users to assemble images together to create large panorama.</p>"
                 "<p>To create panorama image, you need to use images taken from same point of "
                 "view with a tripod and exposed with same settings.</p>"
-                "<p>The tool is able to assemble shot taken horizontally, vertically, or as a "
-                "matrix. Take a care that target image will become huge and require a lots of "
+                "<p>The tool is able to assemble shots taken horizontally, vertically, or as a "
+                "matrix. Take care that target image will become huge and require a lot of "
                 "memory to be processed.</p>");
 }
 

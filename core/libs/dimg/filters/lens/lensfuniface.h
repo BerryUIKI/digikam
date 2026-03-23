@@ -4,7 +4,7 @@
  * Description : a tool to fix automatically camera lens aberrations
  *
  * SPDX-FileCopyrightText: 2008      by Adrian Schroeter <adrian at suse dot de>
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -16,9 +16,6 @@
 
 /*
  * Pragma directives to reduce warnings from Lensfun header files.
- *
- * TODO: lensfun version > 0.3.2 introduce deprecated methods for the future.
- * digiKam Code need to be ported to new API when Lensfun 0.4.0 will be releaed.
  *
  */
 #if defined(Q_CC_GNU)

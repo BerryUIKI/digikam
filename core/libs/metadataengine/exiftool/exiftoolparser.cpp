@@ -6,7 +6,7 @@
  * Date        : 2020-11-28
  * Description : ExifTool process stream parser.
  *
- * SPDX-FileCopyrightText: 2020-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -85,6 +85,11 @@ bool ExifToolParser::exifToolAvailable() const
     qCDebug(DIGIKAM_METAENGINE_LOG) << "Check ExifTool availability:" << ret;
 
     return ret;
+}
+
+bool ExifToolParser::hasError() const
+{
+    return d->error;
 }
 
 MetaEngine::TagsMap ExifToolParser::tagsDbToOrderedMap(const ExifToolData& tagsDb)

@@ -6,7 +6,7 @@
  * Date        : 2018-07-30
  * Description : manager to load external plugins at run-time: private container
  *
- * SPDX-FileCopyrightText: 2018-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2018-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -49,6 +49,7 @@ DPluginLoader::Private::Private()
     DKBlacklist << QLatin1String("Generic_DNGConverter_Plugin");
     blacklist   << QLatin1String("Generic_YandexFotki_Plugin");
     blacklist   << QLatin1String("Generic_VKontakte_Plugin");
+    blacklist   << QLatin1String("Generic_Google_Plugin");
 
     // Ignore Geolocation plugin which uses a dedicated loader.
 
@@ -135,7 +136,7 @@ QFileInfoList DPluginLoader::Private::pluginEntriesList() const
             it.next();
 
             if (
-                !it.filePath().contains(QLatin1String("dSYM"))   &&  // Ignore debug binary extensions under MacOS
+                !it.filePath().contains(QLatin1String("dSYM"))   &&  // Ignore debug binary extensions under macOS
                 !it.filePath().contains(QLatin1String("marble")) &&  // Ignore Marble plugins.
                 !dupFiles.contains(it.fileInfo().baseName())
                )

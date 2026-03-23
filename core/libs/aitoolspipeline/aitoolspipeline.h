@@ -6,7 +6,8 @@
  * Date        : 2025-05-02
  * Description : AI tools pipeline class
  *
- * SPDX-FileCopyrightText : 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
+ * SPDX-FileCopyrightText: 2024-2025 by Michael Miller <michael underscore miller at msn dot com>
+ *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
  * ============================================================ */
@@ -40,9 +41,15 @@ class DIGIKAM_GUI_EXPORT AIToolsPipeline : public MLPipelineFoundation
 public:
 
     /**
+     * @brief Constructor
+     * @param parent Parent object
+     */
+    explicit AIToolsPipeline(QObject* const parent = nullptr);
+
+    /**
      * @brief Destructor
      */
-    ~AIToolsPipeline() override;
+    ~AIToolsPipeline()      override;
 
     /**
      * @brief Returns the global AIToolsPipeline instance
@@ -54,7 +61,7 @@ public:
      * @brief Start the pipeline processing
      * @return True if the pipeline was started successfully
      */
-    bool start();
+    bool start()            override;
 
     /**
      * @brief Auto-rotate an image using AI-based rotation detection
@@ -190,15 +197,10 @@ Q_SIGNALS:
      * @param infos List of ItemInfos to transform
      * @param action Transformation action to apply
      */
-    void signalTransform(const QList<ItemInfo>& infos, MetaEngineRotation::TransformationAction action);
+    void signalTransform(const QList<ItemInfo>& infos,
+                         MetaEngineRotation::TransformationAction action);
 
 private:
-
-    /**
-     * @brief Constructor
-     * @param parent Parent object
-     */
-    explicit AIToolsPipeline(QObject* const parent = nullptr);
 
     class Private;
     Private* const d = nullptr;

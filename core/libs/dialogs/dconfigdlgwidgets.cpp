@@ -6,7 +6,7 @@
  * Date        : 2009-11-03
  * Description : A dialog base class which can handle multiple pages.
  *
- * SPDX-FileCopyrightText: 2009-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2009-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006      by Tobias Koenig <tokoe at kde dot org>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -246,7 +246,11 @@ QString DConfigDlgTitle::comment() const
 QPixmap DConfigDlgTitle::pixmap() const
 {
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
+#if (QT_VERSION >= QT_VERSION_CHECK(6, 9, 2))
+
+    return d->imageLabel->pixmap();
+
+#elif (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
 
     return d->imageLabel->pixmap(Qt::ReturnByValue);
 

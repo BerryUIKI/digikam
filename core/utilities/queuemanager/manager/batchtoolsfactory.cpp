@@ -6,7 +6,7 @@
  * Date        : 2008-11-24
  * Description : Batch Tools Factory.
  *
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -46,14 +46,9 @@ public:
     BatchToolsFactory object;
 };
 
-Q_GLOBAL_STATIC(BatchToolsFactoryCreator, batchToolsManagerCreator)
+Q_GLOBAL_STATIC(BatchToolsFactoryCreator, creator)
 
 // --------------------------------------------------------------------------------
-
-BatchToolsFactory* BatchToolsFactory::instance()
-{
-    return &batchToolsManagerCreator->object;
-}
 
 BatchToolsFactory::BatchToolsFactory()
     : QObject(),
@@ -117,6 +112,11 @@ BatchToolsFactory::BatchToolsFactory()
 BatchToolsFactory::~BatchToolsFactory()
 {
     delete d;
+}
+
+BatchToolsFactory* BatchToolsFactory::instance()
+{
+    return &creator->object;
 }
 
 BatchToolsList BatchToolsFactory::toolsList() const

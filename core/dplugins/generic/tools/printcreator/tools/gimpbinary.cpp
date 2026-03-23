@@ -6,7 +6,7 @@
  * Date        : 2017-07-04
  * Description : Autodetect gimp binary program
  *
- * SPDX-FileCopyrightText: 2017-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2017-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -23,21 +23,7 @@ namespace DigikamGenericPrintCreatorPlugin
 
 GimpBinary::GimpBinary(QObject* const)
     : DBinaryIface(
-
-#ifdef Q_OS_MACOS
-
-                   QLatin1String("GIMP-bin"),
-
-#elif defined Q_OS_WIN
-
-                   QLatin1String("gimp-2.10"),
-
-#else
-
                    QLatin1String("gimp"),
-
-#endif
-
                    QLatin1String("The Gimp"),
                    QLatin1String("https://www.gimp.org/downloads/"),
                    QLatin1String("PrintCreator"),

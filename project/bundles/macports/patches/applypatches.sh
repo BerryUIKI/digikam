@@ -2,7 +2,7 @@
 
 # Script to apply Macports port patches recursively
 #
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #
@@ -17,10 +17,23 @@ trap 'echo "FAILED COMMAND: $PREVIOUS_COMMAND"' ERR
 
 . ../config.sh
 
-for patchfile in `find -iname \*.patch`; do
+FILES=$(find . -iname "*.patch")
+
+for patchfile in $FILES ; do
 
     pfile="$(basename "$patchfile")"
-    echo "Apply patch: $patchfile"
-    patch --verbose -u $INSTALL_PREFIX/var/macports/sources/rsync.macports.org/macports/release/tarballs/ports/$pdir/Portfile -i $patchfile
+    pdir="$(dirname "$patchfile")"
+
+    if [[ $pfile == "Portfile.patch" ]] ; then
+
+        echo "> Apply patch: $patchfile"
+        patch -u $INSTALL_PREFIX/var/macports/sources/rsync.macports.org/macports/release/tarballs/ports/$pdir/Portfile -i $patchfile
+
+    else
+
+        echo "> Copy patch: $patchfile"
+        cp -v $patchfile $INSTALL_PREFIX/var/macports/sources/rsync.macports.org/macports/release/tarballs/ports/$pdir
+
+    fi
 
 done

@@ -4,7 +4,7 @@
  * Description : a tool to fix automatically camera lens aberrations
  *
  * SPDX-FileCopyrightText: 2008      by Adrian Schroeter <adrian at suse dot de>
- * SPDX-FileCopyrightText: 2008-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2008-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -139,7 +139,7 @@ double LensFunIface::Private::checkSimilarity(const QString& a, const QString& b
     QString aa      = spaces + a + spaces;
     QString bb      = spaces + b + spaces;
 
-    for (int i = 0 ; i < (aa.count() - (chars - 1)) ; ++i)
+    for (int i = 0 ; i < (aa.size() - (chars - 1)) ; ++i)
     {
         QString part = aa.mid(i, chars);
 
@@ -558,7 +558,7 @@ LensFunIface::MetadataMatch LensFunIface::findFromMetadata(const DMetadata* cons
 
                 if (similar)
                 {
-                    qCDebug(DIGIKAM_DIMG_LOG) << "found similary match from" << lensMatches.count()
+                    qCDebug(DIGIKAM_DIMG_LOG) << "found similar match from" << lensMatches.count()
                                               << "possibilities:" << similar->Model
                                               << "similarity:" << percent;
                     setUsedLens(similar);

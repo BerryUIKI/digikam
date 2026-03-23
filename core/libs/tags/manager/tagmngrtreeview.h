@@ -8,7 +8,9 @@
  *               a custom context menu and some batch view options, such as
  *               expanding multiple items
  *
- * SPDX-FileCopyrightText: 2013 by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2013      by Veaceslav Munteanu <veaceslav dot munteanu90 at gmail dot com>
+ * SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2020-2025 by Maik Qualmann <metzpinguin at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -50,20 +52,20 @@ public:
 protected:
 
     /**
-     * @brief setContexMenuItems Reimplemented method from TagsFolderView.
-     *                           Will set custom actions for Tags Manager.
-     *                           Some actions are also available in toolbar
+     * @brief reimplemented method from TagsFolderView.
+     *        Will set custom actions for Tags Manager.
+     *        Some actions are also available in toolbar.
      *
-     * @param cmh                ContextMenuHelper class to help setting some basic actions
-     * @param albums             List of currently selected albums
+     * @param cmh    ContextMenuHelper class to help setting some basic actions.
+     * @param albums list of currently selected albums.
      */
     void setContexMenuItems(ContextMenuHelper& cmh, const QList<TAlbum*>& albums) override;
 
     /**
-     * @brief contextMenuEvent   Reimplement contextMenuEvent from AbstractAlbumTree
-     *                           to support multiple selection
+     * @brief reimplement contextMenuEvent from AbstractAlbumTree
+     *        to support multiple selection.
      *
-     * @param event context menu event triggered by right click
+     * @param event context menu event triggered by right click.
      */
     void contextMenuEvent(QContextMenuEvent* event) override;
 

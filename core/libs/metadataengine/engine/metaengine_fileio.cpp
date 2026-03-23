@@ -7,7 +7,7 @@
  * Description : Exiv2 library interface.
  *               File I/O methods
  *
- * SPDX-FileCopyrightText: 2006-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2006-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2006-2013 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -361,7 +361,7 @@ bool MetaEngine::save(const QString& imageFilePath, bool setVersion) const
         }
         else
         {
-            qCDebug(DIGIKAM_METAENGINE_LOG) << "Will write Metadata to file" << finfo.absoluteFilePath();
+            qCDebug(DIGIKAM_METAENGINE_LOG) << "Will write Metadata to file" << finfo.filePath();
             writtenToFile = d->saveToFile(finfo);
         }
 
@@ -371,7 +371,11 @@ bool MetaEngine::save(const QString& imageFilePath, bool setVersion) const
         }
     }
 
-    if (writeToSidecar || (writeToSidecarIfFileNotPossible && !writtenToFile))
+    if (
+        writeToSidecar                                                 ||
+        (writeToSidecarIfFileNotPossible && !writtenToFile)            ||
+        (writeToSidecarIfFileNotPossible && hasSidecar(finfo.filePath()))
+       )
     {
         qCDebug(DIGIKAM_METAENGINE_LOG) << "Will write XMP sidecar for file" << finfo.fileName();
 

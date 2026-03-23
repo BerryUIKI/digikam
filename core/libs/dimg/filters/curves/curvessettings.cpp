@@ -6,7 +6,7 @@
  * Date        : 2010-03-01
  * Description : Curves settings view.
  *
- * SPDX-FileCopyrightText: 2010-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -99,7 +99,7 @@ CurvesSettings::CurvesSettings(QWidget* const parent, DImg* const img)
 
     // -------------------------------------------------------------
 
-    // NOTE: no need to Q_EMIT signalSettingsChanged() at CurveBox::signalChannelReset()
+    // NOTE: no need to emit signalSettingsChanged() at CurveBox::signalChannelReset()
     // and CurveBox::signalCurveTypeChanged(), it's managed with CurveBox::signalCurvesChanged()
 
     connect(d->curvesBox, SIGNAL(signalCurvesChanged()),
@@ -125,6 +125,11 @@ void CurvesSettings::setCurrentChannel(ChannelType channel)
 void CurvesSettings::setScale(HistogramScale type)
 {
     d->curvesBox->setScale(type);
+}
+
+void CurvesSettings::setCurveGuide(const DColor& color)
+{
+    d->curvesBox->setCurveGuide(color);
 }
 
 void CurvesSettings::slotSpotColorChanged(const DColor& color)

@@ -1,9 +1,9 @@
 #!/bin/bash
 
-# Script to cleanup installation of KF5 framework from the Macports install.
+# Script to cleanup installation of KDE framework from the Macports install.
 # This script must be run as sudo
 #
-# SPDX-FileCopyrightText: 2015-2025 by Gilles Caulier  <caulier dot gilles at gmail dot com>
+# SPDX-FileCopyrightText: 2015-2026 by Gilles Caulier  <caulier dot gilles at gmail dot com>
 #
 # SPDX-License-Identifier: BSD-3-Clause
 #

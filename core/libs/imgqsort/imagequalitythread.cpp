@@ -6,7 +6,7 @@
  * Date        : 28/08/2021
  * Description : Image Quality Parser - Thread to run detectors
  *
- * SPDX-FileCopyrightText: 2021-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2021-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  * SPDX-FileCopyrightText: 2021-2022 by Phuoc Khanh Le <phuockhanhnk94 at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
@@ -14,6 +14,10 @@
  * ============================================================ */
 
 #include "imagequalitythread.h"
+
+// Local includes
+
+#include "actionthreadbase.h"
 
 namespace Digikam
 {
@@ -33,6 +37,8 @@ ImageQualityThread::ImageQualityThread(QObject* const parent,
 
 void ImageQualityThread::run()
 {
+    ActionThreadBase::setCurrentThreadName(QLatin1String("ImageQualityThread"));       // To customize thread name
+
     float damageLevel = m_detector->detect(m_image);
     m_calculator->addDetectionResult(QString(), damageLevel, m_weight);
 }

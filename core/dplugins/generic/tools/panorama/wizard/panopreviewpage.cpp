@@ -7,7 +7,7 @@
  * Description : a tool to create panorama by fusion of several images.
  *
  * SPDX-FileCopyrightText: 2011-2016 by Benjamin Girault <benjamin dot girault at gmail dot com>
- * SPDX-FileCopyrightText: 2011-2025 by Gilles Caulier <caulier dot gilles at gmail dot com>
+ * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -35,10 +35,6 @@
 #include "dhistoryview.h"
 #include "panomanager.h"
 #include "panoactionthread.h"
-#include "enblendbinary.h"
-#include "makebinary.h"
-#include "nonabinary.h"
-#include "pto2mkbinary.h"
 #include "huginexecutorbinary.h"
 #include "dlayoutbox.h"
 
@@ -134,18 +130,11 @@ void PanoPreviewPage::computePreview()
 
     d->mngr->resetPreviewPto();
     d->mngr->resetPreviewUrl();
-    d->mngr->resetPreviewMkUrl();
     d->mngr->thread()->generatePanoramaPreview(d->mngr->viewAndCropOptimisePtoData(),
                                                d->mngr->previewPtoUrl(),
-                                               d->mngr->previewMkUrl(),
                                                d->mngr->previewUrl(),
                                                d->mngr->preProcessedMap(),
-                                               d->mngr->makeBinary().path(),
-                                               d->mngr->pto2MkBinary().path(),
-                                               d->mngr->huginExecutorBinary().path(),
-                                               d->mngr->hugin2015(),
-                                               d->mngr->enblendBinary().path(),
-                                               d->mngr->nonaBinary().path());
+                                               d->mngr->huginExecutorBinary().path());
 }
 
 void PanoPreviewPage::startStitching()
@@ -176,15 +165,7 @@ void PanoPreviewPage::startStitching()
     d->canceled      = false;
     d->stitchingBusy = true;
     d->curProgress   = 0;
-
-    if (d->mngr->hugin2015())
-    {
-        d->totalProgress = 1;
-    }
-    else
-    {
-        d->totalProgress = d->mngr->preProcessedMap().size() + 1;
-    }
+    d->totalProgress = 1;
 
     d->previewWidget->hide();
 
@@ -221,21 +202,13 @@ void PanoPreviewPage::startStitching()
     d->postProcessing->show();
 
     d->mngr->resetPanoPto();
-    d->mngr->resetMkUrl();
     d->mngr->resetPanoUrl();
     d->mngr->thread()->compileProject(d->mngr->viewAndCropOptimisePtoData(),
                                       d->mngr->panoPtoUrl(),
-                                      d->mngr->mkUrl(),
                                       d->mngr->panoUrl(),
-                                      d->mngr->preProcessedMap(),
                                       d->mngr->format(),
                                       panoSelection,
-                                      d->mngr->makeBinary().path(),
-                                      d->mngr->pto2MkBinary().path(),
-                                      d->mngr->huginExecutorBinary().path(),
-                                      d->mngr->hugin2015(),
-                                      d->mngr->enblendBinary().path(),
-                                      d->mngr->nonaBinary().path());
+                                      d->mngr->huginExecutorBinary().path());
 }
 
 void PanoPreviewPage::preInitializePage()
@@ -333,10 +306,7 @@ void PanoPreviewPage::slotPanoAction(const DigikamGenericPanoramaPlugin::PanoAct
         {
             switch (ad.action)
             {
-                case PANO_CREATEPREVIEWPTO:
-                case PANO_NONAFILEPREVIEW:
-                case PANO_STITCHPREVIEW:
-                case PANO_CREATEMKPREVIEW:
+                case PANO_CREATEPREVIEW:
                 case PANO_HUGINEXECUTORPREVIEW:
                 {
                     if (!d->previewBusy)
@@ -375,36 +345,6 @@ void PanoPreviewPage::slotPanoAction(const DigikamGenericPanoramaPlugin::PanoAct
                     break;
                 }
 
-                case PANO_CREATEMK:
-                {
-                    if (!d->stitchingBusy)
-                    {
-                        return;
-                    }
-
-                    disconnect(d->mngr->thread(), SIGNAL(starting(DigikamGenericPanoramaPlugin::PanoActionData)),
-                               this, SLOT(slotPanoAction(DigikamGenericPanoramaPlugin::PanoActionData)));
-
-                    disconnect(d->mngr->thread(), SIGNAL(stepFinished(DigikamGenericPanoramaPlugin::PanoActionData)),
-                               this, SLOT(slotPanoAction(DigikamGenericPanoramaPlugin::PanoActionData)));
-
-                    disconnect(d->mngr->thread(), SIGNAL(jobCollectionFinished(DigikamGenericPanoramaPlugin::PanoActionData)),
-                               this, SLOT(slotPanoAction(DigikamGenericPanoramaPlugin::PanoActionData)));
-
-                    d->stitchingBusy = false;
-                    QString message  = i18nc("Here a makefile is a script for GNU Make",
-                                             "<p><b>Cannot create makefile: </b></p><p>%1</p>",
-                                             ad.message);
-                    qCWarning(DIGIKAM_DPLUGIN_GENERIC_LOG) << "pto2mk call failed";
-                    d->postProcessing->addEntry(message, DHistoryView::ErrorEntry);
-
-                    setComplete(false);
-
-                    Q_EMIT completeChanged();
-
-                    break;
-                }
-
                 case PANO_CREATEFINALPTO:
                 {
                     if (!d->stitchingBusy)
@@ -435,39 +375,6 @@ void PanoPreviewPage::slotPanoAction(const DigikamGenericPanoramaPlugin::PanoAct
                     break;
                 }
 
-                case PANO_NONAFILE:
-                {
-                    if (!d->stitchingBusy)
-                    {
-                        return;
-                    }
-
-                    disconnect(d->mngr->thread(), SIGNAL(starting(DigikamGenericPanoramaPlugin::PanoActionData)),
-                               this, SLOT(slotPanoAction(DigikamGenericPanoramaPlugin::PanoActionData)));
-
-                    disconnect(d->mngr->thread(), SIGNAL(stepFinished(DigikamGenericPanoramaPlugin::PanoActionData)),
-                               this, SLOT(slotPanoAction(DigikamGenericPanoramaPlugin::PanoActionData)));
-
-                    disconnect(d->mngr->thread(), SIGNAL(jobCollectionFinished(DigikamGenericPanoramaPlugin::PanoActionData)),
-                               this, SLOT(slotPanoAction(DigikamGenericPanoramaPlugin::PanoActionData)));
-
-                    d->stitchingBusy = false;
-                    QString message  = i18nc("Error message for image file number %1 out of %2",
-                                             "<p><b>Processing file %1 / %2: </b></p><p>%3</p>",
-                                             ad.id + 1,
-                                             d->totalProgress - 1,
-                                             ad.message);
-                    qCWarning(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Nona call failed for file #" << ad.id;
-                    d->postProcessing->addEntry(message, DHistoryView::ErrorEntry);
-
-                    setComplete(false);
-
-                    Q_EMIT completeChanged();
-
-                    break;
-                }
-
-                case PANO_STITCH:
                 case PANO_HUGINEXECUTOR:
                 {
                     if (!d->stitchingBusy)
@@ -508,18 +415,14 @@ void PanoPreviewPage::slotPanoAction(const DigikamGenericPanoramaPlugin::PanoAct
         {
             switch (ad.action)
             {
-                case PANO_CREATEPREVIEWPTO:
-                case PANO_CREATEMKPREVIEW:
-                case PANO_NONAFILEPREVIEW:
+                case PANO_CREATEPREVIEW:
                 case PANO_CREATEFINALPTO:
-                case PANO_CREATEMK:
                 {
                     // Nothing to do yet, a step is finished, that's all
 
                     break;
                 }
 
-                case PANO_STITCHPREVIEW:
                 case PANO_HUGINEXECUTORPREVIEW:
                 {
                     if (d->previewBusy)
@@ -562,21 +465,6 @@ void PanoPreviewPage::slotPanoAction(const DigikamGenericPanoramaPlugin::PanoAct
                     break;
                 }
 
-                case PANO_NONAFILE:
-                {
-                    QString message = i18nc("Success for image file number %1 out of %2",
-                                            "Processing file %1 / %2",
-                                            ad.id + 1,
-                                            d->totalProgress - 1);
-                    d->postProcessing->addEntry(message, DHistoryView::SuccessEntry);
-                    d->curProgress++;
-                    d->progressBar->setValue(d->curProgress);
-                    d->progressBar->setMaximum(d->totalProgress);
-
-                    break;
-                }
-
-                case PANO_STITCH:
                 case PANO_HUGINEXECUTOR:
                 {
                     if (!d->stitchingBusy)
@@ -623,12 +511,8 @@ void PanoPreviewPage::slotPanoAction(const DigikamGenericPanoramaPlugin::PanoAct
     {
         switch (ad.action)
         {
-            case PANO_CREATEPREVIEWPTO:
-            case PANO_CREATEMKPREVIEW:
-            case PANO_NONAFILEPREVIEW:
-            case PANO_STITCHPREVIEW:
+            case PANO_CREATEPREVIEW:
             case PANO_CREATEFINALPTO:
-            case PANO_CREATEMK:
             case PANO_HUGINEXECUTORPREVIEW:
             {
                 // Nothing to do...
@@ -636,18 +520,6 @@ void PanoPreviewPage::slotPanoAction(const DigikamGenericPanoramaPlugin::PanoAct
                 break;
             }
 
-            case PANO_NONAFILE:
-            {
-                QString message = i18nc("Compilation started for image file number %1 out of %2",
-                                        "Processing file %1 / %2",
-                                        ad.id + 1,
-                                        d->totalProgress - 1);
-                d->postProcessing->addEntry(message, DHistoryView::StartingEntry);
-
-                break;
-            }
-
-            case PANO_STITCH:
             case PANO_HUGINEXECUTOR:
             {
                 lock.unlock();

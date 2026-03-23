@@ -46,6 +46,8 @@ CopyOrMoveJob::CopyOrMoveJob(IOJobData* const data)
 
 void CopyOrMoveJob::run()
 {
+    ActionJob::run();       // To customize thread name
+
     while (m_data && !m_cancel)
     {
         QUrl srcUrl = m_data->getNextUrl();
@@ -149,6 +151,14 @@ void CopyOrMoveJob::run()
 
                 if (!srcDir.rename(srcDir.path(), destenation))
                 {
+                    if (destenation.startsWith(srcDir.path() + QLatin1Char('/')))
+                    {
+                        Q_EMIT signalError(i18n("Recursive folder %1 move detected to album %2",
+                                                srcName, QDir::toNativeSeparators(dstDir.path())));
+
+                        continue;
+                    }
+
                     // If QDir::rename fails, try copy and remove.
 
                     if      (!DFileOperations::copyFolderRecursively(srcDir.path(), destenation,
@@ -199,6 +209,14 @@ void CopyOrMoveJob::run()
             if (srcInfo.isDir())
             {
                 QDir srcDir(srcInfo.filePath());
+
+                if (destenation.startsWith(srcDir.path() + QLatin1Char('/')))
+                {
+                    Q_EMIT signalError(i18n("Recursive folder %1 copy detected to album %2",
+                                            srcName, QDir::toNativeSeparators(dstDir.path())));
+
+                    continue;
+                }
 
                 if (!DFileOperations::copyFolderRecursively(srcDir.path(), destenation,
                                                             m_data->getProgressId(),
@@ -265,6 +283,8 @@ DeleteJob::DeleteJob(IOJobData* const data)
 
 void DeleteJob::run()
 {
+    ActionJob::run();       // To customize thread name
+
     while (m_data && !m_cancel)
     {
         QUrl deleteUrl = m_data->getNextUrl();
@@ -359,6 +379,8 @@ RenameFileJob::RenameFileJob(IOJobData* const data)
 
 void RenameFileJob::run()
 {
+    ActionJob::run();       // To customize thread name
+
     while (m_data && !m_cancel)
     {
         QUrl renameUrl = m_data->getNextUrl();
@@ -438,6 +460,8 @@ DTrashItemsListingJob::DTrashItemsListingJob(const QString& collectionPath)
 
 void DTrashItemsListingJob::run()
 {
+    ActionJob::run();       // To customize thread name
+
     DTrashItemInfo itemInfo;
 
     QString collectionTrashFilesPath = m_collectionPath     + QLatin1Char('/') +
@@ -476,6 +500,8 @@ RestoreDTrashItemsJob::RestoreDTrashItemsJob(IOJobData* const data)
 
 void RestoreDTrashItemsJob::run()
 {
+    ActionJob::run();       // To customize thread name
+
     if (!m_data)
     {
         return;
@@ -520,6 +546,8 @@ EmptyDTrashItemsJob::EmptyDTrashItemsJob(IOJobData* const data)
 
 void EmptyDTrashItemsJob::run()
 {
+    ActionJob::run();       // To customize thread name
+
     if (!m_data)
     {
         return;
@@ -558,6 +586,8 @@ BuildTrashCountersJob::BuildTrashCountersJob()
 
 void BuildTrashCountersJob::run()
 {
+    ActionJob::run();       // To customize thread name
+
     QMap<QString, int> trashCountersMap;
     QList<CollectionLocation> allLocations = CollectionManager::instance()->allAvailableLocations();
 
