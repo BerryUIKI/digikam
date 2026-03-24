@@ -240,7 +240,7 @@ protected:
 
 private:
 
-    // Disable
+    /// @note disabled
     explicit MLPipelineFoundation(QObject* const)                = delete;
     MLPipelineFoundation(const MLPipelineFoundation&)            = delete;
     MLPipelineFoundation& operator=(const MLPipelineFoundation&) = delete;
