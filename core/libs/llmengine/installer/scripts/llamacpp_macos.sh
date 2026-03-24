@@ -21,7 +21,7 @@ show_usage() {
     echo "Downloads the appropriate llama.cpp binary for macOS based on system architecture"
     echo ""
     echo "Arguments:"
-    echo "  destination_directory   Directory where the binary will be downloaded and extracted"
+    echo "  destination_directory   Base directory (e.g. digikam/llmengine). Binaries are installed into <destination_directory>/llamacpp"
     echo "  version_string          Optional: Version string (e.g., 'b5519'). Defaults to 'b5519' if not specified"
     echo "  gpu_type                Optional: GPU acceleration type. Options: 'metal', 'vulkan', 'none'"
     echo "                          If not specified, attempts to auto-detect the GPU (defaults to Metal)"
@@ -38,14 +38,17 @@ DEST_DIR="$1"
 VERSION="${2:-b5519}"  # Use second parameter or default to b5519 (latest stable)
 GPU_TYPE="${3:-auto}"  # Use third parameter or auto-detect
 
-# Create destination directory if it doesn't exist
-if [ ! -d "$DEST_DIR" ]; then
-    mkdir -p "$DEST_DIR"
+# Files are installed into a llamacpp subdirectory of the provided destination
+INSTALL_DIR="$DEST_DIR/llamacpp"
+
+# Create installation directory if it doesn't exist
+if [ ! -d "$INSTALL_DIR" ]; then
+    mkdir -p "$INSTALL_DIR"
     if [ $? -ne 0 ]; then
-        echo "Error: Failed to create destination directory: $DEST_DIR"
+        echo "Error: Failed to create installation directory: $INSTALL_DIR"
         exit 1
     fi
-    echo "Created destination directory: $DEST_DIR"
+    echo "Created installation directory: $INSTALL_DIR"
 fi
 
 # Auto-detect GPU if not specified
@@ -88,21 +91,21 @@ fi
 case $GPU_TYPE in
     metal)
         # Metal is the preferred option on macOS
-        DOWNLOAD_FILE="llama-${VERSION}-bin-macos-${ARCH_SUFFIX}.zip"
+        DOWNLOAD_FILE="llama-${VERSION}-bin-macos-${ARCH_SUFFIX}.tar.gz"
         echo "Using Metal-enabled build for macOS"
         ;;
     vulkan)
         # Check for Vulkan support
         if command -v vulkaninfo &>/dev/null || [ -d "/usr/local/lib/libvulkan.dylib" ] || [ -d "/opt/homebrew/lib/libvulkan.dylib" ]; then
-            DOWNLOAD_FILE="llama-${VERSION}-bin-macos-vulkan-${ARCH_SUFFIX}.zip"
+            DOWNLOAD_FILE="llama-${VERSION}-bin-macos-vulkan-${ARCH_SUFFIX}.tar.gz"
             echo "Using Vulkan build"
         else
             echo "Warning: Vulkan selected but not detected on system. Using standard macOS build."
-            DOWNLOAD_FILE="llama-${VERSION}-bin-macos-${ARCH_SUFFIX}.zip"
+            DOWNLOAD_FILE="llama-${VERSION}-bin-macos-${ARCH_SUFFIX}.tar.gz"
         fi
         ;;
     none|*)
-        DOWNLOAD_FILE="llama-${VERSION}-bin-macos-${ARCH_SUFFIX}.zip"
+        DOWNLOAD_FILE="llama-${VERSION}-bin-macos-${ARCH_SUFFIX}.tar.gz"
         echo "Using standard macOS build (includes Metal support)"
         ;;
 esac
@@ -110,17 +113,17 @@ esac
 echo "Using llama.cpp version: ${VERSION}"
 
 DOWNLOAD_URL="$RELEASE_URL/$DOWNLOAD_FILE"
-TEMP_ZIP="$DEST_DIR/llama-cpp-temp.zip"
+TEMP_ARCHIVE="$INSTALL_DIR/llama-cpp-temp.${DOWNLOAD_FILE##*.}"
 
 echo "Downloading llama.cpp binary for macOS ($ARCH)..."
 echo "Source: $DOWNLOAD_URL"
-echo "Destination: $DEST_DIR"
+echo "Destination: $INSTALL_DIR"
 
 # Download the binary
 if command -v curl &>/dev/null; then
-    curl -L "$DOWNLOAD_URL" -o "$TEMP_ZIP"
+    curl -L "$DOWNLOAD_URL" -o "$TEMP_ARCHIVE"
 elif command -v wget &>/dev/null; then
-    wget "$DOWNLOAD_URL" -O "$TEMP_ZIP"
+    wget "$DOWNLOAD_URL" -O "$TEMP_ARCHIVE"
 else
     echo "Error: Neither curl nor wget is available. Please install one of them and try again."
     exit 1
@@ -134,77 +137,103 @@ fi
 
 echo "Download completed. Extracting files..."
 
-# Extract the zip file to a temporary extraction directory
-TEMP_EXTRACT_DIR="$DEST_DIR/temp_extract"
+# Extract the archive to a temporary extraction directory
+TEMP_EXTRACT_DIR="$INSTALL_DIR/temp_extract"
 mkdir -p "$TEMP_EXTRACT_DIR"
-unzip -o "$TEMP_ZIP" -d "$TEMP_EXTRACT_DIR"
-if [ $? -ne 0 ]; then
-    echo "Error: Failed to extract the zip file."
-    rm -rf "$TEMP_EXTRACT_DIR"  # Clean up temp directory
-    exit 1
-fi
 
-# Remove the temporary zip file
-rm "$TEMP_ZIP"
-
-# Move files from build/bin to destination directory
-if [ -d "$TEMP_EXTRACT_DIR/build/bin" ]; then
-    echo "Moving binary files to destination directory..."
-    # Copy all files from build/bin to destination directory
-    cp -a "$TEMP_EXTRACT_DIR/build/bin/"* "$DEST_DIR/"
+# Primary format is tar.gz. Keep zip extraction for older release compatibility.
+if [[ "$DOWNLOAD_FILE" == *.tar.gz ]]; then
+    tar -xzf "$TEMP_ARCHIVE" -C "$TEMP_EXTRACT_DIR"
     if [ $? -ne 0 ]; then
-        echo "Error: Failed to copy files from build/bin to destination directory."
+        echo "Error: Failed to extract the tar.gz file."
         rm -rf "$TEMP_EXTRACT_DIR"  # Clean up temp directory
         exit 1
     fi
 else
-    echo "Warning: build/bin directory not found in the extracted files."
-    # Copy all extracted files to the destination as a fallback
-    cp -a "$TEMP_EXTRACT_DIR/"* "$DEST_DIR/"
+    unzip -o "$TEMP_ARCHIVE" -d "$TEMP_EXTRACT_DIR"
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to extract the zip file."
+        rm -rf "$TEMP_EXTRACT_DIR"  # Clean up temp directory
+        exit 1
+    fi
+fi
+
+# Remove the temporary archive file
+rm "$TEMP_ARCHIVE"
+
+# Move files to installation directory.
+# Release archives may use one of two structures:
+#   Legacy:  build/bin/<files>
+#   Modern:  llama-b<version>/<files>  (single versioned subdirectory, flat layout)
+# In both cases we want the files directly in INSTALL_DIR.
+if [ -d "$TEMP_EXTRACT_DIR/build/bin" ]; then
+    echo "Moving binary files to installation directory..."
+    cp -a "$TEMP_EXTRACT_DIR/build/bin/"* "$INSTALL_DIR/"
+    if [ $? -ne 0 ]; then
+        echo "Error: Failed to copy files from build/bin to installation directory."
+        rm -rf "$TEMP_EXTRACT_DIR"
+        exit 1
+    fi
+else
+    # Check for a single top-level subdirectory (modern flat layout)
+    TOP_DIRS=$(find "$TEMP_EXTRACT_DIR" -mindepth 1 -maxdepth 1 -type d)
+    TOP_DIR_COUNT=$(echo "$TOP_DIRS" | grep -c .)
+    if [ "$TOP_DIR_COUNT" -eq 1 ]; then
+        echo "Moving binary files from versioned subdirectory to installation directory..."
+        cp -a "$TOP_DIRS/"* "$INSTALL_DIR/"
+        if [ $? -ne 0 ]; then
+            echo "Error: Failed to copy files from versioned subdirectory to installation directory."
+            rm -rf "$TEMP_EXTRACT_DIR"
+            exit 1
+        fi
+    else
+        echo "Warning: Unexpected archive structure. Copying all extracted files."
+        cp -a "$TEMP_EXTRACT_DIR/"* "$INSTALL_DIR/"
+    fi
 fi
 
 # Remove the temporary extraction directory (including any build folder)
 rm -rf "$TEMP_EXTRACT_DIR"
 
 # Remove any build directory that might have been copied to the destination
-if [ -d "$DEST_DIR/build" ]; then
+if [ -d "$INSTALL_DIR/build" ]; then
     echo "Removing build directory..."
-    rm -rf "$DEST_DIR/build"
+    rm -rf "$INSTALL_DIR/build"
 fi
 
 # Remove any .h files from the destination directory
 echo "Removing header files..."
-find "$DEST_DIR" -name "*.h" -type f -delete
+find "$INSTALL_DIR" -name "*.h" -type f -delete
 
 # Make all remaining files executable
 echo "Making files executable..."
-find "$DEST_DIR" -type f -exec chmod +x {} \;
+find "$INSTALL_DIR" -type f -exec chmod +x {} \;
 
 # Remove quarantine xattr flags from all files
 echo "Removing quarantine attribute from files..."
 if command -v xattr &>/dev/null; then
-    find "$DEST_DIR" -type f -exec xattr -d com.apple.quarantine {} \; 2>/dev/null || true
+    find "$INSTALL_DIR" -type f -exec xattr -d com.apple.quarantine {} \; 2>/dev/null || true
     echo "Quarantine attributes removed"
 else
     echo "Warning: xattr command not found, unable to remove quarantine attributes"
 fi
 
 # Verify installation - check if at least one executable file exists
-if [ -f "$DEST_DIR/main" ] || [ -f "$DEST_DIR/server" ]; then
+if [ -f "$INSTALL_DIR/llama-server" ] || [ -f "$INSTALL_DIR/llama-cli" ] || [ -f "$INSTALL_DIR/server" ] || [ -f "$INSTALL_DIR/main" ]; then
     echo "Verifying installation... Found llama.cpp executable files."
 else
     echo "Warning: No llama.cpp executable files found in the destination directory."
     echo "This could indicate a problem with the downloaded package or extraction process."
-    echo "Please check the contents of: $DEST_DIR"
+    echo "Please check the contents of: $INSTALL_DIR"
     echo "Available files:"
-    ls -la "$DEST_DIR"
+    ls -la "$INSTALL_DIR"
 fi
 
 echo ""
 echo "Installation completed successfully."
-echo "Llama.cpp binaries are now available in: $DEST_DIR"
+echo "Llama.cpp binaries are now available in: $INSTALL_DIR"
 echo ""
 echo "Usage example:"
-echo "  $DEST_DIR/main --model [YOUR_MODEL_PATH] --ctx_size 2048 --interactive-first"
+echo "  $INSTALL_DIR/main --model [YOUR_MODEL_PATH] --ctx_size 2048 --interactive-first"
 echo ""
 exit 0

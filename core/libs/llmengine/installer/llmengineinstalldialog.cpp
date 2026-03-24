@@ -56,12 +56,9 @@ LLMEngineInstallDialog::LLMEngineInstallDialog(QWidget* const parent)
     QLabel* pathLabel = new QLabel(i18n("Destination:"), this);
     m_pathEdit = new QLineEdit(this);
     
-    // Set default path in user's application data directory
-    // QString defaultPath = QStandardPaths::writableLocation(QStandardPaths::GenericDataLocation);
-
-    // defaultPath += QDir::separator() + QStringLiteral("digikam/llmengine/llamacpp");
-
-    QString defaultPath = LLMProcessManagerKoboldCpp::getEnginePath();
+    // Set default path to the llmengine base directory.
+    // The installer script will create the llamacpp subdirectory itself.
+    QString defaultPath = LLMProcessManager::getBaseEnginePath();
 
     m_pathEdit->setText(defaultPath);
     

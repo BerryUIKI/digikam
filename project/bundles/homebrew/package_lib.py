@@ -192,8 +192,14 @@ def change_install_names(old_name, new_name, dylib):
     cmdline = ["install_name_tool", "-change", old_name, new_lib_name, dylib]
     if debug:
         echo("Running: " + " ".join(cmdline))
-    exitcode = subprocess.call(cmdline)
-    if exitcode != 0:
+    result = subprocess.run(cmdline, capture_output=True, text=True)
+    if result.returncode != 0:
+        err = (result.stderr or "") + (result.stdout or "")
+        # Some Homebrew binaries are built without enough headerpad to expand
+        # install names. Keep existing @rpath reference and continue.
+        if "larger updated load commands do not fit" in err and str(old_name).startswith("@rpath/"):
+            echo("WARNING: unable to rewrite install name due to Mach-O headerpad limits; leaving as-is: {0} in {1}".format(old_name, dylib))
+            return
         raise RuntimeError(
             "Failed to change '{0}' to '{1}' in '{2}".format(
                 old_name, new_lib_name, dylib
@@ -298,8 +304,17 @@ def copy_dylib(src):
         if debug:
             echo("Copying {0} into bundle".format(src))
         dest_dir = os.path.dirname(dest)
-        if not os.path.exists(dest_dir):
-            os.makedirs(dest_dir)
+        # lexists handles pre-existing symlinks and avoids EEXIST races.
+        if not os.path.lexists(dest_dir):
+            os.makedirs(dest_dir, exist_ok=True)
+        elif not os.path.isdir(dest_dir):
+            # Some framework paths can exist as a stale file/symlink from earlier copies.
+            # Replace it with a directory so the framework binary can be copied.
+            if os.path.islink(dest_dir) or os.path.isfile(dest_dir):
+                os.unlink(dest_dir)
+                os.makedirs(dest_dir, exist_ok=True)
+            else:
+                raise RuntimeError("Destination path is not a directory: {0}".format(dest_dir))
         attrs = os.stat(src)
         shutil.copyfile(src, dest)
         os.chmod(dest, attrs.st_mode)

@@ -150,6 +150,13 @@ else
     QT_PLUGIN_EXT="dylib"
 fi
 
+QT_HOMEBREW_OPT_PREFIX="opt/qt$DK_QTVERSION"
+if [ ! -d "$INSTALL_PREFIX/$QT_HOMEBREW_OPT_PREFIX/share/qt/plugins" ] ; then
+    if [ -d "$INSTALL_PREFIX/opt/qtbase/share/qt/plugins" ] ; then
+        QT_HOMEBREW_OPT_PREFIX="opt/qtbase"
+    fi
+fi
+
 # Note: lib/plugins/styles/ files are *.so in both architectures. Why this mess?
 MARIADB_SOURCE_DIR="opt/mariadb"
 
@@ -165,14 +172,14 @@ bin/kbuildsycoca$DK_QTVERSION \
 bin/solid-hardware$DK_QTVERSION \
 bin/ffmpeg \
 bin/hunspell \
-opt/qt$DK_QTVERSION/share/qt/plugins/imageformats/*.dylib \
-opt/qt$DK_QTVERSION/share/qt/plugins/sqldrivers/*.dylib \
-opt/qt$DK_QTVERSION/share/qt/plugins/platforms/*.dylib \
-opt/qt$DK_QTVERSION/share/qt/plugins/iconengines/*.dylib \
-opt/qt$DK_QTVERSION/share/qt/plugins/generic/*.dylib \
-opt/qt$DK_QTVERSION/share/qt/plugins/styles/*.dylib \
-opt/qt$DK_QTVERSION/share/qt/plugins/multimedia/*.dylib \
-opt/qt$DK_QTVERSION/share/qt/plugins/tls/*.dylib \
+$QT_HOMEBREW_OPT_PREFIX/share/qt/plugins/imageformats/*.dylib \
+$QT_HOMEBREW_OPT_PREFIX/share/qt/plugins/sqldrivers/*.dylib \
+$QT_HOMEBREW_OPT_PREFIX/share/qt/plugins/platforms/*.dylib \
+$QT_HOMEBREW_OPT_PREFIX/share/qt/plugins/iconengines/*.dylib \
+$QT_HOMEBREW_OPT_PREFIX/share/qt/plugins/generic/*.dylib \
+$QT_HOMEBREW_OPT_PREFIX/share/qt/plugins/styles/*.dylib \
+$QT_HOMEBREW_OPT_PREFIX/share/qt/plugins/multimedia/*.dylib \
+$QT_HOMEBREW_OPT_PREFIX/share/qt/plugins/tls/*.dylib \
 lib/libhunspell*.dylib \
 opt/openssl@3/lib/*.dylib \
 "
@@ -207,7 +214,7 @@ OTHER_DIRS="\
 share/qt/translations \
 share/qt/plugins \
 lib/libdigikam*.dSYM \
-Cellar/libgphoto2/2.5.31/lib \
+opt/libgphoto2/lib \
 lib/ImageMagick* \
 share/ImageMagick* \
 etc/ImageMagick* \
@@ -318,17 +325,35 @@ done
 
 echo "---------- Copying Qt frameworks..."
 
-rm -rf $INSTALL_PREFIX/Cellar/qt/.DS_Store || true
-mkdir $TEMPROOT/Frameworks
-QT_FULL_VERSION=`ls "$INSTALL_PREFIX/Cellar/qt/"`
+rm -rf "$INSTALL_PREFIX/Cellar/qt/.DS_Store" || true
+mkdir -p "$TEMPROOT/Frameworks"
+mkdir -p "$TEMPROOT/lib"
 
 for framework in $QT_FRAMEWORKS ; do
 
     echo "Copying Qt framework: $framework"
 
-    # Copy framework
-    cp -R "$INSTALL_PREFIX/Cellar/qt/$QT_FULL_VERSION/Frameworks/$framework.framework" "$TEMPROOT/Frameworks"
-    cp -R "$INSTALL_PREFIX/Cellar/qt/$QT_FULL_VERSION/lib/$framework.framework" "$TEMPROOT/lib"
+    found_framework=""
+
+    for candidate in \
+        "$INSTALL_PREFIX"/Cellar/qt/*/Frameworks/"$framework.framework" \
+        "$INSTALL_PREFIX"/Cellar/qt/*/lib/"$framework.framework" \
+        "$INSTALL_PREFIX"/opt/qt*/Frameworks/"$framework.framework" \
+        "$INSTALL_PREFIX"/opt/qt*/lib/"$framework.framework"; do
+
+        if [ -d "$candidate" ] ; then
+            found_framework="$candidate"
+            break
+        fi
+    done
+
+    if [ -z "$found_framework" ] ; then
+        echo "  WARNING: Qt framework not found, skipping: $framework"
+        continue
+    fi
+
+    cp -R "$found_framework" "$TEMPROOT/Frameworks"
+    cp -R "$found_framework" "$TEMPROOT/lib"
 
 done
 
@@ -407,6 +432,30 @@ for path in $OTHER_DATA ; do
     cp -aL "$INSTALL_PREFIX/$path" "$TEMPROOT/$DK_APP_CONTENTS/Resources/"
 done
 
+# Copy LLM installer scripts explicitly to avoid issues with split/space-containing datadirs.
+echo "---------- Copying LLM installer scripts..."
+
+LLM_SCRIPT_SOURCE=""
+
+for candidate in \
+    "$INSTALL_PREFIX/Library/Application Support/digikam/llm_install_scripts" \
+    "$INSTALL_PREFIX/share/digikam/llm_install_scripts" \
+    "$ORIG_WD/../../../core/libs/llmengine/installer/scripts"; do
+
+    if [ -d "$candidate" ] ; then
+        LLM_SCRIPT_SOURCE="$candidate"
+        break
+    fi
+done
+
+if [ -n "$LLM_SCRIPT_SOURCE" ] ; then
+    mkdir -p "$TEMPROOT/$DK_APP_CONTENTS/Resources/digikam/llm_install_scripts"
+    cp -a "$LLM_SCRIPT_SOURCE"/. "$TEMPROOT/$DK_APP_CONTENTS/Resources/digikam/llm_install_scripts/"
+    echo "   LLM installer scripts copied from: $LLM_SCRIPT_SOURCE"
+else
+    echo "   WARNING: LLM installer scripts source directory was not found"
+fi
+
 # Copy digiKam hi-colors PNG icons-set to the bundle
 
 mkdir -p "$TEMPROOT/digikam.app/Contents/Resources/icons/"
@@ -466,14 +515,33 @@ rm -fr $TEMPROOT/bin/showfoto.app
 
 echo "---------- Copying MariaDB to bundle\n"
 
-rm -rf $INSTALL_PREFIX/Cellar/mariadb/.DS_Store || true
-MARIADB_VERSION=`ls "$INSTALL_PREFIX/Cellar/mariadb"`
+MARIADB_COPY_SOURCE=""
+MARIADB_VERSION=""
+MARIADB_BUNDLED=0
 
-echo "MariaDB Version is: - $MARIADB_VERSION -"
+for candidate in \
+    "$INSTALL_PREFIX"/Cellar/mariadb/* \
+    "$INSTALL_PREFIX"/opt/mariadb \
+    "$INSTALL_PREFIX"/Cellar/mariadb-connector-c/* \
+    "$INSTALL_PREFIX"/opt/mariadb-connector-c; do
 
-mkdir $TEMPROOT/lib/mariadb
+    if [ -d "$candidate" ] ; then
+        MARIADB_COPY_SOURCE="$candidate"
+        MARIADB_VERSION=$(basename "$candidate")
+        break
+    fi
+done
 
-rsync -av --exclude="include/*" --exclude="lib/plugin/ha_*" --exclude="support-files/*" --exclude="share/man/*" $INSTALL_PREFIX/Cellar/mariadb/$MARIADB_VERSION/ $TEMPROOT/lib/mariadb
+if [ -z "$MARIADB_COPY_SOURCE" ] ; then
+    echo "WARNING: No MariaDB runtime found in Homebrew (mariadb or mariadb-connector-c), skipping copy"
+else
+    echo "MariaDB source is: - $MARIADB_COPY_SOURCE -"
+
+    mkdir -p "$TEMPROOT/lib/mariadb"
+
+    rsync -av --exclude="include/*" --exclude="lib/plugin/ha_*" --exclude="support-files/*" --exclude="share/man/*" "$MARIADB_COPY_SOURCE/" "$TEMPROOT/lib/mariadb"
+    MARIADB_BUNDLED=1
+fi
 
 
 #################################################################################################
@@ -710,9 +778,21 @@ ln -s "./share/qt/plugins"  "$TEMPROOT/$DK_APP_CONTENTS/plugins"
 #ln -s "../../Cellar/qt/$QT_FULL_VERSION/lib/QtWebEngineCore.framework/Versions/A/Resources/qtwebengine_locales" "$TEMPROOT/$DK_APP_CONTENTS/Resources/translations/qtwebengine_locales"
 
 # add additional rpaths and re-sign QtWebEngineProcess
-WEP=`find $TEMPROOT/$DK_APP_CONTENTS -name "QtWebEngineProcess"`
-install_name_tool -add_rpath @loader_path/../../../../../../../../ $WEP
-codesign --force -s - $WEP
+WEP_COUNT=0
+while IFS= read -r WEP ; do
+    [ -z "$WEP" ] && continue
+    WEP_COUNT=1
+
+    if ! otool -l "$WEP" | grep -q "@loader_path/../../../../../../../../" ; then
+        install_name_tool -add_rpath @loader_path/../../../../../../../../ "$WEP"
+    fi
+
+    codesign --force -s - "$WEP"
+done < <(find "$TEMPROOT/$DK_APP_CONTENTS" -type f -name "QtWebEngineProcess")
+
+if [ "$WEP_COUNT" -eq 0 ] ; then
+    echo "WARNING: QtWebEngineProcess was not found in bundle, skipping QtWebEngineProcess rpath patch"
+fi
 
 # move the QtWebEngine resources
 echo -e "\n     ----- Moving QtWebEngine Resources"
@@ -731,6 +811,10 @@ echo -e "\n     ----- Moving QtWebEngine Resources"
 # configure MySQL/MariaDB 
 
 echo -e "\n     ----- Rebasing MariaDB"
+
+if [ ! -d "$TEMPROOT/$DK_APP_CONTENTS/lib/mariadb" ] ; then
+    echo "No bundled MariaDB runtime found, skipping MariaDB rebasing"
+else
 
 # clean up old cache files
 if [ -f "$ORIG_WD/found_dylibs_cache.pkl" ] ; then
@@ -756,7 +840,10 @@ ln -s "../../../opt/zstd" "$TEMPROOT/$DK_APP_CONTENTS/lib/mariadb/opt/zstd"
 
 # rebase the MariaDB binaries to the MariaDB dir
 # find the binaries
-MARIADB_BINARIES=`find $TEMPROOT/$DK_APP_CONTENTS/lib/mariadb/bin -type f -perm +111`
+MARIADB_BINARIES=""
+if [ -d "$TEMPROOT/$DK_APP_CONTENTS/lib/mariadb/bin" ] ; then
+    MARIADB_BINARIES=`find $TEMPROOT/$DK_APP_CONTENTS/lib/mariadb/bin -type f -perm +111`
+fi
 
 for FILE in $MARIADB_BINARIES ; do
 
@@ -781,12 +868,6 @@ for FILE in $MARIADBFILES ; do
         if [[ $NEEDPATCH ]] ; then
 
             echo -e "--- Patching MariaDB text file: $FILE"
-            sed -i '' "s|$INSTALL_PREFIX/Cellar/mariadb/$MARIADB_VERSION/bin|\$DK_MARIADB_DIR/bin|g" $FILE
-            sed -i '' "s|$INSTALL_PREFIX/Cellar/mariadb/$MARIADB_VERSION/var|\$DK_MARIADB_DIR/var|g" $FILE
-            sed -i '' "s|$INSTALL_PREFIX/Cellar/mariadb/$MARIADB_VERSION/lib|\$DK_MARIADB_DIR/lib|g" $FILE
-            sed -i '' "s|$INSTALL_PREFIX/Cellar/mariadb/$MARIADB_VERSION/libexec|\$DK_MARIADB_DIR/libexec|g" $FILE
-            sed -i '' "s|$INSTALL_PREFIX/Cellar/mariadb/$MARIADB_VERSION/share|\$DK_MARIADB_DIR/share|g" $FILE
-            sed -i '' "s|$INSTALL_PREFIX/Cellar/mariadb/$MARIADB_VERSION/etc|\$DK_MARIADB_DIR/etc|g" $FILE
             sed -i '' "s|$INSTALL_PREFIX|\$DK_MARIADB_DIR|g" $FILE
 
         fi
@@ -803,12 +884,6 @@ for FILE in $MARIADBFILES ; do
         if [[ $NEEDPATCH ]] ; then
 
             echo -e "--- Patching mariaDB Perl file: $FILE"
-            sed -i '' "s|$INSTALL_PREFIX/Cellar/mariadb/$MARIADB_VERSION/bin|\$ENV{DK_MARIADB_DIR}/bin|g" $FILE
-            sed -i '' "s|$INSTALL_PREFIX/Cellar/mariadb/$MARIADB_VERSION/var|\$ENV{DK_MARIADB_DIR}/var|g" $FILE
-            sed -i '' "s|$INSTALL_PREFIX/Cellar/mariadb/$MARIADB_VERSION/lib|\$ENV{DK_MARIADB_DIR}/lib|g" $FILE
-            sed -i '' "s|$INSTALL_PREFIX/Cellar/mariadb/$MARIADB_VERSION/libexec|\$ENV{DK_MARIADB_DIR}/libexec|g" $FILE
-            sed -i '' "s|$INSTALL_PREFIX/Cellar/mariadb/$MARIADB_VERSION/share|\$ENV{DK_MARIADB_DIR}/share|g" $FILE
-            sed -i '' "s|$INSTALL_PREFIX/Cellar/mariadb/$MARIADB_VERSION/etc|\$ENV{DK_MARIADB_DIR}/etc|g" $FILE
             sed -i '' "s|$INSTALL_PREFIX|\$ENV{DK_MARIADB_DIR}|g" $FILE
 
         fi
@@ -816,6 +891,8 @@ for FILE in $MARIADBFILES ; do
     fi
 
 done
+
+fi
 
 #################################################################################################
 # Install ExifTool binary.

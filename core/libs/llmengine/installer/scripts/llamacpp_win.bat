@@ -32,14 +32,17 @@ if "%VERSION%"=="" set "VERSION=b5519"
 REM Set default GPU type to auto if not provided
 if "%GPU_TYPE%"=="" set "GPU_TYPE=auto"
 
-REM Create destination directory if it doesn't exist
-if not exist "%DEST_DIR%" (
-    mkdir "%DEST_DIR%" 2>nul
+REM Files are installed into a llamacpp subdirectory of the provided destination
+set "INSTALL_DIR=%DEST_DIR%\llamacpp"
+
+REM Create installation directory if it doesn't exist
+if not exist "%INSTALL_DIR%" (
+    mkdir "%INSTALL_DIR%" 2>nul
     if errorlevel 1 (
-        echo Error: Failed to create destination directory: %DEST_DIR%
+        echo Error: Failed to create installation directory: %INSTALL_DIR%
         exit /b 1
     )
-    echo Created destination directory: %DEST_DIR%
+    echo Created installation directory: %INSTALL_DIR%
 )
 
 REM Auto-detect GPU if not specified
@@ -235,11 +238,11 @@ if "%GPU_TYPE%"=="cuda" (
 echo Using llama.cpp version: %VERSION%
 
 set "DOWNLOAD_URL=%RELEASE_URL%/%DOWNLOAD_FILE%"
-set "TEMP_ZIP=%DEST_DIR%\llama-cpp-temp.zip"
+set "TEMP_ZIP=%INSTALL_DIR%\llama-cpp-temp.zip"
 
 echo Downloading llama.cpp binary for Windows (%ARCH_SUFFIX%)...
 echo Source: %DOWNLOAD_URL%
-echo Destination: %DEST_DIR%
+echo Destination: %INSTALL_DIR%
 
 REM Download the binary using PowerShell with improved error handling
 echo Downloading file, please wait...
@@ -258,7 +261,7 @@ if %errorlevel% neq 0 (
 echo Download completed. Extracting files...
 
 REM Extract the zip file to a temporary extraction directory
-set "TEMP_EXTRACT_DIR=%DEST_DIR%\temp_extract"
+set "TEMP_EXTRACT_DIR=%INSTALL_DIR%\temp_extract"
 if exist "%TEMP_EXTRACT_DIR%" rmdir /s /q "%TEMP_EXTRACT_DIR%"
 mkdir "%TEMP_EXTRACT_DIR%" 2>nul
 
@@ -279,7 +282,7 @@ REM Move files from build/bin to destination directory
 if exist "%TEMP_EXTRACT_DIR%\build\bin" (
     echo Moving binary files to destination directory...
     REM Copy all files from build\bin to destination directory
-    xcopy /e /y "%TEMP_EXTRACT_DIR%\build\bin\*" "%DEST_DIR%\" >nul
+    xcopy /e /y "%TEMP_EXTRACT_DIR%\build\bin\*" "%INSTALL_DIR%\" >nul
     if %errorlevel% neq 0 (
         echo Error: Failed to copy files from build\bin to destination directory.
         if exist "%TEMP_EXTRACT_DIR%" rmdir /s /q "%TEMP_EXTRACT_DIR%"
@@ -288,36 +291,36 @@ if exist "%TEMP_EXTRACT_DIR%\build\bin" (
 ) else (
     echo Warning: build\bin directory not found in the extracted files.
     REM Copy all extracted files to the destination as a fallback
-    xcopy /e /y "%TEMP_EXTRACT_DIR%\*" "%DEST_DIR%\" >nul
+    xcopy /e /y "%TEMP_EXTRACT_DIR%\*" "%INSTALL_DIR%\" >nul
 )
 
 REM Remove the temporary extraction directory
 if exist "%TEMP_EXTRACT_DIR%" rmdir /s /q "%TEMP_EXTRACT_DIR%"
 
 REM Remove any build directory that might have been copied to the destination
-if exist "%DEST_DIR%\build" (
+if exist "%INSTALL_DIR%\build" (
     echo Removing build directory...
-    rmdir /s /q "%DEST_DIR%\build"
+    rmdir /s /q "%INSTALL_DIR%\build"
 )
 
 REM Delete any .h files from the destination directory
 echo Removing header files...
-del /s /q "%DEST_DIR%\*.h" 2>nul
+del /s /q "%INSTALL_DIR%\*.h" 2>nul
 
 REM Verify installation - check if at least one executable file exists
 set FOUND_BINARY=0
-if exist "%DEST_DIR%\main.exe" set FOUND_BINARY=1
-if exist "%DEST_DIR%\server.exe" set FOUND_BINARY=1
+if exist "%INSTALL_DIR%\main.exe" set FOUND_BINARY=1
+if exist "%INSTALL_DIR%\server.exe" set FOUND_BINARY=1
 
 if %FOUND_BINARY% equ 0 (
     echo Warning: No llama.cpp executable files found in the destination directory.
     echo This could indicate a problem with the downloaded package or extraction process.
-    echo Please check the contents of: %DEST_DIR%
+    echo Please check the contents of: %INSTALL_DIR%
     echo Available files:
-    dir /b "%DEST_DIR%"
+    dir /b "%INSTALL_DIR%"
 ) else (
     echo Verifying installation...
-    echo Found llama.cpp executable files in: %DEST_DIR%
+    echo Found llama.cpp executable files in: %INSTALL_DIR%
     
     REM Attempt basic CUDA check if using CUDA
     if "%GPU_TYPE%"=="cuda" (
@@ -333,10 +336,10 @@ if %FOUND_BINARY% equ 0 (
 
 echo.
 echo Installation completed successfully.
-echo Llama.cpp binaries are now available in: %DEST_DIR%
+echo Llama.cpp binaries are now available in: %INSTALL_DIR%
 echo.
 echo Usage example:
-echo   %DEST_DIR%\main.exe --model [YOUR_MODEL_PATH] --ctx_size 2048 --interactive-first
+echo   %INSTALL_DIR%\main.exe --model [YOUR_MODEL_PATH] --ctx_size 2048 --interactive-first
 echo.
 exit /b 0
 
@@ -345,7 +348,7 @@ echo Usage: %~nx0 ^<destination_directory^> [version_string] [gpu_type]
 echo Downloads the appropriate llama.cpp binary for Windows based on system architecture
 echo.
 echo Arguments:
-echo   destination_directory   Directory where the binary will be downloaded and extracted
+echo   destination_directory   Base directory (e.g. digikam\llmengine). Binaries are installed into ^<destination_directory^>\llamacpp
 echo   version_string          Optional: Version string (e.g., 'b5519'). Defaults to 'b5519' if not specified
 echo   gpu_type                Optional: GPU acceleration type. Options: 'cuda', 'hip', 'vulkan', 'none'
 echo                           If not specified, attempts to auto-detect the GPU

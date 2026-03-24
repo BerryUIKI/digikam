@@ -1,0 +1,23 @@
+diff --git a/src/karchive.cpp b/src/karchive.cpp
+--- a/src/karchive.cpp
++++ b/src/karchive.cpp
+@@ -162 +162 @@ bool KArchive::open(QIODevice::OpenMode mode)
+-        setErrorString(tr("Could not open device in mode %1").arg(mode));
++        setErrorString(tr("Could not open device in mode %1").arg(static_cast<int>(mode)));
+@@ -208 +208 @@ bool KArchive::createDevice(QIODevice::OpenMode mode)
+-        setErrorString(tr("Unsupported mode %1").arg(d->mode));
++        setErrorString(tr("Unsupported mode %1").arg(static_cast<int>(d->mode)));
+
+diff --git a/src/kar.cpp b/src/kar.cpp
+--- a/src/kar.cpp
++++ b/src/kar.cpp
+@@ -90 +90 @@ bool KAr::openArchive(QIODevice::OpenMode mode)
+-        setErrorString(tr("Unsupported mode %1").arg(mode));
++        setErrorString(tr("Unsupported mode %1").arg(static_cast<int>(mode)));
+
+diff --git a/src/krcc.cpp b/src/krcc.cpp
+--- a/src/krcc.cpp
++++ b/src/krcc.cpp
+@@ -117 +117 @@ bool KRcc::openArchive(QIODevice::OpenMode mode)
+-        setErrorString(tr("Unsupported mode %1").arg(mode));
++        setErrorString(tr("Unsupported mode %1").arg(static_cast<int>(mode)));

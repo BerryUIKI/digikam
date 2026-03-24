@@ -128,6 +128,7 @@ void Setup::showPage(Setup::Page page)
         d->iccPage->setActiveTab((SetupICC::ICCTab)group.readEntry(QLatin1String("ICC Tab"),                                 (int)SetupICC::Behavior));
         d->cameraPage->setActiveTab((SetupCamera::CameraTab)group.readEntry(QLatin1String("Camera Tab"),                     (int)SetupCamera::Devices));
         d->pluginsPage->setActiveTab((SetupPlugins::PluginTab)group.readEntry(QLatin1String("Plugin Tab"),                   (int)SetupPlugins::Generic));
+        d->aiPage->setActiveTab((SetupLLM::LLMTab)group.readEntry(QLatin1String("AI Tab"),                                   (int)SetupLLM::Annotate));
         d->miscPage->setActiveTab((SetupMisc::MiscTab)group.readEntry(QLatin1String("Misc Tab"),                             (int)SetupMisc::Behavior));
     }
     else
@@ -209,6 +210,11 @@ Setup::Page Setup::activePageIndex() const
     if (cur == d->page_plugins)
     {
         return PluginsPage;
+    }
+
+    if (cur == d->page_ai)
+    {
+        return AIPage;
     }
 
     if (cur == d->page_misc)

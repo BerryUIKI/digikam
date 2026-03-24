@@ -110,6 +110,28 @@ fi
 copy_lib="$INSTALL_PREFIX/bin/python3 $PWD/package_lib.py --file="$TEMPROOT/$DK_APP_CONTENTS/MacOS/digikam" --bundle-root=$TEMPROOT/$DK_APP_CONTENTS --homebrew=$INSTALL_PREFIX --processed-cache=use  --found-cache=use --signed-cache=use --update-binary=1 --copy=0 --preserve_rpath=0 --force=1"
 eval "$copy_lib"
 
+# Copy LLM installer scripts into app bundle resources.
+LLM_SCRIPT_SOURCE=""
+
+for candidate in \
+    "$INSTALL_PREFIX/Library/Application Support/digikam/llm_install_scripts" \
+    "$INSTALL_PREFIX/share/digikam/llm_install_scripts" \
+    "$PWD/../../../core/libs/llmengine/installer/scripts"; do
+
+    if [ -d "$candidate" ] ; then
+        LLM_SCRIPT_SOURCE="$candidate"
+        break
+    fi
+done
+
+if [ -n "$LLM_SCRIPT_SOURCE" ] ; then
+    mkdir -p "$TEMPROOT/$DK_APP_CONTENTS/Resources/digikam/llm_install_scripts"
+    cp -a "$LLM_SCRIPT_SOURCE"/. "$TEMPROOT/$DK_APP_CONTENTS/Resources/digikam/llm_install_scripts/"
+    echo "LLM installer scripts copied from: $LLM_SCRIPT_SOURCE"
+else
+    echo "WARNING: LLM installer scripts source directory was not found"
+fi
+
 cp $PWD/../../../core/data/dnnmodels/dnnmodels.conf $TEMPROOT/$DK_APP_CONTENTS/Resources/digikam/dnnmodels
 
 # check if digikam dir exists

@@ -46,6 +46,7 @@
 #include "setuptooltip.h"
 #include "setupdatabase.h"
 #include "setupplugins.h"
+#include "setupllm.h"
 #include "importsettings.h"
 #include "onlineversiondlg.h"
 
@@ -83,6 +84,7 @@ public:
     DConfigDlgWdgItem*       page_icc                   = nullptr;
     DConfigDlgWdgItem*       page_camera                = nullptr;
     DConfigDlgWdgItem*       page_plugins               = nullptr;
+    DConfigDlgWdgItem*       page_ai                    = nullptr;
     DConfigDlgWdgItem*       page_misc                  = nullptr;
 
     SetupDatabase*           databasePage               = nullptr;
@@ -104,6 +106,7 @@ public:
     SetupICC*                iccPage                    = nullptr;
     SetupCamera*             cameraPage                 = nullptr;
     SetupPlugins*            pluginsPage                = nullptr;
+    SetupLLM*                aiPage                     = nullptr;
     SetupMisc*               miscPage                   = nullptr;
 
 public:

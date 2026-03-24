@@ -191,7 +191,10 @@ ${INSTALL_PREFIX}/bin/brew install \
              lensfun \
              opencv \
              qt \
-             qt-mariadb
+             qt-mariadb \
+             qtnetworkauth \
+             qtwebengine \
+             qtscxml
 #             sane-backends
 
 echo -e "\n"

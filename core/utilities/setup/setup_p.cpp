@@ -91,6 +91,11 @@ DConfigDlgWdgItem* Setup::Private::pageItem(Setup::Page page) const
             return page_plugins;
         }
 
+        case Setup::AIPage:
+        {
+            return page_ai;
+        }
+
         case Setup::MiscellaneousPage:
         {
             return page_misc;
