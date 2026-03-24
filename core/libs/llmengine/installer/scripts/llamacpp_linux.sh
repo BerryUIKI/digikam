@@ -22,7 +22,7 @@ show_usage() {
     echo ""
     echo "Arguments:"
     echo "  destination_directory   Base directory (e.g. digikam/llmengine). Binaries are installed into <destination_directory>/llamacpp"
-    echo "  version_string          Optional: Version string (e.g., 'b5519'). Defaults to 'b5519' if not specified"
+    echo "  version_string          Optional: Version string (e.g., 'b8493'). Defaults to 'b8493' if not specified"
     echo "  gpu_type                Optional: GPU acceleration type. Options: 'cuda', 'vulkan', 'rocm', 'none'"
     echo "                          If not specified, attempts to auto-detect the GPU"
 }
@@ -35,7 +35,7 @@ if [ $# -lt 1 ] || [ $# -gt 3 ]; then
 fi
 
 DEST_DIR="$1"
-VERSION="${2:-b5519}"  # Use second parameter or default to latest version (b5519)
+VERSION="${2:-b8493}"  # Use second parameter or default to latest version (b8493)
 GPU_TYPE="${3:-auto}"  # Use third parameter or auto-detect
 
 # Files are installed into a llamacpp subdirectory of the provided destination
