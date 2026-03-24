@@ -43,6 +43,7 @@
 
 #include "digikam_config.h"
 #include "digikam_debug.h"
+#include "digikam_globals.h"
 #include "applicationsettings.h"
 #include "dnuminput.h"
 #include "dnnmodelmanager.h"
@@ -308,8 +309,8 @@ SetupLLM::SetupLLM(QWidget* const parent)
     d->maxTokensLabel = new QLabel(i18n("Max Tokens:"), advancedSettingsContainer);
     d->maxTokensLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     d->maxTokensSpinBox = new DIntNumInput(advancedSettingsContainer);
-    d->maxTokensSpinBox->setRange(250, 500, 50);
-    d->maxTokensSpinBox->setValue(300);  // Default is 300
+    d->maxTokensSpinBox->setRange(256, 16384, 256);
+    d->maxTokensSpinBox->setValue(AIAnnotate::DEFAULT_MAX_TOKENS);
     d->maxTokensSpinBox->setToolTip(i18n("Maximum number of tokens (words) to generate as a response"));
     maxTokensLayout->addWidget(d->maxTokensLabel);
     maxTokensLayout->addWidget(d->maxTokensSpinBox);

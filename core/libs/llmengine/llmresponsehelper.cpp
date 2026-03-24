@@ -18,6 +18,7 @@
 #include <QJsonDocument>
 #include <QJsonArray>
 #include <QJsonObject>
+#include <QStringList>
 
 // Local includes
 
@@ -26,6 +27,177 @@
 
 namespace Digikam
 {
+
+namespace
+{
+
+QList<QJsonObject> extractJsonObjectsFromText(const QByteArray& responseData)
+{
+    QList<QJsonObject> result;
+
+    // First try a regular single JSON payload.
+    {
+        QJsonParseError parseError;
+        const QJsonDocument doc = QJsonDocument::fromJson(responseData, &parseError);
+
+        if ((parseError.error == QJsonParseError::NoError) && doc.isObject())
+        {
+            result << doc.object();
+            return result;
+        }
+    }
+
+    const QString text = QString::fromUtf8(responseData);
+
+    // Try SSE payload format where each event is prefixed with "data:".
+    const QStringList lines = text.split(QLatin1Char('\n'));
+
+    for (const QString& rawLine : lines)
+    {
+        const QString line = rawLine.trimmed();
+
+        if (!line.startsWith(QLatin1String("data:")))
+        {
+            continue;
+        }
+
+        const QString payload = line.mid(5).trimmed();
+
+        if (payload.isEmpty() || (payload == QLatin1String("[DONE]")))
+        {
+            continue;
+        }
+
+        QJsonParseError parseError;
+        const QJsonDocument doc = QJsonDocument::fromJson(payload.toUtf8(), &parseError);
+
+        if ((parseError.error == QJsonParseError::NoError) && doc.isObject())
+        {
+            result << doc.object();
+        }
+    }
+
+    if (!result.isEmpty())
+    {
+        return result;
+    }
+
+    // Fallback: parse concatenated JSON objects by tracking brace depth.
+    const QByteArray bytes = responseData;
+    int start = -1;
+    int depth = 0;
+    bool inString = false;
+    bool escaped = false;
+
+    for (int i = 0 ; i < bytes.size() ; ++i)
+    {
+        const char c = bytes.at(i);
+
+        if (escaped)
+        {
+            escaped = false;
+            continue;
+        }
+
+        if (inString)
+        {
+            if (c == '\\')
+            {
+                escaped = true;
+            }
+            else if (c == '"')
+            {
+                inString = false;
+            }
+
+            continue;
+        }
+
+        if (c == '"')
+        {
+            inString = true;
+            continue;
+        }
+
+        if (c == '{')
+        {
+            if (depth == 0)
+            {
+                start = i;
+            }
+
+            ++depth;
+        }
+        else if ((c == '}') && (depth > 0))
+        {
+            --depth;
+
+            if ((depth == 0) && (start >= 0))
+            {
+                const QByteArray chunk = bytes.mid(start, i - start + 1);
+                QJsonParseError parseError;
+                const QJsonDocument doc = QJsonDocument::fromJson(chunk, &parseError);
+
+                if ((parseError.error == QJsonParseError::NoError) && doc.isObject())
+                {
+                    result << doc.object();
+                }
+
+                start = -1;
+            }
+        }
+    }
+
+    return result;
+}
+
+QString extractContentFromResponseObjects(const QList<QJsonObject>& responseObjects)
+{
+    QString latestMessageContent;
+    QString streamedContent;
+
+    for (const QJsonObject& responseObj : responseObjects)
+    {
+        if (!responseObj.contains(QStringLiteral("choices")) ||
+            !responseObj[QStringLiteral("choices")].isArray() ||
+            responseObj[QStringLiteral("choices")].toArray().isEmpty())
+        {
+            if (responseObj.contains(QStringLiteral("content")) &&
+                responseObj[QStringLiteral("content")].isString())
+            {
+                latestMessageContent = responseObj[QStringLiteral("content")].toString();
+            }
+
+            continue;
+        }
+
+        const QJsonObject choiceObj = responseObj[QStringLiteral("choices")].toArray().first().toObject();
+
+        if (choiceObj.contains(QStringLiteral("message")) && choiceObj[QStringLiteral("message")].isObject())
+        {
+            const QJsonObject messageObj = choiceObj[QStringLiteral("message")].toObject();
+
+            if (messageObj.contains(QStringLiteral("content")) && messageObj[QStringLiteral("content")].isString())
+            {
+                latestMessageContent = messageObj[QStringLiteral("content")].toString();
+            }
+        }
+
+        if (choiceObj.contains(QStringLiteral("delta")) && choiceObj[QStringLiteral("delta")].isObject())
+        {
+            const QJsonObject deltaObj = choiceObj[QStringLiteral("delta")].toObject();
+
+            if (deltaObj.contains(QStringLiteral("content")) && deltaObj[QStringLiteral("content")].isString())
+            {
+                streamedContent.append(deltaObj[QStringLiteral("content")].toString());
+            }
+        }
+    }
+
+    return latestMessageContent.isEmpty() ? streamedContent : latestMessageContent;
+}
+
+} // namespace
 
 LLMResponseHelper::LLMResponseHelper()
 {
@@ -40,40 +212,15 @@ LLMResponseHelper::~LLMResponseHelper()
 QJsonObject LLMResponseHelper::processResult(const QByteArray& responseData)
 {
     QJsonObject resultObj;
-    
-    // Check if the response contains valid JSON
-    QJsonParseError parseError;
-    QJsonDocument jsonResponse = QJsonDocument::fromJson(responseData, &parseError);
-    
-    if (parseError.error == QJsonParseError::NoError)
+
+    const QList<QJsonObject> responseObjects = extractJsonObjectsFromText(responseData);
+
+    if (!responseObjects.isEmpty())
     {
-        qCDebug(DIGIKAM_LLMENGINE_LOG) << "Response contains valid JSON data";
-        
-        // Extract content from the response
-        QJsonObject responseObj = jsonResponse.object();
-        
-        // Try to get the content from various possible paths in the response JSON structure
-        QString contentText;
-        
-        // Check for content in choices[0].message.content path (typical for OpenAI API format)
-        if (responseObj.contains(QStringLiteral("choices")) && 
-            responseObj[QStringLiteral("choices")].isArray() && 
-            !responseObj[QStringLiteral("choices")].toArray().isEmpty())
-        {
-            QJsonObject messageObj = responseObj[QStringLiteral("choices")].toArray()[0].toObject()
-                                    [QStringLiteral("message")].toObject();
-            
-            if (messageObj.contains(QStringLiteral("content")))
-            {
-                contentText = messageObj[QStringLiteral("content")].toString();
-            }
-        }
-        // Also try direct content field for other possible API formats
-        else if (responseObj.contains(QStringLiteral("content")))
-        {
-            contentText = responseObj[QStringLiteral("content")].toString();
-        }
-        
+        qCDebug(DIGIKAM_LLMENGINE_LOG) << "Parsed" << responseObjects.size() << "JSON response object(s)";
+
+        const QString contentText = extractContentFromResponseObjects(responseObjects);
+
         // If we found content text, process it
         if (!contentText.isEmpty())
         {
@@ -108,9 +255,7 @@ QJsonObject LLMResponseHelper::processResult(const QByteArray& responseData)
     }
     else
     {
-        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Response does not contain valid JSON:"
-                                            << parseError.errorString()
-                                            << "at offset:" << parseError.offset;
+        qCWarning(DIGIKAM_LLMENGINE_LOG) << "Response does not contain parseable JSON object(s)";
         
         // Log a sample of the response for debugging
         qCDebug(DIGIKAM_LLMENGINE_LOG) << "Response sample:" << responseData.left(200) << "...";

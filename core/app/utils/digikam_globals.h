@@ -116,7 +116,7 @@ DIGIKAM_EXPORT extern QString DATETIMEFORMATSTRING;
 namespace AIAnnotate
 {
     // Constants for AI Annotation defaults
-    static const int DEFAULT_MAX_TOKENS = 300;
+    static const int DEFAULT_MAX_TOKENS = 20480;
     static const float DEFAULT_TEMPERATURE = 0.5f;
     static const QString DEFAULT_PROMPT = QLatin1String("Write the Description using the active voice.\n\n"
                                                         "The Keywords must be one or two words each. Generate no more than 15 Keywords using a controlled and consistent vocabulary.\n\n"

@@ -58,6 +58,7 @@ void Setup::slotOkClicked()
     d->editorPage->applySettings();
     d->iccPage->applySettings();
     d->pluginsPage->applySettings();
+    d->aiPage->applySettings();
     d->miscPage->applySettings();
 
     ApplicationSettings::instance()->emitSetupChanged();

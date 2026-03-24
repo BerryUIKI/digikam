@@ -1120,6 +1120,8 @@ QString AnnotatePipelineOpenAI::createPrompt() const
                                 " - Occupation/role\n"
                                 " - Relationships between individuals\n"
                                 " - Emotions, expressions, body language\n\n");
+
+        llmPrompt += QLatin1String("Tags should be all lower case unless the tag is a proper noun that is always capitalized (e.g. Eiffel Tower, not eiffel tower). Do not use all caps for emphasis or any other reason. Do not use punctuation in the tags.\n");
     }
 
     // get the current language from the system settings
