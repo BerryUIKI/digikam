@@ -545,6 +545,8 @@ bool AutotagsPipelineObject::writer()
         QStringList tagsPath;
         QStringList displayTags;
         QSet<int>   newIds;
+        const bool  replaceTags = ((settings.tagMode == AutotagsScanSettings::TagMode::ReplaceAll) ||
+                                   (settings.tagMode == AutotagsScanSettings::TagMode::ReplaceTags));
 
         // in BQM mode we don't want to touch the source image tags
 
@@ -556,7 +558,7 @@ bool AutotagsPipelineObject::writer()
             {
                 if (tagsCache->parentTags(tid).contains(rootTagId))
                 {
-                    if (AutotagsScanSettings::TagMode::Replace == settings.tagMode)
+                    if (replaceTags)
                     {
                         // clear existing tags when TagMode is replace
 

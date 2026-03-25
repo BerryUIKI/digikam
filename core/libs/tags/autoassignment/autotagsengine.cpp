@@ -38,6 +38,7 @@
 #include "dnotificationwidget.h"
 #include "autotagsscansettings.h"
 #include "mlpipelinepackagenotify.h"
+#include "dnnmodelmanager.h"
 #include "autotagspipelineobject.h"
 #include "annotatepipelineopenai.h"
 
@@ -62,8 +63,17 @@ AutotagsEngine::AutotagsEngine(const AutotagsScanSettings& _settings, ProgressIt
       d              (new Private)
 {
     d->settings    = _settings;
-    if ((d->settings.objectDetectModel.toLower().contains(QStringLiteral("qwen"))) ||
-        (d->settings.objectDetectModel.toLower().contains(QStringLiteral("gemma"))))
+
+    bool useAIAnnotatePipeline = false;
+
+    if (DNNModelBase* const selectedModel = DNNModelManager::instance()->getModel(d->settings.objectDetectModel,
+                                                                                   DNNModelUsage::DNNUsageObjectDetection))
+    {
+        useAIAnnotatePipeline = (selectedModel->info.classifier.compare(QLatin1String("openai"),
+                                                                         Qt::CaseInsensitive) == 0);
+    }
+
+    if (useAIAnnotatePipeline)
     {
         d->newPipeline = new AnnotatePipelineOpenAI(_settings);
     }
@@ -77,6 +87,9 @@ AutotagsEngine::AutotagsEngine(const AutotagsScanSettings& _settings, ProgressIt
 
     connect(d->newPipeline, SIGNAL(processed(MLPipelinePackageNotify::Ptr)),
             this, SLOT(slotShowOneDetected(MLPipelinePackageNotify::Ptr)));
+
+    connect(d->newPipeline, SIGNAL(processing(MLPipelinePackageNotify::Ptr)),
+            this, SLOT(slotShowOneProcessing(MLPipelinePackageNotify::Ptr)));
 
     connect(d->newPipeline, SIGNAL(skipped(MLPipelinePackageNotify::Ptr)),
             this, SLOT(slotImagesSkipped(MLPipelinePackageNotify::Ptr)));
@@ -242,7 +255,7 @@ void AutotagsEngine::slotShowOneDetected(const MLPipelinePackageNotify::Ptr& pac
 {
     setThumbnail(package->thumbnail);
 
-    QString lbl = i18n("Object Scanning: %1\n", package->name);
+    QString lbl = i18n("Object Scanned: %1\n", package->name);
     lbl.append(i18n("Album: %1\n", package->path));
 
     if (package->processed > 0)
@@ -259,6 +272,16 @@ void AutotagsEngine::slotShowOneDetected(const MLPipelinePackageNotify::Ptr& pac
 
     setLabel(lbl);
     advance(1);
+}
+
+void AutotagsEngine::slotShowOneProcessing(const MLPipelinePackageNotify::Ptr& package)
+{
+    setThumbnail(package->thumbnail);
+
+    QString lbl = i18n("Object Scanning: %1\n", package->name);
+    lbl.append(i18n("Album: %1\n", package->path));
+
+    setLabel(lbl);
 }
 
 } // namespace Digikam

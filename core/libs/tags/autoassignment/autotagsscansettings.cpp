@@ -61,7 +61,7 @@ void AutotagsScanSettings::readFromConfig()
 void AutotagsScanSettings::readFromConfig(const KConfigGroup& group)
 {
     scanMode              = (ScanMode)group.readEntry(configScanMode,   (int)ScanMode::AllItems);
-    tagMode               = (TagMode)group.readEntry(configTagMode,     (int)TagMode::Replace);
+    tagMode               = (TagMode)group.readEntry(configTagMode,     (int)TagMode::ReplaceTags);
     useFullCpu            = group.readEntry(configUseFullCpu,           false);
     objectDetectModel     = group.readEntry(configObjectDetectModel,    QString::fromLatin1("yolov11-nano"));
     uiConfidenceThreshold = group.readEntry(configObjectDetectAccuracy, 7);

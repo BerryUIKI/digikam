@@ -176,7 +176,10 @@ bool AssignTags::toolOperations()
         ret = savefromDImg();
     }
 
-    if (AutotagsScanSettings::TagMode::Update == (AutotagsScanSettings::TagMode)settings().value(QLatin1String("AutotagsTagMode")).toInt())
+    const auto tagMode = (AutotagsScanSettings::TagMode)settings().value(QLatin1String("AutotagsTagMode")).toInt();
+
+    if ((tagMode == AutotagsScanSettings::TagMode::UpdateTags) ||
+        (tagMode == AutotagsScanSettings::TagMode::ReplaceComment))
     {
         if (image().isNull())
         {

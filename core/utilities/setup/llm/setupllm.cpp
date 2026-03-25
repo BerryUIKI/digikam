@@ -145,7 +145,7 @@ SetupLLM::SetupLLM(QWidget* const parent)
     topRowLayout->setContentsMargins(0, 0, 0, 0);
 
     // Enable AI Annotate checkbox
-    d->enableAIAnnotateCheck            = new QCheckBox(i18n("Enable AI Annotate"), topRowWidget);
+    d->enableAIAnnotateCheck            = new QCheckBox(i18n("Enable AI Annotate (requires restart)"), topRowWidget);
     d->enableAIAnnotateCheck->setToolTip(i18n("Enable or disable the AI Annotate feature"));
     topRowLayout->addWidget(d->enableAIAnnotateCheck);
 

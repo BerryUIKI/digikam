@@ -19,6 +19,10 @@
 
 #include "dnnmodelmanager.h"
 
+// Qt includes
+
+#include <QSignalBlocker>
+
 namespace Digikam
 {
 
@@ -45,20 +49,49 @@ void AutotagsScanWidget::doLoadState()
     AutotagsScanSettings prm;
     prm.readFromConfig(group);
 
-    int tagScanMode             = d->scanMode->findData(prm.scanMode);
-    d->scanMode->setCurrentIndex(tagScanMode);
-
-    int tagTagMode              = d->tagMode->findData(prm.tagMode);
-    d->tagMode->setCurrentIndex(tagTagMode);
+    if (d->showExternalLLMServiceOnly && (d->externalLLMModelIndex >= 0))
+    {
+        if (modelUsesOpenAI(prm.objectDetectModel))
+        {
+            d->objectDetectModel->setItemData(d->externalLLMModelIndex, prm.objectDetectModel);
+        }
+        else if (!d->fallbackOpenAIModelId.isEmpty())
+        {
+            d->objectDetectModel->setItemData(d->externalLLMModelIndex, d->fallbackOpenAIModelId);
+        }
+    }
 
     int objectDetectModel       = d->objectDetectModel->findData(prm.objectDetectModel);
 
     if (objectDetectModel < 0)
     {
         objectDetectModel = 0;
+
+        updateScanModeOptions();
+        updateTagModeOptions();
+
+        int tagScanMode             = d->scanMode->findData(prm.scanMode);
+
+        if (tagScanMode < 0)
+        {
+            tagScanMode = 0;
+        }
+
+        d->scanMode->setCurrentIndex(tagScanMode);
     }
 
     d->objectDetectModel->setCurrentIndex(objectDetectModel);
+
+    updateTagModeOptions();
+
+    int tagTagMode              = d->tagMode->findData(prm.tagMode);
+
+    if (tagTagMode < 0)
+    {
+        tagTagMode = 0;
+    }
+
+    d->tagMode->setCurrentIndex(tagTagMode);
 
     d->accuracyInput->setValue(prm.uiConfidenceThreshold);
 
@@ -107,21 +140,11 @@ void AutotagsScanWidget::setupUi()
                                                "Scan Mode:"), d->settingsTab);
 
     d->scanMode             = new SqueezedComboBox(d->settingsTab);
-    d->scanMode->addSqueezedItem(i18nc("@item: all items to scan with autotags",       "All"),               AutotagsScanSettings::ScanMode::AllItems);
-    d->scanMode->addSqueezedItem(i18nc("@item: autotags scan only non assigned items", "Non-Assigned Only"), AutotagsScanSettings::ScanMode::NonAssignedItems);
-    d->scanMode->setToolTip(i18nc("@info:tooltip",
-                                  "<p><b>All</b>: re-scan all items for tags.</p>"
-                                  "<p><b>Non-Assigned Only</b>: scan only the items with no assigned autotags.</p>"));
 
     QLabel* const tmodeLbl  = new QLabel(i18nc("@label with a short translated text ",
-                                               "Tagging Mode:"), d->settingsTab);
+                                               "Write Mode:"), d->settingsTab);
 
     d->tagMode              = new SqueezedComboBox(d->settingsTab);
-    d->tagMode->addSqueezedItem(i18nc("@item: replace existing autotags entries in database", "Replace Existing"), AutotagsScanSettings::TagMode::Replace);
-    d->tagMode->addSqueezedItem(i18nc("@item: update the autotags entries in database",       "Update"),           AutotagsScanSettings::TagMode::Update);
-    d->tagMode->setToolTip(i18nc("@info:tooltip",
-                                 "<p><b>Replace Existing</b>: clear existing auto-tags and replace with the results of the scan.</p>"
-                                 "<p><b>Update</b>: add any new auto-tags found to the existing auto-tags.</p>"));
 
     QLabel* const modelLbl  = new QLabel(i18nc("@label with a short translated text about deep learning model used to detect objects to auto-tag",
                                                "Model:"), d->settingsTab);
@@ -137,12 +160,52 @@ void AutotagsScanWidget::setupUi()
     }
     else
     {
+        const bool aiAnnotateEnabled = ApplicationSettings::instance()->getAIAnnotateEnabled();
+        const bool externalLLMEnabled = ApplicationSettings::instance()->getAIAnnotateExternalLLMEnabled();
+        d->showExternalLLMServiceOnly = (aiAnnotateEnabled && externalLLMEnabled);
+
         for (const auto& model : modelList)
         {
+            DNNModelBase* const modelPtr = dnnModelManager->getModel(model.first, DNNModelUsage::DNNUsageObjectDetection);
+            const bool isOpenAIModel = (modelPtr && (modelPtr->info.classifier.compare(QLatin1String("openai"), Qt::CaseInsensitive) == 0));
+
+            if (isOpenAIModel && d->fallbackOpenAIModelId.isEmpty())
+            {
+                d->fallbackOpenAIModelId = model.first;
+            }
+
+            // Replace the OpenAI model list with one synthetic external service entry.
+            if (d->showExternalLLMServiceOnly && isOpenAIModel)
+            {
+                continue;
+            }
+
+            // Hide OpenAI-backed models unless AI Annotate is enabled in settings.
+            if (!aiAnnotateEnabled && isOpenAIModel)
+            {
+                continue;
+            }
+
             d->objectDetectModel->addSqueezedItem(model.second[0], model.first);
             d->objectDetectModel->setToolTip(d->objectDetectModel->toolTip() + model.second[1]);
         }
+
+        if (d->showExternalLLMServiceOnly && !d->fallbackOpenAIModelId.isEmpty())
+        {
+            d->objectDetectModel->addSqueezedItem(i18n("External LLM Service"), d->fallbackOpenAIModelId);
+            d->externalLLMModelIndex = d->objectDetectModel->count() - 1;
+            d->objectDetectModel->setToolTip(d->objectDetectModel->toolTip() + i18n("Use the configured external LLM service with OpenAI-compatible behavior."));
+        }
+
+        if (d->objectDetectModel->count() == 0)
+        {
+            d->objectDetectModel->addSqueezedItem(i18n("No models available"), QStringLiteral("none"));
+            this->parentWidget()->setEnabled(false);
+        }
     }
+
+    updateScanModeOptions();
+    updateTagModeOptions();
 
     QLabel* const detLbl    = new QLabel(i18nc("@label with a short translated text",
                                                "Accuracy:"), d->settingsTab);
@@ -213,7 +276,7 @@ void AutotagsScanWidget::setupUi()
             this, SLOT(slotSettingsChanged()));
 
     connect(d->objectDetectModel, SIGNAL(currentIndexChanged(int)),
-            this, SLOT(slotSettingsChanged()));
+            this, SLOT(slotObjectDetectModelChanged()));
 
     connect(d->scanMode, SIGNAL(currentIndexChanged(int)),
             this, SLOT(slotSettingsChanged()));
@@ -254,9 +317,47 @@ AutotagsScanSettings AutotagsScanWidget::settings() const
 
 void AutotagsScanWidget::setSettings(const AutotagsScanSettings& newSettings)
 {
-    d->scanMode->setCurrentIndex(d->scanMode->findData(newSettings.scanMode));
-    d->tagMode->setCurrentIndex(d->tagMode->findData(newSettings.tagMode));
-    d->objectDetectModel->setCurrentIndex(d->objectDetectModel->findData(newSettings.objectDetectModel));
+    if (d->showExternalLLMServiceOnly && (d->externalLLMModelIndex >= 0))
+    {
+        if (modelUsesOpenAI(newSettings.objectDetectModel))
+        {
+            d->objectDetectModel->setItemData(d->externalLLMModelIndex, newSettings.objectDetectModel);
+        }
+        else if (!d->fallbackOpenAIModelId.isEmpty())
+        {
+            d->objectDetectModel->setItemData(d->externalLLMModelIndex, d->fallbackOpenAIModelId);
+        }
+    }
+
+    int objectDetectModelIndex = d->objectDetectModel->findData(newSettings.objectDetectModel);
+
+    if (objectDetectModelIndex < 0)
+    {
+        objectDetectModelIndex = 0;
+    }
+
+    d->objectDetectModel->setCurrentIndex(objectDetectModelIndex);
+
+    updateScanModeOptions();
+    updateTagModeOptions();
+
+    int scanModeIndex = d->scanMode->findData(newSettings.scanMode);
+
+    if (scanModeIndex < 0)
+    {
+        scanModeIndex = 0;
+    }
+
+    d->scanMode->setCurrentIndex(scanModeIndex);
+
+    int tagModeIndex = d->tagMode->findData(newSettings.tagMode);
+
+    if (tagModeIndex < 0)
+    {
+        tagModeIndex = 0;
+    }
+
+    d->tagMode->setCurrentIndex(tagModeIndex);
     d->useFullCpuButton->setChecked(newSettings.useFullCpu);
 
     if (d->accuracyInput->value() != newSettings.uiConfidenceThreshold)
@@ -275,6 +376,129 @@ void AutotagsScanWidget::setSettings(const AutotagsScanSettings& newSettings)
 void AutotagsScanWidget::slotSettingsChanged()
 {
     Q_EMIT signalSettingsChanged();
+}
+
+void AutotagsScanWidget::slotObjectDetectModelChanged()
+{
+    updateScanModeOptions();
+    updateTagModeOptions();
+    slotSettingsChanged();
+}
+
+void AutotagsScanWidget::updateScanModeOptions()
+{
+    const QVariant currentScanMode = d->scanMode->currentData();
+    const bool showAIAnnotateModes = selectedModelUsesOpenAI();
+
+    QSignalBlocker blocker(d->scanMode);
+
+    d->scanMode->clear();
+
+    if (showAIAnnotateModes)
+    {
+        d->scanMode->addSqueezedItem(i18nc("@item: all items to scan with autotags", "All"),
+                                     AutotagsScanSettings::ScanMode::AllItems);
+        d->scanMode->addSqueezedItem(i18nc("@item: autotags scan skipping items with assigned comments", "Skip Assigned Comments"),
+                                     AutotagsScanSettings::ScanMode::SkipAssignedComments);
+        d->scanMode->addSqueezedItem(i18nc("@item: autotags scan skipping items with assigned auto-tags", "Skip Assigned Tags"),
+                                     AutotagsScanSettings::ScanMode::SkipAssignedTags);
+        d->scanMode->addSqueezedItem(i18nc("@item: autotags scan skipping items with assigned comments or auto-tags", "Skip Assigned Comments Or Tags"),
+                                     AutotagsScanSettings::ScanMode::SkipAssignedCommentsOrTags);
+        d->scanMode->setToolTip(i18nc("@info:tooltip",
+                                      "<p><b>All</b>: re-scan all items for tags.</p>"
+                                      "<p><b>Skip Assigned Comments</b>: scan only items without assigned comments.</p>"
+                                      "<p><b>Skip Assigned Tags</b>: scan only items without assigned auto-tags.</p>"
+                                      "<p><b>Skip Assigned Comments Or Tags</b>: scan only items without assigned comments and without assigned auto-tags.</p>"));
+    }
+    else
+    {
+        d->scanMode->addSqueezedItem(i18nc("@item: all items to scan with autotags", "All"),
+                                     AutotagsScanSettings::ScanMode::AllItems);
+        d->scanMode->addSqueezedItem(i18nc("@item: autotags scan skipping items with assigned auto-tags", "Skip Assigned Tags"),
+                                     AutotagsScanSettings::ScanMode::SkipAssignedTags);
+        d->scanMode->setToolTip(i18nc("@info:tooltip",
+                                      "<p><b>All</b>: re-scan all items for tags.</p>"
+                                      "<p><b>Skip Assigned Tags</b>: scan only items without assigned auto-tags.</p>"));
+    }
+
+    int scanModeIndex = d->scanMode->findData(currentScanMode);
+
+    if (scanModeIndex < 0)
+    {
+        scanModeIndex = 0;
+    }
+
+    d->scanMode->setCurrentIndex(scanModeIndex);
+}
+
+void AutotagsScanWidget::updateTagModeOptions()
+{
+    const QVariant currentTagMode = d->tagMode->currentData();
+    const bool showAIAnnotateModes = selectedModelUsesOpenAI();
+
+    QSignalBlocker blocker(d->tagMode);
+
+    d->tagMode->clear();
+
+    if (showAIAnnotateModes)
+    {
+        d->tagMode->addSqueezedItem(i18nc("@item: replace existing autotags comments and tags in database", "Replace All"),
+                                    AutotagsScanSettings::TagMode::ReplaceAll);
+        d->tagMode->addSqueezedItem(i18nc("@item: replace existing autotags comments in database", "Replace Comment"),
+                                    AutotagsScanSettings::TagMode::ReplaceComment);
+        d->tagMode->addSqueezedItem(i18nc("@item: replace existing autotags tags in database", "Replace Tags"),
+                                    AutotagsScanSettings::TagMode::ReplaceTags);
+        d->tagMode->addSqueezedItem(i18nc("@item: update autotags tags by adding new ones in database", "Update Tags (add new)"),
+                                    AutotagsScanSettings::TagMode::UpdateTags);
+        d->tagMode->setToolTip(i18nc("@info:tooltip",
+                                     "<p><b>Replace All</b>: replace existing image comments and auto-tags with the results of the scan.</p>"
+                                     "<p><b>Replace Comment</b>: replace existing image comments, but keep existing auto-tags and add any new ones found.</p>"
+                                     "<p><b>Replace Tags</b>: replace existing auto-tags, but leave existing image comments unchanged.</p>"
+                                     "<p><b>Update Tags (add new)</b>: leave existing image comments unchanged and add only new auto-tags.</p>"));
+    }
+    else
+    {
+        d->tagMode->addSqueezedItem(i18nc("@item: replace existing autotags tags in database", "Replace Tags"),
+                                    AutotagsScanSettings::TagMode::ReplaceTags);
+        d->tagMode->addSqueezedItem(i18nc("@item: update autotags tags by adding new ones in database", "Update Tags (add new)"),
+                                    AutotagsScanSettings::TagMode::UpdateTags);
+        d->tagMode->setToolTip(i18nc("@info:tooltip",
+                                     "<p><b>Replace Tags</b>: replace existing auto-tags, but leave existing image comments unchanged.</p>"
+                                     "<p><b>Update Tags (add new)</b>: leave existing image comments unchanged and add only new auto-tags.</p>"));
+    }
+
+    int tagModeIndex = d->tagMode->findData(currentTagMode);
+
+    if (tagModeIndex < 0)
+    {
+        tagModeIndex = 0;
+    }
+
+    d->tagMode->setCurrentIndex(tagModeIndex);
+}
+
+bool AutotagsScanWidget::selectedModelUsesOpenAI() const
+{
+    if (!ApplicationSettings::instance()->getAIAnnotateEnabled())
+    {
+        return false;
+    }
+
+    const QString modelName = d->objectDetectModel->currentData().toString();
+
+    return modelUsesOpenAI(modelName);
+}
+
+bool AutotagsScanWidget::modelUsesOpenAI(const QString& modelName) const
+{
+    if (modelName.isEmpty() || (modelName == QLatin1String("none")))
+    {
+        return false;
+    }
+
+    DNNModelBase* const model = DNNModelManager::instance()->getModel(modelName, DNNModelUsage::DNNUsageObjectDetection);
+
+    return model && (model->info.classifier.compare(QLatin1String("openai"), Qt::CaseInsensitive) == 0);
 }
 
 } // namespace Digikam

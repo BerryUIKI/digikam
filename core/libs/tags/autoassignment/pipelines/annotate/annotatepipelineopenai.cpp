@@ -307,21 +307,45 @@ bool AnnotatePipelineOpenAI::finder()
 
             bool shouldQueue = true;
 
-            if (settings.scanMode == AutotagsScanSettings::ScanMode::NonAssignedItems)
+            if (settings.scanMode != AutotagsScanSettings::ScanMode::AllItems)
             {
+                const ItemInfo info(imageId);
+
+                const bool hasComments = (info.imageComments(CoreDbAccess()).numberOfComments() > 0);
+                bool hasAutoTags       = false;
+
                 if (autoRootTagId != 0)
                 {
-                    const ItemInfo info(imageId);
                     const auto ids = info.tagIds();
 
                     for (int tid : ids)
                     {
                         if (tagsCache->parentTags(tid).contains(autoRootTagId))
                         {
-                            shouldQueue = false;
+                            hasAutoTags = true;
                             break;
                         }
                     }
+                }
+
+                switch (settings.scanMode)
+                {
+                    case AutotagsScanSettings::ScanMode::SkipAssignedComments:
+                        shouldQueue = !hasComments;
+                        break;
+
+                    case AutotagsScanSettings::ScanMode::SkipAssignedTags:
+                        shouldQueue = !hasAutoTags;
+                        break;
+
+                    case AutotagsScanSettings::ScanMode::SkipAssignedCommentsOrTags:
+                        shouldQueue = !(hasComments || hasAutoTags);
+                        break;
+
+                    case AutotagsScanSettings::ScanMode::AllItems:
+                    default:
+                        shouldQueue = true;
+                        break;
                 }
             }
 
@@ -621,7 +645,7 @@ bool AnnotatePipelineOpenAI::classifier()
 
         QString albumName = CollectionManager::instance()->albumRootLabel(package->info.albumRootId());
 
-        notify(MLPipelineNotification::notifyProcessed,
+        notify(MLPipelineNotification::notifyProcessing,
                package->info.name(),
                albumName + package->info.relativePath(),
                QString(),
@@ -768,18 +792,29 @@ bool AnnotatePipelineOpenAI::writer()
         QStringList displayTags;
         QSet<int> newIds;
         MetadataHub::WriteComponent changedMetadata;
+        const bool replaceComments = ((settings.tagMode == AutotagsScanSettings::TagMode::ReplaceAll) ||
+                                      (settings.tagMode == AutotagsScanSettings::TagMode::ReplaceComment));
+        const bool replaceTags     = ((settings.tagMode == AutotagsScanSettings::TagMode::ReplaceAll) ||
+                                      (settings.tagMode == AutotagsScanSettings::TagMode::ReplaceTags));
 
-        // Add the description to the image comments
+        // Replace the description comment when requested by the current tagging mode.
 
-        if ((llmResponseType & LLMResponses::LLMDescription) && !package->imageDescription.isEmpty())
+        if ((llmResponseType & LLMResponses::LLMDescription) && replaceComments)
         {
-            package->info.imageComments(CoreDbAccess()).addComment(package->imageDescription);
+            ItemComments comments = package->info.imageComments(CoreDbAccess());
+            comments.removeAllComments();
+
+            if (!package->imageDescription.isEmpty())
+            {
+                comments.addComment(package->imageDescription);
+            }
+
             changedMetadata |= MetadataHub::WRITE_COMMENTS;
         }
 
-        // Add the tags to the image
+        // Replace or update auto-tags according to the current tagging mode.
 
-        if ((llmResponseType & LLMResponses::LLMKeywords) && !package->tagList.isEmpty())
+        if (llmResponseType & LLMResponses::LLMKeywords)
         {
             const auto ids = package->info.tagIds();
 
@@ -787,23 +822,21 @@ bool AnnotatePipelineOpenAI::writer()
             {
                 if (tagsCache->parentTags(tid).contains(rootTagId))
                 {
-                    if (AutotagsScanSettings::TagMode::Replace == settings.tagMode)
+                    if (replaceTags)
                     {
-                        // Clear existing tags when TagMode is replace
-                        
+                        // Remove existing auto-tags when the mode requests replacement.
+
                         package->info.removeTag(tid);
                         changedMetadata |= MetadataHub::WRITE_TAGS;
                     }
                     else
                     {
-                        // Add existing tags to the new tags list
-                        
+                        // Preserve existing auto-tags so only missing ones are added.
+
                         newIds << tid;
                     }
                 }
             }
-
-            // Iterate over the new list of found tags
 
             for (const auto& tag : std::as_const(package->tagList))
             {
@@ -970,6 +1003,12 @@ QJsonObject AnnotatePipelineOpenAI::createPayload(const QString& prompt, const Q
     payload[QStringLiteral("top_p")] = qRound(topP * 100.0) / 100.0;
     payload[QStringLiteral("top_k")] = topK;
     payload[QStringLiteral("min_p")] = qRound(minP * 100.0) / 100.0;
+
+        // Add stop sequences to prevent infinite generation/repetition loops
+        // Stop as soon as the JSON object closes
+        QJsonArray stopSequences;
+        stopSequences.append(QLatin1String("}"));
+        payload[QStringLiteral("stop")] = stopSequences;
     
     return payload;
 }
@@ -1056,7 +1095,7 @@ QString AnnotatePipelineOpenAI::createPrompt() const
 
     // Add the tasks to the prompt
 
-    QString llmPrompt = QLatin1String("The tasks are to describe the image and to come up with a set of keyword tags for it.\n");
+    QString llmPrompt = QLatin1String("You will analyze an image and produce a short description and a list of keyword tags.\n\n");
 
     if (appSettings->getAIAnnotateAdvSetEnabled() && appSettings->getAIAnnotateCustomPromptEnabled())
     {
@@ -1065,138 +1104,79 @@ QString AnnotatePipelineOpenAI::createPrompt() const
     }
     else
     {
-        llmPrompt += QLatin1String("Write the Description using the active");
+        llmPrompt += QLatin1String("Write the Description in clear, active voice with a ");
 
-        switch(appSettings->getAIAnnotateVoice())
+        switch (appSettings->getAIAnnotateVoice())
         {
             case LLMProcessSettings::AIVoiceType::Casual:
-                llmPrompt += QLatin1String(", casual");
+                llmPrompt += QLatin1String("casual");
                 break;
             case LLMProcessSettings::AIVoiceType::Formal:
-                llmPrompt += QLatin1String(", formal");
+                llmPrompt += QLatin1String("formal");
                 break;
             case LLMProcessSettings::AIVoiceType::Neutral:
-                llmPrompt += QLatin1String(", neutral");
+            default:
+                llmPrompt += QLatin1String("neutral");
                 break;
         }
 
-        llmPrompt += QLatin1String(" voice");
+        llmPrompt += QLatin1String(" tone");
 
         switch (appSettings->getAIAnnotateVoicePerspective())
         {
             case LLMProcessSettings::FirstPerson:
-                llmPrompt += QLatin1String(" in the first person");
+                llmPrompt += QLatin1String(" in first person");
                 break;
             case LLMProcessSettings::SecondPerson:
-                llmPrompt += QLatin1String(" in the second person");
+                llmPrompt += QLatin1String(" in second person");
                 break;
             case LLMProcessSettings::ThirdPerson:
-                llmPrompt += QLatin1String(" in the third person");
+                llmPrompt += QLatin1String(" in third person");
                 break;
             default:
                 break;
         }
 
-        llmPrompt += QLatin1String(".\n");
+        const LLMProcessSettings::AITextTones tone = appSettings->getAIAnnotateTextTones();
+        QStringList toneNames;
 
-        if (LLMProcessSettings::NoTone != appSettings->getAIAnnotateTextTones())
+        if (tone & LLMProcessSettings::AITextTone::Authoritative) toneNames << QLatin1String("authoritative");
+        if (tone & LLMProcessSettings::AITextTone::Concise)       toneNames << QLatin1String("concise");
+        if (tone & LLMProcessSettings::AITextTone::Descriptive)   toneNames << QLatin1String("descriptive");
+        if (tone & LLMProcessSettings::AITextTone::Dramatic)      toneNames << QLatin1String("dramatic");
+        if (tone & LLMProcessSettings::AITextTone::Empathetic)    toneNames << QLatin1String("empathetic");
+        if (tone & LLMProcessSettings::AITextTone::Encouraging)   toneNames << QLatin1String("encouraging");
+        if (tone & LLMProcessSettings::AITextTone::Friendly)      toneNames << QLatin1String("friendly");
+        if (tone & LLMProcessSettings::AITextTone::Humorous)      toneNames << QLatin1String("humorous");
+        if (tone & LLMProcessSettings::AITextTone::Inspirational) toneNames << QLatin1String("inspirational");
+        if (tone & LLMProcessSettings::AITextTone::Persuasive)    toneNames << QLatin1String("persuasive");
+        if (tone & LLMProcessSettings::AITextTone::Poetic)        toneNames << QLatin1String("poetic");
+        if (tone & LLMProcessSettings::AITextTone::Respectful)    toneNames << QLatin1String("respectful");
+        if (tone & LLMProcessSettings::AITextTone::Serious)       toneNames << QLatin1String("serious");
+        if (tone & LLMProcessSettings::AITextTone::Technical)     toneNames << QLatin1String("technical");
+        if (tone & LLMProcessSettings::AITextTone::Urgent)        toneNames << QLatin1String("urgent");
+
+        if (!toneNames.isEmpty())
         {
-            // iterate over the tones and add them to the prompt
-
-            llmPrompt += QLatin1String("The tone of the description is ");
-            LLMProcessSettings::AITextTones tone = appSettings->getAIAnnotateTextTones();
-            if (tone & LLMProcessSettings::AITextTone::Authoritative)
-            {
-                llmPrompt += QLatin1String("authoritative, ");
-            }
-            if (tone & LLMProcessSettings::AITextTone::Concise)
-            {
-                llmPrompt += QLatin1String("concise, ");
-            }
-            if (tone & LLMProcessSettings::AITextTone::Descriptive)
-            {
-                llmPrompt += QLatin1String("descriptive, ");
-            }
-            if (tone & LLMProcessSettings::AITextTone::Dramatic)
-            {
-                llmPrompt += QLatin1String("dramatic, ");
-            }
-            if (tone & LLMProcessSettings::AITextTone::Empathetic)
-            {
-                llmPrompt += QLatin1String("empathetic, ");
-            }
-            if (tone & LLMProcessSettings::AITextTone::Encouraging)
-            {
-                llmPrompt += QLatin1String("encouraging, ");
-            }
-            if (tone & LLMProcessSettings::AITextTone::Friendly)
-            {
-                llmPrompt += QLatin1String("friendly, ");
-            }
-            if (tone & LLMProcessSettings::AITextTone::Humorous)
-            {
-                llmPrompt += QLatin1String("humorous, ");
-            }
-            if (tone & LLMProcessSettings::AITextTone::Inspirational)
-            {
-                llmPrompt += QLatin1String("inspirational, ");
-            }
-            if (tone & LLMProcessSettings::AITextTone::Persuasive)
-            {
-                llmPrompt += QLatin1String("persuasive, ");
-            }
-            if (tone & LLMProcessSettings::AITextTone::Poetic)
-            {
-                llmPrompt += QLatin1String("poetic, ");
-            }
-            if (tone & LLMProcessSettings::AITextTone::Respectful)
-            {
-                llmPrompt += QLatin1String("respectful, ");
-            }
-            if (tone & LLMProcessSettings::AITextTone::Serious)
-            {
-                llmPrompt += QLatin1String("serious, ");
-            }
-            if (tone & LLMProcessSettings::AITextTone::Technical)
-            {
-                llmPrompt += QLatin1String("technical, ");
-            }
-            if (tone & LLMProcessSettings::AITextTone::Urgent)
-            {
-                llmPrompt += QLatin1String("urgent, ");
-            }
-
-            // trim the last comma and space from the string
-            llmPrompt.chop(2);
-            llmPrompt += QLatin1String(".\n");
+            llmPrompt += QLatin1String(" and ");
+            llmPrompt += toneNames.join(QLatin1String(", "));
+            llmPrompt += QLatin1String(" style");
         }
 
-        llmPrompt += QLatin1String("The Keywords must be one or two words each. Generate no more than %1 Keywords using a controlled and consistent vocabulary. "
-                       "Prioritize the most important visible subjects and scene-defining elements over minor details.\n\n").arg(QString::number(appSettings->getAIAnnotateMaxTags()));
+        llmPrompt += QLatin1String(".\n\n");
 
-        llmPrompt += QLatin1String("For both Description and Keywords, make sure to include:\n"
-                                " - Themes, concepts\n"
-                                " - Items, animals, objects\n"
-                                " - Structures, landmarks, setting\n"
-                                " - Foreground and background elements\n"
-                                " - Notable colors, textures, styles\n"
-                                " - Actions, activities\n\n"
-                                "If humans are present, include:\n"
-                                " - Physical appearance\n"
-                                " - Gender\n"
-                                " - Clothing\n"
-                                " - Age range\n"
-                                " - Visibly apparent ancestry\n"
-                                " - Occupation/role\n"
-                                " - Relationships between individuals\n"
-                                " - Emotions, expressions, body language\n\n");
+        llmPrompt += QLatin1String("Generate up to %1 Keywords. Each keyword must be one or two words, all lower case unless it is a proper noun. "
+                       "No punctuation. Prioritize the main visible subjects and scene-defining elements.\n\n")
+                       .arg(QString::number(appSettings->getAIAnnotateMaxTags()));
 
-        llmPrompt += QLatin1String("Tags should be all lower case unless the tag is a proper noun that is always capitalized (e.g. Eiffel Tower, not eiffel tower). Do not use all caps for emphasis or any other reason. Do not use punctuation in the tags.\n");
-        llmPrompt += QLatin1String("When visual evidence is strong, prefer specific object names over broad categories (for example, use \"eagle\" or \"vulture\" instead of \"bird\"). "
-                       "When uncertain, use the broader category rather than guessing a specific subtype.\n");
-        llmPrompt += QLatin1String("Only use specific landmark or place names when uniquely identifiable visual evidence is present. "
-                                   "If uncertain, use a generic term (for example, use \"church\" instead of \"Sagrada Familia\"). "
-                                   "Negative examples: do not label every church as \"Sagrada Familia\" or every iron lattice tower as \"Eiffel Tower\".\n");
+        llmPrompt += QLatin1String("Include themes, concepts, objects, animals, structures, setting, foreground/background elements, "
+                       "colors, textures, styles, actions, and activities.\n\n");
+
+        llmPrompt += QLatin1String("If humans are clearly visible, briefly include appearance, clothing, age range, visible ancestry, "
+                       "and actions. Do not guess when uncertain.\n\n");
+
+        llmPrompt += QLatin1String("Use specific object names only when the visual evidence is strong. Use generic terms when uncertain. "
+                       "Use specific place names only when uniquely identifiable.\n\n");
     }
 
     // get the current language from the system settings
@@ -1205,9 +1185,9 @@ QString AnnotatePipelineOpenAI::createPrompt() const
 
     // define the result format
 
-    llmPrompt += QLatin1String("Use %1 only as spoken in %2."
-                               " Generate ONLY a JSON object with the keys Description, Keywords as follows"
-                               " {\"Description\": str, \"Keywords\": []}\n")
+    llmPrompt += QLatin1String("Use %1 only as spoken in %2.\n"
+                               "Output ONLY a JSON object in this format:\n"
+                               "{\"Description\": \"...\", \"Keywords\": [\"...\", \"...\"]}\n")
                             .arg(currentLanguage)
                             .arg(currentCountry);
                             //    "<EXAMPLE>\n"

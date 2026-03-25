@@ -63,11 +63,16 @@ protected:
 
 private Q_SLOTS:
 
+    void slotObjectDetectModelChanged();
     void slotSettingsChanged();
 
 private:
 
     void setupUi();
+    void updateScanModeOptions();
+    void updateTagModeOptions();
+    bool modelUsesOpenAI(const QString& modelName) const;
+    bool selectedModelUsesOpenAI() const;
 
 private:
 

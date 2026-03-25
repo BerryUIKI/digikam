@@ -73,6 +73,7 @@ public:
 
     enum MLPipelineNotification
     {
+        notifyProcessing,
         notifySkipped,
         notifyProcessed
     };

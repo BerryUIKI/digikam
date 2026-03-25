@@ -89,6 +89,10 @@ public:
 
     bool              settingsConflicted                = false;
 
+    bool              showExternalLLMServiceOnly        = false;
+    int               externalLLMModelIndex             = -1;
+    QString           fallbackOpenAIModelId;
+
     AutotagsScanWidget::SettingsDisplayMode displayMode = AutotagsScanWidget::SettingsDisplayMode::Normal;
 };
 

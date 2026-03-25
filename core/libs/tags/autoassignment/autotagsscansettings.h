@@ -43,18 +43,22 @@ public:
      */
     enum ScanMode
     {
-        AllItems = 0,        ///< Scan all items
-        NonAssignedItems     ///< Scan only items with no tags assigned.
+        AllItems = 0,                 ///< Scan all items
+        SkipAssignedTags = 1,         ///< Scan only items with no assigned auto-tags.
+        SkipAssignedComments = 2,     ///< Scan only items with no assigned comments.
+        SkipAssignedCommentsOrTags = 3///< Scan only items with neither comments nor auto-tags assigned.
     };
     Q_ENUM(ScanMode)
 
     /**
-     * @brief Different possible mode processed with tags while scanning operation.
+     * @brief Different possible write modes for generated comments and auto-tags.
      */
     enum TagMode
     {
-        Replace = 0,        ///< Clean all tags already assigned
-        Update              ///< Add new tags to existing tags
+        ReplaceTags = 0,    ///< Replace existing auto-tags only.
+        UpdateTags,         ///< Add new auto-tags to existing auto-tags.
+        ReplaceAll,         ///< Replace existing comments and auto-tags.
+        ReplaceComment      ///< Replace existing comments only, keep and extend auto-tags.
     };
     Q_ENUM(TagMode)
 
@@ -78,8 +82,8 @@ public:
     /// Scanning mode.
     ScanMode                                scanMode                    = ScanMode::AllItems;
 
-    /// Processing power.
-    TagMode                                 tagMode                     = TagMode::Replace;
+    /// Write mode for generated comments and auto-tags.
+    TagMode                                 tagMode                     = TagMode::ReplaceTags;
 
     /// Processing using all CPU available.
     bool                                    useFullCpu                  = false;

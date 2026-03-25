@@ -118,25 +118,15 @@ namespace AIAnnotate
     // Constants for AI Annotation defaults
     static const int DEFAULT_MAX_TOKENS = 16000;
     static const float DEFAULT_TEMPERATURE = 0.5f;
-    static const QString DEFAULT_PROMPT = QLatin1String("Write the Description using the active voice.\n\n"
-                                                        "The Keywords must be one or two words each. Generate no more than 15 Keywords using a controlled and consistent vocabulary.\n\n"
-                                                        "For both Description and Keywords, make sure to include:\n\n"
-                                                        " - Themes, concepts\n"
-                                                        " - Items, animals, objects\n"
-                                                        " - Structures, landmarks, setting\n"
-                                                        " - Foreground and background elements\n"
-                                                        " - Notable colors, textures, styles\n"
-                                                        " - Actions, activities\n\n"
-                                                        "If humans are present, include:\n"
-                                                        " - Physical appearance\n"
-                                                        " - Gender\n"
-                                                        " - Clothing\n"
-                                                        " - Age range\n"
-                                                        " - Visibly apparent ancestry\n"
-                                                        " - Occupation/role\n"
-                                                        " - Relationships between individuals\n"
-                                                        " - Emotions, expressions, body language\n\n"
-                                                        "Use ENGLISH only as spoken in Great Britian.\n"
+    static const QString DEFAULT_PROMPT = QLatin1String("Write the Description in clear, active voice with a neutral, descriptive tone.\n\n"
+                                                        "Generate up to 15 Keywords. Each keyword must be one or two words, all lower case unless it is a proper noun. "
+                                                        "No punctuation. Prioritize the main visible subjects and scene-defining elements.\n\n"
+                                                        "Include themes, concepts, objects, animals, structures, setting, foreground/background elements, "
+                                                        "colors, textures, styles, actions, and activities.\n\n"
+                                                        "If humans are clearly visible, briefly include appearance, clothing, age range, visible ancestry, "
+                                                        "and actions. Do not guess when uncertain.\n\n"
+                                                        "Use specific object names only when the visual evidence is strong. Use generic terms when uncertain. "
+                                                        "Use specific place names only when uniquely identifiable.\n"
                                                     );
 
 }

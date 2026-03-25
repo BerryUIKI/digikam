@@ -639,6 +639,13 @@ void MLPipelineFoundation::notify(MLPipelineNotification notification,
 
     switch (notification)
     {
+        case MLPipelineNotification::notifyProcessing:
+        {
+            Q_EMIT processing(notify);
+
+            break;
+        }
+
         case MLPipelineNotification::notifyProcessed:
         {
             Q_EMIT processed(notify);
