@@ -103,6 +103,14 @@ protected:
      */
     QString createPrompt() const;
 
+    /**
+     * @brief Collects all unique leaf tag names that exist under the "auto" tag hierarchy.
+     *        Used to guide the LLM toward reusing existing keywords rather than creating
+     *        near-duplicate variants.
+     * @return Sorted, deduplicated list of existing auto tag leaf names.
+     */
+    QStringList collectExistingAutoTagNames() const;
+
 private Q_SLOTS:
 
     /**

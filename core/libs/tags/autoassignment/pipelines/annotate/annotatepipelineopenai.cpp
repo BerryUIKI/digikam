@@ -17,7 +17,9 @@
 
 // Qt includes
 
+#include <QHash>
 #include <QList>
+#include <QSet>
 #include <QElapsedTimer>
 #include <QByteArray>
 #include <QBuffer>
@@ -27,6 +29,7 @@
 #include <QtConcurrentRun>
 #include <QFuture>
 #include <QTimer>
+#include <QPointer>
 
 // KDE includes
 
@@ -69,7 +72,6 @@ AnnotatePipelineOpenAI::AnnotatePipelineOpenAI(const AutotagsScanSettings& setti
 
     if (ApplicationSettings::instance()->getAIAnnotateAdvSetEnabled())
     {
-        maxTokens     = ApplicationSettings::instance()->getAIAnnotateMaxTokens();
         temperature   = ApplicationSettings::instance()->getAIAnnotateTemperature();
     }
 }
@@ -196,28 +198,37 @@ void AnnotatePipelineOpenAI::cancel()
     {
         // disconnect the signals to avoid multiple calls
 
-        disconnect(m_llmProcessManager, SIGNAL(signalEngineStarted(bool)), 
-                   this, SLOT(slotEngineStarted(bool)));
+        if (m_llmProcessManager)
+        {
+            disconnect(m_llmProcessManager, SIGNAL(signalEngineStarted(bool)), 
+                       this, SLOT(slotEngineStarted(bool)));
 
-        disconnect(m_llmProcessManager, SIGNAL(signalEngineReady()),
-                   this, SLOT(slotEngineReady()));
+            disconnect(m_llmProcessManager, SIGNAL(signalEngineReady()),
+                       this, SLOT(slotEngineReady()));
 
-        disconnect(m_llmProcessManager, &LLMProcessManager::signalEngineStopped,
-                   this, &AnnotatePipelineOpenAI::cancel);
+            disconnect(m_llmProcessManager, &LLMProcessManager::signalEngineStopped,
+                       this, &AnnotatePipelineOpenAI::cancel);
+        }
 
         // Capture 'this' pointer to access class members from the lambda
         // Store the QFuture to resolve the 'nodiscard' warning
         if (m_llmProcessManager && m_llmProcessManager->isEngineRunning())
         {
+            QPointer<LLMProcessManager> safeManager = m_llmProcessManager;
+
             // Use QtConcurrent to run the abort process in a separate thread
             // This allows the main thread to continue processing other tasks
             // while waiting for the LLM engine to abort the inference
             
-            QFuture<void> future = QtConcurrent::run([this]()
+            QFuture<void> future = QtConcurrent::run([safeManager]()
             {
                 QThread::msleep(100);
-                m_llmProcessManager->abortInference();
-                qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AnnotatePipelineOpenAI::cancel(): sent abort request to LLM engine";
+
+                if (safeManager)
+                {
+                    safeManager->abortInference();
+                    qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AnnotatePipelineOpenAI::cancel(): sent abort request to LLM engine";
+                }
             });
         }
         else
@@ -235,6 +246,11 @@ void AnnotatePipelineOpenAI::cancel()
 bool AnnotatePipelineOpenAI::finder()
 {
 
+    if (settings.bqmMode)
+    {
+        return true;
+    }
+
     MLPIPELINE_FINDER_START(QThread::LowPriority, MLPipelineStage::Loader);
 
     /* =========================================================================================
@@ -249,45 +265,81 @@ bool AnnotatePipelineOpenAI::finder()
 
     nextQueue->setMaxDepth(1);
 
-    while (!cancelled)
+    QSet<qlonglong> filter;
+    TagsCache* const tagsCache = TagsCache::instance();
+    const int autoRootTagId = tagsCache->tagForPath(QLatin1String("auto"));
+
+    for (const Album* const album : std::as_const(settings.albums))
     {
-        // Add images without comments to the queue using CoreDB method
+        if (cancelled)
+        {
+            break;
+        }
 
-        QList<qlonglong> imageIdsWithoutComments = CoreDbAccess().db()->getNextLLMItemsToScan(100 + m_imageIdsInProgress.size());
+        if (!album || album->isTrashAlbum())
+        {
+            continue;
+        }
 
-        // Q_EMIT the updated total item count
-        qlonglong itemCount = totalItemCount + imageIdsWithoutComments.size() - m_imageIdsInProgress.size();
+        QList<qlonglong> imageIds;
 
-        Q_EMIT signalUpdateItemCount(itemCount);
-        
-        // Process the images without comments first
-        
-        for (qlonglong imageId : std::as_const(imageIdsWithoutComments))
+        // Get candidate IDs from the selected physical album or tag only.
+
+        if      (album->type() == Album::PHYSICAL)
+        {
+            imageIds = CoreDbAccess().db()->getItemIDsInAlbum(album->id());
+        }
+        else if (album->type() == Album::TAG)
+        {
+            imageIds = CoreDbAccess().db()->getItemIDsInTag(album->id());
+        }
+
+        for (qlonglong imageId : std::as_const(imageIds))
         {
             ++performanceProfileList[MLPipelineStage::Finder].itemCount;
-            
-            if (!m_imageIdsInProgress.contains(imageId))
+
+            if (filter.contains(imageId))
             {
-                ++totalItemCount;
-
-                {
-                    // keep track of the IDs in progress so we don't process them again
-
-                    QMutexLocker locker(&m_progressIdsMutex);
-                    m_imageIdsInProgress << imageId;
-                }
-                
-                qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AnnotatePipelineOpenAI::finder: adding image ID" << imageId;
-
-                enqueue(nextQueue, new AnnotatePipelineOpenAIPackage(imageId));
-
-                // added imageId to the pipeline.  Break to refresh the list
-                // this allows recently added images to be processed first
-
-                break;
+                continue;
             }
+
+            filter << imageId;
+
+            bool shouldQueue = true;
+
+            if (settings.scanMode == AutotagsScanSettings::ScanMode::NonAssignedItems)
+            {
+                if (autoRootTagId != 0)
+                {
+                    const ItemInfo info(imageId);
+                    const auto ids = info.tagIds();
+
+                    for (int tid : ids)
+                    {
+                        if (tagsCache->parentTags(tid).contains(autoRootTagId))
+                        {
+                            shouldQueue = false;
+                            break;
+                        }
+                    }
+                }
+            }
+
+            if (!shouldQueue)
+            {
+                continue;
+            }
+
+            ++totalItemCount;
+
+            qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "AnnotatePipelineOpenAI::finder: adding image ID" << imageId;
+
+            enqueue(nextQueue, new AnnotatePipelineOpenAIPackage(imageId));
         }
     }
+
+    // Use an exact scoped count so the progress bar doesn't hit 100% too early.
+    Q_EMIT signalUpdateItemCount(totalItemCount);
 
     /* =========================================================================================
      * Pipeline finder specific cleanup
@@ -533,8 +585,25 @@ bool AnnotatePipelineOpenAI::classifier()
      */
 
     {
+        // Build a per-image prompt that includes the current auto-tag lexicon so
+        // tags written by earlier images in this run are already reflected.
+
+        QString imagePrompt = llmPrompt;
+
+        const QStringList existingAutoTags = collectExistingAutoTagNames();
+
+        if (!existingAutoTags.isEmpty())
+        {
+            imagePrompt += QLatin1String("The following keywords already exist in the tag library. "
+                                         "Reuse these exact keywords only when they are an exact or very close semantic match to important image content "
+                                         "(e.g. prefer \"blue\" over \"blue color\", or \"bokeh\" over \"blurred background\"). "
+                                         "Do not force a match just to reuse an existing tag. Add new keywords whenever that is more accurate:\n");
+            imagePrompt += existingAutoTags.join(QLatin1String(", "));
+            imagePrompt += QLatin1Char('\n');
+        }
+
         // Prepare payload using the new method
-        QJsonObject payload = createPayload(llmPrompt, package->base64Image);
+        QJsonObject payload = createPayload(imagePrompt, package->base64Image);
         
         // Log the request being sent
         qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Sending request to OpenAI API";
@@ -1102,7 +1171,8 @@ QString AnnotatePipelineOpenAI::createPrompt() const
             llmPrompt += QLatin1String(".\n");
         }
 
-        llmPrompt += QLatin1String("The Keywords must be one or two words each. Generate no more than %1 Keywords using a controlled and consistent vocabulary.\n\n").arg(QString::number(appSettings->getAIAnnotateMaxTags()));
+        llmPrompt += QLatin1String("The Keywords must be one or two words each. Generate no more than %1 Keywords using a controlled and consistent vocabulary. "
+                       "Prioritize the most important visible subjects and scene-defining elements over minor details.\n\n").arg(QString::number(appSettings->getAIAnnotateMaxTags()));
 
         llmPrompt += QLatin1String("For both Description and Keywords, make sure to include:\n"
                                 " - Themes, concepts\n"
@@ -1122,6 +1192,11 @@ QString AnnotatePipelineOpenAI::createPrompt() const
                                 " - Emotions, expressions, body language\n\n");
 
         llmPrompt += QLatin1String("Tags should be all lower case unless the tag is a proper noun that is always capitalized (e.g. Eiffel Tower, not eiffel tower). Do not use all caps for emphasis or any other reason. Do not use punctuation in the tags.\n");
+        llmPrompt += QLatin1String("When visual evidence is strong, prefer specific object names over broad categories (for example, use \"eagle\" or \"vulture\" instead of \"bird\"). "
+                       "When uncertain, use the broader category rather than guessing a specific subtype.\n");
+        llmPrompt += QLatin1String("Only use specific landmark or place names when uniquely identifiable visual evidence is present. "
+                                   "If uncertain, use a generic term (for example, use \"church\" instead of \"Sagrada Familia\"). "
+                                   "Negative examples: do not label every church as \"Sagrada Familia\" or every iron lattice tower as \"Eiffel Tower\".\n");
     }
 
     // get the current language from the system settings
@@ -1142,6 +1217,87 @@ QString AnnotatePipelineOpenAI::createPrompt() const
 
     return llmPrompt;
 
+}
+
+QStringList AnnotatePipelineOpenAI::collectExistingAutoTagNames() const
+{
+    TagsCache* const tagsCache = TagsCache::instance();
+
+    // Resolve the root "auto" tag.  If it doesn't exist yet (first run) return empty.
+
+    const int rootTagId = tagsCache->tagForPath(QLatin1String("auto"));
+
+    if (rootTagId == 0)
+    {
+        return {};
+    }
+
+    // Fetch the flat tag table and BFS-walk all descendants of rootTagId.
+
+    const QList<TagShortInfo> allInfos = CoreDbAccess().db()->getTagShortInfos();
+
+    // Build a parent → children map for efficient traversal.
+
+    QHash<int, QVector<int>> children;
+
+    for (const TagShortInfo& info : allInfos)
+    {
+        children[info.pid].append(info.id);
+    }
+
+    // BFS: collect all descendant IDs, skipping the root itself.
+
+    QSet<int> subtreeIds;
+    QList<int> queue = children.value(rootTagId).toList();
+
+    while (!queue.isEmpty())
+    {
+        const int id = queue.takeFirst();
+
+        if (subtreeIds.contains(id))
+        {
+            continue;
+        }
+
+        subtreeIds.insert(id);
+
+        const auto& childIds = children.value(id);
+
+        for (int childId : childIds)
+        {
+            queue.append(childId);
+        }
+    }
+
+    // Collect leaf names, deduplicate, and sort.
+
+    QSet<QString> seen;
+    QStringList names;
+
+    for (int id : std::as_const(subtreeIds))
+    {
+        // Skip intermediate folder-like tags that have children of their own
+        // (e.g. a language folder "en" sitting between "auto" and actual keywords).
+
+        if (!children.value(id).isEmpty())
+        {
+            continue;
+        }
+
+        const QString name = tagsCache->tagName(id);
+
+        if (!name.isEmpty() && !seen.contains(name))
+        {
+            seen.insert(name);
+            names.append(name);
+        }
+    }
+
+    names.sort(Qt::CaseInsensitive);
+
+    qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "collectExistingAutoTagNames: found" << names.size() << "existing auto keywords";
+
+    return names;
 }
 
 } // namespace Digikam
