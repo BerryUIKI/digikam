@@ -1222,7 +1222,7 @@ QString AnnotatePipelineOpenAI::createPrompt() const
             tonePhrase = toneNames.join(QLatin1String(", "));
         }
 
-        llmPrompt += QLatin1String("You will look at an image and produce one Description and one list of no more than %1 Keywords.\n\n")
+        llmPrompt += QLatin1String("You will look at an image and produce one Description and one list of no more than %1 Keywords that best describe the image.\n\n")
                      .arg(QString::number(appSettings->getAIAnnotateMaxTags()));
 
         llmPrompt += QLatin1String("Write the Description in active, %1 voice%2. Use a %3 tone. Keep the Description clear and direct.\n\n")
