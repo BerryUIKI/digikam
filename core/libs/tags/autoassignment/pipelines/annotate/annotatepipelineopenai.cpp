@@ -60,6 +60,74 @@
 namespace Digikam
 {
 
+namespace
+{
+
+void logFullPayload(const QJsonObject& payload)
+{
+    QJsonObject sanitizedPayload = payload;
+
+    if (sanitizedPayload.contains(QStringLiteral("messages")) && sanitizedPayload[QStringLiteral("messages")].isArray())
+    {
+        QJsonArray messages = sanitizedPayload[QStringLiteral("messages")].toArray();
+
+        for (int i = 0 ; i < messages.size() ; ++i)
+        {
+            if (!messages[i].isObject())
+            {
+                continue;
+            }
+
+            QJsonObject message = messages[i].toObject();
+
+            if (!message.contains(QStringLiteral("content")) || !message[QStringLiteral("content")].isArray())
+            {
+                continue;
+            }
+
+            QJsonArray content = message[QStringLiteral("content")].toArray();
+
+            for (int j = 0 ; j < content.size() ; ++j)
+            {
+                if (!content[j].isObject())
+                {
+                    continue;
+                }
+
+                QJsonObject contentItem = content[j].toObject();
+
+                if ((contentItem.value(QStringLiteral("type")).toString() != QLatin1String("image_url")) ||
+                    !contentItem.contains(QStringLiteral("image_url")) ||
+                    !contentItem[QStringLiteral("image_url")].isObject())
+                {
+                    continue;
+                }
+
+                QJsonObject imageUrl = contentItem[QStringLiteral("image_url")].toObject();
+
+                if (imageUrl.contains(QStringLiteral("url")) && imageUrl[QStringLiteral("url")].isString())
+                {
+                    const QString originalUrl = imageUrl[QStringLiteral("url")].toString();
+                    imageUrl[QStringLiteral("url")] = QStringLiteral("<omitted base64 image data, original length=%1 chars>")
+                                                        .arg(QString::number(originalUrl.size()));
+                    contentItem[QStringLiteral("image_url")] = imageUrl;
+                    content[j] = contentItem;
+                }
+            }
+
+            message[QStringLiteral("content")] = content;
+            messages[i] = message;
+        }
+
+        sanitizedPayload[QStringLiteral("messages")] = messages;
+    }
+
+    const QByteArray payloadJson = QJsonDocument(sanitizedPayload).toJson(QJsonDocument::Indented);
+    qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG).noquote() << "OpenAI API payload:\n" << QString::fromUtf8(payloadJson);
+}
+
+} // namespace
+
 AnnotatePipelineOpenAI::AnnotatePipelineOpenAI(const AutotagsScanSettings& settings)
     : AutotagsPipelineBase(settings),
       m_llmProcessManager(nullptr)
@@ -67,6 +135,23 @@ AnnotatePipelineOpenAI::AnnotatePipelineOpenAI(const AutotagsScanSettings& setti
     // limit the queues to 1 package to avoid using too much memory
 
     maxQueueDepth = 1;
+
+    switch (settings.tagMode)
+    {
+        case AutotagsScanSettings::TagMode::ReplaceComment:
+            llmResponseType = LLMResponses::LLMDescription;
+            break;
+
+        case AutotagsScanSettings::TagMode::ReplaceTags:
+        case AutotagsScanSettings::TagMode::UpdateTags:
+            llmResponseType = LLMResponses::LLMKeywords;
+            break;
+
+        case AutotagsScanSettings::TagMode::ReplaceAll:
+        default:
+            llmResponseType = LLMResponses::LLMdescriptionAndKeywords;
+            break;
+    }
 
     // apply advanced settings if enabled
 
@@ -639,8 +724,9 @@ bool AnnotatePipelineOpenAI::classifier()
         QElapsedTimer timer;
         timer.start();
 
-        // Use LLMProcessManager's submitRequest method to communicate with the LLM
-        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "OpenAI API payload:" << QJsonDocument(payload).toJson(QJsonDocument::Indented);
+        // Use LLMProcessManager's submitRequest method to communicate with the LLM.
+        // Emit chunked logs to ensure very large payloads (base64 image data) are fully visible.
+        logFullPayload(payload);
 
         QByteArray responseData = m_llmProcessManager->submitRequest(QStringLiteral("/v1/chat/completions"), 
                                                                      payload, 
@@ -662,7 +748,9 @@ bool AnnotatePipelineOpenAI::classifier()
             qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Response data:" << responseData;
 
             // Use LLMResponseHelper to process the result
-            QJsonObject resultObj = LLMResponseHelper::processResult(responseData);
+            QJsonObject resultObj = LLMResponseHelper::processResult(responseData,
+                                                                     expectsDescription(),
+                                                                     expectsKeywords());
 
             if (!resultObj.isEmpty())
             {
@@ -950,7 +1038,20 @@ QJsonObject AnnotatePipelineOpenAI::createPayload(const QString& prompt, const Q
     // Add system message
     QJsonObject systemMessage;
     systemMessage[QStringLiteral("role")]           = QStringLiteral("system");
-    systemMessage[QStringLiteral("content")]        = QStringLiteral("You describe the image and generate keywords.");
+
+    if (expectsDescription() && expectsKeywords())
+    {
+        systemMessage[QStringLiteral("content")]    = QStringLiteral("You describe the image and generate keywords.");
+    }
+    else if (expectsDescription())
+    {
+        systemMessage[QStringLiteral("content")]    = QStringLiteral("You describe the image.");
+    }
+    else
+    {
+        systemMessage[QStringLiteral("content")]    = QStringLiteral("You generate objective keywords for the image.");
+    }
+
     messagesArray.append(systemMessage);
     
     // Add user message with text and image
@@ -1088,6 +1189,8 @@ void AnnotatePipelineOpenAI::checkLLMEngineReady()
 QString AnnotatePipelineOpenAI::createPrompt() const
 {
     ApplicationSettings* const appSettings = ApplicationSettings::instance();
+    const bool wantDescription             = expectsDescription();
+    const bool wantKeywords                = expectsKeywords();
 
     /**
      * @note: All strings are English.  Do not translate them. 
@@ -1101,6 +1204,15 @@ QString AnnotatePipelineOpenAI::createPrompt() const
     {
         llmPrompt += appSettings->getAIAnnotateCustomPrompt();
         llmPrompt += QLatin1String("\n");
+
+        if (!wantDescription && wantKeywords)
+        {
+            llmPrompt += QLatin1String("Generate only the Keywords. Do not generate a Description.\n\n");
+        }
+        else if (wantDescription && !wantKeywords)
+        {
+            llmPrompt += QLatin1String("Generate only the Description. Do not generate Keywords.\n\n");
+        }
     }
     else
     {
@@ -1222,25 +1334,64 @@ QString AnnotatePipelineOpenAI::createPrompt() const
             tonePhrase = toneNames.join(QLatin1String(", "));
         }
 
-        llmPrompt += QLatin1String("You will look at an image and produce one Description and one list of no more than %1 objective Keywords that best describe the image.\n\n")
-                     .arg(QString::number(appSettings->getAIAnnotateMaxTags()));
+        if (wantDescription && wantKeywords)
+        {
+            llmPrompt += QLatin1String("You will look at an image and produce one Description and one list of no more than %1 objective Keywords that best describe the image.\n\n")
+                         .arg(QString::number(appSettings->getAIAnnotateMaxTags()));
+        }
+        else if (wantDescription)
+        {
+            llmPrompt += QLatin1String("You will look at an image and produce one Description that best describes the image.\n\n");
+        }
+        else
+        {
+            llmPrompt += QLatin1String("You will look at an image and produce one list of no more than %1 objective Keywords that best describe the image.\n\n")
+                         .arg(QString::number(appSettings->getAIAnnotateMaxTags()));
+        }
 
-        llmPrompt += QLatin1String("Write the Description in active, %1 voice%2. Use a %3 tone.\n\n")
-                     .arg(styleName,
-                          personPhrase,
-                          tonePhrase);
+        if (wantDescription)
+        {
+            llmPrompt += QLatin1String("Write the Description in active, %1 voice%2. Use a %3 tone.\n\n")
+                         .arg(styleName,
+                              personPhrase,
+                              tonePhrase);
+        }
 
-        llmPrompt += QLatin1String("Each keyword must be one or two words, use a consistent and objective vocabulary, and use lower case unless the term is a proper noun.\n\n");
+        if (wantKeywords)
+        {
+            llmPrompt += QLatin1String("Each keyword must be one or two words, use a consistent and objective vocabulary, and use lower case unless the term is a proper noun.\n\n");
+        }
 
-        llmPrompt += QLatin1String("The Description and the Keywords must cover:\n"
-                                   "themes and concepts\n"
+        if (wantDescription && wantKeywords)
+        {
+            llmPrompt += QLatin1String("The Description and the Keywords must cover:\n");
+        }
+        else if (wantDescription)
+        {
+            llmPrompt += QLatin1String("The Description must cover:\n");
+        }
+        else
+        {
+            llmPrompt += QLatin1String("The Keywords must cover:\n");
+        }
+
+        llmPrompt += QLatin1String("themes and concepts\n"
                                    "items, animals, and objects\n"
                                    "structures, landmarks, and setting\n"
                                    "foreground and background elements\n"
                                    "notable colors, textures, and styles\n"
-                                   "actions and activities\n\n"
-                                   "If humans appear, describe:\n"
-                                   "physical appearance\n"
+                                   "actions and activities\n\n");
+
+        if (wantKeywords && !wantDescription)
+        {
+            llmPrompt += QLatin1String("If humans appear, include keywords for:\n");
+        }
+        else
+        {
+            llmPrompt += QLatin1String("If humans appear, describe:\n");
+        }
+
+        llmPrompt += QLatin1String("physical appearance\n"
                                    "gender\n"
                                    "clothing\n"
                                    "age range\n"
@@ -1256,11 +1407,30 @@ QString AnnotatePipelineOpenAI::createPrompt() const
 
     // define the result format
 
-    llmPrompt += QLatin1String("Use %1 as spoken in %2.\n\n"
-                               "Output only a JSON object in this exact structure:\n"
-                               "{\"Description\": \"...\", \"Keywords\": [\"...\", \"...\"]}\n")
-                            .arg(currentLanguage)
-                            .arg(currentCountry);
+    if (wantDescription && wantKeywords)
+    {
+        llmPrompt += QLatin1String("Use %1 as spoken in %2.\n\n"
+                                   "Output only a JSON object in this exact structure:\n"
+                                   "{\"Description\": \"...\", \"Keywords\": [\"...\", \"...\"]}\n")
+                                .arg(currentLanguage)
+                                .arg(currentCountry);
+    }
+    else if (wantDescription)
+    {
+        llmPrompt += QLatin1String("Use %1 as spoken in %2.\n\n"
+                                   "Output only a JSON object in this exact structure:\n"
+                                   "{\"Description\": \"...\"}\n")
+                                .arg(currentLanguage)
+                                .arg(currentCountry);
+    }
+    else
+    {
+        llmPrompt += QLatin1String("Use %1 as spoken in %2.\n\n"
+                                   "Output only a JSON object in this exact structure:\n"
+                                   "{\"Keywords\": [\"...\", \"...\"]}\n")
+                                .arg(currentLanguage)
+                                .arg(currentCountry);
+    }
                             //    "<EXAMPLE>\n"
                             //    "The example input would be a stock photo of two apples, one red and one green, against a white backdrop and is a hypothetical Description and Keyword for a non-existent image.\n"
                             //    "OUTPUT=```json{\"Description\": \"Two apples next to each other, one green and one red, placed side by side against a white background. There is even and diffuse studio lighting. The fruit is glossy and covered with dropplets of water indicating they are fresh and recently washed. The image emphasizes the cleanliness and appetizing nature of the food\", \"Keywords\": [\"studio shot\",\"green\",\"fruit\",\"red\",\"apple\",\"stock image\",\"health food\",\"appetizing\",\"empty background\",\"grocery\",\"food\",\"snack\"]}```\n"
@@ -1268,6 +1438,16 @@ QString AnnotatePipelineOpenAI::createPrompt() const
 
     return llmPrompt;
 
+}
+
+bool AnnotatePipelineOpenAI::expectsDescription() const
+{
+    return (llmResponseType & LLMResponses::LLMDescription);
+}
+
+bool AnnotatePipelineOpenAI::expectsKeywords() const
+{
+    return (llmResponseType & LLMResponses::LLMKeywords);
 }
 
 QStringList AnnotatePipelineOpenAI::collectExistingAutoTagNames() const

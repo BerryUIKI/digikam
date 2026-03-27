@@ -207,7 +207,7 @@ void AutotagsScanWidget::setupUi()
     updateScanModeOptions();
     updateTagModeOptions();
 
-    QLabel* const detLbl    = new QLabel(i18nc("@label with a short translated text",
+    d->accuracyLabel        = new QLabel(i18nc("@label with a short translated text",
                                                "Accuracy:"), d->settingsTab);
     d->accuracyInput        = new DIntNumInput(d->settingsTab);
     d->accuracyInput->setDefaultValue(7);
@@ -218,7 +218,7 @@ void AutotagsScanWidget::setupUi()
 
     d->useFullCpuButton     = new QCheckBox(d->settingsTab);
     d->useFullCpuButton->setText(i18nc("@option:check with a short translated text",
-                                       "Uses all processors"));
+                                       "Use all processors"));
     d->useFullCpuButton->setToolTip(i18nc("@info:tooltip",
                                           "Object detection and auto-tagging are time-consuming tasks.<br>"
                                           "You can choose if you wish to employ all processor cores<br>"
@@ -231,7 +231,7 @@ void AutotagsScanWidget::setupUi()
     grid->addWidget(d->tagMode,           2, 1, 1, 1);
     grid->addWidget(modelLbl,             3, 0, 1, 1);
     grid->addWidget(d->objectDetectModel, 3, 1, 1, 1);
-    grid->addWidget(detLbl,               4, 0, 1, 1);
+    grid->addWidget(d->accuracyLabel,     4, 0, 1, 1);
     grid->addWidget(d->accuracyInput,     4, 1, 1, 1);
     grid->addWidget(d->useFullCpuButton,  5, 0, 1, 2);
     grid->setColumnStretch(1, 10);
@@ -289,6 +289,8 @@ void AutotagsScanWidget::setupUi()
 
     connect(d->accuracyInput, SIGNAL(valueChanged(int)),
             this, SLOT(slotSettingsChanged()));
+
+    updateAccuracyAndCpuOptions();
 }
 
 AutotagsScanSettings AutotagsScanWidget::settings() const
@@ -382,6 +384,7 @@ void AutotagsScanWidget::slotObjectDetectModelChanged()
 {
     updateScanModeOptions();
     updateTagModeOptions();
+    updateAccuracyAndCpuOptions();
     slotSettingsChanged();
 }
 
@@ -487,6 +490,15 @@ bool AutotagsScanWidget::selectedModelUsesOpenAI() const
     const QString modelName = d->objectDetectModel->currentData().toString();
 
     return modelUsesOpenAI(modelName);
+}
+
+void AutotagsScanWidget::updateAccuracyAndCpuOptions()
+{
+    const bool isOpenAI = selectedModelUsesOpenAI();
+
+    d->accuracyLabel->setEnabled(!isOpenAI);
+    d->accuracyInput->setEnabled(!isOpenAI);
+    d->useFullCpuButton->setEnabled(!isOpenAI);
 }
 
 bool AutotagsScanWidget::modelUsesOpenAI(const QString& modelName) const

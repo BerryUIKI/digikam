@@ -76,6 +76,7 @@ public:
     SqueezedComboBox* scanMode                          = nullptr;
     SqueezedComboBox* tagMode                           = nullptr;
     SqueezedComboBox* objectDetectModel                 = nullptr;
+    QLabel*           accuracyLabel                      = nullptr;
     DIntNumInput*     accuracyInput                     = nullptr;
     QCheckBox*        useFullCpuButton                  = nullptr;
 

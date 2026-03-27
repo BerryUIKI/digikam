@@ -297,7 +297,7 @@ SetupLLM::SetupLLM(QWidget* const parent)
     d->temperatureLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
     d->temperatureInput = new DDoubleNumInput(advancedSettingsContainer);
     d->temperatureInput->setRange(0.1, 1.9, 0.2);
-    d->temperatureInput->setValue(0.5);  // Default is 0.5 for a balance of consistency and creativity
+    d->temperatureInput->setValue(AIAnnotate::DEFAULT_TEMPERATURE);
     d->temperatureInput->setToolTip(i18n("Controls randomness in generation (higher = more creative, lower = more deterministic)"));
     tempLayout->addWidget(d->temperatureLabel);
     tempLayout->addWidget(d->temperatureInput);

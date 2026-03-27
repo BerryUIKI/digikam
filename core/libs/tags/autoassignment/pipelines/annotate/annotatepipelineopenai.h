@@ -103,6 +103,8 @@ protected:
      * @return The generated prompt string
      */
     QString createPrompt() const;
+    bool expectsDescription() const;
+    bool expectsKeywords() const;
 
     /**
      * @brief Collects all unique leaf tag names that exist under the "auto" tag hierarchy.

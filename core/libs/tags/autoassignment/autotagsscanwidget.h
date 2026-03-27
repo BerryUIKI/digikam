@@ -71,6 +71,7 @@ private:
     void setupUi();
     void updateScanModeOptions();
     void updateTagModeOptions();
+    void updateAccuracyAndCpuOptions();
     bool modelUsesOpenAI(const QString& modelName) const;
     bool selectedModelUsesOpenAI() const;
 

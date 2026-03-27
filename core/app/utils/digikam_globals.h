@@ -117,7 +117,7 @@ namespace AIAnnotate
 {
     // Constants for AI Annotation defaults
     static const int DEFAULT_MAX_TOKENS = 16000;
-    static const float DEFAULT_TEMPERATURE = 0.5f;
+    static const float DEFAULT_TEMPERATURE = 0.3f;
     static const QString DEFAULT_PROMPT = QLatin1String("Write the Description in clear, active voice with a neutral, descriptive tone.\n\n"
                                                         "Generate up to 15 Keywords. Each keyword must be one or two words, all lower case unless it is a proper noun. "
                                                         "No punctuation. Prioritize the main visible subjects and scene-defining elements.\n\n"

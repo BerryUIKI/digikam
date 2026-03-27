@@ -386,13 +386,13 @@ public:
     bool                                         aiAnnotateEnableTags                               = true;
     bool                                         aiAnnotateEnableCustomPrompt                       = false;
     bool                                         aiAnnotateEnableExternalLLM                        = false;
-    LLMProcessSettings::LLMEngineType            aiAnnotateLlmEngine                                = LLMProcessSettings::KoboldCpp;
+    LLMProcessSettings::LLMEngineType            aiAnnotateLlmEngine                                = LLMProcessSettings::LlamaCpp;
     int                                          aiAnnotateMaxTags                                  = 15;
-    int                                          aiAnnotateMaxTokens                                = 300;
+    int                                          aiAnnotateMaxTokens                                = AIAnnotate::DEFAULT_MAX_TOKENS;
     QString                                      aiAnnotateLlmPrompt;
     QString                                      aiAnnotateExternalLLMUrl                           = QLatin1String("http://localhost/api");
-    int                                          aiAnnotateExternalLLMPort                          = 5000;
-    double                                       aiAnnotateLlmTemperature                           = 0.5;
+    int                                          aiAnnotateExternalLLMPort                          = 8080;
+    double                                       aiAnnotateLlmTemperature                           = AIAnnotate::DEFAULT_TEMPERATURE;
     LLMProcessSettings::AIVoiceType              aiAnnotateVoiceType                                = LLMProcessSettings::Neutral;
     LLMProcessSettings::AIVoicePerspective       aiAnnotateVoicePerspective                         = LLMProcessSettings::NoPerspective;
     LLMProcessSettings::AITextTones              aiAnnotateTextTones                                = LLMProcessSettings::NoTone;

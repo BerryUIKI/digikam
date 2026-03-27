@@ -31,6 +31,40 @@ namespace Digikam
 namespace
 {
 
+QString incompleteJsonSuffix(bool expectDescription, bool expectKeywords)
+{
+    if (expectKeywords)
+    {
+        return QLatin1String("]}");
+    }
+
+    if (expectDescription)
+    {
+        return QLatin1String("}");
+    }
+
+    return QLatin1String("}");
+}
+
+QJsonObject filterExpectedFields(const QJsonObject& input,
+                                 bool expectDescription,
+                                 bool expectKeywords)
+{
+    QJsonObject filtered;
+
+    if (expectDescription && input.contains(QStringLiteral("Description")))
+    {
+        filtered.insert(QStringLiteral("Description"), input.value(QStringLiteral("Description")));
+    }
+
+    if (expectKeywords && input.contains(QStringLiteral("Keywords")))
+    {
+        filtered.insert(QStringLiteral("Keywords"), input.value(QStringLiteral("Keywords")));
+    }
+
+    return filtered;
+}
+
 QList<QJsonObject> extractJsonObjectsFromText(const QByteArray& responseData)
 {
     QList<QJsonObject> result;
@@ -209,7 +243,9 @@ LLMResponseHelper::~LLMResponseHelper()
     // Nothing to do
 }
 
-QJsonObject LLMResponseHelper::processResult(const QByteArray& responseData)
+QJsonObject LLMResponseHelper::processResult(const QByteArray& responseData,
+                                             bool expectDescription,
+                                             bool expectKeywords)
 {
     QJsonObject resultObj;
 
@@ -227,7 +263,9 @@ QJsonObject LLMResponseHelper::processResult(const QByteArray& responseData)
             qCDebug(DIGIKAM_LLMENGINE_LOG) << "Found content in response:" << contentText;
             
             // Ensure the JSON string is properly formatted
-            QString jsonStr = LLMResponseHelper::ensureValidJsonFormat(contentText);
+            QString jsonStr = LLMResponseHelper::ensureValidJsonFormat(contentText,
+                                                                       expectDescription,
+                                                                       expectKeywords);
             
             qCDebug(DIGIKAM_LLMENGINE_LOG) << "Cleaned JSON string:" << jsonStr;
             
@@ -240,7 +278,9 @@ QJsonObject LLMResponseHelper::processResult(const QByteArray& responseData)
                 qCDebug(DIGIKAM_LLMENGINE_LOG) << "Successfully parsed JSON from content";
                 
                 // Extract the content object
-                resultObj = contentJson.object();
+                resultObj = filterExpectedFields(contentJson.object(),
+                                                 expectDescription,
+                                                 expectKeywords);
             }
             else
             {
@@ -265,7 +305,9 @@ QJsonObject LLMResponseHelper::processResult(const QByteArray& responseData)
     return resultObj;
 }
 
-QString LLMResponseHelper::ensureValidJsonFormat(const QString& jsonStr)
+QString LLMResponseHelper::ensureValidJsonFormat(const QString& jsonStr,
+                                                 bool expectDescription,
+                                                 bool expectKeywords)
 {
     QString result = jsonStr.trimmed();
     
@@ -311,7 +353,7 @@ QString LLMResponseHelper::ensureValidJsonFormat(const QString& jsonStr)
                     // Found the last quote preceded by an alphanumeric character
                     // Truncate and close the JSON properly
                     result.truncate(i + 1);
-                    result.append(QLatin1String("]}"));
+                    result.append(incompleteJsonSuffix(expectDescription, expectKeywords));
                     break;
                 }
             }
@@ -320,7 +362,7 @@ QString LLMResponseHelper::ensureValidJsonFormat(const QString& jsonStr)
         // If we still don't have a proper JSON closing, add it
         if (!result.endsWith(QLatin1Char('}')))
         {
-            result.append(QLatin1String("]}"));
+            result.append(incompleteJsonSuffix(expectDescription, expectKeywords));
         }
     }
     

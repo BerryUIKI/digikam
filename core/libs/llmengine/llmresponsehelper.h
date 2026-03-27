@@ -55,7 +55,9 @@ public:
      * @param responseData The raw response data from the LLM API
      * @return A QJsonObject containing the processed result
      */
-    static QJsonObject processResult(const QByteArray& responseData);
+    static QJsonObject processResult(const QByteArray& responseData,
+                                     bool expectDescription = true,
+                                     bool expectKeywords = true);
 
     /**
      * Ensure the JSON string is properly formatted
@@ -63,7 +65,9 @@ public:
      * @param jsonStr The JSON string to format
      * @return A properly formatted JSON string
      */
-    static QString ensureValidJsonFormat(const QString& jsonStr);
+    static QString ensureValidJsonFormat(const QString& jsonStr,
+                                         bool expectDescription = true,
+                                         bool expectKeywords = true);
 
 private:
 
