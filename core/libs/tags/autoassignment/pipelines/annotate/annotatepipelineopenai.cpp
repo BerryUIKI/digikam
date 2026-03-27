@@ -1215,22 +1215,22 @@ QString AnnotatePipelineOpenAI::createPrompt() const
             toneNames << QLatin1String("urgent");
         }
 
-        QString tonePhrase = QLatin1String("clear and direct");
+        QString tonePhrase = QLatin1String("neutral");
 
         if (!toneNames.isEmpty())
         {
             tonePhrase = toneNames.join(QLatin1String(", "));
         }
 
-        llmPrompt += QLatin1String("You will look at an image and produce one Description and one list of no more than %1 Keywords that best describe the image.\n\n")
+        llmPrompt += QLatin1String("You will look at an image and produce one Description and one list of no more than %1 objective Keywords that best describe the image.\n\n")
                      .arg(QString::number(appSettings->getAIAnnotateMaxTags()));
 
-        llmPrompt += QLatin1String("Write the Description in active, %1 voice%2. Use a %3 tone. Keep the Description clear and direct.\n\n")
+        llmPrompt += QLatin1String("Write the Description in active, %1 voice%2. Use a %3 tone.\n\n")
                      .arg(styleName,
                           personPhrase,
                           tonePhrase);
 
-        llmPrompt += QLatin1String("Each keyword must be one or two words, lower case, and use a consistent vocabulary unless the term is a proper noun.\n\n");
+        llmPrompt += QLatin1String("Each keyword must be one or two words, use a consistent and objective vocabulary, and use lower case unless the term is a proper noun.\n\n");
 
         llmPrompt += QLatin1String("The Description and the Keywords must cover:\n"
                                    "themes and concepts\n"
