@@ -424,26 +424,30 @@ SetupLLM::SetupLLM(QWidget* const parent)
     connect(d->resetPromptButton, &QPushButton::clicked,
             this, [this]()
             {
-                // Default prompt text
-                QString defaultPrompt = QLatin1String("Write the Description using the active voice.\n\n"
-                                                      "The Keywords must be one or two words each. Generate no more than 15 Keywords using a controlled and consistent vocabulary.\n\n"
-                                                      "For both Description and Keywords, make sure to include:\n\n"
-                                                      " - Themes, concepts\n"
-                                                      " - Items, animals, objects\n"
-                                                      " - Structures, landmarks, setting\n"
-                                                      " - Foreground and background elements\n"
-                                                      " - Notable colors, textures, styles\n"
-                                                      " - Actions, activities\n\n"
-                                                      "If humans are present, include:\n"
-                                                      " - Physical appearance\n"
-                                                      " - Gender\n"
-                                                      " - Clothing\n"
-                                                      " - Age range\n"
-                                                      " - Visibly apparent ancestry\n"
-                                                      " - Occupation/role\n"
-                                                      " - Relationships between individuals\n"
-                                                      " - Emotions, expressions, body language\n\n"
-                                                      "Use ENGLISH only as spoken in Great Britian.\n");
+                // Default prompt text: matches the output of createPrompt() with default settings
+                // (Neutral voice, no perspective, no tone, 15 max tags, English/United States)
+                QString defaultPrompt = QLatin1String("You will look at an image and produce one Description and one list of no more than 15 objective Keywords that best describe the image.\n\n"
+                                                      "Write the Description in active, neutral voice. Use a neutral tone.\n\n"
+                                                      "Each keyword must be one or two words, use a consistent and objective vocabulary, and use lower case unless the term is a proper noun.\n\n"
+                                                      "The Description and the Keywords must cover:\n"
+                                                      "themes and concepts\n"
+                                                      "items, animals, and objects\n"
+                                                      "structures, landmarks, and setting\n"
+                                                      "foreground and background elements\n"
+                                                      "notable colors, textures, and styles\n"
+                                                      "actions and activities\n\n"
+                                                      "If humans appear, describe:\n"
+                                                      "physical appearance\n"
+                                                      "gender\n"
+                                                      "clothing\n"
+                                                      "age range\n"
+                                                      "visibly apparent ancestry\n"
+                                                      "occupation or role\n"
+                                                      "relationships between people\n"
+                                                      "emotions, expressions, and body language\n\n"
+                                                      "Use English as spoken in United States.\n\n"
+                                                      "Output only a JSON object in this exact structure:\n"
+                                                      "{\"Description\": \"...\", \"Keywords\": [\"...\", \"...\"]}\n");
 
                 d->promptTextEdit->setPlainText(defaultPrompt);
             });
