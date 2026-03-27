@@ -609,25 +609,9 @@ bool AnnotatePipelineOpenAI::classifier()
      */
 
     {
-        // Build a per-image prompt that includes the current auto-tag lexicon so
-        // tags written by earlier images in this run are already reflected.
+        // First pass: image analysis only (no existing keyword lexicon in this prompt).
 
-        QString imagePrompt = llmPrompt;
-
-        const QStringList existingAutoTags = collectExistingAutoTagNames();
-
-        if (!existingAutoTags.isEmpty())
-        {
-            imagePrompt += QLatin1String("The following keywords already exist in the tag library. "
-                                         "Reuse these exact keywords only when they are an exact or very close semantic match to important image content "
-                                         "(e.g. prefer \"blue\" over \"blue color\", or \"bokeh\" over \"blurred background\"). "
-                                         "Do not force a match just to reuse an existing tag. Add new keywords whenever that is more accurate:\n");
-            imagePrompt += existingAutoTags.join(QLatin1String(", "));
-            imagePrompt += QLatin1Char('\n');
-        }
-
-        // Prepare payload using the new method
-        QJsonObject payload = createPayload(imagePrompt, package->base64Image);
+        QJsonObject payload = createPayload(llmPrompt, package->base64Image);
         
         // Log the request being sent
         qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "Sending request to OpenAI API";
@@ -656,6 +640,7 @@ bool AnnotatePipelineOpenAI::classifier()
         timer.start();
 
         // Use LLMProcessManager's submitRequest method to communicate with the LLM
+        qCDebug(DIGIKAM_AUTOTAGSENGINE_LOG) << "OpenAI API payload:" << QJsonDocument(payload).toJson(QJsonDocument::Indented);
 
         QByteArray responseData = m_llmProcessManager->submitRequest(QStringLiteral("/v1/chat/completions"), 
                                                                      payload, 
@@ -964,51 +949,66 @@ QJsonObject AnnotatePipelineOpenAI::createPayload(const QString& prompt, const Q
     
     // Add system message
     QJsonObject systemMessage;
-    systemMessage[QStringLiteral("role")] = QStringLiteral("system");
-    systemMessage[QStringLiteral("content")] = QStringLiteral("You describe the image and generate keywords.");
+    systemMessage[QStringLiteral("role")]           = QStringLiteral("system");
+    systemMessage[QStringLiteral("content")]        = QStringLiteral("You describe the image and generate keywords.");
     messagesArray.append(systemMessage);
     
     // Add user message with text and image
     QJsonObject userMessage;
-    userMessage[QStringLiteral("role")] = QStringLiteral("user");
+    userMessage[QStringLiteral("role")]             = QStringLiteral("user");
     
     QJsonArray contentArray;
     
     // Add text content
     QJsonObject textContent;
-    textContent[QStringLiteral("type")] = QStringLiteral("text");
-    textContent[QStringLiteral("text")] = prompt;
+    textContent[QStringLiteral("type")]             = QStringLiteral("text");
+    textContent[QStringLiteral("text")]             = prompt;
     contentArray.append(textContent);
     
-    // Add image content
-    QJsonObject imageContent;
-    imageContent[QStringLiteral("type")] = QStringLiteral("image_url");
+    // Add image content only when an image is provided.
+    if (!base64Image.isEmpty())
+    {
+        QJsonObject imageContent;
+        imageContent[QStringLiteral("type")] = QStringLiteral("image_url");
+
+        QJsonObject imageUrl;
+        const QString urlString = QStringLiteral("data:image/jpeg;base64,") + base64Image;
+        imageUrl[QStringLiteral("url")]                 = urlString;
+
+        imageContent[QStringLiteral("image_url")]       = imageUrl;
+        contentArray.append(imageContent);
+    }
     
-    QJsonObject imageUrl;
-    QString urlString = QStringLiteral("data:image/jpeg;base64,") + base64Image;
-    imageUrl[QStringLiteral("url")] = urlString;
-    
-    imageContent[QStringLiteral("image_url")] = imageUrl;
-    contentArray.append(imageContent);
-    
-    userMessage[QStringLiteral("content")] = contentArray;
+    userMessage[QStringLiteral("content")]          = contentArray;
     messagesArray.append(userMessage);
     
     // Create the payload object
 
     QJsonObject payload;
-    payload[QStringLiteral("messages")] = messagesArray;
-    payload[QStringLiteral("max_tokens")] = maxTokens;
-    payload[QStringLiteral("temperature")] = qRound(temperature * 100.0) / 100.0;
-    payload[QStringLiteral("top_p")] = qRound(topP * 100.0) / 100.0;
-    payload[QStringLiteral("top_k")] = topK;
-    payload[QStringLiteral("min_p")] = qRound(minP * 100.0) / 100.0;
+    payload[QStringLiteral("messages")]             = messagesArray;
+    payload[QStringLiteral("max_tokens")]           = maxTokens;
+    payload[QStringLiteral("temperature")]          = qRound(temperature * 100.0) / 100.0;
+    payload[QStringLiteral("top_p")]                = qRound(topP * 100.0) / 100.0;
+    payload[QStringLiteral("top_k")]                = topK;
+    payload[QStringLiteral("min_p")]                = qRound(minP * 100.0) / 100.0;
 
-        // Add stop sequences to prevent infinite generation/repetition loops
-        // Stop as soon as the JSON object closes
-        QJsonArray stopSequences;
-        stopSequences.append(QLatin1String("}"));
-        payload[QStringLiteral("stop")] = stopSequences;
+    // Force each request to be treated as a fresh turn instead of reusing
+    // any prompt/context cache from previous requests.
+    payload[QStringLiteral("cache_prompt")]         = false;
+    payload[QStringLiteral("cache_prompt_write")]   = false;
+    payload[QStringLiteral("reset")]                = true;
+    payload[QStringLiteral("slot_id")]              = -1;
+    payload[QStringLiteral("n_keep")]               = 0;
+
+    // Add stop sequences that end generation at assistant/chat boundaries.
+    // Do not use a raw "}" stopper because it can terminate early while
+    // the model is still producing valid JSON content.
+    // QJsonArray stopSequences;
+    // stopSequences.append(QLatin1String("<|im_end|>"));
+    // stopSequences.append(QLatin1String("</s>"));
+    // stopSequences.append(QLatin1String("<|endoftext|>"));
+    // stopSequences.append(QLatin1String("```"));
+    // payload[QStringLiteral("stop")]                 = stopSequences;
     
     return payload;
 }
@@ -1095,7 +1095,7 @@ QString AnnotatePipelineOpenAI::createPrompt() const
 
     // Add the tasks to the prompt
 
-    QString llmPrompt = QLatin1String("You will analyze an image and produce a short description and a list of keyword tags.\n\n");
+    QString llmPrompt;
 
     if (appSettings->getAIAnnotateAdvSetEnabled() && appSettings->getAIAnnotateCustomPromptEnabled())
     {
@@ -1104,79 +1104,150 @@ QString AnnotatePipelineOpenAI::createPrompt() const
     }
     else
     {
-        llmPrompt += QLatin1String("Write the Description in clear, active voice with a ");
+        QString styleName;
 
-        switch (appSettings->getAIAnnotateVoice())
+        switch(appSettings->getAIAnnotateVoice())
         {
             case LLMProcessSettings::AIVoiceType::Casual:
-                llmPrompt += QLatin1String("casual");
+                styleName = QLatin1String("casual");
                 break;
             case LLMProcessSettings::AIVoiceType::Formal:
-                llmPrompt += QLatin1String("formal");
+                styleName = QLatin1String("formal");
                 break;
             case LLMProcessSettings::AIVoiceType::Neutral:
             default:
-                llmPrompt += QLatin1String("neutral");
+                styleName = QLatin1String("neutral");
                 break;
         }
 
-        llmPrompt += QLatin1String(" tone");
+        QString personPhrase;
 
         switch (appSettings->getAIAnnotateVoicePerspective())
         {
             case LLMProcessSettings::FirstPerson:
-                llmPrompt += QLatin1String(" in first person");
+                personPhrase = QLatin1String(" and in first person");
                 break;
             case LLMProcessSettings::SecondPerson:
-                llmPrompt += QLatin1String(" in second person");
+                personPhrase = QLatin1String(" and in second person");
                 break;
             case LLMProcessSettings::ThirdPerson:
-                llmPrompt += QLatin1String(" in third person");
+                personPhrase = QLatin1String(" and in third person");
                 break;
             default:
                 break;
         }
 
-        const LLMProcessSettings::AITextTones tone = appSettings->getAIAnnotateTextTones();
         QStringList toneNames;
+        const LLMProcessSettings::AITextTones tone = appSettings->getAIAnnotateTextTones();
 
-        if (tone & LLMProcessSettings::AITextTone::Authoritative) toneNames << QLatin1String("authoritative");
-        if (tone & LLMProcessSettings::AITextTone::Concise)       toneNames << QLatin1String("concise");
-        if (tone & LLMProcessSettings::AITextTone::Descriptive)   toneNames << QLatin1String("descriptive");
-        if (tone & LLMProcessSettings::AITextTone::Dramatic)      toneNames << QLatin1String("dramatic");
-        if (tone & LLMProcessSettings::AITextTone::Empathetic)    toneNames << QLatin1String("empathetic");
-        if (tone & LLMProcessSettings::AITextTone::Encouraging)   toneNames << QLatin1String("encouraging");
-        if (tone & LLMProcessSettings::AITextTone::Friendly)      toneNames << QLatin1String("friendly");
-        if (tone & LLMProcessSettings::AITextTone::Humorous)      toneNames << QLatin1String("humorous");
-        if (tone & LLMProcessSettings::AITextTone::Inspirational) toneNames << QLatin1String("inspirational");
-        if (tone & LLMProcessSettings::AITextTone::Persuasive)    toneNames << QLatin1String("persuasive");
-        if (tone & LLMProcessSettings::AITextTone::Poetic)        toneNames << QLatin1String("poetic");
-        if (tone & LLMProcessSettings::AITextTone::Respectful)    toneNames << QLatin1String("respectful");
-        if (tone & LLMProcessSettings::AITextTone::Serious)       toneNames << QLatin1String("serious");
-        if (tone & LLMProcessSettings::AITextTone::Technical)     toneNames << QLatin1String("technical");
-        if (tone & LLMProcessSettings::AITextTone::Urgent)        toneNames << QLatin1String("urgent");
+        if (tone & LLMProcessSettings::AITextTone::Authoritative)
+        {
+            toneNames << QLatin1String("authoritative");
+        }
+
+        if (tone & LLMProcessSettings::AITextTone::Concise)
+        {
+            toneNames << QLatin1String("concise");
+        }
+
+        if (tone & LLMProcessSettings::AITextTone::Descriptive)
+        {
+            toneNames << QLatin1String("descriptive");
+        }
+
+        if (tone & LLMProcessSettings::AITextTone::Dramatic)
+        {
+            toneNames << QLatin1String("dramatic");
+        }
+
+        if (tone & LLMProcessSettings::AITextTone::Empathetic)
+        {
+            toneNames << QLatin1String("empathetic");
+        }
+
+        if (tone & LLMProcessSettings::AITextTone::Encouraging)
+        {
+            toneNames << QLatin1String("encouraging");
+        }
+
+        if (tone & LLMProcessSettings::AITextTone::Friendly)
+        {
+            toneNames << QLatin1String("friendly");
+        }
+
+        if (tone & LLMProcessSettings::AITextTone::Humorous)
+        {
+            toneNames << QLatin1String("humorous");
+        }
+
+        if (tone & LLMProcessSettings::AITextTone::Inspirational)
+        {
+            toneNames << QLatin1String("inspirational");
+        }
+
+        if (tone & LLMProcessSettings::AITextTone::Persuasive)
+        {
+            toneNames << QLatin1String("persuasive");
+        }
+
+        if (tone & LLMProcessSettings::AITextTone::Poetic)
+        {
+            toneNames << QLatin1String("poetic");
+        }
+
+        if (tone & LLMProcessSettings::AITextTone::Respectful)
+        {
+            toneNames << QLatin1String("respectful");
+        }
+
+        if (tone & LLMProcessSettings::AITextTone::Serious)
+        {
+            toneNames << QLatin1String("serious");
+        }
+
+        if (tone & LLMProcessSettings::AITextTone::Technical)
+        {
+            toneNames << QLatin1String("technical");
+        }
+
+        if (tone & LLMProcessSettings::AITextTone::Urgent)
+        {
+            toneNames << QLatin1String("urgent");
+        }
+
+        QString tonePhrase = QLatin1String("clear and direct");
 
         if (!toneNames.isEmpty())
         {
-            llmPrompt += QLatin1String(" and ");
-            llmPrompt += toneNames.join(QLatin1String(", "));
-            llmPrompt += QLatin1String(" style");
+            tonePhrase = toneNames.join(QLatin1String(", "));
         }
 
-        llmPrompt += QLatin1String(".\n\n");
+        llmPrompt += QLatin1String("You will look at an image and produce one Description and one list of no more than %1 Keywords.\n\n")
+                     .arg(QString::number(appSettings->getAIAnnotateMaxTags()));
 
-        llmPrompt += QLatin1String("Generate up to %1 Keywords. Each keyword must be one or two words, all lower case unless it is a proper noun. "
-                       "No punctuation. Prioritize the main visible subjects and scene-defining elements.\n\n")
-                       .arg(QString::number(appSettings->getAIAnnotateMaxTags()));
+        llmPrompt += QLatin1String("Write the Description in active, %1 voice%2. Use a %3 tone. Keep the Description clear and direct.\n\n")
+                     .arg(styleName,
+                          personPhrase,
+                          tonePhrase);
 
-        llmPrompt += QLatin1String("Include themes, concepts, objects, animals, structures, setting, foreground/background elements, "
-                       "colors, textures, styles, actions, and activities.\n\n");
+        llmPrompt += QLatin1String("Each keyword must be one or two words, lower case, and use a consistent vocabulary unless the term is a proper noun.\n\n");
 
-        llmPrompt += QLatin1String("If humans are clearly visible, briefly include appearance, clothing, age range, visible ancestry, "
-                       "and actions. Do not guess when uncertain.\n\n");
-
-        llmPrompt += QLatin1String("Use specific object names only when the visual evidence is strong. Use generic terms when uncertain. "
-                       "Use specific place names only when uniquely identifiable.\n\n");
+        llmPrompt += QLatin1String("The Description and the Keywords must cover:\n"
+                                   "themes and concepts\n"
+                                   "items, animals, and objects\n"
+                                   "structures, landmarks, and setting\n"
+                                   "foreground and background elements\n"
+                                   "notable colors, textures, and styles\n"
+                                   "actions and activities\n\n"
+                                   "If humans appear, describe:\n"
+                                   "physical appearance\n"
+                                   "gender\n"
+                                   "clothing\n"
+                                   "age range\n"
+                                   "visibly apparent ancestry\n"
+                                   "occupation or role\n"
+                                   "relationships between people\n"
+                                   "emotions, expressions, and body language\n\n");
     }
 
     // get the current language from the system settings
@@ -1185,8 +1256,8 @@ QString AnnotatePipelineOpenAI::createPrompt() const
 
     // define the result format
 
-    llmPrompt += QLatin1String("Use %1 only as spoken in %2.\n"
-                               "Output ONLY a JSON object in this format:\n"
+    llmPrompt += QLatin1String("Use %1 as spoken in %2.\n\n"
+                               "Output only a JSON object in this exact structure:\n"
                                "{\"Description\": \"...\", \"Keywords\": [\"...\", \"...\"]}\n")
                             .arg(currentLanguage)
                             .arg(currentCountry);

@@ -92,7 +92,8 @@ protected:
     /**
      * @brief Prepares the payload for the OpenAI API request
      * @param prompt The LLM prompt to include in the request
-     * @param base64Image The base64 encoded image to include in the request
+    * @param base64Image The base64 encoded image to include in the request.
+    *                    Pass an empty string to create a text-only request.
      * @return The JSON object containing the prepared payload
      */
     QJsonObject createPayload(const QString& prompt, const QString& base64Image) const;

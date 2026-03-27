@@ -24,6 +24,7 @@
 #include <QTcpSocket>
 #include <QHostAddress>
 #include <QAbstractSocket>
+#include <QPointer>
 
 // System includes
 #if defined(Q_OS_MAC) || defined(Q_OS_UNIX)
@@ -69,8 +70,9 @@ LLMProcessManager::LLMProcessManager(const LLMProcessSettings& settings, QObject
     connect(m_process, SIGNAL(errorOccurred(QProcess::ProcessError)),
             this, SLOT(slotProcessError(QProcess::ProcessError)));
 
-    connect(m_process, SIGNAL(started()),
-            this, SLOT(slotProcessStarted()));
+        connect(m_process, &QProcess::started,
+            this, &LLMProcessManager::slotProcessStarted,
+            Qt::QueuedConnection);
 
     connect(m_process, &QProcess::readyReadStandardOutput,
             this, [this]()
@@ -113,7 +115,15 @@ bool LLMProcessManager::startEngine(const QStringList& args)
     if (m_settings.external)
     {
         // External engine, no need to start a process
-        QTimer::singleShot(100, this, &LLMProcessManager::slotProcessStarted);
+        QPointer<LLMProcessManager> safeThis(this);
+        QTimer::singleShot(100, [safeThis]()
+        {
+            if (safeThis)
+            {
+                QMetaObject::invokeMethod(safeThis, &LLMProcessManager::slotProcessStarted, Qt::QueuedConnection);
+            }
+        });
+
         return true;
     }
 
@@ -205,8 +215,14 @@ void LLMProcessManager::slotProcessStarted()
         else
         {
             // try again in 2 seconds
-
-            QTimer::singleShot(2000, this, &LLMProcessManager::slotProcessStarted);
+            QPointer<LLMProcessManager> safeThis(this);
+            QTimer::singleShot(2000, [safeThis]()
+            {
+                if (safeThis)
+                {
+                    QMetaObject::invokeMethod(safeThis, &LLMProcessManager::slotProcessStarted, Qt::QueuedConnection);
+                }
+            });
         }
     }
 }

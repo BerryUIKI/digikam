@@ -137,7 +137,7 @@ public:
     /**
      * The context size in tokens
      */
-    int contextSize                 = 4096;
+    int contextSize                 = 8192;
     
     /**
      * The number of threads to use for inference
