@@ -120,6 +120,7 @@ public:
     const QString configAIAnnotateExternalLLMPort                   = QLatin1String("External LLM Port");
     const QString configAIAnnotateLlmPrompt                         = QLatin1String("Prompt");
     const QString configAIAnnotateTemperature                       = QLatin1String("Temperature");
+    const QString configAIAnnotateOpenAIModel                       = QLatin1String("OpenAI Model");
     const QString configSidebarTitleStyleEntry                      = QLatin1String("Sidebar Title Style");
     const QString configRatingFilterConditionEntry                  = QLatin1String("Rating Filter Condition");
     const QString configRecursiveAlbumsEntry                        = QLatin1String("Recursive Albums");
@@ -393,6 +394,7 @@ public:
     QString                                      aiAnnotateExternalLLMUrl                           = QLatin1String("http://localhost/api");
     int                                          aiAnnotateExternalLLMPort                          = 8080;
     double                                       aiAnnotateLlmTemperature                           = AIAnnotate::DEFAULT_TEMPERATURE;
+    QString                                      aiAnnotateOpenAIModel;
     LLMProcessSettings::AIVoiceType              aiAnnotateVoiceType                                = LLMProcessSettings::Neutral;
     LLMProcessSettings::AIVoicePerspective       aiAnnotateVoicePerspective                         = LLMProcessSettings::NoPerspective;
     LLMProcessSettings::AITextTones              aiAnnotateTextTones                                = LLMProcessSettings::NoTone;

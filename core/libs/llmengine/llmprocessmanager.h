@@ -169,6 +169,12 @@ Q_SIGNALS:
      * @param error The error text from the engine
      */
     void signalEngineError(const QString& error);
+
+    /**
+     * @brief Signal emitted when text is received from the engine console output
+     * @param output The raw text read from stdout or stderr
+     */
+    void signalEngineOutput(const QString& output);
     
     /**
      * @brief Signal emitted when the engine becomes ready for inference

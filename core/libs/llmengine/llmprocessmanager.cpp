@@ -89,6 +89,21 @@ LLMProcessManager::LLMProcessManager(const LLMProcessSettings& settings, QObject
     connect(m_process, static_cast<void (QProcess::*)(int, QProcess::ExitStatus)>(&QProcess::finished),
             this, [this](int exitCode, QProcess::ExitStatus)
             {
+                // Drain any buffered output before reporting process stop so callers can show complete logs.
+                const QByteArray remainingStdOut = m_process->readAllStandardOutput();
+
+                if (!remainingStdOut.isEmpty())
+                {
+                    slotProcessEngineOutput(remainingStdOut);
+                }
+
+                const QByteArray remainingStdErr = m_process->readAllStandardError();
+
+                if (!remainingStdErr.isEmpty())
+                {
+                    slotProcessEngineError(remainingStdErr);
+                }
+
                 m_exiting = true;
                 Q_EMIT signalEngineStopped(exitCode);
             });
@@ -277,6 +292,7 @@ void LLMProcessManager::slotProcessEngineOutput(const QByteArray& data)
     {
         QString output = QString::fromUtf8(data);
         qCDebug(DIGIKAM_LLMENGINE_LOG) << "LLM Engine (1):" << output;
+        Q_EMIT signalEngineOutput(output);
     }
 }
 
@@ -287,6 +303,7 @@ void LLMProcessManager::slotProcessEngineError(const QByteArray& data)
         QString output = QString::fromUtf8(data);
         qCDebug(DIGIKAM_LLMENGINE_LOG) << "LLM Engine (2):" << output;
         m_lastErrorMessage = output;
+        Q_EMIT signalEngineOutput(output);
         Q_EMIT signalEngineError(output);
     }
 }

@@ -51,9 +51,11 @@ void AutotagsScanWidget::doLoadState()
 
     if (d->showExternalLLMServiceOnly && (d->externalLLMModelIndex >= 0))
     {
-        if (modelUsesOpenAI(prm.objectDetectModel))
+        const QString configuredModel = ApplicationSettings::instance()->getAIAnnotateOpenAIModel();
+
+        if (modelUsesOpenAI(configuredModel))
         {
-            d->objectDetectModel->setItemData(d->externalLLMModelIndex, prm.objectDetectModel);
+            d->objectDetectModel->setItemData(d->externalLLMModelIndex, configuredModel);
         }
         else if (!d->fallbackOpenAIModelId.isEmpty())
         {
@@ -161,8 +163,7 @@ void AutotagsScanWidget::setupUi()
     else
     {
         const bool aiAnnotateEnabled = ApplicationSettings::instance()->getAIAnnotateEnabled();
-        const bool externalLLMEnabled = ApplicationSettings::instance()->getAIAnnotateExternalLLMEnabled();
-        d->showExternalLLMServiceOnly = (aiAnnotateEnabled && externalLLMEnabled);
+        d->showExternalLLMServiceOnly = aiAnnotateEnabled;
 
         for (const auto& model : modelList)
         {
@@ -174,7 +175,7 @@ void AutotagsScanWidget::setupUi()
                 d->fallbackOpenAIModelId = model.first;
             }
 
-            // Replace the OpenAI model list with one synthetic external service entry.
+            // Replace the OpenAI model list with one synthetic AI Annotate LLM entry.
             if (d->showExternalLLMServiceOnly && isOpenAIModel)
             {
                 continue;
@@ -192,9 +193,16 @@ void AutotagsScanWidget::setupUi()
 
         if (d->showExternalLLMServiceOnly && !d->fallbackOpenAIModelId.isEmpty())
         {
-            d->objectDetectModel->addSqueezedItem(i18n("External LLM Service"), d->fallbackOpenAIModelId);
+            QString selectedOpenAIModel = ApplicationSettings::instance()->getAIAnnotateOpenAIModel();
+
+            if (!modelUsesOpenAI(selectedOpenAIModel))
+            {
+                selectedOpenAIModel = d->fallbackOpenAIModelId;
+            }
+
+            d->objectDetectModel->addSqueezedItem(i18n("AI Annotate LLM"), selectedOpenAIModel);
             d->externalLLMModelIndex = d->objectDetectModel->count() - 1;
-            d->objectDetectModel->setToolTip(d->objectDetectModel->toolTip() + i18n("Use the configured external LLM service with OpenAI-compatible behavior."));
+            d->objectDetectModel->setToolTip(d->objectDetectModel->toolTip() + i18n("Use the LLM configured in the AI Annotate settings."));
         }
 
         if (d->objectDetectModel->count() == 0)
@@ -321,9 +329,11 @@ void AutotagsScanWidget::setSettings(const AutotagsScanSettings& newSettings)
 {
     if (d->showExternalLLMServiceOnly && (d->externalLLMModelIndex >= 0))
     {
-        if (modelUsesOpenAI(newSettings.objectDetectModel))
+        const QString configuredModel = ApplicationSettings::instance()->getAIAnnotateOpenAIModel();
+
+        if (modelUsesOpenAI(configuredModel))
         {
-            d->objectDetectModel->setItemData(d->externalLLMModelIndex, newSettings.objectDetectModel);
+            d->objectDetectModel->setItemData(d->externalLLMModelIndex, configuredModel);
         }
         else if (!d->fallbackOpenAIModelId.isEmpty())
         {

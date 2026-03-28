@@ -107,12 +107,16 @@ bool LLMProcessManagerKoboldCpp::startEngine()
                  << QStringLiteral("--n-gpu-layers")            << QStringLiteral("-1");
                 //  << QStringLiteral("-v");
 
-            // set the environment variables for llama.cpp
+            // set cache environment variables for llama.cpp and llamactl
+            // cache dir must live under the llama-server binary directory
 
-            QString cacheDir        = LLMProcessManager::getBaseEnginePath() + QStringLiteral("/cache");
+            QString cacheDir        = LLMProcessManager::getBaseEnginePath() + QStringLiteral("/llamacpp/cache");
             cacheDir                = QDir::toNativeSeparators(cacheDir);
+            QDir().mkpath(cacheDir);
 
             QProcessEnvironment env = QProcessEnvironment::systemEnvironment();
+            env.insert(QStringLiteral("LLAMA_CACHE"), cacheDir);
+            env.insert(QStringLiteral("LLAMACTL_LLAMACPP_CACHE_DIR"), cacheDir);
             env.insert(QStringLiteral("LLAMA_CACHE_DIR"), cacheDir);
 
             m_process->setProcessEnvironment(env);            

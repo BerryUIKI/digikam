@@ -21,12 +21,17 @@
 #include <QButtonGroup>
 #include <QCheckBox>
 #include <QComboBox>
+#include <QDir>
+#include <QDialogButtonBox>
 #include <QFileDialog>
+#include <QFileInfo>
 #include <QFormLayout>
 #include <QGroupBox>
 #include <QIcon>
 #include <QLabel>
 #include <QLineEdit>
+#include <QMessageBox>
+#include <QPlainTextEdit>
 #include <QPushButton>
 #include <QRadioButton>
 #include <QSpinBox>
@@ -67,6 +72,8 @@ public:
     
     DIntNumInput*       maxTagsSpinBox                          = nullptr;
     QLabel*             maxTagsLabel                            = nullptr;
+    QLabel*             openAIModelLabel                        = nullptr;
+    QComboBox*          openAIModelCombo                        = nullptr;
     
     // External LLM
     QLabel*             engineLabel                             = nullptr;
@@ -89,6 +96,7 @@ public:
     // Enable AI Annotate
     QCheckBox*          enableAIAnnotateCheck                   = nullptr;
     QCheckBox*          enableAIAnnotateAdvSetCheck             = nullptr;
+    QPushButton*        initializeLocalLLMButton                = nullptr;
     
     // Generation components checkboxes
     QCheckBox*          enableAIAnnotateDescriptionCheck        = nullptr;
@@ -119,6 +127,13 @@ public:
     QCheckBox*          textToneDramaticCheck                   = nullptr;
     QCheckBox*          textTonePoeticCheck                     = nullptr;
     QCheckBox*          textToneTechnicalCheck                  = nullptr;
+
+    LLMProcessManagerKoboldCpp* localLLMInitManager             = nullptr;
+    QString             localLLMInitLog;
+    QPointer<QDialog>   localLLMInitLogDialog;
+    QPointer<QPlainTextEdit> localLLMInitLogTextEdit;
+    bool                localLLMInitInProgress                  = false;
+    bool                localLLMInitReady                       = false;
 
     LLMTab              activeTab                               = Annotate;
 };
@@ -155,10 +170,51 @@ SetupLLM::SetupLLM(QWidget* const parent)
     QPushButton* const installButton    = new QPushButton(i18n("Install LLM engine"), topRowWidget);
     installButton->setToolTip(i18n("Download and install llama.cpp binaries for local AI inference"));
     installButton->setEnabled(false); // Initially disabled
-    installButton->setMinimumWidth(200); // Make the button wider
     topRowLayout->addWidget(installButton);
 
+    d->initializeLocalLLMButton         = new QPushButton(i18n("Initialize Local LLM Engine"), topRowWidget);
+    d->initializeLocalLLMButton->setToolTip(i18n("Start llama-server to initialize the local LLM engine, validate it with a health check, and then stop it"));
+    d->initializeLocalLLMButton->setEnabled(false);
+
+    const int llmButtonWidth = qMax(installButton->sizeHint().width(), d->initializeLocalLLMButton->sizeHint().width());
+    installButton->setFixedWidth(llmButtonWidth);
+    d->initializeLocalLLMButton->setFixedWidth(llmButtonWidth);
+
     annotateTabLayout->addWidget(topRowWidget);
+
+    QHBoxLayout* const openAIModelLayout = new QHBoxLayout();
+    d->openAIModelLabel                  = new QLabel(i18n("OpenAI Model for Tagging:"), d->annotateTab);
+    d->openAIModelLabel->setAlignment(Qt::AlignRight | Qt::AlignVCenter);
+    d->openAIModelCombo                  = new QComboBox(d->annotateTab);
+    d->openAIModelCombo->setToolTip(i18n("Select the OpenAI-compatible model used for AI tag generation"));
+
+    DNNModelManager* const dnnModelManager = DNNModelManager::instance();
+    const QList<QPair<QString, QStringList> > modelList = dnnModelManager->getModelList(DNNModelUsage::DNNUsageObjectDetection);
+
+    for (const auto& model : modelList)
+    {
+        DNNModelBase* const modelPtr = dnnModelManager->getModel(model.first, DNNModelUsage::DNNUsageObjectDetection);
+
+        if (!modelPtr || (modelPtr->info.classifier.compare(QLatin1String("openai"), Qt::CaseInsensitive) != 0))
+        {
+            continue;
+        }
+
+        const QString displayName = (model.second.isEmpty() ? model.first : model.second.first());
+        d->openAIModelCombo->addItem(displayName, model.first);
+    }
+
+    if (d->openAIModelCombo->count() == 0)
+    {
+        d->openAIModelCombo->addItem(i18n("No OpenAI models available"), QString());
+        d->openAIModelCombo->setEnabled(false);
+    }
+
+    openAIModelLayout->addWidget(d->openAIModelLabel);
+    openAIModelLayout->addWidget(d->openAIModelCombo);
+    openAIModelLayout->addStretch();
+    openAIModelLayout->addWidget(d->initializeLocalLLMButton);
+    annotateTabLayout->addLayout(openAIModelLayout);
     annotateTabLayout->addSpacing(spacing);
 
     // Description label to explain the feature
@@ -474,9 +530,13 @@ SetupLLM::SetupLLM(QWidget* const parent)
     connect(installButton, &QPushButton::clicked,
             this, &SetupLLM::slotShowInstallDialog);
 
+        connect(d->initializeLocalLLMButton, &QPushButton::clicked,
+            this, &SetupLLM::slotInitializeLocalLLMService);
+
     // Initialize settings
 
     readSettings();
+    refreshInitializeButtonState();
 
     // call the slot to set the initial state of the settings
 
@@ -521,6 +581,18 @@ void SetupLLM::readSettings()
     // Engine tab
     d->llmEngineCombo->setCurrentIndex(d->llmEngineCombo->findData(static_cast<int>(settings->getAIAnnotateEngine())));
     d->maxTagsSpinBox->setValue(settings->getAIAnnotateMaxTags());
+
+    const QString selectedOpenAIModel = settings->getAIAnnotateOpenAIModel();
+
+    if (!selectedOpenAIModel.isEmpty())
+    {
+        const int selectedModelIndex = d->openAIModelCombo->findData(selectedOpenAIModel);
+
+        if (selectedModelIndex >= 0)
+        {
+            d->openAIModelCombo->setCurrentIndex(selectedModelIndex);
+        }
+    }
     
     // External LLM
     d->externalLLMUrlEdit->setText(settings->getAIAnnotateExternalLLMUrl());
@@ -554,6 +626,8 @@ void SetupLLM::readSettings()
     d->textToneDramaticCheck->setChecked(tones & LLMProcessSettings::Dramatic);
     d->textTonePoeticCheck->setChecked(tones & LLMProcessSettings::Poetic);
     d->textToneTechnicalCheck->setChecked(tones & LLMProcessSettings::Technical);
+
+    refreshInitializeButtonState();
 }
 
 bool SetupLLM::checkSettings()
@@ -587,6 +661,7 @@ void SetupLLM::applySettings()
     // Engine tab
     settings->setAIAnnotateEngine(static_cast<LLMProcessSettings::LLMEngineType>(d->llmEngineCombo->currentData().toInt()));
     settings->setAIAnnotateMaxTags(d->maxTagsSpinBox->value());
+    settings->setAIAnnotateOpenAIModel(d->openAIModelCombo->currentData().toString());
     
     // External LLM
     settings->setAIAnnotateExternalLLMUrl(d->externalLLMUrlEdit->text());
@@ -629,6 +704,317 @@ void SetupLLM::applySettings()
     settings->saveSettings();
 }
 
+void SetupLLM::refreshInitializeButtonState()
+{
+    if (!d->initializeLocalLLMButton)
+    {
+        return;
+    }
+
+#ifdef Q_OS_WIN
+    const QString executableName = QStringLiteral("llama-server.exe");
+#else
+    const QString executableName = QStringLiteral("llama-server");
+#endif
+
+    const QString executablePath = QDir::toNativeSeparators(LLMProcessManager::getBaseEnginePath() +
+                                                             QStringLiteral("/llamacpp/") + executableName);
+    const QFileInfo executableInfo(executablePath);
+    const bool llamaCppDownloaded = executableInfo.exists() && executableInfo.isFile() && executableInfo.isExecutable();
+
+    d->initializeLocalLLMButton->setEnabled(!d->localLLMInitInProgress && llamaCppDownloaded);
+
+    if (d->localLLMInitInProgress)
+    {
+        d->initializeLocalLLMButton->setText(i18n("Initializing..."));
+        d->initializeLocalLLMButton->setToolTip(i18n("Initialization is currently running"));
+    }
+    else
+    {
+        d->initializeLocalLLMButton->setText(i18n("Initialize Local LLM Engine"));
+
+        if (llamaCppDownloaded)
+        {
+            d->initializeLocalLLMButton->setToolTip(i18n("Start llama-server to initialize the local LLM engine, validate it with a health check, and then stop it"));
+        }
+        else
+        {
+            d->initializeLocalLLMButton->setToolTip(i18n("llama.cpp is not installed. Install the LLM engine first."));
+        }
+    }
+}
+
+LLMProcessSettings SetupLLM::createLocalLLMInitSettings(QString* errorMessage) const
+{
+    LLMProcessSettings llmSettings;
+
+    if (errorMessage)
+    {
+        errorMessage->clear();
+    }
+
+    const QString modelName = d->openAIModelCombo->currentData().toString();
+
+    if (modelName.isEmpty())
+    {
+        if (errorMessage)
+        {
+            *errorMessage = i18n("No OpenAI-compatible model is selected for AI Annotate.");
+        }
+
+        return llmSettings;
+    }
+
+    DNNModelBase* const model = DNNModelManager::instance()->getModel(modelName,
+                                                                       DNNModelUsage::DNNUsageImageClassification);
+
+    if (!model)
+    {
+        if (errorMessage)
+        {
+            *errorMessage = i18n("Unable to load the selected AI Annotate model for initialization.");
+        }
+
+        return llmSettings;
+    }
+
+    llmSettings.modelPath               = model->info.fileName;
+    llmSettings.mmprojPath              = model->info.configName;
+    llmSettings.chatCompletionsAdapter  = model->info.preprocessor;
+    llmSettings.engineType              = LLMProcessSettings::LlamaCpp;
+    llmSettings.external                = false;
+
+    return llmSettings;
+}
+
+void SetupLLM::showLocalLLMInitResult(bool success, const QString& message)
+{
+    QMessageBox msgBox(this);
+    msgBox.setIcon(success ? QMessageBox::Information : QMessageBox::Critical);
+    msgBox.setWindowTitle(success ? i18n("LLM Initialization Successful")
+                                  : i18n("LLM Initialization Failed"));
+    msgBox.setText(message);
+
+    QPushButton* const viewLogButton = msgBox.addButton(i18n("View Log"), QMessageBox::ActionRole);
+    msgBox.addButton(QMessageBox::Ok);
+    msgBox.exec();
+
+    if (msgBox.clickedButton() == viewLogButton)
+    {
+        QDialog logDialog(this);
+        logDialog.setWindowTitle(i18n("llama-server Log"));
+        logDialog.resize(820, 480);
+
+        QVBoxLayout* const logLayout = new QVBoxLayout(&logDialog);
+        QTextEdit* const logTextEdit = new QTextEdit(&logDialog);
+        logTextEdit->setReadOnly(true);
+        logTextEdit->setPlainText(d->localLLMInitLog.isEmpty() ? i18n("No log output was captured.")
+                                                                : d->localLLMInitLog);
+        logLayout->addWidget(logTextEdit);
+
+        QDialogButtonBox* const buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, &logDialog);
+        connect(buttonBox, &QDialogButtonBox::rejected,
+                &logDialog, &QDialog::reject);
+        logLayout->addWidget(buttonBox);
+
+        logDialog.exec();
+    }
+}
+
+void SetupLLM::ensureLocalLLMInitLogWindow()
+{
+    if (!d->localLLMInitLogDialog)
+    {
+        QDialog* const logDialog = new QDialog(this);
+        logDialog->setAttribute(Qt::WA_DeleteOnClose);
+        logDialog->setWindowTitle(i18n("Initializing Local LLM Engine"));
+        logDialog->resize(900, 520);
+
+        QVBoxLayout* const logLayout = new QVBoxLayout(logDialog);
+
+        QLabel* const guidanceLabel = new QLabel(i18n("Initializing the LLM engine can take a while. Do not navigate away from this screen, and please be patient."), logDialog);
+        guidanceLabel->setWordWrap(true);
+        logLayout->addWidget(guidanceLabel);
+
+        QLabel* const infoLabel = new QLabel(i18n("llama-server output (live):"), logDialog);
+        logLayout->addWidget(infoLabel);
+
+        QPlainTextEdit* const logTextEdit = new QPlainTextEdit(logDialog);
+        logTextEdit->setReadOnly(true);
+        logTextEdit->setLineWrapMode(QPlainTextEdit::NoWrap);
+        logLayout->addWidget(logTextEdit);
+
+        QDialogButtonBox* const buttonBox = new QDialogButtonBox(QDialogButtonBox::Close, logDialog);
+        connect(buttonBox, &QDialogButtonBox::rejected,
+                logDialog, &QDialog::reject);
+        logLayout->addWidget(buttonBox);
+
+        connect(logDialog, &QObject::destroyed,
+                this, [this]()
+                {
+                    d->localLLMInitLogDialog   = nullptr;
+                    d->localLLMInitLogTextEdit = nullptr;
+                });
+
+        d->localLLMInitLogDialog   = logDialog;
+        d->localLLMInitLogTextEdit = logTextEdit;
+    }
+
+    if (d->localLLMInitLogTextEdit)
+    {
+        d->localLLMInitLogTextEdit->setPlainText(d->localLLMInitLog);
+        QTextCursor cursor = d->localLLMInitLogTextEdit->textCursor();
+        cursor.movePosition(QTextCursor::End);
+        d->localLLMInitLogTextEdit->setTextCursor(cursor);
+    }
+
+    if (d->localLLMInitLogDialog)
+    {
+        d->localLLMInitLogDialog->show();
+        d->localLLMInitLogDialog->raise();
+        d->localLLMInitLogDialog->activateWindow();
+    }
+}
+
+void SetupLLM::slotInitializeLocalLLMService()
+{
+    if (d->localLLMInitInProgress)
+    {
+        return;
+    }
+
+    refreshInitializeButtonState();
+
+    if (!d->initializeLocalLLMButton->isEnabled())
+    {
+        return;
+    }
+
+    QString errorMessage;
+    const LLMProcessSettings llmSettings = createLocalLLMInitSettings(&errorMessage);
+
+    if (!errorMessage.isEmpty())
+    {
+        showLocalLLMInitResult(false, errorMessage);
+        return;
+    }
+
+    d->localLLMInitLog.clear();
+    d->localLLMInitReady       = false;
+    d->localLLMInitInProgress  = true;
+
+    ensureLocalLLMInitLogWindow();
+
+    d->localLLMInitManager = new LLMProcessManagerKoboldCpp(llmSettings, this);
+
+    connect(d->localLLMInitManager, &LLMProcessManager::signalEngineReady,
+            this, &SetupLLM::slotLocalLLMInitEngineReady);
+
+    connect(d->localLLMInitManager, &LLMProcessManager::signalEngineStopped,
+            this, &SetupLLM::slotLocalLLMInitEngineStopped);
+
+    connect(d->localLLMInitManager, &LLMProcessManager::signalEngineOutput,
+            this, &SetupLLM::slotLocalLLMInitEngineOutput);
+
+        connect(d->localLLMInitManager, &LLMProcessManager::signalEngineError,
+            this, &SetupLLM::slotLocalLLMInitEngineError);
+
+    refreshInitializeButtonState();
+
+    if (!d->localLLMInitManager->startEngine())
+    {
+        d->localLLMInitLog.append(d->localLLMInitManager->lastErrorMessage() + QLatin1Char('\n'));
+
+        const QString startupError = i18n("Unable to start llama-server for LLM engine initialization: %1",
+                                          d->localLLMInitManager->lastErrorMessage());
+
+        d->localLLMInitManager->deleteLater();
+        d->localLLMInitManager    = nullptr;
+        d->localLLMInitInProgress = false;
+        d->localLLMInitReady      = false;
+
+        refreshInitializeButtonState();
+        showLocalLLMInitResult(false, startupError);
+    }
+}
+
+void SetupLLM::slotLocalLLMInitEngineReady()
+{
+    if (!d->localLLMInitManager)
+    {
+        return;
+    }
+
+    d->localLLMInitReady = true;
+    d->localLLMInitManager->shutdownEngine();
+}
+
+void SetupLLM::slotLocalLLMInitEngineStopped(int exitCode)
+{
+    if (!d->localLLMInitManager)
+    {
+        return;
+    }
+
+    const bool initializedSuccessfully = d->localLLMInitReady;
+    QString resultMessage;
+
+    if (initializedSuccessfully)
+    {
+        resultMessage = i18n("The local LLM engine completed initialization successfully.");
+    }
+    else
+    {
+        QString reason = d->localLLMInitManager->lastErrorMessage().trimmed();
+
+        if (reason.isEmpty())
+        {
+            reason = i18n("llama-server exited before passing the health check (exit code: %1).", exitCode);
+        }
+        else
+        {
+            reason = i18n("llama-server exited before passing the health check (exit code: %1).\n%2", exitCode, reason);
+        }
+
+        resultMessage = reason;
+    }
+
+    d->localLLMInitManager->deleteLater();
+    d->localLLMInitManager    = nullptr;
+    d->localLLMInitInProgress = false;
+    d->localLLMInitReady      = false;
+
+    refreshInitializeButtonState();
+    showLocalLLMInitResult(initializedSuccessfully, resultMessage);
+}
+
+void SetupLLM::slotLocalLLMInitEngineOutput(const QString& output)
+{
+    d->localLLMInitLog.append(output);
+
+    const int maxLogSize = (256 * 1024);
+
+    if (d->localLLMInitLog.size() > maxLogSize)
+    {
+        d->localLLMInitLog = d->localLLMInitLog.right(maxLogSize);
+    }
+
+    if (d->localLLMInitLogTextEdit)
+    {
+        d->localLLMInitLogTextEdit->setPlainText(d->localLLMInitLog);
+        QTextCursor cursor = d->localLLMInitLogTextEdit->textCursor();
+        cursor.movePosition(QTextCursor::End);
+        d->localLLMInitLogTextEdit->setTextCursor(cursor);
+    }
+}
+
+void SetupLLM::slotLocalLLMInitEngineError(const QString& error)
+{
+    // Transient startup and health-check related errors are expected while llama-server initializes.
+    // They are captured in the log and surfaced only if the process exits before reporting ready.
+    slotLocalLLMInitEngineOutput(error + QLatin1Char('\n'));
+}
+
 void SetupLLM::slotEnableAIAnnotateSettings(bool enable)
 {
     d->enableAIAnnotateExternalLLMCheck->setEnabled(enable);
@@ -637,6 +1023,8 @@ void SetupLLM::slotEnableAIAnnotateSettings(bool enable)
     d->enableAIAnnotateAdvSetCheck->setEnabled(enable);
     d->enableAIAnnotateDescriptionCheck->setEnabled(enable);
     d->enableAIAnnotateTagsCheck->setEnabled(enable);
+    d->openAIModelLabel->setEnabled(enable);
+    d->openAIModelCombo->setEnabled(enable && (d->openAIModelCombo->count() > 0) && !d->openAIModelCombo->currentData().toString().isEmpty());
     
     // Voice style controls
     d->aiVoiceTypeCombo->setEnabled(enable);
@@ -735,6 +1123,8 @@ void SetupLLM::slotShowInstallDialog()
     // Create and show the install dialog
     LLMEngineInstallDialog* const dialog = new LLMEngineInstallDialog(this);
     dialog->setAttribute(Qt::WA_DeleteOnClose);
+    connect(dialog, &QObject::destroyed,
+            this, &SetupLLM::refreshInitializeButtonState);
     dialog->show();
 }
 

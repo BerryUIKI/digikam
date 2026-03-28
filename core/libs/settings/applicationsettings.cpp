@@ -332,6 +332,7 @@ void ApplicationSettings::readSettings()
     
     d->aiAnnotateLlmPrompt                      = aiGroup.readEntry(d->configAIAnnotateLlmPrompt, AIAnnotate::DEFAULT_PROMPT);
     d->aiAnnotateLlmTemperature                 = aiGroup.readEntry(d->configAIAnnotateTemperature, AIAnnotate::DEFAULT_TEMPERATURE);
+    d->aiAnnotateOpenAIModel                    = aiGroup.readEntry(d->configAIAnnotateOpenAIModel, QString());
     d->aiAnnotateVoiceType                      = static_cast<LLMProcessSettings::AIVoiceType>(aiGroup.readEntry(d->configAIAnnotateVoiceTypeEntry, static_cast<int>(LLMProcessSettings::Neutral)));
     d->aiAnnotateVoicePerspective               = static_cast<LLMProcessSettings::AIVoicePerspective>(aiGroup.readEntry(d->configAIAnnotateVoicePerspectiveEntry, static_cast<int>(LLMProcessSettings::NoPerspective)));
     d->aiAnnotateTextTones                      = static_cast<LLMProcessSettings::AITextTones>(aiGroup.readEntry(d->configAIAnnotateTextTonesEntry, static_cast<int>(LLMProcessSettings::NoTone)));
@@ -536,6 +537,7 @@ void ApplicationSettings::saveSettings()
     aiGroup.writeEntry(d->configAIAnnotateExternalLLMPort,              d->aiAnnotateExternalLLMPort);
     aiGroup.writeEntry(d->configAIAnnotateLlmPrompt,                    d->aiAnnotateLlmPrompt);
     aiGroup.writeEntry(d->configAIAnnotateTemperature,                  d->aiAnnotateLlmTemperature);
+    aiGroup.writeEntry(d->configAIAnnotateOpenAIModel,                  d->aiAnnotateOpenAIModel);
     aiGroup.writeEntry(d->configAIAnnotateVoiceTypeEntry,               static_cast<int>(d->aiAnnotateVoiceType));
     aiGroup.writeEntry(d->configAIAnnotateVoicePerspectiveEntry,        static_cast<int>(d->aiAnnotateVoicePerspective));
     aiGroup.writeEntry(d->configAIAnnotateTextTonesEntry,               static_cast<int>(d->aiAnnotateTextTones));

@@ -182,4 +182,14 @@ LLMProcessSettings::AITextTones ApplicationSettings::getAIAnnotateTextTones() co
     return d->aiAnnotateTextTones;
 }
 
+void ApplicationSettings::setAIAnnotateOpenAIModel(const QString& modelId)
+{
+    d->aiAnnotateOpenAIModel = modelId;
+}
+
+QString ApplicationSettings::getAIAnnotateOpenAIModel() const
+{
+    return d->aiAnnotateOpenAIModel;
+}
+
 } // namespace Digikam

@@ -18,9 +18,12 @@
 // Qt includes
 
 #include <QScrollArea>
+#include <QPointer>
 
 namespace Digikam
 {
+
+class LLMProcessSettings;
 
 class SetupLLM : public QScrollArea
 {
@@ -48,9 +51,18 @@ public:
 private:
 
     void readSettings();
+    void refreshInitializeButtonState();
+    LLMProcessSettings createLocalLLMInitSettings(QString* errorMessage) const;
+    void ensureLocalLLMInitLogWindow();
+    void showLocalLLMInitResult(bool success, const QString& message);
 
 private Q_SLOTS:
     void slotShowInstallDialog();
+    void slotInitializeLocalLLMService();
+    void slotLocalLLMInitEngineReady();
+    void slotLocalLLMInitEngineStopped(int exitCode);
+    void slotLocalLLMInitEngineOutput(const QString& output);
+    void slotLocalLLMInitEngineError(const QString& error);
     void slotEnableAIAnnotateSettings(bool enable);
     void slotEnableAIAnnotateMaxTags(bool enable);
     void slotEnableAIAnnotateAdvancedSettings(bool enable);

@@ -560,6 +560,9 @@ public:
     void  setAIAnnotateTextTones(LLMProcessSettings::AITextTones tones);
     LLMProcessSettings::AITextTones getAIAnnotateTextTones() const;
 
+    void  setAIAnnotateOpenAIModel(const QString& modelId);
+    QString getAIAnnotateOpenAIModel() const;
+
     /**
      * Defines whether an operation should be performed on all grouped items
      * or just the head item.
