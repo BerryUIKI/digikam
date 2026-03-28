@@ -190,6 +190,7 @@ ${INSTALL_PREFIX}/bin/brew install \
              exiv2 \
              lensfun \
              opencv \
+             mariadb \
              qt \
              qt-mariadb \
              qtnetworkauth \

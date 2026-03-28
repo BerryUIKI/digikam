@@ -89,7 +89,6 @@ QtWebEngineWidgets \
 QtQuickWidgets \
 QtShaderTools \
 Qt3DQuickScene2D \
-QtOpcUa \
 QtPdf \
 Qt3DRender \
 QtQuick3DRuntimeRender \
@@ -207,7 +206,7 @@ OTHER_DIRS="\
 share/qt/translations \
 share/qt/plugins \
 lib/libdigikam*.dSYM \
-Cellar/libgphoto2/2.5.31/lib \
+opt/libgphoto2/lib \
 lib/ImageMagick* \
 share/ImageMagick* \
 etc/ImageMagick* \
@@ -319,7 +318,8 @@ done
 echo "---------- Copying Qt frameworks..."
 
 rm -rf $INSTALL_PREFIX/Cellar/qt/.DS_Store || true
-mkdir $TEMPROOT/Frameworks
+mkdir -p "$TEMPROOT/Frameworks"
+mkdir -p "$TEMPROOT/lib"
 QT_FULL_VERSION=`ls "$INSTALL_PREFIX/Cellar/qt/"`
 
 for framework in $QT_FRAMEWORKS ; do
@@ -327,8 +327,14 @@ for framework in $QT_FRAMEWORKS ; do
     echo "Copying Qt framework: $framework"
 
     # Copy framework
-    cp -R "$INSTALL_PREFIX/Cellar/qt/$QT_FULL_VERSION/Frameworks/$framework.framework" "$TEMPROOT/Frameworks"
-    cp -R "$INSTALL_PREFIX/Cellar/qt/$QT_FULL_VERSION/lib/$framework.framework" "$TEMPROOT/lib"
+    if [[ "$framework" = "QtWebEngineCore" ]] ; then
+        # In Homebrew, QtWebEngineCore.framework is symlinked from qt/ to qtwebengine.
+        # Dereference it so Helpers/QtWebEngineProcess.app and Resources are copied as real files.
+        cp -RH "$INSTALL_PREFIX/Cellar/qt/$QT_FULL_VERSION/Frameworks/$framework.framework" "$TEMPROOT/Frameworks"
+    else
+        cp -R "$INSTALL_PREFIX/Cellar/qt/$QT_FULL_VERSION/Frameworks/$framework.framework" "$TEMPROOT/Frameworks"
+        cp -R "$INSTALL_PREFIX/Cellar/qt/$QT_FULL_VERSION/lib/$framework.framework" "$TEMPROOT/lib"
+    fi
 
 done
 
@@ -710,9 +716,26 @@ ln -s "./share/qt/plugins"  "$TEMPROOT/$DK_APP_CONTENTS/plugins"
 #ln -s "../../Cellar/qt/$QT_FULL_VERSION/lib/QtWebEngineCore.framework/Versions/A/Resources/qtwebengine_locales" "$TEMPROOT/$DK_APP_CONTENTS/Resources/translations/qtwebengine_locales"
 
 # add additional rpaths and re-sign QtWebEngineProcess
-WEP=`find $TEMPROOT/$DK_APP_CONTENTS -name "QtWebEngineProcess"`
-install_name_tool -add_rpath @loader_path/../../../../../../../../ $WEP
-codesign --force -s - $WEP
+WEP_LIST=`find "$TEMPROOT/$DK_APP_CONTENTS" -name "QtWebEngineProcess"`
+WEP_COUNT=`echo "$WEP_LIST" | sed '/^$/d' | wc -l | tr -d '[:space:]'`
+
+if [[ $WEP_COUNT -eq 0 ]] ; then
+    echo "WARNING: QtWebEngineProcess was not found in bundle, skipping rpath patch"
+else
+    WEP="$TEMPROOT/$DK_APP_CONTENTS/Frameworks/QtWebEngineCore.framework/Versions/A/Helpers/QtWebEngineProcess.app/Contents/MacOS/QtWebEngineProcess"
+
+    if [[ $WEP_COUNT -gt 1 ]] ; then
+        echo "WARNING: Multiple QtWebEngineProcess binaries found, selecting canonical Frameworks path"
+    fi
+
+    if [[ ! -f "$WEP" ]] ; then
+        WEP=`echo "$WEP_LIST" | sed '/^$/d' | head -n 1`
+        echo "WARNING: Canonical QtWebEngineProcess not found, using first detected path: $WEP"
+    fi
+
+    install_name_tool -add_rpath @loader_path/../../../../../../../../ "$WEP"
+    codesign --force -s - "$WEP"
+fi
 
 # move the QtWebEngine resources
 echo -e "\n     ----- Moving QtWebEngine Resources"
