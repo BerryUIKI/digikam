@@ -23,7 +23,7 @@ set(libllmengine_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/llmprocesssettings.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/llmprocessmanager.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/llmresponsehelper.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/koboldcpp/llmprocessmanagerkoboldcpp.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/llamacpp/llmprocessmanagerllamacpp.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/installer/llmengineinstaller.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/installer/llmengineinstalldialog.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/installer/llmengineinstallaction.cpp

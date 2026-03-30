@@ -36,7 +36,7 @@
 
 // Local includes
 
-#include "llmprocessmanagerkoboldcpp.h"
+#include "llmprocessmanagerllamacpp.h"
 
 namespace Digikam
 {

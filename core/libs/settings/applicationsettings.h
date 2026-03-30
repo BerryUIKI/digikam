@@ -35,7 +35,7 @@
 #include "facescansettings.h"
 #include "haariface.h"
 #include "sidebar.h"
-#include "llmprocessmanagerkoboldcpp.h"
+#include "llmprocessmanagerllamacpp.h"
 #include "llmprocesssettings.h"
 
 class KConfigGroup;

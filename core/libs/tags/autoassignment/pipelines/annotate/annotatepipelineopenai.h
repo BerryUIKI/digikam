@@ -27,7 +27,7 @@
 #include "autotagspipelinebase.h"
 #include "llmresponsehelper.h"
 #include "llmprocessmanager.h"
-#include "llmprocessmanagerkoboldcpp.h"
+#include "llmprocessmanagerllamacpp.h"
 
 namespace Digikam
 {

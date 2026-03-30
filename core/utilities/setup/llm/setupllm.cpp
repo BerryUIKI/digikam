@@ -52,7 +52,7 @@
 #include "applicationsettings.h"
 #include "dnuminput.h"
 #include "dnnmodelmanager.h"
-#include "llmprocessmanagerkoboldcpp.h"
+#include "llmprocessmanagerllamacpp.h"
 #include "llmprocesssettings.h"
 #include "llmengineinstalldialog.h"
 
@@ -766,7 +766,7 @@ LLMProcessSettings SetupLLM::createLocalLLMInitSettings(QString* errorMessage) c
     }
 
     DNNModelBase* const model = DNNModelManager::instance()->getModel(modelName,
-                                                                       DNNModelUsage::DNNUsageImageClassification);
+                                                                       DNNModelUsage::DNNUsageObjectDetection);
 
     if (!model)
     {

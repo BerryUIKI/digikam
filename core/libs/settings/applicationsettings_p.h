@@ -60,7 +60,7 @@
 #include "drawdecoder.h"
 #include "coredbaccess.h"
 #include "coredb.h"
-#include "llmprocessmanagerkoboldcpp.h"
+#include "llmprocessmanagerllamacpp.h"
 #include "llmprocesssettings.h"
 
 namespace Digikam

@@ -55,7 +55,7 @@
 #include "localizeselector.h"
 #include "annotatepipelineopenaipackage.h"
 #include "llmprocessmanager.h"
-#include "llmprocessmanagerkoboldcpp.h"
+#include "llmprocessmanagerllamacpp.h"
 
 namespace Digikam
 {
@@ -180,7 +180,7 @@ bool AnnotatePipelineOpenAI::start()
     try
     {
         model = static_cast<DNNModelNet*>(DNNModelManager::instance()->getModel(settings.objectDetectModel,
-                                                                                DNNModelUsage::DNNUsageImageClassification));
+                                            DNNModelUsage::DNNUsageObjectDetection));
     
         if (!model)
         {

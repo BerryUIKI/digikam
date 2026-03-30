@@ -30,7 +30,7 @@
 // Local includes
 
 #include "digikam_debug.h"
-#include "llmprocessmanagerkoboldcpp.h"
+#include "llmprocessmanagerllamacpp.h"
 #include "llmresponsehelper.h"
 
 namespace Digikam
@@ -393,4 +393,4 @@ QString LLMProcessManagerKoboldCpp::createBaseUrl() const
 
 } // namespace Digikam
 
-#include "moc_llmprocessmanagerkoboldcpp.cpp"
+#include "moc_llmprocessmanagerllamacpp.cpp"
