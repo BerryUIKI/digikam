@@ -130,7 +130,14 @@ InstallKF6Component(kcoreaddons              ${KDE_VERSION}     "${Qt6CommonOpti
 InstallKF6Component(threadweaver             ${KDE_VERSION}     "${Qt6CommonOptions}"                                                                       "")
 InstallKF6Component(kwindowsystem            ${KDE_VERSION}     "${Qt6CommonOptions};-DKWINDOWSYSTEM_WAYLAND=OFF"                                           "")
 if(APPLE AND ("${DK_APPLE_PACKAGE_MANAGER}" STREQUAL "homebrew"))
-    InstallKF6Component(karchive             ${KDE_VERSION}     "${Qt6CommonOptions};-DWITH_LIBZSTD=OFF;-DWITH_BZIP2=OFF"                                   "karchive-openmode-qt6.10.patch")
+    # This patch was needed around Qt 6.10, but is already upstream in newer KF6 tags.
+    string(REGEX REPLACE "^v" "" KDE_VERSION_CLEAN "${KDE_VERSION}")
+
+    if(KDE_VERSION_CLEAN VERSION_LESS "6.24.0")
+        InstallKF6Component(karchive         ${KDE_VERSION}     "${Qt6CommonOptions};-DWITH_LIBZSTD=OFF;-DWITH_BZIP2=OFF"                                   "karchive-openmode-qt6.10.patch")
+    else()
+        InstallKF6Component(karchive         ${KDE_VERSION}     "${Qt6CommonOptions};-DWITH_LIBZSTD=OFF;-DWITH_BZIP2=OFF"                                   "")
+    endif()
 else()
     InstallKF6Component(karchive             ${KDE_VERSION}     "${Qt6CommonOptions};-DWITH_LIBZSTD=OFF;-DWITH_BZIP2=OFF"                                   "")
 endif()
