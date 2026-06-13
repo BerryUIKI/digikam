@@ -23,6 +23,11 @@
 #include <QScreen>
 #include <QWindow>
 
+#include <QLineEdit>
+#include <QLabel>
+#include <QMenu>
+#include <QPoint>
+
 
 // KDE includes
 
@@ -36,6 +41,21 @@
 #include "coredbsearchxml.h"
 #include "thememanager.h"
 #include "digikam_debug.h"
+
+
+#include "searchqueryengine.h"
+#include "searchlanguagebackend.h"
+#include "searchmockbackend.h"
+#include "searchpromptbuilder.h"
+#include "searchintentparser.h"
+#include "searchcapabilitydictionary.h"
+#include "searchintentresolver.h"
+#include "searchquerycache.h"
+#include "donlinetranslator.h"      
+
+#include "tagscache.h"
+#include "colorlabelwidget.h"
+
 
 namespace Digikam
 {
@@ -52,6 +72,26 @@ public:
     int                  currentId      = -1;
     bool                 hasTouchedXml  = false;
     QString              oldXml;
+
+    QLineEdit*                  describeEdit    = nullptr;
+    QLabel*                     nlStatusLabel   = nullptr;
+
+    SearchQueryEngine*          nlEngine        = nullptr;
+    SearchLanguageBackend*      nlBackend       = nullptr;
+    SearchPromptBuilder         nlPromptBuilder;
+    SearchIntentParser          nlParser;
+    SearchCapabilityDictionary  nlDictionary;
+    SearchIntentResolver*       nlResolver      = nullptr;
+    SearchQueryCache            nlCache;
+    DOnlineTranslator*          nlTranslator    = nullptr;
+
+    QString                     pendingNlText;
+    bool                        nlTranslate     = false;
+    bool                        nlFromDialog    = false;
+    bool pendingOkAfterInterpret = false;
+
+    SearchQueryIntent nlLastIntent;
+    QString nlCommittedXml;
 };
 
 SearchWindow::SearchWindow()
@@ -59,6 +99,25 @@ SearchWindow::SearchWindow()
       d      (new Private)
 {
     QVBoxLayout* const layout = new QVBoxLayout;
+
+    QWidget* const nlPanel      = new QWidget(this);
+    QVBoxLayout* const nlLayout = new QVBoxLayout(nlPanel);
+
+    QLabel* const nlTitle       = new QLabel(i18n("Describe what you want to find"), nlPanel);
+
+    d->describeEdit             = new QLineEdit(nlPanel);
+    d->describeEdit->setPlaceholderText(i18n("e.g. landscape photos with red labels taken near Paris"));
+    d->describeEdit->setClearButtonEnabled(true);
+
+    d->nlStatusLabel            = new QLabel(nlPanel);
+    d->nlStatusLabel->setWordWrap(true);
+    d->nlStatusLabel->hide();
+
+    nlLayout->addWidget(nlTitle);
+    nlLayout->addWidget(d->describeEdit);
+    nlLayout->addWidget(d->nlStatusLabel);
+
+    layout->addWidget(nlPanel);
 
     d->scrollArea             = new QScrollArea(this);
     d->scrollArea->setWidgetResizable(true);
@@ -117,6 +176,11 @@ SearchWindow::SearchWindow()
 
     connect(d->searchView, SIGNAL(searchTryout()),
             this, SLOT(searchTryout()));
+
+    setupNlSearch();
+
+    connect(d->describeEdit, &QLineEdit::returnPressed,
+            this, &SearchWindow::slotDescribeSearchSubmitted);
 }
 
 SearchWindow::~SearchWindow()
@@ -124,6 +188,8 @@ SearchWindow::~SearchWindow()
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup group      = config->group(QLatin1String("AdvancedSearch Widget"));
     group.writeEntry(QLatin1String("Widget Size"), size());
+
+    delete d->nlResolver;     
 
     delete d;
 }
@@ -141,6 +207,7 @@ void SearchWindow::reset()
     d->currentId     = -1;
     d->hasTouchedXml = false;
     d->oldXml.clear();
+    d->nlCommittedXml.clear();          
     d->searchView->read(QString());
 }
 
@@ -151,20 +218,33 @@ QString SearchWindow::search() const
 
 void SearchWindow::searchOk()
 {
-    qCDebug(DIGIKAM_GENERAL_LOG) << "SearchWindow: search confirmed";
+    if (!isVisible()) { return; }
+
+    const QString describe = d->describeEdit->text().trimmed();
+    if (!describe.isEmpty() && d->nlCommittedXml.isEmpty())
+    {
+        d->nlFromDialog = true;
+        d->pendingOkAfterInterpret = true;   
+        startInterpretation(describe);
+        return;                              
+    }
+
+    QString xml = d->nlCommittedXml.isEmpty() ? search() : d->nlCommittedXml;
+    if (xml.contains(QLatin1String("<group/>")) ||
+        xml.contains(QLatin1String("<group></group>")))
+    {
+        hide();
+        return;
+    }
 
     d->hasTouchedXml = true;
-
-    Q_EMIT searchEdited(d->currentId, search());
-
+    Q_EMIT searchEdited(d->currentId, xml);
     hide();
 }
 
 void SearchWindow::searchCancel()
 {
     qCDebug(DIGIKAM_GENERAL_LOG) << "SearchWindow: search cancelled";
-
-    // redo changes by tryout
 
     if (d->hasTouchedXml)
     {
@@ -178,16 +258,28 @@ void SearchWindow::searchCancel()
 
 void SearchWindow::searchTryout()
 {
+    if (!isVisible()) { return; }
+
+    const QString xml = search();
+    if (xml.contains(QLatin1String("<group/>")) ||
+        xml.contains(QLatin1String("<group></group>")))
+    {
+        return;   // not to let an empty tryout overwrite committed results
+    }
+
     qCDebug(DIGIKAM_GENERAL_LOG) << "SearchWindow: search tryout";
-
     d->hasTouchedXml = true;
-
-    Q_EMIT searchEdited(d->currentId, search());
+    Q_EMIT searchEdited(d->currentId, xml);
 }
 
 void SearchWindow::keyPressEvent(QKeyEvent* e)
 {
-    // Implement keys like in a dialog
+    if (d->describeEdit && d->describeEdit->hasFocus() &&
+        ((e->key() == Qt::Key_Return) || (e->key() == Qt::Key_Enter)))
+    {
+        QWidget::keyPressEvent(e);
+        return;
+    }
 
     if (!e->modifiers() || ((e->modifiers() & Qt::KeypadModifier) && (e->key() == Qt::Key_Enter)))
     {
@@ -215,6 +307,249 @@ void SearchWindow::keyPressEvent(QKeyEvent* e)
             }
         }
     }
+}
+
+ 
+void SearchWindow::setupNlSearch()
+{
+    d->nlResolver = new SearchIntentResolver(&d->nlDictionary);
+ 
+    d->nlBackend  = new SearchMockBackend(this);
+    d->nlBackend->loadModel(QString());
+ 
+    d->nlEngine   = new SearchQueryEngine(this);
+    d->nlEngine->setBackend(d->nlBackend);
+    d->nlEngine->setPromptBuilder(&d->nlPromptBuilder);
+    d->nlEngine->setParser(&d->nlParser);
+    d->nlEngine->setResolver(d->nlResolver);
+    d->nlEngine->setCache(&d->nlCache);
+ 
+    // TODO: collection-aware prompt hints
+ 
+    connect(d->nlEngine, &SearchQueryEngine::intentReady,
+            this, &SearchWindow::slotNlIntentReady);
+ 
+    connect(d->nlEngine, &SearchQueryEngine::clarificationRequired,
+            this, &SearchWindow::slotNlClarificationRequired);
+ 
+    connect(d->nlEngine, &SearchQueryEngine::errorOccurred,
+            this, &SearchWindow::slotNlError);
+ 
+    connect(d->nlEngine, &SearchQueryEngine::statusMessage,
+            this, &SearchWindow::slotNlStatus);
+ 
+    KSharedConfigPtr config = KSharedConfig::openConfig();
+    KConfigGroup group      = config->group(QLatin1String("NL Search Settings"));
+    d->nlTranslate          = group.readEntry(QLatin1String("Translate Queries"), false);
+}
+ 
+SearchQueryEngine* SearchWindow::queryEngine() const
+{
+    return d->nlEngine;
+}
+ 
+void SearchWindow::slotDescribeSearchSubmitted()
+{
+    const QString text = d->describeEdit->text().trimmed();
+    if (text.isEmpty()) { return; }
+
+    d->nlFromDialog = true;          
+    d->describeEdit->setEnabled(false);
+    startInterpretation(text);
+}
+ 
+void SearchWindow::startInterpretation(const QString& text)
+{
+    // Translation pass (DOnlineTranslator, sourceLang=Auto ->
+    // translationLang=English) is deferred;
+    // empty normalizedText makes the engine reuse the original.
+    Q_UNUSED(d->nlTranslate);
+    Q_UNUSED(d->pendingNlText);
+ 
+    d->nlEngine->interpretQuery(text, QString());
+}
+ 
+void SearchWindow::slotTranslationFinished()
+{
+    // No-op until DOnlineTranslator wiring lands.
+}
+ 
+void SearchWindow::slotNlIntentReady(const SearchQueryIntent& intent)
+{
+    d->describeEdit->setEnabled(true);
+    d->nlStatusLabel->hide();
+
+    if (d->nlFromDialog)
+    {
+        applyResolvedIntent(intent);
+        d->nlFromDialog = false;
+
+        if (!d->nlCommittedXml.isEmpty())
+        {
+            d->hasTouchedXml = true;
+            Q_EMIT searchEdited(d->currentId, d->nlCommittedXml);
+        }
+
+        if (d->pendingOkAfterInterpret)
+        {
+            d->pendingOkAfterInterpret = false;
+            hide();
+        }
+    }
+}
+ 
+void SearchWindow::slotNlClarificationRequired(const SearchQueryIntent& intent)
+{
+    d->describeEdit->setEnabled(true);
+ 
+    QMenu menu(this);
+ 
+    if (!intent.clarificationMessage.isEmpty())
+    {
+        QAction* const header = menu.addAction(intent.clarificationMessage);
+        header->setEnabled(false);
+        menu.addSeparator();
+    }
+ 
+    for (const QString& choice : intent.clarificationChoices)
+    {
+        menu.addAction(choice);
+    }
+ 
+    QAction* const picked = menu.exec(d->describeEdit->mapToGlobal(
+                                      QPoint(0, d->describeEdit->height())));
+ 
+    if (picked && picked->isEnabled())
+    {
+        // Re-run with the ambiguity resolved inline. 
+        // TODO: resolve the chosen constraint directly without a second
+        // inference pass once on a real model.
+ 
+        startInterpretation(intent.originalQuery + QLatin1String(" (")
+                            + picked->text() + QLatin1Char(')'));
+    }
+}
+ 
+void SearchWindow::slotNlError(const QString& message)
+{
+    d->describeEdit->setEnabled(true);
+    d->nlStatusLabel->setText(message);
+    d->nlStatusLabel->show(); 
+}
+ 
+void SearchWindow::slotNlStatus(const QString& message)
+{
+    d->nlStatusLabel->setText(message);
+    d->nlStatusLabel->show();
+}
+ 
+void SearchWindow::applyResolvedIntent(const SearchQueryIntent& intent)
+{
+    const QString xml = intentToXml(intent);
+
+    d->searchView->read(xml);
+
+    if (!xml.contains(QLatin1String("<group/>")))
+    {
+        d->nlCommittedXml = xml;
+    }
+
+}
+ 
+QString SearchWindow::intentToXml(const SearchQueryIntent& intent) const
+{
+    SearchXmlWriter writer;
+    writer.writeGroup();
+
+    for (const SearchQueryConstraint& c : intent.constraints)
+    {
+        writeConstraintToXml(writer, c);
+    }
+
+    writer.finishGroup();
+    writer.finish();
+
+    const QString xml = writer.xml();
+
+    return xml;
+}
+ 
+void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
+                                        const SearchQueryConstraint& c) const
+{
+    if (c.field == QLatin1String("tag"))
+    {
+        const QList<int> ids = TagsCache::instance()->tagsForName(c.value);
+
+        if (!ids.isEmpty())
+        {
+            for (int id : ids)
+            {
+                writer.writeField(QLatin1String("tagid"), SearchXml::Equal);
+                writer.writeValue(id);
+                writer.finishField();
+            }
+        }
+        // else: tag not in collection, emit nothing
+    }
+    else if (c.field == QLatin1String("colorlabel"))
+    {
+        static const QMap<QString, int> nameToEnum = {
+            { QLatin1String("none"),    NoColorLabel },
+            { QLatin1String("red"),     RedLabel     },
+            { QLatin1String("orange"),  OrangeLabel  },
+            { QLatin1String("yellow"),  YellowLabel  },
+            { QLatin1String("green"),   GreenLabel   },
+            { QLatin1String("blue"),    BlueLabel    },
+            { QLatin1String("magenta"), MagentaLabel },
+            { QLatin1String("gray"),    GrayLabel    },
+            { QLatin1String("black"),   BlackLabel   },
+            { QLatin1String("white"),   WhiteLabel   },
+        };
+
+        const int labelEnum = nameToEnum.value(c.value.toLower(), -1);
+
+        if (labelEnum >= 0)
+        {
+            const int labelTagId = TagsCache::instance()->tagForColorLabel(labelEnum);
+            
+            if (labelTagId)
+            {
+                writer.writeField(QLatin1String("labels"), SearchXml::InTree);
+                writer.writeValue(labelTagId);
+                writer.finishField();
+            }
+        }
+    }
+    else if (c.field == QLatin1String("keyword") || (c.field == QLatin1String("caption")))
+    {
+        writer.writeField(QLatin1String("keyword"), SearchXml::Like);
+        writer.writeValue(c.value);
+        writer.finishField();
+    }
+    else if (c.field == QLatin1String("daterange"))
+    {
+        const QStringList parts = c.value.split(QLatin1String(".."));
+        if (parts.size() == 2)
+        {
+            const QDateTime start = QDateTime::fromString(parts.at(0), QLatin1String("yyyy-MM-dd"));
+            const QDateTime end   = QDateTime::fromString(parts.at(1), QLatin1String("yyyy-MM-dd"));
+
+            if (start.isValid() && end.isValid())
+            {
+                writer.writeField(QLatin1String("creationdate"), SearchXml::Interval);
+                writer.writeValue(QList<QDateTime>() << start << end);
+                writer.finishField();
+            }
+        }
+    }
+    else if (c.field == QLatin1String("rating"))
+    {
+        writer.writeField(QLatin1String("rating"), SearchXml::GreaterThanOrEqual);
+        writer.writeValue(c.value.toInt());
+        writer.finishField();
+    }
+
 }
 
 } // namespace Digikam

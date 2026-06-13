@@ -7,6 +7,8 @@
 
 APPLY_COMMON_POLICIES()
 
+include(${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/CMakeLists.txt) 
+
 set(libsearchwindow_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/searchwindow.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/searchview.cpp
@@ -39,6 +41,7 @@ set(libsearchwindow_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/searchmodificationhelper.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/editablesearchtreeview.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/visibilitycontroller.cpp
+    ${libnlsearch_SRCS}
 )
 
 include_directories($<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Gui,INTERFACE_INCLUDE_DIRECTORIES>

@@ -50,7 +50,7 @@ if(("${exiv2_VERSION}" VERSION_GREATER "0.27.99") OR ("${LibExiv2_VERSION}" VERS
 
 else()
 
-    set(EXIV2_CXX_STANDARD        11)
+    set(EXIV2_CXX_STANDARD        14)
     set(EXIV2_AS_CONST_DEFINITION -DEXIV2_AS_CONST=qAsConst)
 
 endif()

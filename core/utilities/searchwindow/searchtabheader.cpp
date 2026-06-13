@@ -49,6 +49,8 @@
 #include "coredbsearchxml.h"
 #include "dexpanderbox.h"
 
+#include "searchqueryengine.h"
+
 namespace Digikam
 {
 
@@ -64,7 +66,6 @@ public:
         KSharedConfig::Ptr config = KSharedConfig::openConfig();
         KConfigGroup group        = config->group(QLatin1String("KeywordSearchEdit Settings"));
         m_autoSearch              = group.readEntry(QLatin1String("Autostart Search"), false);
-        m_i18nSearch              = i18n("(Advanced Search)");
     }
 
     void showAdvancedSearch(bool hasAdvanced)
@@ -127,27 +128,15 @@ public:
             QPalette p = palette();
             p.setColor(QPalette::Text, p.color(QPalette::Disabled, QPalette::Text));
             setPalette(p);
-
-            setText(m_i18nSearch);
         }
         else
         {
             setPalette(QPalette());
-
-            if (text() == m_i18nSearch)
-            {
-                setText(QString());
-            }
         }
     }
 
     QString getText() const
     {
-        if (text() == m_i18nSearch)
-        {
-            return QString();
-        }
-
         return text();
     }
 
@@ -166,7 +155,6 @@ protected:
 
     bool    m_hasAdvanced   = false;
     bool    m_autoSearch    = false;
-    QString m_i18nSearch;
 };
 
 // -------------------------------------------------------------------------
@@ -205,6 +193,17 @@ public:
 
     QString             oldKeywordContent;
     QString             oldStoredKeywordContent;
+
+    
+    QToolButton*        nlInterpretButton       = nullptr;
+    QGroupBox*          nlInterpretedPanel      = nullptr;
+    QLabel*             nlInterpretedLabel      = nullptr;
+    QPushButton*        nlOpenAdvancedButton    = nullptr;
+    QPushButton*        nlRunNowButton          = nullptr;
+
+    SearchQueryIntent   nlPendingIntent;
+    bool                nlConnected             = false;
+
 };
 
 SearchTabHeader::SearchTabHeader(QWidget* const parent)
@@ -248,10 +247,34 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
     d->advancedNewSearch      = new QPushButton(i18n("New Advanced Search..."), this);
     d->advancedEditSearch     = new QPushButton(i18n("Edit Current Search..."), this);
 
+    d->nlInterpretButton      = new QToolButton(this);
+    d->nlInterpretButton->setIcon(QIcon::fromTheme(QLatin1String("tools-wizard")));
+    d->nlInterpretButton->setToolTip(i18n("Interpret as natural-language search"));
+
+    d->nlInterpretedPanel     = new QGroupBox(this);
+    QVBoxLayout* const nlVbox = new QVBoxLayout;
+    d->nlInterpretedLabel     = new QLabel(d->nlInterpretedPanel);
+    d->nlInterpretedLabel->setWordWrap(true);
+
+    QHBoxLayout* const nlBtns = new QHBoxLayout;
+    d->nlOpenAdvancedButton   = new QPushButton(i18n("Open Advanced Search"), d->nlInterpretedPanel);
+    d->nlRunNowButton         = new QPushButton(i18n("Run Now"), d->nlInterpretedPanel);
+    nlBtns->addWidget(d->nlOpenAdvancedButton);
+    nlBtns->addWidget(d->nlRunNowButton);
+
+    nlVbox->addWidget(d->nlInterpretedLabel);
+    nlVbox->addLayout(nlBtns);
+    d->nlInterpretedPanel->setLayout(nlVbox);
+    d->nlInterpretedPanel->hide();
+
+    // ------------------------------------------------------------------
+
     grid1->addWidget(searchLabel,           0, 0, 1, 1);
     grid1->addWidget(d->keywordEdit,        0, 1, 1, 1);
-    grid1->addWidget(d->advancedNewSearch,  1, 0, 1, 2);
-    grid1->addWidget(d->advancedEditSearch, 2, 0, 1, 2);
+    grid1->addWidget(d->nlInterpretButton,  0, 2, 1, 1);
+    grid1->addWidget(d->advancedNewSearch,  1, 0, 1, 3);
+    grid1->addWidget(d->advancedEditSearch, 2, 0, 1, 3);
+    grid1->addWidget(d->nlInterpretedPanel, 3, 0, 1, 3);
     grid1->setContentsMargins(spacing, spacing, spacing, spacing);
     grid1->setSpacing(spacing);
 
@@ -377,6 +400,16 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
 
     connect(d->storedAdvancedEditLabel, SIGNAL(clicked()),
             this, SLOT(editStoredAdvancedSearch()));
+
+    connect(d->nlInterpretButton, &QToolButton::clicked,
+            this, &SearchTabHeader::slotNlInterpretClicked);
+
+    connect(d->nlOpenAdvancedButton, &QPushButton::clicked,
+            this, &SearchTabHeader::slotNlOpenAdvanced);
+
+    connect(d->nlRunNowButton, &QPushButton::clicked,
+            this, &SearchTabHeader::slotNlRunNow);
+
 }
 
 SearchTabHeader::~SearchTabHeader()
@@ -390,9 +423,6 @@ SearchWindow* SearchTabHeader::searchWindow() const
     if (!d->searchWindow)
     {
         qCDebug(DIGIKAM_GENERAL_LOG) << "Creating search window";
-
-        // Create the advanced search edit window, deferred from constructor
-
         d->searchWindow = new SearchWindow;
 
         connect(d->searchWindow, SIGNAL(searchEdited(int,QString)),
@@ -707,6 +737,108 @@ QString SearchTabHeader::keywordsFromQuery(const QString& query) const
 
     return KeywordSearch::merge(keywordList);
 }
+
+void SearchTabHeader::slotNlInterpretClicked()
+{
+    const QString text = d->keywordEdit->getText().trimmed();
+
+    if (text.isEmpty())
+    {
+        return;
+    }
+
+    // Claim this text so the keyword edit's editingFinished/timer paths
+    // treat it as already-handled and don't fire a racing keyword search.
+    d->oldKeywordContent = d->keywordEdit->getText();
+    d->keywordEditTimer->stop();
+
+    // searchWindow() lazily creates the dialog (and with it the one
+    // shared engine  model). Connections are made once, on first use.
+    SearchWindow* const window = searchWindow();
+
+    if (!d->nlConnected)
+    {
+        connect(window->queryEngine(), &SearchQueryEngine::intentReady,
+                this, &SearchTabHeader::slotNlIntentReady);
+
+        connect(window->queryEngine(), &SearchQueryEngine::clarificationRequired,
+                this, &SearchTabHeader::slotNlClarificationRequired);
+
+        connect(window->queryEngine(), &SearchQueryEngine::errorOccurred,
+                this, &SearchTabHeader::slotNlError);
+
+        d->nlConnected = true;
+    }
+
+    d->nlInterpretButton->setEnabled(false);
+    window->startInterpretation(text);
+}
+
+void SearchTabHeader::slotNlIntentReady(const SearchQueryIntent& intent)
+{
+    d->nlInterpretButton->setEnabled(true);
+    d->nlPendingIntent = intent;
+
+    d->nlOpenAdvancedButton->setVisible(true);  
+    d->nlRunNowButton->setVisible(true);
+
+    QStringList lines;
+    for (const SearchQueryConstraint& c : intent.constraints)
+    {
+        lines << QString::fromLatin1("%1: %2").arg(c.field, c.value);
+    }
+    d->nlInterpretedLabel->setText(i18n("Interpreted as:\n%1", lines.join(QLatin1Char('\n'))));
+    d->nlInterpretedPanel->show();
+
+}
+
+void SearchTabHeader::slotNlClarificationRequired(const SearchQueryIntent& intent)
+{
+    Q_UNUSED(intent);
+
+    d->nlInterpretButton->setEnabled(true);
+
+    // Ambiguity needs the full dialog: its clarification UI takes over.
+    // The dialog's own describe field re-runs the query there.
+    SearchWindow* const window = searchWindow();
+    window->show();
+    window->raise();
+    window->startInterpretation(d->keywordEdit->getText().trimmed());
+}
+
+void SearchTabHeader::slotNlError(const QString& message)
+{
+    d->nlInterpretButton->setEnabled(true);
+    d->nlInterpretedLabel->setText(message);
+    d->nlOpenAdvancedButton->setVisible(false);
+    d->nlRunNowButton->setVisible(false);
+    d->nlInterpretedPanel->show();
+}
+
+void SearchTabHeader::slotNlRunNow()
+{
+    if (d->nlPendingIntent.isEmpty()) { return; }
+    const QString xml = searchWindow()->intentToXml(d->nlPendingIntent);
+    searchWindow()->hide();   
+    setCurrentSearch(DatabaseSearch::AdvancedSearch, xml);
+    d->nlInterpretedPanel->hide();
+}
+
+void SearchTabHeader::slotNlOpenAdvanced()
+{
+    if (d->nlPendingIntent.isEmpty())
+    {
+        return;
+    }
+
+    SearchWindow* const window = searchWindow();
+    window->reset();
+    window->applyResolvedIntent(d->nlPendingIntent);
+    window->show();
+    window->raise();
+    d->nlInterpretedPanel->hide();
+}
+
 
 } // namespace Digikam
 

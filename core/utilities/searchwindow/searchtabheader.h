@@ -21,6 +21,7 @@
 // Local includes
 
 #include "coredbalbuminfo.h"
+#include "searchqueryintent.h" 
 
 namespace Digikam
 {
@@ -59,6 +60,13 @@ private Q_SLOTS:
     void storedKeywordChanged();
     void editStoredAdvancedSearch();
     void advancedSearchEdited(int id, const QString& query);
+
+    void slotNlInterpretClicked();
+    void slotNlIntentReady(const SearchQueryIntent& intent);
+    void slotNlClarificationRequired(const SearchQueryIntent& intent);
+    void slotNlError(const QString& message);
+    void slotNlRunNow();
+    void slotNlOpenAdvanced();
 
 private:
 

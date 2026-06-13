@@ -18,8 +18,12 @@
 
 #include <QWidget>
 
+#include "searchqueryintent.h" 
+
 namespace Digikam
 {
+    class SearchQueryEngine;           
+    class SearchXmlWriter;
 
 class SearchWindow : public QWidget
 {
@@ -51,6 +55,11 @@ public:
      */
     QString search() const;
 
+    void applyResolvedIntent(const SearchQueryIntent& intent);
+    QString intentToXml(const SearchQueryIntent& intent) const;
+    SearchQueryEngine* queryEngine() const;
+    void startInterpretation(const QString& text);
+
 Q_SIGNALS:
 
     /**
@@ -65,6 +74,15 @@ protected Q_SLOTS:
     void searchCancel();
     void searchTryout();
 
+private Q_SLOTS:
+
+    void slotDescribeSearchSubmitted();
+    void slotNlIntentReady(const SearchQueryIntent& intent);
+    void slotNlClarificationRequired(const SearchQueryIntent& intent);
+    void slotNlError(const QString& message);
+    void slotNlStatus(const QString& message);
+    void slotTranslationFinished();
+
 protected:
 
     void keyPressEvent(QKeyEvent*) override;
@@ -73,6 +91,10 @@ private:
 
     /// @note disabled
     SearchWindow(QWidget*) = delete;
+
+    void setupNlSearch();
+    void writeConstraintToXml(SearchXmlWriter& writer,
+                              const SearchQueryConstraint& c) const;
 
 private:
 
