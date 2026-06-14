@@ -20,10 +20,6 @@ set(libnlsearch_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/searchnlmodelmanager.cpp
 )
 
-# llama.cpp backend is optional at build time.
-
-option(ENABLE_NLSEARCH_LLAMACPP "Build llama.cpp backend for natural-language search" OFF)
-
 if(ENABLE_NLSEARCH_LLAMACPP)
 
     find_package(Llama QUIET)

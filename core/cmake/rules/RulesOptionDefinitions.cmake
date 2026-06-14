@@ -24,3 +24,5 @@ option(ENABLE_DIGIKAM_MODELTEST          "Enable ModelTest on some models for de
 option(ENABLE_SANITIZERS                 "Enable ASAN and UBSAN sanitizers when available (default=OFF)"                      OFF)
 option(BUILD_WITH_CCACHE                 "Use ccache to speed up compilations"                                                OFF)
 option(BUILD_WITH_QT6                    "Build with Qt6, else Qt5"                                                           OFF)
+option(ENABLE_NLSEARCH_LLAMACPP          "Build digiKam with llama.cpp backend for natural-language search (default=OFF)"     OFF)
+
