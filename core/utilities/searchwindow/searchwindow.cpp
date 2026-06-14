@@ -354,7 +354,6 @@ void SearchWindow::slotDescribeSearchSubmitted()
     if (text.isEmpty()) { return; }
 
     d->nlFromDialog = true;          
-    d->describeEdit->setEnabled(false);
     startInterpretation(text);
 }
  
