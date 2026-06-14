@@ -47,7 +47,11 @@ private:
                      SearchIntentResolver& resolver,
                      SearchQueryCache& cache)
     {
-        backend.loadModel(QLatin1String("/dev/null"));
+        // The mock backend ignores the path, loadModel() only flips the
+        // "ready" flag that SearchQueryEngine::isReady() checks. There is no
+        // real model in this test. It validates the backend-independent pipeline.
+        // Model loading is done by the llama backend (ENABLE_NLSEARCH_LLAMACPP).
+        backend.loadModel(QLatin1String("mock-no-model"));
 
         engine.setBackend(&backend);
         engine.setPromptBuilder(&prompts);
