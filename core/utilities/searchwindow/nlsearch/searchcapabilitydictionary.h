@@ -26,11 +26,15 @@
 namespace Digikam
 {
 
-struct DictionaryEntry
+class DictionaryEntry
 {
-    QString     canonicalField;   // e.g. "colorlabel"
-    QStringList aliases;          // e.g. { "color label", "colour label" }
-    QStringList allowedValues;    // e.g. { "red", "orange", ... }; empty = free-form
+public:
+
+    DictionaryEntry() = default;
+
+    QString     canonicalField; // e.g. "colorlabel"
+    QStringList aliases;        // e.g. { "color label", "colour label" }
+    QStringList allowedValues;  // e.g. { "red", "orange", ... }; empty = free-form
 };
 
 class SearchCapabilityDictionary
