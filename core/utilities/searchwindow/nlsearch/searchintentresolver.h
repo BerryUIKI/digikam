@@ -27,8 +27,10 @@ namespace Digikam
 
 class SearchCapabilityDictionary;
 
-struct ResolvedSearchCriteria
+class ResolvedSearchCriteria
 {
+public:
+
     QList<SearchQueryConstraint> resolvedConstraints;
     QStringList                  unresolvedTerms;
     bool                         canApplyDirectly = false;
