@@ -34,8 +34,9 @@ namespace Digikam
  * SearchIntentParser and SearchCapabilityDictionary, never trusted
  * directly from the model output.
  */
-struct SearchQueryConstraint
+class SearchQueryConstraint
 {
+public:
     QString field;   // Canonical field name (e.g. "tag", "picklabel", "daterange", "place")
     QString op;      // Operator (e.g. "eq", "contains", "gte", "between")
     QString value;   // Raw or resolved value (e.g. "landscape", "2025-06-01..2025-08-31")
@@ -52,8 +53,9 @@ struct SearchQueryConstraint
  * SearchIntentResolver, and (after resolution) applied to the
  * Advanced Search UI via SearchWindow programmatic setters.
  */
-struct SearchQueryIntent
+class SearchQueryIntent
 {
+public:
     QList<SearchQueryConstraint> constraints;
 
     // Populated when the model flags an ambiguous term
