@@ -26,7 +26,6 @@ namespace Digikam
 SearchNlModelManager::SearchNlModelManager(QObject* const parent)
     : QObject(parent)
 {
-    m_currentVersion = QLatin1String("v1");
 }
 
 SearchNlModelManager::~SearchNlModelManager()

@@ -65,7 +65,7 @@ private:
 private:
 
     QString m_currentModelPath;
-    QString m_currentVersion;
+    QString m_currentVersion = QLatin1String("v1");
 };
 
 } // namespace Digikam
