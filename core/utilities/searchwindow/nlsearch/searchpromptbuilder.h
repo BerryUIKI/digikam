@@ -17,6 +17,8 @@
 
 #pragma once
 
+#include "digikam_export.h"
+
 // Qt includes
 
 #include <QString>
@@ -25,7 +27,7 @@
 namespace Digikam
 {
 
-class SearchPromptBuilder
+class DIGIKAM_GUI_EXPORT SearchPromptBuilder
 {
 public:
 

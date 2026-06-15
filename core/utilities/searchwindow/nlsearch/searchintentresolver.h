@@ -18,6 +18,8 @@
 
 #pragma once
 
+#include "digikam_export.h"
+
 // Local includes
 
 #include "searchqueryintent.h"
@@ -36,7 +38,7 @@ public:
     bool                         canApplyDirectly = false;
 };
 
-class SearchIntentResolver
+class DIGIKAM_GUI_EXPORT SearchIntentResolver
 {
 public:
 

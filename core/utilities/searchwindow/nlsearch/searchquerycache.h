@@ -15,6 +15,8 @@
 
 #pragma once
 
+#include "digikam_export.h"
+
 // Qt includes
 
 #include <QHash>
@@ -26,7 +28,7 @@
 namespace Digikam
 {
 
-class SearchQueryCache
+class DIGIKAM_GUI_EXPORT SearchQueryCache
 {
 public:
 

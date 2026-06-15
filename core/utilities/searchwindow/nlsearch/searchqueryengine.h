@@ -17,6 +17,8 @@
 
 #pragma once
 
+#include "digikam_export.h"
+
 // Qt includes
 
 #include <QObject>
@@ -36,7 +38,7 @@ class SearchIntentResolver;
 class SearchLanguageBackend;
 class SearchQueryCache;
 
-class SearchQueryEngine : public QObject
+class DIGIKAM_GUI_EXPORT SearchQueryEngine : public QObject
 {
     Q_OBJECT
 

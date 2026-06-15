@@ -18,6 +18,8 @@
 
 #pragma once
 
+#include "digikam_export.h"
+
 // Qt includes
 
 #include <QThread>
@@ -33,7 +35,7 @@ namespace Digikam
 
 class SearchLlamaWorker;
 
-class SearchLlamaBackend : public SearchLanguageBackend
+class DIGIKAM_GUI_EXPORT SearchLlamaBackend : public SearchLanguageBackend
 {
     Q_OBJECT
 

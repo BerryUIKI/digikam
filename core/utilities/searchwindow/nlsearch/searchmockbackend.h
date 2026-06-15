@@ -17,6 +17,8 @@
 
 #pragma once
 
+#include "digikam_export.h"
+
 // Qt includes
 
 #include <QMap>
@@ -28,7 +30,7 @@
 namespace Digikam
 {
 
-class SearchMockBackend : public SearchLanguageBackend
+class DIGIKAM_GUI_EXPORT SearchMockBackend : public SearchLanguageBackend
 {
     Q_OBJECT
 

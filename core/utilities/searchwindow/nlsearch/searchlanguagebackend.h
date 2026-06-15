@@ -17,6 +17,8 @@
 
 #pragma once
 
+#include "digikam_export.h"
+
 // Qt includes
 
 #include <QObject>
@@ -25,7 +27,7 @@
 namespace Digikam
 {
 
-class SearchLanguageBackend : public QObject
+class DIGIKAM_GUI_EXPORT SearchLanguageBackend : public QObject
 {
     Q_OBJECT
 

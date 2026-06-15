@@ -17,6 +17,8 @@
 
 #pragma once
 
+#include "digikam_export.h"
+
 // Qt includes
 
 #include <QByteArray>
@@ -28,7 +30,7 @@
 namespace Digikam
 {
 
-class SearchIntentParser
+class DIGIKAM_GUI_EXPORT SearchIntentParser
 {
 public:
 
