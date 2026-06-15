@@ -68,6 +68,11 @@ private:
     QString             m_modelPath;
     bool                m_modelLoaded = false;
     int                 m_maxTokens   = 256;
+
+    // Sampling temperature for token generation. 0.0 = greedy/deterministic
+    // decoding which always pick the most-probable token, which is what we want:
+    // the model must emit structured, parseable JSON, so reproducible output
+    // matters more than creative variation. Higher values would add randomness.
     float               m_temperature = 0.0F;  
 };
 
