@@ -65,7 +65,7 @@ private Q_SLOTS:
     void initTestCase()
     {
         qRegisterMetaType<SearchQueryIntent>("SearchQueryIntent");
-        qRegisterMetaType<SearchQueryIntent>();     
+        qRegisterMetaType<SearchQueryConstraint>("SearchQueryConstraint");  
     }
 
     void testCompositeQueryResolves()

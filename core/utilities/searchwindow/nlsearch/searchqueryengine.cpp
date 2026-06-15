@@ -26,6 +26,8 @@ namespace Digikam
 SearchQueryEngine::SearchQueryEngine(QObject* const parent)
     : QObject(parent)
 {
+    qRegisterMetaType<SearchQueryConstraint>("SearchQueryConstraint");
+    qRegisterMetaType<SearchQueryIntent>("SearchQueryIntent");
 }
 
 SearchQueryEngine::~SearchQueryEngine()
