@@ -15,8 +15,6 @@
 
 #pragma once
 
-#include "digikam_export.h"
-
 // Qt includes
 
 #include <QHash>
@@ -24,6 +22,7 @@
 // Local includes
 
 #include "searchqueryintent.h"
+#include "digikam_export.h"
 
 namespace Digikam
 {

@@ -18,11 +18,10 @@
 
 #pragma once
 
-#include "digikam_export.h"
-
 // Local includes
 
 #include "searchqueryintent.h"
+#include "digikam_export.h"
 
 namespace Digikam
 {

@@ -17,8 +17,6 @@
 
 #pragma once
 
-#include "digikam_export.h"
-
 // Qt includes
 
 #include <QMap>
@@ -26,6 +24,7 @@
 // Local includes
 
 #include "searchlanguagebackend.h"
+#include "digikam_export.h"
 
 namespace Digikam
 {

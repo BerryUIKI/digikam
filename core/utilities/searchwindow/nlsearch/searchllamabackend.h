@@ -18,8 +18,6 @@
 
 #pragma once
 
-#include "digikam_export.h"
-
 // Qt includes
 
 #include <QThread>
@@ -28,7 +26,8 @@
 // Local includes
 
 #include "searchlanguagebackend.h"
-#include "digikam_config.h"     // for HAVE_LLAMACPP
+#include "digikam_export.h"
+#include "digikam_config.h"
 
 namespace Digikam
 {

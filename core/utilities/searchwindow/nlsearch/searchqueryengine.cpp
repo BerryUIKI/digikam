@@ -9,6 +9,9 @@
  * ============================================================ */
 
 #include "searchqueryengine.h"
+
+// KDE includes
+
 #include <klocalizedstring.h>
 
 // Local includes

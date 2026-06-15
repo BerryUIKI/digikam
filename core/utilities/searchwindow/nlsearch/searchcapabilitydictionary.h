@@ -17,13 +17,15 @@
 
 #pragma once
 
-#include "digikam_export.h"
-
 // Qt includes
 
 #include <QMap>
 #include <QString>
 #include <QStringList>
+
+// Local includes
+
+#include "digikam_export.h"
 
 namespace Digikam
 {
