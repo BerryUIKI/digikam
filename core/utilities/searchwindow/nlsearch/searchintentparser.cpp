@@ -59,10 +59,6 @@ const QSet<QString>& supportedOps()
 namespace Digikam
 {
 
-SearchIntentParser::SearchIntentParser()
-{
-}
-
 QByteArray SearchIntentParser::extractJsonObject(const QByteArray& raw) const
 {
     const int start = raw.indexOf('{');

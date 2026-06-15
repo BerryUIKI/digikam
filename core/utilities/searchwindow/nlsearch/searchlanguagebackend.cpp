@@ -18,9 +18,7 @@ SearchLanguageBackend::SearchLanguageBackend(QObject* const parent)
 {
 }
 
-SearchLanguageBackend::~SearchLanguageBackend()
-{
-}
+SearchLanguageBackend::~SearchLanguageBackend() = default;
 
 void SearchLanguageBackend::cancel()
 {

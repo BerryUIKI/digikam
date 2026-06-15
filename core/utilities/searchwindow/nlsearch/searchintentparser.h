@@ -34,7 +34,7 @@ class DIGIKAM_GUI_EXPORT SearchIntentParser
 {
 public:
 
-    SearchIntentParser();
+    SearchIntentParser() = default;
 
     /**
      * Parse raw model output. Tolerates leading/trailing junk by

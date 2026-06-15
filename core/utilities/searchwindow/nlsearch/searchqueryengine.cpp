@@ -30,9 +30,7 @@ SearchQueryEngine::SearchQueryEngine(QObject* const parent)
     qRegisterMetaType<SearchQueryIntent>("SearchQueryIntent");
 }
 
-SearchQueryEngine::~SearchQueryEngine()
-{
-}
+SearchQueryEngine::~SearchQueryEngine() = default;
 
 void SearchQueryEngine::setBackend(SearchLanguageBackend* const backend)
 {

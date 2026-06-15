@@ -28,9 +28,7 @@ SearchNlModelManager::SearchNlModelManager(QObject* const parent)
 {
 }
 
-SearchNlModelManager::~SearchNlModelManager()
-{
-}
+SearchNlModelManager::~SearchNlModelManager() = default;
 
 QString SearchNlModelManager::assetFileName()
 {

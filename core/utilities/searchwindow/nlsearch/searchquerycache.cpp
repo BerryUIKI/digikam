@@ -13,10 +13,6 @@
 namespace Digikam
 {
 
-SearchQueryCache::SearchQueryCache()
-{
-}
-
 QString SearchQueryCache::normalizeKey(const QString& query) const
 {
     return query.trimmed().toLower().simplified();

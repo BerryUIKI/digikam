@@ -32,7 +32,7 @@ class DIGIKAM_GUI_EXPORT SearchQueryCache
 {
 public:
 
-    SearchQueryCache();
+    SearchQueryCache() = default;
 
     // Lookup by normalized query text (case-insensitive, trimmed).
     bool lookup(const QString& query, SearchQueryIntent* outIntent) const;
