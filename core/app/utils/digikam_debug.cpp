@@ -77,6 +77,8 @@ Q_LOGGING_CATEGORY(DIGIKAM_MEDIASRV_LOG_WARN,           "digikam.mediaserver.war
 Q_LOGGING_CATEGORY(DIGIKAM_MEDIASRV_LOG_CRITICAL,       "digikam.mediaserver.critical",     QtWarningMsg)
 Q_LOGGING_CATEGORY(DIGIKAM_MEDIASRV_LOG_FATAL,          "digikam.mediaserver.fatal",        QtCriticalMsg)
 
+Q_LOGGING_CATEGORY(DIGIKAM_NLSEARCH_LOG,                "digikam.nlsearch",                 QtInfoMsg)
+
 void digikamSetDebugFilterRules(bool on)
 {
     if (on)

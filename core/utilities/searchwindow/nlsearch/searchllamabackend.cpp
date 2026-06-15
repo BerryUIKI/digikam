@@ -70,7 +70,7 @@ bool SearchLlamaBackend::loadModel(const QString& modelPath)
 {
     if (!QFileInfo::exists(modelPath))
     {
-        qCWarning(DIGIKAM_GENERAL_LOG) << "NL search: model file not found:" << modelPath;
+        qCWarning(DIGIKAM_NLSEARCH_LOG) << "NL search: model file not found:" << modelPath;
 
         return false;
     }

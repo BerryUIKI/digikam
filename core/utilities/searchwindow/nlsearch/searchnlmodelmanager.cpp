@@ -78,7 +78,7 @@ void SearchNlModelManager::ensureModelAvailable()
 
     // TODO: wire FilesDownloader from core/utilities/setup/downloader:
 
-    qCInfo(DIGIKAM_GENERAL_LOG) << "NL search model missing, download required:"
+    qCInfo(DIGIKAM_NLSEARCH_LOG) << "NL search model missing, download required:"
                                 << defaultModelPath();
 
     Q_EMIT modelError(QLatin1String("Model download not implemented yet (boilerplate)."));

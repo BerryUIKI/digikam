@@ -87,7 +87,7 @@ void SearchQueryEngine::interpretQuery(const QString& originalText,
 
         if (m_cache->lookup(m_normalizedQuery, &cached))
         {
-            qCDebug(DIGIKAM_GENERAL_LOG) << "NL search: cache hit for" << m_normalizedQuery;
+            qCDebug(DIGIKAM_NLSEARCH_LOG) << "NL search: cache hit for" << m_normalizedQuery;
 
             QMetaObject::invokeMethod(this, [this, cached]()
             {
