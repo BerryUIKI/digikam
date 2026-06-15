@@ -187,3 +187,5 @@ void SearchQueryEngine::slotBackendError(const QString& error)
 }
 
 } // namespace Digikam
+
+#include "moc_searchqueryengine.cpp"

@@ -208,3 +208,5 @@ void SearchLlamaWorker::doUnload()
 }
 
 } // namespace Digikam
+
+#include "moc_searchllamabackend.cpp"

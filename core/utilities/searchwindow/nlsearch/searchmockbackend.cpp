@@ -109,3 +109,5 @@ void SearchMockBackend::runInference(const QString& prompt)
 }
 
 } // namespace Digikam
+
+#include "moc_searchmockbackend.cpp"

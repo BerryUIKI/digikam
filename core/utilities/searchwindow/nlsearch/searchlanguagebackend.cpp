@@ -28,3 +28,5 @@ void SearchLanguageBackend::cancel()
 }
 
 } // namespace Digikam
+
+#include "moc_searchlanguagebackend.cpp"

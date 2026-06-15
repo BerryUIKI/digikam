@@ -92,3 +92,5 @@ void SearchNlModelManager::cleanupObsoleteModels()
 }
 
 } // namespace Digikam
+
+#include "moc_searchnlmodelmanager.cpp"
