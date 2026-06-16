@@ -20,7 +20,7 @@ SearchLanguageBackend::SearchLanguageBackend(QObject* const parent)
 
 SearchLanguageBackend::~SearchLanguageBackend() = default;
 
-void SearchLanguageBackend::cancel()
+void SearchLanguageBackend::slotCancel()
 {
     // Default: no-op. Backends that support cancellation override this.
 }

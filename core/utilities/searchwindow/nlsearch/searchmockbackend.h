@@ -52,7 +52,7 @@ public:
 
 public Q_SLOTS:
 
-    void runInference(const QString& prompt) override;
+    void slotRunInference(const QString& prompt) override;
 
 private:
 

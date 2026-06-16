@@ -34,27 +34,27 @@ SearchLlamaBackend::SearchLlamaBackend(QObject* const parent)
     connect(&m_workerThread, &QThread::finished,
             m_worker, &QObject::deleteLater);
 
-    connect(this, &SearchLlamaBackend::requestLoad,
-            m_worker, &SearchLlamaWorker::doLoad);
+    connect(this, &SearchLlamaBackend::signalRequestLoad,
+            m_worker, &SearchLlamaWorker::slotDoLoad);
 
-    connect(this, &SearchLlamaBackend::requestInference,
-            m_worker, &SearchLlamaWorker::doInference);
+    connect(this, &SearchLlamaBackend::signalRequestInference,
+            m_worker, &SearchLlamaWorker::slotDoInference);
 
-    connect(m_worker, &SearchLlamaWorker::loaded,
+    connect(m_worker, &SearchLlamaWorker::signalLoaded,
             this, [this](bool ok)
         {
             m_modelLoaded = ok;
-            Q_EMIT modelLoaded(ok);
+            Q_EMIT signalModelLoaded(ok);
         });
 
-    connect(m_worker, &SearchLlamaWorker::outputReady,
-            this, &SearchLlamaBackend::rawOutputReady);
+    connect(m_worker, &SearchLlamaWorker::signalOutputReady,
+            this, &SearchLlamaBackend::signalRawOutputReady);
 
-    connect(m_worker, &SearchLlamaWorker::error,
-            this, &SearchLlamaBackend::inferenceError);
+    connect(m_worker, &SearchLlamaWorker::signalError,
+            this, &SearchLlamaBackend::signalInferenceError);
 
-    connect(m_worker, &SearchLlamaWorker::progress,
-            this, &SearchLlamaBackend::inferenceProgress);
+    connect(m_worker, &SearchLlamaWorker::signalProgress,
+            this, &SearchLlamaBackend::signalInferenceProgress);
 
     m_workerThread.start();
 }
@@ -77,14 +77,14 @@ bool SearchLlamaBackend::loadModel(const QString& modelPath)
 
     m_modelPath = modelPath;
 
-    Q_EMIT requestLoad(modelPath);
+    Q_EMIT signalRequestLoad(modelPath);
 
     return true;
 }
 
 void SearchLlamaBackend::unloadModel()
 {
-    QMetaObject::invokeMethod(m_worker, "doUnload", Qt::QueuedConnection);
+    QMetaObject::invokeMethod(m_worker, "slotDoUnload", Qt::QueuedConnection);
     m_modelLoaded = false;
 }
 
@@ -113,19 +113,19 @@ void SearchLlamaBackend::setTemperature(float temperature)
     m_temperature = temperature;
 }
 
-void SearchLlamaBackend::runInference(const QString& prompt)
+void SearchLlamaBackend::slotRunInference(const QString& prompt)
 {
     if (!m_modelLoaded)
     {
-        Q_EMIT inferenceError(QLatin1String("Model is not loaded."));
+        Q_EMIT signalInferenceError(QLatin1String("Model is not loaded."));
 
         return;
     }
 
-    Q_EMIT requestInference(prompt, m_maxTokens, m_temperature);
+    Q_EMIT signalRequestInference(prompt, m_maxTokens, m_temperature);
 }
 
-void SearchLlamaBackend::cancel()
+void SearchLlamaBackend::slotCancel()
 {
     m_worker->requestCancel();
 }
@@ -137,7 +137,7 @@ SearchLlamaWorker::SearchLlamaWorker(QObject* const parent)
 
 SearchLlamaWorker::~SearchLlamaWorker()
 {
-    doUnload();
+    slotDoUnload();
 }
 
 void SearchLlamaWorker::requestCancel()
@@ -145,31 +145,31 @@ void SearchLlamaWorker::requestCancel()
     m_cancelRequested.storeRelaxed(1);
 }
 
-void SearchLlamaWorker::doLoad(const QString& modelPath)
+void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
 {
 
 #ifdef HAVE_LLAMACPP
 
-    doUnload();
+    slotDoUnload();
 
     // TODO: expose n_ctx / n_threads as settings.
 
     Q_UNUSED(modelPath);
 
     const bool ok = (m_model != nullptr) && (m_context != nullptr);
-    Q_EMIT loaded(ok);
+    Q_EMIT signalLoaded(ok);
 
 #else
 
     Q_UNUSED(modelPath);
-    Q_EMIT error(QLatin1String("digiKam was built without llama.cpp support."));
-    Q_EMIT loaded(false);
+    Q_EMIT signalError(QLatin1String("digiKam was built without llama.cpp support."));
+    Q_EMIT signalLoaded(false);
 
 #endif
 
 }
 
-void SearchLlamaWorker::doInference(const QString& prompt, int maxTokens, float temperature)
+void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, float temperature)
 {
     m_cancelRequested.storeRelaxed(0);
 
@@ -181,7 +181,7 @@ void SearchLlamaWorker::doInference(const QString& prompt, int maxTokens, float 
     Q_UNUSED(maxTokens);
     Q_UNUSED(temperature);
 
-    Q_EMIT error(QLatin1String("llama.cpp decode loop not implemented yet."));
+    Q_EMIT signalError(QLatin1String("llama.cpp decode loop not implemented yet."));
 
 #else
 
@@ -189,13 +189,13 @@ void SearchLlamaWorker::doInference(const QString& prompt, int maxTokens, float 
     Q_UNUSED(maxTokens);
     Q_UNUSED(temperature);
 
-    Q_EMIT error(QLatin1String("digiKam was built without llama.cpp support."));
+    Q_EMIT signalError(QLatin1String("digiKam was built without llama.cpp support."));
 
 #endif
 
 }
 
-void SearchLlamaWorker::doUnload()
+void SearchLlamaWorker::slotDoUnload()
 {
 
 #ifdef HAVE_LLAMACPP

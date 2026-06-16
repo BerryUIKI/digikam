@@ -6,8 +6,8 @@
  * Date        : 2026-06-10
  * Description : Central coordinator of the NL search subsystem.
  *               Flow: query -> cache check -> prompt -> backend ->
- *               parse -> resolve -> intentReady() or
- *               clarificationRequired() back to the UI.
+ *               parse -> resolve -> signalIntentReady() or
+ *               signalClarificationRequired() back to the UI.
  *
  * SPDX-FileCopyrightText: 2026 by Srirupa Datta <srirupa dot sps at gmail dot com>
  *
@@ -69,21 +69,21 @@ public Q_SLOTS:
      * normalizedText: post-DOnlineTranslator text, or empty to reuse
      * the original (translation disabled / failed -> fallback).
      */
-    void interpretQuery(const QString& originalText,
+    void slotInterpretQuery(const QString& originalText,
                         const QString& normalizedText);
 
-    void cancel();
+    void slotCancel();
 
 Q_SIGNALS:
 
     // Resolved, unambiguous: UI can populate Advanced Search fields.
-    void intentReady(const SearchQueryIntent& intent);
+    void signalIntentReady(const SearchQueryIntent& intent);
 
     // Ambiguous: UI must show clarification choices, never guess.
-    void clarificationRequired(const SearchQueryIntent& intent);
+    void signalClarificationRequired(const SearchQueryIntent& intent);
 
-    void errorOccurred(const QString& message);
-    void statusMessage(const QString& message);
+    void signalErrorOccurred(const QString& message);
+    void signalStatusMessage(const QString& message);
 
 private Q_SLOTS:
 

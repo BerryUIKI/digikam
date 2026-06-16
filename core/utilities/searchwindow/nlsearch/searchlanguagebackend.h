@@ -41,7 +41,7 @@ public:
     /**
      * Load the model from a local path (resolved by SearchNlModelManager).
      * Implementations should perform heavy loading off the GUI thread and
-     * report completion through modelLoaded().
+     * report completion through signalModelLoaded().
      * Returns false immediately if the path is invalid.
      */
     virtual bool loadModel(const QString& modelPath) = 0;
@@ -57,19 +57,19 @@ public Q_SLOTS:
 
     /**
      * Run inference asynchronously. Result is delivered via
-     * rawOutputReady() or inferenceError(). Implementations must be
+     * signalRawOutputReady() or signalInferenceError(). Implementations must be
      * safe to call from the GUI thread and must not block it.
      */
-    virtual void runInference(const QString& prompt) = 0;
+    virtual void slotRunInference(const QString& prompt) = 0;
 
-    virtual void cancel();
+    virtual void slotCancel();
 
 Q_SIGNALS:
 
-    void rawOutputReady(const QString& output);
-    void inferenceError(const QString& errorMessage);
-    void modelLoaded(bool success);
-    void inferenceProgress(int step);
+    void signalRawOutputReady(const QString& output);
+    void signalInferenceError(const QString& errorMessage);
+    void signalModelLoaded(bool success);
+    void signalInferenceProgress(int step);
 };
 
 } // namespace Digikam

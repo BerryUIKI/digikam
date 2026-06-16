@@ -79,9 +79,9 @@ private Q_SLOTS:
         SearchQueryCache cache;
         buildEngine(engine, backend, prompts, parser, dict, resolver, cache);
 
-        QSignalSpy readySpy(&engine, &SearchQueryEngine::intentReady);
+        QSignalSpy readySpy(&engine, &SearchQueryEngine::signalIntentReady);
 
-        engine.interpretQuery(QLatin1String("landscape photos with red labels"),
+        engine.slotInterpretQuery(QLatin1String("landscape photos with red labels"),
                               QString());
 
         QVERIFY(readySpy.wait(2000));
@@ -105,10 +105,10 @@ private Q_SLOTS:
         SearchQueryCache cache;
         buildEngine(engine, backend, prompts, parser, dict, resolver, cache);
 
-        QSignalSpy clarSpy(&engine, &SearchQueryEngine::clarificationRequired);
-        QSignalSpy readySpy(&engine, &SearchQueryEngine::intentReady);
+        QSignalSpy clarSpy(&engine, &SearchQueryEngine::signalClarificationRequired);
+        QSignalSpy readySpy(&engine, &SearchQueryEngine::signalIntentReady);
 
-        engine.interpretQuery(QLatin1String("best photos from last summer"),
+        engine.slotInterpretQuery(QLatin1String("best photos from last summer"),
                               QString());
 
         QVERIFY(clarSpy.wait(2000));
@@ -131,9 +131,9 @@ private Q_SLOTS:
         SearchQueryCache cache;
         buildEngine(engine, backend, prompts, parser, dict, resolver, cache);
 
-        QSignalSpy errorSpy(&engine, &SearchQueryEngine::errorOccurred);
+        QSignalSpy errorSpy(&engine, &SearchQueryEngine::signalErrorOccurred);
 
-        engine.interpretQuery(QLatin1String("my happiest photos"), QString());
+        engine.slotInterpretQuery(QLatin1String("my happiest photos"), QString());
 
         QVERIFY(errorSpy.wait(2000));
     }
@@ -149,16 +149,16 @@ private Q_SLOTS:
         SearchQueryCache cache;
         buildEngine(engine, backend, prompts, parser, dict, resolver, cache);
 
-        QSignalSpy readySpy(&engine, &SearchQueryEngine::intentReady);
+        QSignalSpy readySpy(&engine, &SearchQueryEngine::signalIntentReady);
 
-        engine.interpretQuery(QLatin1String("photos from Paris in 2023"), QString());
+        engine.slotInterpretQuery(QLatin1String("photos from Paris in 2023"), QString());
         QVERIFY(readySpy.wait(2000));
         QCOMPARE(cache.size(), 1);
 
         // Unload model: a cache hit must still answer instantly.
         backend.unloadModel();
 
-        engine.interpretQuery(QLatin1String("Photos from PARIS in 2023  "), QString());
+        engine.slotInterpretQuery(QLatin1String("Photos from PARIS in 2023  "), QString());
         QVERIFY(readySpy.wait(2000));
         QCOMPARE(readySpy.count(), 2);
     }

@@ -326,16 +326,16 @@ void SearchWindow::setupNlSearch()
  
     // TODO: collection-aware prompt hints
  
-    connect(d->nlEngine, &SearchQueryEngine::intentReady,
+    connect(d->nlEngine, &SearchQueryEngine::signalIntentReady,
             this, &SearchWindow::slotNlIntentReady);
  
-    connect(d->nlEngine, &SearchQueryEngine::clarificationRequired,
+    connect(d->nlEngine, &SearchQueryEngine::signalClarificationRequired,
             this, &SearchWindow::slotNlClarificationRequired);
  
-    connect(d->nlEngine, &SearchQueryEngine::errorOccurred,
+    connect(d->nlEngine, &SearchQueryEngine::signalErrorOccurred,
             this, &SearchWindow::slotNlError);
  
-    connect(d->nlEngine, &SearchQueryEngine::statusMessage,
+    connect(d->nlEngine, &SearchQueryEngine::signalStatusMessage,
             this, &SearchWindow::slotNlStatus);
  
     KSharedConfigPtr config = KSharedConfig::openConfig();
@@ -365,7 +365,7 @@ void SearchWindow::startInterpretation(const QString& text)
     Q_UNUSED(d->nlTranslate);
     Q_UNUSED(d->pendingNlText);
  
-    d->nlEngine->interpretQuery(text, QString());
+    d->nlEngine->slotInterpretQuery(text, QString());
 }
  
 void SearchWindow::slotTranslationFinished()

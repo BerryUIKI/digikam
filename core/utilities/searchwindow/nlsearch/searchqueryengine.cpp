@@ -46,10 +46,10 @@ void SearchQueryEngine::setBackend(SearchLanguageBackend* const backend)
 
     if (m_backend)
     {
-        connect(m_backend, &SearchLanguageBackend::rawOutputReady,
+        connect(m_backend, &SearchLanguageBackend::signalRawOutputReady,
                 this, &SearchQueryEngine::slotRawOutputReady);
 
-        connect(m_backend, &SearchLanguageBackend::inferenceError,
+        connect(m_backend, &SearchLanguageBackend::signalInferenceError,
                 this, &SearchQueryEngine::slotBackendError);
     }
 }
@@ -69,12 +69,12 @@ bool SearchQueryEngine::isReady() const
             m_promptBuilder && m_parser && m_resolver);
 }
 
-void SearchQueryEngine::interpretQuery(const QString& originalText,
+void SearchQueryEngine::slotInterpretQuery(const QString& originalText,
                                        const QString& normalizedText)
 {
     if (m_busy)
     {
-        Q_EMIT statusMessage(i18n("A query is already being interpreted."));
+        Q_EMIT signalStatusMessage(i18n("A query is already being interpreted."));
 
         return;
     }
@@ -94,7 +94,7 @@ void SearchQueryEngine::interpretQuery(const QString& originalText,
 
             QMetaObject::invokeMethod(this, [this, cached]()
             {
-                Q_EMIT intentReady(cached);
+                Q_EMIT signalIntentReady(cached);
             }, Qt::QueuedConnection);
 
             return;
@@ -103,7 +103,7 @@ void SearchQueryEngine::interpretQuery(const QString& originalText,
 
     if (!isReady())
     {
-        Q_EMIT errorOccurred(i18n("Natural-language search is not ready (model not loaded)."));
+        Q_EMIT signalErrorOccurred(i18n("Natural-language search is not ready (model not loaded)."));
 
         return;
     }
@@ -115,16 +115,16 @@ void SearchQueryEngine::interpretQuery(const QString& originalText,
 
     m_busy = true;
 
-    Q_EMIT statusMessage(i18n("Interpreting your search..."));
+    Q_EMIT signalStatusMessage(i18n("Interpreting your search..."));
 
-    m_backend->runInference(prompt);
+    m_backend->slotRunInference(prompt);
 }
 
-void SearchQueryEngine::cancel()
+void SearchQueryEngine::slotCancel()
 {
     if (m_backend)
     {
-        m_backend->cancel();
+        m_backend->slotCancel();
     }
 
     m_busy = false;
@@ -140,7 +140,7 @@ void SearchQueryEngine::slotRawOutputReady(const QString& output)
 
     if (!intent.parseSucceeded)
     {
-        Q_EMIT errorOccurred(i18n("Could not interpret the model output. "
+        Q_EMIT signalErrorOccurred(i18n("Could not interpret the model output. "
                                 "Please refine the description or create rules manually."));
 
         return;
@@ -150,7 +150,7 @@ void SearchQueryEngine::slotRawOutputReady(const QString& output)
 
     if (intent.requiresClarification)
     {
-        Q_EMIT clarificationRequired(intent);
+        Q_EMIT signalClarificationRequired(intent);
 
         return;
     }
@@ -159,7 +159,7 @@ void SearchQueryEngine::slotRawOutputReady(const QString& output)
     {
         // Nothing understood: explicit message, leave user in normal
 
-        Q_EMIT errorOccurred(i18n("Could not map '%1' to tags, album names, captions, "
+        Q_EMIT signalErrorOccurred(i18n("Could not map '%1' to tags, album names, captions, "
                                 "location, or date. Please refine the description "
                                 "or create rules manually.", m_originalQuery));
 
@@ -170,7 +170,7 @@ void SearchQueryEngine::slotRawOutputReady(const QString& output)
 
     if (!criteria.unresolvedTerms.isEmpty())
     {
-        Q_EMIT statusMessage(i18n("Some terms could not be mapped and were skipped: %1",
+        Q_EMIT signalStatusMessage(i18n("Some terms could not be mapped and were skipped: %1",
                           criteria.unresolvedTerms.join(QLatin1String(", "))));
     }
 
@@ -179,14 +179,14 @@ void SearchQueryEngine::slotRawOutputReady(const QString& output)
         m_cache->store(m_normalizedQuery, intent);
     }
 
-    Q_EMIT intentReady(intent);
+    Q_EMIT signalIntentReady(intent);
 }
 
 void SearchQueryEngine::slotBackendError(const QString& error)
 {
     m_busy = false;
 
-    Q_EMIT errorOccurred(error);
+    Q_EMIT signalErrorOccurred(error);
 }
 
 } // namespace Digikam

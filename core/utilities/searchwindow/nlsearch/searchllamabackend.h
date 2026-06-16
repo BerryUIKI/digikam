@@ -1,4 +1,4 @@
-/* ============================================================
+signalLoaded/* ============================================================
  *
  * This file is a part of digiKam project
  * https://www.digikam.org
@@ -54,13 +54,13 @@ public:
 
 public Q_SLOTS:
 
-    void runInference(const QString& prompt) override;
-    void cancel()                            override;
+    void slotRunInference(const QString& prompt) override;
+    void slotCancel()                            override;
 
 Q_SIGNALS:
 
-    void requestLoad(const QString& path);
-    void requestInference(const QString& prompt, int maxTokens, float temperature);
+    void signalRequestLoad(const QString& path);
+    void signalRequestInference(const QString& prompt, int maxTokens, float temperature);
 
 private:
 
@@ -95,16 +95,16 @@ public:
 
 public Q_SLOTS:
 
-    void doLoad(const QString& modelPath);
-    void doInference(const QString& prompt, int maxTokens, float temperature);
-    void doUnload();
+    void slotDoLoad(const QString& modelPath);
+    void slotDoInference(const QString& prompt, int maxTokens, float temperature);
+    void slotDoUnload();
 
 Q_SIGNALS:
 
-    void loaded(bool success);
-    void outputReady(const QString& output);
-    void error(const QString& message);
-    void progress(int step);
+    void signalLoaded(bool success);
+    void signalOutputReady(const QString& output);
+    void signalError(const QString& message);
+    void signalProgress(int step);
 
 private:
 

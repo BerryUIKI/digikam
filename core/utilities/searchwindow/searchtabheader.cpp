@@ -758,13 +758,13 @@ void SearchTabHeader::slotNlInterpretClicked()
 
     if (!d->nlConnected)
     {
-        connect(window->queryEngine(), &SearchQueryEngine::intentReady,
+        connect(window->queryEngine(), &SearchQueryEngine::signalIntentReady,
                 this, &SearchTabHeader::slotNlIntentReady);
 
-        connect(window->queryEngine(), &SearchQueryEngine::clarificationRequired,
+        connect(window->queryEngine(), &SearchQueryEngine::signalClarificationRequired,
                 this, &SearchTabHeader::slotNlClarificationRequired);
 
-        connect(window->queryEngine(), &SearchQueryEngine::errorOccurred,
+        connect(window->queryEngine(), &SearchQueryEngine::signalErrorOccurred,
                 this, &SearchTabHeader::slotNlError);
 
         d->nlConnected = true;

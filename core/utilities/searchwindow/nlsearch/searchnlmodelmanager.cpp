@@ -69,7 +69,7 @@ void SearchNlModelManager::ensureModelAvailable()
     {
         m_currentModelPath = defaultModelPath();
 
-        Q_EMIT modelReady(m_currentModelPath);
+        Q_EMIT signalModelReady(m_currentModelPath);
 
         return;
     }
@@ -79,7 +79,7 @@ void SearchNlModelManager::ensureModelAvailable()
     qCInfo(DIGIKAM_NLSEARCH_LOG) << "NL search model missing, download required:"
                                 << defaultModelPath();
 
-    Q_EMIT modelError(QLatin1String("Model download not implemented yet (boilerplate)."));
+    Q_EMIT signalModelError(QLatin1String("Model download not implemented yet (boilerplate)."));
 }
 
 void SearchNlModelManager::cleanupObsoleteModels()

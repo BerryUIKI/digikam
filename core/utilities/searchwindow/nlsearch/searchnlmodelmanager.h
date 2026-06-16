@@ -49,7 +49,7 @@ public:
     /**
      * Ensure the model file exists locally. If missing, triggers a
      * download through FilesDownloader (KDE-hosted asset). Emits
-     * modelReady() or modelError().
+     * signalModelReady() or signalModelError().
      */
     void ensureModelAvailable();
 
@@ -58,9 +58,9 @@ public:
 
 Q_SIGNALS:
 
-    void downloadProgress(qint64 received, qint64 total);
-    void modelReady(const QString& localPath);
-    void modelError(const QString& message);
+    void signalDownloadProgress(qint64 received, qint64 total);
+    void signalModelReady(const QString& localPath);
+    void signalModelError(const QString& message);
 
 private:
 

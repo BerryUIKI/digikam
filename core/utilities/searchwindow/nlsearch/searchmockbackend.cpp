@@ -56,7 +56,7 @@ bool SearchMockBackend::loadModel(const QString& modelPath)
     m_path   = modelPath;
     m_loaded = true;
 
-    Q_EMIT modelLoaded(true);
+    Q_EMIT signalModelLoaded(true);
 
     return true;
 }
@@ -87,7 +87,7 @@ void SearchMockBackend::addCannedResponse(const QString& querySubstring,
     m_canned.insert(querySubstring, jsonOutput);
 }
 
-void SearchMockBackend::runInference(const QString& prompt)
+void SearchMockBackend::slotRunInference(const QString& prompt)
 {
     // Deliver asynchronously to mimic real backend behaviour and keep
     // signal/slot ordering identical to the llama.cpp backend.
@@ -97,14 +97,14 @@ void SearchMockBackend::runInference(const QString& prompt)
             {
                 if (prompt.contains(it.key(), Qt::CaseInsensitive))
                 {
-                    Q_EMIT rawOutputReady(it.value());
+                    Q_EMIT signalRawOutputReady(it.value());
 
                     return;
                 }
             }
 
             // Unknown query: empty but valid schema (nothing understood).
-            Q_EMIT rawOutputReady(QLatin1String(R"({ "constraints": [], "clarification": null })"));
+            Q_EMIT signalRawOutputReady(QLatin1String(R"({ "constraints": [], "clarification": null })"));
         });
 }
 

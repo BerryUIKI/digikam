@@ -23,9 +23,9 @@ SearchIntentParser             (extract JSON, whitelist-validate every field/op)
 SearchIntentResolver  <──────>  SearchCapabilityDictionary   (aliases, values)
       │
 emits exactly one of:
-   intentReady              > populate Advanced Search via Search XML
-   clarificationRequired    > ask the user (e.g. "best" is ambiguous)
-   errorOccurred            > explain; leave the dialog untouched
+   signalIntentReady              > populate Advanced Search via Search XML
+   signalClarificationRequired    > ask the user (e.g. "best" is ambiguous)
+   signalErrorOccurred            > explain; leave the dialog untouched
 ```
 
 
@@ -53,11 +53,11 @@ Abstract `QObject` interface that isolates the pipeline from any specific model
 runtime.
 
 - `loadModel(path)` / `unloadModel()` / `isModelLoaded()` - model lifecycle.
-- `runInference(prompt)` *(slot)* - must return immediately; the result arrives
+- `slotRunInference(prompt)` *(slot)* - must return immediately; the result arrives
   later via signal. This contract is what keeps the GUI responsive.
 - `cancel()` *(slot)* - best-effort cancellation.
-- Signals: `rawOutputReady(QString)`, `inferenceError(QString)`,
-  `modelLoaded()`, `inferenceProgress(...)`.
+- Signals: `signalRawOutputReady(QString)`, `signalInferenceError(QString)`,
+  `signalModelLoaded()`, `signalInferenceProgress(...)`.
 
 ### `SearchMockBackend`  (`searchmockbackend.h/.cpp`)
 
@@ -66,7 +66,7 @@ pipeline run and be unit-tested without a real model, and remains useful for CI
 permanently.
 
 - `addCannedResponse(querySubstring, json)` - register a fixed output.
-- `runInference(prompt)` - substring-matches the prompt and emits the matching
+- `slotRunInference(prompt)` - substring-matches the prompt and emits the matching
   JSON via `QTimer::singleShot(0, …)`, so the asynchronous signal ordering is
   identical to a real backend. An unmatched prompt yields a valid-but-empty
   schema, which exercises the engine's "nothing understood" path.
@@ -79,7 +79,7 @@ llama.cpp / GGUF backend, compiled only when `ENABLE_NLSEARCH_LLAMACPP=ON`
 signal router; a `SearchLlamaWorker` lives on a `QThread` and owns the model and
 context as opaque handles so `llama.h` never leaks into other headers.
 
-- `loadModel` / `runInference` / `cancel` forward to the worker via queued
+- `loadModel` / `slotRunInference` / `cancel` forward to the worker via queued
   signals; `setMaxTokens(int)` and `setTemperature(float)` set generation params
   (temperature 0 = greedy, deterministic - desirable for parsed output).
 - The token decode loop is the integration point (TODO).
@@ -151,8 +151,8 @@ Model-file lifecycle. Bridges to digiKam's `DNNModelManager` and
 backend simply receives a local path.
 
 - `defaultModelPath()` / `isModelAvailable()` *(static)* - path conventions.
-- `ensureModelAvailable()` - emits `modelReady` if present.
-- Signals: `downloadProgress`, `modelReady`, `modelError`.
+- `ensureModelAvailable()` - emits `signalModelReady` if present.
+- Signals: `signalDownloadProgress`, `signalModelReady`, `signalModelError`.
 
 ### `SearchQueryEngine`  (`searchqueryengine.h/.cpp`)
 
@@ -163,15 +163,15 @@ The coordinator - the only class that knows the pipeline order.
   `SearchWindow` wires it with production parts). `setBackend` safely re-wires
   signal connections.
 - `setKnownTags / setKnownAlbums / setKnownPeople` - prompt hints.
-- `interpretQuery(original, normalized)` *(slot)* - the entry point. Busy-guard,
-  cache check, prompt build, then `runInference`. An empty `normalized` falls
+- `slotInterpretQuery(original, normalized)` *(slot)* - the entry point. Busy-guard,
+  cache check, prompt build, then `slotRunInference`. An empty `normalized` falls
   back to `original` (the translation-failure contract). Cache hits are emitted
   asynchronously so timing matches the inference path.
-- `slotRawOutputReady(output)` - parse → resolve → emit one of `intentReady`,
-  `clarificationRequired`, or `errorOccurred`; reports skipped terms via
-  `statusMessage` and caches successful results.
-- Signals: `intentReady`, `clarificationRequired`, `errorOccurred`,
-  `statusMessage`.
+- `slotRawOutputReady(output)` - parse → resolve → emit one of `signalIntentReady`,
+  `signalClarificationRequired`, or `signalErrorOccurred`; reports skipped terms via
+  `signalStatusMessage` and caches successful results.
+- Signals: `signalIntentReady`, `signalClarificationRequired`, `signalErrorOccurred`,
+  `signalStatusMessage`.
 
 ---
 
