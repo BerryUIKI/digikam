@@ -26,71 +26,96 @@
 namespace Digikam
 {
 
+class Q_DECL_HIDDEN SearchQueryEngine::Private
+{
+public:
+
+    Private() = default;
+
+    SearchLanguageBackend*  backend       = nullptr;
+    SearchPromptBuilder*    promptBuilder = nullptr;
+    SearchIntentParser*     parser        = nullptr;
+    SearchIntentResolver*   resolver      = nullptr;
+    SearchQueryCache*       cache         = nullptr;
+
+    QStringList             knownTags;
+    QStringList             knownAlbums;
+    QStringList             knownPeople;
+
+    QString                 originalQuery;
+    QString                 normalizedQuery;
+    bool                    busy          = false;
+};
+
 SearchQueryEngine::SearchQueryEngine(QObject* const parent)
-    : QObject(parent)
+    : QObject(parent),
+      d      (new Private)
 {
     qRegisterMetaType<SearchQueryConstraint>("SearchQueryConstraint");
     qRegisterMetaType<SearchQueryIntent>("SearchQueryIntent");
 }
 
-SearchQueryEngine::~SearchQueryEngine() = default;
+SearchQueryEngine::~SearchQueryEngine()
+{
+    delete d;
+}
 
 void SearchQueryEngine::setBackend(SearchLanguageBackend* const backend)
 {
-    if (m_backend)
+    if (d->backend)
     {
-        disconnect(m_backend, nullptr, this, nullptr);
+        disconnect(d->backend, nullptr, this, nullptr);
     }
 
-    m_backend = backend;
+    d->backend = backend;
 
-    if (m_backend)
+    if (d->backend)
     {
-        connect(m_backend, &SearchLanguageBackend::signalRawOutputReady,
+        connect(d->backend, &SearchLanguageBackend::signalRawOutputReady,
                 this, &SearchQueryEngine::slotRawOutputReady);
 
-        connect(m_backend, &SearchLanguageBackend::signalInferenceError,
+        connect(d->backend, &SearchLanguageBackend::signalInferenceError,
                 this, &SearchQueryEngine::slotBackendError);
     }
 }
 
-void SearchQueryEngine::setPromptBuilder(SearchPromptBuilder* const builder)  { m_promptBuilder = builder;  }
-void SearchQueryEngine::setParser(SearchIntentParser* const parser)          { m_parser        = parser;   }
-void SearchQueryEngine::setResolver(SearchIntentResolver* const resolver)    { m_resolver      = resolver; }
-void SearchQueryEngine::setCache(SearchQueryCache* const cache)              { m_cache         = cache;    }
+void SearchQueryEngine::setPromptBuilder(SearchPromptBuilder* const builder)  { d->promptBuilder = builder;  }
+void SearchQueryEngine::setParser(SearchIntentParser* const parser)          { d->parser        = parser;   }
+void SearchQueryEngine::setResolver(SearchIntentResolver* const resolver)    { d->resolver      = resolver; }
+void SearchQueryEngine::setCache(SearchQueryCache* const cache)              { d->cache         = cache;    }
 
-void SearchQueryEngine::setKnownTags(const QStringList& tags)                { m_knownTags     = tags;     }
-void SearchQueryEngine::setKnownAlbums(const QStringList& albums)            { m_knownAlbums   = albums;   }
-void SearchQueryEngine::setKnownPeople(const QStringList& people)            { m_knownPeople   = people;   }
+void SearchQueryEngine::setKnownTags(const QStringList& tags)                { d->knownTags     = tags;     }
+void SearchQueryEngine::setKnownAlbums(const QStringList& albums)            { d->knownAlbums   = albums;   }
+void SearchQueryEngine::setKnownPeople(const QStringList& people)            { d->knownPeople   = people;   }
 
 bool SearchQueryEngine::isReady() const
 {
-    return (m_backend && m_backend->isModelLoaded() &&
-            m_promptBuilder && m_parser && m_resolver);
+    return (d->backend && d->backend->isModelLoaded() &&
+            d->promptBuilder && d->parser && d->resolver);
 }
 
 void SearchQueryEngine::slotInterpretQuery(const QString& originalText,
                                        const QString& normalizedText)
 {
-    if (m_busy)
+    if (d->busy)
     {
         Q_EMIT signalStatusMessage(i18n("A query is already being interpreted."));
 
         return;
     }
 
-    m_originalQuery   = originalText;
-    m_normalizedQuery = (normalizedText.isEmpty() ? originalText
+    d->originalQuery   = originalText;
+    d->normalizedQuery = (normalizedText.isEmpty() ? originalText
                                                   : normalizedText);
 
 
-    if (m_cache)
+    if (d->cache)
     {
         SearchQueryIntent cached;
 
-        if (m_cache->lookup(m_normalizedQuery, &cached))
+        if (d->cache->lookup(d->normalizedQuery, &cached))
         {
-            qCDebug(DIGIKAM_NLSEARCH_LOG) << "NL search: cache hit for" << m_normalizedQuery;
+            qCDebug(DIGIKAM_NLSEARCH_LOG) << "NL search: cache hit for" << d->normalizedQuery;
 
             QMetaObject::invokeMethod(this, [this, cached]()
             {
@@ -108,35 +133,35 @@ void SearchQueryEngine::slotInterpretQuery(const QString& originalText,
         return;
     }
 
-    const QString prompt = m_promptBuilder->buildPrompt(m_normalizedQuery,
-                                                        m_knownTags,
-                                                        m_knownAlbums,
-                                                        m_knownPeople);
+    const QString prompt = d->promptBuilder->buildPrompt(d->normalizedQuery,
+                                                        d->knownTags,
+                                                        d->knownAlbums,
+                                                        d->knownPeople);
 
-    m_busy = true;
+    d->busy = true;
 
     Q_EMIT signalStatusMessage(i18n("Interpreting your search..."));
 
-    m_backend->slotRunInference(prompt);
+    d->backend->slotRunInference(prompt);
 }
 
 void SearchQueryEngine::slotCancel()
 {
-    if (m_backend)
+    if (d->backend)
     {
-        m_backend->slotCancel();
+        d->backend->slotCancel();
     }
 
-    m_busy = false;
+    d->busy = false;
 }
 
 void SearchQueryEngine::slotRawOutputReady(const QString& output)
 {
-    m_busy = false;
+    d->busy = false;
 
-    SearchQueryIntent intent = m_parser->parse(output.toUtf8(),
-                                               m_originalQuery,
-                                               m_normalizedQuery);
+    SearchQueryIntent intent = d->parser->parse(output.toUtf8(),
+                                               d->originalQuery,
+                                               d->normalizedQuery);
 
     if (!intent.parseSucceeded)
     {
@@ -146,7 +171,7 @@ void SearchQueryEngine::slotRawOutputReady(const QString& output)
         return;
     }
 
-    const ResolvedSearchCriteria criteria = m_resolver->resolve(intent);
+    const ResolvedSearchCriteria criteria = d->resolver->resolve(intent);
 
     if (intent.requiresClarification)
     {
@@ -161,7 +186,7 @@ void SearchQueryEngine::slotRawOutputReady(const QString& output)
 
         Q_EMIT signalErrorOccurred(i18n("Could not map '%1' to tags, album names, captions, "
                                 "location, or date. Please refine the description "
-                                "or create rules manually.", m_originalQuery));
+                                "or create rules manually.", d->originalQuery));
 
         return;
     }
@@ -174,9 +199,9 @@ void SearchQueryEngine::slotRawOutputReady(const QString& output)
                           criteria.unresolvedTerms.join(QLatin1String(", "))));
     }
 
-    if (m_cache)
+    if (d->cache)
     {
-        m_cache->store(m_normalizedQuery, intent);
+        d->cache->store(d->normalizedQuery, intent);
     }
 
     Q_EMIT signalIntentReady(intent);
@@ -184,7 +209,7 @@ void SearchQueryEngine::slotRawOutputReady(const QString& output)
 
 void SearchQueryEngine::slotBackendError(const QString& error)
 {
-    m_busy = false;
+    d->busy = false;
 
     Q_EMIT signalErrorOccurred(error);
 }

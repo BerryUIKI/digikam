@@ -10,19 +10,52 @@
 
 #include "searchcapabilitydictionary.h"
 
+// Qt includes
+
+#include <QMap>
+
 namespace Digikam
 {
 
+class Q_DECL_HIDDEN DictionaryEntry
+{
+public:
+
+    DictionaryEntry() = default;
+
+    QString     canonicalField;   ///< e.g. "colorlabel"
+    QStringList aliases;          ///< e.g. { "color label", "colour label" }
+    QStringList allowedValues;    ///< e.g. { "red", "orange", ... }; empty = free-form
+};
+
+class Q_DECL_HIDDEN SearchCapabilityDictionary::Private
+{
+public:
+
+    Private() = default;
+
+    QMap<QString, DictionaryEntry>  fieldMap;       ///< canonical field -> entry
+    QMap<QString, QStringList>      valueAliases;   ///< "field/rawvalue" -> resolved
+    QMap<QString, QStringList>      ambiguousWords;
+    QStringList                     knownTags;
+};
+
 SearchCapabilityDictionary::SearchCapabilityDictionary()
+    : d(new Private)
 {
     initializeDefaults();
 }
 
+SearchCapabilityDictionary::~SearchCapabilityDictionary()
+{
+    delete d;
+}
+
 void SearchCapabilityDictionary::initializeDefaults()
 {
-    m_fieldMap.clear();
-    m_valueAliases.clear();
-    m_ambiguousWords.clear();
+    d->fieldMap.clear();
+    d->valueAliases.clear();
+    d->ambiguousWords.clear();
 
     auto addField = [this](const QString& canonical,
                            const QStringList& aliases,
@@ -32,7 +65,7 @@ void SearchCapabilityDictionary::initializeDefaults()
         e.canonicalField = canonical;
         e.aliases        = aliases;
         e.allowedValues  = allowedValues;
-        m_fieldMap.insert(canonical, e);
+        d->fieldMap.insert(canonical, e);
     };
 
     addField(QLatin1String("tag"),
@@ -74,23 +107,24 @@ void SearchCapabilityDictionary::initializeDefaults()
              { QLatin1String("caption"), QLatin1String("description"),
                QLatin1String("comment") });
 
-    m_valueAliases.insert(QLatin1String("picklabel/best"),
-                          { QLatin1String("accepted") });
+    d->valueAliases.insert(QLatin1String("picklabel/best"),
+                           { QLatin1String("accepted") });
 
-    m_valueAliases.insert(QLatin1String("picklabel/flagged"),
-                          { QLatin1String("accepted") });
+    d->valueAliases.insert(QLatin1String("picklabel/flagged"),
+                           { QLatin1String("accepted") });
 
-    m_valueAliases.insert(QLatin1String("rating/high rating"),
-                          { QLatin1String("4") });
+    d->valueAliases.insert(QLatin1String("rating/high rating"),
+                           { QLatin1String("4") });
 
     // ambiguous words -> clarification choices
-    m_ambiguousWords.insert(QLatin1String("best"),
-                            { QLatin1String("Pick Label: Accepted"),
-                              QLatin1String("Rating >= 4") });
 
-    m_ambiguousWords.insert(QLatin1String("favorite"),
-                            { QLatin1String("Pick Label: Accepted"),
-                              QLatin1String("Rating = 5") });
+    d->ambiguousWords.insert(QLatin1String("best"),
+                             { QLatin1String("Pick Label: Accepted"),
+                               QLatin1String("Rating >= 4") });
+
+    d->ambiguousWords.insert(QLatin1String("favorite"),
+                             { QLatin1String("Pick Label: Accepted"),
+                               QLatin1String("Rating = 5") });
 }
 
 bool SearchCapabilityDictionary::resolveFieldAlias(const QString& alias,
@@ -98,7 +132,7 @@ bool SearchCapabilityDictionary::resolveFieldAlias(const QString& alias,
 {
     const QString needle = alias.trimmed().toLower();
 
-    for (auto it = m_fieldMap.constBegin() ; it != m_fieldMap.constEnd() ; ++it)
+    for (auto it = d->fieldMap.constBegin() ; it != d->fieldMap.constEnd() ; ++it)
     {
         if ((it.key() == needle) || it.value().aliases.contains(needle))
         {
@@ -121,17 +155,17 @@ bool SearchCapabilityDictionary::resolveValue(const QString& field,
     const QString needle = rawValue.trimmed().toLower();
     const QString key    = field + QLatin1Char('/') + needle;
 
-    if (m_valueAliases.contains(key))
+    if (d->valueAliases.contains(key))
     {
         if (resolvedValue)
         {
-            *resolvedValue = m_valueAliases.value(key).first();
+            *resolvedValue = d->valueAliases.value(key).first();
         }
 
         return true;
     }
 
-    const DictionaryEntry entry = m_fieldMap.value(field);
+    const DictionaryEntry entry = d->fieldMap.value(field);
 
     if (entry.allowedValues.isEmpty() || entry.allowedValues.contains(needle))
     {
@@ -148,22 +182,22 @@ bool SearchCapabilityDictionary::resolveValue(const QString& field,
 
 QStringList SearchCapabilityDictionary::supportedFields() const
 {
-    return m_fieldMap.keys();
+    return d->fieldMap.keys();
 }
 
 QStringList SearchCapabilityDictionary::choicesForAmbiguousWord(const QString& word) const
 {
-    return m_ambiguousWords.value(word.trimmed().toLower());
+    return d->ambiguousWords.value(word.trimmed().toLower());
 }
 
 bool SearchCapabilityDictionary::isKnownTag(const QString& tag) const
 {
-    return m_knownTags.contains(tag, Qt::CaseInsensitive);
+    return d->knownTags.contains(tag, Qt::CaseInsensitive);
 }
 
 void SearchCapabilityDictionary::setKnownTags(const QStringList& tags)
 {
-    m_knownTags = tags;
+    d->knownTags = tags;
 }
 
 } // namespace Digikam

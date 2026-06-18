@@ -92,19 +92,8 @@ private Q_SLOTS:
 
 private:
 
-    SearchLanguageBackend*      m_backend       = nullptr;
-    SearchPromptBuilder*        m_promptBuilder = nullptr;
-    SearchIntentParser*         m_parser        = nullptr;
-    SearchIntentResolver*       m_resolver      = nullptr;
-    SearchQueryCache*           m_cache         = nullptr;
-
-    QStringList                 m_knownTags;
-    QStringList                 m_knownAlbums;
-    QStringList                 m_knownPeople;
-
-    QString                     m_originalQuery;
-    QString                     m_normalizedQuery;
-    bool                        m_busy          = false;
+    class Private;
+    Private* const d;
 };
 
 } // namespace Digikam
