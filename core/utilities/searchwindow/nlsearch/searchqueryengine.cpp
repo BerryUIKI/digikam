@@ -99,7 +99,7 @@ void SearchQueryEngine::slotInterpretQuery(const QString& originalText,
 {
     if (d->busy)
     {
-        Q_EMIT signalStatusMessage(i18n("A query is already being interpreted."));
+        Q_EMIT signalStatusMessage(i18nc("@info", "A query is already being interpreted."));
 
         return;
     }
@@ -128,7 +128,7 @@ void SearchQueryEngine::slotInterpretQuery(const QString& originalText,
 
     if (!isReady())
     {
-        Q_EMIT signalErrorOccurred(i18n("Natural-language search is not ready (model not loaded)."));
+        Q_EMIT signalErrorOccurred(i18nc("@info", "Natural-language search is not ready (model not loaded)."));
 
         return;
     }
@@ -140,7 +140,7 @@ void SearchQueryEngine::slotInterpretQuery(const QString& originalText,
 
     d->busy = true;
 
-    Q_EMIT signalStatusMessage(i18n("Interpreting your search..."));
+    Q_EMIT signalStatusMessage(i18nc("@info", "Interpreting your search..."));
 
     d->backend->slotRunInference(prompt);
 }
@@ -165,8 +165,8 @@ void SearchQueryEngine::slotRawOutputReady(const QString& output)
 
     if (!intent.parseSucceeded)
     {
-        Q_EMIT signalErrorOccurred(i18n("Could not interpret the model output. "
-                                "Please refine the description or create rules manually."));
+        Q_EMIT signalErrorOccurred(i18nc("@info", "Could not interpret the model output. "
+                                          "Please refine the description or create rules manually."));
 
         return;
     }
@@ -184,9 +184,9 @@ void SearchQueryEngine::slotRawOutputReady(const QString& output)
     {
         // Nothing understood: explicit message, leave user in normal
 
-        Q_EMIT signalErrorOccurred(i18n("Could not map '%1' to tags, album names, captions, "
-                                "location, or date. Please refine the description "
-                                "or create rules manually.", d->originalQuery));
+        Q_EMIT signalErrorOccurred(i18nc("@info", "Could not map '%1' to tags, album names, captions, "
+                                          "location, or date. Please refine the description "
+                                          "or create rules manually.", d->originalQuery));
 
         return;
     }
@@ -195,8 +195,8 @@ void SearchQueryEngine::slotRawOutputReady(const QString& output)
 
     if (!criteria.unresolvedTerms.isEmpty())
     {
-        Q_EMIT signalStatusMessage(i18n("Some terms could not be mapped and were skipped: %1",
-                          criteria.unresolvedTerms.join(QLatin1String(", "))));
+        Q_EMIT signalStatusMessage(i18nc("@info", "Some terms could not be mapped and were skipped: %1",
+                                 criteria.unresolvedTerms.join(QLatin1String(", "))));
     }
 
     if (d->cache)
