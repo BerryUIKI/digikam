@@ -12,16 +12,28 @@
 
 // Qt includes
 
-#include <QDir>
 #include <QFileInfo>
-#include <QStandardPaths>
+
+// KDE includes
+
+#include <klocalizedstring.h>
 
 // Local includes
 
 #include "digikam_debug.h"
+#include "dnnmodelmanager.h"
+#include "dnnmodelbase.h"
+#include "dnnmodeldefinitions.h"
 
 namespace Digikam
 {
+
+namespace
+{
+    // Matches the [section] name registered in dnnmodels.conf.
+    // DNNModelManager::getModel() lower-cases the lookup internally.
+    const QLatin1String s_nlModelName("Qwen2.5-1.5B-Instruct");
+}
 
 SearchNlModelManager::SearchNlModelManager(QObject* const parent)
     : QObject(parent)
@@ -30,26 +42,23 @@ SearchNlModelManager::SearchNlModelManager(QObject* const parent)
 
 SearchNlModelManager::~SearchNlModelManager() = default;
 
-QString SearchNlModelManager::assetFileName()
-{
-    // Primary candidate per proposal. The fallback TinyLlama asset will
-    // be registered alongside once benchmarking decides the default.
-    return QLatin1String("qwen2.5-1.5b-instruct-q4_k_m.gguf");
-}
-
 QString SearchNlModelManager::defaultModelPath()
 {
-    // TODO: replace with DNNModelManager path resolution 
-    // For the boilerplate we use the generic writable data location.
+    // Resolve through digiKam's central model manager rather than a
+    // private directory: the file lives in the shared model location and
+    // is fetched by FilesDownloader like every other DNN model.
 
-    const QString base = QStandardPaths::writableLocation(QStandardPaths::AppDataLocation);
+    DNNModelBase* const model = DNNModelManager::instance()->getModel(
+        s_nlModelName, DNNModelUsage::DNNUsageNaturalLanguageSearch);
 
-    return (base + QLatin1String("/nlsearch/") + assetFileName());
+    return (model ? model->getModelPath() : QString());
 }
 
 bool SearchNlModelManager::isModelAvailable()
 {
-    return QFileInfo::exists(defaultModelPath());
+    const QString path = defaultModelPath();
+
+    return (!path.isEmpty() && QFileInfo::exists(path));
 }
 
 QString SearchNlModelManager::currentModelPath() const
@@ -71,21 +80,29 @@ void SearchNlModelManager::ensureModelAvailable()
 
         Q_EMIT signalModelReady(m_currentModelPath);
 
+        qCInfo(DIGIKAM_NLSEARCH_LOG) << "isModelAvailable:" << isModelAvailable()
+                             << "path:" << defaultModelPath();
+
         return;
     }
 
-    // TODO: wire FilesDownloader from core/utilities/setup/downloader:
+    // The model file is registered (dnnmodels.conf) but not yet present.
+    // Downloading is handled centrally by FilesDownloader (the setup
+    // dialog), not by a parallel mechanism here. Signal that a download
+    // is required so the UI can direct the user to the downloader.
 
-    qCInfo(DIGIKAM_NLSEARCH_LOG) << "NL search model missing, download required:"
-                                << defaultModelPath();
+    qCInfo(DIGIKAM_NLSEARCH_LOG) << "NL search model not present; download required via FilesDownloader:"
+                                 << defaultModelPath();
 
-    Q_EMIT signalModelError(QLatin1String("Model download not implemented yet (boilerplate)."));
+    Q_EMIT signalModelError(i18nc("@info",
+                                  "The natural-language search model is not installed. "
+                                  "Please download it from the digiKam setup downloader."));
 }
 
 void SearchNlModelManager::cleanupObsoleteModels()
 {
-    // TODO: enumerate the nlsearch model dir and remove files
-    // whose version tag does not match m_currentVersion.
+    // No-op: obsolete model files are cleaned up centrally by
+    // FilesDownloader::deleteUnusedFiles(). Kept for interface stability.
 }
 
 } // namespace Digikam

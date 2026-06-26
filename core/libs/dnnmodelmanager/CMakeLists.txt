@@ -15,6 +15,7 @@ set(libdnnmodelmanager_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/dnnmodelconfig.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dnnmodelyunet.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/dnnmodelsface.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/dnnmodelnaturallanguage.cpp
 )
 
 include_directories($<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Core,INTERFACE_INCLUDE_DIRECTORIES>

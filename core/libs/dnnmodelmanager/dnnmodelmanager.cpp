@@ -32,6 +32,7 @@
 #include "dnnmodelconfig.h"
 #include "dnnmodelyunet.h"
 #include "dnnmodelsface.h"
+#include "dnnmodelnaturallanguage.h"
 #include "dnnmodelinfocontainer.h"
 
 namespace Digikam
@@ -233,6 +234,11 @@ void DNNModelManager::loadConfig()
                 info.usage.append(DNNModelUsage::DNNUsageAutoRotate);
             }
 
+            if (usageStr.contains(QLatin1String("natural_language_search")))
+            {
+                info.usage.append(DNNModelUsage::DNNUsageNaturalLanguageSearch);
+            }
+
             // Create version.
 
             QStringList versionParts = d->settings->value(QLatin1String("MinVersion"))
@@ -291,6 +297,12 @@ void DNNModelManager::loadConfig()
                     modelPtr = new DNNModelSFace(info);
                     break;
                 }
+
+                case DNNLoaderType::DNNLoaderNaturalLanguage:
+                {
+                    modelPtr = new DNNModelNaturalLanguage(info);
+                    break;
+                }
             }
 
             // Add the model to map.
@@ -298,6 +310,9 @@ void DNNModelManager::loadConfig()
             if (modelPtr)
             {
                 d->modelMap.insert(modelName.toLower(), modelPtr);
+                // qDebug() << "REGISTERED MODEL:" << modelName.toLower()
+                //          << "loaderType:" << (int)info.loaderType
+                //          << "usageCount:" << info.usage.size();
             }
         }
 
@@ -305,6 +320,22 @@ void DNNModelManager::loadConfig()
 
         d->settings->endGroup();
     }
+
+    // TEMPORARY verification:
+    // {
+    //     DNNModelBase* m = getModel(QLatin1String("Qwen2.5-1.5B-Instruct"),
+    //                                DNNModelUsage::DNNUsageNaturalLanguageSearch);
+    //     if (m)
+    //     {
+    //         const QString p = m->getModelPath();
+    //         qDebug() << "NLCHECK path:" << p
+    //                  << "exists:" << QFileInfo::exists(p);
+    //     }
+    //     else
+    //     {
+    //         qDebug() << "NLCHECK model not found";
+    //     }
+    // }
 }
 
 void DNNModelManager::getSettings()

@@ -75,7 +75,8 @@ private:
         { "net",    DNNLoaderType::DNNLoaderNet    },
         { "config", DNNLoaderType::DNNLoaderConfig },
         { "yunet",  DNNLoaderType::DNNLoaderYuNet  },
-        { "sface",  DNNLoaderType::DNNLoaderSFace  }
+        { "sface",  DNNLoaderType::DNNLoaderSFace  },
+        { "naturallanguage",  DNNLoaderType::DNNLoaderNaturalLanguage }
     };
 
     /**

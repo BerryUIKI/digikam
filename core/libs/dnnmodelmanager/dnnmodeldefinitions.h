@@ -26,7 +26,8 @@ typedef enum _DNNLoaderType
     DNNLoaderNet,
     DNNLoaderConfig,
     DNNLoaderYuNet,
-    DNNLoaderSFace
+    DNNLoaderSFace,
+    DNNLoaderNaturalLanguage
 } DNNLoaderType;
 
 typedef enum _DNNModelUsage
@@ -37,7 +38,8 @@ typedef enum _DNNModelUsage
     DNNUsageObjectDetection,
     DNNUsageImageClassification,
     DNNUsageAesthetics,
-    DNNUsageAutoRotate
+    DNNUsageAutoRotate,
+    DNNUsageNaturalLanguageSearch
 } DNNModelUsage;
 
 typedef QList<DNNModelUsage> DNNModelUsageList;

@@ -64,10 +64,6 @@ Q_SIGNALS:
 
 private:
 
-    static QString assetFileName();   // e.g. "qwen2.5-1.5b-instruct-q4_k_m.gguf"
-
-private:
-
     QString m_currentModelPath;
     QString m_currentVersion = QLatin1String("v1");
 };
