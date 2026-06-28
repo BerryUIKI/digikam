@@ -83,6 +83,7 @@ void SystemSettings::readSettings()
     enableAIAutoTools    = settings.value(QLatin1String("enableAIAutoTools"), true).toBool();
     enableAesthetic      = settings.value(QLatin1String("enableAesthetic"),   true).toBool();
     enableAutoTags       = settings.value(QLatin1String("enableAutoTags"),    true).toBool();
+    enableNlSearch       = settings.value(QLatin1String("enableNlSearch"),    false).toBool();
 
 #ifdef Q_OS_WIN
 
@@ -154,6 +155,7 @@ void SystemSettings::saveSettings()
     settings.setValue(QLatin1String("enableFaceEngine"),  enableFaceEngine);
     settings.setValue(QLatin1String("enableAesthetic"),   enableAesthetic);
     settings.setValue(QLatin1String("enableAutoTags"),    enableAutoTags);
+    settings.setValue(QLatin1String("enableNlSearch"),    enableNlSearch);
     settings.setValue(QLatin1String("softwareOpenGL"),    softwareOpenGL);
     settings.setValue(QLatin1String("enableLogging"),     enableLogging);
     settings.setValue(QLatin1String("enableOpenCL"),      enableOpenCL);

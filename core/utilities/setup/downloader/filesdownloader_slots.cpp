@@ -233,6 +233,7 @@ void FilesDownloader::slotUpdateDownloadInfo()
         appSystem.enableFaceEngine  = d->faceEngineCheck->isChecked();
         appSystem.enableAesthetic   = d->aestheticCheck->isChecked();
         appSystem.enableAutoTags    = d->autoTagsCheck->isChecked();
+        appSystem.enableNlSearch    = d->nlSearchCheck->isChecked();
         appSystem.saveSettings();
     }
 

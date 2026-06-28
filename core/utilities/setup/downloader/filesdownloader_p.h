@@ -81,6 +81,7 @@ public:
     QCheckBox*             faceEngineCheck  = nullptr;
     QCheckBox*             aestheticCheck   = nullptr;
     QCheckBox*             autoTagsCheck    = nullptr;
+    QCheckBox*             nlSearchCheck    = nullptr;
     QLabel*                nameLabel        = nullptr;
     QLabel*                infoLabel        = nullptr;
     QLabel*                loadLabel        = nullptr;
