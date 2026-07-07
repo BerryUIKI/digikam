@@ -22,6 +22,7 @@
 #include "searchintentresolver.h"
 #include "searchquerycache.h"
 #include "digikam_debug.h"
+#include "searchnlmodelmanager.h"
 
 namespace Digikam
 {
@@ -115,8 +116,6 @@ void SearchQueryEngine::slotInterpretQuery(const QString& originalText,
 
         if (d->cache->lookup(d->normalizedQuery, &cached))
         {
-            qCDebug(DIGIKAM_NLSEARCH_LOG) << "NL search: cache hit for" << d->normalizedQuery;
-
             QMetaObject::invokeMethod(this, [this, cached]()
             {
                 Q_EMIT signalIntentReady(cached);
@@ -128,7 +127,19 @@ void SearchQueryEngine::slotInterpretQuery(const QString& originalText,
 
     if (!isReady())
     {
-        Q_EMIT signalErrorOccurred(i18nc("@info", "Natural-language search is not ready (model not loaded)."));
+        if (!SearchNlModelManager::isModelAvailable())
+        {
+            Q_EMIT signalErrorOccurred(i18nc("@info",
+                "Natural language search needs a language model that is not "
+                "installed yet. Enable \"Natural Language Search\" in the model "
+                "download dialog to install it, then restart digiKam."));
+        }
+        else
+        {
+            Q_EMIT signalErrorOccurred(i18nc("@info",
+                "The natural language search model is still loading. "
+                "Please try your search again in a few seconds."));
+        }
 
         return;
     }

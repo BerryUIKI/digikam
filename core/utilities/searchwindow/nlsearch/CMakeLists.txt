@@ -20,24 +20,10 @@ set(libnlsearch_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/searchnlmodelmanager.cpp
 )
 
-if(ENABLE_NLSEARCH_LLAMACPP)
+if(HAVE_LLAMACPP)
 
-    find_package(Llama QUIET)
-
-    if(Llama_FOUND)
-
-        set(HAVE_LLAMACPP TRUE)
-
-        list(APPEND libnlsearch_SRCS
-             ${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/searchllamabackend.cpp
-        )
-
-        message(STATUS "NL search: llama.cpp backend enabled")
-
-    else()
-
-        message(STATUS "NL search: llama.cpp not found, building with mock backend only")
-
-    endif()
+    list(APPEND libnlsearch_SRCS
+         ${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/searchllamabackend.cpp
+    )
 
 endif()

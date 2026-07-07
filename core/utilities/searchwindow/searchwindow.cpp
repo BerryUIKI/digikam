@@ -46,6 +46,9 @@
 #include "searchqueryengine.h"
 #include "searchlanguagebackend.h"
 #include "searchmockbackend.h"
+#include "searchllamabackend.h"
+#include "searchnlmodelmanager.h"
+#include "digikam_config.h"
 #include "searchpromptbuilder.h"
 #include "searchintentparser.h"
 #include "searchcapabilitydictionary.h"
@@ -314,8 +317,27 @@ void SearchWindow::setupNlSearch()
 {
     d->nlResolver = new SearchIntentResolver(&d->nlDictionary);
  
-    d->nlBackend  = new SearchMockBackend(this);
-    d->nlBackend->loadModel(QString());
+    #ifdef HAVE_LLAMACPP
+
+        if (SearchNlModelManager::isModelAvailable())
+        {
+            SearchLlamaBackend* const llamaBackend = new SearchLlamaBackend(this);
+            llamaBackend->loadModel(SearchNlModelManager::defaultModelPath());
+            d->nlBackend = llamaBackend;
+
+            qCInfo(DIGIKAM_NLSEARCH_LOG) << "NL search: using llama.cpp backend";
+        }
+        else
+
+    #endif
+
+        {
+            d->nlBackend = new SearchMockBackend(this);
+            d->nlBackend->loadModel(QString());
+
+            qCInfo(DIGIKAM_NLSEARCH_LOG) << "NL search: using mock backend"
+                                        << "(model not available or built without llama.cpp)";
+        }
  
     d->nlEngine   = new SearchQueryEngine(this);
     d->nlEngine->setBackend(d->nlBackend);

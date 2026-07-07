@@ -17,6 +17,7 @@
 #include <QJsonArray>
 #include <QJsonValue>
 #include <QSet>
+#include <cmath>
 
 namespace
 {
@@ -143,7 +144,34 @@ SearchQueryIntent SearchIntentParser::parse(const QByteArray& rawJson,
         SearchQueryConstraint c;
         c.field = o.value(QLatin1String("field")).toString().trimmed().toLower();
         c.op    = o.value(QLatin1String("op")).toString().trimmed().toLower();
-        c.value = o.value(QLatin1String("value")).toString().trimmed();
+        const QJsonValue valueVal = o.value(QLatin1String("value"));
+
+        if      (valueVal.isString())
+        {
+            c.value = valueVal.toString().trimmed();
+        }
+        else if (valueVal.isDouble())
+        {
+            const double d = valueVal.toDouble();
+
+            if (d == std::floor(d))
+            {
+                c.value = QString::number(static_cast<qlonglong>(d));
+            }
+            else
+            {
+                c.value = QString::number(d);
+            }
+        }
+        else if (valueVal.isBool())
+        {
+            c.value = valueVal.toBool() ? QLatin1String("true")
+                                        : QLatin1String("false");
+        }
+        else
+        {
+            c.value = QString();
+        }
 
         if (!validateField(c.field) || !validateOperator(c.field, c.op))
         {

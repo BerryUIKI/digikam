@@ -30,7 +30,6 @@ namespace Digikam
 
 namespace
 {
-    // Matches the [section] name registered in dnnmodels.conf.
     // DNNModelManager::getModel() lower-cases the lookup internally.
     const QLatin1String s_nlModelName("Qwen2.5-1.5B-Instruct");
 }
@@ -44,10 +43,6 @@ SearchNlModelManager::~SearchNlModelManager() = default;
 
 QString SearchNlModelManager::defaultModelPath()
 {
-    // Resolve through digiKam's central model manager rather than a
-    // private directory: the file lives in the shared model location and
-    // is fetched by FilesDownloader like every other DNN model.
-
     DNNModelBase* const model = DNNModelManager::instance()->getModel(
         s_nlModelName, DNNModelUsage::DNNUsageNaturalLanguageSearch);
 
@@ -85,11 +80,6 @@ void SearchNlModelManager::ensureModelAvailable()
 
         return;
     }
-
-    // The model file is registered (dnnmodels.conf) but not yet present.
-    // Downloading is handled centrally by FilesDownloader (the setup
-    // dialog), not by a parallel mechanism here. Signal that a download
-    // is required so the UI can direct the user to the downloader.
 
     qCInfo(DIGIKAM_NLSEARCH_LOG) << "NL search model not present; download required via FilesDownloader:"
                                  << defaultModelPath();

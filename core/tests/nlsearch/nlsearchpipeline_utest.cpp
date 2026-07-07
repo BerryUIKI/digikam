@@ -177,6 +177,50 @@ private Q_SLOTS:
             QLatin1String("q"), QLatin1String("q"));
         QVERIFY(!intent2.parseSucceeded);
     }
+
+    void testNumericJsonValueParsed()
+    {
+        // Regression: the model may emit numeric values as JSON numbers
+        // (e.g. rating: 5) rather than strings ("5"). 
+        SearchIntentParser parser;
+
+        const QByteArray json =
+            QByteArrayLiteral("{\"constraints\":[{\"field\":\"rating\","
+                              "\"op\":\"eq\",\"value\":5}]}");
+
+        const SearchQueryIntent intent = parser.parse(json,
+                                                      QLatin1String("five star photos"),
+                                                      QLatin1String("five star photos"));
+
+        QVERIFY(intent.parseSucceeded);
+        QCOMPARE(intent.constraints.size(), 1);
+        QCOMPARE(intent.constraints.first().field, QLatin1String("rating"));
+        QCOMPARE(intent.constraints.first().op,    QLatin1String("eq"));
+        QCOMPARE(intent.constraints.first().value, QLatin1String("5"));
+    }
+
+    void testDateRangeValuePreserved()
+    {
+        // Regression: date ranges must survive parsing intact in the
+        // "start..end" form the search UI expects.
+
+        SearchIntentParser parser;
+
+        const QByteArray json =
+            QByteArrayLiteral("{\"constraints\":[{\"field\":\"daterange\","
+                              "\"op\":\"between\","
+                              "\"value\":\"2023-01-01..2023-12-31\"}]}");
+
+        const SearchQueryIntent intent = parser.parse(json,
+                                                      QLatin1String("photos from 2023"),
+                                                      QLatin1String("photos from 2023"));
+
+        QVERIFY(intent.parseSucceeded);
+        QCOMPARE(intent.constraints.size(), 1);
+        QCOMPARE(intent.constraints.first().op,    QLatin1String("between"));
+        QCOMPARE(intent.constraints.first().value,
+                 QLatin1String("2023-01-01..2023-12-31"));
+    }
 };
 
 QTEST_GUILESS_MAIN(NlSearchPipelineTest)

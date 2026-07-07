@@ -68,7 +68,7 @@ private:
     SearchLlamaWorker*  m_worker      = nullptr;
     QString             m_modelPath;
     bool                m_modelLoaded = false;
-    int                 m_maxTokens   = 256;
+    int                 m_maxTokens   = 128;
 
     // Sampling temperature for token generation. 0.0 = greedy/deterministic
     // decoding which always pick the most-probable token, which is what we want:
@@ -112,6 +112,7 @@ private:
 
     void*                  m_model   = nullptr;
     void*                  m_context = nullptr;
+    int32_t                m_singleToken = 0;
 
 #endif
 

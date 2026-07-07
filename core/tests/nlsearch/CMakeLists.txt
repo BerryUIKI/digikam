@@ -28,6 +28,7 @@ set(nlsearchpipeline_utest_SRCS
     ${NLSEARCH_DIR}/searchcapabilitydictionary.cpp
     ${NLSEARCH_DIR}/searchintentresolver.cpp
     ${NLSEARCH_DIR}/searchquerycache.cpp
+    ${NLSEARCH_DIR}/searchnlmodelmanager.cpp
 )
 
 add_executable(nlsearchpipeline_utest ${nlsearchpipeline_utest_SRCS})

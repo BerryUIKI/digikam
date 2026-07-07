@@ -164,6 +164,9 @@ endmacro()
 macro(HEADER_DIRECTORIES root_path return_list)
 
     file(GLOB_RECURSE new_list ${root_path}/*.h)
+    # Exclude vendored third-party code (e.g. the bundled llama.cpp
+    # submodule): its headers must not leak into the global include path.
+    list(FILTER new_list EXCLUDE REGEX "/thirdparty/")
     set(dir_list "")
 
     foreach(file_path ${new_list})

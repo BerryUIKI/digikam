@@ -360,6 +360,22 @@ if(Gphoto2_FOUND)
 
 endif()
 
+if(HAVE_LLAMACPP)
+
+    target_link_libraries(digikamgui
+                          PRIVATE
+                          $<TARGET_FILE:llama>
+    )
+
+    target_include_directories(digikamgui
+                               PRIVATE
+                               ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llama.cpp/include
+    )
+
+    add_dependencies(digikamgui llama)
+
+endif()
+
 # Share the install include directory for the 3rdparty plugins
 target_include_directories(digikamgui INTERFACE "$<INSTALL_INTERFACE:${CMAKE_INSTALL_INCLUDEDIR}/digikam>")
 
