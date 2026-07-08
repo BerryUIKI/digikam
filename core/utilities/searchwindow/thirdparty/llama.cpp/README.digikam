@@ -1,0 +1,32 @@
+# llama.cpp (vendored copy)
+
+A trimmed copy of llama.cpp, used by digiKam's natural language search feature
+to run a local LLM for query interpretation. The source is vendored directly
+rather than referenced as a git submodule, because KDE's git infrastructure
+does not permit submodules. This follows the same approach as other bundled
+third-party code in digiKam.
+
+- Upstream project : https://github.com/ggml-org/llama.cpp
+- Vendored version : tag b9859 (commit 4fc4ec5541b243957ae5099edb67372f8f3b550e)
+- Vendored on      : 2026-07-07
+
+## What was kept
+
+Only the files required to build the library on CPU: src/, include/, ggml/,
+common/, and the CMake build files. Upstream examples, tools, tests, CI
+configuration, Python conversion scripts, language bindings, and documentation
+were removed.
+
+## Updating this vendored copy
+
+When llama.cpp is upgraded:
+
+1. Check out the desired tag from upstream and copy the same subset of
+   directories (src/, include/, ggml/, common/, cmake/, CMakeLists.txt) over
+   this copy.
+2. Update llama_cpp_manifest.txt with the new snapshot date and git commit
+   hash. This manifest is parsed at packaging time to populate the
+   Help > Components Info dialog, so the exact embedded llama.cpp version is
+   visible to users and in bug reports. It must be kept up to date manually.
+3. Rebuild and verify SearchLlamaBackend still compiles - the llama.cpp API
+   changes between versions.
