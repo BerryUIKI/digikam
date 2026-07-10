@@ -10,6 +10,10 @@
 
 #include "searchqueryengine.h"
 
+// Qt includes
+
+#include <QTimer>
+
 // KDE includes
 
 #include <klocalizedstring.h>
@@ -116,10 +120,11 @@ void SearchQueryEngine::slotInterpretQuery(const QString& originalText,
 
         if (d->cache->lookup(d->normalizedQuery, &cached))
         {
-            QMetaObject::invokeMethod(this, [this, cached]()
-            {
-                Q_EMIT signalIntentReady(cached);
-            }, Qt::QueuedConnection);
+            QTimer::singleShot(0, this, [this, cached]()
+                {
+                    Q_EMIT signalIntentReady(cached);
+                }
+            );
 
             return;
         }
