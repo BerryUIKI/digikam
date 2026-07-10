@@ -292,7 +292,8 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
         
         const QString trimmed = result.trimmed();
         int depth = 0;
-        bool sawOpen = false, balanced = false;
+        bool sawOpen = false; 
+        balanced = false;
 
         for (const QChar ch : trimmed)
         {
