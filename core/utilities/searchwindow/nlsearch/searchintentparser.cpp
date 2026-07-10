@@ -8,7 +8,11 @@
  *
  * ============================================================ */
 
-#include "searchintentparser.h"
+ #include "searchintentparser.h"
+
+// C++ includes
+
+#include <cmath>
 
 // Qt includes
 
@@ -17,7 +21,6 @@
 #include <QJsonArray>
 #include <QJsonValue>
 #include <QSet>
-#include <cmath>
 
 namespace
 {
