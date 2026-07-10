@@ -279,7 +279,7 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
             break;
         }
 
-        char      piece[256];
+        char      piece[256] = { 0 };
         const int n = llama_token_to_piece(vocab, newToken, piece, sizeof(piece), 0, true);
 
         if (n > 0)
