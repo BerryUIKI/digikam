@@ -21,8 +21,9 @@ if(HAVE_LLAMACPP)
     set(GGML_CUDA            OFF CACHE BOOL "" FORCE)
     set(GGML_METAL           OFF CACHE BOOL "" FORCE)
     set(GGML_VULKAN          OFF CACHE BOOL "" FORCE)
+    set(BUILD_SHARED_LIBS    OFF CACHE BOOL "" FORCE)
 
-    add_subdirectory(thirdparty/llama.cpp)
+    add_subdirectory(thirdparty/llama.cpp EXCLUDE_FROM_ALL)
 
     # ggml/llama are slow without optimization, so forcing it
     if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")

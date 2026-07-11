@@ -362,17 +362,8 @@ endif()
 
 if(HAVE_LLAMACPP)
 
-    target_link_libraries(digikamgui
-                          PRIVATE
-                          $<TARGET_FILE:llama>
-    )
-
-    target_include_directories(digikamgui
-                               PRIVATE
-                               ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llama.cpp/include
-    )
-
-    add_dependencies(digikamgui llama)
+    target_link_libraries(digikamgui PRIVATE llama)
+    target_include_directories(digikamgui PRIVATE ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llama.cpp/include)
 
 endif()
 
