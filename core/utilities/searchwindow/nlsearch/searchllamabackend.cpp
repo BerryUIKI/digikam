@@ -225,6 +225,8 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
     llama_context*     const ctx   = static_cast<llama_context*>(m_context);
     const llama_vocab* const vocab = llama_model_get_vocab(model);
 
+    llama_memory_clear(llama_get_memory(ctx), true);
+
     // 1. Tokenize the prompt
     const QByteArray promptUtf8 = prompt.toUtf8();
 
