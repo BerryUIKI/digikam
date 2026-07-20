@@ -9,8 +9,8 @@ APPLY_COMMON_POLICIES()
 
 if(HAVE_LLAMACPP)
 
-    # Bundled llama.cpp (pinned git submodule) - library only:
-    # CPU backend, no demo apps, tools, tests, or network support.
+    # Bundled llama.cpp (vendored source, see thirdparty/llama.cpp/README.digikam)
+    # library only: CPU backend, no demo apps, tools, tests, or network support.
     set(LLAMA_BUILD_TESTS    OFF CACHE BOOL "" FORCE)
     set(LLAMA_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
     set(LLAMA_BUILD_TOOLS    OFF CACHE BOOL "" FORCE)
@@ -21,6 +21,7 @@ if(HAVE_LLAMACPP)
     set(GGML_CUDA            OFF CACHE BOOL "" FORCE)
     set(GGML_METAL           OFF CACHE BOOL "" FORCE)
     set(GGML_VULKAN          OFF CACHE BOOL "" FORCE)
+    set(GGML_NATIVE          OFF CACHE BOOL "" FORCE)
     set(BUILD_SHARED_LIBS    OFF CACHE BOOL "" FORCE)
 
     add_subdirectory(thirdparty/llama.cpp EXCLUDE_FROM_ALL)
