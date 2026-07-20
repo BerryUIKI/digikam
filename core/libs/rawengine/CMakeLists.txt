@@ -104,6 +104,7 @@ set(libraw_LIB_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/libraw/src/decoders/pana8.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/libraw/src/decoders/decoders_dcraw.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/libraw/src/decoders/sonycc.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/libraw/src/decoders/sony_arw6.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/libraw/src/decompressors/losslessjpeg.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/libraw/src/decoders/decoders_libraw_dcrdefs.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/libraw/src/decoders/decoders_libraw.cpp
