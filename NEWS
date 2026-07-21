@@ -46,7 +46,7 @@ BUGFIXES:
 021 --> 523055 - Test GPU AI Compatibility fails instantly with QString::arg Argument missing: OpenCLDNN error (Windows, NVIDIA RTX 3080 Ti).
 022 --> 523250 - Created filename on import is wrong (date/time).
 023 --> 522889 - Pick Label "None" filter and Advanced Search return drastically different counts for the same criterion.
-024 --> 
+024 --> 522748 - Crash upon clicking on Maps - fatal allocator error: sized deallocation mismatch (small).
 025 --> 
 026 --> 
 027 --> 
