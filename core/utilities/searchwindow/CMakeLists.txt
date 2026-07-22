@@ -9,35 +9,8 @@ APPLY_COMMON_POLICIES()
 
 if(HAVE_LLAMACPP)
 
-    # Bundled llama.cpp (vendored source, see thirdparty/llama.cpp/README.digikam)
-    # library only: CPU backend, no demo apps, tools, tests, or network support.
-    set(LLAMA_BUILD_TESTS    OFF CACHE BOOL "" FORCE)
-    set(LLAMA_BUILD_EXAMPLES OFF CACHE BOOL "" FORCE)
-    set(LLAMA_BUILD_TOOLS    OFF CACHE BOOL "" FORCE)
-    set(LLAMA_BUILD_SERVER   OFF CACHE BOOL "" FORCE)
-    set(LLAMA_BUILD_APP      OFF CACHE BOOL "" FORCE)
-    set(LLAMA_BUILD_COMMON   OFF CACHE BOOL "" FORCE)
-    set(LLAMA_CURL           OFF CACHE BOOL "" FORCE)
-    set(GGML_CUDA            OFF CACHE BOOL "" FORCE)
-    set(GGML_METAL           OFF CACHE BOOL "" FORCE)
-    set(GGML_VULKAN          OFF CACHE BOOL "" FORCE)
-    set(GGML_NATIVE          OFF CACHE BOOL "" FORCE)
-    set(BUILD_SHARED_LIBS    OFF CACHE BOOL "" FORCE)
-
-    add_subdirectory(thirdparty/llama.cpp EXCLUDE_FROM_ALL)
-
-    # ggml/llama are slow without optimization, so forcing it
-    if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
-
-        foreach(_llama_target llama ggml ggml-base ggml-cpu)
-
-            if(TARGET ${_llama_target})
-                target_compile_options(${_llama_target} PRIVATE $<$<CONFIG:Debug>:-O2>)
-            endif()
-
-        endforeach()
-
-    endif()
+    # All vendored llama.cpp build concerns are handled in the wrapper.
+    add_subdirectory(thirdparty)
 
 endif()
 
