@@ -79,6 +79,16 @@ public:
 
     GraphicsDImgItemPrivate() = default;
 
+    /**
+     * @note The destructor must be virtual: subclass private containers
+     * like DImgPreviewItemPrivate are deleted through a pointer to this
+     * base class in ~GraphicsDImgItem(), else the subclass destructor
+     * is skipped and C++14 sized deallocation passes the wrong size,
+     * which aborts under allocators enforcing it, like hardened_malloc.
+     * See bug #522748.
+     */
+    virtual ~GraphicsDImgItemPrivate() = default;
+
     void init(GraphicsDImgItem* const q);
 
 public:
@@ -99,7 +109,9 @@ class DIGIKAM_EXPORT DImgPreviewItem::DImgPreviewItemPrivate : public GraphicsDI
 {
 public:
 
-    DImgPreviewItemPrivate() = default;
+    DImgPreviewItemPrivate()           = default;
+    ~DImgPreviewItemPrivate() override = default;
+
     void init(DImgPreviewItem* const q);
 
 public:
