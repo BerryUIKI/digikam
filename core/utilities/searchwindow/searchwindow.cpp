@@ -27,6 +27,7 @@
 #include <QLabel>
 #include <QMenu>
 #include <QPoint>
+#include <QCheckBox>
 
 
 // KDE includes
@@ -78,6 +79,7 @@ public:
 
     QLineEdit*                  describeEdit    = nullptr;
     QLabel*                     nlStatusLabel   = nullptr;
+    QCheckBox*                  translateCheck  = nullptr;
 
     SearchQueryEngine*          nlEngine        = nullptr;
     SearchLanguageBackend*      nlBackend       = nullptr;
@@ -116,9 +118,16 @@ SearchWindow::SearchWindow()
     d->nlStatusLabel->setWordWrap(true);
     d->nlStatusLabel->hide();
 
+    d->translateCheck          = new QCheckBox(i18n("Translate my query to English first"), nlPanel);
+    d->translateCheck->setChecked(d->nlTranslate);
+    d->translateCheck->setToolTip(i18n("When enabled, your query is translated to English before "
+                                       "being interpreted, so you can type in your own language. "
+                                       "Requires an internet connection."));
+
     nlLayout->addWidget(nlTitle);
     nlLayout->addWidget(d->describeEdit);
     nlLayout->addWidget(d->nlStatusLabel);
+    nlLayout->addWidget(d->translateCheck);
 
     layout->addWidget(nlPanel);
 
@@ -179,6 +188,16 @@ SearchWindow::SearchWindow()
 
     connect(d->searchView, SIGNAL(searchTryout()),
             this, SLOT(searchTryout()));
+
+    connect(d->translateCheck, &QCheckBox::toggled,
+            this, [this](bool on)
+            {
+                d->nlTranslate          = on;
+                KSharedConfigPtr config = KSharedConfig::openConfig();
+                KConfigGroup group      = config->group(QLatin1String("NL Search Settings"));
+                group.writeEntry(QLatin1String("Translate Queries"), on);
+                group.sync();
+            });
 
     setupNlSearch();
 
@@ -363,6 +382,11 @@ void SearchWindow::setupNlSearch()
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup group      = config->group(QLatin1String("NL Search Settings"));
     d->nlTranslate          = group.readEntry(QLatin1String("Translate Queries"), false);
+
+    if (d->translateCheck)
+    {
+        d->translateCheck->setChecked(d->nlTranslate);
+    }
 }
  
 SearchQueryEngine* SearchWindow::queryEngine() const
@@ -381,18 +405,53 @@ void SearchWindow::slotDescribeSearchSubmitted()
  
 void SearchWindow::startInterpretation(const QString& text)
 {
-    // Translation pass (DOnlineTranslator, sourceLang=Auto ->
-    // translationLang=English) is deferred;
-    // empty normalizedText makes the engine reuse the original.
-    Q_UNUSED(d->nlTranslate);
-    Q_UNUSED(d->pendingNlText);
- 
-    d->nlEngine->slotInterpretQuery(text, QString());
+    d->pendingNlText = text;
+
+    if (!d->nlTranslate)
+    {
+        // Translation disabled: pass the original text straight through.
+        // Empty normalizedText makes the engine reuse the original.
+        d->nlEngine->slotInterpretQuery(text, QString());
+
+        return;
+    }
+
+    // Translation enabled: normalize the query to English first, then
+    // interpret. On failure we fall back to the original in the finished slot.
+    if (!d->nlTranslator)
+    {
+        d->nlTranslator = new DOnlineTranslator(this);
+
+        connect(d->nlTranslator, &DOnlineTranslator::signalFinished,
+                this, &SearchWindow::slotTranslationFinished);
+    }
+
+    d->nlTranslator->translate(text,
+                               DOnlineTranslator::Google,
+                               DOnlineTranslator::English,   // translate INTO English
+                               DOnlineTranslator::Auto);     // auto-detect source
 }
  
 void SearchWindow::slotTranslationFinished()
 {
-    // No-op until DOnlineTranslator wiring lands.
+    QString normalized;
+
+    if (d->nlTranslator &&
+        (d->nlTranslator->error() == DOnlineTranslator::NoError))
+    {
+        const QString translated = d->nlTranslator->translation();
+
+        // Only use the translation if it actually produced something and
+        // differs from the source; otherwise fall back to the original.
+        if (!translated.isEmpty())
+        {
+            normalized = translated;
+        }
+    }
+
+    // normalized may be empty here (translation disabled/failed/no-op),
+    // in which case the engine reuses the original pendingNlText.
+    d->nlEngine->slotInterpretQuery(d->pendingNlText, normalized);
 }
  
 void SearchWindow::slotNlIntentReady(const SearchQueryIntent& intent)
