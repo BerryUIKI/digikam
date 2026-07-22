@@ -50,13 +50,10 @@ class Q_DECL_HIDDEN GPSMarkerTiler::MyTile : public Tile
 {
 public:
 
-    MyTile()  = default;
+    MyTile()           = default;
+    ~MyTile() override = default;
 
     QList<qlonglong> imagesId;
-
-private:
-
-    ~MyTile() = delete;
 };
 
 class Q_DECL_HIDDEN GPSMarkerTiler::Private

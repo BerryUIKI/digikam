@@ -68,7 +68,20 @@ public:
     public:
 
         Tile() = default;
-        ~Tile();
+
+        /**
+         * @note The destructor must be virtual: tiles are created by the
+         * tileNew() factory of the subclasses and are always deleted
+         * through Tile pointers (rootTile, ~Tile(), deleteChild()).
+         * Making only the subclass destructor virtual moves the Tile
+         * subobject to a nonzero offset, so deleting through a Tile
+         * pointer frees an interior pointer and crashes. With no virtual
+         * destructor at all the subclass destructor is skipped (leaking
+         * its members) and C++14 sized deallocation passes the wrong
+         * size, which aborts under allocators enforcing it, like
+         * hardened_malloc. See bug #522748.
+         */
+        virtual ~Tile();
 
     public:
 
