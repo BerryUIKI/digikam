@@ -313,6 +313,12 @@ DIGIKAM_EXPORT void setMacOSEnvironment();
 DIGIKAM_EXPORT void setWindowsEnvironment(QApplication& app);
 
 /**
+ * For Linux only, prefer the PulseAudio backend of Qt Multimedia if the user
+ * has not selected an audio backend explicitly with QT_AUDIO_BACKEND.
+ */
+DIGIKAM_EXPORT void setAudioBackendEnvironment();
+
+/**
  * For OpenCV framework, set necessary environment variables to use OpenCL features.
  */
 DIGIKAM_EXPORT void setOpenCLEnvironment(bool b);

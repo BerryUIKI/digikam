@@ -156,6 +156,10 @@ MAIN_EXPORT int MAIN_FN(int argc, char** argv)
 
     qputenv("QT_MEDIA_BACKEND", system.videoBackend.toLatin1());
 
+    // Common audio backend rules from digikam_globals.
+
+    setAudioBackendEnvironment();
+
 #endif
 
 #if defined HAVE_KICONTHEMES && (KICONTHEMES_VERSION >= QT_VERSION_CHECK(6, 3, 0))

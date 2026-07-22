@@ -181,24 +181,9 @@ MAIN_EXPORT int MAIN_FN(int argc, char** argv)
 
     qputenv("QT_MEDIA_BACKEND", system.videoBackend.toLatin1());
 
-#   if defined Q_OS_LINUX
+    // Common audio backend rules from digikam_globals.
 
-    if (!qEnvironmentVariableIsSet("QT_AUDIO_BACKEND"))
-    {
-        // On PipeWire systems Qt >= 6.10 defaults to its native PipeWire
-        // audio backend, whose asynchronous format enumeration can fail
-        // for sinks owned by other PipeWire clients (for example
-        // module-filter-chain effect sinks): the affected outputs then
-        // never appear in QMediaDevices::audioOutputs(), so they are
-        // missing from the audio output selection of the media player.
-        // The PulseAudio backend enumerates the same devices through
-        // pipewire-pulse without this defect, so prefer it until the Qt
-        // issue is fixed.
-
-        qputenv("QT_AUDIO_BACKEND", "pulseaudio");
-    }
-
-#   endif
+    setAudioBackendEnvironment();
 
 #endif
 

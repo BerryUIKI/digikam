@@ -583,6 +583,30 @@ void setWindowsEnvironment(QApplication& app)
 
 }
 
+void setAudioBackendEnvironment()
+{
+
+#if defined(Q_OS_LINUX) && (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+
+    if (!qEnvironmentVariableIsSet("QT_AUDIO_BACKEND"))
+    {
+        // On PipeWire systems Qt >= 6.10 defaults to its native PipeWire
+        // audio backend, whose asynchronous format enumeration can fail
+        // for sinks owned by other PipeWire clients (for example
+        // module-filter-chain effect sinks): the affected outputs then
+        // never appear in QMediaDevices::audioOutputs(), so they are
+        // missing from the audio output selection of the media player
+        // (QTBUG-143570). The PulseAudio backend enumerates the same
+        // devices through pipewire-pulse without this defect, so prefer
+        // it until the Qt issue is fixed.
+
+        qputenv("QT_AUDIO_BACKEND", "pulseaudio");
+    }
+
+#endif
+
+}
+
 void delayForRemoteDebuging(int delaySecs)
 {
     const QByteArray remoteDebug = qgetenv("DIGIKAM_REMOTE_DEBUG");
