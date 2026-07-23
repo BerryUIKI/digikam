@@ -19,6 +19,8 @@
 #include <QTreeWidget>
 #include <QUrl>
 #include <QList>
+#include <QMutex>
+#include <QFuture>
 
 // Local includes
 
@@ -28,8 +30,10 @@
 namespace Digikam
 {
 
-class DIGIKAM_GUI_EXPORT FindDuplicatesAlbumItem : public QTreeWidgetItem
+class DIGIKAM_GUI_EXPORT FindDuplicatesAlbumItem : public QObject,
+                                                   public QTreeWidgetItem
 {
+    Q_OBJECT
 
 public:
 
@@ -41,7 +45,7 @@ public:
         RESULT_COUNT,
         AVG_SIMILARITY,
 
-        NUMBER_COLUMNS          // Must be the last one.
+        NUMBER_COLUMNS          ///< Must be the last one.
     };
 
 public:
@@ -69,11 +73,16 @@ public:
     SAlbum* album()                              const;
     QUrl    refUrl()                             const;
 
-    void setThumb(const QPixmap& pix,
-                  bool hasThumb = true);
-
     bool operator<(const QTreeWidgetItem& other) const override;
+
     QList<ItemInfo> duplicatedItems();
+
+    void setThumb(const QPixmap& pix, bool hasThumb = true);
+
+Q_SIGNALS:
+
+    void signalUpdateItemText(int column, const QString& text);
+    void signalSetItemHidden(bool hidden);
 
 private:
 
@@ -82,7 +91,7 @@ private:
 private:
 
     class Private;
-    Private* const d = nullptr;
+    Private* const d;
 
 private:
 
