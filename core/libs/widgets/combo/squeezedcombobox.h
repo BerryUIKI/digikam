@@ -153,7 +153,6 @@ private:
                        const QString& text,
                        const QVariant& userData = QVariant());
     void    insertItems(int index, const QStringList& list);
-    void    insertSeparator(int index);
     void    addItem(const QString& text);
     void    addItem(const QIcon& icon,
                     const QString& text,
