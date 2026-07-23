@@ -49,7 +49,7 @@ BUGFIXES:
 024 --> 522748 - Crash upon clicking on Maps - fatal allocator error: sized deallocation mismatch (small).
 025 --> 523371 - ImageTagProperties Table Does Not Get Cleared in "Reset and clear all faces and training".
 026 --> 523414 - Build failure with latest commit (templateselector.cpp).
-027 --> 
+027 --> 514721 - digiKam tends to crash with no error message on the first attempt at a duplication search on a folder with a larger number of images, but not on post-restart attempts.
 028 --> 
 029 --> 
 030 --> 
