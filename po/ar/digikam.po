@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-21 00:41+0000\n"
+"POT-Creation-Date: 2026-07-23 00:41+0000\n"
 "PO-Revision-Date: 2026-06-08 20:31+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -2785,7 +2785,7 @@ msgstr "مساع&دة"
 msgid "Main Toolbar"
 msgstr "شريط الأدوات الرّئيس"
 
-#: core/app/main/main.cpp:237
+#: core/app/main/main.cpp:241
 #: core/libs/album/manager/albummanager_album.cpp:128
 #: core/libs/album/manager/albummanager_dalbum.cpp:96
 #: core/libs/album/manager/albummanager_falbum.cpp:69
@@ -2795,45 +2795,45 @@ msgstr "شريط الأدوات الرّئيس"
 msgid "digiKam"
 msgstr "دِجي‌كام"
 
-#: core/app/main/main.cpp:246 core/showfoto/main/main.cpp:221
+#: core/app/main/main.cpp:250 core/showfoto/main/main.cpp:225
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "صفا الفليج,زايد السعيدي"
 
-#: core/app/main/main.cpp:247 core/showfoto/main/main.cpp:222
+#: core/app/main/main.cpp:251 core/showfoto/main/main.cpp:226
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "safa1996alfulaij@gmail.com,zayed.alsaidi@gmail.com"
 
-#: core/app/main/main.cpp:255
+#: core/app/main/main.cpp:259
 #, kde-format
 msgid "Open camera dialog at \"path\""
 msgstr "افتح مربع حوار الكاميرا في \"path\""
 
-#: core/app/main/main.cpp:258
+#: core/app/main/main.cpp:262
 #, kde-format
 msgid "Open camera dialog for the device with Solid UDI \"udi\""
 msgstr "افتح مربع حوار الكاميرا للجهاز باستخدام Solid UDI \"udi\""
 
-#: core/app/main/main.cpp:261
+#: core/app/main/main.cpp:265
 #, kde-format
 msgid "Automatically detect and open a connected gphoto2 camera"
 msgstr "اكتشف آليًّا كمرة gphoto2 الموصولة وافتحها"
 
-#: core/app/main/main.cpp:263
+#: core/app/main/main.cpp:267
 #, kde-format
 msgid ""
 "Start digikam with the SQLite database file found in the directory \"dir\""
 msgstr "ابدأ دجيكام مع ملف قاعدة بيانات SQLite الموجود في الدليل \"dir\""
 
-#: core/app/main/main.cpp:266
+#: core/app/main/main.cpp:270
 #, kde-format
 msgid "Start digikam with the configuration file \"config\""
 msgstr "ابدأ دجيكام بملف التكوين \"config\""
 
-#: core/app/main/main.cpp:299
+#: core/app/main/main.cpp:303
 #, kde-format
 msgid ""
 "Run-time Qt SQLite or MySQL database plugin is not available. please install "
@@ -2843,7 +2843,7 @@ msgstr ""
 "برنامج قاعدة بيانات Qt SQLite أو MySQL ليس متوفرا. رجاء قم بتثبيته.\n"
 "لا يوجد برنامج قاعدة بيانات مثبت على حاسوبك."
 
-#: core/app/main/main.cpp:308
+#: core/app/main/main.cpp:312
 #, kde-format
 msgid ""
 "Run-time Qt SQLite or MySQL database plugin are not available. Please "
@@ -2853,7 +2853,7 @@ msgstr ""
 "برنامج قاعدة بيانات Qt SQLite أو MySQL ليس متوفرا. رجاء قم بتثبيته.\n"
 "برامج قاعدة البيانات المثبتة على حاسوبك مدرجة أدناه."
 
-#: core/app/main/main.cpp:352
+#: core/app/main/main.cpp:356
 #, kde-format
 msgid ""
 "<p>The given path for the config file is not valid. Either its parent "
@@ -49859,13 +49859,13 @@ msgctxt "@title: file system tree"
 msgid "Folders"
 msgstr "المجلّدات"
 
-#: core/showfoto/main/main.cpp:212
+#: core/showfoto/main/main.cpp:216
 #, kde-format
 msgctxt "@title"
 msgid "Showfoto"
 msgstr "شوفوتو"
 
-#: core/showfoto/main/main.cpp:230
+#: core/showfoto/main/main.cpp:234
 #, kde-format
 msgctxt "command line option"
 msgid "File(s) or folder(s) to open"

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-21 00:41+0000\n"
+"POT-Creation-Date: 2026-07-23 00:41+0000\n"
 "PO-Revision-Date: 2025-12-05 10:48+0700\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
@@ -2661,7 +2661,7 @@ msgstr "&ຊ່ວຍເຫຼືອ"
 msgid "Main Toolbar"
 msgstr "ແຖບເຄື່ອງມືຫຼັກ"
 
-#: core/app/main/main.cpp:237
+#: core/app/main/main.cpp:241
 #: core/libs/album/manager/albummanager_album.cpp:128
 #: core/libs/album/manager/albummanager_dalbum.cpp:96
 #: core/libs/album/manager/albummanager_falbum.cpp:69
@@ -2671,45 +2671,45 @@ msgstr "ແຖບເຄື່ອງມືຫຼັກ"
 msgid "digiKam"
 msgstr "digiKam"
 
-#: core/app/main/main.cpp:246 core/showfoto/main/main.cpp:221
+#: core/app/main/main.cpp:250 core/showfoto/main/main.cpp:225
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "ຊື່ຂອງເຈົ້າ"
 
-#: core/app/main/main.cpp:247 core/showfoto/main/main.cpp:222
+#: core/app/main/main.cpp:251 core/showfoto/main/main.cpp:226
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
 msgstr "ອີເມວຂອງເຈົ້າ"
 
-#: core/app/main/main.cpp:255
+#: core/app/main/main.cpp:259
 #, kde-format
 msgid "Open camera dialog at \"path\""
 msgstr "ເປີດກ່ອງໂຕ້ຕອບກ້ອງທີ່ \"path\""
 
-#: core/app/main/main.cpp:258
+#: core/app/main/main.cpp:262
 #, kde-format
 msgid "Open camera dialog for the device with Solid UDI \"udi\""
 msgstr "ເປີດກ່ອງໂຕ້ຕອບກ້ອງສຳລັບອຸປະກອນທີ່ມີ Solid UDI \"udi\""
 
-#: core/app/main/main.cpp:261
+#: core/app/main/main.cpp:265
 #, kde-format
 msgid "Automatically detect and open a connected gphoto2 camera"
 msgstr "ກວດຈັບ ແລະ ເປີດກ້ອງ gphoto2 ທີ່ເຊື່ອມຕໍ່ອັດຕະໂນມັດ"
 
-#: core/app/main/main.cpp:263
+#: core/app/main/main.cpp:267
 #, kde-format
 msgid ""
 "Start digikam with the SQLite database file found in the directory \"dir\""
 msgstr "ເລີ່ມ digikam ດ້ວຍໄຟລ໌ຖານຂໍ້ມູນ SQLite ທີ່ພົບໃນໄດເລກະທໍລີ \"dir\""
 
-#: core/app/main/main.cpp:266
+#: core/app/main/main.cpp:270
 #, kde-format
 msgid "Start digikam with the configuration file \"config\""
 msgstr "ເລີ່ມ digikam ດ້ວຍໄຟລ໌ການຕັ້ງຄ່າ \"config\""
 
-#: core/app/main/main.cpp:299
+#: core/app/main/main.cpp:303
 #, kde-format
 msgid ""
 "Run-time Qt SQLite or MySQL database plugin is not available. please install "
@@ -2719,7 +2719,7 @@ msgstr ""
 "ປັລກອິນຖານຂໍ້ມູນ Run-time Qt SQLite ຫຼື MySQL ບໍ່ພ້ອມໃຊ້ງານ. ກະລຸນາຕິດຕັ້ງມັນ.\n"
 "ບໍ່ມີປັລກອິນຖານຂໍ້ມູນຕິດຕັ້ງຢູ່ໃນຄອມພິວເຕີຂອງເຈົ້າ."
 
-#: core/app/main/main.cpp:308
+#: core/app/main/main.cpp:312
 #, kde-format
 msgid ""
 "Run-time Qt SQLite or MySQL database plugin are not available. Please "
@@ -2729,7 +2729,7 @@ msgstr ""
 "ປັລກອິນຖານຂໍ້ມູນ Run-time Qt SQLite ຫຼື MySQL ບໍ່ພ້ອມໃຊ້ງານ. ກະລຸນາຕິດຕັ້ງມັນ.\n"
 "ປັລກອິນຖານຂໍ້ມູນທີ່ຕິດຕັ້ງໃນຄອມພິວເຕີຂອງເຈົ້າມີລາຍຊື່ລຸ່ມນີ້."
 
-#: core/app/main/main.cpp:352
+#: core/app/main/main.cpp:356
 #, kde-format
 msgid ""
 "<p>The given path for the config file is not valid. Either its parent "
@@ -48845,13 +48845,13 @@ msgctxt "@title: file system tree"
 msgid "Folders"
 msgstr "ໂຟນເດີ"
 
-#: core/showfoto/main/main.cpp:212
+#: core/showfoto/main/main.cpp:216
 #, kde-format
 msgctxt "@title"
 msgid "Showfoto"
 msgstr "Showfoto"
 
-#: core/showfoto/main/main.cpp:230
+#: core/showfoto/main/main.cpp:234
 #, kde-format
 msgctxt "command line option"
 msgid "File(s) or folder(s) to open"
