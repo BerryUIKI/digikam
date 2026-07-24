@@ -51,11 +51,22 @@ QString SearchPromptBuilder::schemaDescription() const
         "with op \"between\". A whole year like 2023 becomes "
         "2023-01-01..2023-12-31. A whole month like March 2024 becomes "
         "2024-03-01..2024-03-31. Never output a single bare date.\n"
+        "Words like flagged, picked, accepted, rejected or pending mean "
+        "picklabel, not tag. Values for picklabel are: accepted, rejected, "
+        "pending, none.\n"
+        "Colour words like red, green or blue followed by label mean "
+        "colorlabel, not tag.\n"
+        "Use op \"eq\" for an exact rating, and \"gte\" when the request says "
+        "at least, minimum, or or more.\n"
         "Example: request \"photos from 2023 rated 5 stars\" produces:\n"
         "{ \"constraints\": [ "
         "{ \"field\": \"daterange\", \"op\": \"between\", "
         "\"value\": \"2023-01-01..2023-12-31\" }, "
-        "{ \"field\": \"rating\", \"op\": \"eq\", \"value\": 5 } ] }\n");
+        "{ \"field\": \"rating\", \"op\": \"eq\", \"value\": 5 } ] }\n"
+        "Example: request \"flagged photos rated at least 3 stars\" produces:\n"
+        "{ \"constraints\": [ "
+        "{ \"field\": \"picklabel\", \"op\": \"eq\", \"value\": \"accepted\" }, "
+        "{ \"field\": \"rating\", \"op\": \"gte\", \"value\": 3 } ] }\n");
 }
 
 QString SearchPromptBuilder::buildPrompt(const QString& userQuery,

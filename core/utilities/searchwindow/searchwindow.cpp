@@ -559,18 +559,36 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
 {
     if (c.field == QLatin1String("tag"))
     {
-        const QList<int> ids = TagsCache::instance()->tagsForName(c.value);
+        QList<int> ids = TagsCache::instance()->tagsForName(c.value);
 
-        if (!ids.isEmpty())
+        if (ids.isEmpty())
         {
-            for (int id : ids)
+            // The model lowercases values, but tag names are stored with
+            // their original case and tagsForName() matches exactly.
+            // tagsContaining() matches case-insensitively, so use it to
+            // recover the tag when only the case differs.
+
+            const QList<int> candidates = TagsCache::instance()->tagsContaining(c.value);
+
+            for (int id : candidates)
             {
-                writer.writeField(QLatin1String("tagid"), SearchXml::Equal);
-                writer.writeValue(id);
-                writer.finishField();
+                const QString name = TagsCache::instance()->tagName(id);
+
+                if (name.compare(c.value, Qt::CaseInsensitive) == 0)
+                {
+                    ids << id;
+                }
             }
         }
-        // else: tag not in collection, emit nothing
+
+        for (int id : ids)
+        {
+            writer.writeField(QLatin1String("tagid"), SearchXml::Equal);
+            writer.writeValue(id);
+            writer.finishField();
+        }
+
+        // If still empty: tag not in collection, emit nothing.
     }
     else if (c.field == QLatin1String("colorlabel"))
     {
@@ -592,7 +610,7 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
         if (labelEnum >= 0)
         {
             const int labelTagId = TagsCache::instance()->tagForColorLabel(labelEnum);
-            
+
             if (labelTagId)
             {
                 writer.writeField(QLatin1String("labels"), SearchXml::InTree);
@@ -601,7 +619,7 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
             }
         }
     }
-    else if (c.field == QLatin1String("keyword") || (c.field == QLatin1String("caption")))
+    else if ((c.field == QLatin1String("keyword")) || (c.field == QLatin1String("caption")))
     {
         writer.writeField(QLatin1String("keyword"), SearchXml::Like);
         writer.writeValue(c.value);
@@ -610,6 +628,7 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
     else if (c.field == QLatin1String("daterange"))
     {
         const QStringList parts = c.value.split(QLatin1String(".."));
+
         if (parts.size() == 2)
         {
             const QDateTime start = QDateTime::fromString(parts.at(0), QLatin1String("yyyy-MM-dd"));
@@ -625,11 +644,72 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
     }
     else if (c.field == QLatin1String("rating"))
     {
-        writer.writeField(QLatin1String("rating"), SearchXml::GreaterThanOrEqual);
+        SearchXml::Relation rel = SearchXml::Equal;
+
+        if      (c.op == QLatin1String("gte")) { rel = SearchXml::GreaterThanOrEqual; }
+        else if (c.op == QLatin1String("lte")) { rel = SearchXml::LessThanOrEqual;    }
+
+        writer.writeField(QLatin1String("rating"), rel);
         writer.writeValue(c.value.toInt());
         writer.finishField();
     }
+    else if (c.field == QLatin1String("picklabel"))
+    {
+        static const QMap<QString, int> nameToEnum = {
+            { QLatin1String("none"),     NoPickLabel   },
+            { QLatin1String("rejected"), RejectedLabel },
+            { QLatin1String("pending"),  PendingLabel  },
+            { QLatin1String("accepted"), AcceptedLabel },
+        };
 
+        const int labelEnum = nameToEnum.value(c.value.toLower(), -1);
+
+        if (labelEnum >= 0)
+        {
+            const int labelTagId = TagsCache::instance()->tagForPickLabel(labelEnum);
+
+            if (labelTagId)
+            {
+                writer.writeField(QLatin1String("labels"), SearchXml::InTree);
+                writer.writeValue(labelTagId);
+                writer.finishField();
+            }
+        }
+    }
+    else if (c.field == QLatin1String("person"))
+    {
+        QList<int> ids = TagsCache::instance()->tagsForName(c.value);
+
+        if (ids.isEmpty())
+        {
+            // Same case-insensitive fallback as for tags: the model
+            // lowercases values, but people tag names keep their original case.
+
+            const QList<int> candidates = TagsCache::instance()->tagsContaining(c.value);
+
+            for (int id : candidates)
+            {
+                const QString name = TagsCache::instance()->tagName(id);
+
+                if (name.compare(c.value, Qt::CaseInsensitive) == 0)
+                {
+                    ids << id;
+                }
+            }
+        }
+
+        for (int id : ids)
+        {
+            writer.writeField(QLatin1String("tagid"), SearchXml::Equal);
+            writer.writeValue(id);
+            writer.finishField();
+        }
+    }
+    else
+    {
+        qCDebug(DIGIKAM_NLSEARCH_LOG) << "NL search: no XML mapping for field"
+                                      << c.field << "value" << c.value;
+    }
 }
 
 } // namespace Digikam
