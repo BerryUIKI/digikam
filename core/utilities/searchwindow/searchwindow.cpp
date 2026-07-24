@@ -705,6 +705,29 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
             writer.finishField();
         }
     }
+    else if (c.field == QLatin1String("album"))
+    {
+        writer.writeField(QLatin1String("albumname"), SearchXml::Like);
+        writer.writeValue(c.value);
+        writer.finishField();
+    }
+    else if (c.field == QLatin1String("orientation"))
+    {
+        // Codes come from SearchFieldPageOrientation: 1 = landscape, 2 = portrait.
+
+        const QString v = c.value.toLower();
+        int code        = -1;
+
+        if      (v == QLatin1String("landscape")) { code = 1; }
+        else if (v == QLatin1String("portrait"))  { code = 2; }
+
+        if (code > 0)
+        {
+            writer.writeField(QLatin1String("pageorientation"), SearchXml::Equal);
+            writer.writeValue(code);
+            writer.finishField();
+        }
+    }
     else
     {
         qCDebug(DIGIKAM_NLSEARCH_LOG) << "NL search: no XML mapping for field"
