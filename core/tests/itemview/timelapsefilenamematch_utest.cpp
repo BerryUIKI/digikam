@@ -452,7 +452,7 @@ void TimelapseFilenameMatchTest::testDirectlyPreceeds()
     const TimelapseFilenameMatch firstMatch(first);
     const TimelapseFilenameMatch secondMatch(second);
 
-    qCDebug(DIGIKAM_TESTS_LOG) << first << "directly preceeds" << second
+    qCDebug(DIGIKAM_TESTS_LOG) << first << "directly precedes" << second
                                << firstMatch.directlyPreceeds(secondMatch);
 
     QCOMPARE(firstMatch.directlyPreceeds(secondMatch), expected);
