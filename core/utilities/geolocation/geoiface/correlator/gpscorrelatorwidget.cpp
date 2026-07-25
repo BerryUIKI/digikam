@@ -443,42 +443,45 @@ void GPSCorrelatorWidget::slotItemsCorrelated(const Digikam::TrackCorrelator::Co
             GPSDataContainer newData;
             newData.setCoordinates(itemCorrelation.coordinates);
 
-            if (itemCorrelation.nSatellites >= 0)
+            if (newData.hasCoordinates())
             {
-                newData.setNSatellites(itemCorrelation.nSatellites);
+                if (itemCorrelation.nSatellites >= 0)
+                {
+                    newData.setNSatellites(itemCorrelation.nSatellites);
+                }
+
+                // if hDop is available, use it
+
+                if (itemCorrelation.hDop >= 0)
+                {
+                    newData.setDop(itemCorrelation.hDop);
+                }
+
+                // but if pDop is available, prefer pDop over hDop
+
+                if (itemCorrelation.pDop >= 0)
+                {
+                    newData.setDop(itemCorrelation.pDop);
+                }
+
+                if (itemCorrelation.fixType >= 0)
+                {
+                    newData.setFixType(itemCorrelation.fixType);
+                }
+
+                if (itemCorrelation.speed >= 0)
+                {
+                    newData.setSpeed(itemCorrelation.speed);
+                }
+
+                GPSUndoCommand::UndoInfo undoInfo(itemIndex);
+                undoInfo.readOldDataFromItem(imageItem);
+
+                imageItem->setGPSData(newData);
+                undoInfo.readNewDataFromItem(imageItem);
+
+                d->correlationUndoCommand->addUndoInfo(undoInfo);
             }
-
-            // if hDop is available, use it
-
-            if (itemCorrelation.hDop >= 0)
-            {
-                newData.setDop(itemCorrelation.hDop);
-            }
-
-            // but if pDop is available, prefer pDop over hDop
-
-            if (itemCorrelation.pDop >= 0)
-            {
-                newData.setDop(itemCorrelation.pDop);
-            }
-
-            if (itemCorrelation.fixType >= 0)
-            {
-                newData.setFixType(itemCorrelation.fixType);
-            }
-
-            if (itemCorrelation.speed >= 0)
-            {
-                newData.setSpeed(itemCorrelation.speed);
-            }
-
-            GPSUndoCommand::UndoInfo undoInfo(itemIndex);
-            undoInfo.readOldDataFromItem(imageItem);
-
-            imageItem->setGPSData(newData);
-            undoInfo.readNewDataFromItem(imageItem);
-
-            d->correlationUndoCommand->addUndoInfo(undoInfo);
         }
     }
 
