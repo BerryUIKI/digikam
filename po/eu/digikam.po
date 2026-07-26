@@ -38,7 +38,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-23 00:41+0000\n"
+"POT-Creation-Date: 2026-07-26 00:41+0000\n"
 "PO-Revision-Date: 2026-07-02 07:52+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -59383,26 +59383,26 @@ msgstr[1] "Errorea '%1' irudia kargatzean"
 msgid "Correlating images -"
 msgstr "Errorea '%1' irudia kargatzean"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:492
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:495
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Correlation Failed"
 msgstr "Korrelatiboa"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:493
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:496
 #, kde-format
 msgid ""
 "Could not correlate any image - please make sure the offset and gap settings "
 "are correct."
 msgstr ""
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:498
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:501
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Correlation Succeeded"
 msgstr "Korrelatiboa"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:499
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:502
 #, kde-format
 msgid ""
 "All images have been correlated. You can now check their position on the map."
@@ -59410,13 +59410,13 @@ msgstr ""
 
 #. i18np.
 #. See bug #376438 for details.
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:507
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:510
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Correlation Finished"
 msgstr "Korrelatiboa"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:509
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:512
 #, kde-format
 msgid ""
 "One image out of %2 images have been correlated. Please check the offset and "
@@ -59427,7 +59427,7 @@ msgid_plural ""
 msgstr[0] ""
 msgstr[1] ""
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:526
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:529
 #, kde-format
 msgid "1 image correlated"
 msgid_plural "%1 images correlated"

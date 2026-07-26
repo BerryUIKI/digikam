@@ -43,7 +43,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-23 00:41+0000\n"
+"POT-Creation-Date: 2026-07-26 00:41+0000\n"
 "PO-Revision-Date: 2026-07-21 07:25+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -57648,13 +57648,13 @@ msgstr[1] "Fel vid laddning av GPX-filer"
 msgid "Correlating images -"
 msgstr "Korrelerar bilder -"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:492
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:495
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Failed"
 msgstr "Korrelation misslyckades"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:493
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:496
 #, kde-format
 msgid ""
 "Could not correlate any image - please make sure the offset and gap settings "
@@ -57663,13 +57663,13 @@ msgstr ""
 "Kunde inte korrelera någon bild. Försäkra dig om att inställningar av "
 "tidsskillnad och tidslucka är riktiga."
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:498
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:501
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Succeeded"
 msgstr "Korrelation lyckades"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:499
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:502
 #, kde-format
 msgid ""
 "All images have been correlated. You can now check their position on the map."
@@ -57678,13 +57678,13 @@ msgstr ""
 
 #. i18np.
 #. See bug #376438 for details.
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:507
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:510
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Finished"
 msgstr "Korrelation klar"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:509
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:512
 #, kde-format
 msgid ""
 "One image out of %2 images have been correlated. Please check the offset and "
@@ -57699,7 +57699,7 @@ msgstr[1] ""
 "Korrelation har utförts för %1 av %2 bilder. Kontrollera inställningar av "
 "tidsskillnad och tidslucka om du anser att fler bilder skulle ha korrelerats."
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:526
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:529
 #, kde-format
 msgid "1 image correlated"
 msgid_plural "%1 images correlated"

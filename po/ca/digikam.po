@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-23 00:41+0000\n"
+"POT-Creation-Date: 2026-07-26 00:41+0000\n"
 "PO-Revision-Date: 2026-07-21 09:32+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -58283,13 +58283,13 @@ msgstr[1] "Error en carregar els fitxers GPX"
 msgid "Correlating images -"
 msgstr "Les imatges s'estan correlacionant -"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:492
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:495
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Failed"
 msgstr "La correlació ha fallat"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:493
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:496
 #, kde-format
 msgid ""
 "Could not correlate any image - please make sure the offset and gap settings "
@@ -58298,13 +58298,13 @@ msgstr ""
 "No s'ha pogut correlacionar cap imatge -comproveu que la configuració del "
 "desplaçament i l'interval siguin correctes-."
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:498
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:501
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Succeeded"
 msgstr "La correlació ha estat correcta"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:499
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:502
 #, kde-format
 msgid ""
 "All images have been correlated. You can now check their position on the map."
@@ -58314,13 +58314,13 @@ msgstr ""
 
 #. i18np.
 #. See bug #376438 for details.
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:507
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:510
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Finished"
 msgstr "La correlació ha acabat"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:509
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:512
 #, kde-format
 msgid ""
 "One image out of %2 images have been correlated. Please check the offset and "
@@ -58337,7 +58337,7 @@ msgstr[1] ""
 "desplaçament i l'interval siguin correctes si penseu que s'haurien de "
 "correlacionar més imatges."
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:526
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:529
 #, kde-format
 msgid "1 image correlated"
 msgid_plural "%1 images correlated"

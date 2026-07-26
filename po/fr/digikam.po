@@ -68,7 +68,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-23 00:41+0000\n"
+"POT-Creation-Date: 2026-07-26 00:41+0000\n"
 "PO-Revision-Date: 2026-02-06 11:53+0100\n"
 "Last-Translator: Xavier Besnard <xavier.besnard@kde.org>\n"
 "Language-Team: \n"
@@ -7670,7 +7670,7 @@ msgstr "Chargeur « PGF »"
 #, kde-format
 msgctxt "@info"
 msgid "An image loader based on Libpgf codec"
-msgstr "Un chargeur d'images reposant sur le codec « Libpgf »"
+msgstr "Un chargeur d'images reposant sur le codec « libpgf »"
 
 #: core/dplugins/dimg/pgf/dimgpgfplugin.cpp:78
 #, kde-kuit-format
@@ -7734,7 +7734,7 @@ msgstr "Chargeur « PNG »"
 #, kde-format
 msgctxt "@info"
 msgid "An image loader based on Libpng codec"
-msgstr "Un chargeur d'images reposant sur le codec « Libpng »"
+msgstr "Un chargeur d'images reposant sur le codec « libpng »"
 
 #: core/dplugins/dimg/png/dimgpngplugin.cpp:63
 #, kde-kuit-format
@@ -19809,7 +19809,7 @@ msgstr "Félicitations. Vous images sont fusionnées dans un diaporama."
 #, kde-format
 msgctxt "@info"
 msgid "Your panorama will be created to the directory:"
-msgstr "Votre panoram sera créée dans le dossier :"
+msgstr "Votre panorama sera créée dans le dossier :"
 
 #: core/dplugins/generic/tools/panorama/wizard/panolastpage.cpp:267
 #, kde-format
@@ -24189,7 +24189,7 @@ msgstr "Démarrer l'envoi"
 #: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:586
 #, kde-format
 msgid "Photostream Only"
-msgstr "Photostream seulement"
+msgstr "Uniquement Photostream"
 
 #: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:779
 #, kde-format
@@ -34770,10 +34770,10 @@ msgid ""
 "was trained to recognize 1,000 different objects using the ImageNet dataset."
 "</p>"
 msgstr ""
-"<p><b>EfficientNet B7</b> : réseau de neurones convolués, grand et puissant. "
-"Il détectera un seul objet dans une image avec une grande précision. "
-"EfficientNet B7 a été formé pour reconnaître 1 000 objets différents à "
-"l'aide de l'ensemble de données de ImageNet.</p>"
+"<p><b>EfficientNet B7</b> : réseau de neurones convolutés, grand et "
+"puissant. Il détectera un seul objet dans une image avec une grande "
+"précision. EfficientNet B7 a été formé pour reconnaître 1 000 objets "
+"différents à l'aide de l'ensemble de données de ImageNet.</p>"
 
 #: core/libs/dplugins/core/dpluginaction.cpp:94
 #, kde-format
@@ -36434,10 +36434,10 @@ msgid ""
 "noise, exposure (under / over), and compression levels.<br>See the relevant "
 "settings from the next <b>Basic Factors</b> tab."
 msgstr ""
-"Détecter si l'image est dégradée en utilisant teurs de standard<br>comme les "
-"niveaux de flou, de bruit, d'exposition (Sous / sur) et de compression. "
-"<br>Veuillez consulter les paramètres correspondants dans le prochain onglet "
-"<b>Facteurs essentiels</b>."
+"Détecter si l'image est dégradée en utilisant les quatre facteurs "
+"standard<br> comme les niveaux de flou, de bruit, d'exposition (Sous / sur) "
+"et de compression. <br>Veuillez consulter les paramètres correspondants dans "
+"le prochain onglet <b>Facteurs essentiels</b>."
 
 #: core/libs/imgqsort/imagequalitywidget.cpp:165
 #, kde-format
@@ -46823,7 +46823,7 @@ msgstr "Anglais (Zimbabwe)"
 #: core/libs/widgets/metadata/utils/altlangstredit_p.cpp:180
 msgctxt "@info: country code"
 msgid "Esperanto (France)"
-msgstr "Esperanto (France)"
+msgstr "Espéranto (France)"
 
 #: core/libs/widgets/metadata/utils/altlangstredit_p.cpp:181
 msgctxt "@info: country code"
@@ -58608,13 +58608,13 @@ msgstr[1] "Erreur lors du chargement des fichiers « GPX »"
 msgid "Correlating images -"
 msgstr "Corrélation des images - "
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:492
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:495
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Failed"
 msgstr "La corrélation a échoué"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:493
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:496
 #, kde-format
 msgid ""
 "Could not correlate any image - please make sure the offset and gap settings "
@@ -58623,13 +58623,13 @@ msgstr ""
 "Impossible de corréler une image quelconque - veuillez vous assurer que les "
 "paramètres de décalage et d'intervalle de temps sont corrects."
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:498
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:501
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Succeeded"
 msgstr "La corrélation a réussie"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:499
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:502
 #, kde-format
 msgid ""
 "All images have been correlated. You can now check their position on the map."
@@ -58639,13 +58639,13 @@ msgstr ""
 
 #. i18np.
 #. See bug #376438 for details.
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:507
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:510
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Finished"
 msgstr "Corrélation terminée"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:509
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:512
 #, kde-format
 msgid ""
 "One image out of %2 images have been correlated. Please check the offset and "
@@ -58662,7 +58662,7 @@ msgstr[1] ""
 "décalage et d'intervalle de temps si vous pensez que plus d'images auraient "
 "dû être corrélées."
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:526
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:529
 #, kde-format
 msgid "1 image correlated"
 msgid_plural "%1 images correlated"

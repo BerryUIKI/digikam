@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-23 00:41+0000\n"
+"POT-Creation-Date: 2026-07-26 00:41+0000\n"
 "PO-Revision-Date: 2025-12-05 10:48+0700\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
@@ -56114,26 +56114,26 @@ msgstr[0] "ເກີດຂໍ້ຜິດພາດໃນການໂຫຼດໄ
 msgid "Correlating images -"
 msgstr "ກຳລັງເຊື່ອມໂຍງຮູບພາບ -"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:492
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:495
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Failed"
 msgstr "ການເຊື່ອມໂຍງລົ້ມເຫຼວ"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:493
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:496
 #, kde-format
 msgid ""
 "Could not correlate any image - please make sure the offset and gap settings "
 "are correct."
 msgstr "ບໍ່ສາມາດເຊື່ອມໂຍງຮູບພາບໃດໆ - ກະລຸນາກວດສອບວ່າການຕັ້ງຄ່າໄລຍະຫ່າງ ແລະ ຊ່ອງຫວ່າງຖືກຕ້ອງ."
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:498
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:501
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Succeeded"
 msgstr "ການເຊື່ອມໂຍງສຳເລັດ"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:499
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:502
 #, kde-format
 msgid ""
 "All images have been correlated. You can now check their position on the map."
@@ -56141,13 +56141,13 @@ msgstr "ເຊື່ອມໂຍງຮູບພາບທັງໝົດແລ້
 
 #. i18np.
 #. See bug #376438 for details.
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:507
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:510
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Finished"
 msgstr "ການເຊື່ອມໂຍງສຳເລັດແລ້ວ"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:509
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:512
 #, kde-format
 msgid ""
 "One image out of %2 images have been correlated. Please check the offset and "
@@ -56159,7 +56159,7 @@ msgstr[0] ""
 "%1 ຈາກ %2 ຮູບໄດ້ຖືກເຊື່ອມໂຍງແລ້ວ. ກະລຸນາກວດສອບການຕັ້ງຄ່າໄລຍະຫ່າງ ແລະ ຊ່ອງຫວ່າງ "
 "ຖ້າເຈົ້າຄິດວ່າຄວນມີຮູບພາບຖືກເຊື່ອມໂຍງຫຼາຍກວ່ານີ້."
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:526
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:529
 #, kde-format
 msgid "1 image correlated"
 msgid_plural "%1 images correlated"

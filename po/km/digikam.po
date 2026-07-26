@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-23 00:41+0000\n"
+"POT-Creation-Date: 2026-07-26 00:41+0000\n"
 "PO-Revision-Date: 2010-06-23 14:54+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -59283,14 +59283,14 @@ msgstr[0] "កំហុស​ផ្ទុក​ឯកសារ​រូបភា
 msgid "Correlating images -"
 msgstr "រូបភាព​ដែល​​ជាប់ទាក់ទង​ - %p%"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:492
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:495
 #, fuzzy, kde-format
 #| msgid "Correlation failed"
 msgctxt "@title:window"
 msgid "Correlation Failed"
 msgstr "បាន​បរាជ័យ​ការ​​ជាប់​ទាក់ទង​"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:493
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:496
 #, fuzzy, kde-format
 #| msgid ""
 #| "Could not correlate any image - please make sure the timezone and gap "
@@ -59300,14 +59300,14 @@ msgid ""
 "are correct."
 msgstr "មិន​អាច​​​ភ្ជាប់​រូបភាព​មួយ​ចំនួន​បាន​ឡើយ  សូម​ប្រាកដ​ថា​ការ​កំណត់​​តំបន់​ពេលវេលា​ និង​ចន្លោះ​​ត្រឹមត្រូវ ។"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:498
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:501
 #, fuzzy, kde-format
 #| msgid "Correlation succeeded"
 msgctxt "@title:window"
 msgid "Correlation Succeeded"
 msgstr "បាន​ជោគជ័យ​ការ​ជាប់ទាក់ទង​"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:499
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:502
 #, kde-format
 msgid ""
 "All images have been correlated. You can now check their position on the map."
@@ -59315,14 +59315,14 @@ msgstr "រូបភាព​ទាំងអស់​ត្រូវ​បាន
 
 #. i18np.
 #. See bug #376438 for details.
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:507
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:510
 #, fuzzy, kde-format
 #| msgid "Correlation finished"
 msgctxt "@title:window"
 msgid "Correlation Finished"
 msgstr "បាន​បញ្ចប់​ការ​តភ្ជាប់"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:509
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:512
 #, fuzzy, kde-format
 #| msgid ""
 #| "%1 out of %2 images have been correlated. Please check the timezone and "
@@ -59337,7 +59337,7 @@ msgstr[0] ""
 "រូប​ភាព​ %1 ក្នុង​ចំណោម​ %2 ត្រូវ​បាន​ត​ភ្ជាប់​គ្នា​​ ។ សូម​ពិនិត្យ​មើល​ការ​កំណត់​តំបន់​ពេល​វេលា និង​ចន្លោះ បើ​សិន​ជា​"
 "អ្នក​គិត​ថា​អ្នក​ចង់​​ត​ភ្ជាប់​រូប​ភាព​មួយ​ចំនួន​ទៀត ។"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:526
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:529
 #, kde-format
 msgid "1 image correlated"
 msgid_plural "%1 images correlated"

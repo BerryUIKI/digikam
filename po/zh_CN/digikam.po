@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-23 00:41+0000\n"
+"POT-Creation-Date: 2026-07-26 00:41+0000\n"
 "PO-Revision-Date: 2024-04-23 11:20\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3720,6 +3720,8 @@ msgid ""
 "Canon R50 V, Canon EOS R1, EOS R5 Mark II, EOS R5 C, EOS R6 Mark II, EOS R8, "
 "EOS R50, EOS R100, EOS Ra Canon EOS Kiss M2;"
 msgstr ""
+"佳能 R50 V、EOS R1、EOS R5 Mark II、EOS R5 C、EOS R6 Mark II、EOS R8、EOS "
+"R50、EOS R100、EOS Ra、EOS Kiss M2；"
 
 #: core/app/views/stack/welcomepageview_features.cpp:94
 #, kde-format
@@ -3766,6 +3768,8 @@ msgid ""
 "Sony Sony ARW6 CRAW HQ, Sony ILCE-7M, VZV-E10M2, UMC-R10C, A9-III, ILX-LR1, "
 "A7C-II, A7CR, ILCE-6700,  ZV-1M2, ZV-E1, ILCE-7RM5 (A7R-V), ILME-FX30, A1 ;"
 msgstr ""
+"索尼 ARW6 CRAW HQ、ILCE-7M、ZV-E10M2、UMC-R10C、A9-III、ILX-LR1、A7C-II、"
+"A7CR、ILCE-6700、 ZV-1M2、ZV-E1、ILCE-7RM5 (A7R-V)、ILME-FX30、A1；"
 
 #: core/app/views/stack/welcomepageview_features.cpp:102
 #, kde-format
@@ -56026,26 +56030,26 @@ msgstr[0] "加载 GPX 文件时出错"
 msgid "Correlating images -"
 msgstr "正在关联图像 -"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:492
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:495
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Failed"
 msgstr "关联操作失败"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:493
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:496
 #, kde-format
 msgid ""
 "Could not correlate any image - please make sure the offset and gap settings "
 "are correct."
 msgstr "无法与任何图像建立关联 - 请检查时间偏移和时间差设置是否正确。"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:498
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:501
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Succeeded"
 msgstr "关联操作成功"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:499
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:502
 #, kde-format
 msgid ""
 "All images have been correlated. You can now check their position on the map."
@@ -56053,13 +56057,13 @@ msgstr "所有图像均已建立关联。您现在可以在地图查看它们的
 
 #. i18np.
 #. See bug #376438 for details.
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:507
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:510
 #, kde-format
 msgctxt "@title:window"
 msgid "Correlation Finished"
 msgstr "关联操作结束"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:509
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:512
 #, kde-format
 msgid ""
 "One image out of %2 images have been correlated. Please check the offset and "
@@ -56071,7 +56075,7 @@ msgstr[0] ""
 "%2 张图像中的 %1 张图像已建立关联。如果您觉得建立关联的图像太少，请检查时间偏"
 "移和时间差设置是否正确。"
 
-#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:526
+#: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:529
 #, kde-format
 msgid "1 image correlated"
 msgid_plural "%1 images correlated"
