@@ -43,6 +43,8 @@ public:
     explicit SearchLlamaBackend(QObject* const parent = nullptr);
     ~SearchLlamaBackend() override;
 
+    Q_DISABLE_COPY(SearchLlamaBackend)
+
     bool loadModel(const QString& modelPath)   override;
     void unloadModel()                         override;
     bool isModelLoaded()                 const override;
@@ -90,6 +92,8 @@ public:
 
     explicit SearchLlamaWorker(QObject* const parent = nullptr);
     ~SearchLlamaWorker() override;
+
+    Q_DISABLE_COPY(SearchLlamaWorker)
 
     void requestCancel();
 

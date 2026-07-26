@@ -46,6 +46,8 @@ public:
     explicit SearchQueryEngine(QObject* const parent = nullptr);
     ~SearchQueryEngine() override;
 
+    Q_DISABLE_COPY(SearchQueryEngine)
+
     // Dependency injection: keeps the engine unit-testable with the
     // mock backend and lets SearchWindow own component lifetimes.
     void setBackend(SearchLanguageBackend* const backend);

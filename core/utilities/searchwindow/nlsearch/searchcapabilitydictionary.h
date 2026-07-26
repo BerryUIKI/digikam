@@ -36,6 +36,8 @@ public:
     SearchCapabilityDictionary();
     ~SearchCapabilityDictionary();
 
+    Q_DISABLE_COPY(SearchCapabilityDictionary)
+
     void initializeDefaults();
 
     /// "color label" -> "colorlabel". Returns false if unknown.
