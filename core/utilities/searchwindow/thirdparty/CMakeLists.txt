@@ -44,6 +44,10 @@ set(CMAKE_SKIP_INSTALL_RULES ON)
 
 add_subdirectory(llama.cpp EXCLUDE_FROM_ALL)
 
+if(NOT APPLE)   # OpenMP under macOS does not support multithreading
+    find_package(OpenMP)
+endif()
+
 set(CMAKE_SKIP_INSTALL_RULES OFF)
 
 # ggml at -O0 (the Debug default) is unusably slow. Force -O2 on just these
