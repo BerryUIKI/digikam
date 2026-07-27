@@ -28,6 +28,8 @@
 #include <QMenu>
 #include <QPoint>
 #include <QCheckBox>
+#include <QPushButton>
+#include <QPointer>
 
 
 // KDE includes
@@ -59,6 +61,7 @@
 
 #include "tagscache.h"
 #include "colorlabelwidget.h"
+#include "filesdownloader.h"
 
 
 namespace Digikam
@@ -80,6 +83,8 @@ public:
     QLineEdit*                  describeEdit    = nullptr;
     QLabel*                     nlStatusLabel   = nullptr;
     QCheckBox*                  translateCheck  = nullptr;
+    QWidget*  nlReadyPanel                      = nullptr;
+    QWidget*  nlDownloadPanel                   = nullptr;
 
     SearchQueryEngine*          nlEngine        = nullptr;
     SearchLanguageBackend*      nlBackend       = nullptr;
@@ -108,26 +113,63 @@ SearchWindow::SearchWindow()
     QWidget* const nlPanel      = new QWidget(this);
     QVBoxLayout* const nlLayout = new QVBoxLayout(nlPanel);
 
-    QLabel* const nlTitle       = new QLabel(i18n("Describe what you want to find"), nlPanel);
+#ifdef HAVE_LLAMACPP
 
-    d->describeEdit             = new QLineEdit(nlPanel);
+    // Ready state: the describe box, shown when the model is present.
+    d->nlReadyPanel             = new QWidget(nlPanel);
+    QVBoxLayout* const readyLay = new QVBoxLayout(d->nlReadyPanel);
+    readyLay->setContentsMargins(0, 0, 0, 0);
+
+    QLabel* const nlTitle       = new QLabel(i18n("Describe what you want to find"), d->nlReadyPanel);
+
+    d->describeEdit             = new QLineEdit(d->nlReadyPanel);
     d->describeEdit->setPlaceholderText(i18n("e.g. landscape photos with red labels taken near Paris"));
     d->describeEdit->setClearButtonEnabled(true);
 
-    d->nlStatusLabel            = new QLabel(nlPanel);
+    d->nlStatusLabel            = new QLabel(d->nlReadyPanel);
     d->nlStatusLabel->setWordWrap(true);
     d->nlStatusLabel->hide();
 
-    d->translateCheck          = new QCheckBox(i18n("Translate my query to English first"), nlPanel);
+    d->translateCheck           = new QCheckBox(i18n("Translate my query to English first"), d->nlReadyPanel);
     d->translateCheck->setChecked(d->nlTranslate);
     d->translateCheck->setToolTip(i18n("When enabled, your query is translated to English before "
                                        "being interpreted, so you can type in your own language. "
                                        "Requires an internet connection."));
 
-    nlLayout->addWidget(nlTitle);
-    nlLayout->addWidget(d->describeEdit);
-    nlLayout->addWidget(d->nlStatusLabel);
-    nlLayout->addWidget(d->translateCheck);
+    readyLay->addWidget(nlTitle);
+    readyLay->addWidget(d->describeEdit);
+    readyLay->addWidget(d->nlStatusLabel);
+    readyLay->addWidget(d->translateCheck);
+
+    // Download state: shown when llama.cpp is built but the model is missing.
+    d->nlDownloadPanel          = new QWidget(nlPanel);
+    QVBoxLayout* const dlLay    = new QVBoxLayout(d->nlDownloadPanel);
+    dlLay->setContentsMargins(0, 0, 0, 0);
+
+    QLabel* const dlInfo        = new QLabel(i18n("The natural-language search model has not been "
+                                                  "downloaded yet."), d->nlDownloadPanel);
+    dlInfo->setWordWrap(true);
+
+    QPushButton* const dlButton = new QPushButton(i18n("Download Model..."), d->nlDownloadPanel);
+    dlButton->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
+
+    dlLay->addWidget(dlInfo);
+    dlLay->addWidget(dlButton);
+
+    connect(dlButton, &QPushButton::clicked,
+            this, &SearchWindow::slotDownloadNlModel);
+
+    nlLayout->addWidget(d->nlReadyPanel);
+    nlLayout->addWidget(d->nlDownloadPanel);
+
+    updateNlPanelState();
+
+#else
+
+    Q_UNUSED(nlLayout);
+    nlPanel->hide();
+
+#endif
 
     layout->addWidget(nlPanel);
 
@@ -733,6 +775,41 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
         qCDebug(DIGIKAM_NLSEARCH_LOG) << "NL search: no XML mapping for field"
                                       << c.field << "value" << c.value;
     }
+}
+
+void SearchWindow::updateNlPanelState()
+{
+#ifdef HAVE_LLAMACPP
+
+    const bool ready = SearchNlModelManager::isModelAvailable();
+
+    if (d->nlReadyPanel)    { d->nlReadyPanel->setVisible(ready);     }
+    if (d->nlDownloadPanel) { d->nlDownloadPanel->setVisible(!ready); }
+
+#endif
+}
+
+void SearchWindow::slotDownloadNlModel()
+{
+#ifdef HAVE_LLAMACPP
+
+    QPointer<FilesDownloader> floader = new FilesDownloader(this);
+    floader->startDownload();
+    delete floader;
+
+    if (SearchNlModelManager::isModelAvailable() && d->nlEngine)
+    {
+        SearchLlamaBackend* const llamaBackend = new SearchLlamaBackend(this);
+        llamaBackend->loadModel(SearchNlModelManager::defaultModelPath());
+        d->nlBackend = llamaBackend;
+        d->nlEngine->setBackend(d->nlBackend);
+
+        qCInfo(DIGIKAM_NLSEARCH_LOG) << "NL search: llama.cpp backend loaded after download";
+    }
+
+    updateNlPanelState();
+
+#endif
 }
 
 } // namespace Digikam

@@ -82,6 +82,8 @@ private Q_SLOTS:
     void slotNlError(const QString& message);
     void slotNlStatus(const QString& message);
     void slotTranslationFinished();
+    void updateNlPanelState();
+    void slotDownloadNlModel();
 
 protected:
 
