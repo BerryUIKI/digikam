@@ -120,7 +120,7 @@ void SearchQueryEngine::slotInterpretQuery(const QString& originalText,
 
         if (d->cache->lookup(d->normalizedQuery, &cached))
         {
-            QTimer::singleShot(0, this, [this, cached]()
+            QTimer::singleShot(0, this, [this, cached = std::move(cached)]()
                 {
                     Q_EMIT signalIntentReady(cached);
                 }

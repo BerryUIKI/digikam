@@ -10,6 +10,10 @@
 
 #include "searchllamabackend.h"
 
+// C++ includes
+
+#include <cstdint>
+
 // Qt includes
 
 #include <QFileInfo>
@@ -230,8 +234,9 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
     // 1. Tokenize the prompt
     const QByteArray promptUtf8 = prompt.toUtf8();
 
-    const int n_prompt = -llama_tokenize(vocab, promptUtf8.constData(), promptUtf8.size(),
-                                         nullptr, 0, true, true);
+    const int32_t tokenized = llama_tokenize(vocab, promptUtf8.constData(),
+                                             promptUtf8.size(), nullptr, 0, true, true);
+    const int n_prompt      = (tokenized == INT32_MIN) ? 0 : -tokenized;
 
     if (n_prompt <= 0)
     {
