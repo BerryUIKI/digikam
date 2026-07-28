@@ -82,7 +82,7 @@ AudPlayerWdg::AudPlayerWdg(QWidget* const parent)
 #if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
     d->mediaObject = new QMediaPlayer(this);
-    d->mediaObject->setAudioOutput(new QAudioOutput);
+    d->mediaObject->setAudioOutput(new QAudioOutput(this));
 
     connect(d->mediaObject, SIGNAL(playbackStateChanged(QMediaPlayer::PlaybackState)),
             this, SLOT(slotPlayerStateChanged(QMediaPlayer::PlaybackState)));
