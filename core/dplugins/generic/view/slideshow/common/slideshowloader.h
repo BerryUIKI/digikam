@@ -63,6 +63,7 @@ public:
     ~SlideShowLoader()                          override;
 
     void setCurrentItem(const QUrl& url);
+    void resolveStartItem();
     QUrl currentItem() const;
 
     void setShortCutPrefixes(const QMap<QString, QString>& prefixes);

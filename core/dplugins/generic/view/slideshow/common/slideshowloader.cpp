@@ -90,6 +90,8 @@ public:
 
     SlideShowSettings*     settings             = nullptr;
 
+    QUrl                   startUrl;                        ///< The item to start with, if any.
+
     QMap<QString, QString> shortcutPrefixes;
 
 #ifdef Q_OS_MACOS
@@ -321,7 +323,16 @@ void SlideShowLoader::setCurrentItem(const QUrl& url)
 
     if (index != -1)
     {
+        d->startUrl  = url;
         d->fileIndex = index - 1;
+    }
+}
+
+void SlideShowLoader::resolveStartItem()
+{
+    if (!d->startUrl.isEmpty())
+    {
+        setCurrentItem(d->startUrl);
     }
 }
 

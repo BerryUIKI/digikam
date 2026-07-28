@@ -283,6 +283,7 @@ SlideOSD::~SlideOSD()
 void SlideOSD::slotStart()
 {
     d->settings->suffleImages();
+    d->parent->resolveStartItem();
     d->parent->slotLoadNextItem();
     d->progressTimer->start(d->refresh);
     pause(!d->settings->autoPlayEnabled);
