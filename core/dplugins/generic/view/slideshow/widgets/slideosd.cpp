@@ -297,7 +297,7 @@ void SlideOSD::slotUpdateSettings()
     d->clWidget->setVisible(d->settings->printLabels);
     d->plWidget->setVisible(d->settings->printLabels);
     d->progressBar->setMaximum(d->settings->delay);
-    d->settings->suffleImages();
+    d->parent->reshuffleImages();
 }
 
 SlideToolBar* SlideOSD::toolBar() const

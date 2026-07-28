@@ -336,6 +336,20 @@ void SlideShowLoader::resolveStartItem()
     }
 }
 
+void SlideShowLoader::reshuffleImages()
+{
+    QUrl url  = currentItem();
+
+    d->settings->suffleImages();
+
+    int index = d->settings->indexOf(url);
+
+    if (index != -1)
+    {
+        d->fileIndex = index;
+    }
+}
+
 QUrl SlideShowLoader::currentItem() const
 {
     return d->settings->fileList.value(d->fileIndex);

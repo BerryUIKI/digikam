@@ -64,6 +64,7 @@ public:
 
     void setCurrentItem(const QUrl& url);
     void resolveStartItem();
+    void reshuffleImages();
     QUrl currentItem() const;
 
     void setShortCutPrefixes(const QMap<QString, QString>& prefixes);
