@@ -101,6 +101,7 @@ $SCAN_BUILD_BIN $CMAKE_BINARY -G "Unix Makefiles" \
       -DENABLE_APPSTYLES=ON \
       -DENABLE_GEOLOCATION=ON \
       -DENABLE_QWEBENGINE=ON \
+      -DENABLE_NLSEARCH_LLAMACPP=ON \
       -Wno-dev \
       ..
 
