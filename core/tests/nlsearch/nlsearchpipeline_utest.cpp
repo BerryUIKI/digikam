@@ -81,7 +81,7 @@ private Q_SLOTS:
 
         QSignalSpy readySpy(&engine, &SearchQueryEngine::signalIntentReady);
 
-        engine.slotInterpretQuery(QLatin1String("landscape photos with red labels"),
+        engine.slotInterpretQuery(QLatin1String("sunset photos with red labels"),
                               QString());
 
         QVERIFY(readySpy.wait(2000));

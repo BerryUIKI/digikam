@@ -30,10 +30,10 @@ SearchMockBackend::SearchMockBackend(QObject* const parent)
             "clarification": null
         })"));
 
-    addCannedResponse(QLatin1String("landscape photos with red labels"),
+    addCannedResponse(QLatin1String("sunset photos with red labels"),
         QLatin1String(R"({
             "constraints": [
-                { "field": "tag",        "op": "contains", "value": "landscape" },
+                { "field": "tag",        "op": "contains", "value": "sunset" },
                 { "field": "colorlabel", "op": "eq",       "value": "red" }
             ],
             "clarification": null
