@@ -14,6 +14,10 @@
 
 #include <QMap>
 
+// KDE includes
+
+#include <klocalizedstring.h>
+
 namespace Digikam
 {
 
@@ -36,7 +40,7 @@ public:
 
     QMap<QString, DictionaryEntry>  fieldMap;       ///< canonical field -> entry
     QMap<QString, QStringList>      valueAliases;   ///< "field/rawvalue" -> resolved
-    QMap<QString, QStringList>      ambiguousWords;
+    QMap<QString, QList<AmbiguityChoice> >  ambiguousWords;
     QStringList                     knownTags;
 };
 
@@ -119,12 +123,22 @@ void SearchCapabilityDictionary::initializeDefaults()
     // ambiguous words -> clarification choices
 
     d->ambiguousWords.insert(QLatin1String("best"),
-                             { QLatin1String("Pick Label: Accepted"),
-                               QLatin1String("Rating >= 4") });
+    {
+        { i18nc("@item", "Pick label: Accepted"), QLatin1String("picklabel"), QLatin1String("accepted") },
+        { i18nc("@item", "Rating 4 or more"),     QLatin1String("rating"),    QLatin1String("4") },
+    });
 
     d->ambiguousWords.insert(QLatin1String("favorite"),
-                             { QLatin1String("Pick Label: Accepted"),
-                               QLatin1String("Rating = 5") });
+    {
+        { i18nc("@item", "Pick label: Accepted"), QLatin1String("picklabel"), QLatin1String("accepted") },
+        { i18nc("@item", "Rating 5"),             QLatin1String("rating"),    QLatin1String("5") },
+    });
+
+    d->ambiguousWords.insert(QLatin1String("landscape"),
+    {
+        { i18nc("@item", "Oriented horizontally (landscape)"), QLatin1String("orientation"), QLatin1String("landscape") },
+        { i18nc("@item", "Subject tag: landscape"),           QLatin1String("tag"),          QLatin1String("landscape") },
+    });
 }
 
 bool SearchCapabilityDictionary::resolveFieldAlias(const QString& alias,
@@ -185,7 +199,7 @@ QStringList SearchCapabilityDictionary::supportedFields() const
     return d->fieldMap.keys();
 }
 
-QStringList SearchCapabilityDictionary::choicesForAmbiguousWord(const QString& word) const
+QList<AmbiguityChoice> SearchCapabilityDictionary::choicesForAmbiguousWord(const QString& word) const
 {
     return d->ambiguousWords.value(word.trimmed().toLower());
 }

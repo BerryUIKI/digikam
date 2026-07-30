@@ -187,7 +187,10 @@ void SearchQueryEngine::slotRawOutputReady(const QString& output)
         return;
     }
 
+
     const ResolvedSearchCriteria criteria = d->resolver->resolve(intent);
+
+    d->resolver->applyDictionaryAmbiguity(&intent);
 
     if (intent.requiresClarification)
     {

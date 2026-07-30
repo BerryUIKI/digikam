@@ -29,6 +29,13 @@
 namespace Digikam
 {
 
+struct AmbiguityChoice
+{
+    QString displayText;   ///< Shown in the menu, e.g. "Oriented horizontally".
+    QString field;         ///< Canonical field, e.g. "orientation".
+    QString value;         ///< Concrete value, e.g. "landscape".
+};
+
 class DIGIKAM_GUI_EXPORT SearchCapabilityDictionary
 {
 public:
@@ -49,7 +56,7 @@ public:
     QStringList supportedFields() const;
 
     /// Clarification choices for an ambiguous term ("best" -> Pick Label / Rating).
-    QStringList choicesForAmbiguousWord(const QString& word) const;
+    QList<AmbiguityChoice> choicesForAmbiguousWord(const QString& word) const;
 
     bool isKnownTag(const QString& tag) const;
     void setKnownTags(const QStringList& tags);

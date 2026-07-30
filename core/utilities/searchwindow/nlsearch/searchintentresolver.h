@@ -45,6 +45,10 @@ public:
 
     ResolvedSearchCriteria resolve(const SearchQueryIntent& intent)  const;
     bool canApplyDirectly(const SearchQueryIntent& intent)           const;
+    
+    /// Dictionary-driven ambiguity: sets clarification fields on the intent if
+    /// any constraint value is a known ambiguous term the model did not flag.
+    void applyDictionaryAmbiguity(SearchQueryIntent* intent) const;
 
 private:
 

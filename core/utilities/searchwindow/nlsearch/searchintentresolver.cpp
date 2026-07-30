@@ -10,6 +10,10 @@
 
 #include "searchintentresolver.h"
 
+// KDE includes
+
+#include <klocalizedstring.h>
+
 // Local includes
 
 #include "searchcapabilitydictionary.h"
@@ -55,6 +59,36 @@ ResolvedSearchCriteria SearchIntentResolver::resolve(const SearchQueryIntent& in
 bool SearchIntentResolver::canApplyDirectly(const SearchQueryIntent& intent) const
 {
     return resolve(intent).canApplyDirectly;
+}
+
+void SearchIntentResolver::applyDictionaryAmbiguity(SearchQueryIntent* intent) const
+{
+    if (!intent || !m_dictionary || intent->requiresClarification)
+    {
+        return;
+    }
+
+    for (const SearchQueryConstraint& c : intent->constraints)
+    {
+        const QList<AmbiguityChoice> choices = m_dictionary->choicesForAmbiguousWord(c.value);
+
+        if (!choices.isEmpty())
+        {
+            intent->requiresClarification = true;
+            intent->clarificationMessage  = i18nc("@info", "\"%1\" could mean more than one thing. "
+                                                           "Which did you mean?", c.value);
+            intent->clarificationOptions   = choices;
+
+            // keep the display-only list in sync for any code that still reads it
+            intent->clarificationChoices.clear();
+            for (const AmbiguityChoice& ch : choices)
+            {
+                intent->clarificationChoices << ch.displayText;
+            }
+
+            return;
+        }
+    }
 }
 
 bool SearchIntentResolver::resolveConstraint(const SearchQueryConstraint& in,

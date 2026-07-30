@@ -23,6 +23,10 @@
 #include <QList>
 #include <QMetaType>
 
+// Local includes
+
+#include "searchcapabilitydictionary.h"
+
 namespace Digikam
 {
 
@@ -61,6 +65,7 @@ public:
     // Populated when the model flags an ambiguous term
     QString                      clarificationMessage;
     QStringList                  clarificationChoices;
+    QList<AmbiguityChoice>       clarificationOptions;   // Each carries field+value to apply on pick.
 
     // Book-keeping for transparency / SAlbum storage.
     QString                      originalQuery;     // Exactly what the user typed.

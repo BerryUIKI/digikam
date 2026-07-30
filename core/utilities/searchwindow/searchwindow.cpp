@@ -523,32 +523,49 @@ void SearchWindow::slotNlIntentReady(const SearchQueryIntent& intent)
 void SearchWindow::slotNlClarificationRequired(const SearchQueryIntent& intent)
 {
     d->describeEdit->setEnabled(true);
- 
+
     QMenu menu(this);
- 
+
     if (!intent.clarificationMessage.isEmpty())
     {
         QAction* const header = menu.addAction(intent.clarificationMessage);
         header->setEnabled(false);
         menu.addSeparator();
     }
- 
-    for (const QString& choice : intent.clarificationChoices)
+
+    // Build one action per option, stashing its index in the action data.
+    for (int i = 0 ; i < intent.clarificationOptions.size() ; ++i)
     {
-        menu.addAction(choice);
+        QAction* const a = menu.addAction(intent.clarificationOptions.at(i).displayText);
+        a->setData(i);
     }
- 
+
     QAction* const picked = menu.exec(d->describeEdit->mapToGlobal(
                                       QPoint(0, d->describeEdit->height())));
- 
-    if (picked && picked->isEnabled())
+
+    if (picked && picked->isEnabled() && picked->data().isValid())
     {
-        // Re-run with the ambiguity resolved inline. 
-        // TODO: resolve the chosen constraint directly without a second
-        // inference pass once on a real model.
- 
-        startInterpretation(intent.originalQuery + QLatin1String(" (")
-                            + picked->text() + QLatin1Char(')'));
+        const int idx = picked->data().toInt();
+
+        if ((idx >= 0) && (idx < intent.clarificationOptions.size()))
+        {
+            const AmbiguityChoice& choice = intent.clarificationOptions.at(idx);
+
+            // Apply the chosen meaning directly - no second inference pass,
+            // so the ambiguous word can't re-trigger clarification.
+            SearchQueryIntent resolved;
+            resolved.parseSucceeded = true;
+            resolved.originalQuery  = intent.originalQuery;
+
+            SearchQueryConstraint c;
+            c.field = choice.field;
+            c.value = choice.value;
+            c.op    = (choice.field == QLatin1String("rating")) ? QLatin1String("gte")
+                                                                : QLatin1String("eq");
+            resolved.constraints << c;
+
+            applyResolvedIntent(resolved);
+        }
     }
 }
  
