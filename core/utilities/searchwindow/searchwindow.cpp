@@ -63,6 +63,8 @@
 #include "colorlabelwidget.h"
 #include "filesdownloader.h"
 
+#include "coredbaccess.h"
+#include "coredb.h"
 
 namespace Digikam
 {
@@ -786,6 +788,36 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
             writer.writeValue(code);
             writer.finishField();
         }
+    }
+    else if (c.field == QLatin1String("place"))
+    {
+        writer.writeGroup();
+        writer.setDefaultFieldOperator(SearchXml::Or);
+
+        const char* const locFields[] = { "city", "country", "location" };
+
+        for (const char* const lf : locFields)
+        {
+            const QString field = QLatin1String(lf);
+
+            // The model lowercases values, but location values are stored with
+            // their original case. Match the value against the collection's
+            // known values case-insensitively and emit the stored spelling.
+            const QStringList known = CoreDbAccess().db()->getAllImagePropertiesByName(field);
+
+            for (const QString& kv : known)
+            {
+                if (kv.compare(c.value, Qt::CaseInsensitive) == 0)
+                {
+                    writer.writeField(field, SearchXml::Equal);
+                    writer.writeValue(kv);
+                    writer.finishField();
+                    break;
+                }
+            }
+        }
+
+        writer.finishGroup();
     }
     else
     {
