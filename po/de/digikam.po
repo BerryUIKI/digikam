@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-07-26 00:41+0000\n"
+"POT-Creation-Date: 2026-07-31 00:42+0000\n"
 "PO-Revision-Date: 2026-05-08 18:37+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -2012,7 +2012,7 @@ msgstr "Alle enthaltenen Alben einschließen"
 msgctxt "@info: setup"
 msgid "Activate this option to show all sub-albums below the current album."
 msgstr ""
-"Benutzen Sie diese Funktion, um alle enthaltenen Alben des gewählten Albums "
+"Verwenden Sie diese Funktion, um alle enthaltenen Alben des gewählten Albums "
 "anzuzeigen."
 
 #: core/app/main/digikamapp_setup.cpp:601
@@ -3051,7 +3051,7 @@ msgstr "Bildqualitäts-Analyse"
 msgctxt "@info"
 msgid "Use this button to scan the selected albums for image quality parsing"
 msgstr ""
-"Benutzen Sie diesen Knopf, um in den ausgewählten Alben die Bildqualität zu "
+"Verwenden Sie diesen Knopf, um in den ausgewählten Alben die Bildqualität zu "
 "analysieren"
 
 #: core/app/views/sidebar/labelssidebarwidget.cpp:96
@@ -3085,7 +3085,7 @@ msgstr "Nach Gesichtern suchen"
 msgctxt "@info"
 msgid "Use this button to scan the selected albums for faces"
 msgstr ""
-"Benutzen Sie diesen Knopf, um die ausgewählten Alben nach Gesichtern "
+"Verwenden Sie diesen Knopf, um die ausgewählten Alben nach Gesichtern "
 "abzusuchen"
 
 #: core/app/views/sidebar/peoplesidebarwidget.cpp:169
@@ -3152,7 +3152,7 @@ msgstr "Durchsuchen für automatische Stichwörter"
 msgctxt "@info"
 msgid "Use this button to scan the selected albums for objects to auto-tag"
 msgstr ""
-"Benutzen Sie diesen Knopf, um die ausgewählten Alben nach Objekten für die "
+"Verwenden Sie diesen Knopf, um die ausgewählten Alben nach Objekten für die "
 "automatische Stichwortzuweisung zu durchsuchen"
 
 #: core/app/views/sidebar/tagviewsidebarwidget.cpp:326
@@ -6210,7 +6210,7 @@ msgid ""
 "<b>Use Metadata</b> option will parse images' information at queue run-time "
 "to find relevant lens features."
 msgstr ""
-"Die Einstellung <b>Metadaten benutzen</b> schaltet das Verarbeiten von "
+"Die Einstellung <b>Metadaten verwenden</b> schaltet das Verarbeiten von "
 "Bildinformationen während der Laufzeit der Warteschlange ein, um wichtige "
 "Objektiveigenschaften zu finden."
 
@@ -9369,7 +9369,8 @@ msgstr "Gitter anzeigen"
 #, kde-format
 msgid "Set this option to visualize the correction grid to be applied."
 msgstr ""
-"Benutzen Sie diese Option, um ein Korrekturgitter über die Vorschau zu legen."
+"Verwenden Sie diese Option, um ein Korrekturgitter über die Vorschau zu "
+"legen."
 
 #: core/dplugins/editor/enhance/lensautofix/lensautofixtoolplugin.cpp:60
 #, kde-format
@@ -10445,7 +10446,7 @@ msgstr ""
 "Dies ist die Vorschau des Regentropfen-Effekts.<p>Beachten Sie: Falls Sie "
 "vorher einen Teil des Fotos in der digiKam-Bildbearbeitung ausgewählt haben, "
 "so wird dieser Teil vom Filter ignoriert. Auf diese Weise können Sie den "
-"Regentropfeneffekt z. B. für ein Gesicht unterbinden.</p>"
+"Regentropfeneffekt z. B. für ein Gesicht unterbinden.</p>"
 
 #: core/dplugins/editor/filters/raindrop/raindroptool.cpp:92
 #, kde-format
@@ -10541,7 +10542,7 @@ msgstr "&Automatisch zuschneiden"
 msgctxt "@info"
 msgid "This option can be used to crop automatically the image."
 msgstr ""
-"Diese Einstellung kann benutzt werden, um das Bild automatisch zu "
+"Diese Einstellung kann verwendet werden, um das Bild automatisch zu "
 "zuschneiden."
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:156
@@ -10618,7 +10619,7 @@ msgstr "Gewichtungsmasken hinzufügen"
 #, kde-format
 msgid "Enable this option to add suppression and preservation masks."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Unterdrückungs- und Erhaltungsmasken "
+"Verwenden Sie diese Einstellung, um die Unterdrückungs- und Erhaltungsmasken "
 "hinzuzufügen."
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:229
@@ -10754,10 +10755,10 @@ msgstr ""
 "Verwenden Sie diesen Wert mit einem negativen Wert für nicht gerade Kanten. "
 "Dies kann manchmal Verzeichnungen oder Artefakte durch Auslassen von Pixeln "
 "verhindern. Verwenden Sie in diesem Fall besser niedrigere Werte. Diese "
-"Einstellung betrifft die gesamte ausgewählte Ebene, wenn keine Maske benutzt "
-"wird. Hinweis: Die Vorgabe ist proportional zur seitlichen Abweichung der "
-"Koordinaten zwischen zwei aufeinander folgenden Punkten, wird in die 1,5-"
-"fache Potenz erhoben und für den gesamten Weg aufsummiert."
+"Einstellung betrifft die gesamte ausgewählte Ebene, wenn keine Maske "
+"verwendet wird. Hinweis: Die Vorgabe ist proportional zur seitlichen "
+"Abweichung der Koordinaten zwischen zwei aufeinander folgenden Punkten, wird "
+"in die 1,5-fache Potenz erhoben und für den gesamten Weg aufsummiert."
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:327
 #, kde-format
@@ -10783,7 +10784,7 @@ msgstr ""
 "Pfade maximal um einen Winkel von 45° von der Basisrichtung abweichen. Durch "
 "Erhöhung dieses Wertes können Sie diese Beschränkung aufheben, dadurch "
 "können aber Artefakte entstehen. Um die Situation auszugleichen, können Sie "
-"die Steifigkeitseinstellung benutzen."
+"die Steifigkeitseinstellung verwenden."
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:341
 #, kde-format
@@ -11055,7 +11056,7 @@ msgid ""
 "mouse for dragging the corner to adjust the perspective transformation area."
 msgstr ""
 "Hier sehen Sie die Vorschau der perspektivischen Transformation. Sie können "
-"die Maus benutzen, um an den Ecken zu ziehen und so den perspektivischen "
+"die Maus verwenden, um an den Ecken zu ziehen und so den perspektivischen "
 "Transformations-Bereich zu justieren."
 
 #: core/dplugins/editor/transform/perspective/perspectivetool.cpp:116
@@ -11236,18 +11237,18 @@ msgid ""
 "from the currently opened image.</p>"
 msgstr ""
 "<p>Wählen Sie hier das Seitenverhältnis zum Zuschneiden. Die Funktion \"Nach "
-"Seitenverhältnis zuschneiden\" benutzt ein festes Verhältnis. Dies bedeutet, "
-"dass es egal ist, welche Einheit Sie verwenden, und dass dadurch nicht die "
-"tatsächliche Größe des Bildes festgelegt wird.</p><p>Unten sehen Sie eine "
-"Liste mit traditionellen Größen für Fotopapier:</p><p><b>2:3</b>: 10×15cm, "
-"20×30cm, 30×45cm, 3.5×5\", 4×6\", 8×12\", 12×18\", 16×24\", 20×30\"</"
-"p><p><b>3:4</b>: 6×8cm, 15×20cm, 18×24cm, 30×40cm, 3.75×5\", 4.5×6\", 6×8\", "
-"7.5×10\", 9×12\"</p><p><b>4:5</b>: 20×25cm, 40×50cm, 8×10\", 16×20\"</"
-"p><p><b>5:7</b>: 15×21cm, 30×42cm, 5x7\"</p><p><b>7:10</b>: 21×30cm, "
-"42×60cm, 3.5×5\"</p><p><b>8:5</b>: Gewöhnliche Breitbildmonitore (z. B. "
-"1680×1050)</p><p><b>2:1</b>, <b>3:1</b>, <b>4:1</b>: Panorama-Größen</"
+"Seitenverhältnis zuschneiden\" verwendet ein festes Verhältnis. Dies "
+"bedeutet, dass es egal ist, welche Einheit Sie verwenden, und dass dadurch "
+"nicht die tatsächliche Größe des Bildes festgelegt wird.</p><p>Unten sehen "
+"Sie eine Liste mit traditionellen Größen für Fotopapier:</p><p><b>2:3</b>: "
+"10×15cm, 20×30cm, 30×45cm, 3.5×5\", 4×6\", 8×12\", 12×18\", 16×24\", "
+"20×30\"</p><p><b>3:4</b>: 6×8cm, 15×20cm, 18×24cm, 30×40cm, 3.75×5\", "
+"4.5×6\", 6×8\", 7.5×10\", 9×12\"</p><p><b>4:5</b>: 20×25cm, 40×50cm, 8×10\", "
+"16×20\"</p><p><b>5:7</b>: 15×21cm, 30×42cm, 5x7\"</p><p><b>7:10</b>: "
+"21×30cm, 42×60cm, 3.5×5\"</p><p><b>8:5</b>: Gewöhnliche Breitbildmonitore "
+"(z. B. 1680×1050)</p><p><b>2:1</b>, <b>3:1</b>, <b>4:1</b>: Panorama-Größen</"
 "p><p><b>16:9</b>: Üblicher TV-Bildschirm (als HDTV oder Full-HD)</p><p>Der "
-"<b>Goldene Schnitt</b> benutzt 1:1,618. Eine Zusammensetzung, die dieser "
+"<b>Goldene Schnitt</b> verwendet 1:1,618. Eine Zusammensetzung, die dieser "
 "Regel folgt, wird als visuell harmonisch betrachtet, passt aber nicht genau "
 "auf handelsübliches Fotopapier.</p><p>Das <b>Aktuelle Seitenverhältnis</b> "
 "übernimmt das Seitenverhältnis des des gerade geöffneten Bilds.</p>"
@@ -11261,7 +11262,7 @@ msgstr "Genaues Verhältnis"
 #, kde-format
 msgid "Enable this option to force exact aspect ratio crop."
 msgstr ""
-"Benutzen Sie diese Einstellung, um einen genauen Zuschnitt mit "
+"Verwenden Sie diese Einstellung, um einen genauen Zuschnitt mit "
 "Seitenverhältnis zu bekommen."
 
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:263
@@ -11294,7 +11295,7 @@ msgstr "Automatisch"
 #, kde-format
 msgid "Enable this option to automatically set the orientation."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Ausrichtung des Bildes automatisch "
+"Verwenden Sie diese Einstellung, um die Ausrichtung des Bildes automatisch "
 "einzustellen."
 
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:275
@@ -11386,7 +11387,7 @@ msgstr "Goldener Schnitt"
 #, kde-format
 msgid "Enable this option to show golden sections."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Bereiche des goldenen Schnittes "
+"Verwenden Sie diese Einstellung, um die Bereiche des goldenen Schnittes "
 "anzuzeigen."
 
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:378
@@ -11398,7 +11399,7 @@ msgstr "Rechtecke der goldenen Spirale"
 #, kde-format
 msgid "Enable this option to show golden spiral sections."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Bereiche der goldenen Spirale "
+"Verwenden Sie diese Einstellung, um die Bereiche der goldenen Spirale "
 "anzuzeigen."
 
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:381
@@ -11409,7 +11410,7 @@ msgstr "Goldene Spirale"
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:382
 #, kde-format
 msgid "Enable this option to show a golden spiral guide."
-msgstr "Benutzen Sie diese Einstellung, um eine goldene Spirale anzuzeigen."
+msgstr "Verwenden Sie diese Einstellung, um eine goldene Spirale anzuzeigen."
 
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:384
 #, kde-format
@@ -11419,7 +11420,7 @@ msgstr "Goldene Dreiecke"
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:385
 #, kde-format
 msgid "Enable this option to show golden triangles."
-msgstr "Benutzen Sie diese Einstellung, um die goldenen Dreiecke anzuzeigen."
+msgstr "Verwenden Sie diese Einstellung, um die goldenen Dreiecke anzuzeigen."
 
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:387
 #, kde-format
@@ -11430,7 +11431,7 @@ msgstr "Horizontal spiegeln"
 #, kde-format
 msgid "Enable this option to flip the guidelines horizontally."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Hilfslinien horizontal zu spiegeln."
+"Verwenden Sie diese Einstellung, um die Hilfslinien horizontal zu spiegeln."
 
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:390
 #, kde-format
@@ -11441,7 +11442,7 @@ msgstr "Vertikal spiegeln"
 #, kde-format
 msgid "Enable this option to flip the guidelines vertically."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Hilfslinien vertikal zu spiegeln."
+"Verwenden Sie diese Einstellung, um die Hilfslinien vertikal zu spiegeln."
 
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:393
 #, kde-format
@@ -11681,7 +11682,7 @@ msgid ""
 "Enable this option to scale-up an image to a huge size. <b>Warning</b>: This "
 "process can take some time."
 msgstr ""
-"Benutzen Sie diese Einstellung, wenn Sie ein Bild sehr stark zu vergrößern. "
+"Verwenden Sie diese Einstellung, wenn Sie ein Bild sehr stark zu vergrößern. "
 "<b>Achtung</b>: Dies kann einige Zeit dauern."
 
 #: core/dplugins/editor/transform/resize/resizetool.cpp:403
@@ -11690,7 +11691,7 @@ msgid ""
 "<b>Note:</b> use Restoration Mode to scale-up an image to a huge size. This "
 "process can take some time."
 msgstr ""
-"<b>Hinweis:</b> Benutzen Sie die Foto-Verbesserung nur für Bilder, die sehr "
+"<b>Hinweis:</b> Verwenden Sie die Foto-Verbesserung nur für Bilder, die sehr "
 "stark vergrößert werden; dieser Vorgang benötigt einige Zeit."
 
 #: core/dplugins/editor/transform/resize/resizetool.cpp:635
@@ -12452,7 +12453,7 @@ msgid ""
 "When using GoogleMaps, all images must have complete URLs, icons are "
 "squared, and when drawing a track, only line track is exported."
 msgstr ""
-"Wenn Sie GoogleMaps benutzen, müssen alle Bilder vollständige URLs haben, "
+"Wenn Sie GoogleMaps verwenden, müssen alle Bilder vollständige URLs haben, "
 "Symbole sind quadratisch und beim Zeichen eines Wegs wird nur der Linienzug "
 "exportiert."
 
@@ -13112,7 +13113,7 @@ msgid ""
 "the picture."
 msgstr ""
 "Geben Sie hier den Belichtungswert mit APEX-Einheit ein, den die Kamera "
-"benutzt hat um das Foto zu machen."
+"verwendet hat um das Foto zu machen."
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exifadjust.cpp:82
 #, kde-format
@@ -13156,7 +13157,7 @@ msgid ""
 "the picture."
 msgstr ""
 "Geben Sie hier den Grad für die gesamte Tonwertjustierung, den die Kamera "
-"benutzt hat um das Foto zu machen."
+"verwendet hat um das Foto zu machen."
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exifadjust.cpp:94
 #: core/dplugins/rawimport/native/rawsettingsbox.cpp:172
@@ -13191,7 +13192,7 @@ msgid ""
 "the picture."
 msgstr ""
 "Geben Sie hier die Richtung des Kontrastes ein, den die Kamera bei der "
-"Anfertigung des Bildes, benutzt hat."
+"Anfertigung des Bildes, verwendet hat."
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exifadjust.cpp:104
 #: core/dplugins/rawimport/native/rawsettingsbox.cpp:185
@@ -13224,8 +13225,8 @@ msgid ""
 "Set here the direction of saturation processing applied by the camera to "
 "take the picture."
 msgstr ""
-"Geben Sie hier die Richtung der Sättigung an, den die Kamera benutzt hat, um "
-"das Foto zu erstellen."
+"Geben Sie hier die Richtung der Sättigung an, den die Kamera verwendet hat, "
+"um das Foto zu erstellen."
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exifadjust.cpp:114
 #: core/libs/dimg/filters/sharp/sharpsettings.cpp:140
@@ -13257,7 +13258,7 @@ msgid ""
 "Set here the direction of sharpness processing applied by the camera to take "
 "the picture."
 msgstr ""
-"Geben Sie hier die Richtung der Schärfe an, die die Kamera benutzt hat um "
+"Geben Sie hier die Richtung der Schärfe an, die die Kamera verwendet hat um "
 "das Foto zu erstellen."
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exifadjust.cpp:124
@@ -13514,7 +13515,7 @@ msgid ""
 "will have the same contents."
 msgstr ""
 "Geben Sie hier das Datum und die Zeit an seit der das Bild digital "
-"gespeichert ist. Falls das Bild z. B. mit einer Digitalkamera gemacht wurde "
+"gespeichert ist. Falls das Bild z. B. mit einer Digitalkamera gemacht wurde "
 "und zur selben Zeit die Datei erstellt wurde, dann sind Original- und "
 "Digitalisierungsdatum bzw. -Zeit identisch."
 
@@ -13678,7 +13679,7 @@ msgid ""
 "Select here the program used by the camera to set exposure when the picture "
 "was taken."
 msgstr ""
-"Geben Sie hier das Programm an, das von der Kamera benutzt wurde, um die "
+"Geben Sie hier das Programm an, das von der Kamera verwendet wurde, um die "
 "Belichtung für das Bild einzustellen."
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exifdevice.cpp:171
@@ -13711,10 +13712,10 @@ msgid ""
 "taken. In auto-bracketing mode, the camera shoots a series of frames of the "
 "same scene at different exposure settings."
 msgstr ""
-"Wählen Sie hier den Modus den die Kamera benutzt, um die Belichtung während "
-"des Fotografierens zu setzen. Mit Auto-Bracketing macht die Kamera eine "
-"Reihe von Fotos derselben Szene mit unterschiedlichen Einstellungen für die "
-"Beleuchtung."
+"Wählen Sie hier den Modus den die Kamera verwendet, um die Belichtung "
+"während des Fotografierens zu setzen. Mit Auto-Bracketing macht die Kamera "
+"eine Reihe von Fotos derselben Szene mit unterschiedlichen Einstellungen für "
+"die Beleuchtung."
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exifdevice.cpp:184
 #, kde-format
@@ -13728,7 +13729,7 @@ msgid ""
 "picture."
 msgstr ""
 "Geben Sie hier den Wert der Belichtungskorrektur in APEX-Einheiten ein, den "
-"die Kamera für das Foto benutzt hat."
+"die Kamera für das Foto verwendet hat."
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exifdevice.cpp:196
 #, kde-format
@@ -13789,7 +13790,7 @@ msgid ""
 "Select here the metering mode used by the camera to set exposure when the "
 "picture was taken."
 msgstr ""
-"Geben Sie hier den Messmodus an, der benutzt wurde, um die Belichtung "
+"Geben Sie hier den Messmodus an, der verwendet wurde, um die Belichtung "
 "während des Fotografierens zu messen."
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exifdevice.cpp:211
@@ -14087,7 +14088,7 @@ msgstr "Blendeneinstellung (Blendenzahl):"
 msgid "Select here the lens aperture used by camera to take the picture."
 msgstr ""
 "Geben Sie hier die Objektivblende an, die von der Kamera für dieses Bild "
-"benutzt wurde."
+"verwendet wurde."
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exiflens.cpp:175
 #, kde-format
@@ -14100,7 +14101,7 @@ msgid ""
 "Select here the smallest aperture of the lens used by camera to take the "
 "picture."
 msgstr ""
-"Geben Sie hier die kleinste Blende an, die die Kamera benutzt hat um das "
+"Geben Sie hier die kleinste Blende an, die die Kamera verwendet hat um das "
 "Bild zu aufzunehmen."
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exiflight.cpp:78
@@ -14360,8 +14361,8 @@ msgstr "Blitzmodus:"
 msgid ""
 "Select here the flash program mode used by the camera to take the picture."
 msgstr ""
-"Geben Sie hier die Art des Blitzes an, der von der Kamera benutzt wurde, um "
-"das Bild aufzunehmen."
+"Geben Sie hier die Art des Blitzes an, der von der Kamera verwendet wurde, "
+"um das Bild aufzunehmen."
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exiflight.cpp:170
 #, kde-format
@@ -14376,7 +14377,7 @@ msgid ""
 "when it is focused into a beam by a reflector or lens. This value is the "
 "effective intensity for a period of one second."
 msgstr ""
-"Geben Sie hier die Blitzenergie in BCPS an, die von der Kamera benutzt "
+"Geben Sie hier die Blitzenergie in BCPS an, die von der Kamera verwendet "
 "wurde, um das Foto aufzunehmen. „Beam Candle Power Seconds“ (BCPS) ist ein "
 "Maß der effektiven Intensität einer Lichtquelle, wenn diese von einem "
 "Reflektor oder einem Objektiv in einen Strahl fokussiert wurde. Dieser Wert "
@@ -14407,7 +14408,7 @@ msgid ""
 "taken."
 msgstr ""
 "Geben Sie hier die Art des Weißabgleichs an, der von der Kamera für das Bild "
-"benutzt wurde."
+"verwendet wurde."
 
 #: core/dplugins/generic/metadata/metadataedit/iptc/iptccategories.cpp:71
 #: core/dplugins/generic/metadata/metadataedit/xmp/xmpcategories.cpp:69
@@ -14494,8 +14495,8 @@ msgid ""
 "wikipedia.org/wiki/Extensible_Metadata_Platform'>XMP</a> instead.</b>"
 msgstr ""
 "<b>Hinweis: <b><a href='https://de.wikipedia.org/wiki/IPTC-NAA-"
-"Standard'>IPTC</a></b>-Metadaten sind längenbegrenzt. Benutzen Sie bitte die "
-"kontextsensitive Hilfe für weitere Details. Stattdessen sollten Sie <a "
+"Standard'>IPTC</a></b>-Metadaten sind längenbegrenzt. Verwenden Sie bitte "
+"die kontextsensitive Hilfe für weitere Details. Stattdessen sollten Sie <a "
 "href='https://en.wikipedia.org/wiki/Extensible_Metadata_Platform'>XMP</a> "
 "verwenden.</b>"
 
@@ -15192,7 +15193,7 @@ msgstr ""
 #: core/dplugins/generic/metadata/metadataedit/xmp/xmpkeywords.cpp:66
 #, kde-format
 msgid "Use information retrieval words:"
-msgstr "Stichwörter benutzen:"
+msgstr "Stichwörter verwenden:"
 
 #: core/dplugins/generic/metadata/metadataedit/iptc/iptckeywords.cpp:72
 #, kde-format
@@ -15648,7 +15649,7 @@ msgstr ""
 "Name, der bei der IPTC/NAA registriert wurde und den Anbieter, der den "
 "Hinweis auf den Inhalt zur Verfügung gestellt hat, identifiziert. Der "
 "Standardwert für die I.P.R. ist „IPTC“, falls ein Standardreferenzcode "
-"benutzt wird. In diesem Feld können maximal 32 Zeichen gespeichert werden."
+"verwendet wird. In diesem Feld können maximal 32 Zeichen gespeichert werden."
 
 #: core/dplugins/generic/metadata/metadataedit/iptc/iptcsubjects.cpp:45
 #, kde-format
@@ -15668,9 +15669,9 @@ msgstr ""
 "eine Zahl im Bereich von 01000000 bis 17999999 und ist eine "
 "sprachunabhängige, internationale Referenz für ein Objekt. Das Objekt ist "
 "durch seine Referenznummer und den Namen aus einer der Standardlisten von "
-"IPTC/NAA identifiziert. Wenn ein Standardreferenzcode benutzt wird, dann ist "
-"dieser aus der englischen Referenzversion. Das Feld ist daher auf 8 Ziffern "
-"beschränkt."
+"IPTC/NAA identifiziert. Wenn ein Standardreferenzcode verwendet wird, dann "
+"ist dieser aus der englischen Referenzversion. Das Feld ist daher auf 8 "
+"Ziffern beschränkt."
 
 #: core/dplugins/generic/metadata/metadataedit/iptc/iptcsubjects.cpp:59
 #, kde-format
@@ -15679,7 +15680,7 @@ msgid ""
 "standard IPTC/NAA reference code. This field is limited to 64 characters."
 msgstr ""
 "Geben Sie hier den Objektnamen an. Wenn Sie einen Standardreferenzcode von "
-"IPTC/NAA wählen, dann wird hier Englisch benutzt. Diese Feld ist auf 64 "
+"IPTC/NAA wählen, dann wird hier Englisch verwendet. Diese Feld ist auf 64 "
 "Zeichen beschränkt."
 
 #: core/dplugins/generic/metadata/metadataedit/iptc/iptcsubjects.cpp:65
@@ -15689,7 +15690,7 @@ msgid ""
 "a standard IPTC/NAA reference code. This field is limited to 64 characters."
 msgstr ""
 "Geben Sie hier den Namen des Objektinhalts an. Wenn Sie einen "
-"Standardreferenzcode von IPTC/NAA wählen, dann wird hier Englisch benutzt. "
+"Standardreferenzcode von IPTC/NAA wählen, dann wird hier Englisch verwendet. "
 "Dieses Feld ist auf 64 Zeichen beschränkt."
 
 #: core/dplugins/generic/metadata/metadataedit/iptc/iptcsubjects.cpp:71
@@ -15699,7 +15700,7 @@ msgid ""
 "a standard IPTC/NAA reference code. This field is limited to 64 characters."
 msgstr ""
 "Geben Sie hier den Namen der Objektdetails an. Wenn Sie einen "
-"Standardreferenzcode von IPTC/NAA wählen, dann wird hier Englisch benutzt. "
+"Standardreferenzcode von IPTC/NAA wählen, dann wird hier Englisch verwendet. "
 "Dieses Feld ist auf 64 Zeichen beschränkt."
 
 #: core/dplugins/generic/metadata/metadataedit/metadataeditplugin.cpp:44
@@ -16521,7 +16522,7 @@ msgstr ""
 "Name, der bei der XMP/NAA registriert wurde und den Anbieter, der den "
 "Hinweis auf den Inhalt zur Verfügung gestellt hat, identifiziert. Der "
 "Standardwert für die I.P.R. ist „XMP“, falls ein Standardreferenzcode "
-"benutzt wird."
+"verwendet wird."
 
 #: core/dplugins/generic/metadata/metadataedit/xmp/xmpsubjects.cpp:52
 #, kde-format
@@ -16541,9 +16542,9 @@ msgstr ""
 "eine Zahl im Bereich von 01000000 bis 17999999 und ist eine "
 "sprachunabhängige, internationale Referenz für ein Objekt. Das Objekt ist "
 "durch seine Referenznummer und den Namen aus einer der Standardlisten von "
-"XMP/NAA identifiziert. Wenn ein Standardreferenzcode benutzt wird, dann ist "
-"dieser aus der englischen Referenzversion. Das Feld ist daher auf 8 Ziffern "
-"beschränkt."
+"XMP/NAA identifiziert. Wenn ein Standardreferenzcode verwendet wird, dann "
+"ist dieser aus der englischen Referenzversion. Das Feld ist daher auf 8 "
+"Ziffern beschränkt."
 
 #: core/dplugins/generic/metadata/metadataedit/xmp/xmpsubjects.cpp:65
 #, kde-format
@@ -16552,7 +16553,7 @@ msgid ""
 "standard XMP/NAA reference code."
 msgstr ""
 "Geben Sie hier den Objektnamen an. Wenn Sie einen Standardreferenzcode von "
-"XMP/NAA wählen, wird hier Englisch benutzt."
+"XMP/NAA wählen, wird hier Englisch verwendet."
 
 #: core/dplugins/generic/metadata/metadataedit/xmp/xmpsubjects.cpp:69
 #, kde-format
@@ -16561,7 +16562,7 @@ msgid ""
 "a standard XMP/NAA reference code."
 msgstr ""
 "Geben Sie hier den Namen des Inhalts an. Wenn Sie einen Standardreferenzcode "
-"von XMP/NAA wählen, dann wird hier Englisch benutzt."
+"von XMP/NAA wählen, dann wird hier Englisch verwendet."
 
 #: core/dplugins/generic/metadata/metadataedit/xmp/xmpsubjects.cpp:73
 #, kde-format
@@ -16570,7 +16571,7 @@ msgid ""
 "a standard XMP/NAA reference code."
 msgstr ""
 "Geben Sie hier den Namen der Objektdetails an. Wenn Sie einen "
-"Standardreferenzcode von XMP/NAA wählen, dann wird hier Englisch benutzt."
+"Standardreferenzcode von XMP/NAA wählen, dann wird hier Englisch verwendet."
 
 #: core/dplugins/generic/metadata/timeadjust/timeadjustdialog.cpp:96
 #, kde-format
@@ -17332,7 +17333,7 @@ msgid ""
 "possible."
 msgstr ""
 "Stellt die Gewichtung der Bildeigenschaften für den Pyramiden-Algorithmus "
-"auf maximal; d.h. Bildeigenschaften (Kontrast, Sättigung, ...) werden auf "
+"auf maximal; d. h. Bildeigenschaften (Kontrast, Sättigung, ...) werden auf "
 "möglichst global optimiert."
 
 #: core/dplugins/generic/tools/expoblending/blendingdlg/enfusesettings.cpp:116
@@ -18687,7 +18688,7 @@ msgid ""
 "The items list to share has changed. Do you want to start now the media "
 "server with this contents?"
 msgstr ""
-"Die Liste der zu teilenden Einträge wurde geändert. Wollen Sie den Medien-"
+"Die Liste der zu teilenden Einträge wurde geändert. Möchten Sie den Medien-"
 "Server mit diesen Einträgen neu starten?"
 
 #: core/dplugins/generic/tools/mediaserver/dmediaserverdlg.cpp:247
@@ -18845,7 +18846,7 @@ msgid ""
 "The items list to share has changed. Do you want to start now the MJPEG "
 "server with this contents?"
 msgstr ""
-"Die Liste der zu teilenden Einträge wurde geändert. Wollen Sie den MJPEG-"
+"Die Liste der zu teilenden Einträge wurde geändert. Möchten Sie den MJPEG-"
 "Server mit diesen Einträgen neu starten?"
 
 #: core/dplugins/generic/tools/mjpegstream/mjpegstreamdlg_views.cpp:61
@@ -19978,9 +19979,9 @@ msgid ""
 msgstr ""
 "„Projektdatei speichern“: Sie können die erstellte Projektdatei für das "
 "Zusammenfügen des Panoramas zur weiteren Bearbeitung mit %1 speichern. Die "
-"ist nützlich, um unterschiedliche Projektionen zu benutzen oder den Horizont "
-"bzw. das Zentrum des Panoramas oder die Kontrollpunkte zu verändern, um "
-"bessere Ergebnisse zu erzielen."
+"ist nützlich, um unterschiedliche Projektionen zu verwenden oder den "
+"Horizont bzw. das Zentrum des Panoramas oder die Kontrollpunkte zu "
+"verändern, um bessere Ergebnisse zu erzielen."
 
 #: core/dplugins/generic/tools/panorama/wizard/panolastpage.cpp:208
 #: core/dplugins/generic/tools/panorama/wizard/panolastpage.cpp:217
@@ -20514,8 +20515,8 @@ msgstr ""
 "Verschieben Sie das Rechteck, um das Foto passend zu der von Ihnen "
 "vorgegebenen Fotogröße zuzuschneiden.\n"
 "Sie können jedes Bild anders zuschneiden oder den Knopf „Fertigstellen“ "
-"benutzen, um den Standardzuschnitt für jedes Foto zu benutzen.\n"
-"Benutzen Sie „Nicht zuschneiden“, um das Zuschneiden sämtlicher Fotos zu "
+"verwenden, um den Standardzuschnitt für jedes Foto zu verwenden.\n"
+"Verwenden Sie „Nicht zuschneiden“, um das Zuschneiden sämtlicher Fotos zu "
 "vermeiden."
 
 #. i18n: ectx: property (whatsThis), widget (QCheckBox, m_disableCrop)
@@ -21250,7 +21251,7 @@ msgid ""
 "be used to process files on the network.</p>"
 msgstr ""
 "<p>Dieses Werkzeug ermöglicht es Ihnen, Einträge vor dem Versand per E-Mail "
-"zu bearbeiten (z.B. Größe anpassen).</p><p>Bilder können einzeln oder als "
+"zu bearbeiten (z. B. Größe anpassen).</p><p>Bilder können einzeln oder als "
 "komplettes Album ausgewählt werden.</p><p>Es werden verschiedene E-Mail-"
 "Programme unterstützt.</p>"
 
@@ -22332,7 +22333,7 @@ msgstr "&Oberfläche"
 #: core/dplugins/generic/view/presentation/dialogs/presentation_advpage.ui:35
 #, kde-format
 msgid "Use &milliseconds instead of seconds"
-msgstr "&Millisekunden anstatt Sekunden benutzen"
+msgstr "&Millisekunden anstatt Sekunden verwenden"
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_3)
 #: core/dplugins/generic/view/presentation/dialogs/presentation_advpage.ui:51
@@ -22847,14 +22848,14 @@ msgctxt "Filter Effect: Blobs"
 msgid "Blobs"
 msgstr "Kleckse"
 
-#: core/dplugins/generic/view/slideshow/common/slideshowloader.cpp:114
+#: core/dplugins/generic/view/slideshow/common/slideshowloader.cpp:116
 #, kde-format
 msgctxt "@title:window"
 msgid "Slideshow"
 msgstr "Diaschau"
 
-#: core/dplugins/generic/view/slideshow/common/slideshowloader.cpp:702
-#: core/dplugins/generic/view/slideshow/common/slideshowloader.cpp:714
+#: core/dplugins/generic/view/slideshow/common/slideshowloader.cpp:727
+#: core/dplugins/generic/view/slideshow/common/slideshowloader.cpp:739
 #, kde-format
 msgctxt ""
 "Reason for inhibiting the screensaver activation, when the presentation mode "
@@ -24376,7 +24377,7 @@ msgstr "Stichwort-Einstellungen"
 #: core/dplugins/generic/webservices/flickr/flickrwidget.cpp:109
 #, kde-format
 msgid "Use Host Application Tags"
-msgstr "Host-Anwendungsstichwörter benutzen"
+msgstr "Host-Anwendungsstichwörter verwenden"
 
 #: core/dplugins/generic/webservices/flickr/flickrwidget.cpp:111
 #: core/dplugins/generic/webservices/flickr/flickrwidget.cpp:472
@@ -27190,7 +27191,7 @@ msgstr "Zugang"
 #, kde-format
 msgid "This is the SmugMug account that will be used to authenticate."
 msgstr ""
-"Dies ist das SmugMug-Benutzerkonto, das zur Authentifizierung benutzt wird."
+"Dies ist das SmugMug-Benutzerkonto, das zur Authentifizierung verwendet wird."
 
 #: core/dplugins/generic/webservices/smugmug/smugwidget.cpp:84
 #, kde-format
@@ -27233,7 +27234,7 @@ msgstr "Klicken Sie hier, um das SmugMug-Benutzerkonto zu wechseln."
 #: core/dplugins/generic/webservices/smugmug/smugwidget.cpp:113
 #, kde-format
 msgid "This is the SmugMug album that will be used for transfer."
-msgstr "Dies ist das SmugMug-Album, das zur Übertragung benutzt wird."
+msgstr "Dies ist das SmugMug-Album, das zur Übertragung verwendet wird."
 
 #: core/dplugins/generic/webservices/smugmug/smugwidget.cpp:120
 #, kde-format
@@ -27798,7 +27799,7 @@ msgid ""
 "This value in E.V will be used to perform an exposure compensation of the "
 "image."
 msgstr ""
-"Dieser Wert in LW wird benutzt, um eine Belichtungskorrektur des Bildes "
+"Dieser Wert in LW wird verwendet, um eine Belichtungskorrektur des Bildes "
 "durchzuführen."
 
 #: core/dplugins/rawimport/native/rawsettingsbox.cpp:226
@@ -27856,14 +27857,14 @@ msgstr "Bild mit den aktuellen Einstellungen in den Editor importieren."
 #: core/dplugins/rawimport/native/rawsettingsbox.cpp:288
 #, kde-format
 msgid "Use Default"
-msgstr "Standard benutzen"
+msgstr "Standard verwenden"
 
 #: core/dplugins/rawimport/native/rawsettingsbox.cpp:290
 #, kde-format
 msgid "Use general Raw decoding settings to load this image in editor."
 msgstr ""
-"Benutzt allgemeine Einstellungen für die RAW-Entwicklung, um das Bild in den "
-"Editor zu laden."
+"Verwendet allgemeine Einstellungen für die RAW-Entwicklung, um das Bild in "
+"den Editor zu laden."
 
 #: core/dplugins/rawimport/rawtherapee/rawimportrawtherapeeplugin.cpp:231
 #, kde-format
@@ -28245,7 +28246,7 @@ msgstr ""
 "ausgewählt. An dieser Stelle liegt bereits eine Datenbankdatei einer älteren "
 "digiKam-Version.</p> <p>Möchten Sie die alte Datenbankdatei aktualisieren, "
 "eine neue Datenbank erstellen oder die aktuelle Datenbank an diese Stelle "
-"kopieren und sie weiterhin benutzen?</p> "
+"kopieren und sie weiterhin verwenden?</p> "
 
 #: core/libs/album/manager/albummanager_database.cpp:557
 #: core/libs/album/manager/albummanager_database.cpp:627
@@ -28267,7 +28268,7 @@ msgstr ""
 "ausgewählt. An dieser Stelle liegt bereits eine Datenbankdatei einer älteren "
 "digiKam-Version.</p> <p>Möchten Sie die alte Datenbankdatei aktualisieren, "
 "eine neue Datenbank erstellen oder die aktuelle Datenbank an diese Stelle "
-"kopieren und sie weiterhin benutzen?</p>"
+"kopieren und sie weiterhin verwenden?</p>"
 
 #: core/libs/album/manager/albummanager_database.cpp:603
 #, kde-format
@@ -28287,7 +28288,7 @@ msgid ""
 msgstr ""
 "<p>Sie haben den Ordner „%1“ als neuen Speicherort für die Datenbank "
 "ausgewählt.</p><p>Möchten Sie die aktuelle Datenbank dorthin kopieren und "
-"sie weiter benutzen oder möchten Sie eine neue Datenbank erstellen?</p>"
+"sie weiter verwenden oder möchten Sie eine neue Datenbank erstellen?</p>"
 
 #: core/libs/album/manager/albummanager_database.cpp:650
 #, kde-format
@@ -28299,7 +28300,7 @@ msgid ""
 msgstr ""
 "<p>Sie haben den Ordner „%1“ als neuen Speicherplatz für die Datenbank "
 "ausgewählt. An dieser Stelle liegt bereits eine Datenbankdatei.</p> "
-"<p>Möchten Sie die existierende Datei als neue Datenbank benutzen oder sie "
+"<p>Möchten Sie die existierende Datei als neue Datenbank verwenden oder sie "
 "entfernen und die aktuelle Datenbank an diese Stelle kopieren?</p>"
 
 #: core/libs/album/manager/albummanager_database.cpp:660
@@ -28316,7 +28317,7 @@ msgid ""
 msgstr ""
 "Es trat ein Fehler bei der Sicherung der existierenden Datenbankdatei („%1“) "
 "auf. Diese Datei wird ohne vorherige Sicherung nicht ersetzt. Es wird nun "
-"die existierende Datei weiter benutzt."
+"die existierende Datei weiter verwendet."
 
 #: core/libs/album/manager/albummanager_database.cpp:733
 #, kde-format
@@ -28325,7 +28326,7 @@ msgid ""
 "Starting with an empty database."
 msgstr ""
 "Fehler beim Kopieren der alten Datenbankdatei „%1“ an ihren neuen Platz "
-"„%2“. Es wird eine leere Datenbank benutzt."
+"„%2“. Es wird eine leere Datenbank verwendet."
 
 #: core/libs/album/manager/albummanager_database.cpp:756
 #, kde-format
@@ -28858,7 +28859,7 @@ msgstr "&Ältestes"
 msgctxt "@info"
 msgid "Use this button to select the date of the oldest image from album."
 msgstr ""
-"Benutzen Sie diesen Knopf, um das Datum des ältesten Bildes im Album "
+"Verwenden Sie diesen Knopf, um das Datum des ältesten Bildes im Album "
 "auszuwählen."
 
 #: core/libs/album/widgets/albumpropsedit.cpp:175
@@ -28873,7 +28874,7 @@ msgstr "&Durchschnitt"
 msgctxt "@info"
 msgid "Use this button to calculate the average date of images from album."
 msgstr ""
-"Benutzen Sie diesen Knopf, um das Durchschnittsdatum der Bilder im Album zu "
+"Verwenden Sie diesen Knopf, um das Durchschnittsdatum der Bilder im Album zu "
 "bestimmen."
 
 #: core/libs/album/widgets/albumpropsedit.cpp:177
@@ -28888,7 +28889,7 @@ msgstr "Neuestes"
 msgctxt "@info"
 msgid "Use this button to select the date of the newest image from album."
 msgstr ""
-"Benutzen Sie diesen Knopf, um das Datum des jüngsten Bildes im Album "
+"Verwenden Sie diesen Knopf, um das Datum des jüngsten Bildes im Album "
 "auszuwählen."
 
 #: core/libs/album/widgets/albumpropsedit.cpp:263
@@ -29135,7 +29136,7 @@ msgstr ""
 "dem gleichen Namen. Diese zwei werden daher durch die Dateien im obersten "
 "Ordner unterschieden und Sie sollten keine Dateien an diese CD anhängen, da "
 "sie sonst nicht mehr erkannt wird. in Zukunft sollten Sie für Ihre CDs und "
-"DVDs eindeutige Namen wählen, wenn Sie diese mit digiKam benutzen möchten."
+"DVDs eindeutige Namen wählen, wenn Sie diese mit digiKam verwenden möchten."
 
 #: core/libs/database/collection/collectionmanager_location.cpp:351
 #, kde-format
@@ -29325,9 +29326,9 @@ msgid ""
 "recent.) Please use the more recent version of digiKam that you used before. "
 msgstr ""
 "Die Datenbank wurde bereits mit einer aktuelleren Version von digiKam "
-"benutzt und ist daher schon auf ein Datenbankschema aktualisiert, das in "
+"verwendet und ist daher schon auf ein Datenbankschema aktualisiert, das in "
 "dieser Version noch nicht unterstützt wird. Das bedeutet, dass diese digiKam-"
-"Version entweder zu alt, oder das Datenbankformat zu aktuell ist. Benutzen "
+"Version entweder zu alt, oder das Datenbankformat zu aktuell ist. Verwenden "
 "Sie bitte die Version von digiKam, die Sie zuvor verwendet haben."
 
 #: core/libs/database/coredb/coredbschemaupdater.cpp:328
@@ -29865,9 +29866,9 @@ msgid ""
 "recent) Please use the more recent version of digikam that you used before. "
 msgstr ""
 "Die Datenbank wurde bereits mit einer aktuelleren Version von digiKam "
-"benutzt und ist daher schon auf ein Datenbankschema aktualisiert, das in "
+"verwendet und ist daher schon auf ein Datenbankschema aktualisiert, das in "
 "dieser Version noch nicht unterstützt wird. Das bedeutet, dass diese digiKam-"
-"Version entweder zu alt, oder das Datenbankformat zu aktuell ist. Benutzen "
+"Version entweder zu alt, oder das Datenbankformat zu aktuell ist. Verwenden "
 "Sie bitte eine Version von digiKam, die aktueller ist als die zurzeit "
 "eingesetzte."
 
@@ -30952,7 +30953,7 @@ msgid ""
 msgstr ""
 "<p>Wenn diese Einstellung aktiviert ist, werden die Einträge unwiderruflich "
 "vom Datenträger <b>gelöscht</b>, anstatt sie in den Papierkorb zu "
-"verschieben.</p><p><em>Benutzen Sie diese Einstellung mit Bedacht</em>: Die "
+"verschieben.</p><p><em>Verwenden Sie diese Einstellung mit Bedacht</em>: Die "
 "meisten Dateisysteme können gelöschte Einträge nicht zuverlässig "
 "wiederherstellen.</p>"
 
@@ -31944,7 +31945,7 @@ msgid ""
 msgstr ""
 "<b>Schwarz-Weiß mit Blaufilter</b>:<p>Simuliert die Belichtung eines Schwarz-"
 "Weiß-Films mit einem Blaufilter. Dieser hebt Dunst und Nebel hervor und wird "
-"für Reliefdruck und Kontrasteffekte benutzt.</p>"
+"für Reliefdruck und Kontrasteffekte verwendet.</p>"
 
 #: core/libs/dimg/filters/bw/bwsepiasettings.cpp:261
 #, kde-format
@@ -32575,7 +32576,7 @@ msgid ""
 "enabled, the border width will be a percentage of the image size, else the "
 "border width will be in pixels."
 msgstr ""
-"Benutzen Sie diese Einstellung, wenn Sie das Seitenverhältnis eines Bildes "
+"Verwenden Sie diese Einstellung, wenn Sie das Seitenverhältnis eines Bildes "
 "beibehalten möchten. Ist dies aktiviert, wird die Breites des Randes in "
 "Prozent der Bildgröße angegeben, anderenfalls in Pixel."
 
@@ -32768,7 +32769,7 @@ msgstr "Relief:"
 msgctxt "@info"
 msgid "Set here the relief gain used to merge texture and image."
 msgstr ""
-"Legen Sie hier die Stärke der Struktur fest, die benutzt wird, um Struktur "
+"Legen Sie hier die Stärke der Struktur fest, die verwendet wird, um Struktur "
 "und Bild zu mischen."
 
 #: core/libs/dimg/filters/dimgbuiltinfilter.cpp:387
@@ -33261,7 +33262,7 @@ msgid ""
 "high value here, or the target image will be completely blurred."
 msgstr ""
 "Dieser Wert bestimmt die Regelmäßigkeit der Glättung des Bildes. Sie sollten "
-"hier keinen großen Wert benutzen, da sonst das Bild komplett unscharf wird."
+"hier keinen großen Wert verwenden, da sonst das Bild komplett unscharf wird."
 
 #: core/libs/dimg/filters/greycstoration/greycstorationsettings.cpp:129
 #, kde-format
@@ -33791,7 +33792,7 @@ msgid ""
 "creative effects."
 msgstr ""
 "Diese Option fügt dem Bild Vignettierung hinzu, statt sie zu entfernen. "
-"Benutzen Sie dies für kreative Effekte."
+"Verwenden Sie dies für kreative Effekte."
 
 #: core/libs/dimg/filters/lens/antivignettingsettings.cpp:92
 #, kde-format
@@ -33891,7 +33892,7 @@ msgstr "Werkzeug zur Objektiv-Verzeichnung"
 #: core/libs/dimg/filters/lens/lensfuncameraselector.cpp:442
 #, kde-format
 msgid "Use Metadata"
-msgstr "Metadaten benutzen"
+msgstr "Metadaten verwenden"
 
 #: core/libs/dimg/filters/lens/lensfuncameraselector.cpp:448
 #, kde-format
@@ -33943,7 +33944,7 @@ msgid ""
 "Set this option to try to guess the right camera/lens settings from the "
 "image metadata (as Exif or XMP)."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die richtigen Kamera/Objektiv-"
+"Verwenden Sie diese Einstellung, um die richtigen Kamera/Objektiv-"
 "Einstellungen aus den Bildmetadaten (Exif oder XMP) zu ermitteln."
 
 #: core/libs/dimg/filters/lens/lensfuncameraselector.cpp:492
@@ -34257,7 +34258,7 @@ msgid ""
 "formats, such as PNG or TIF."
 msgstr ""
 "<b>Alpha</b>: zeigt die Alpha-Werte des Bildes. Dieser Kanal stellt die "
-"Transparenzwerte dar und wird von einigen Bildformaten wie z. B. PNG oder "
+"Transparenzwerte dar und wird von einigen Bildformaten wie z. B. PNG oder "
 "TIF unterstützt."
 
 #: core/libs/dimg/filters/levels/histogrampainter.cpp:485
@@ -34562,7 +34563,7 @@ msgid ""
 msgstr ""
 "Das Erhöhen der Korrelation kann bei der Reduzierung von Artefakten helfen. "
 "Die Korrelation kann Werte von 0–1 annehmen. Brauchbare Werte sind 0,5 und "
-"Werte nahe an 1, z. B. 0,95 und 0,99. Höhere Werte für die Korrelation "
+"Werte nahe an 1, z. B. 0,95 und 0,99. Höhere Werte für die Korrelation "
 "werden Schärfeeffekte des Moduls verringern."
 
 #: core/libs/dimg/filters/sharp/sharpsettings.cpp:230
@@ -34581,7 +34582,7 @@ msgid ""
 msgstr ""
 "Das Erhöhen des Rauschfilters kann bei der Reduzierung von Artefakten "
 "helfen. Der Rauschfilter kann im Bereich von 0–1 gewählt werden, aber höhere "
-"Werte als 0,1 sind selten hilfreich. Wenn der Filter zu klein ist, z. B. "
+"Werte als 0,1 sind selten hilfreich. Wenn der Filter zu klein ist, z. B. "
 "0,0, wird die Bildqualität miserabel sein. Ein brauchbarer Wert ist 0,01. "
 "Höhere Werte für den Rauschfilter werden Schärfeeffekte des Moduls "
 "verringern."
@@ -34602,11 +34603,11 @@ msgid ""
 "values, you will probably also have to increase the correlation and/or noise "
 "filter parameters."
 msgstr ""
-"Dies ist die Schärfe der gaußschen Faltung. Benutzen Sie diesen Parameter, "
+"Dies ist die Schärfe der gaußschen Faltung. Verwenden Sie diesen Parameter, "
 "wenn Sie eine gaußsche Unschärfe verwenden. In den meisten Fällen sollte Sie "
 "diesen Wert auf 0 setzen, um Artefakte zu vermeiden. Wenn Sie Werte ungleich "
-"Null benutzen, werden Sie wahrscheinlich auch den Korrelations- und/oder den "
-"Rauschfilter erhöhen müssen."
+"Null verwenden, werden Sie wahrscheinlich auch den Korrelations- und/oder "
+"den Rauschfilter erhöhen müssen."
 
 #: core/libs/dimg/filters/sharp/sharpsettings.cpp:251
 #, kde-format
@@ -35980,9 +35981,9 @@ msgid ""
 "recent.) Please use the more recent version of digiKam that you used before."
 msgstr ""
 "Die Datenbank wurde bereits mit einer aktuelleren Version von digiKam "
-"benutzt und ist daher schon auf ein Datenbankschema aktualisiert, das in "
+"verwendet und ist daher schon auf ein Datenbankschema aktualisiert, das in "
 "dieser Version noch nicht unterstützt wird. Das bedeutet, dass diese digiKam-"
-"Version entweder zu alt, oder das Datenbankformat zu aktuell ist. Benutzen "
+"Version entweder zu alt, oder das Datenbankformat zu aktuell ist. Verwenden "
 "Sie bitte die Version von digiKam, die Sie zuvor verwendet haben."
 
 #: core/libs/facesengine/facedb/facedbschemaupdater.cpp:194
@@ -36584,7 +36585,7 @@ msgid ""
 "up menu to set rating filter conditions."
 msgstr ""
 "Wählen Sie hier eine Bewertung, um den Inhalt des Albums nach dieser "
-"Bewertung zu filtern. Benutzen Sie bitte das Kontextmenü, um die "
+"Bewertung zu filtern. Verwenden Sie bitte das Kontextmenü, um die "
 "Filterbedingung festzulegen."
 
 #: core/libs/filters/ratingfilter.cpp:180
@@ -37254,7 +37255,7 @@ msgstr "%1 m"
 #, kde-format
 msgctxt "@info"
 msgid "Flash has been fired"
-msgstr "Blitz wurde benutzt"
+msgstr "Blitz wurde verwendet"
 
 #: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1264
 #, kde-format
@@ -39089,9 +39090,9 @@ msgid ""
 "same time."
 msgstr ""
 "Geben Sie bitte den Text zur Erstellung von Stichwörtern ein. Sie können „/“ "
-"benutzen, um eine Hierarchie von Stichwörtern zu erstellen. „,“ kann "
-"zusätzlich benutzt werden, um mehr als eine Stichworthierarchie gleichzeitig "
-"zu erstellen."
+"verwenden, um eine Hierarchie von Stichwörtern zu erstellen. „,“ kann "
+"zusätzlich verwendet werden, um mehr als eine Stichworthierarchie "
+"gleichzeitig zu erstellen."
 
 #: core/libs/properties/captions/itemdescedittab_tagsview.cpp:64
 #: core/libs/properties/captions/tagsedit.cpp:118
@@ -41833,7 +41834,7 @@ msgid ""
 "This operation can take long time depending on collection size.\n"
 "Do you want to continue?"
 msgstr ""
-"Abhängig von der Größe der Sammlung braucht diese Operation viel Zeit zur "
+"Abhängig von der Größe der Sammlung benötigt diese Operation viel Zeit zur "
 "Ausführung.\n"
 "Möchten Sie dennoch fortfahren?"
 
@@ -42038,7 +42039,7 @@ msgid ""
 "caution."
 msgstr ""
 "Alle Stichwörter aus der Datenbank löschen. Dies wird nicht mit den Dateien "
-"abgeglichen. Benutzen Sie diese Funktion, nur wenn Sie wissen, was Sie tun."
+"abgeglichen. Verwenden Sie diese Funktion, nur wenn Sie wissen, was Sie tun."
 
 #: core/libs/tags/manager/tagsmanager_p.cpp:240
 #, kde-format
@@ -42243,7 +42244,7 @@ msgstr ""
 "Name, der bei der XMP/NAA registriert wurde und den Anbieter, der den "
 "Hinweis auf den Inhalt zur Verfügung gestellt hat, identifiziert. Der "
 "Standardwert für die I.P.R. ist „XMP“, falls ein Standardreferenzcode "
-"benutzt wird."
+"verwendet wird."
 
 #: core/libs/template/subjectedit.cpp:53
 #, kde-format
@@ -42263,9 +42264,9 @@ msgstr ""
 "eine Zahl im Bereich von 01000000 bis 17999999 und ist eine "
 "sprachunabhängige, internationale Referenz für ein Objekt. Das Objekt ist "
 "durch seine Referenznummer und den Namen aus einer der Standardlisten von "
-"XMP/NAA identifiziert. Wenn ein Standardreferenzcode benutzt wird, dann ist "
-"dieser aus der englischen Referenzversion. Das Feld ist daher auf 8 Ziffern "
-"beschränkt."
+"XMP/NAA identifiziert. Wenn ein Standardreferenzcode verwendet wird, dann "
+"ist dieser aus der englischen Referenzversion. Das Feld ist daher auf 8 "
+"Ziffern beschränkt."
 
 #: core/libs/template/subjectedit.cpp:66
 #, kde-format
@@ -42274,7 +42275,7 @@ msgid ""
 "standard XMP/NAA reference code."
 msgstr ""
 "Geben Sie hier den Namen des Motivs an. Wenn Sie einen Standardreferenzcode "
-"von XMP/NAA wählen, wird hier Englisch benutzt."
+"von XMP/NAA wählen, wird hier Englisch verwendet."
 
 #: core/libs/template/subjectedit.cpp:70
 #, kde-format
@@ -42283,7 +42284,7 @@ msgid ""
 "a standard XMP/NAA reference code."
 msgstr ""
 "Geben Sie hier den Namen des Motivinhalts an. Wenn Sie einen "
-"Standardreferenzcode von XMP/NAA wählen, dann wird hier Englisch benutzt."
+"Standardreferenzcode von XMP/NAA wählen, dann wird hier Englisch verwendet."
 
 #: core/libs/template/subjectedit.cpp:74
 #, kde-format
@@ -42292,7 +42293,7 @@ msgid ""
 "a standard XMP/NAA reference code."
 msgstr ""
 "Geben Sie hier den Namen des Motivdetails an. Wenn Sie einen "
-"Standardreferenzcode von XMP/NAA wählen, dann wird hier Englisch benutzt."
+"Standardreferenzcode von XMP/NAA wählen, dann wird hier Englisch verwendet."
 
 #: core/libs/template/templatelist.cpp:70
 #, kde-format
@@ -42325,7 +42326,7 @@ msgid ""
 "Enter the names of the photograph's creators. Use semi-colons as separator "
 "here."
 msgstr ""
-"Geben Sie hier die Namen der Ersteller des Fotos ein. Benutzen Sie "
+"Geben Sie hier die Namen der Ersteller des Fotos ein. Verwenden Sie "
 "Strichpunkte als Trennzeichen."
 
 #: core/libs/template/templatepanel.cpp:94
@@ -42341,11 +42342,12 @@ msgid ""
 msgstr ""
 "<p>Dieses Feld sollte die Namen der Personen enthalten, die dieses Foto "
 "erstellt haben. Falls es nicht gewünscht ist, den Namen des Fotografen "
-"anzugeben, z. B. weil die Identität des Fotografen beschützt werden muss, "
+"anzugeben, z. B. weil die Identität des Fotografen beschützt werden muss, "
 "kann auch der Name einer Firma oder Organisation verwendet werden. Sobald "
 "dieses Feld einmal gefüllt wurde, sollte es nicht mehr geändert werden.</"
-"p><p>Benutzen Sie <b>Semikola als Trennzeichen</b>, falls Sie mehr als einen "
-"Namen eingeben möchten.</p><p>IPTC beschränkt das Feld auf 32 Zeichen.</p>"
+"p><p>Verwenden Sie <b>Semikola als Trennzeichen</b>, falls Sie mehr als "
+"einen Namen eingeben möchten.</p><p>IPTC beschränkt das Feld auf 32 Zeichen."
+"</p>"
 
 #: core/libs/template/templatepanel.cpp:103
 #, kde-format
@@ -42388,7 +42390,7 @@ msgid ""
 "photograph, then the group (agency) involved in supplying the image should "
 "be listed here.</p><p>With IPTC, this field is limited to 32 characters.</p>"
 msgstr ""
-"<p>(Synonym für den Anbieter): Benutzen Sie das Anbieterfeld, um den "
+"<p>(Synonym für den Anbieter): Verwenden Sie das Anbieterfeld, um den "
 "Anbieter des Fotos zu identifizieren. Dies muss nicht unbedingt der Autor "
 "sein. Wenn ein Fotograf für eine Nachrichtenagentur wie Reuters oder "
 "Associated Press arbeitet, können diese Organisationen hier aufgeführt "
@@ -42527,15 +42529,15 @@ msgid ""
 "Creator and from the names listed in the Copyright Notice.</p><p>With IPTC, "
 "this field is limited to 32 characters.</p>"
 msgstr ""
-"<p>Das Quellenfeld sollte benutzt werden, um den Originalbesitzer oder "
+"<p>Das Quellenfeld sollte verwendet werden, um den Originalbesitzer oder "
 "Halter der Urheberrechte des Fotos anzugeben. Der Wert dieses Felds sollte "
 "niemals geändert werden, nachdem diese Informationen während der "
 "Bilderstellung eingegeben wurden. Obwohl dies zurzeit nicht erzwungen wird, "
 "sollten Sie dieses Feld als ein „nur einmal schreiben“-Feld betrachten. Die "
 "Quelle kann ein Individuum, eine Agentur oder das Mitglied einer Agentur "
 "sein. Als Hilfe für spätere Suchen sollten alle Schrägstriche „/“ mit "
-"Freizeichen umgeben sein. Benutzen Sie also „Fotograf / Agentur“ anstatt von "
-"„Fotograf/Agentur“. Die Quelle kann sich vom Ersteller und dem Namen im "
+"Freizeichen umgeben sein. Verwenden Sie also „Fotograf / Agentur“ anstatt "
+"von „Fotograf/Agentur“. Die Quelle kann sich vom Ersteller und dem Namen im "
 "Copyright-Hinweis unterscheiden.\n"
 "Bei IPTC ist dieses Feld auf 32 Zeichen beschränkt.</p>"
 
@@ -43132,7 +43134,7 @@ msgstr "Zeitstempel mit ExifTool aktualisieren"
 #: core/libs/timeadjust/timeadjustsettings.cpp:248
 #, kde-format
 msgid "Use this option primarily with video files"
-msgstr "Benutzen Sie diese Einstellung vornehmlich für Videodateien"
+msgstr "Verwenden Sie diese Einstellung vornehmlich für Videodateien"
 
 #: core/libs/timeadjust/timeadjustsettings.cpp:249
 #, kde-format
@@ -44403,13 +44405,14 @@ msgstr "Größe:"
 #, kde-format
 msgctxt "@info: font properties"
 msgid "Here you can choose the font family to be used."
-msgstr "Hier können Sie die Schriftfamilie auswählen, die benutzt werden soll."
+msgstr ""
+"Hier können Sie die Schriftfamilie auswählen, die verwendet werden soll."
 
 #: core/libs/widgets/fonts/dfontproperties.cpp:366
 #, kde-format
 msgctxt "@info: font properties"
 msgid "Here you can choose the font style to be used."
-msgstr "Hier können Sie den Schriftstil auswählen, der benutzt werden soll."
+msgstr "Hier können Sie den Schriftstil auswählen, der verwendet werden soll."
 
 #: core/libs/widgets/fonts/dfontproperties.cpp:380
 #, kde-format
@@ -44462,7 +44465,7 @@ msgid ""
 "paper size)."
 msgstr ""
 "Hier können Sie umschalten zwischen festen Schriftgrößen und solchen, die "
-"dynamisch der jeweiligen Umgebung angepasst werden (z. B. Größe von "
+"dynamisch der jeweiligen Umgebung angepasst werden (z. B. Größe von "
 "Bedienelementen, Papierformat)."
 
 #: core/libs/widgets/fonts/dfontproperties.cpp:431
@@ -44644,7 +44647,7 @@ msgid ""
 msgstr ""
 "<ul><li><p>Die <b>wahrnehmende Wiedergabe</b> komprimiert oder erweitert die "
 "komplette Farbskala des Bildes so, dass sie die komplette Farbskala des "
-"Zielgeräts benutzt. Auf diese Weise bleibt die Grau-Balance erhalten, aber "
+"Zielgeräts verwendet. Auf diese Weise bleibt die Grau-Balance erhalten, aber "
 "die farbmetrische Genauigkeit könnte sich ändern.</p> <p>Mit anderen Worten, "
 "wenn einige Farben eines Bildes außerhalb des Bereichs des Ausgabegerätes "
 "fallen, wird die Bildwiedergabe alle Farben des Bildes so neujustieren, dass "
@@ -44665,7 +44668,7 @@ msgstr ""
 "Farbsättigung des Bildes auf Kosten von Farbschattierung und Helligkeit.</"
 "p><p>Die Umsetzung dieser Wiedergabe ist etwas problematisch und das ICC "
 "arbeitet noch an Methoden, um den gewünschten Effekt zu erzielen.</p> "
-"<p>Diese Wiedergabe ist am besten für Geschäftsgrafiken wie z. B. Diagramme "
+"<p>Diese Wiedergabe ist am besten für Geschäftsgrafiken wie z. B. Diagramme "
 "geeignet. Hier ist es wichtiger, dass die Farben klar und der Kontrast gut "
 "sind, als dass die genaue Farbe getroffen wird.</p></li></ul>"
 
@@ -44811,7 +44814,7 @@ msgstr "Profilversion"
 #, kde-format
 msgctxt "@info: icc profile properties"
 msgid "The ICC version used to record the profile"
-msgstr "Die ICC-Version, die zur Aufzeichnung des Profils benutzt wurde"
+msgstr "Die ICC-Version, die zur Aufzeichnung des Profils verwendet wurde"
 
 #: core/libs/widgets/iccprofiles/iccprofilewidget.cpp:147
 #, kde-format
@@ -44854,7 +44857,7 @@ msgstr ""
 "Es wird auch Gerätefarbskala oder Geräteskala genannt.\n"
 "Weiters gibt es schwarze Punkte und gelbe Striche.\n"
 "Jeder schwarze Punkt steht für einen Messpunkt, der\n"
-"benutzt wurde, um dieses Profil zu erstellen.\n"
+"verwendet wurde, um dieses Profil zu erstellen.\n"
 "Die gelben Striche geben für jeden Punkt Betrag und\n"
 "Richtung der Korrektur durch das Profil an."
 
@@ -49919,7 +49922,7 @@ msgstr "Unbekannt"
 #, kde-format
 msgctxt "@title: subject widget"
 msgid "Use structured definition of the subject matter:"
-msgstr "Strukturierte Definition des Inhalts benutzen:"
+msgstr "Strukturierte Definition des Inhalts verwenden:"
 
 #: core/libs/widgets/metadata/utils/subjectwidget.cpp:126
 #, kde-format
@@ -51888,7 +51891,7 @@ msgid ""
 "(like aperture and shutter speed) about an image."
 msgstr ""
 "ist ein von den meisten heutigen Digitalkameras benutzter Standard, der zum "
-"Speichern von technischen Informationen, wie z. B. Blende und "
+"Speichern von technischen Informationen, wie z. B. Blende und "
 "Verschlusszeiten, verwendet wird."
 
 #: core/showfoto/setup/showfotosetupmetadata.cpp:118
@@ -51899,7 +51902,7 @@ msgid ""
 "an older standard used in digital photography to store photographer "
 "information in images."
 msgstr ""
-"ist ein älterer Standard, der in der Digitalfotografie benutzt wird, um "
+"ist ein älterer Standard, der in der Digitalfotografie verwendet wird, um "
 "Informationen des Fotografen im Bild zu speichern."
 
 #: core/showfoto/setup/showfotosetupmetadata.cpp:124
@@ -51992,7 +51995,7 @@ msgstr "&Bildformat anzeigen"
 #, kde-format
 msgid "Set this option to show image format over image thumbnail."
 msgstr ""
-"Benutzen Sie diese Einstellung, um das Bildformat über der Vorschau "
+"Verwenden Sie diese Einstellung, um das Bildformat über der Vorschau "
 "anzuzeigen."
 
 #: core/showfoto/setup/showfotosetupmisc.cpp:156
@@ -52005,7 +52008,7 @@ msgstr "Geolokalisierung&s-Anzeige einblenden"
 #, kde-format
 msgid "Set this option to indicate if image has geolocation information."
 msgstr ""
-"Benutzen Sie diese Einstellung zur Anzeige, ob Bilder Geolokalisierungs-"
+"Verwenden Sie diese Einstellung zur Anzeige, ob Bilder Geolokalisierungs-"
 "Informationen enthalten."
 
 #: core/showfoto/setup/showfotosetupmisc.cpp:158
@@ -52136,7 +52139,7 @@ msgstr "Für alle Reiter"
 #, kde-format
 msgid "Set this option to configure how sidebars tab title are visible."
 msgstr ""
-"Benutzen Sie diese Einstellung, um einzustellen wie die Beschriftung der "
+"Verwenden Sie diese Einstellung, um einzustellen wie die Beschriftung der "
 "Reiter in der Seitenleiste sichtbar sind."
 
 #: core/showfoto/setup/showfotosetupmisc.cpp:234
@@ -52150,7 +52153,7 @@ msgstr "Stil der Bedienelemente:"
 #, kde-format
 msgid "Set this option to choose the default window decoration and looks."
 msgstr ""
-"Benutzen Sie diese Einstellung, um das Verhalten und Aussehen des "
+"Verwenden Sie diese Einstellung, um das Verhalten und Aussehen des "
 "Standardfensters festzulegen."
 
 #: core/showfoto/setup/showfotosetupmisc.cpp:260
@@ -52163,7 +52166,7 @@ msgstr "Symboldesign (Änderung wird erst nach Neustart wirksam):"
 #: core/utilities/setup/misc/setupmisc_appearance.cpp:67
 #, kde-format
 msgid "Set this option to choose the default icon theme."
-msgstr "Benutzen Sie diese Einstellung, um das Standarddesign festzulegen."
+msgstr "Verwenden Sie diese Einstellung, um das Standarddesign festzulegen."
 
 #: core/showfoto/setup/showfotosetupmisc.cpp:266
 #: core/utilities/setup/misc/setupmisc_appearance.cpp:71
@@ -52257,7 +52260,7 @@ msgstr "Schriftart der Anwendung:"
 msgid "Select here the font used to display text in whole application."
 msgstr ""
 "Legen Sie hier die Schriftart fest, die für die Anzeige von Text in der "
-"gesamten Anwendung benutzt wird."
+"gesamten Anwendung verwendet wird."
 
 #: core/showfoto/setup/showfotosetupmisc.cpp:337
 #: core/utilities/setup/misc/setupmisc_appearance.cpp:143
@@ -52341,7 +52344,7 @@ msgstr ""
 #, kde-format
 msgid "Select here the font used to display text in tooltips."
 msgstr ""
-"Legen Sie hier die Schriftart fest, die benutzt wird, um den Text in den "
+"Legen Sie hier die Schriftart fest, die verwendet wird, um den Text in den "
 "Kurzinfos anzuzeigen."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:91
@@ -52359,7 +52362,7 @@ msgstr "Dateinamen anzeigen"
 #, kde-format
 msgid "Set this option to display the image file name."
 msgstr ""
-"Benutzen Sie diese Einstellung, um den Dateinamen des Bildes anzuzeigen."
+"Verwenden Sie diese Einstellung, um den Dateinamen des Bildes anzuzeigen."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:97
 #, kde-format
@@ -52371,7 +52374,7 @@ msgstr "Dateidatum anzeigen"
 #, kde-format
 msgid "Set this option to display the image file date."
 msgstr ""
-"Benutzen Sie diese Einstellung, um das Dateidatum des Bildes anzuzeigen."
+"Verwenden Sie diese Einstellung, um das Dateidatum des Bildes anzuzeigen."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:100
 #, kde-format
@@ -52383,7 +52386,7 @@ msgstr "Dateigröße anzeigen"
 #, kde-format
 msgid "Set this option to display the image file size."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Dateigröße des Bildes anzuzeigen."
+"Verwenden Sie diese Einstellung, um die Dateigröße des Bildes anzuzeigen."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:103
 #, kde-format
@@ -52394,7 +52397,7 @@ msgstr "Bildtyp anzeigen"
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:41
 #, kde-format
 msgid "Set this option to display the image type."
-msgstr "Benutzen Sie diese Einstellung, um den Bildtyp anzuzeigen."
+msgstr "Verwenden Sie diese Einstellung, um den Bildtyp anzuzeigen."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:106
 #, kde-format
@@ -52406,7 +52409,7 @@ msgstr "Bildabmessungen anzeigen"
 #, kde-format
 msgid "Set this option to display the image dimensions in pixels."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Bildabmessungen in Pixeln anzuzeigen."
+"Verwenden Sie diese Einstellung, um die Bildabmessungen in Pixeln anzuzeigen."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:123
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:64
@@ -52416,7 +52419,7 @@ msgid ""
 "Set this option to display the make and model of the camera with which the "
 "image has been taken."
 msgstr ""
-"Benutzen Sie diese Einstellung, um den Kamerahersteller und das Modell "
+"Verwenden Sie diese Einstellung, um den Kamerahersteller und das Modell "
 "anzuzeigen, mit dem dieses Bild gemacht wurde."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:126
@@ -52433,7 +52436,7 @@ msgstr "Kamera-Objektiv"
 msgid ""
 "Set this option to display the lens model with which the image was taken."
 msgstr ""
-"Benutzen Sie diese Einstellung, um das Objektiv mit dem das Foto erstellt "
+"Verwenden Sie diese Einstellung, um das Objektiv mit dem das Foto erstellt "
 "wurde anzuzeigen."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:130
@@ -52446,7 +52449,8 @@ msgstr "Kameradatum anzeigen"
 #, kde-format
 msgid "Set this option to display the date when the image was taken."
 msgstr ""
-"Benutzen Sie diese Einstellung, um das Erstellungsdatum des Fotos anzuzeigen."
+"Verwenden Sie diese Einstellung, um das Erstellungsdatum des Fotos "
+"anzuzeigen."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:134
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:75
@@ -52456,8 +52460,8 @@ msgid ""
 "Set this option to display the camera aperture and focal settings used to "
 "take the image."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Blenden- und Brennweiteneinstellungen "
-"anzuzeigen."
+"Verwenden Sie diese Einstellung, um die Blenden- und "
+"Brennweiteneinstellungen anzuzeigen."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:138
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:79
@@ -52467,7 +52471,7 @@ msgid ""
 "Set this option to display the camera exposure and sensitivity used to take "
 "the image."
 msgstr ""
-"Benutzen Sie diese Einstellung, um Belichtungs- und "
+"Verwenden Sie diese Einstellung, um Belichtungs- und "
 "Empfindlichkeitseinstellungen der Kamera für das Bild anzuzeigen."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:141
@@ -52482,7 +52486,7 @@ msgid ""
 "Set this option to display the camera mode and program used to take the "
 "image."
 msgstr ""
-"Benutzen Sie diese Einstellung, um den Kameramodus und das Motivprogramm "
+"Verwenden Sie diese Einstellung, um den Kameramodus und das Motivprogramm "
 "anzuzeigen, mit dem das Bild aufgenommen wurde."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:145
@@ -52497,7 +52501,7 @@ msgstr "Blitzeinstellung der Kamera anzeigen"
 msgid ""
 "Set this option to display the camera flash settings used to take the image."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Blitzeinstellung anzuzeigen, mit der "
+"Verwenden Sie diese Einstellung, um die Blitzeinstellung anzuzeigen, mit der "
 "das Bild aufgenommen wurde."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:149
@@ -52513,7 +52517,7 @@ msgid ""
 "Set this option to display the camera white balance settings used to take "
 "the image."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Weißabgleich-Einstellung anzuzeigen, "
+"Verwenden Sie diese Einstellung, um die Weißabgleich-Einstellung anzuzeigen, "
 "mit der das Bild aufgenommen wurde."
 
 #: core/showfoto/stackview/showfotostackviewfavoriteitem.cpp:117
@@ -53142,9 +53146,9 @@ msgid ""
 "renaming options and modifiers. For further explanation, use the information "
 "button.</p>"
 msgstr ""
-"<p>Geben Sie hier ein Muster für die Umbenennung ein. Benutzen Sie die "
+"<p>Geben Sie hier ein Muster für die Umbenennung ein. Verwenden Sie die "
 "Knöpfe, um schnell Umbenennungs-Einstellungen und Modifikatoren "
-"hinzuzufügen. Benutzen Sie den Informationsknopf, um weitere Erklärungen zu "
+"hinzuzufügen. Verwenden Sie den Informationsknopf, um weitere Erklärungen zu "
 "erhalten.</p>"
 
 #: core/utilities/advancedrename/advancedrenamewidget.cpp:338
@@ -54391,7 +54395,7 @@ msgid ""
 msgstr ""
 "<qt><p><h1><b>Migration der Konfiguration und der Metadaten von digiKam 4</"
 "b></h1></p><p>Wenn Sie die Konfiguration und die Alben von digiKam 4 weiter "
-"verwenden wollen, können Sie diese hier migrieren. Bitte beachten Sie die "
+"verwenden möchten, können Sie diese hier migrieren. Bitte beachten Sie die "
 "nachfolgenden Warnungen:</p><p>Die Migration erfolgt <b>auf eigenes Risiko</"
 "b>. digiKam Entwickler empfehlen diesen Schritt nicht und unterstützen ihn "
 "auch nicht. Andererseits können beim Erstellen einer neuen Konfiguration "
@@ -54445,7 +54449,7 @@ msgid ""
 "side-by-side, and synchronized zooming and panning can be performed.</p></qt>"
 msgstr ""
 "<qt><p><i>Hinweis:</i> Das Verwenden einer Vorschau ist immer schneller als "
-"das Benutzen des Editors. Vor allem, wenn Sie eine Serie von Aufnahmen "
+"das Verwenden des Editors. Vor allem, wenn Sie eine Serie von Aufnahmen "
 "durchgehen. Im Vorschaumodus können Sie das Bild jedoch nicht bearbeiten "
 "oder korrigieren. Falls Sie Bilder vergleichen möchten ist es oft besser, "
 "den Leuchttisch zu verwenden: Bilder können nebeneinander angezeigt und die "
@@ -54514,7 +54518,7 @@ msgstr "Direkt öffnen, mit automatisch durchgeführten Anpassungen"
 #: core/utilities/firstrun/rawpage.cpp:74
 #, kde-format
 msgid "Use the Raw import tool to adjust corrections manually"
-msgstr "RAW-Importwerkzeug benutzen, um Anpassungen manuell durchzuführen"
+msgstr "RAW-Importwerkzeug verwenden, um Anpassungen manuell durchzuführen"
 
 #: core/utilities/firstrun/rawpage.cpp:84
 #, kde-format
@@ -54869,7 +54873,7 @@ msgstr "Fingerabdrücke aktualisieren"
 msgctxt "@info"
 msgid "Use this button to update all image fingerprints."
 msgstr ""
-"Benutzen Sie diesen Knopf, um die Fingerabdrücke aller Bilder zu "
+"Verwenden Sie diesen Knopf, um die Fingerabdrücke aller Bilder zu "
 "aktualisieren."
 
 #: core/utilities/fuzzysearch/findduplicatesview.cpp:288
@@ -54883,7 +54887,7 @@ msgstr "Duplikate suchen"
 msgctxt "@info"
 msgid "Use this button to scan the selected albums for duplicate items."
 msgstr ""
-"Benutzen Sie diesen Knopf, um die ausgewählten Alben nach doppelten "
+"Verwenden Sie diesen Knopf, um die ausgewählten Alben nach doppelten "
 "Einträgen zu durchsuchen."
 
 #: core/utilities/fuzzysearch/findduplicatesview.cpp:293
@@ -54896,7 +54900,7 @@ msgstr "Duplikate entfernen"
 #, kde-format
 msgctxt "@info"
 msgid "Use this button to delete all duplicate images."
-msgstr "Benutzen Sie diesen Knopf, um alle doppelten Bilder zu löschen."
+msgstr "Verwenden Sie diesen Knopf, um alle doppelten Bilder zu löschen."
 
 #: core/utilities/fuzzysearch/fuzzysearchview.cpp:51
 #, kde-format
@@ -54991,7 +54995,7 @@ msgid ""
 msgstr ""
 "Wenn Sie diesen Knopf drücken, werden die Bilder der aktuellen Ähnlichkeits-"
 "Suche in einem virtuellen Album gespeichert. Dabei wird der Name auf der "
-"linken Seite benutzt."
+"linken Seite verwendet."
 
 #: core/utilities/fuzzysearch/fuzzysearchview_sketch.cpp:34
 #, kde-format
@@ -55007,7 +55011,7 @@ msgstr "Letzten Strich auf der Skizze rückgängig machen."
 #, kde-format
 msgid "Use this button to undo last drawing action on sketch."
 msgstr ""
-"Benutzen Sie diesen Knopf, um den letzten Strich in der Skizze zu löschen"
+"Verwenden Sie diesen Knopf, um den letzten Strich in der Skizze zu löschen"
 
 #: core/utilities/fuzzysearch/fuzzysearchview_sketch.cpp:60
 #, kde-format
@@ -55018,8 +55022,8 @@ msgstr "Letzten Strich auf der Skizze wiederherstellen"
 #, kde-format
 msgid "Use this button to redo last drawing action on sketch."
 msgstr ""
-"Benutzen Sie diesen Knopf, um den zuletzt rückgängig gemachten Strich in der "
-"Skizze wiederherzustellen."
+"Verwenden Sie diesen Knopf, um den zuletzt rückgängig gemachten Strich in "
+"der Skizze wiederherzustellen."
 
 #: core/utilities/fuzzysearch/fuzzysearchview_sketch.cpp:64
 #, kde-format
@@ -55046,7 +55050,7 @@ msgstr "Skizze löschen"
 #: core/utilities/fuzzysearch/fuzzysearchview_sketch.cpp:105
 #, kde-format
 msgid "Use this button to clear sketch contents."
-msgstr "Benutzen Sie diesen Knopf, um den Inhalt der Skizze zu löschen"
+msgstr "Verwenden Sie diesen Knopf, um den Inhalt der Skizze zu löschen"
 
 #: core/utilities/fuzzysearch/fuzzysearchview_sketch.cpp:109
 #, kde-format
@@ -55069,7 +55073,7 @@ msgid ""
 "new search virtual album using the name set on the left side."
 msgstr ""
 "Wenn Sie diesen Knopf drücken, wird die Skizzensuche in einem virtuellen "
-"Album gespeichert. Dabei wird der Name auf der linken Seite benutzt."
+"Album gespeichert. Dabei wird der Name auf der linken Seite verwendet."
 
 #: core/utilities/fuzzysearch/sketchwidget.cpp:133
 #, kde-format
@@ -58125,8 +58129,8 @@ msgid ""
 "The unit that gets used to measure altitude, lengths and distances (e.g. km, "
 "mi, ft)."
 msgstr ""
-"Die Einheit, die zum Messen von Höhe, Länge und Entfernung verwendet wird (z."
-"B. km, mi, ft)."
+"Die Einheit, die zum Messen von Höhe, Länge und Entfernung verwendet wird "
+"(z. B. km, mi, ft)."
 
 #: core/utilities/geolocation/engine/settings/MarbleConfigView.cpp:118
 #, kde-format
@@ -58156,8 +58160,8 @@ msgid ""
 "As an alternative you can choose decimal degrees (e.g. 54.5°)."
 msgstr ""
 "Legt fest, wie Winkel in Koordinaten angegeben werden.\n"
-"Voreingestellt ist Grad-Minute-Sekunde (z. B. 54°30'00\").\n"
-"Alternativ können auch dezimale Gradzahlen verwendet werden (z. B. 54,5°)."
+"Voreingestellt ist Grad-Minute-Sekunde (z. B. 54°30'00\").\n"
+"Alternativ können auch dezimale Gradzahlen verwendet werden (z. B. 54,5°)."
 
 #: core/utilities/geolocation/engine/settings/MarbleConfigView.cpp:134
 #, kde-format
@@ -58222,7 +58226,7 @@ msgid ""
 "advisable to set this option to \"low quality\" as this will give better "
 "speed."
 msgstr ""
-"Legt die Qualität der Karte während Animationen fest (z. B. beim Ziehen des "
+"Legt die Qualität der Karte während Animationen fest (z. B. beim Ziehen des "
 "Globus).\n"
 "Besonders auf langsamen Rechnern ist es ratsam, diese auf „Niedrige "
 "Qualität“ zu\n"
@@ -58241,7 +58245,7 @@ msgstr "Träge Globusdrehung"
 #: core/utilities/geolocation/engine/settings/MarbleConfigView.cpp:167
 #, kde-format
 msgid "Use kinetic spinning when dragging the map"
-msgstr "Kinetisches Drehen beim Ziehen der Karte benutzen"
+msgstr "Kinetisches Drehen beim Ziehen der Karte verwenden"
 
 #: core/utilities/geolocation/engine/settings/MarbleConfigView.cpp:168
 #, kde-format
@@ -59030,7 +59034,7 @@ msgstr "Pfade auf der Karte anzeigen"
 #: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:140
 #, kde-format
 msgid "Set this option to show tracks on the Map"
-msgstr "Benutzen Sie diese Einstellung, um Pfade auf der Karte anzuzeigen"
+msgstr "Verwenden Sie diese Einstellung, um Pfade auf der Karte anzuzeigen"
 
 #: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:142
 #, fuzzy, kde-format
@@ -59075,7 +59079,7 @@ msgid ""
 "camera clock or different time zone."
 msgstr ""
 "Legt den Zeitunterschied zwischen Bild-Zeitstempel und GPS-Messpunkt fest, "
-"um z.B. eine falsche Kamerazeit oder Zeitzone zu korrigieren."
+"um z. B. eine falsche Kamerazeit oder Zeitzone zu korrigieren."
 
 #: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:172
 #, kde-format
@@ -60130,9 +60134,9 @@ msgid ""
 "an image will be rendered via an output device.</p>"
 msgstr ""
 "<p>Wählen Sie das Profil für Ihr Ausgabegerät (normalerweise ist das Ihr "
-"Drucker) aus. Dieses Profil wird benutzt, um eine Druckprobe durchzuführen, "
-"damit Sie einen Eindruck davon erhalten, wie das Bild auf Ihrem Ausgabegerät "
-"aussehen würde.</p>"
+"Drucker) aus. Dieses Profil wird verwendet, um eine Druckprobe "
+"durchzuführen, damit Sie einen Eindruck davon erhalten, wie das Bild auf "
+"Ihrem Ausgabegerät aussehen würde.</p>"
 
 #: core/utilities/imageeditor/dialogs/softproofdialog.cpp:101
 #, kde-format
@@ -60517,7 +60521,7 @@ msgctxt "@info"
 msgid ""
 "This option can be used to zoom the image to the current selection area."
 msgstr ""
-"Diese Einstellung kann benutzt werden, um das Bild auf den ausgewählten "
+"Diese Einstellung kann verwendet werden, um das Bild auf den ausgewählten "
 "Bereich zu zoomen."
 
 #: core/utilities/imageeditor/editor/editorwindow.cpp:450
@@ -60533,7 +60537,7 @@ msgid ""
 "Set this option to display black overlaid on the image. This will help you "
 "to avoid under-exposing the image."
 msgstr ""
-"Benutzen Sie diese Option, um eine schwarze Überlagerung auf dem Bild "
+"Verwenden Sie diese Option, um eine schwarze Überlagerung auf dem Bild "
 "anzuzeigen. Dies hilft Ihnen, unterbelichtete Bilder zu vermeiden."
 
 #: core/utilities/imageeditor/editor/editorwindow.cpp:460
@@ -60549,7 +60553,7 @@ msgid ""
 "Set this option to display white overlaid on the image. This will help you "
 "to avoid over-exposing the image."
 msgstr ""
-"Benutzen Sie diese Option, um eine weiße Überlagerung auf dem Bild "
+"Verwenden Sie diese Option, um eine weiße Überlagerung auf dem Bild "
 "anzuzeigen. Dies hilft Ihnen, überbelichtete Bilder zu vermeiden."
 
 #: core/utilities/imageeditor/editor/editorwindow.cpp:470
@@ -61032,8 +61036,8 @@ msgid ""
 "change the clip focus.</p>"
 msgstr ""
 "<p>Sie können hier den Originalbild-Ausschnitt sehen, der für die Berechnung "
-"der Vorschau benutzt wird.</p><p>Ziehen Sie den Bildausschnitt mit der Maus, "
-"um ihn zu verschieben.</p>"
+"der Vorschau verwendet wird.</p><p>Ziehen Sie den Bildausschnitt mit der "
+"Maus, um ihn zu verschieben.</p>"
 
 #: core/utilities/imageeditor/widgets/previewtoolbar.cpp:96
 #, kde-format
@@ -62360,7 +62364,7 @@ msgid ""
 "Enable this option if you want images automatically rotated or flipped using "
 "Exif information provided by the camera."
 msgstr ""
-"Benutzen Sie diese Einstellung, wenn Sie die Bilder anhand der Exif-"
+"Verwenden Sie diese Einstellung, wenn Sie die Bilder anhand der Exif-"
 "Informationen der Kamera automatisch gedreht oder gespiegelt haben möchten."
 
 #: core/utilities/import/widgets/advancedsettings.cpp:134
@@ -62391,7 +62395,7 @@ msgid ""
 "values will be saved in the DateTimeDigitized and DateTimeCreated EXIF, XMP, "
 "and IPTC tags."
 msgstr ""
-"Benutzen Sie diese Einstellung, um Datum und Zeit in den Metadaten auf die "
+"Verwenden Sie diese Einstellung, um Datum und Zeit in den Metadaten auf die "
 "richtigen Werte zu setzen, falls Ihre Kamera dies nicht bei der Erstellung "
 "der Fotos macht. Die Werte werden in den Exif-, XMP- und IPTC-Feldern "
 "DateTimeDigitized und DateTimeCreated gespeichert."
@@ -62403,7 +62407,7 @@ msgid ""
 "Enable this option to automatically convert all JPEG files to a lossless "
 "image format. Note: Image conversion can take a while on a slow computer."
 msgstr ""
-"Benutzen Sie diese Einstellung, um alle JPEG-Dateien automatisch in ein "
+"Verwenden Sie diese Einstellung, um alle JPEG-Dateien automatisch in ein "
 "verlustfreies Bildformat umzuwandeln. Hinweis: Bildkonvertierung benötigt "
 "eine Weile auf langsamen Rechnern."
 
@@ -62539,7 +62543,7 @@ msgid ""
 "created file extension-based sub-albums of the destination album. This way, "
 "you can separate JPEG and RAW files as they are downloaded from your camera."
 msgstr ""
-"Benutzen Sie diese Einstellung, wenn Sie Ihre heruntergeladenen Fotos "
+"Verwenden Sie diese Einstellung, wenn Sie Ihre heruntergeladenen Fotos "
 "automatisch in Unteralben des Zielalbums auf der Grundlage der "
 "Dateierweiterung ablegen möchten. Auf diese Art können Sie JPEG und RAW-"
 "Dateien Ihrer Kamera trennen."
@@ -62551,7 +62555,7 @@ msgid ""
 "Enable this option if you want to download your pictures into automatically "
 "created file date-based sub-albums of the destination album."
 msgstr ""
-"Benutzen Sie diese Einstellung, wenn Sie Ihre heruntergeladenen Fotos "
+"Verwenden Sie diese Einstellung, wenn Sie Ihre heruntergeladenen Fotos "
 "automatisch in datumsbasierte Unteralben des Zielabums ablegen möchten."
 
 #: core/utilities/import/widgets/albumcustomizer.cpp:132
@@ -62571,9 +62575,9 @@ msgstr ""
 "Wählen Sie hier Ihr bevorzugtes Datumsformat für neue Alben.\n"
 "Die verfügbaren Einstellmöglichkeiten sind:\n"
 "„ISO“: das Datumsformat gemäß ISO 8601\n"
-"(JJJJ-MM-TT). Z.B.: 2006-08-24\n"
+"(JJJJ-MM-TT). z. B.: 2006-08-24\n"
 "„Volltext“: das Datumsformat ist eine lesbare Zeichenfolge.\n"
-"Z.B.: Die, 24 Aug. 2006\n"
+"z. B.: Die, 24 Aug. 2006\n"
 "„Lokale Einstellung“: das in den KDE-Systemeinstellungen ausgewählte "
 "Datumsformat.\n"
 "„Benutzerdefiniert“: verwendet ein eigenes Datumsformat."
@@ -62591,7 +62595,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info Example of custom date format for album naming"
 msgid "Ex.: %1"
-msgstr "Z. B.: %1"
+msgstr "z. B.: %1"
 
 #: core/utilities/import/widgets/albumcustomizer.cpp:252
 #, kde-format
@@ -62714,7 +62718,7 @@ msgid ""
 "Turn on this option to use the camera provided image filenames without "
 "modifications."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die von der Kamera erzeugten Dateinamen "
+"Verwenden Sie diese Einstellung, um die von der Kamera erzeugten Dateinamen "
 "ohne Änderung zu übernehmen."
 
 #: core/utilities/import/widgets/renamecustomizer.cpp:108
@@ -64886,7 +64890,7 @@ msgstr "Automatischer oder manueller Weißabgleich"
 #: core/utilities/searchwindow/searchfields_createfield.cpp:615
 #, kde-format
 msgid "Color temperature used for white balance"
-msgstr "Für den Weißabgleich benutzte Farbtemperatur"
+msgstr "Für den Weißabgleich verwendete Farbtemperatur"
 
 #: core/utilities/searchwindow/searchfields_createfield.cpp:616
 #, kde-format
@@ -65537,7 +65541,7 @@ msgid ""
 msgstr ""
 "Wenn Sie diesen Knopf drücken, werden die Bilder der aktuell ausgewählten "
 "Daten aus der Zeitachse in einer neuen Suche in einem virtuellen Album "
-"gespeichert. Dabei wird der Name auf der linken Seite benutzt."
+"gespeichert. Dabei wird der Name auf der linken Seite verwendet."
 
 #: core/utilities/searchwindow/searchtabheader.cpp:289
 #: core/utilities/searchwindow/searchtabheader.cpp:316
@@ -66140,7 +66144,7 @@ msgid ""
 "Set this option to configure the size in pixels of the Tree View icons in "
 "digiKam's sidebars."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Größe der Symbole in der Alben-"
+"Verwenden Sie diese Einstellung, um die Größe der Symbole in der Alben-"
 "Baumansicht der Seitenleiste in Pixel festzulegen."
 
 #: core/utilities/setup/album/setupalbumview_treeview.cpp:36
@@ -66154,7 +66158,7 @@ msgid ""
 "Set this option to configure the size in pixels of the Tree View icons in "
 "digiKam's people sidebar."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Größe der Symbole in der Personen-"
+"Verwenden Sie diese Einstellung, um die Größe der Symbole in der Personen-"
 "Baumansicht der Seitenleiste in Pixel festzulegen."
 
 #: core/utilities/setup/album/setupalbumview_treeview.cpp:47
@@ -66312,7 +66316,7 @@ msgstr ""
 "Dateien hinzufügen, die in den Alben angezeigt werden sollen. Geben Sie "
 "einfach „xyz abc“ ein, um Dateien mit den Erweiterungen *.xyz und *.abc zu "
 "unterstützen.</p><p>Sie können auch Dateiformate entfernen, die "
-"standardmäßig unterstützt werden, indem Sie ein Minus-Zeichen benutzen: „-"
+"standardmäßig unterstützt werden, indem Sie ein Minus-Zeichen verwenden: „-"
 "gif“ entfernt alle GIF-Dateien aus der Datenbank.</p><p><b>Achtung:</b> "
 "Durch das Entfernen von Dateien aus der Datenbank gehen auch deren "
 "Stichwörter und Bewertungen verloren.</p>"
@@ -66349,7 +66353,7 @@ msgstr ""
 "Dateien mit den Erweiterungen *.xyz und *.abc zu unterstützen. Anklicken "
 "dieser Dateien spielt diese in dem eingebetteten Videospieler ab.<p></p>Sie "
 "können auch Dateiformate entfernen, die standardmäßig unterstützt werden, "
-"indem Sie ein Minus-Zeichen benutzen: „-avi“ entfernt alle AVI-Dateien aus "
+"indem Sie ein Minus-Zeichen verwenden: „-avi“ entfernt alle AVI-Dateien aus "
 "der Datenbank. Sie werden nicht wirklich gelöscht, sondern nur nicht in "
 "digiKam angezeigt.</p><p><b>Achtung:</b> Durch das Entfernen von Dateien aus "
 "der Datenbank gehen auch deren Stichwörter und Bewertungen verloren.</p>"
@@ -66386,7 +66390,7 @@ msgstr ""
 "Dateien mit den Erweiterungen *.xyz und *.abc zu unterstützen. Anklicken "
 "dieser Dateien spielt diese in dem eingebetteten Audiospieler ab.<p></p>Sie "
 "können auch Dateiformate entfernen, die standardmäßig unterstützt werden, "
-"indem Sie ein Minus-Zeichen benutzen: „-ogg“ entfernt alle OGG-Dateien aus "
+"indem Sie ein Minus-Zeichen verwenden: „-ogg“ entfernt alle OGG-Dateien aus "
 "der Datenbank. Sie werden nicht wirklich gelöscht, sondern nur nicht in "
 "digiKam angezeigt.</p><p><b>Achtung:</b> Durch das Entfernen von Dateien aus "
 "der Datenbank gehen auch deren Stichwörter und Bewertungen verloren.</p>"
@@ -66445,8 +66449,8 @@ msgstr "Kamera-Name"
 msgid ""
 "<p>Set here the name used in digiKam interface to identify this camera.</p>"
 msgstr ""
-"<p>Geben Sie hier den Namen ein, der innerhalb von digiKam benutzt wird, um "
-"die Kamera zu identifizieren.</p>"
+"<p>Geben Sie hier den Namen ein, der innerhalb von digiKam verwendet wird, "
+"um die Kamera zu identifizieren.</p>"
 
 #: core/utilities/setup/camera/cameraselection.cpp:142
 #, kde-format
@@ -66502,9 +66506,9 @@ msgid ""
 "<p>Select the serial port to use on your computer here. This option is only "
 "required if you use a serial camera.</p>"
 msgstr ""
-"<p>Legen Sie hier den seriellen Anschluss fest, der an Ihrem Rechner benutzt "
-"werden soll. Diese Einstellung ist nur nötig, wenn Sie eine serielle Kamera "
-"benutzen.</p>"
+"<p>Legen Sie hier den seriellen Anschluss fest, der an Ihrem Rechner "
+"verwendet werden soll. Diese Einstellung ist nur nötig, wenn Sie eine "
+"serielle Kamera verwenden.</p>"
 
 #: core/utilities/setup/camera/cameraselection.cpp:165
 #, kde-format
@@ -66722,7 +66726,7 @@ msgstr ""
 #, kde-format
 msgid "Use a space as a separator to specify multiple file names to ignore."
 msgstr ""
-"Benutzen Sie das Leerzeichen als Trennung, um mehrere zu ignorierende "
+"Verwenden Sie das Leerzeichen als Trennung, um mehrere zu ignorierende "
 "Dateinamen anzugeben."
 
 #: core/utilities/setup/camera/setupcamera.cpp:389
@@ -66730,7 +66734,7 @@ msgstr ""
 msgid ""
 "Use a space as a separator to specify multiple file extensions to ignore."
 msgstr ""
-"Benutzen Sie das Leerzeichen als Trennung, um mehrere zu ignorierende "
+"Verwenden Sie das Leerzeichen als Trennung, um mehrere zu ignorierende "
 "Dateierweiterungen anzugeben."
 
 #: core/utilities/setup/camera/setupcamera.cpp:393
@@ -66767,14 +66771,14 @@ msgstr "Einstellungen für die Vorschauansicht"
 #, kde-format
 msgid "Set this option to show the filename below the image thumbnail."
 msgstr ""
-"Benutzen Sie diese Einstellung, um den Dateinamen unter der Vorschau "
+"Verwenden Sie diese Einstellung, um den Dateinamen unter der Vorschau "
 "anzuzeigen."
 
 #: core/utilities/setup/camera/setupcamera.cpp:433
 #, kde-format
 msgid "Set this option to show the file size below the image thumbnail."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Dateigröße unter der Vorschau "
+"Verwenden Sie diese Einstellung, um die Dateigröße unter der Vorschau "
 "anzuzeigen."
 
 #: core/utilities/setup/camera/setupcamera.cpp:436
@@ -66782,8 +66786,8 @@ msgstr ""
 msgid ""
 "Set this option to show the camera creation date below the image thumbnail."
 msgstr ""
-"Benutzen Sie diese Einstellung, um das Erstellungsdatum der Kamera unter der "
-"Vorschau anzuzeigen."
+"Verwenden Sie diese Einstellung, um das Erstellungsdatum der Kamera unter "
+"der Vorschau anzuzeigen."
 
 #. i18n("Show ima&ge dimensions"), iconViewGroup);
 #. d->iconShowResolutionBox->setWhatsThis(i18n("Set this option to show the image size in pixels "
@@ -66803,7 +66807,7 @@ msgstr "Geolokalisierungs-Anzeige einblenden"
 #, kde-format
 msgid "Set this option to show the digiKam tags below the image thumbnail."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die digiKam-Stichwörter unter der "
+"Verwenden Sie diese Einstellung, um die digiKam-Stichwörter unter der "
 "Vorschau anzuzeigen."
 
 #: core/utilities/setup/camera/setupcamera.cpp:455
@@ -66815,7 +66819,7 @@ msgstr "Bewe&rtung der Einträge anzeigen"
 #, kde-format
 msgid "Set this option to show the item rating below the image thumbnail."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Bewertung der Einträge unter der "
+"Verwenden Sie diese Einstellung, um die Bewertung der Einträge unter der "
 "Vorschau anzuzeigen."
 
 #: core/utilities/setup/camera/setupcamera.cpp:460
@@ -66861,9 +66865,9 @@ msgid ""
 "images, a half size version of the Raw data is used instead of the embedded "
 "JPEG preview.</p>"
 msgstr ""
-"<p>Benutzen Sie diese Einstellung, um ein Bild in der vollen Größe anstatt "
+"<p>Verwenden Sie diese Einstellung, um ein Bild in der vollen Größe anstatt "
 "verkleinert in den Vorschaubereich zu laden. Da diese Einstellung die "
-"Ladezeiten der Bilder verlängert, sollten Sie sie nur benutzen, wenn Sie "
+"Ladezeiten der Bilder verlängert, sollten Sie sie nur verwenden, wenn Sie "
 "einen schnellen Computer haben.</p><p><b>Hinweis:</b> Für RAW-Bilder wird "
 "anstelle der eingebetteten JPEG-Vorschau eine Version der RAW-Daten in "
 "halber Größe für die Vorschau verwendet.</p>"
@@ -66877,7 +66881,7 @@ msgstr "Vorschau jedes Eintrag beim Herunterladen anzeigen"
 #, kde-format
 msgid "<p>Set this option to preview each item while downloading.</p>"
 msgstr ""
-"<p>Benutzen Sie diese Einstellung, um eine Vorschau jedes Eintrag beim "
+"<p>Verwenden Sie diese Einstellung, um eine Vorschau jedes Eintrag beim "
 "Herunterladen anzuzeigen.</p>"
 
 #: core/utilities/setup/camera/setupcamera.cpp:508
@@ -67464,7 +67468,7 @@ msgid ""
 "area."
 msgstr ""
 "Wählen Sie diese Einstellung, um die Farbe des Hintergrunddesigns im Bereich "
-"der Bildbearbeitung zu benutzen."
+"der Bildbearbeitung zu verwenden."
 
 #: core/utilities/setup/editor/setupeditoriface.cpp:114
 #, kde-format
@@ -67491,7 +67495,7 @@ msgstr "Farbe für &unterbelichtete Bereiche:"
 #, kde-format
 msgid "Customize color used in image editor to identify under-exposed pixels."
 msgstr ""
-"Wählen Sie hier die Farbe, die in der Bildbearbeitung benutzt wird, um "
+"Wählen Sie hier die Farbe, die in der Bildbearbeitung verwendet wird, um "
 "unterbelichtete Pixel darzustellen."
 
 #: core/utilities/setup/editor/setupeditoriface.cpp:140
@@ -67517,7 +67521,7 @@ msgstr "Farbe für &überbelichtete Bereiche:"
 #, kde-format
 msgid "Customize color used in image editor to identify over-exposed pixels."
 msgstr ""
-"Wählen Sie hier die Farbe, die in der Bildbearbeitung benutzt wird, um "
+"Wählen Sie hier die Farbe, die in der Bildbearbeitung verwendet wird, um "
 "überbelichtete Pixel darzustellen."
 
 #: core/utilities/setup/editor/setupeditoriface.cpp:155
@@ -67734,7 +67738,7 @@ msgstr ""
 msgctxt "@info:tooltip"
 msgid "Get information on available image file formats"
 msgstr ""
-"Benutzen Sie diese Einstellung, um das Dateiformat des Bildes anzuzeigen."
+"Verwenden Sie diese Einstellung, um das Dateiformat des Bildes anzuzeigen."
 
 #: core/utilities/setup/editor/setupversioning.cpp:198
 #, kde-format
@@ -68001,7 +68005,7 @@ msgid ""
 "<p>You can use this button to get more detailed information about the "
 "selected workspace profile.</p>"
 msgstr ""
-"<p>Sie können diesen Knopf benutzen, um weitere Informationen über das "
+"<p>Sie können diesen Knopf verwenden, um weitere Informationen über das "
 "ausgewählte Arbeitsbereichsprofil zu erhalten.</p>"
 
 #: core/utilities/setup/icc/setupicc.cpp:86
@@ -68139,7 +68143,7 @@ msgid ""
 "<p>You can use this button to get more detailed information about the "
 "selected monitor profile.</p>"
 msgstr ""
-"<p>Sie können diesen Knopf benutzen, um weitere Informationen über das "
+"<p>Sie können diesen Knopf verwenden, um weitere Informationen über das "
 "ausgewählte Monitorprofil zu erhalten.</p>"
 
 #: core/utilities/setup/icc/setupicc.cpp:238
@@ -68156,7 +68160,7 @@ msgid ""
 "Editor window. <i>Warning</i>: This can slow down rendering of the image, "
 "depending on the speed of your computer.</p>"
 msgstr ""
-"<p>Sie können diese Einstellung benutzen, wenn Sie Ihr <b>Monitor-"
+"<p>Sie können diese Einstellung verwenden, wenn Sie Ihr <b>Monitor-"
 "Farbprofil</b> verwenden möchten, um Ihre Bilder in der Bildbearbeitung "
 "anzuzeigen. Sie können diese Option jederzeit im Fenster der Bildbearbeitung "
 "umschalten. <i>Achtung</i>: Durch diese Einstellung dauert die Anzeige der "
@@ -68196,7 +68200,7 @@ msgid ""
 "<p>You can use this button to get more detailed information about the "
 "selected input profile.</p>"
 msgstr ""
-"<p>Sie können diesen Knopf benutzen, um weitere Informationen über das "
+"<p>Sie können diesen Knopf verwenden, um weitere Informationen über das "
 "ausgewählte Eingabeprofil zu erhalten.</p>"
 
 #: core/utilities/setup/icc/setupicc.cpp:287
@@ -68215,7 +68219,7 @@ msgid ""
 "<p>You can use this button to get more detailed information about the "
 "selected proofing profile.</p>"
 msgstr ""
-"<p>Sie können diesen Knopf benutzen, um weitere Informationen über das "
+"<p>Sie können diesen Knopf verwenden, um weitere Informationen über das "
 "ausgewählte Druckprobenprofil zu erhalten.</p>"
 
 #: core/utilities/setup/icc/setupicc.cpp:312
@@ -68246,7 +68250,7 @@ msgstr ""
 #: core/utilities/setup/icc/setupicc.cpp:348
 #, kde-format
 msgid "Use black point compensation"
-msgstr "Schwarzpunkt-Kompensierung benutzen"
+msgstr "Schwarzpunkt-Kompensierung verwenden"
 
 #: core/utilities/setup/icc/setupicc.cpp:349
 #, kde-format
@@ -68759,7 +68763,7 @@ msgid ""
 msgstr ""
 "<para>Zusätzlich zum Pixelinhalt enthalten Dateien normalerweise eine "
 "Vielzahl von Metadaten. Viele dieser Parameter können Sie in digiKam "
-"benutzen, um Dateien zu verwalten, wie zum Beispiel Bewertung oder "
+"verwenden, um Dateien zu verwalten, wie zum Beispiel Bewertung oder "
 "Kommentare, die in den  Metadaten der Dateien gespeichert werden können.</"
 "para> <para>Durch das Speichern in den Metadaten können diese Informationen "
 "erhalten werden, wenn die Dateien zu anderen Systemen verschoben oder "
@@ -68782,7 +68786,7 @@ msgstr "Stichwörter"
 msgctxt "@info:whatsthis"
 msgid "Turn on this option to store the item tags in the XMP and IPTC tags."
 msgstr ""
-"Benutzen Sie diese Einstellung, um Stichwörter für Einträge in den XMP- und "
+"Verwenden Sie diese Einstellung, um Stichwörter für Einträge in den XMP- und "
 "IPTC-Feldern zu speichern."
 
 #: core/utilities/setup/metadata/setupmetadata_behavior.cpp:54
@@ -68798,7 +68802,7 @@ msgid ""
 "Turn on this option to store item caption and title in the JFIF Comment "
 "section, the Exif tag, the XMP tag, and the IPTC tag."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Beschriftungen und -titel für "
+"Verwenden Sie diese Einstellung, um die Beschriftungen und -titel für "
 "Einträge im JFIF-Kommentar-Abschnitt, dem Exif-, XMP- und dem IPTC-Feld zu "
 "speichern."
 
@@ -68815,7 +68819,7 @@ msgid ""
 "Turn on this option to store the item rating in the Exif tag and the XMP "
 "tags."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Bewertung für Einträge in Exif- und "
+"Verwenden Sie diese Einstellung, um die Bewertung für Einträge in Exif- und "
 "XMP-Feldern zu speichern."
 
 #: core/utilities/setup/metadata/setupmetadata_behavior.cpp:65
@@ -68829,7 +68833,7 @@ msgstr "Auswahlmarkierung"
 msgctxt "@info:whatsthis"
 msgid "Turn on this option to store the item pick label in the XMP tags."
 msgstr ""
-"Benutzen Sie diese Einstellung, um Auswahlmarkierungen für Einträge in den "
+"Verwenden Sie diese Einstellung, um Auswahlmarkierungen für Einträge in den "
 "XMP-Feldern zu speichern."
 
 #: core/utilities/setup/metadata/setupmetadata_behavior.cpp:70
@@ -68843,7 +68847,7 @@ msgstr "Farbmarkierung"
 msgctxt "@info:whatsthis"
 msgid "Turn on this option to store the item color label in the XMP tags."
 msgstr ""
-"Benutzen Sie diese Einstellung, um Farbmarkierungen für Einträge in den XMP-"
+"Verwenden Sie diese Einstellung, um Farbmarkierungen für Einträge in den XMP-"
 "Feldern zu speichern."
 
 #: core/utilities/setup/metadata/setupmetadata_behavior.cpp:75
@@ -68859,7 +68863,7 @@ msgid ""
 "Turn on this option to store the item date and time in the EXIF, XMP, and "
 "IPTC tags."
 msgstr ""
-"Benutzen Sie diese Einstellung, um Datum und -zeit für Einträge in den "
+"Verwenden Sie diese Einstellung, um Datum und -zeit für Einträge in den "
 "Exif-, XMP- und IPTC-Feldern zu speichern."
 
 #: core/utilities/setup/metadata/setupmetadata_behavior.cpp:80
@@ -68875,7 +68879,7 @@ msgid ""
 "Turn on this option to store the metadata template in the XMP and the IPTC "
 "tags. You can set template values to Template setup page."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Metadaten-Vorlage in den XMP- und "
+"Verwenden Sie diese Einstellung, um die Metadaten-Vorlage in den XMP- und "
 "IPTC-Feldern zu speichern. Sie können die Werte der Vorlage auf der Vorlagen-"
 "Einstellungsseite festlegen."
 
@@ -68960,7 +68964,7 @@ msgstr "Metadaten in DNG-Dateien schreiben"
 msgctxt "@info:whatsthis"
 msgid "Turn on this option to write metadata into DNG files."
 msgstr ""
-"Benutzen Sie diese Einstellung, um Metadaten in DNG-Dateien zu schreiben."
+"Verwenden Sie diese Einstellung, um Metadaten in DNG-Dateien zu schreiben."
 
 #: core/utilities/setup/metadata/setupmetadata_behavior.cpp:136
 #, kde-format
@@ -68975,7 +68979,7 @@ msgid ""
 "Turn on this option to write metadata into RAW files. This feature is "
 "delegate to ExifTool backend and is disabled by default."
 msgstr ""
-"Benutzen Sie diese Option, um Metadaten in RAW-Dateien zu schreiben. Diese "
+"Verwenden Sie diese Option, um Metadaten in RAW-Dateien zu schreiben. Diese "
 "Funktion wird mittels des ExifTool-Backends umgesetzt und ist standardmäßig "
 "ausgeschaltet."
 
@@ -69014,11 +69018,12 @@ msgid ""
 "introduce some dysfunctions with applications which use file timestamps "
 "properties to detect file modifications automatically."
 msgstr ""
-"Benutzen Sie diese Einstellung, wenn der Zeitstempel von Dateien nicht "
+"Verwenden Sie diese Einstellung, wenn der Zeitstempel von Dateien nicht "
 "aktualisiert werden soll, wenn Dateien durch Aktualisieren von Meta- oder "
 "Bilddaten geändert werden. Hinweis: Das Abschalten dieser Einstellung kann "
 "möglicherweise Fehlfunktionen mit Anwendungen verursachen, die den "
-"Zeitstempel der Dateien benutzen, um Dateiänderungen automatisch zu erkennen."
+"Zeitstempel der Dateien verwenden, um Dateiänderungen automatisch zu "
+"erkennen."
 
 #: core/utilities/setup/metadata/setupmetadata_behavior.cpp:160
 #, kde-format
@@ -69035,7 +69040,7 @@ msgid ""
 "last modified timestamp has changed, a rescan of that file will be performed "
 "when digiKam starts."
 msgstr ""
-"Benutzen Sie diese Einstellung, wenn digiKam Dateien erneut einlesen soll, "
+"Verwenden Sie diese Einstellung, wenn digiKam Dateien erneut einlesen soll, "
 "nachdem diese ausserhalb von digiKam geändert wurden. Ein Neu-Einlesen wird "
 "beim Start von digiKam durchgeführt, wenn sich die Dateigröße oder das "
 "Änderungsdatum verändert hat."
@@ -69262,7 +69267,7 @@ msgid ""
 "Turn on this option to read metadata from XMP sidecar files when reading "
 "metadata."
 msgstr ""
-"Benutzen Sie diese Einstellung, um Metadaten aus XMP-Filialdateien beim "
+"Verwenden Sie diese Einstellung, um Metadaten aus XMP-Filialdateien beim "
 "Einlesen von Metadaten zu bevorzugen."
 
 #: core/utilities/setup/metadata/setupmetadata_sidecars.cpp:42
@@ -69277,7 +69282,7 @@ msgctxt "@info:whatsthis"
 msgid ""
 "Turn on this option to save, as specified, metadata to XMP sidecar files."
 msgstr ""
-"Benutzen Sie diese Einstellung, um Metadaten in XMP-Filialdateien zu "
+"Verwenden Sie diese Einstellung, um Metadaten in XMP-Filialdateien zu "
 "speichern"
 
 #: core/utilities/setup/metadata/setupmetadata_sidecars.cpp:48
@@ -69319,7 +69324,7 @@ msgid ""
 "name (BASENAME.xmp) used by many commercial programs. For Darktable do not "
 "enable this option."
 msgstr ""
-"Benutzen Sie diese Einstellung, um XMP-Filialdateien „Basisname.xmp“ zu "
+"Verwenden Sie diese Einstellung, um XMP-Filialdateien „Basisname.xmp“ zu "
 "erstellen. Für Darktable diese Einstellung nicht verwenden."
 
 #: core/utilities/setup/metadata/setupmetadata_sidecars.cpp:76
@@ -69339,9 +69344,9 @@ msgstr ""
 "digiKam schreibt Metadaten optional in *.xmp Filialdateien. Erweiterungen, "
 "die andere Programme möglicherweise verwenden, können unten angegeben "
 "werden. digiKam kann diese weder lesen, noch in diese schreiben. Wenn aber "
-"ein Album-Eintrag (z.B. „Bild.dng“) verschoben, kopiert oder umbenannt wird, "
-"wird diese Operation auch für jede Filialdatei durchgeführt (z.B. „Bild.dng."
-"pp3“).\n"
+"ein Album-Eintrag (z. B. „Bild.dng“) verschoben, kopiert oder umbenannt "
+"wird, wird diese Operation auch für jede Filialdatei durchgeführt (z. B. "
+"„Bild.dng.pp3“).\n"
 "Einzelne Datei-Erweiterungen müssen durch Strichpunkt oder Leerzeichen "
 "getrennt werden."
 
@@ -69361,7 +69366,7 @@ msgstr ""
 "zusammen mit dem eigentlichen Eintrag bearbeitet werden. Diese Dateien sind "
 "nicht sichtbar, werden aber als Filialdatei erkannt.\n"
 "Schreiben Sie „xyz abc“ für Dateien mit den Erweiterungen *.xyz und *.abc. "
-"Die Erweiterung *.xmp braucht nicht angegeben zu werden."
+"Die Erweiterung *.xmp benötigt nicht angegeben zu werden."
 
 #: core/utilities/setup/metadata/setupmetadata_sidecars.cpp:99
 #, kde-format
@@ -70353,9 +70358,9 @@ msgid ""
 "Set this option to automatically synchronize zooming and panning between "
 "left and right panels if the images have the same size."
 msgstr ""
-"Benutzen Sie diese Einstellung, um das Zoomen und Verschieben der Bilder auf "
-"dem linken und rechten Fensterbereich automatisch abzugleichen, falls die "
-"Bilder die gleiche Größe haben."
+"Verwenden Sie diese Einstellung, um das Zoomen und Verschieben der Bilder "
+"auf dem linken und rechten Fensterbereich automatisch abzugleichen, falls "
+"die Bilder die gleiche Größe haben."
 
 #: core/utilities/setup/setuplighttable.cpp:86
 #, kde-format
@@ -70370,7 +70375,7 @@ msgid ""
 "Set this option to automatically load an image into the right panel when the "
 "corresponding item is selected on the thumbbar."
 msgstr ""
-"Benutzen Sie diese Einstellung, um ein Bild automatisch im rechten "
+"Verwenden Sie diese Einstellung, um ein Bild automatisch im rechten "
 "Fensterbereich zu laden, wenn der entsprechende Eintrag in der "
 "Vorschauleiste ausgewählt wird."
 
@@ -70448,7 +70453,7 @@ msgid ""
 "limitation with XMP, but note that IPTC text tag sizes are limited. Use "
 "contextual help for details.</b>"
 msgstr ""
-"<b>Hinweis: Diese Informationen werden benutzt, um den Inhalt der <b><a "
+"<b>Hinweis: Diese Informationen werden verwendet, um den Inhalt der <b><a "
 "href='https://de.wikipedia.org/wiki/Extensible_Metadata_Platform'>XMP</a></"
 "b>- und <b><a href='https://de.wikipedia.org/wiki/IPTC-NAA-Standard'>IPTC</"
 "a></b>-Felder einzustellen. Für XMP bestehen keine Einschränkungen. IPTC hat "
@@ -70481,7 +70486,7 @@ msgstr "Schriftart der Kurzinfo:"
 #, kde-format
 msgid "Select here the font used to display text in tool-tips."
 msgstr ""
-"Legen Sie hier die Schriftart fest, die benutzt wird, um den Text in den "
+"Legen Sie hier die Schriftart fest, die verwendet wird, um den Text in den "
 "Kurzinfos anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_album.cpp:23
@@ -70514,7 +70519,7 @@ msgstr "Albumname"
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:111
 #, kde-format
 msgid "Set this option to display the album name."
-msgstr "Benutzen Sie diese Einstellung, um den Albumnamen anzuzeigen."
+msgstr "Verwenden Sie diese Einstellung, um den Albumnamen anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_album.cpp:32
 #, kde-format
@@ -70524,7 +70529,7 @@ msgstr "Datum des Albums"
 #: core/utilities/setup/tooltip/setuptooltip_album.cpp:33
 #, kde-format
 msgid "Set this option to display the album date."
-msgstr "Benutzen Sie diese Einstellung, um das Albumdatum anzuzeigen."
+msgstr "Verwenden Sie diese Einstellung, um das Albumdatum anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_album.cpp:35
 #, kde-format
@@ -70534,7 +70539,7 @@ msgstr "Albumsammlung"
 #: core/utilities/setup/tooltip/setuptooltip_album.cpp:36
 #, kde-format
 msgid "Set this option to display the album collection."
-msgstr "Benutzen Sie diese Einstellung, um die Albumsammlung anzuzeigen."
+msgstr "Verwenden Sie diese Einstellung, um die Albumsammlung anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_album.cpp:38
 #, kde-format
@@ -70544,7 +70549,7 @@ msgstr "Albumkategorie"
 #: core/utilities/setup/tooltip/setuptooltip_album.cpp:39
 #, kde-format
 msgid "Set this option to display the album category."
-msgstr "Benutzen Sie diese Einstellung, um die Albumkategorie anzuzeigen."
+msgstr "Verwenden Sie diese Einstellung, um die Albumkategorie anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_album.cpp:41
 #, kde-format
@@ -70554,7 +70559,8 @@ msgstr "Albumbeschriftung"
 #: core/utilities/setup/tooltip/setuptooltip_album.cpp:42
 #, kde-format
 msgid "Set this option to display the album caption."
-msgstr "Benutzen Sie diese Einstellung, um die Albumbeschriftungen anzuzeigen."
+msgstr ""
+"Verwenden Sie diese Einstellung, um die Albumbeschriftungen anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_album.cpp:44
 #, kde-format
@@ -70564,7 +70570,7 @@ msgstr "Albumvorschau"
 #: core/utilities/setup/tooltip/setuptooltip_album.cpp:45
 #, kde-format
 msgid "Set this option to display the album preview."
-msgstr "Benutzen Sie diese Einstellung, um die Albumvorschau anzuzeigen."
+msgstr "Verwenden Sie diese Einstellung, um die Albumvorschau anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_album.cpp:61
 #, kde-format
@@ -70625,7 +70631,7 @@ msgstr "Bild-Seitenverhältnis"
 #, kde-format
 msgid "Set this option to display the image aspect ratio."
 msgstr ""
-"Benutzen Sie diese Einstellung, um das Seitenverhältnis der Bilder "
+"Verwenden Sie diese Einstellung, um das Seitenverhältnis der Bilder "
 "anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:63
@@ -70681,7 +70687,7 @@ msgstr "Bildtitel"
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:114
 #, kde-format
 msgid "Set this option to display the image title."
-msgstr "Benutzen Sie diese Einstellung, um den Bildtitel anzuzeigen."
+msgstr "Verwenden Sie diese Einstellung, um den Bildtitel anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:116
 #, kde-format
@@ -70691,7 +70697,7 @@ msgstr "Bildbeschriftung"
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:117
 #, kde-format
 msgid "Set this option to display the image captions."
-msgstr "Benutzen Sie diese Einstellung, um die Bildbeschriftungen anzuzeigen."
+msgstr "Verwenden Sie diese Einstellung, um die Bildbeschriftungen anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:119
 #, kde-format
@@ -70702,7 +70708,7 @@ msgstr "Bildstichwörter"
 #, kde-format
 msgid "Set this option to display the image tags."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Stichwörter des Bildes anzuzeigen."
+"Verwenden Sie diese Einstellung, um die Stichwörter des Bildes anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:122
 #, kde-format
@@ -70713,7 +70719,7 @@ msgstr "Bildmarkierungen"
 #, kde-format
 msgid "Set this option to display the image pick, color, rating labels."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Auswahl-, Farbmarkierungen und "
+"Verwenden Sie diese Einstellung, um die Auswahl-, Farbmarkierungen und "
 "Bewertungen des Bildes anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:135
@@ -70726,37 +70732,38 @@ msgstr "Audio-/Video-Information"
 #, kde-format
 msgid "Set this option to display the Aspect Ratio of the Video."
 msgstr ""
-"Benutzen Sie diese Einstellung, um das Seitenverhältnis von Videos "
+"Verwenden Sie diese Einstellung, um das Seitenverhältnis von Videos "
 "anzuzeigen.."
 
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:142
 #, kde-format
 msgid "Set this option to display the Audio Bit Rate of the Video."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Audio-Bitrate von Videos anzuzeigen.."
+"Verwenden Sie diese Einstellung, um die Audio-Bitrate von Videos anzuzeigen.."
 
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:145
 #, kde-format
 msgid "Set this option to display the Audio Channel Type of the Video."
 msgstr ""
-"Benutzen Sie diese Einstellung, um den Audiokanal-Typ von Videos anzuzeigen.."
+"Verwenden Sie diese Einstellung, um den Audiokanal-Typ von Videos "
+"anzuzeigen.."
 
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:148
 #, kde-format
 msgid "Set this option to display the Audio Codec of the Video."
 msgstr ""
-"Benutzen Sie diese Einstellung, um den Audio-Codec von Videos anzuzeigen.."
+"Verwenden Sie diese Einstellung, um den Audio-Codec von Videos anzuzeigen.."
 
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:151
 #, kde-format
 msgid "Set this option to display the Duration of the Video."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Spielzeit von Videos anzuzeigen.."
+"Verwenden Sie diese Einstellung, um die Spielzeit von Videos anzuzeigen.."
 
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:157
 #, kde-format
 msgid "Set this option to display the Codec of the Video."
-msgstr "Benutzen Sie diese Einstellung, um den Codec von Videos anzuzeigen.."
+msgstr "Verwenden Sie diese Einstellung, um den Codec von Videos anzuzeigen.."
 
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:174
 #, kde-format
@@ -70782,7 +70789,7 @@ msgstr "Name des Eintrags"
 #, kde-format
 msgid "Set this option to display the item name."
 msgstr ""
-"Benutzen Sie diese Einstellung, um den Namen eines Eintrags anzuzeigen."
+"Verwenden Sie diese Einstellung, um den Namen eines Eintrags anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_import.cpp:32
 #, kde-format
@@ -70792,7 +70799,7 @@ msgstr "Datum des Eintrags"
 #: core/utilities/setup/tooltip/setuptooltip_import.cpp:33
 #, kde-format
 msgid "Set this option to display the item date."
-msgstr "Benutzen Sie diese Einstellung, um das Datum des Eintrags anzuzeigen."
+msgstr "Verwenden Sie diese Einstellung, um das Datum des Eintrags anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_import.cpp:35
 #, kde-format
@@ -70802,7 +70809,7 @@ msgstr "Größe des Eintrags"
 #: core/utilities/setup/tooltip/setuptooltip_import.cpp:36
 #, kde-format
 msgid "Set this option to display the item size."
-msgstr "Benutzen Sie diese Einstellung, um die Größe des Eintrags anzuzeigen."
+msgstr "Verwenden Sie diese Einstellung, um die Größe des Eintrags anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_import.cpp:38
 #, kde-format
@@ -70812,7 +70819,7 @@ msgstr "Typ des Eintrags"
 #: core/utilities/setup/tooltip/setuptooltip_import.cpp:39
 #, kde-format
 msgid "Set this option to display the item type."
-msgstr "Benutzen Sie diese Einstellung, um den Typ des Eintrags anzuzeigen."
+msgstr "Verwenden Sie diese Einstellung, um den Typ des Eintrags anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_import.cpp:41
 #, kde-format
@@ -70823,7 +70830,7 @@ msgstr "Abmessungen der Einträge"
 #, kde-format
 msgid "Set this option to display the item dimensions."
 msgstr ""
-"Benutzen Sie diese Einstellung, um die Abmessungen des Eintrags anzuzeigen."
+"Verwenden Sie diese Einstellung, um die Abmessungen des Eintrags anzuzeigen."
 
 #: core/utilities/setup/tooltip/setuptooltip_import.cpp:45
 #, kde-format
