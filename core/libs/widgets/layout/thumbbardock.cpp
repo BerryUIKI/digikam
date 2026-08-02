@@ -194,6 +194,16 @@ QAction* ThumbBarDock::getToggleAction(QObject* const parent, const QString& cap
 
 void ThumbBarDock::restoreVisibility()
 {
+    // As long as the dock has not been attached to a QMainWindow it is a
+    // top-level widget on its own and showing it would map a stray window.
+    // The pending state is left untouched, the owning window calls this
+    // method again from its show event.
+
+    if (!parentWidget())
+    {
+        return;
+    }
+
     // Set the visibility to what it should be or to what it was. Reset
     // SHOULD_BE_ values to their WAS_ values, to implement correct behavior
     // on subsequent calls.
