@@ -219,17 +219,21 @@ and links nothing from llama.cpp. To build the real backend:
              -DCMAKE_BUILD_TYPE=Release \
              -DOpenCV_DIR=/opt/opencv-4.8/lib/cmake/opencv4
 
-### 2.1 llama.cpp submodule
+### 2.1 Vendored llama.cpp
 
-llama.cpp is bundled as a **pinned git submodule** under
-`core/utilities/searchwindow/thirdparty/llama.cpp`, pinned to tag **b9859**,
-and built in-tree via `add_subdirectory`. Initialize it before configuring:
+llama.cpp is **vendored** (copied in-tree) under
+`core/utilities/searchwindow/thirdparty/llama.cpp`, not pulled as a git
+submodule: KDE's repository hooks reject `.gitmodules`, so the sources are
+committed directly. There is nothing to initialise — a normal checkout already
+contains it.
 
-    git submodule update --init --recursive
+It is built **library-only** and **CPU-only** (no CUDA/Metal/Vulkan). The ggml
+compute engine is bundled inside llama.cpp; there is no external ggml
+dependency. The GPU backend sources are left in the tree but not compiled.
 
-It is built **library-only** and **CPU-only** (no CUDA/Metal/Vulkan), which keeps the dependency footprint to
-essentially pthread + OpenMP. The ggml compute engine is bundled inside
-llama.cpp; there is no external ggml dependency.
+All of llama.cpp's build options are set by a small digiKam-owned wrapper,
+`thirdparty/CMakeLists.txt`, which is the single place to look when adjusting
+the vendored build (see §3).
 
 ### 2.2 Build type and inference speed
 
@@ -249,17 +253,23 @@ Adding a git submodule and building it in-tree touched several places. Each
 change is small and documented here so the integration can be reviewed and
 maintained.
 
-### 3.1 The submodule
+### 3.1 Vendoring and updating llama.cpp
 
-    git submodule add https://github.com/ggml-org/llama.cpp.git \
-        core/utilities/searchwindow/thirdparty/llama.cpp
-    cd core/utilities/searchwindow/thirdparty/llama.cpp && git checkout b9859
+The sources under `thirdparty/llama.cpp/` are a trimmed copy of upstream
+llama.cpp. To update to a newer upstream version:
 
-This created `.gitmodules` (digiKam's first submodule) and records the pinned
-commit. The submodule is hosted under `searchwindow/` (which belongs to the
-`digikamgui` shared library) rather than `core/libs/` (which builds
-`digikamcore`, shared with Showfoto and subject to a tighter MSVC object-count
-limit). llama.cpp is only needed by the digiKam application, not by Showfoto.
+  1. Replace the tree with the new upstream sources.
+  2. Re-check the wrapper options in `thirdparty/CMakeLists.txt` still match
+     upstream's option names (they occasionally rename `LLAMA_*` / `GGML_*`).
+  3. Commit **all** files the build needs, including CMake includes such as
+     `cmake/build-info.cmake`. Upstream's own `.gitignore` or a partial copy
+     can leave such files untracked; a file present on your disk but not
+     committed builds locally yet fails a fresh checkout with
+     `include could not find requested file`. After copying, verify with a
+     clean configure in an empty build directory.
+
+No `.gitmodules` is involved; the vendored copy is committed like any other
+source.
 
 ### 3.2 `core/CMakeLists.txt`
 
@@ -279,34 +289,46 @@ limit). llama.cpp is only needed by the digiKam application, not by Showfoto.
   - Added `#cmakedefine HAVE_LLAMACPP 1` so the CMake variable becomes a real
     compiler define.
 
-### 3.4 `core/utilities/searchwindow/CMakeLists.txt`
+### 3.4 The wrapper: `thirdparty/CMakeLists.txt`
 
-  - Before including the nlsearch sources: disables llama's demo apps/tools/
-    tests and the GPU backends, then `add_subdirectory(thirdparty/llama.cpp)`.
-  - Forces optimization on the bundled targets even in Debug builds:
+All of llama.cpp's build configuration lives in this wrapper, so the vendored
+`CMakeLists.txt` is never edited. It:
 
-        foreach(_t llama ggml ggml-base ggml-cpu)
-            if(TARGET ${_t})
-                target_compile_options(${_t} PRIVATE $<$<CONFIG:Debug>:-O2>)
-            endif()
-        endforeach()
+  - disables everything digiKam does not need — demo apps, tools, tests,
+    server, examples, common utilities, and network/CURL support;
+  - builds **CPU-only** (`GGML_CUDA/METAL/VULKAN OFF`);
+  - uses a **portable CPU baseline** (`GGML_NATIVE OFF`): `-march=native` would
+    make a distributed AppImage crash with SIGILL on older CPUs;
+  - builds a **static** library (`BUILD_SHARED_LIBS OFF`), which exports no
+    symbols and so avoids the Windows DLL symbol-export problem;
+  - wraps `add_subdirectory(llama.cpp)` between
+    `set(CMAKE_SKIP_INSTALL_RULES ON/OFF)` so llama.cpp's own install rules do
+    not leak its library, headers, or CMake config into digiKam's install
+    prefix;
+  - runs `find_package(OpenMP)` (non-APPLE) **before** the subdirectory, so
+    ggml's own OpenMP probe finds it and parallelises inference instead of
+    silently serialising;
+  - forces `-O2` on the `llama` / `ggml*` targets in Debug builds only, since
+    ggml at `-O0` is ~30× slower and makes a single query take tens of seconds,
+    while leaving the rest of digiKam debuggable.
 
-  - Adds llama's include directories to `gui_searchwindow_obj` (an OBJECT
-    library, so it needs headers to compile but does not link).
+`core/utilities/searchwindow/CMakeLists.txt` then simply does
+`add_subdirectory(thirdparty)` when `HAVE_LLAMACPP` is set.
 
-### 3.5 `core/app/DigikamGuiTarget.cmake`
+### 3.5 Linking into `digikamgui`
 
-  - `digikamgui` is exported via `install(EXPORT DigikamGuiConfig)`. A bundled
-    in-tree target cannot appear in that export set, so llama is linked by its
-    built file rather than by target name, and an explicit build-order
-    dependency is added:
+Because the wrapper builds `llama` as a normal in-tree static target,
+`digikamgui` links it by target name, guarded by `HAVE_LLAMACPP`:
 
-        target_link_libraries(digikamgui PRIVATE $<TARGET_FILE:llama>)
-        target_include_directories(digikamgui PRIVATE .../thirdparty/llama.cpp/include)
-        add_dependencies(digikamgui llama)
+    if(HAVE_LLAMACPP)
+        target_link_libraries(digikamgui PRIVATE llama)
+        target_include_directories(digikamgui PRIVATE
+            ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llama.cpp/include)
+    endif()
 
-    `libllama` carries its own ggml dependency, so ggml need not be linked
-    explicitly.
+`libllama` carries its own ggml dependency, so ggml need not be linked
+explicitly. The include directory exposes llama's public headers to the
+backend sources.
 
 ### 3.6 `core/cmake/macros/MacroUtils.cmake`
 
@@ -387,4 +409,36 @@ Development notes and design rationale from the GSoC 2026 project:
 - [Teaching digiKam to Understand You: Natural Language Search with Local LLMs](https://srirupa19.github.io/gsoc/2026/06/28/gsoc1.html) —
   the architecture, why the LLM only translates rather than searches, and why
   Qwen2.5-1.5B-Instruct.
+
+- [The Model Was Never the Hard Part: Integrating Qwen2.5 into digiKam for Natural Language Search](https://srirupa19.github.io/gsoc/2026/07/14/gsoc2.html) —
+  vendoring and statically linking llama.cpp, the CMake wrapper that isolates
+  its build, and why integration was the hard part rather than the model.
+
+
+## Adding a new search criterion
+
+Supporting a new field end-to-end touches four places, in pipeline order:
+
+1. **Teach the model** - `searchpromptbuilder.cpp`, `schemaDescription()`:
+   add the field to the "Supported fields" list and, importantly, add a worked
+   example using it. Small models rely on examples far more than on prose
+   rules; without one the model tends to grab an unrelated field.
+
+2. **Accept it** - `searchintentparser.cpp`, `supportedFields()`: add the
+   canonical field name to the whitelist, or the parser rejects the output.
+
+3. **Map its terms** - `searchcapabilitydictionary.cpp`, `initializeDefaults()`:
+   register natural-language aliases for the field and any enumerated values,
+   and (if the word is ambiguous) an entry in `ambiguousWords` with the
+   clarification choices.
+
+4. **Emit the XML** - `searchwindow.cpp`, `writeConstraintToXml()`: add a
+   branch that turns the resolved constraint into digiKam Search XML, using the
+   correct field name from `searchfields_createfield.cpp`. Values the model
+   lower-cases (tags, people, places) must be resolved against the collection's
+   stored values case-insensitively, since the stored spelling is what the
+   database matches.
+
+Then add a canned response to `SearchMockBackend` and a case to the pipeline
+unit test so the new field is covered without a real model.
 
