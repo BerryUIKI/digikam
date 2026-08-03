@@ -54,6 +54,10 @@ private:
     // the digiKam config dir is planned for later.
 
     QHash<QString, SearchQueryIntent> m_entries;
+
+    /// Current version of the cached-intent schema. invalidateSchemaVersion()
+    /// clears the cache when a newer version is supplied, so entries written
+    /// under an older SearchQueryIntent layout are dropped rather than reused.
     int                               m_schemaVersion = 1;
     static const int                  s_maxEntries    = 256;
 };
