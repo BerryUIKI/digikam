@@ -588,13 +588,19 @@ void SearchWindow::applyResolvedIntent(const SearchQueryIntent& intent)
 {
     const QString xml = intentToXml(intent);
 
-    d->searchView->read(xml);
-
-    if (!xml.contains(QLatin1String("<group/>")))
+    if (xml.contains(QLatin1String("<group/>")))
     {
-        d->nlCommittedXml = xml;
+        d->nlStatusLabel->setText(i18nc("@info", "None of that could be turned into "
+                                                 "a search. Try describing tags, dates, "
+                                                 "ratings, labels, people, or places."));
+        d->nlStatusLabel->show();
+
+        return;
     }
 
+    d->nlStatusLabel->hide();
+    d->searchView->read(xml);
+    d->nlCommittedXml = xml;
 }
  
 QString SearchWindow::intentToXml(const SearchQueryIntent& intent) const
