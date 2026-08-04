@@ -92,8 +92,13 @@ FindDuplicatesAlbumItem::FindDuplicatesAlbumItem(QTreeWidget* const parent, SAlb
         calculateInfos();
     }
 
-    setThumb(QIcon::fromTheme(QLatin1String("view-preview")).pixmap(parent->iconSize().width(),
-                                                                    QIcon::Disabled), false);
+    /// @note Parent can be null only with the unit-test.
+
+    if (parent)
+    {
+        setThumb(QIcon::fromTheme(QLatin1String("view-preview")).pixmap(parent->iconSize().width(),
+                                                                        QIcon::Disabled), false);
+    }
 }
 
 FindDuplicatesAlbumItem::~FindDuplicatesAlbumItem()

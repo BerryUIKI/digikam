@@ -38,7 +38,7 @@ public:
 
     /**
      * If true, show a notification message on desktop notification manager
-     * with time elpased to run process.
+     * with time elapsed to run process.
      */
     void setNotificationEnabled(bool b);
 

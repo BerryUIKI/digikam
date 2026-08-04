@@ -69,6 +69,9 @@ do                                                                              
                                                           50, 100,                                          \
                                                           HaarIface::DuplicatesSearchRestrictions::None,    \
                                                           refImageSelMethod, referenceAlbums);              \
+    finder->setShowAtStart(false);                                                                          \
+    finder->setUsesBusyIndicator(false);                                                                    \
+                                                                                                            \
     bool complete            = false;                                                                       \
                                                                                                             \
     connect(finder, &DuplicatesFinder::signalComplete,                                                      \
@@ -106,8 +109,6 @@ do                                                                              
         }                                                                                                   \
     }                                                                                                       \
                                                                                                             \
-    QTreeWidget* const  w = new QTreeWidget;                                                                \
-                                                                                                            \
     for (AlbumList::const_iterator it = aList.constBegin() ; it != aList.constEnd() ; ++it)                 \
     {                                                                                                       \
         SAlbum* const salbum = dynamic_cast<SAlbum*>(*it);                                                  \
@@ -116,7 +117,7 @@ do                                                                              
         {                                                                                                   \
             /* Adding item to listView by creating an item and passing listView as parent */                \
                                                                                                             \
-            FindDuplicatesAlbumItem* const item = new FindDuplicatesAlbumItem(w, salbum);                   \
+            FindDuplicatesAlbumItem* const item = new FindDuplicatesAlbumItem(nullptr, salbum);             \
             item->waitForCalculate();                                                                       \
             salbum->setExtraData(this, item);                                                               \
             const auto id                    = salbum->title().toLongLong();                                \
@@ -130,8 +131,6 @@ do                                                                              
             }                                                                                               \
         }                                                                                                   \
     }                                                                                                       \
-                                                                                                            \
-    delete w;                                                                                               \
 }                                                                                                           \
 while (false);
 

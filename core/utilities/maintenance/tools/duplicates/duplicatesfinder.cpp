@@ -133,7 +133,7 @@ void DuplicatesFinder::slotStart()
         {
             // All reference images must be also in the search path, otherwise no duplicates are found
 
-            imageIds.unite(referenceImageIds); 
+            imageIds.unite(referenceImageIds);
             break;
         }
 
