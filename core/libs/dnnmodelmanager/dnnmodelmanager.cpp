@@ -148,7 +148,7 @@ DNNModelBase* DNNModelManager::getModel(const QString& modelName, DNNModelUsage 
     }
     else
     {
-        qCCritical(DIGIKAM_DNNMODELMNGR_LOG) << "Cannot found model:" << modelName;
+        qCCritical(DIGIKAM_DNNMODELMNGR_LOG) << "Cannot find model:" << modelName;
 
         return nullptr;
     }

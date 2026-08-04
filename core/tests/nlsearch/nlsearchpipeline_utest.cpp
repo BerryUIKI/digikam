@@ -20,6 +20,7 @@
 
 #include <QTest>
 #include <QSignalSpy>
+#include <QFileInfo>
 
 // Local includes
 
@@ -30,6 +31,13 @@
 #include "searchcapabilitydictionary.h"
 #include "searchintentresolver.h"
 #include "searchquerycache.h"
+#include "digikam_config.h"
+#include "searchlanguagebackend.h"
+
+#ifdef HAVE_LLAMACPP
+#   include "searchllamabackend.h"
+#   include "searchnlmodelmanager.h"
+#endif
 
 using namespace Digikam;
 
@@ -220,6 +228,79 @@ private Q_SLOTS:
         QCOMPARE(intent.constraints.first().op,    QLatin1String("between"));
         QCOMPARE(intent.constraints.first().value,
                  QLatin1String("2023-01-01..2023-12-31"));
+    }
+
+    void testRealInferenceProducesConstraints()
+    {
+#ifdef HAVE_LLAMACPP
+
+        QString modelPath = SearchNlModelManager::defaultModelPath();
+
+        if (modelPath.isEmpty() || !QFileInfo::exists(modelPath))
+        {
+            // Allow pointing the test at a model explicitly, e.g. for local runs:
+            modelPath = QString::fromLocal8Bit(qgetenv("DIGIKAM_NLSEARCH_TEST_MODEL"));
+        }
+
+        if (modelPath.isEmpty() || !QFileInfo::exists(modelPath))
+        {
+            QSKIP("Language model not installed; skipping real-inference test.");
+        }
+
+        SearchQueryEngine          engine;
+        SearchLlamaBackend         backend;
+        SearchPromptBuilder        prompts;
+        SearchIntentParser         parser;
+        SearchCapabilityDictionary dict;
+        SearchIntentResolver       resolver(&dict);
+        SearchQueryCache           cache;
+
+        QSignalSpy loadedSpy(&backend, &SearchLanguageBackend::signalModelLoaded);
+
+        backend.loadModel(modelPath);
+
+        // Model loading runs on a worker thread and reports completion via
+        // signalModelLoaded(bool); wait for it before running inference.
+        QVERIFY(loadedSpy.wait(30000));
+        QVERIFY(loadedSpy.takeFirst().at(0).toBool());
+
+        engine.setBackend(&backend);
+        engine.setPromptBuilder(&prompts);
+        engine.setParser(&parser);
+        engine.setResolver(&resolver);
+        engine.setCache(&cache);
+
+        QSignalSpy readySpy(&engine, &SearchQueryEngine::signalIntentReady);
+
+        engine.slotInterpretQuery(QLatin1String("photos from 2023 rated 5 stars"),
+                                  QString());
+
+        // Real CPU inference is slow; allow a generous timeout.
+        QVERIFY(readySpy.wait(60000));
+
+        const auto intent = readySpy.takeFirst().at(0).value<SearchQueryIntent>();
+        QVERIFY(!intent.constraints.isEmpty());
+
+        // The query names a year and a rating. Assert both fields appear,
+        // without over-fitting to the model's exact values (real output is
+        // not bit-for-bit deterministic across model or prompt changes).
+        bool hasDate   = false;
+        bool hasRating = false;
+
+        for (const SearchQueryConstraint& c : intent.constraints)
+        {
+            if (c.field == QLatin1String("daterange")) { hasDate   = true; }
+            if (c.field == QLatin1String("rating"))    { hasRating = true; }
+        }
+
+        QVERIFY(hasDate);
+        QVERIFY(hasRating);
+
+#else
+
+        QSKIP("Built without llama.cpp; real-inference test not applicable.");
+
+#endif
     }
 };
 

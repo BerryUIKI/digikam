@@ -31,7 +31,24 @@ set(nlsearchpipeline_utest_SRCS
     ${NLSEARCH_DIR}/searchnlmodelmanager.cpp
 )
 
+if(ENABLE_NLSEARCH_LLAMACPP)
+
+    list(APPEND nlsearchpipeline_utest_SRCS
+         ${NLSEARCH_DIR}/searchllamabackend.cpp
+    )
+
+endif()
+
 add_executable(nlsearchpipeline_utest ${nlsearchpipeline_utest_SRCS})
+
+if(ENABLE_NLSEARCH_LLAMACPP AND TARGET llama)
+
+    target_compile_definitions(nlsearchpipeline_utest PRIVATE HAVE_LLAMACPP)
+    target_link_libraries(nlsearchpipeline_utest llama)
+    target_include_directories(nlsearchpipeline_utest PRIVATE
+        ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llama.cpp/include)
+
+endif()
 
 target_link_libraries(nlsearchpipeline_utest
 
