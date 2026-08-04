@@ -112,6 +112,11 @@ void FingerprintsTask::run()
             DImg dimg = PreviewLoadThread::loadFastSynchronously(info.filePath(),
                                                                  HaarIface::preferredSize());
 
+            if ((info.id() == 119119) || (info.id() == 118948) || (info.id() == 118878))
+            {
+                qCDebug(DIGIKAM_MAINTENANCE_LOG) << "DImg for item id" << info.id() << dimg;
+            }
+
             if (!dimg.isNull())
             {
                 // compute Haar fingerprint and store it to DB

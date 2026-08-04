@@ -32,6 +32,7 @@
 
 // Local includes
 
+#include "digikam_debug.h"
 #include "dimg.h"
 #include "coredb.h"
 #include "coredbaccess.h"
@@ -161,6 +162,11 @@ void FingerPrintsGenerator::calculateAffectedAlbums()
             {
                 if (!d->allItemIds.contains(id))
                 {
+                    if ((id == 119119) || (id == 118948) || (id == 118878))
+                    {
+                        qCDebug(DIGIKAM_MAINTENANCE_LOG) << "Add item id" << id;
+                    }
+
                     d->allItemIds << id;
                 }
             }
