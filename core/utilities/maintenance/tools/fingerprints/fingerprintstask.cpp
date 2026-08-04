@@ -114,7 +114,7 @@ void FingerprintsTask::run()
 
             if ((info.id() == 119119) || (info.id() == 118948) || (info.id() == 118878))
             {
-                qCDebug(DIGIKAM_MAINTENANCE_LOG) << "DImg for item id" << info.id() << dimg;
+                qCDebug(DIGIKAM_MAINTENANCE_LOG) << "DImg for item id" << info.id() << dimg.isNull();
             }
 
             if (!dimg.isNull())
