@@ -61,15 +61,18 @@ do                                                                              
 {                                                                                                           \
     AlbumManager::instance()->clearCurrentAlbums();                                                         \
     SimilarityDbAccess().db()->clearImageSimilarity();                                                      \
+                                                                                                            \
     /* 50% because largerSmaler.png has only 58% similarity */                                              \
-    DuplicatesFinder* finder = new DuplicatesFinder(searchAlbums, tags, HaarIface::AlbumTagRelation::NoMix, \
-                        50, 100,                                                                            \
-                        HaarIface::DuplicatesSearchRestrictions::None,                                      \
-                        refImageSelMethod, referenceAlbums);                                                \
+                                                                                                            \
+    DuplicatesFinder* const finder = new DuplicatesFinder(searchAlbums, tags,                               \
+                                                          HaarIface::AlbumTagRelation::NoMix,               \
+                                                          50, 100,                                          \
+                                                          HaarIface::DuplicatesSearchRestrictions::None,    \
+                                                          refImageSelMethod, referenceAlbums);              \
     bool complete            = false;                                                                       \
                                                                                                             \
     connect(finder, &DuplicatesFinder::signalComplete,                                                      \
-            [&complete]()                                                                                   \
+            this, [&complete]()                                                                             \
         {                                                                                                   \
             complete = true;                                                                                \
         }                                                                                                   \
@@ -84,17 +87,18 @@ do                                                                              
                                                                                                             \
         if (ENABLE_TIMEOUT)                                                                                 \
         {                                                                                                   \
-            QVERIFY(QDateTime::currentMSecsSinceEpoch() - startTime < 1000);                                \
+            QVERIFY((QDateTime::currentMSecsSinceEpoch() - startTime) < 1000);                              \
         }                                                                                                   \
     }                                                                                                       \
                                                                                                             \
-    QTest::qWait(1000); /* Wait until AlbumManager refreshed the salbums */                                 \
+    /* Wait until AlbumManager refreshed the salbums */                                                     \
                                                                                                             \
+    QTest::qWait(1000);                                                                                     \
     AlbumList aList = AlbumManager::instance()->allSAlbums();                                               \
                                                                                                             \
     for (AlbumList::iterator it = aList.begin() ; it != aList.end() ; ++it)                                 \
     {                                                                                                       \
-        SAlbum* salbum = dynamic_cast<SAlbum*>(*it);                                                        \
+        SAlbum* const salbum = dynamic_cast<SAlbum*>(*it);                                                  \
                                                                                                             \
         if (salbum)                                                                                         \
         {                                                                                                   \
@@ -102,7 +106,7 @@ do                                                                              
         }                                                                                                   \
     }                                                                                                       \
                                                                                                             \
-    QTreeWidget w;                                                                                          \
+    QTreeWidget* const  w = new QTreeWidget;                                                                \
                                                                                                             \
     for (AlbumList::const_iterator it = aList.constBegin() ; it != aList.constEnd() ; ++it)                 \
     {                                                                                                       \
@@ -111,12 +115,13 @@ do                                                                              
         if (salbum && salbum->isDuplicatesSearch() && !salbum->extraData(this))                             \
         {                                                                                                   \
             /* Adding item to listView by creating an item and passing listView as parent */                \
-            FindDuplicatesAlbumItem* const item = new FindDuplicatesAlbumItem(&w, salbum);                  \
+                                                                                                            \
+            FindDuplicatesAlbumItem* const item = new FindDuplicatesAlbumItem(w, salbum);                   \
             item->waitForCalculate();                                                                       \
             salbum->setExtraData(this, item);                                                               \
-            const auto id   = salbum->title().toLongLong();                                                 \
+            const auto id                    = salbum->title().toLongLong();                                \
             ItemInfo info(id);                                                                              \
-            const auto path = QDir(filesPath).relativeFilePath(info.filePath());                            \
+            const auto path                  = QDir(filesPath).relativeFilePath(info.filePath());           \
             const QList<ItemInfo> duplicates = item->duplicatedItems();                                     \
                                                                                                             \
             if (!references.contains(path))                                                                 \
@@ -125,7 +130,10 @@ do                                                                              
             }                                                                                               \
         }                                                                                                   \
     }                                                                                                       \
-} while (false);
+                                                                                                            \
+    delete w;                                                                                               \
+}                                                                                                           \
+while (false);
 
 HaarIfaceTest::HaarIfaceTest(QObject* const parent)
     : QObject  (parent),
@@ -137,7 +145,7 @@ HaarIfaceTest::HaarIfaceTest(QObject* const parent)
 
 void HaarIfaceTest::initTestCase()
 {
-    auto dir = QDir(filesPath);
+    auto dir        = QDir(filesPath);
     startSqlite(dir);
 
     // Update collection path, because this is hardcoded
@@ -197,10 +205,12 @@ void HaarIfaceTest::startSqlite(const QDir& dbDir)
 void HaarIfaceTest::stopSql()
 {
     qCDebug(DIGIKAM_TESTS_LOG) << "Shutting down SQlite database";
+
     ScanController::instance()->shutDown();
     AlbumManager::instance()->cleanUp();
 
     qCDebug(DIGIKAM_TESTS_LOG) << "Cleaning Sqlite database";
+
     CoreDbAccess::cleanUpDatabase();
     ThumbsDbAccess::cleanUpDatabase();
     FaceDbAccess::cleanUpDatabase();
@@ -562,8 +572,7 @@ void HaarIfaceTest::testReferenceFolderNotSelected()
 void HaarIfaceTest::testReferenceFolderPartlySelected()
 {
     const auto refImageSelMethod = HaarIface::RefImageSelMethod::ExcludeFolder;
-
-    AlbumList all = AlbumManager::instance()->allPAlbums();
+    AlbumList all                = AlbumManager::instance()->allPAlbums();
 
     AlbumList tags; // empty
     AlbumList searchAlbums;
