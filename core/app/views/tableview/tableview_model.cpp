@@ -380,7 +380,7 @@ void TableViewModel::addColumnAt(const TableViewColumnConfiguration& configurati
 
 void TableViewModel::slotColumnDataChanged(const qlonglong imageId)
 {
-    Item* const item                    = itemFromImageId(imageId);
+    const Item* const item              = itemFromImageId(imageId);
 
     if (!item)
     {
