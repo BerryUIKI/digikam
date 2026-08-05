@@ -222,8 +222,8 @@ SimpleTreeModel::Item* SimpleTreeModel::indexToItem(const QModelIndex& itemIndex
         return d->rootItem;
     }
 
-    Item* const item = static_cast<Item*>(itemIndex.internalPointer());
-    const int row    = itemIndex.row();
+    const Item* const item = static_cast<Item*>(itemIndex.internalPointer());
+    const int row          = itemIndex.row();
 
     if ((row < 0) || (row >= item->children.count()))
     {
