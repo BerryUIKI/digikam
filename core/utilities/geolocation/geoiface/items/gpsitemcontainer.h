@@ -39,9 +39,9 @@ enum Type
     TypeNewChild = 4
 };
 
-typedef struct TagData
+typedef struct _TagData
 {
-    TagData() = default;
+    _TagData() = default;
 
     QString tagName;
     QString tipName;
