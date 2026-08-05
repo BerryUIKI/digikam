@@ -316,6 +316,8 @@ public:
                                 : rootItem);
     }
 
+public:
+
     void build();
     void buildImagesList();
     void buildImagesTree();
@@ -799,7 +801,7 @@ QModelIndex ItemHistoryGraphModel::indexForInfo(const ItemInfo& info) const
     for (VertexItem* const item : std::as_const(d->vertexItems))
     {
         if (ItemModel::retrieveItemInfo(item->index) == info)
-        {    // cppcheck-suppress useStlAlgorithm
+        {   // cppcheck-suppress useStlAlgorithm
             return createIndex(item->parent->children.indexOf(item), 0, item);
         }
     }
@@ -986,7 +988,7 @@ QModelIndex ItemHistoryGraphModel::imageModelIndex(const QModelIndex& index) con
 {
     HistoryTreeItem* const item = d->historyItem(index);     // cppcheck-suppress constVariablePointer
 
-    if_isItem(VertexItem, vertexItem, item)      // cppcheck-suppress constVariablePointer
+    if_isItem(VertexItem, vertexItem, item)                  // cppcheck-suppress constVariablePointer
     {
         return vertexItem->index;
     }
@@ -1073,15 +1075,15 @@ bool ItemHistoryGraphModel::hasChildren(const QModelIndex& parent) const
 
 QModelIndex ItemHistoryGraphModel::parent(const QModelIndex& index) const
 {
-    HistoryTreeItem* const item   = d->historyItem(index);
-    HistoryTreeItem* const parent = item->parent;
+    HistoryTreeItem* const item              = d->historyItem(index);
+    HistoryTreeItem* const parent            = item->parent;
 
     if (!parent)
     {
         return QModelIndex();    // Index was an invalid index.
     }
 
-    HistoryTreeItem* const grandparent = parent->parent;
+    const HistoryTreeItem* const grandparent = parent->parent;
 
     if (!grandparent)
     {
