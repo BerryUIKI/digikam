@@ -851,13 +851,13 @@ int AdvPrintPhotoPage::getPageCount() const
     {
         // get the selected layout
 
-        AdvPrintPhotoSize* const s = d->settings->photosizes.at(d->photoUi->ListPhotoSizes->currentRow());
+        const AdvPrintPhotoSize* const s = d->settings->photosizes.at(d->photoUi->ListPhotoSizes->currentRow());
 
         // how many pages?  Recall that the first layout item is the paper size
 
-        int photosPerPage   = s->m_layouts.count() - 1;
-        int remainder       = photoCount % photosPerPage;
-        int emptySlots      = 0;
+        int photosPerPage                = (s->m_layouts.count() - 1);
+        int remainder                    = (photoCount % photosPerPage);
+        int emptySlots                   = 0;
 
         if (remainder > 0)
         {
@@ -917,7 +917,7 @@ void AdvPrintPhotoPage::slotListPhotoSizesSelected()
     AdvPrintPhotoSize* s = nullptr;
     QSizeF size, sizeManaged;
 
-    // TODO FREE STYLE
+    // @todo add free style.
     // check if layout is managed by templates or free one
     // get the selected layout
 
@@ -1099,7 +1099,7 @@ void AdvPrintPhotoPage::slotListPhotoSizesSelected()
             // Atckin's layout
         }
 
-        // TODO not for Atckin's layout
+        // @todo not for Atckin's layout
 
         iconpreview.end();
 
