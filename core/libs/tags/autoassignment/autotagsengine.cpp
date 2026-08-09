@@ -63,8 +63,11 @@ AutotagsEngine::AutotagsEngine(const AutotagsScanSettings& _settings, ProgressIt
     d->settings    = _settings;
     d->newPipeline = new AutotagsPipelineObject(_settings);
 
-    connect(d->newPipeline, SIGNAL(finished()),
-            this, SLOT(slotDone()));
+    connect(d->newPipeline, &AutotagsPipelineBase::finished,
+            this, &AutotagsEngine::slotDone);
+
+    connect(this, &MaintenanceTool::progressItemCanceled,
+            this, &AutotagsEngine::slotCancel);
 
     connect(d->newPipeline, SIGNAL(processed(MLPipelinePackageNotify::Ptr)),
             this, SLOT(slotShowOneDetected(MLPipelinePackageNotify::Ptr)));
@@ -72,8 +75,6 @@ AutotagsEngine::AutotagsEngine(const AutotagsScanSettings& _settings, ProgressIt
     connect(d->newPipeline, SIGNAL(skipped(MLPipelinePackageNotify::Ptr)),
             this, SLOT(slotImagesSkipped(MLPipelinePackageNotify::Ptr)));
 
-    connect(this, SIGNAL(progressItemCanceled(ProgressItem*)),
-            this, SLOT(slotCancel()));
 
     connect(d->newPipeline, SIGNAL(signalUpdateItemCount(qlonglong)),
             this, SLOT(slotUpdateItemCount(qlonglong)));

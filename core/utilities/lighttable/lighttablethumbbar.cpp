@@ -100,8 +100,8 @@ LightTableThumbBar::LightTableThumbBar(QWidget* const parent)
     connect(d->imageInfoModel, SIGNAL(rowsRemoved(QModelIndex,int,int)),
             this, SIGNAL(signalContentChanged()));
 
-    connect(settings, SIGNAL(setupChanged()),
-            this, SLOT(slotSetupChanged()));
+    connect(settings, &ApplicationSettings::setupChanged,
+            this, &LightTableThumbBar::slotSetupChanged);
 }
 
 LightTableThumbBar::~LightTableThumbBar()

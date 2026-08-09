@@ -53,8 +53,8 @@ private Q_SLOTS:
     void slotUpdateItemCount(const qlonglong itemCount);
     void slotImagesSkipped(const MLPipelinePackageNotify::Ptr&);
     void slotShowOneDetected(const MLPipelinePackageNotify::Ptr&);
-    void slotDone()                                                 override;   // cppcheck-suppress virtualCallInConstructor
-    void slotCancel()                                               override;   // cppcheck-suppress virtualCallInConstructor
+    void slotDone()                                                 override;
+    void slotCancel()                                               override;
 
 private:
 
