@@ -157,17 +157,17 @@ QMap<AdvPrintSettings::CaptionType, QString> AdvPrintSettings::captionTypeNames(
 
 QRect* AdvPrintSettings::getLayout(int photoIndex, int sizeIndex) const
 {
-    AdvPrintPhotoSize* const s = photosizes.at(sizeIndex);
+    const AdvPrintPhotoSize* const s = photosizes.at(sizeIndex);
 
     // how many photos would actually be printed, including copies?
 
-    int photoCount             = (photoIndex + 1);
+    int photoCount                   = (photoIndex + 1);
 
     // how many pages?  Recall that the first layout item is the paper size
 
-    int photosPerPage          = s->m_layouts.count() - 1;
-    int remainder              = photoCount % photosPerPage;
-    int retVal                 = (remainder == 0) ? photosPerPage : remainder;
+    int photosPerPage               = (s->m_layouts.count() - 1);
+    int remainder                   = (photoCount % photosPerPage);
+    int retVal                      = ((remainder == 0) ? photosPerPage : remainder);
 
     return s->m_layouts.at(retVal);
 }
