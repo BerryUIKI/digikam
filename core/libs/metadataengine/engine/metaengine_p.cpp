@@ -465,6 +465,11 @@ bool MetaEngine::Private::saveUsingExiv2(const QFileInfo& finfo,
             qCDebug(DIGIKAM_METAENGINE_LOG) << "Writing metadata with Exiv2 is not supported for file"
                                             << finfo.fileName();
 
+            if (metadataWritingMode == WRITE_TO_SIDECAR_ONLY_FOR_READ_ONLY_FILES)
+            {
+                return false;
+            }
+
             return saveUsingExifTool(finfo, modTime);
         }
         else if (!wroteEXIF || !wroteIPTC || !wroteXMP)
