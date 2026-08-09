@@ -138,11 +138,6 @@ bool HaarIface::indexImage(qlonglong imageid)
 
     ItemInfo info(imageid);
 
-    if ((info.id() == 119119) || (info.id() == 118948) || (info.id() == 118878))
-    {
-        qCDebug(DIGIKAM_MAINTENANCE_LOG) << "Write item id" << info.id() << info.isNull() << info.isVisible();
-    }
-
     if (!info.isNull() && info.isVisible())
     {
         QDateTime modDateTime = SimilarityDbAccess().backend()->asDBDateTime(info.modDateTime());
