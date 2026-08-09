@@ -249,6 +249,7 @@ QList<GeoDataStyle::ConstPtr> GeoDataDocument::styles() const
 
 QList<GeoDataStyle::Ptr> GeoDataDocument::styles()
 {
+    // cppcheck-suppress constVariablePointer
     Q_D(GeoDataDocument);
 
     return d->m_styleHash.values();

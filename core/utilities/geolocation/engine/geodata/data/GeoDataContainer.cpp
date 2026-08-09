@@ -193,21 +193,25 @@ QVector<GeoDataPlacemark*> GeoDataContainer::placemarkList() const
 QVector<GeoDataFeature*> GeoDataContainer::featureList() const
 {
     Q_D(const GeoDataContainer);
+
     return d->m_vector;
 }
 
 /**
- * @brief  returns the requested child item
+ * @brief returns the requested child item
  */
 GeoDataFeature* GeoDataContainer::child(int i)
 {
+    // cppcheck-suppress constVariablePointer
     Q_D(GeoDataContainer);
+
     return d->m_vector.at(i);
 }
 
 const GeoDataFeature* GeoDataContainer::child(int i) const
 {
     Q_D(const GeoDataContainer);
+
     return d->m_vector.at(i);
 }
 

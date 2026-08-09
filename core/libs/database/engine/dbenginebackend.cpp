@@ -2023,6 +2023,7 @@ int BdEngineBackend::maximumBoundValues() const
 
 void BdEngineBackend::setForeignKeyChecks(bool check)
 {
+    // cppcheck-suppress constVariablePointer
     Q_D(BdEngineBackend);
 
     if (d->parameters.isMySQL())

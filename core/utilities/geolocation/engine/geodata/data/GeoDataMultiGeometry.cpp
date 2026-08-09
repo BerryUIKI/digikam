@@ -113,6 +113,7 @@ const GeoDataLatLonAltBox& GeoDataMultiGeometry::latLonAltBox() const
 int GeoDataMultiGeometry::size() const
 {
     Q_D(const GeoDataMultiGeometry);
+
     return d->m_vector.size();
 }
 
@@ -129,12 +130,14 @@ GeoDataGeometry& GeoDataMultiGeometry::at(int pos)
     detach();
 
     Q_D(GeoDataMultiGeometry);
+
     return *(d->m_vector[pos]);
 }
 
 const GeoDataGeometry& GeoDataMultiGeometry::at(int pos) const
 {
     Q_D(const GeoDataMultiGeometry);
+
     return *(d->m_vector.at(pos));
 }
 
@@ -143,12 +146,14 @@ GeoDataGeometry& GeoDataMultiGeometry::operator[](int pos)
     detach();
 
     Q_D(GeoDataMultiGeometry);
+
     return *(d->m_vector[pos]);
 }
 
 const GeoDataGeometry& GeoDataMultiGeometry::operator[](int pos) const
 {
     Q_D(const GeoDataMultiGeometry);
+
     return *(d->m_vector[pos]);
 }
 
@@ -157,6 +162,7 @@ GeoDataGeometry& GeoDataMultiGeometry::last()
     detach();
 
     Q_D(GeoDataMultiGeometry);
+
     return *(d->m_vector.last());
 }
 
@@ -165,18 +171,21 @@ GeoDataGeometry& GeoDataMultiGeometry::first()
     detach();
 
     Q_D(GeoDataMultiGeometry);
+
     return *(d->m_vector.first());
 }
 
 const GeoDataGeometry& GeoDataMultiGeometry::last() const
 {
     Q_D(const GeoDataMultiGeometry);
+
     return *(d->m_vector.last());
 }
 
 const GeoDataGeometry& GeoDataMultiGeometry::first() const
 {
     Q_D(const GeoDataMultiGeometry);
+
     return *(d->m_vector.first());
 }
 
@@ -185,6 +194,7 @@ QVector<GeoDataGeometry*>::Iterator GeoDataMultiGeometry::begin()
     detach();
 
     Q_D(GeoDataMultiGeometry);
+
     return d->m_vector.begin();
 }
 
@@ -193,18 +203,21 @@ QVector<GeoDataGeometry*>::Iterator GeoDataMultiGeometry::end()
     detach();
 
     Q_D(GeoDataMultiGeometry);
+
     return d->m_vector.end();
 }
 
 QVector<GeoDataGeometry*>::ConstIterator GeoDataMultiGeometry::constBegin() const
 {
     Q_D(const GeoDataMultiGeometry);
+
     return d->m_vector.constBegin();
 }
 
 QVector<GeoDataGeometry*>::ConstIterator GeoDataMultiGeometry::constEnd() const
 {
     Q_D(const GeoDataMultiGeometry);
+
     return d->m_vector.constEnd();
 }
 
@@ -215,13 +228,16 @@ GeoDataGeometry* GeoDataMultiGeometry::child(int i)
 {
     detach();
 
+    // cppcheck-suppress constVariablePointer
     Q_D(GeoDataMultiGeometry);
+
     return d->m_vector.at(i);
 }
 
 const GeoDataGeometry* GeoDataMultiGeometry::child(int i) const
 {
     Q_D(const GeoDataMultiGeometry);
+
     return d->m_vector.at(i);
 }
 
@@ -232,7 +248,7 @@ int GeoDataMultiGeometry::childPosition(const GeoDataGeometry* object) const
 {
     Q_D(const GeoDataMultiGeometry);
 
-    for (int i = 0; i < d->m_vector.size(); ++i)
+    for (int i = 0 ; i < d->m_vector.size() ; ++i)
     {
         if (d->m_vector.at(i) == object)
         {

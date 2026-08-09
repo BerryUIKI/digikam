@@ -636,10 +636,10 @@ int RGTagModel::rowCount(const QModelIndex& parent) const
 /*
     parent.isValid() ? static_cast<TreeBranch*>(parent.internalPointer()) : d->rootTag;
 */
-    TreeBranch* const parentBranch = branchFromIndex(parent);
-    int myRowCount                 = parentBranch->spacerChildren.count() + parentBranch->newChildren.count();
+    const TreeBranch* const parentBranch = branchFromIndex(parent);
+    int myRowCount                       = parentBranch->spacerChildren.count() + parentBranch->newChildren.count();
 
-    // TODO: we don't know whether the oldChildren have been set up, therefore query the source model
+    // @todo we don't know whether the oldChildren have been set up, therefore query the source model
 
     if (parentBranch->type == TypeChild)
     {
@@ -744,10 +744,13 @@ void RGTagModel::slotModelReset()
 
 void RGTagModel::slotRowsAboutToBeInserted(const QModelIndex& parent, int start, int end)
 {
-    TreeBranch* const parentBranch = parent.isValid() ? static_cast<TreeBranch*>(fromSourceIndex(parent).internalPointer()) : d->rootTag;
-    d->parent                      = fromSourceIndex(parent);
-    d->startInsert                 = start;
-    d->endInsert                   = end;
+    const TreeBranch* const parentBranch = (
+                                            parent.isValid() ? static_cast<TreeBranch*>(fromSourceIndex(parent).internalPointer())
+                                                             : d->rootTag
+                                           );
+    d->parent                            = fromSourceIndex(parent);
+    d->startInsert                       = start;
+    d->endInsert                         = end;
 
     beginInsertRows(d->parent,
                     start + parentBranch->newChildren.count() + parentBranch->spacerChildren.count(),
