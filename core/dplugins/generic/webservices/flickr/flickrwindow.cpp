@@ -581,7 +581,7 @@ void FlickrWindow::slotPopulatePhotoSetComboBox()
 
     if (d->talker && d->talker->m_photoSetsList)
     {
-        QList<FPhotoSet>* const list = d->talker->m_photoSetsList;
+        const QList<FPhotoSet>* const list  = d->talker->m_photoSetsList;
         d->albumsListComboBox->clear();
         d->albumsListComboBox->insertItem(0, i18n("Photostream Only"));
         d->albumsListComboBox->insertSeparator(1);
