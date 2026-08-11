@@ -53,7 +53,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-11 00:42+0000\n"
+"POT-Creation-Date: 2026-08-13 00:43+0000\n"
 "PO-Revision-Date: 2023-08-28 12:02+0300\n"
 "Last-Translator: Petros Vidalis <pvidalis@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-doc@kde.org>\n"
@@ -2844,10 +2844,14 @@ msgid "Start digikam with the configuration file \"config\""
 msgstr "Εκκίνηση του digikam με το αρχείο ρυθμίσεων \"config\""
 
 #: core/app/main/main.cpp:303
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Run-time Qt SQLite or MySQL database plugin is not available. please "
+#| "install it.\n"
+#| "There is no database plugin installed on your computer."
 msgid ""
-"Run-time Qt SQLite or MySQL database plugin is not available. please install "
-"it.\n"
+"Run-time Qt SQLite or MariaDB database plugin is not available. please "
+"install it.\n"
 "There is no database plugin installed on your computer."
 msgstr ""
 "Το πρόσθετο Qt της βάσης δεδομένων SQLite ή της MySQL δεν είναι διαθέσιμο. "
@@ -2855,9 +2859,13 @@ msgstr ""
 "Δεν υπάρχει πρόσθετο βάσης δεδομένων εγκατεστημένο στον υπολογιστή σας."
 
 #: core/app/main/main.cpp:312
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Run-time Qt SQLite or MySQL database plugin are not available. Please "
+#| "install it.\n"
+#| "Database plugins installed on your computer are listed below."
 msgid ""
-"Run-time Qt SQLite or MySQL database plugin are not available. Please "
+"Run-time Qt SQLite or MariaDB database plugin are not available. Please "
 "install it.\n"
 "Database plugins installed on your computer are listed below."
 msgstr ""
@@ -28775,14 +28783,16 @@ msgid "Searches"
 msgstr "Αναζητήσεις"
 
 #: core/libs/album/manager/albummanager_database.cpp:111
-#, kde-format
-msgid "The MySQL database directory was not found."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "The core database name is empty"
+msgid "The MariaDB database directory was not found."
+msgstr "Το όνομα της βάσης δεδομένων πυρήνα είναι κενό"
 
 #: core/libs/album/manager/albummanager_database.cpp:128
-#, kde-format
-msgid "The MySQL binary tools was not found."
-msgstr ""
+#, fuzzy, kde-format
+#| msgid "The core database name is empty"
+msgid "The MariaDB binary tools was not found."
+msgstr "Το όνομα της βάσης δεδομένων πυρήνα είναι κενό"
 
 #: core/libs/album/manager/albummanager_database.cpp:135
 #, fuzzy, kde-format
@@ -30426,9 +30436,12 @@ msgstr ""
 "SQL."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The driver \"MYSQL\" for MySQL databases is not available.\n"
+#| "digiKam depends on the drivers provided by the Qt::SQL module."
 msgid ""
-"The driver \"MYSQL\" for MySQL databases is not available.\n"
+"The driver \"MYSQL\" for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
 "Ο οδηγός \"MYSQL\" για βάσεις δεδομένων MySQL δεν είναι διαθέσιμος.\n"
@@ -30608,7 +30621,7 @@ msgstr "Ο τύπος της βάσης δεδομένων δεν υποστηρ
 #: core/libs/database/server/databaseserver.cpp:296
 #, fuzzy, kde-format
 #| msgid "No path to mysql server command set in configuration file!"
-msgid "No path to mysql upgrade command set in configuration file."
+msgid "No path to MariaDB upgrade command set in configuration file."
 msgstr ""
 "Δεν έχει ρυθμιστεί διαδρομή προς την εντολή εξυπηρετητή mysql στο αρχείο "
 "διαμόρφωσης!"
@@ -30616,7 +30629,7 @@ msgstr ""
 #: core/libs/database/server/databaseserver.cpp:305
 #, fuzzy, kde-format
 #| msgid "No path to mysql server command set in configuration file!"
-msgid "No path to mysql server command set in configuration file."
+msgid "No path to MariaDB server command set in configuration file."
 msgstr ""
 "Δεν έχει ρυθμιστεί διαδρομή προς την εντολή εξυπηρετητή mysql στο αρχείο "
 "διαμόρφωσης!"
@@ -30624,7 +30637,7 @@ msgstr ""
 #: core/libs/database/server/databaseserver.cpp:314
 #, fuzzy, kde-format
 #| msgid "No path to mysql initialization command set in configuration file!."
-msgid "No path to mysql administration command set in configuration file."
+msgid "No path to MariaDB administration command set in configuration file."
 msgstr ""
 "Δεν έχει ρυθμιστεί διαδρομή προς την εντολή αρχικοποίησης mysql στο αρχείο "
 "διαμόρφωσης!."
@@ -30632,7 +30645,7 @@ msgstr ""
 #: core/libs/database/server/databaseserver.cpp:323
 #, fuzzy, kde-format
 #| msgid "No path to mysql initialization command set in configuration file!."
-msgid "No path to mysql initialization command set in configuration file."
+msgid "No path to MariaDB initialization command set in configuration file."
 msgstr ""
 "Δεν έχει ρυθμιστεί διαδρομή προς την εντολή αρχικοποίησης mysql στο αρχείο "
 "διαμόρφωσης!."
@@ -30645,9 +30658,13 @@ msgid "Cannot create directory %1"
 msgstr "Αδυναμία δημιουργίας καταλόγου %1"
 
 #: core/libs/database/server/databaseserver.cpp:436
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Unable to create MySQL server configuration file.<p>This means that "
+#| "either the default configuration file</p><p>%1</p><p>was not readable or "
+#| "the target file</p><p>%2</p><p>could not be written.</p>"
 msgid ""
-"Unable to create MySQL server configuration file.<p>This means that either "
+"Unable to create MariaDB server configuration file.<p>This means that either "
 "the default configuration file</p><p>%1</p><p>was not readable or the target "
 "file</p><p>%2</p><p>could not be written.</p>"
 msgstr ""
@@ -30657,8 +30674,9 @@ msgstr ""
 "επιδεχόταν εγγραφή.</p>"
 
 #: core/libs/database/server/databaseserver.cpp:458
-#, kde-format
-msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+#, fuzzy, kde-format
+#| msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+msgid "Cannot find MariaDB server default configuration (mysql-global.conf)."
 msgstr ""
 "Αδυναμία εύρεσης προκαθορισμένης διαμόρφωσης για τον εξυπηρετητή MySQL "
 "(mysql-global.conf)."
@@ -30666,7 +30684,7 @@ msgstr ""
 #: core/libs/database/server/databaseserver.cpp:505
 #, fuzzy, kde-format
 #| msgid "Device detection under progress, please wait..."
-msgid "The internal MySQL database is initializing, please wait..."
+msgid "The internal MariaDB database is initializing, please wait..."
 msgstr "Ανίχνευση συσκευής σε εξέλιξη, παρακαλώ περιμένετε..."
 
 #: core/libs/database/server/databaseserver.cpp:553
@@ -30710,7 +30728,7 @@ msgstr ""
 #: core/libs/database/server/databaseserver.cpp:751
 #, fuzzy, kde-format
 #| msgid "Device detection under progress, please wait..."
-msgid "A MySQL database upgrade is in progress, please wait..."
+msgid "A MariaDB database upgrade is in progress, please wait..."
 msgstr "Ανίχνευση συσκευής σε εξέλιξη, παρακαλώ περιμένετε..."
 
 #: core/libs/database/server/databaseserver.cpp:795
@@ -31036,37 +31054,38 @@ msgstr "SQLite"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:62
 #, fuzzy, kde-format
-msgid "Mysql Internal"
+msgid "MariaDB Internal"
 msgstr "Παρεμβολή:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:67
 #, fuzzy, kde-format
-msgid "MySQL Server"
-msgstr "Συντήρηση"
+#| msgid "Start image editor"
+msgid "MariaDB Server"
+msgstr "Εκκίνηση επεξεργαστή εικόνας"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:72
 #, kde-format
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small or medium collection sizes. It is "
-"the default and recommended backend for collections with less than 100K "
+"the default and recommended backend for collections with less than 500K "
 "items.</p>"
 msgstr ""
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:81
 #, kde-format
 msgid ""
-"<p><b>MySQL Internal</b> backend is for local database storage with huge "
+"<p><b>MariaDB Internal</b> backend is for local database storage with huge "
 "collection sizes. This backend is recommend for local collections with more "
-"than 100K items.</p>"
+"than 500K items.</p>"
 msgstr ""
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:86
 #, kde-format
 msgid ""
-"<p><b>MySQL Server</b> backend is a more robust solution especially for "
+"<p><b>MariaDB Server</b> backend is a more robust solution especially for "
 "remote and shared database storage. It is also more efficient to manage huge "
-"collection sizes with more than 100K items.</p>"
+"collection sizes with more than 500K items.</p>"
 msgstr ""
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:93
@@ -31167,9 +31186,13 @@ msgid ""
 msgstr ""
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:169
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Here you can configure locations where MySQL binary tools are located. "
+#| "digiKam will try to find these binaries automatically if they are already "
+#| "installed on your computer.</p>"
 msgid ""
-"<p>Here you can configure locations where MySQL binary tools are located. "
+"<p>Here you can configure locations where MariaDB binary tools are located. "
 "digiKam will try to find these binaries automatically if they are already "
 "installed on your computer.</p>"
 msgstr ""
@@ -31178,10 +31201,11 @@ msgstr ""
 "υπολογιστή σας.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:178
-#, kde-format
+#, fuzzy, kde-format
+#| msgid "Panoramic view"
 msgctxt "@title:group"
-msgid "MySQL Binaries"
-msgstr "MySQL δυαδικά αρχεία"
+msgid "MariaDB Binaries"
+msgstr "Πανοραμική προβολή"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:221
 #, kde-format
@@ -31227,9 +31251,12 @@ msgid "Set the database connection options"
 msgstr "Ρύθμιση επιλογών σύνδεσης με τη βάση δεδομένων"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:234
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the MySQL server connection options.\n"
+#| "For advanced users only."
 msgid ""
-"Set the MySQL server connection options.\n"
+"Set the MariaDB server connection options.\n"
 "For advanced users only."
 msgstr ""
 "Ρύθμιση των επιλογών σύνδεσης με τον εξυπηρετητή MySQL.\n"
@@ -31253,10 +31280,10 @@ msgstr "Ρύθμιση του ονόματος του λογαριασμού τ�
 #| "This account must be available on the remote MySQL server when database "
 #| "have been created."
 msgid ""
-"Set the MySQL server account name used\n"
+"Set the MariaDB server account name used\n"
 "by digiKam to be connected to the server.\n"
 "This account must be available on the remote\n"
-"MySQL server when database have been created."
+"MariaDB server when database have been created."
 msgstr ""
 "Ρύθμιση του ονόματος του λογαριασμού του εξυπηρετητή MySQL\n"
 "που χρησιμοποιεί το digiKam για να συνδεθεί στον εξυπηρετητή.\n"
@@ -31264,9 +31291,13 @@ msgstr ""
 "εξυπηρετητή όταν έχει δημιουργηθεί η βάση δεδομένων."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:247
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the MySQL server account password used\n"
+#| "by digiKam to be connected to the server.\n"
+#| "You can left this field empty to use an account set without password."
 msgid ""
-"Set the MySQL server account password used\n"
+"Set the MariaDB server account password used\n"
 "by digiKam to be connected to the server.\n"
 "You can left this field empty to use an account set without password."
 msgstr ""
@@ -31281,10 +31312,13 @@ msgid "Host Port:"
 msgstr "Θύρα υπολογιστή:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:255
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the host computer port.\n"
+#| "Usually, MySQL server use port number 3306 by default"
 msgid ""
 "Set the host computer port.\n"
-"Usually, MySQL server use port number 3306 by default"
+"Usually, MariaDB server use port number 3306 by default"
 msgstr ""
 "Ρυθμιση της θύρας του υπολογιστή.\n"
 "Συνήθως, ο εξυπηρετητής MySQL χρησιμοποιεί τον προκαθορισμένο αριθμό θύρας "
@@ -31296,9 +31330,12 @@ msgid "Check Connection"
 msgstr "Έλεγχος σύνδεσης"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:261
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Run a basic database connection to see if current MySQL server settings "
+#| "is suitable."
 msgid ""
-"Run a basic database connection to see if current MySQL server settings is "
+"Run a basic database connection to see if current MariaDB server settings is "
 "suitable."
 msgstr ""
 "Εκτελέστε μια βασική σύνδεση στη βάση δεδομένων για να δείτε αν οι τρέχουσες "
@@ -31324,7 +31361,7 @@ msgstr ""
 "για την αποθήκευση λευκωμάτων, αντικειμένων και μεταδεδπμένων αναζητήσεων."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:275
-#: core/libs/database/utils/widgets/dbsettingswidget.cpp:513
+#: core/libs/database/utils/widgets/dbsettingswidget.cpp:512
 #, kde-format
 msgid "Thumbs Db Name:"
 msgstr "Όνομα Db εικόνων επισκόπησης:"
@@ -31451,14 +31488,15 @@ msgstr ""
 #| "cnf, change the settings</p>"
 msgid ""
 "<p>Note: with a Linux server, a database can be initialized following the "
-"commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql -u "
-"root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init digiKam "
-"databases with grant privileges (see behind)</p><p>...</p><p>quit</"
-"p><p>NOTE: If you have problems with a MySQL server on Ubuntu based Linux "
-"system, use the addition command in the mysql prompt to be able to create "
-"MySQL triggers.<br>SET GLOBAL log_bin_trust_function_creators=1;</p><p>NOTE: "
-"If you have an enormous collection, you should start MySQL server with mysql "
-"--max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
+"commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
+"mariadb -u root</p><p>...</p><p>Enter SQL code to MariaDB prompt in order to "
+"init digiKam databases with grant privileges (see behind)</p><p>...</"
+"p><p>quit</p><p>NOTE: If you have problems with a MariaDB server on Ubuntu "
+"based Linux system, use the addition command in the mysql prompt to be able "
+"to create MariaDB triggers.<br>SET GLOBAL log_bin_trust_function_creators=1;"
+"</p><p>NOTE: If you have an enormous collection, you should start MariaDB "
+"server with mysql --max_allowed_packet=128M OR in my.ini or ~/.my.cnf, "
+"change the settings</p>"
 msgstr ""
 "<p>Σημείωση: με έναν εξυπηρετητή Linux, μπορείτε να προετοιμάσετε μία βάση  "
 "ακολουθώντας τις παρακάτω εντολές:</p><p># su</p><p># systemctl restart "
@@ -31501,12 +31539,11 @@ msgstr "Τεχνικές λεπτομέρειες εξυπηρετητή βάσ�
 #| "<b>Requirements</b> tab for details.</p>"
 msgid ""
 "<p>Use this configuration view to set all information to be connected to a "
-"remote <a href=\"https://en.wikipedia.org/wiki/MySQL\">Mysql database "
-"server</a> (or <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</"
-"a>) through a network. As with Sqlite or MySQL internal server, 3 databases "
-"will be stored on the remote server: one for all collections properties, one "
-"to store compressed thumbnails, and one to store faces recognition metadata."
-"</p><p>Unlike Sqlite or MySQL internal server, you can customize the "
+"remote <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</a> through "
+"a network. As with Sqlite or MariaDB internal server, 3 databases will be "
+"stored on the remote server: one for all collections properties, one to "
+"store compressed thumbnails, and one to store faces recognition metadata.</"
+"p><p>Unlike Sqlite or MariaDB internal server, you can customize the "
 "database names to simplify your backups.</p><p>Databases are digiKam core "
 "engines. To prevent performance issues, take a care to use a fast network "
 "link between the client and the server computers. It is also recommended to "
@@ -31538,12 +31575,12 @@ msgstr ""
 "έχουν προηγουμένως δημιουργηθεί στον απομακρυσμένο εξυπηρετητή από τον "
 "διαχειριστή. Κοιτάξτε στην καρτέλα <b>Απαιτήσεις</b> για λεπτομέρειες.</p>"
 
-#: core/libs/database/utils/widgets/dbsettingswidget.cpp:397
+#: core/libs/database/utils/widgets/dbsettingswidget.cpp:396
 #, kde-format
 msgid "Documentation"
 msgstr "Τεκμηρίωση"
 
-#: core/libs/database/utils/widgets/dbsettingswidget.cpp:509
+#: core/libs/database/utils/widgets/dbsettingswidget.cpp:508
 #, fuzzy, kde-format
 #| msgid "Thumbs Db Name:"
 msgid "Thumbs Db Folder:"
@@ -31551,7 +31588,7 @@ msgstr "Όνομα Db εικόνων επισκόπησης:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:35
 #: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:40
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:302
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:301
 #, fuzzy, kde-format
 #| msgid "Database Connection Test"
 msgctxt "@title:window"
@@ -31601,7 +31638,7 @@ msgstr "Το όνομα της βάσης δεδομένων προσώπων ε
 msgid "The similarity database name is empty"
 msgstr "Το όνομα της βάσης δεδομένων πυρήνα είναι κενό"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:154
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:153
 #, fuzzy, kde-format
 #| msgid "This path was set as a command lineoption (--database-directory)."
 msgid ""
@@ -31610,14 +31647,14 @@ msgstr ""
 "Αυτή η διαδρομή ρυθμίστηκε ως επιλογή σε γραμμή εντολών (--database-"
 "directory)."
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:293
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:292
 #, fuzzy, kde-format
 #| msgid "Database Configuration"
 msgctxt "@title:window"
 msgid "Database Configuration"
 msgstr "Διαμόρφωση βάσης δεδομένων"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:294
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:293
 #, fuzzy, kde-format
 #| msgid ""
 #| "The database names configuration is not valid. Error is <br/><p>%1</p><br/"
@@ -31629,7 +31666,7 @@ msgstr ""
 "Η διαμόρφωση ονομάτων των βάσεων δεδομένων δεν είναι έγκυρη. Το σφάλμα είναι "
 "<br/><p>%1</p><br/>Ελέγξτε τη διαμόρφωση."
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:303
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:302
 #, fuzzy, kde-format
 #| msgid ""
 #| "Testing database connection has failed with error<br/><p>%1</p><br/"
@@ -31641,7 +31678,7 @@ msgstr ""
 "Αποτυχία δοκιμής σύνδεσης σε βάση δεδομένων με σφάλμα <br/><p>%1</p><br/"
 ">Ελέγξτε τη διαμόρφωση."
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:322
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:321
 #, kde-format
 msgid ""
 "You must select a folder for digiKam to store information and metadata in a "
@@ -31650,14 +31687,14 @@ msgstr ""
 "Πρέπει να επιλέξετε ένα φάκελο που θα χρησιμοποιηθεί από το digiKam για την "
 "αποθήκευση πληροφοριών και μεταδεδομένων σε ένα αρχείο βάσης δεδομένων."
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:331
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:330
 #, fuzzy, kde-format
 #| msgid "Create Database Folder?"
 msgctxt "@title:window"
 msgid "Create Database Folder?"
 msgstr "Δημιουργία φακέλου βάσης δεδομένων;"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:332
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:331
 #, kde-format
 msgid ""
 "<p>The folder to put your database in does not seem to exist:</p><p><b>%1</"
@@ -31666,14 +31703,14 @@ msgstr ""
 "<p>Ο φάκελος της βάσης δεδομένων σας δεν φαίνεται να υπάρχει:</p><p><b>%1</"
 "b></p>Επιθυμείτε τη δημιουργία του από το digiKam;"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:343
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:342
 #, fuzzy, kde-format
 #| msgid "Create Database Folder Failed"
 msgctxt "@title:window"
 msgid "Create Database Folder Failed"
 msgstr "Αποτυχία δημιουργίας φακέλου της βάσης δεδομένων"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:344
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:343
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>digiKam could not create the folder to host your database file.\n"
@@ -31686,14 +31723,14 @@ msgstr ""
 "σας.\n"
 "Παρακαλώ επιλέξτε μια διαφορετική τοποθεσία.</p><p><b>%1</b></p>"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:369
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:368
 #, fuzzy, kde-format
 #| msgid "No Database Write Access"
 msgctxt "@title:window"
 msgid "No Database Write Access"
 msgstr "Χωρίς πρόσβαση εγγραφής στη βάση δεδομένων"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:370
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:369
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>You do not seem to have write access for the folder to host the "
@@ -31813,7 +31850,7 @@ msgctxt "@info: total number of items"
 msgid "total"
 msgstr "σύνολο"
 
-#: core/libs/database/utils/widgets/mysqladminbinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbadminbinary.cpp:34
 #, fuzzy, kde-format
 #| msgid ""
 #| "This binary file is used to start a dedicated instance of MariaDB server."
@@ -31823,7 +31860,7 @@ msgstr ""
 "Αυτό το δυαδικό αρχείο χρησιμεύει για την εκκίνηση μιας διεργασίας "
 "εξυπηρετητή MariaDB."
 
-#: core/libs/database/utils/widgets/mysqlinitbinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbinitbinary.cpp:34
 #, kde-format
 msgid ""
 "This binary file is used to initialize the MariaDB data files for the "
@@ -31832,7 +31869,7 @@ msgstr ""
 "Αυτό το δυαδικό αρχείο χρησιμεύει στην προετοιμασία των αρχείων δεδομένων "
 "MariaDB για τη βάση δεδομένων."
 
-#: core/libs/database/utils/widgets/mysqlserverbinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbserverbinary.cpp:34
 #, kde-format
 msgid ""
 "This binary file is used to start a dedicated instance of MariaDB server."
@@ -31840,7 +31877,7 @@ msgstr ""
 "Αυτό το δυαδικό αρχείο χρησιμεύει για την εκκίνηση μιας διεργασίας "
 "εξυπηρετητή MariaDB."
 
-#: core/libs/database/utils/widgets/mysqlupgradebinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbupgradebinary.cpp:34
 #, fuzzy, kde-format
 #| msgid ""
 #| "This binary file is used to start a dedicated instance of MariaDB server."
@@ -46976,8 +47013,9 @@ msgstr "Διαχείριση χρωμάτων"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:350
 #, fuzzy, kde-format
-msgid "MySQL interface"
-msgstr "Συντήρηση"
+#| msgid "Panoramic view"
+msgid "MariaDB interface"
+msgstr "Πανοραμική προβολή"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:355
 #, kde-format
@@ -66316,7 +66354,7 @@ msgstr "Αποτυχία απόδοσης αρχικών τιμών στη βά�
 #, kde-format
 msgid ""
 "This option leads to the vacuuming (shrinking) of the databases. Vacuuming "
-"is supported both for SQLite and MySQL."
+"is supported both for SQLite and MariaDB."
 msgstr ""
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:107
@@ -74293,6 +74331,18 @@ msgstr "Εισαγωγή αντικειμένων"
 #, kde-format
 msgid "Survey"
 msgstr ""
+
+#, fuzzy
+#~ msgid "MySQL Server"
+#~ msgstr "Συντήρηση"
+
+#~ msgctxt "@title:group"
+#~ msgid "MySQL Binaries"
+#~ msgstr "MySQL δυαδικά αρχεία"
+
+#, fuzzy
+#~ msgid "MySQL interface"
+#~ msgstr "Συντήρηση"
 
 #~ msgid "<h3>%1</h3><ul>%2</ul>"
 #~ msgstr "<h3>%1</h3><ul>%2</ul>"
@@ -82776,12 +82826,6 @@ msgstr ""
 #, fuzzy
 #~ msgid "A tool identified as \"%1\" is already running...."
 #~ msgstr "Ένα εργαλείο με όνομα \"%1\" ήδη εκτελείται..."
-
-#, fuzzy
-#~| msgid "Panoramic view"
-#~ msgctxt "@title:group"
-#~ msgid "MariaDB Binaries"
-#~ msgstr "Πανοραμική προβολή"
 
 #~ msgid "showFoto"
 #~ msgstr "showFoto"
