@@ -13,8 +13,8 @@ option(ENABLE_APPSTYLES                  "Build digiKam with support for changin
 option(ENABLE_KIO                        "Build digiKam with KIO support (default=ON)"                                        ON)
 
 # Database options:
-option(ENABLE_MYSQLSUPPORT               "Build digiKam with MySQL dabatase support (default=ON)"                             ON)
-option(ENABLE_INTERNALMYSQL              "Build digiKam with internal MySQL server executable (default=ON)"                   ON)
+option(ENABLE_MARIADBSUPPORT             "Build digiKam with MariaDB dabatase support (default=ON)"                             ON)
+option(ENABLE_INTERNALMARIADB            "Build digiKam with internal MariaDB server executable (default=ON)"                   ON)
 
 # Showfoto application
 option(ENABLE_SHOWFOTO                   "Build Showfoto stand-alone image editor (default=ON)"                               ON)

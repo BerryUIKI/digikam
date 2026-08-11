@@ -143,7 +143,7 @@ DbEngineParameters::DbEngineParameters(const QUrl& url)
         walMode = (queryWalMode == QLatin1String("true"));
     }
 
-#if defined(HAVE_MYSQLSUPPORT) && defined(HAVE_INTERNALMYSQL)
+#if defined(HAVE_MARIADBSUPPORT) && defined(HAVE_INTERNALMARIADB)
 
     QString queryServer  = QUrlQuery(url).queryItemValue(QLatin1String("internalServer"));
 
@@ -427,7 +427,7 @@ void DbEngineParameters::readFromConfig(const QString& configGroup)
 
     connectOptions                = group.readEntry(configDatabaseConnectOptions,                QString());
 
-#if defined(HAVE_MYSQLSUPPORT) && defined(HAVE_INTERNALMYSQL)
+#if defined(HAVE_MARIADBSUPPORT) && defined(HAVE_INTERNALMARIADB)
 
     if (isSQLite())
     {

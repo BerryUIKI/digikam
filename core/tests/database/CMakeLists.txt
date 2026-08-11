@@ -66,7 +66,7 @@ ecm_add_tests(${CMAKE_CURRENT_SOURCE_DIR}/databasesqliteinit_utest.cpp
 
 #------------------------------------------------------------------------
 
-if (ENABLE_MYSQLSUPPORT AND ENABLE_INTERNALMYSQL)
+if (ENABLE_MARIADBSUPPORT AND ENABLE_INTERNALMARIADB)
 
 # TODO: do not work yet.
     ecm_add_tests(${CMAKE_CURRENT_SOURCE_DIR}/databaseswitch_utest.cpp

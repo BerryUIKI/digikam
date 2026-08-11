@@ -80,11 +80,11 @@
 /* Define to 1 if HTMLGallery tool is supported */
 #cmakedefine HAVE_HTMLGALLERY 1
 
-/* Define to 1 if we support mysql database */
-#cmakedefine HAVE_MYSQLSUPPORT 1
+/* Define to 1 if we support MariaDB database */
+#cmakedefine HAVE_MARIADBSUPPORT 1
 
-/* Define to 1 if we support mysql internal database server */
-#cmakedefine HAVE_INTERNALMYSQL 1
+/* Define to 1 if we support MariaDB internal database server */
+#cmakedefine HAVE_INTERNALMARIADB 1
 
 /* Define to 1 if preview of video files is supported */
 #cmakedefine HAVE_MEDIAPLAYER 1

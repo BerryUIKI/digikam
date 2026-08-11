@@ -55,9 +55,9 @@ void DatabaseSettingsWidget::setupMainArea()
     d->dbType->addItem(i18n("SQLite"),         SQlite);
     d->dbTypeMap[SQlite]        = dbTypeIdx++;
 
-#ifdef HAVE_MYSQLSUPPORT
+#ifdef HAVE_MARIADBSUPPORT
 
-#   ifdef HAVE_INTERNALMYSQL
+#   ifdef HAVE_INTERNALMARIADB
 
     d->dbType->addItem(i18n("MariaDB Internal"), MysqlInternal);
     d->dbTypeMap[MysqlInternal] = dbTypeIdx++;
@@ -74,9 +74,9 @@ void DatabaseSettingsWidget::setupMainArea()
                        "It is the default and recommended backend for collections with less than 500K items.</p>");
 
 
-#ifdef HAVE_MYSQLSUPPORT
+#ifdef HAVE_MARIADBSUPPORT
 
-#   ifdef HAVE_INTERNALMYSQL
+#   ifdef HAVE_INTERNALMARIADB
 
     tip.append(i18n("<p><b>MariaDB Internal</b> backend is for local database storage with huge collection sizes. "
                     "This backend is recommend for local collections with more than 500K items.</p>"));

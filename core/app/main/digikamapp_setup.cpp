@@ -896,7 +896,7 @@ void DigikamApp::setupActions()
 
     // -----------------------------------------------------------
 
-#ifdef HAVE_MYSQLSUPPORT
+#ifdef HAVE_MARIADBSUPPORT
 
     QAction* const databaseMigrationAction = new QAction(QIcon::fromTheme(QLatin1String("network-server-database")),
                                                          i18nc("@action: setup", "Database Migration..."), this);

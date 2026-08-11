@@ -155,9 +155,9 @@ void DatabaseSettingsWidget::setParametersFromSettings(const ApplicationSettings
         }
     }
 
-#ifdef HAVE_MYSQLSUPPORT
+#ifdef HAVE_MARIADBSUPPORT
 
-#   ifdef HAVE_INTERNALMYSQL
+#   ifdef HAVE_INTERNALMARIADB
 
     else if ((d->orgPrms.databaseType == DbEngineParameters::MySQLDatabaseType()) && d->orgPrms.internalServer)
     {
