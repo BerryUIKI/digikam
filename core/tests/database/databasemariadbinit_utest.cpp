@@ -12,7 +12,7 @@
  *
  * ============================================================ */
 
-#include "databasemysqlinit_utest.h"
+#include "databasemariadbinit_utest.h"
 
 // Qt includes
 
@@ -47,14 +47,14 @@
 
 using namespace Digikam;
 
-QTEST_MAIN(DatabaseMysqlInitTest)
+QTEST_MAIN(DatabaseMariaDBInitTest)
 
-void DatabaseMysqlInitTest::cleanupTestCase()
+void DatabaseMariaDBInitTest::cleanupTestCase()
 {
     WSToolUtils::removeTemporaryDir(m_tempPath.toLatin1().data());
 }
 
-void DatabaseMysqlInitTest::initTestCase()
+void DatabaseMariaDBInitTest::initTestCase()
 {
     m_tempPath  = QString::fromLatin1(QTest::currentAppName());
     m_tempPath.replace(QLatin1String("./"), QString());
@@ -78,46 +78,46 @@ void DatabaseMysqlInitTest::initTestCase()
     aboutData.processCommandLine(&parser);
 }
 
-void DatabaseMysqlInitTest::testMysqlInit()
+void DatabaseMariaDBInitTest::testMariaDBInit()
 {
-    qCDebug(DIGIKAM_TESTS_LOG) << "Setup Mysql Database...";
+    qCDebug(DIGIKAM_TESTS_LOG) << "Setup MariaDB Database...";
 
-    MariaDBUpgradeBinary mysqlUpgradeBin;
+    MariaDBUpgradeBinary mariadbUpgradeBin;
 
-    if (!mysqlUpgradeBin.recheckDirectories())
+    if (!mariadbUpgradeBin.recheckDirectories())
     {
-        qWarning() << QLatin1String("Not able to found the Mysql Upgrade binary program. Test is aborted...");
+        qWarning() << QLatin1String("Not able to found the MariaDB Upgrade binary program. Test is aborted...");
         return;
     }
 
-    MariaDBServerBinary  mysqlServerBin;
-    mysqlServerBin.slotAddPossibleSearchDirectory(QLatin1String("/usr/sbin"));
+    MariaDBServerBinary  mariadbServerBin;
+    mariadbServerBin.slotAddPossibleSearchDirectory(QLatin1String("/usr/sbin"));
 
-    if (!mysqlServerBin.recheckDirectories())
+    if (!mariadbServerBin.recheckDirectories())
     {
-        qWarning() << QLatin1String("Not able to found the Mysql Server binary program. Test is aborted...");
+        qWarning() << QLatin1String("Not able to found the MariaDB Server binary program. Test is aborted...");
         return;
     }
 
-    MariaDBAdminBinary   mysqlAdminBin;
+    MariaDBAdminBinary   mariadbAdminBin;
 
-    if (!mysqlAdminBin.recheckDirectories())
+    if (!mariadbAdminBin.recheckDirectories())
     {
-        qWarning() << QLatin1String("Not able to found the Mysql Admin binary program. Test is aborted...");
+        qWarning() << QLatin1String("Not able to found the MariaDB Admin binary program. Test is aborted...");
         return;
     }
 
-    MariaDBInitBinary    mysqlInitBin;
+    MariaDBInitBinary    mariadbInitBin;
 
-    if (!mysqlInitBin.recheckDirectories())
+    if (!mariadbInitBin.recheckDirectories())
     {
-        qWarning() << QLatin1String("Not able to found the Mysql Init binary program. Test is aborted...");
+        qWarning() << QLatin1String("Not able to found the MariaDB Init binary program. Test is aborted...");
         return;
     }
 
     if (!QSqlDatabase::isDriverAvailable(DbEngineParameters::MySQLDatabaseType()))
     {
-        qWarning() << QLatin1String("Qt MySQL plugin is missing.");
+        qWarning() << QLatin1String("Qt MariaDB plugin is missing.");
         return;
     }
 
@@ -133,27 +133,27 @@ void DatabaseMysqlInitTest::testMysqlInit()
     params.password                      = QString();
     params.internalServer                = true;
     params.internalServerDBPath          = m_tempDir.path();
-    params.internalServerMysqlUpgradeCmd = mysqlUpgradeBin.path();
-    params.internalServerMysqlServerCmd  = mysqlServerBin.path();
-    params.internalServerMysqlAdminCmd   = mysqlAdminBin.path();
-    params.internalServerMysqlInitCmd    = mysqlInitBin.path();
+    params.internalServerMysqlUpgradeCmd = mariadbUpgradeBin.path();
+    params.internalServerMysqlServerCmd  = mariadbServerBin.path();
+    params.internalServerMysqlAdminCmd   = mariadbAdminBin.path();
+    params.internalServerMysqlInitCmd    = mariadbInitBin.path();
     params.hostName                      = QString();
     params.port                          = -1;
     params.connectOptions                = QString::fromLatin1("UNIX_SOCKET=%1/mysql.socket").arg(miscDir);
 
     // ------------------------------------------------------------------------------------
 
-    qCDebug(DIGIKAM_TESTS_LOG) << "Initializing Mysql database...";
+    qCDebug(DIGIKAM_TESTS_LOG) << "Initializing MariaDB database...";
     QVERIFY2(AlbumManager::instance()->setDatabase(params, false, m_filesPath),
-             "Cannot initialize Mysql database");
+             "Cannot initialize MariaDB database");
 
     QTest::qWait(3000);
 
-    qCDebug(DIGIKAM_TESTS_LOG) << "Shutting down Mysql database";
+    qCDebug(DIGIKAM_TESTS_LOG) << "Shutting down MariaDB database";
     ScanController::instance()->shutDown();
     AlbumManager::instance()->cleanUp();
 
-    qCDebug(DIGIKAM_TESTS_LOG) << "Cleaning Mysql database";
+    qCDebug(DIGIKAM_TESTS_LOG) << "Cleaning MariaDB database";
     CoreDbAccess::cleanUpDatabase();
     ThumbsDbAccess::cleanUpDatabase();
     FaceDbAccess::cleanUpDatabase();
@@ -162,4 +162,4 @@ void DatabaseMysqlInitTest::testMysqlInit()
     DatabaseServerStarter::instance()->stopServerManagerProcess();
 }
 
-#include "moc_databasemysqlinit_utest.cpp"
+#include "moc_databasemariadbinit_utest.cpp"

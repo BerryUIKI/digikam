@@ -20,20 +20,20 @@
 #include <QDir>
 #include <QString>
 
-class DatabaseMysqlInitTest : public QObject
+class DatabaseMariaDBInitTest : public QObject
 {
     Q_OBJECT
 
 public:
 
-    explicit DatabaseMysqlInitTest(QObject* const parent = nullptr)
+    explicit DatabaseMariaDBInitTest(QObject* const parent = nullptr)
         : QObject(parent)
     {
     }
 
 private Q_SLOTS:
 
-    void testMysqlInit();
+    void testMariaDBInit();
 
     void initTestCase();
     void cleanupTestCase();

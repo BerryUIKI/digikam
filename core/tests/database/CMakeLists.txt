@@ -86,7 +86,7 @@ if (ENABLE_MYSQLSUPPORT AND ENABLE_INTERNALMYSQL)
 
     # ---
 
-    ecm_add_tests(${CMAKE_CURRENT_SOURCE_DIR}/databasemysqlinit_utest.cpp
+    ecm_add_tests(${CMAKE_CURRENT_SOURCE_DIR}/databasemariadbinit_utest.cpp
 
                   NAME_PREFIX
 
