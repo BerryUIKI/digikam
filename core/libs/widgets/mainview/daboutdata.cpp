@@ -347,7 +347,7 @@ void DAboutData::authorsRegistration(KAboutData& aboutData)
                         );
 
     aboutData.addCredit ( QString::fromUtf8("Holger Foerster"),
-                          i18n("MySQL interface"),
+                          i18n("MariaDB interface"),
                           QString::fromUtf8("hamsi2k at freenet dot de")
                         );
 

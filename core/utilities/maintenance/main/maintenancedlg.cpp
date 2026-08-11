@@ -98,7 +98,7 @@ MaintenanceDlg::MaintenanceDlg(QWidget* const parent)
     d->cleanSimilarityDb       = new QCheckBox(i18n("Also clean up the similarity database."), d->vbox3);
     d->shrinkDatabases         = new QCheckBox(i18n("Extended clean up and shrink all databases."), d->vbox3);
     d->shrinkDatabases->setToolTip(i18n("This option leads to the vacuuming (shrinking) of the databases. "
-                                        "Vacuuming is supported both for SQLite and MySQL."));
+                                        "Vacuuming is supported both for SQLite and MariaDB."));
 
     d->expanderBox->insertItem(
                                Private::DbCleanup,

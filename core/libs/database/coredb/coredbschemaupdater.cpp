@@ -766,7 +766,7 @@ bool CoreDbSchemaUpdater::updateToVersion(int targetVersion)
         case 8:
         {
             // digiKam for database version 7 can work with version 8,
-            // now using COLLATE utf8_general_ci for MySQL.
+            // now using COLLATE utf8_general_ci for MariaDB.
 
             return performUpdateToVersion(QLatin1String("UpdateSchemaFromV7ToV9"), 8, 5);
         }
@@ -774,7 +774,7 @@ bool CoreDbSchemaUpdater::updateToVersion(int targetVersion)
         case 9:
         {
             // digiKam for database version 8 can work with version 9,
-            // now using COLLATE utf8_general_ci for MySQL.
+            // now using COLLATE utf8_general_ci for MariaDB.
 
             return performUpdateToVersion(QLatin1String("UpdateSchemaFromV7ToV9"), 9, 5);
         }
@@ -790,7 +790,7 @@ bool CoreDbSchemaUpdater::updateToVersion(int targetVersion)
         case 11:
         {
             // digiKam for database version 10 can work with version 11,
-            // add TagsTree table for MySQL.
+            // add TagsTree table for MariaDB.
 
             return performUpdateToVersion(QLatin1String("UpdateSchemaFromV10ToV11"), 11, 5);
         }
@@ -798,7 +798,7 @@ bool CoreDbSchemaUpdater::updateToVersion(int targetVersion)
         case 12:
         {
             // digiKam for database version 11 can work with version 12,
-            // fix TagsTree triggers for MySQL.
+            // fix TagsTree triggers for MariaDB.
 
             return performUpdateToVersion(QLatin1String("UpdateSchemaFromV11ToV12"), 12, 5);
         }
@@ -806,7 +806,7 @@ bool CoreDbSchemaUpdater::updateToVersion(int targetVersion)
         case 13:
         {
             // digiKam for database version 12 can work with version 13,
-            // add index to the TagsTree table for MySQL.
+            // add index to the TagsTree table for MariaDB.
 
             return performUpdateToVersion(QLatin1String("UpdateSchemaFromV12ToV13"), 13, 5);
         }
@@ -822,7 +822,7 @@ bool CoreDbSchemaUpdater::updateToVersion(int targetVersion)
         case 15:
         {
             // digiKam for database version 14 can work with version 15,
-            // now using COLLATE utf8_bin for Albums:relativePath and Images:name in MySQL.
+            // now using COLLATE utf8_bin for Albums:relativePath and Images:name in MariaDB.
 
             return performUpdateToVersion(QLatin1String("UpdateSchemaFromV14ToV15"), 15, 5);
         }

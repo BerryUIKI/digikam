@@ -300,7 +300,7 @@ MAIN_EXPORT int MAIN_FN(int argc, char** argv)
         {
             QMessageBox::critical(qApp->activeWindow(),
                                   qApp->applicationName(),
-                                  i18n("Run-time Qt SQLite or MySQL database plugin is not available. "
+                                  i18n("Run-time Qt SQLite or MariaDB database plugin is not available. "
                                        "please install it.\n"
                                        "There is no database plugin installed on your computer."));
         }
@@ -309,7 +309,7 @@ MAIN_EXPORT int MAIN_FN(int argc, char** argv)
             DMessageBox::showInformationList(QMessageBox::Warning,
                                              qApp->activeWindow(),
                                              qApp->applicationName(),
-                                             i18n("Run-time Qt SQLite or MySQL database plugin are not available. "
+                                             i18n("Run-time Qt SQLite or MariaDB database plugin are not available. "
                                                   "Please install it.\n"
                                                   "Database plugins installed on your computer are listed below."),
                                              QSqlDatabase::drivers());

@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2009-11-14
- * Description : Mysql internal database server
+ * Description : MariaDB internal database server
  *
  * SPDX-FileCopyrightText: 2009-2011 by Holger Foerster <Hamsi2k at freenet dot de>
  * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
@@ -290,37 +290,37 @@ DatabaseServerError DatabaseServer::checkDatabaseDirs() const
 
     if (d->mysqlUpgradePath.isEmpty())
     {
-        qCDebug(DIGIKAM_DATABASESERVER_LOG) << "No path to mysql upgrade command set in configuration file!";
+        qCDebug(DIGIKAM_DATABASESERVER_LOG) << "No path to MariaDB upgrade command set in configuration file!";
 
         return DatabaseServerError(DatabaseServerError::StartError,
-                                   i18n("No path to mysql upgrade command set "
+                                   i18n("No path to MariaDB upgrade command set "
                                         "in configuration file."));
     }
 
     if (d->mysqlServerPath.isEmpty())
     {
-        qCDebug(DIGIKAM_DATABASESERVER_LOG) << "No path to mysql server command set in configuration file!";
+        qCDebug(DIGIKAM_DATABASESERVER_LOG) << "No path to MariaDB server command set in configuration file!";
 
         return DatabaseServerError(DatabaseServerError::StartError,
-                                   i18n("No path to mysql server command set "
+                                   i18n("No path to MariaDB server command set "
                                         "in configuration file."));
     }
 
     if (d->mysqlAdminPath.isEmpty())
     {
-        qCDebug(DIGIKAM_DATABASESERVER_LOG) << "No path to mysql administration command set in configuration file!";
+        qCDebug(DIGIKAM_DATABASESERVER_LOG) << "No path to MariaDB administration command set in configuration file!";
 
         return DatabaseServerError(DatabaseServerError::StartError,
-                                   i18n("No path to mysql administration "
+                                   i18n("No path to MariaDB administration "
                                         "command set in configuration file."));
     }
 
     if (d->mysqlInitPath.isEmpty())
     {
-        qCDebug(DIGIKAM_DATABASESERVER_LOG) << "No path to mysql initialization command set in configuration file!";
+        qCDebug(DIGIKAM_DATABASESERVER_LOG) << "No path to MariaDB initialization command set in configuration file!";
 
         return DatabaseServerError(DatabaseServerError::StartError,
-                                   i18n("No path to mysql initialization "
+                                   i18n("No path to MariaDB initialization "
                                         "command set in configuration file."));
     }
 
@@ -380,7 +380,7 @@ DatabaseServerError DatabaseServer::initMysqlConfig() const
         {
             confShouldUpdate = true;
 
-            qCDebug(DIGIKAM_DATABASESERVER_LOG) << "The mysql configuration is outdated,"
+            qCDebug(DIGIKAM_DATABASESERVER_LOG) << "The MariaDB configuration is outdated,"
                                                 << d->actualConfig
                                                 << "will be updated.";
 
@@ -390,11 +390,11 @@ DatabaseServerError DatabaseServer::initMysqlConfig() const
             if (globalFile.open(QFile::ReadOnly) && actualFile.open(QFile::WriteOnly))
             {
                 actualFile.write(globalFile.readAll());
-                qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Updated mysql configuration with" << d->globalConfig;
+                qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Updated MariaDB configuration with" << d->globalConfig;
 
                 if (!localConfig.isEmpty() && localFile.open(QFile::ReadOnly))
                 {
-                    qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Updated mysql configuration with" << localConfig;
+                    qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Updated MariaDB configuration with" << localConfig;
                     actualFile.write(localFile.readAll());
                     localFile.close();
                 }
@@ -406,7 +406,7 @@ DatabaseServerError DatabaseServer::initMysqlConfig() const
             }
         }
 
-        // MySQL doesn't like world writeable config files (which makes sense), but
+        // MariaDB doesn't like world writeable config files (which makes sense), but
         // our config file somehow ends up being world-writable on some systems for no
         // apparent reason nevertheless, so fix that
 
@@ -421,19 +421,19 @@ DatabaseServerError DatabaseServer::initMysqlConfig() const
             if (allowedPerms != actualFile.permissions())
             {
                 actualFile.setPermissions(allowedPerms);
-                qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Fixed permissions of mysql configuration file.";
+                qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Fixed permissions of MariaDB configuration file.";
             }
         }
         else if (confShouldUpdate)
         {
-            qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Unable to create MySQL server configuration file."
+            qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Unable to create MariaDB server configuration file."
                                                 << "This means that either the default configuration file"
                                                 << d->globalConfig
                                                 << "was not readable or the target file"
                                                 << d->actualConfig
                                                 << "could not be written.";
 
-            QString errorMsg = i18n("Unable to create MySQL server configuration file."
+            QString errorMsg = i18n("Unable to create MariaDB server configuration file."
                                     "<p>This means that either the default configuration file</p>"
                                     "<p>%1</p>"
                                     "<p>was not readable or the target file</p>"
@@ -446,16 +446,16 @@ DatabaseServerError DatabaseServer::initMysqlConfig() const
         }
         else
         {
-            qCDebug(DIGIKAM_DATABASESERVER_LOG) << "The mysql configuration was already up-to-date:"
+            qCDebug(DIGIKAM_DATABASESERVER_LOG) << "The MariaDB configuration was already up-to-date:"
                                                 << d->actualConfig;
         }
     }
     else
     {
-        qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Cannot find MySQL server default configuration (mysql-global.conf)";
+        qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Cannot find MariaDB server default configuration (mysql-global.conf)";
 
         error = DatabaseServerError(DatabaseServerError::StartError,
-                                    i18n("Cannot find MySQL server default "
+                                    i18n("Cannot find MariaDB server default "
                                          "configuration (mysql-global.conf)."));
     }
 
@@ -464,7 +464,7 @@ DatabaseServerError DatabaseServer::initMysqlConfig() const
 
 void DatabaseServer::copyAndRemoveMysqlLogs() const
 {
-    // Move mysql error log file out of the way
+    // Move MariaDB error log file out of the way
 
     const QFileInfo errorLog(d->dataDir, QLatin1String("mysql.err"));
 
@@ -488,7 +488,7 @@ void DatabaseServer::copyAndRemoveMysqlLogs() const
         }
         else
         {
-            qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Failed to open MySQL error log.";
+            qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Failed to open MariaDB error log.";
         }
     }
 }
@@ -502,7 +502,7 @@ DatabaseServerError DatabaseServer::createMysqlFiles() const
     if (!QFile(QDir(d->dataDir).absoluteFilePath(QLatin1String("mysql"))).exists())
     {
         QPointer<QProgressDialog> dialog = new QProgressDialog;
-        dialog->setLabelText(i18n("The internal MySQL database is "
+        dialog->setLabelText(i18n("The internal MariaDB database is "
                                   "initializing, please wait..."));
         dialog->setCancelButton(nullptr);
         dialog->setMinimumDuration(2000);
@@ -580,7 +580,7 @@ DatabaseServerError DatabaseServer::startMysqlServer()
 
     if (!server->listen(QHostAddress::LocalHost, d->serverPort))
     {
-        qCWarning(DIGIKAM_DATABASESERVER_LOG) << "Port 3307 not free for the MySQL server";
+        qCWarning(DIGIKAM_DATABASESERVER_LOG) << "Port 3307 not free for the MariaDB server";
 
         server->listen(QHostAddress::LocalHost, 0);
         d->serverPort = server->serverPort();
@@ -748,7 +748,7 @@ DatabaseServerError DatabaseServer::initMysqlDatabase(bool useDatabase) const
 DatabaseServerError DatabaseServer::upgradeMysqlDatabase()
 {
     QPointer<QProgressDialog> dialog = new QProgressDialog;
-    dialog->setLabelText(i18n("A MySQL database upgrade is "
+    dialog->setLabelText(i18n("A MariaDB database upgrade is "
                               "in progress, please wait..."));
     dialog->setCancelButton(nullptr);
     dialog->setMinimumDuration(5000);

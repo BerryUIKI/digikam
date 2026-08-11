@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2010-06-21
- * Description : unit test to switch digiKam database from sqlite to mysql
+ * Description : unit test to switch digiKam database from QSlite to MariaDB
  *
  * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *

@@ -264,7 +264,7 @@ bool FaceDbSchemaUpdater::createDatabase()
 
 bool FaceDbSchemaUpdater::createTables()
 {
-    // The creation order is important because of the foreign keys in MySQL.
+    // The creation order is important because of the foreign keys in MariaDB.
 
     return (
             d->dbAccess->backend()->execDBAction(d->dbAccess->backend()->getDBAction(QLatin1String("CreateFaceDB")))             &&

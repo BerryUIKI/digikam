@@ -108,7 +108,7 @@ bool AlbumManager::setDatabase(const DbEngineParameters& params, bool priority, 
     {
         if      (!QFileInfo::exists(params.internalServerPath()))
         {
-            databaseError = i18n("The MySQL database directory was not found.");
+            databaseError = i18n("The MariaDB database directory was not found.");
         }
         else if (
                  (
@@ -125,7 +125,7 @@ bool AlbumManager::setDatabase(const DbEngineParameters& params, bool priority, 
                  )
                 )
         {
-            databaseError = i18n("The MySQL binary tools was not found.");
+            databaseError = i18n("The MariaDB binary tools was not found.");
         }
     }
     else if (params.isSQLite() && suggestedAlbumRoot.isEmpty() && !settings->getDatabaseDirSetAtCmd())

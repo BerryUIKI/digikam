@@ -553,7 +553,7 @@ int CoreDB::addTag(int parentTagID, const QString& name, const QString& iconKDE,
         return -1;
     }
 
-    // The creation of a tag can be ignored under MySQL if one with a different
+    // The creation of a tag can be ignored under MariaDB if one with a different
     // case sensitivity already exists. In this case we use the already existing tag.
 
     if (!id.isValid())
@@ -4851,10 +4851,10 @@ bool CoreDB::integrityCheck() const
 
         case BdEngineBackend::DbType::MySQL:
         {
-            // For MySQL, for every checked table, the table name, operation (check), message type (status) and the message text (ok on success)
+            // For MariaDB, for every checked table, the table name, operation (check), message type (status) and the message text (ok on success)
             // are returned. So we check if there are four elements and if yes, whether the fourth element is "ok".
 /*
-            qCDebug(DIGIKAM_DATABASE_LOG) << "MySQL check returned " << values.size() << " rows";
+            qCDebug(DIGIKAM_DATABASE_LOG) << "MariaDB check returned " << values.size() << " rows";
 */
             if ((values.size() % 4) != 0)
             {

@@ -1261,7 +1261,7 @@ bool ItemQueryBuilder::buildField(QString& sql, SearchXmlCachingReader& reader, 
                 return false;
             }
 
-            // to extract a part of the date we need different SQL code for SQLite and MySQL
+            // to extract a part of the date we need different SQL code for SQLite and MariaDB
 
             if (CoreDbAccess::parameters().isSQLite())
             {
@@ -1318,7 +1318,7 @@ bool ItemQueryBuilder::buildField(QString& sql, SearchXmlCachingReader& reader, 
                 return false;
             }
 
-            // to extract a part of the date we need different SQL code for SQLite and MySQL
+            // to extract a part of the date we need different SQL code for SQLite and MariaDB
 
             if (CoreDbAccess::parameters().isSQLite())
             {

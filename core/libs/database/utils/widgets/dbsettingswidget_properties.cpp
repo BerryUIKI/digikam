@@ -131,7 +131,6 @@ void DatabaseSettingsWidget::handleInternalServer(int index)
     d->connectOpts->setDisabled(internal);
 }
 
-
 void DatabaseSettingsWidget::setParametersFromSettings(const ApplicationSettings* const settings,
                                                        const bool& migration)
 {

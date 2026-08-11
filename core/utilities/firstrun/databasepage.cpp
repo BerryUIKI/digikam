@@ -80,7 +80,7 @@ void DatabasePage::saveSettings()
 
 bool DatabasePage::checkSettings()
 {
-    // TODO : add checks for Mysql Server.
+    // TODO : add checks for MariaDB Server.
 
     return d->dbsettingswidget->checkDatabaseSettings();
 }

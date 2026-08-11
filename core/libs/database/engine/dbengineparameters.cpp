@@ -49,9 +49,9 @@ static const QLatin1String configInternalDatabaseServerMysqlServerCmd  ("Interna
 static const QLatin1String configInternalDatabaseServerMysqlUpgradeCmd ("Internal Database Server Mysql Upgrade Command");
 static const QLatin1String configDatabaseType                          ("Database Type");
 static const QLatin1String configDatabaseName                          ("Database Name");              ///< For Sqlite the DB file path, for Mysql the DB name
-static const QLatin1String configDatabaseNameThumbnails                ("Database Name Thumbnails");   ///< For Sqlite the DB file path, for Mysql the DB name
-static const QLatin1String configDatabaseNameFace                      ("Database Name Face");         ///< For Sqlite the DB file path, for Mysql the DB name
-static const QLatin1String configDatabaseNameSimilarity                ("Database Name Similarity");   ///< For Sqlite the DB file path, for Mysql the DB name
+static const QLatin1String configDatabaseNameThumbnails                ("Database Name Thumbnails");   ///< For Sqlite the DB file path, for MariaDB the DB name
+static const QLatin1String configDatabaseNameFace                      ("Database Name Face");         ///< For Sqlite the DB file path, for MariaDB the DB name
+static const QLatin1String configDatabaseNameSimilarity                ("Database Name Similarity");   ///< For Sqlite the DB file path, for MariaDB the DB name
 static const QLatin1String configDatabaseHostName                      ("Database Hostname");
 static const QLatin1String configDatabasePort                          ("Database Port");
 static const QLatin1String configDatabaseUsername                      ("Database Username");

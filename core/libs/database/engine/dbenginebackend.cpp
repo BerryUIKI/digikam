@@ -692,7 +692,7 @@ BdEngineBackend::DbType BdEngineBackend::databaseType() const
 {
     Q_D(const BdEngineBackend);
 
-    return d->parameters.isSQLite() ? DbType::SQLite : DbType::MySQL;
+    return (d->parameters.isSQLite() ? DbType::SQLite : DbType::MySQL);
 }
 
 BdEngineBackend::QueryState BdEngineBackend::execDBAction(const DbEngineAction& action,
@@ -2017,7 +2017,7 @@ int BdEngineBackend::maximumBoundValues() const
     }
     else
     {
-        return 65535; // MySQL
+        return 65535; // MariaDB
     }
 }
 

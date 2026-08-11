@@ -67,7 +67,7 @@ bool DbEngineAccess::checkReadyForUse(QString& error)
             qCDebug(DIGIKAM_COREDB_LOG) << "Core database: no MySQL driver available.\n"
                                            "List of QSqlDatabase drivers: " << drivers;
 
-            error = i18n("The driver \"MYSQL\" for MySQL databases is not available.\n"
+            error = i18n("The driver \"MYSQL\" for MariaDB databases is not available.\n"
                          "digiKam depends on the drivers provided by the Qt::SQL module.");
             return false;
         }

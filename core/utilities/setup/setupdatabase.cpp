@@ -132,7 +132,7 @@ void SetupDatabase::applySettings()
 
         case DatabaseSettingsWidget::MysqlInternal:
         {
-            qCDebug(DIGIKAM_GENERAL_LOG) << "Switch to Mysql Internal DB config...";
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Switch to MariaDB Internal DB config...";
             DbEngineParameters params = d->databaseWidget->getDbEngineParameters();
             settings->setDbEngineParameters(params);
             settings->saveSettings();
@@ -142,7 +142,7 @@ void SetupDatabase::applySettings()
 
         default: // DatabaseSettingsWidget::MysqlServer
         {
-            qCDebug(DIGIKAM_GENERAL_LOG) << "Switch to Mysql server DB config...";
+            qCDebug(DIGIKAM_GENERAL_LOG) << "Switch to MariaDB server DB config...";
             DbEngineParameters params = d->databaseWidget->getDbEngineParameters();
             settings->setDbEngineParameters(params);
             settings->saveSettings();

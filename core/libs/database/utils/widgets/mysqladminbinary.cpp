@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2021-05-30
- * Description : Autodetects Mysql server admin program and version
+ * Description : Autodetects MariaDB server admin program and version
  *
  * SPDX-FileCopyrightText: 2016-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
