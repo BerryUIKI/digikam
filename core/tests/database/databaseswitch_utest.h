@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2010-06-21
- * Description : unit test to switch digiKam database from sqlite to mysql
+ * Description : unit test to switch digiKam database from SQlite to MariaDB
  *
  * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
@@ -33,8 +33,8 @@ public:
 
 private Q_SLOTS:
 
-    void testFromSqliteToMysql();
-    void testFromMysqlToSqlite();
+    void testFromSqliteToMariaDB();
+    void testFromMariaDBToSqlite();
 
     void initTestCase();
     void cleanupTestCase();
@@ -42,7 +42,7 @@ private Q_SLOTS:
 private:
 
     void startStopSqlite(const QDir& dbDir);
-    void startStopMysql(const QDir& dbDir);
+    void startStopMariaDB(const QDir& dbDir);
 
 private:
 
