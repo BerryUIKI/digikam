@@ -108,7 +108,7 @@ public:
     /**
      * Returns database encoding.
      * For SQLite should UTF-8.
-     * For MySQL like UTF8MB4.
+     * For MariaDB like UTF8MB4.
      */
     QString getDatabaseEncoding()                                                                                   const;
 

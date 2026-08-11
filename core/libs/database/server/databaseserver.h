@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2009-11-14
- * Description : Mysql internal database server
+ * Description : MariaDB internal database server
  *
  * SPDX-FileCopyrightText: 2009-2011 by Holger Foerster <Hamsi2k at freenet dot de>
  * SPDX-FileCopyrightText: 2010-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
@@ -83,46 +83,46 @@ protected:
 private:
 
     /**
-     * Inits and Starts Mysql server.
+     * Inits and Starts MariaDB server.
      */
-    DatabaseServerError startMysqlDatabaseProcess();
+    DatabaseServerError startMariaDBDatabaseProcess();
 
     /**
-     * Checks if Mysql binaries and database directories exists and creates
+     * Checks if MariaDB binaries and database directories exists and creates
      * the latter if necessary.
      */
     DatabaseServerError checkDatabaseDirs()                              const;
 
     /**
-     * Finds and updates (if necessary) configuration files for the mysql
+     * Finds and updates (if necessary) configuration files for the MariaDB
      * server.
      */
-    DatabaseServerError initMysqlConfig()                                const;
+    DatabaseServerError initMariaDBConfig()                              const;
 
     /**
-     * Copy and remove mysql error log files.
+     * Copy and remove MariaDB error log files.
      */
-    void copyAndRemoveMysqlLogs()                                        const;
+    void copyAndRemoveMariaDBLogs()                                      const;
 
     /**
-     * Creates initial Mysql database files for internal server.
+     * Creates initial MariaDB database files for internal server.
      */
-    DatabaseServerError createMysqlFiles()                               const;
+    DatabaseServerError createMariaDBFiles()                             const;
 
     /**
      * Starts the server for the internal database.
      */
-    DatabaseServerError startMysqlServer();
+    DatabaseServerError startMariaDBServer();
 
     /**
-     * Creates or connects to database digikam in mysql.
+     * Creates or connects to database digikam in MariaDB.
      */
-    DatabaseServerError initMysqlDatabase(bool useDatabase)              const;
+    DatabaseServerError initMariaDBDatabase(bool useDatabase)            const;
 
     /**
-     * Perform a mysql database upgrade.
+     * Perform a MariaDB database upgrade.
      */
-    DatabaseServerError upgradeMysqlDatabase();
+    DatabaseServerError upgradeMariaDBDatabase();
 
     /**
      * Return the current user account name.

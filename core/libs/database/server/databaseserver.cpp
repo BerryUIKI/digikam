@@ -57,10 +57,10 @@ public:
     QProcess*              databaseProcess = nullptr;
 
     QString                internalDBName;
-    QString                mysqlUpgradePath;
-    QString                mysqlServerPath;
-    QString                mysqlAdminPath;
-    QString                mysqlInitPath;
+    QString                mariadbUpgradePath;
+    QString                mariadbServerPath;
+    QString                mariadbAdminPath;
+    QString                mariadbInitPath;
     QString                dataDir;
     QString                miscDir;
     QString                fileDataDir;
@@ -94,10 +94,10 @@ DatabaseServer::DatabaseServer(const DbEngineParameters& params, DatabaseServerS
     qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Internal Server data path:" << dataDir;
 
     d->internalDBName       = QLatin1String("digikam");
-    d->mysqlUpgradePath     = d->params.internalServerMysqlUpgradeCmd;
-    d->mysqlServerPath      = d->params.internalServerMysqlServerCmd;
-    d->mysqlAdminPath       = d->params.internalServerMysqlAdminCmd;
-    d->mysqlInitPath        = d->params.internalServerMysqlInitCmd;
+    d->mariadbUpgradePath   = d->params.internalServerMysqlUpgradeCmd;
+    d->mariadbServerPath    = d->params.internalServerMysqlServerCmd;
+    d->mariadbAdminPath     = d->params.internalServerMysqlAdminCmd;
+    d->mariadbInitPath      = d->params.internalServerMysqlInitCmd;
     d->dataDir              = dataDir;
     d->miscDir              = QDir(defaultAkDir).absoluteFilePath(QLatin1String("db_misc"));
     d->fileDataDir          = QDir(defaultAkDir).absoluteFilePath(QLatin1String("file_db_data"));
@@ -147,7 +147,7 @@ DatabaseServerError DatabaseServer::startDatabaseProcess()
 
     if (d->params.isMySQL())
     {
-        error = startMysqlDatabaseProcess();
+        error = startMariaDBDatabaseProcess();
     }
     else
     {
@@ -179,28 +179,28 @@ void DatabaseServer::stopDatabaseProcess()
         return;
     }
 
-    QStringList mysqlShutDownArgs;
-    mysqlShutDownArgs << QLatin1String("-u");
-    mysqlShutDownArgs << QLatin1String("root");
-    mysqlShutDownArgs << QLatin1String("shutdown");
+    QStringList mariadbShutDownArgs;
+    mariadbShutDownArgs << QLatin1String("-u");
+    mariadbShutDownArgs << QLatin1String("root");
+    mariadbShutDownArgs << QLatin1String("shutdown");
 
 #ifdef Q_OS_WIN
 
-    mysqlShutDownArgs << QString::fromLatin1("--port=%1").arg(d->serverPort);
+    mariadbShutDownArgs << QString::fromLatin1("--port=%1").arg(d->serverPort);
 
 #else
 
-    mysqlShutDownArgs << QString::fromLatin1("--socket=%1/mysql.socket").arg(d->miscDir);
+    mariadbShutDownArgs << QString::fromLatin1("--socket=%1/mysql.socket").arg(d->miscDir);
 
 #endif
 
-    QProcess mysqlShutDownProcess;
-    mysqlShutDownProcess.setProcessEnvironment(adjustedEnvironmentForAppImage());
+    QProcess mariadbShutDownProcess;
+    mariadbShutDownProcess.setProcessEnvironment(adjustedEnvironmentForAppImage());
 
     qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Send stop to database server";
 
-    mysqlShutDownProcess.start(d->mysqlAdminPath, mysqlShutDownArgs);
-    mysqlShutDownProcess.waitForFinished();
+    mariadbShutDownProcess.start(d->mariadbAdminPath, mariadbShutDownArgs);
+    mariadbShutDownProcess.waitForFinished();
 
     if (!d->databaseProcess->waitForFinished() && (d->databaseProcess->state() == QProcess::Running))
     {
@@ -226,7 +226,7 @@ bool DatabaseServer::isRunning() const
     return (databaseServerStateEnum == running);
 }
 
-DatabaseServerError DatabaseServer::startMysqlDatabaseProcess()
+DatabaseServerError DatabaseServer::startMariaDBDatabaseProcess()
 {
     DatabaseServerError error = checkDatabaseDirs();
 
@@ -235,44 +235,44 @@ DatabaseServerError DatabaseServer::startMysqlDatabaseProcess()
         return error;
     }
 
-    error = initMysqlConfig();
+    error = initMariaDBConfig();
 
     if (error.getErrorType() != DatabaseServerError::NoErrors)
     {
         return error;
     }
 
-    copyAndRemoveMysqlLogs();
+    copyAndRemoveMariaDBLogs();
 
-    error = createMysqlFiles();
-
-    if (error.getErrorType() != DatabaseServerError::NoErrors)
-    {
-        return error;
-    }
-
-    error = startMysqlServer();
+    error = createMariaDBFiles();
 
     if (error.getErrorType() != DatabaseServerError::NoErrors)
     {
         return error;
     }
 
-    error = initMysqlDatabase(false);
+    error = startMariaDBServer();
 
     if (error.getErrorType() != DatabaseServerError::NoErrors)
     {
         return error;
     }
 
-    error = upgradeMysqlDatabase();
+    error = initMariaDBDatabase(false);
 
     if (error.getErrorType() != DatabaseServerError::NoErrors)
     {
         return error;
     }
 
-    error = initMysqlDatabase(true);
+    error = upgradeMariaDBDatabase();
+
+    if (error.getErrorType() != DatabaseServerError::NoErrors)
+    {
+        return error;
+    }
+
+    error = initMariaDBDatabase(true);
 
     if (error.getErrorType() != DatabaseServerError::NoErrors)
     {
@@ -288,7 +288,7 @@ DatabaseServerError DatabaseServer::checkDatabaseDirs() const
 {
     DatabaseServerError error;
 
-    if (d->mysqlUpgradePath.isEmpty())
+    if (d->mariadbUpgradePath.isEmpty())
     {
         qCDebug(DIGIKAM_DATABASESERVER_LOG) << "No path to MariaDB upgrade command set in configuration file!";
 
@@ -297,7 +297,7 @@ DatabaseServerError DatabaseServer::checkDatabaseDirs() const
                                         "in configuration file."));
     }
 
-    if (d->mysqlServerPath.isEmpty())
+    if (d->mariadbServerPath.isEmpty())
     {
         qCDebug(DIGIKAM_DATABASESERVER_LOG) << "No path to MariaDB server command set in configuration file!";
 
@@ -306,7 +306,7 @@ DatabaseServerError DatabaseServer::checkDatabaseDirs() const
                                         "in configuration file."));
     }
 
-    if (d->mysqlAdminPath.isEmpty())
+    if (d->mariadbAdminPath.isEmpty())
     {
         qCDebug(DIGIKAM_DATABASESERVER_LOG) << "No path to MariaDB administration command set in configuration file!";
 
@@ -315,7 +315,7 @@ DatabaseServerError DatabaseServer::checkDatabaseDirs() const
                                         "command set in configuration file."));
     }
 
-    if (d->mysqlInitPath.isEmpty())
+    if (d->mariadbInitPath.isEmpty())
     {
         qCDebug(DIGIKAM_DATABASESERVER_LOG) << "No path to MariaDB initialization command set in configuration file!";
 
@@ -357,7 +357,7 @@ DatabaseServerError DatabaseServer::checkDatabaseDirs() const
     return error;
 }
 
-DatabaseServerError DatabaseServer::initMysqlConfig() const
+DatabaseServerError DatabaseServer::initMariaDBConfig() const
 {
     DatabaseServerError error;
 
@@ -462,7 +462,7 @@ DatabaseServerError DatabaseServer::initMysqlConfig() const
     return error;
 }
 
-void DatabaseServer::copyAndRemoveMysqlLogs() const
+void DatabaseServer::copyAndRemoveMariaDBLogs() const
 {
     // Move MariaDB error log file out of the way
 
@@ -493,7 +493,7 @@ void DatabaseServer::copyAndRemoveMysqlLogs() const
     }
 }
 
-DatabaseServerError DatabaseServer::createMysqlFiles() const
+DatabaseServerError DatabaseServer::createMariaDBFiles() const
 {
     DatabaseServerError error;
 
@@ -512,28 +512,28 @@ DatabaseServerError DatabaseServer::createMysqlFiles() const
 
         // Synthesize the server initialization command line arguments
 
-        QStringList mysqlInitCmdArgs;
+        QStringList mariadbInitCmdArgs;
 
 #ifndef Q_OS_WIN
 
-        mysqlInitCmdArgs << QDir::toNativeSeparators(QString::fromLatin1("--defaults-file=%1")
+        mariadbInitCmdArgs << QDir::toNativeSeparators(QString::fromLatin1("--defaults-file=%1")
                                                      .arg(d->globalConfig));
 
 #endif
 
 #ifdef Q_OS_MACOS
 
-        mysqlInitCmdArgs << QDir::toNativeSeparators(QString::fromLatin1("--basedir=%1lib/mariadb/")
+        mariadbInitCmdArgs << QDir::toNativeSeparators(QString::fromLatin1("--basedir=%1lib/mariadb/")
                                                      .arg(macOSBundlePrefix()));
 
 #endif
 
-        mysqlInitCmdArgs << QDir::toNativeSeparators(QString::fromLatin1("--datadir=%1")
+        mariadbInitCmdArgs << QDir::toNativeSeparators(QString::fromLatin1("--datadir=%1")
                                                      .arg(d->dataDir));
 
         QProcess initProcess;
         initProcess.setProcessEnvironment(adjustedEnvironmentForAppImage());
-        initProcess.start(d->mysqlInitPath, mysqlInitCmdArgs);
+        initProcess.start(d->mariadbInitPath, mariadbInitCmdArgs);
 
         qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Database initializer:"
                                             << initProcess.program()
@@ -557,19 +557,19 @@ DatabaseServerError DatabaseServer::createMysqlFiles() const
     return error;
 }
 
-DatabaseServerError DatabaseServer::startMysqlServer()
+DatabaseServerError DatabaseServer::startMariaDBServer()
 {
     DatabaseServerError error;
 
     // Synthesize the server command line arguments
 
-    QStringList mysqldServCmdArgs;
-    mysqldServCmdArgs << QDir::toNativeSeparators(QString::fromLatin1("--defaults-file=%1").arg(d->actualConfig))
+    QStringList mariadbdServCmdArgs;
+    mariadbdServCmdArgs << QDir::toNativeSeparators(QString::fromLatin1("--defaults-file=%1").arg(d->actualConfig))
                       << QDir::toNativeSeparators(QString::fromLatin1("--datadir=%1").arg(d->dataDir));
 
 #ifdef Q_OS_MACOS
 
-    mysqldServCmdArgs << QDir::toNativeSeparators(QString::fromLatin1("--basedir=%1lib/mariadb/")
+    mariadbdServCmdArgs << QDir::toNativeSeparators(QString::fromLatin1("--basedir=%1lib/mariadb/")
                                                   .arg(macOSBundlePrefix()));
 
 #endif
@@ -591,12 +591,12 @@ DatabaseServerError DatabaseServer::startMysqlServer()
     server->close();
     delete server;
 
-    mysqldServCmdArgs << QLatin1String("--skip-networking=0")
+    mariadbdServCmdArgs << QLatin1String("--skip-networking=0")
                       << QString::fromLatin1("--port=%1").arg(d->serverPort);
 
 #else
 
-    mysqldServCmdArgs << QString::fromLatin1("--socket=%1/mysql.socket").arg(d->miscDir);
+    mariadbdServCmdArgs << QString::fromLatin1("--socket=%1/mysql.socket").arg(d->miscDir);
 
 #endif
 
@@ -604,7 +604,7 @@ DatabaseServerError DatabaseServer::startMysqlServer()
 
     d->databaseProcess = new QProcess();
     d->databaseProcess->setProcessEnvironment(adjustedEnvironmentForAppImage());
-    d->databaseProcess->start(d->mysqlServerPath, mysqldServCmdArgs);
+    d->databaseProcess->start(d->mariadbServerPath, mariadbdServCmdArgs);
 
     qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Database server:"
                                         << d->databaseProcess->program()
@@ -624,7 +624,7 @@ DatabaseServerError DatabaseServer::startMysqlServer()
     return error;
 }
 
-DatabaseServerError DatabaseServer::initMysqlDatabase(bool useDatabase) const
+DatabaseServerError DatabaseServer::initMariaDBDatabase(bool useDatabase) const
 {
     DatabaseServerError error;
 
@@ -745,7 +745,7 @@ DatabaseServerError DatabaseServer::initMysqlDatabase(bool useDatabase) const
     return error;
 }
 
-DatabaseServerError DatabaseServer::upgradeMysqlDatabase()
+DatabaseServerError DatabaseServer::upgradeMariaDBDatabase()
 {
     QPointer<QProgressDialog> dialog = new QProgressDialog;
     dialog->setLabelText(i18n("A MariaDB database upgrade is "
@@ -758,7 +758,7 @@ DatabaseServerError DatabaseServer::upgradeMysqlDatabase()
 
     DatabaseServerError error;
 
-    // Synthesize the mysql upgrade command line arguments
+    // Synthesize the MariaDB upgrade command line arguments
 
     QStringList upgradeCmdArgs;
 
@@ -776,7 +776,7 @@ DatabaseServerError DatabaseServer::upgradeMysqlDatabase()
 
     QProcess upgradeProcess;
     upgradeProcess.setProcessEnvironment(adjustedEnvironmentForAppImage());
-    upgradeProcess.start(d->mysqlUpgradePath, upgradeCmdArgs);
+    upgradeProcess.start(d->mariadbUpgradePath, upgradeCmdArgs);
 
     qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Upgrade database:"
                                         << upgradeProcess.program()
