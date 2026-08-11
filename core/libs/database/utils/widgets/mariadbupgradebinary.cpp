@@ -3,8 +3,8 @@
  * This file is a part of digiKam project
  * https://www.digikam.org
  *
- * Date        : 2016-06-20
- * Description : Autodetects MariaDB server binary program and version
+ * Date        : 2023-10-21
+ * Description : Autodetects MariaDB upgrade program and version
  *
  * SPDX-FileCopyrightText: 2016-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
@@ -12,7 +12,7 @@
  *
  * ============================================================ */
 
-#include "mysqlserverbinary.h"
+#include "mariadbupgradebinary.h"
 
 // KDE includes
 
@@ -25,17 +25,17 @@
 namespace Digikam
 {
 
-MysqlServerBinary::MysqlServerBinary()
-    : DBinaryIface(DbEngineParameters::defaultMysqlServerCmd(),
+MariaDBUpgradeBinary::MariaDBUpgradeBinary()
+    : DBinaryIface(DbEngineParameters::defaultMysqlUpgradeCmd(),
                    QLatin1String("MariaDB"),
                    QLatin1String("https://mariadb.org/download/"),
                    QString(),
                    QStringList(QLatin1String("--help")),
-                   i18n("This binary file is used to start a dedicated instance of MariaDB server."))
+                   i18n("This binary file is used to upgrade the database to current server version."))
 {
     setup();
 }
 
 } // namespace Digikam
 
-#include "moc_mysqlserverbinary.cpp"
+#include "moc_mariadbupgradebinary.cpp"

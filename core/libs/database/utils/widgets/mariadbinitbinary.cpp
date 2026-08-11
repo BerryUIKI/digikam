@@ -12,7 +12,7 @@
  *
  * ============================================================ */
 
-#include "mysqlinitbinary.h"
+#include "mariadbinitbinary.h"
 
 // KDE includes
 
@@ -25,7 +25,7 @@
 namespace Digikam
 {
 
-MysqlInitBinary::MysqlInitBinary()
+MariaDBInitBinary::MariaDBInitBinary()
     : DBinaryIface(DbEngineParameters::defaultMysqlInitCmd(),
                    QLatin1String("MariaDB"),
                    QLatin1String("https://mariadb.org/download/"),
@@ -38,4 +38,4 @@ MysqlInitBinary::MysqlInitBinary()
 
 } // namespace Digikam
 
-#include "moc_mysqlinitbinary.cpp"
+#include "moc_mariadbinitbinary.cpp"

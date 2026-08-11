@@ -40,10 +40,10 @@
 #include "digikam_version.h"
 #include "dtestdatadir.h"
 #include "wstoolutils.h"
-#include "mysqlupgradebinary.h"
-#include "mysqlserverbinary.h"
-#include "mysqladminbinary.h"
-#include "mysqlinitbinary.h"
+#include "mariadbupgradebinary.h"
+#include "mariadbserverbinary.h"
+#include "mariadbadminbinary.h"
+#include "mariadbinitbinary.h"
 #include "databaseserverstarter.h"
 
 using namespace Digikam;
@@ -129,7 +129,7 @@ void DatabaseSwitchTest::startStopMysql(const QDir& dbDir)
 {
     qCDebug(DIGIKAM_TESTS_LOG) << "Setup Mysql Database...";
 
-    MysqlUpgradeBinary mysqlUpgradeBin;
+    MariaDBUpgradeBinary mysqlUpgradeBin;
 
     if (!mysqlUpgradeBin.recheckDirectories())
     {
@@ -137,7 +137,7 @@ void DatabaseSwitchTest::startStopMysql(const QDir& dbDir)
         return;
     }
 
-    MysqlServerBinary  mysqlServerBin;
+    MariaDBServerBinary  mysqlServerBin;
     mysqlServerBin.slotAddPossibleSearchDirectory(QLatin1String("/usr/sbin"));
 
     if (!mysqlServerBin.recheckDirectories())
@@ -146,7 +146,7 @@ void DatabaseSwitchTest::startStopMysql(const QDir& dbDir)
         return;
     }
 
-    MysqlAdminBinary   mysqlAdminBin;
+    MariaDBAdminBinary   mysqlAdminBin;
 
     if (!mysqlAdminBin.recheckDirectories())
     {
@@ -154,7 +154,7 @@ void DatabaseSwitchTest::startStopMysql(const QDir& dbDir)
         return;
     }
 
-    MysqlInitBinary    mysqlInitBin;
+    MariaDBInitBinary    mysqlInitBin;
 
     if (!mysqlInitBin.recheckDirectories())
     {

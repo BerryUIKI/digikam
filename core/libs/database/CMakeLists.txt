@@ -225,10 +225,10 @@ set(libdatabasemain_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/dbsettingswidget_mysql.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/dbsettingswidget_properties.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/dbmigrationdlg.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/mysqlupgradebinary.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/mysqlserverbinary.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/mysqladminbinary.cpp
-    ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/mysqlinitbinary.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/mariadbupgradebinary.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/mariadbserverbinary.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/mariadbadminbinary.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/mariadbinitbinary.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/widgets/searchtextbardb.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/utils/ifaces/dbinfoiface.cpp

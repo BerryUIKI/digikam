@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2016-06-20
- * Description : Autodetects Mysql server binary program and version
+ * Description : Autodetects MariaDB server binary program and version
  *
  * SPDX-FileCopyrightText: 2016-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
@@ -22,19 +22,19 @@
 namespace Digikam
 {
 
-class DIGIKAM_GUI_EXPORT MysqlServerBinary : public DBinaryIface
+class DIGIKAM_GUI_EXPORT MariaDBServerBinary : public DBinaryIface
 {
     Q_OBJECT
 
 public:
 
-    MysqlServerBinary();
-    ~MysqlServerBinary() override = default;
+    MariaDBServerBinary();
+    ~MariaDBServerBinary() override = default;
 
 private:
 
     /// @note disabledd
-    explicit MysqlServerBinary(QObject*) = delete;
+    explicit MariaDBServerBinary(QObject*) = delete;
 };
 
 } // namespace Digikam

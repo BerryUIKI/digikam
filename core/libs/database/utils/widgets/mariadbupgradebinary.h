@@ -3,8 +3,8 @@
  * This file is a part of digiKam project
  * https://www.digikam.org
  *
- * Date        : 2016-06-20
- * Description : Autodetects Mysql initializer binary program and version
+ * Date        : 2023-10-21
+ * Description : Autodetects MariaDB upgrade program and version
  *
  * SPDX-FileCopyrightText: 2016-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *
@@ -22,19 +22,19 @@
 namespace Digikam
 {
 
-class DIGIKAM_GUI_EXPORT MysqlInitBinary : public DBinaryIface
+class DIGIKAM_GUI_EXPORT MariaDBUpgradeBinary : public DBinaryIface
 {
     Q_OBJECT
 
 public:
 
-    MysqlInitBinary();
-    ~MysqlInitBinary() override = default;
+    MariaDBUpgradeBinary();
+    ~MariaDBUpgradeBinary() override = default;
 
 private:
 
-    /// @note disabled
-    explicit MysqlInitBinary(QObject*) = delete;
+    /// @note disabledd
+    explicit MariaDBUpgradeBinary(QObject*) = delete;
 };
 
 } // namespace Digikam
