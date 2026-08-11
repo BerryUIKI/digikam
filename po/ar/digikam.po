@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-10 00:42+0000\n"
-"PO-Revision-Date: 2026-06-08 20:31+0400\n"
+"POT-Creation-Date: 2026-08-11 00:42+0000\n"
+"PO-Revision-Date: 2026-08-10 18:10+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=6; plural=n==0 ? 0 : n==1 ? 1 : n==2 ? 2 : n%100>=3 "
 "&& n%100<=10 ? 3 : n%100>=11 ? 4 : 5;\n"
-"X-Generator: Lokalize 23.08.5\n"
+"X-Generator: Lokalize 25.12.3\n"
 
 # أكثر من خيار؟ بلغ!
 #: core/app/date/ddateedit.cpp:489
@@ -3893,16 +3893,13 @@ msgid "New RAW camera supported:"
 msgstr "دعم كاميرا RAW جديدة:"
 
 #: core/app/views/stack/welcomepageview_features.cpp:93
-#, fuzzy, kde-format
-#| msgid ""
-#| "Canon EOS R1, EOS R5 Mark II, EOS R5 C, EOS R6 Mark II, EOS R8, EOS R50, "
-#| "EOS R100, EOS Ra Canon EOS Kiss M2;"
+#, kde-format
 msgid ""
 "Canon R50 V, Canon EOS R1, EOS R5 Mark II, EOS R5 C, EOS R6 Mark II, EOS R8, "
 "EOS R50, EOS R100, EOS Ra Canon EOS Kiss M2;"
 msgstr ""
-"كانون EOS R1، EOS R5 Mark II، EOS R5 C، EOS R6 Mark II، EOS R8، EOS R50، EOS "
-"R100، EOS RaK، Canon EOS Kiss M2;"
+"كانون R50 V، كانون EOS R1، EOS R5 Mark II، EOS R5 C، EOS R6 Mark II، EOS R8، "
+"EOS R50، EOS R100، EOS RaK، Canon EOS Kiss M2;"
 
 #: core/app/views/stack/welcomepageview_features.cpp:94
 #, kde-format
@@ -3944,16 +3941,13 @@ msgid "Pentax KF, K III Monochrome ;"
 msgstr "بنتاكس KF، K III أحادي اللون؛"
 
 #: core/app/views/stack/welcomepageview_features.cpp:101
-#, fuzzy, kde-format
-#| msgid ""
-#| "Sony ZV-E10M2, UMC-R10C, A9-III, ILX-LR1, A7C-II, A7CR, ILCE-6700,  "
-#| "ZV-1M2, ZV-E1, ILCE-7RM5 (A7R-V), ILME-FX30, A1 ;"
+#, kde-format
 msgid ""
 "Sony Sony ARW6 CRAW HQ, Sony ILCE-7M, VZV-E10M2, UMC-R10C, A9-III, ILX-LR1, "
 "A7C-II, A7CR, ILCE-6700,  ZV-1M2, ZV-E1, ILCE-7RM5 (A7R-V), ILME-FX30, A1 ;"
 msgstr ""
-"سوني ZV-E10M2، UMC-R10C، A9-III، ILX-LR1، A7C-II، A7CR، ILCE-6700،  ZV-1M2، "
-"ZV-E1، ILCE-7RM5 (A7R-V)، ILME-FX30، A1 ؛"
+"سوني Sony ARW6 CRAW HQ، سوني ILCE-7M، ZV-E10M2، UMC-R10C، A9-III، ILX-LR1، "
+"A7C-II، A7CR، ILCE-6700،  ZV-1M2، ZV-E1، ILCE-7RM5 (A7R-V)، ILME-FX30، A1 ؛"
 
 #: core/app/views/stack/welcomepageview_features.cpp:102
 #, kde-format
@@ -20053,8 +20047,8 @@ msgid ""
 "Unable to create a temporary folder. Please make sure you have proper "
 "permissions to this folder and try again."
 msgstr ""
-"لا يمكن إنشاء مجلد مؤقت. يرجى التأكد من أن لديك الصلاحيات المناسبة لهذا "
-"المجلد وحاول مرة أخرى."
+"لا يمكن إنشاء مجلد مؤقت. يرجى التأكد من أن لديك الأذون المناسبة لهذا المجلد "
+"وحاول مرة أخرى."
 
 #: core/dplugins/generic/tools/printcreator/wizard/advprintfinalpage.cpp:347
 #: core/dplugins/generic/tools/printcreator/wizard/advprintwizard.cpp:89
@@ -26758,7 +26752,7 @@ msgid "Auto-rotating: %1\n"
 msgstr "تدوير آليّ: %1\n"
 
 #: core/libs/aitoolspipeline/aitoolspipeline.cpp:515
-#: core/libs/tags/autoassignment/autotagsengine.cpp:232
+#: core/libs/tags/autoassignment/autotagsengine.cpp:233
 #: core/utilities/maintenance/tools/duplicates/duplicatesfinder.cpp:189
 #: core/utilities/maintenance/tools/facesmanagement/facesengine.cpp:490
 #: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:236
@@ -28095,10 +28089,10 @@ msgid ""
 " %1\n"
 "Check your privileges on the database and restart digiKam."
 msgstr ""
-"ليس لديك صلاحيات كافية على قاعدة البيانات.\n"
-"الصلاحيات التالية ليست مخصصة لك:\n"
+"ليس لديك أذون كافية على قاعدة البيانات.\n"
+"الأذون التالية ليست مخصصة لك:\n"
 " %1\n"
-"افحص صلاحياتك على قاعدة البيانات وأَعِد تشغيل دجيكام."
+"افحص أذونك على قاعدة البيانات وأَعِد تشغيل دجيكام."
 
 #: core/libs/database/coredb/coredbschemaupdater.cpp:235
 #, kde-format
@@ -33258,12 +33252,12 @@ msgstr "اقتصّ آليًّا:"
 #, kde-format
 msgctxt "no autocrop"
 msgid "None"
-msgstr "بلا"
+msgstr "لا شيء"
 
 #: core/libs/dimg/filters/transform/freerotationsettings.cpp:101
 #, kde-format
 msgid "Widest Area"
-msgstr "أعرض منطقة"
+msgstr "أعْرض منطقة"
 
 #: core/libs/dimg/filters/transform/freerotationsettings.cpp:102
 #, kde-format
@@ -38275,7 +38269,7 @@ msgstr "المالك: "
 #, kde-format
 msgctxt "@label: item properties"
 msgid "Permissions: "
-msgstr "التّصاريح: "
+msgstr "الأذون: "
 
 #: core/libs/properties/itempropertiestab.cpp:81
 #, kde-format
@@ -38432,7 +38426,7 @@ msgstr "المالك"
 #: core/libs/properties/itempropertiestab.cpp:491
 #, kde-format
 msgid "Permissions"
-msgstr "التّصاريح"
+msgstr "الأذون"
 
 #: core/libs/properties/itempropertiestab.cpp:493
 #, kde-format
@@ -39716,47 +39710,47 @@ msgctxt "@item: album categories"
 msgid "Miscellaneous"
 msgstr "متنوّع"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:92
+#: core/libs/tags/autoassignment/autotagsengine.cpp:93
 #, kde-format
 msgid "Autotags Assignment"
 msgstr "تعيين الوسوم الآلية"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:101
+#: core/libs/tags/autoassignment/autotagsengine.cpp:102
 #, kde-format
 msgid "Scan for objects in album: %1"
 msgstr "امسح الألبوم بحثا عن الكائنات: %1"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:105
+#: core/libs/tags/autoassignment/autotagsengine.cpp:106
 #, kde-format
 msgid "Scan for objects in %1 albums"
 msgstr "امسح %1 ألبوم بحثا عن الكائنات"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:184
+#: core/libs/tags/autoassignment/autotagsengine.cpp:185
 #, kde-format
 msgid "Error starting object detection."
 msgstr "حدث خطأ أثناء بدء اكتشاف الكائن."
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:199
+#: core/libs/tags/autoassignment/autotagsengine.cpp:200
 #, kde-format
 msgid "Items scanned for objects: %1\n"
 msgstr "العناصر الممسوحة ضوئيا بحثا عن الكائنات: %1\n"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:203
+#: core/libs/tags/autoassignment/autotagsengine.cpp:204
 #, kde-format
 msgid "Item scanned for objects: %1\n"
 msgstr "العنصر الممسوح ضوئيا بحثا عن الكائنات: %1\n"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:231
+#: core/libs/tags/autoassignment/autotagsengine.cpp:232
 #, kde-format
 msgid "Object Scanning: %1\n"
 msgstr "مسح الكائن ضوئيا: %1\n"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:238
+#: core/libs/tags/autoassignment/autotagsengine.cpp:239
 #, kde-format
 msgid "Found %1 object. Tag: %2"
 msgstr "عثر على %1 كائن. الوسم: %2"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:242
+#: core/libs/tags/autoassignment/autotagsengine.cpp:243
 #, kde-format
 msgid "Found %1 objects. Tags: %2"
 msgstr "عثر على %1 كائن. الوسوم: %2"
@@ -58799,7 +58793,7 @@ msgid ""
 "You do not have write permissions for the file named \"%1\". Are you sure "
 "you want to overwrite it?"
 msgstr ""
-"ليس لديك صلاحيات كتابة للملفّ الذي اسمه «%1». أمتأكد أنك تريد الكتابة فوقه؟"
+"ليس لديك أذون كتابة للملفّ الذي اسمه «%1». أمتأكد أنك تريد الكتابة فوقه؟"
 
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2344
 #, kde-format
