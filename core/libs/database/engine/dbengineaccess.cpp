@@ -64,7 +64,7 @@ bool DbEngineAccess::checkReadyForUse(QString& error)
     {
         if (!drivers.contains(QLatin1String("QMYSQL")))
         {
-            qCDebug(DIGIKAM_COREDB_LOG) << "Core database: no MySQL driver available.\n"
+            qCDebug(DIGIKAM_COREDB_LOG) << "Core database: no MariaDB driver available.\n"
                                            "List of QSqlDatabase drivers: " << drivers;
 
             error = i18n("The driver \"MYSQL\" for MariaDB databases is not available.\n"
