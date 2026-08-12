@@ -18,6 +18,7 @@ Bundles component versions:
 
 Icon-View  : Improve filename matching for timelapse/burst grouping items.
 Raw Support: Add support of Sony ARW6 CRAW HQ, Sony ILCE-7M5, and Canon R50 V.
+Database   : MySql support is dropped in faorv of MariaDB. It's highly recommended to migrate from MySql to MariaDB.
 
 *****************************************************************************************************
 
@@ -65,7 +66,7 @@ BUGFIXES:
 040 --> 523957 - It is not possible to drag photos within the same album to arrange them according to your own scheme.
 041 --> 524000 - digiKam: crashes when finding duplicate or building fingerprints.
 042 --> 522887 - Face recognition tool no more working with the latest OpenCV version 5.0 and later.
-043 --> 
+043 --> 524196 - Solved for me after performing the mention steps.
 044 --> 
 045 --> 
 046 --> 
