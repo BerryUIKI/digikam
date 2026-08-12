@@ -78,49 +78,49 @@ public:
 
 public:
 
-    DVBox*             mysqlCmdBox              = nullptr;
+    DVBox*               mariadbCmdBox            = nullptr;
 
-    QLineEdit*         dbNameCore               = nullptr;
-    QLineEdit*         dbNameFace               = nullptr;
-    QLineEdit*         dbNameSimilarity         = nullptr;
-    QLineEdit*         hostName                 = nullptr;
-    QLineEdit*         connectOpts              = nullptr;
-    QLineEdit*         userName                 = nullptr;
-    QLineEdit*         password                 = nullptr;
+    QLineEdit*           dbNameCore               = nullptr;
+    QLineEdit*           dbNameFace               = nullptr;
+    QLineEdit*           dbNameSimilarity         = nullptr;
+    QLineEdit*           hostName                 = nullptr;
+    QLineEdit*           connectOpts              = nullptr;
+    QLineEdit*           userName                 = nullptr;
+    QLineEdit*           password                 = nullptr;
 
-    QSpinBox*          hostPort                 = nullptr;
+    QSpinBox*            hostPort                 = nullptr;
 
-    QComboBox*         dbType                   = nullptr;
-    QPushButton*       dbTypeBtn                = nullptr;
-    QLabel*            dbPathLbl                = nullptr;
-    QPushButton*       dbPathBtn                = nullptr;
-    QPushButton*       walModeBtn               = nullptr;
-    QLabel*            dbThumbsLabel            = nullptr;
-    QTextBrowser*      sqlInit                  = nullptr;
-    QGroupBox*         expertSettings           = nullptr;
-    QGroupBox*         dbNoticeBox              = nullptr;
-    QGroupBox*         dbDetailsBox             = nullptr;
-    QTabWidget*        tab                      = nullptr;
+    QComboBox*           dbType                   = nullptr;
+    QPushButton*         dbTypeBtn                = nullptr;
+    QLabel*              dbPathLbl                = nullptr;
+    QPushButton*         dbPathBtn                = nullptr;
+    QPushButton*         walModeBtn               = nullptr;
+    QLabel*              dbThumbsLabel            = nullptr;
+    QTextBrowser*        sqlInit                  = nullptr;
+    QGroupBox*           expertSettings           = nullptr;
+    QGroupBox*           dbNoticeBox              = nullptr;
+    QGroupBox*           dbDetailsBox             = nullptr;
+    QTabWidget*          tab                      = nullptr;
 
-    DFileSelector*     dbPathEdit               = nullptr;
-    DFileSelector*     dbNameThumbs             = nullptr;
+    DFileSelector*       dbPathEdit               = nullptr;
+    DFileSelector*       dbNameThumbs             = nullptr;
 
-    QCheckBox*         walModeCheck             = nullptr;
+    QCheckBox*           walModeCheck             = nullptr;
 
-    DBinarySearch*     dbBinariesWidget         = nullptr;
+    DBinarySearch*       dbBinariesWidget         = nullptr;
 
-    MariaDBUpgradeBinary mysqlUpgradeBin;
-    MariaDBServerBinary  mysqlServerBin;
-    MariaDBAdminBinary   mysqlAdminBin;
-    MariaDBInitBinary    mysqlInitBin;
+    MariaDBUpgradeBinary mariadbUpgradeBin;
+    MariaDBServerBinary  mariadbServerBin;
+    MariaDBAdminBinary   mariadbAdminBin;
+    MariaDBInitBinary    mariadbInitBin;
 
-    DbEngineParameters orgPrms;
+    DbEngineParameters   orgPrms;
 
-    QMap<int, int>     dbTypeMap;
+    QMap<int, int>       dbTypeMap;
 
-    QGroupBox*         ignoreDirectoriesBox     = nullptr;
-    QLineEdit*         ignoreDirectoriesEdit    = nullptr;
-    QLabel*            ignoreDirectoriesLabel   = nullptr;
+    QGroupBox*           ignoreDirectoriesBox     = nullptr;
+    QLineEdit*           ignoreDirectoriesEdit    = nullptr;
+    QLabel*              ignoreDirectoriesLabel   = nullptr;
 };
 
 } // namespace Digikam

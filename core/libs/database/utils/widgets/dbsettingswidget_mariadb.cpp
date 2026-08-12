@@ -18,7 +18,7 @@
 namespace Digikam
 {
 
-void DatabaseSettingsWidget::slotResetMysqlServerDBNames()
+void DatabaseSettingsWidget::slotResetMariaDBServerDBNames()
 {
     d->dbNameCore->setText(QLatin1String("digikam"));
     d->dbNameThumbs->setFileDlgPath(QLatin1String("digikam"));
@@ -26,11 +26,11 @@ void DatabaseSettingsWidget::slotResetMysqlServerDBNames()
     d->dbNameSimilarity->setText(QLatin1String("digikam"));
 }
 
-void DatabaseSettingsWidget::slotCheckMysqlServerConnection()
+void DatabaseSettingsWidget::slotCheckMariaDBServerConnection()
 {
     QString error;
 
-    if (checkMysqlServerConnection(error))
+    if (checkMariaDBServerConnection(error))
     {
         QMessageBox::information(qApp->activeWindow(), i18nc("@title:window", "Database Connection Test"),
                                  i18n("Database connection test successful."));
@@ -43,7 +43,7 @@ void DatabaseSettingsWidget::slotCheckMysqlServerConnection()
     }
 }
 
-bool DatabaseSettingsWidget::checkMysqlServerConnectionConfig(QString& error)
+bool DatabaseSettingsWidget::checkMariaDBServerConnectionConfig(QString& error)
 {
     if (d->hostName->text().isEmpty())
     {
@@ -60,7 +60,7 @@ bool DatabaseSettingsWidget::checkMysqlServerConnectionConfig(QString& error)
     return true;
 }
 
-bool DatabaseSettingsWidget::checkMysqlServerDbNamesConfig(QString& error)
+bool DatabaseSettingsWidget::checkMariaDBServerDbNamesConfig(QString& error)
 {
     if (d->dbNameCore->text().isEmpty())
     {
@@ -89,9 +89,9 @@ bool DatabaseSettingsWidget::checkMysqlServerDbNamesConfig(QString& error)
     return true;
 }
 
-bool DatabaseSettingsWidget::checkMysqlServerConnection(QString& error)
+bool DatabaseSettingsWidget::checkMariaDBServerConnection(QString& error)
 {
-    if (!checkMysqlServerConnectionConfig(error))
+    if (!checkMariaDBServerConnectionConfig(error))
     {
         return false;
     }

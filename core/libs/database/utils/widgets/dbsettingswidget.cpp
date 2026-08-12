@@ -59,13 +59,13 @@ void DatabaseSettingsWidget::setupMainArea()
 
 #   ifdef HAVE_INTERNALMARIADB
 
-    d->dbType->addItem(i18n("MariaDB Internal"), MysqlInternal);
-    d->dbTypeMap[MysqlInternal] = dbTypeIdx++;
+    d->dbType->addItem(i18n("MariaDB Internal"), MariaDBInternal);
+    d->dbTypeMap[MariaDBInternal] = dbTypeIdx++;
 
 #   endif
 
-    d->dbType->addItem(i18n("MariaDB Server"),   MysqlServer);
-    d->dbTypeMap[MysqlServer]   = dbTypeIdx++;
+    d->dbType->addItem(i18n("MariaDB Server"),   MariaDBServer);
+    d->dbTypeMap[MariaDBServer]   = dbTypeIdx++;
 
 #endif
 
@@ -162,27 +162,27 @@ void DatabaseSettingsWidget::setupMainArea()
 
     // --------------------------------------------------------
 
-    d->mysqlCmdBox = new DVBox(dbConfigBox);
-    d->mysqlCmdBox->layout()->setContentsMargins(QMargins());
+    d->mariadbCmdBox = new DVBox(dbConfigBox);
+    d->mariadbCmdBox->layout()->setContentsMargins(QMargins());
 
-    new DLineWidget(Qt::Horizontal, d->mysqlCmdBox);
-    QLabel* const mysqlBinariesLabel  = new QLabel(i18n("<p>Here you can configure locations where MariaDB binary tools are located. "
+    new DLineWidget(Qt::Horizontal, d->mariadbCmdBox);
+    QLabel* const mariadbBinariesLabel  = new QLabel(i18n("<p>Here you can configure locations where MariaDB binary tools are located. "
                                                         "digiKam will try to find these binaries automatically if they are "
                                                         "already installed on your computer.</p>"),
-                                                   d->mysqlCmdBox);
-    mysqlBinariesLabel->setWordWrap(true);
+                                                   d->mariadbCmdBox);
+    mariadbBinariesLabel->setWordWrap(true);
 
-    QGroupBox* const binaryBox        = new QGroupBox(d->mysqlCmdBox);
+    QGroupBox* const binaryBox        = new QGroupBox(d->mariadbCmdBox);
     QGridLayout* const binaryLayout   = new QGridLayout;
     binaryBox->setLayout(binaryLayout);
     binaryBox->setTitle(i18nc("@title:group", "MariaDB Binaries"));
     d->dbBinariesWidget               = new DBinarySearch(binaryBox);
     d->dbBinariesWidget->header()->setSectionHidden(2, true);
 
-    d->dbBinariesWidget->addBinary(d->mysqlServerBin);
-    d->dbBinariesWidget->addBinary(d->mysqlAdminBin);
-    d->dbBinariesWidget->addBinary(d->mysqlUpgradeBin);
-    d->dbBinariesWidget->addBinary(d->mysqlInitBin);
+    d->dbBinariesWidget->addBinary(d->mariadbServerBin);
+    d->dbBinariesWidget->addBinary(d->mariadbAdminBin);
+    d->dbBinariesWidget->addBinary(d->mariadbUpgradeBin);
+    d->dbBinariesWidget->addBinary(d->mariadbInitBin);
 
 #ifdef Q_OS_LINUX
 
@@ -347,10 +347,10 @@ void DatabaseSettingsWidget::setupMainArea()
                           "<p>...</p>"
                           "<p>quit</p>"
                           "<p>NOTE: If you have problems with a MariaDB server on Ubuntu based Linux system, "
-                          "use the addition command in the mysql prompt to be able to create MariaDB triggers.<br>"
+                          "use the addition command in the MariaDB prompt to be able to create MariaDB triggers.<br>"
                           "SET GLOBAL log_bin_trust_function_creators=1;</p>"
                           "<p>NOTE: If you have an enormous collection, you should start MariaDB server with "
-                          "mysql --max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"));
+                          "mariadb --max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"));
 
     notice2->setOpenExternalLinks(false);
     notice2->setOpenLinks(false);
@@ -401,7 +401,7 @@ void DatabaseSettingsWidget::setupMainArea()
     vlay->addWidget(new DLineWidget(Qt::Horizontal));
     vlay->addWidget(dbPathBox);
     vlay->addWidget(new DLineWidget(Qt::Horizontal));
-    vlay->addWidget(d->mysqlCmdBox);
+    vlay->addWidget(d->mariadbCmdBox);
     vlay->addWidget(d->tab);
     vlay->addWidget(walModeBox);
     vlay->addStretch(10);
@@ -420,10 +420,10 @@ void DatabaseSettingsWidget::setupMainArea()
             this, SLOT(slotHandleDBTypeIndexChanged(int)));
 
     connect(checkDBConnectBtn, SIGNAL(clicked()),
-            this, SLOT(slotCheckMysqlServerConnection()));
+            this, SLOT(slotCheckMariaDBServerConnection()));
 
     connect(defaultValuesBtn, SIGNAL(clicked()),
-            this, SLOT(slotResetMysqlServerDBNames()));
+            this, SLOT(slotResetMariaDBServerDBNames()));
 
     connect(d->dbNameCore, SIGNAL(textChanged(QString)),
             this, SLOT(slotUpdateSqlInit()));

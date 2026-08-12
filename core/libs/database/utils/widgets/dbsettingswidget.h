@@ -39,8 +39,8 @@ public:
     enum DatabaseType
     {
         SQlite          = 0,
-        MysqlInternal   = 1,
-        MysqlServer     = 2
+        MariaDBInternal   = 1,
+        MariaDBServer     = 2
     };
 
 public:
@@ -69,14 +69,14 @@ public:
 
     QString databaseBackend()                   const;
 
-    void setDatabasePath(const QString& path);
+    void    setDatabasePath(const QString& path);
     QString databasePath()                      const;
 
     DbEngineParameters orgDatabasePrm()         const;
 
     /**
-     * For Sqlite or MysqlInternal, check properties of local path to store database files.
-     * For MysqlServer, check the network connection and database names.
+     * For Sqlite or MariaDBInternal, check properties of local path to store database files.
+     * For MariaDBServer, check the network connection and database names.
      */
     bool checkDatabaseSettings();
 
@@ -97,14 +97,14 @@ private Q_SLOTS:
 
 private:
 
-    bool checkMysqlServerConnection(QString& error);
-    bool checkMysqlServerConnectionConfig(QString& error);
-    bool checkMysqlServerDbNamesConfig(QString& error);
+    bool checkMariaDBServerConnection(QString& error);
+    bool checkMariaDBServerConnectionConfig(QString& error);
+    bool checkMariaDBServerDbNamesConfig(QString& error);
 
 private Q_SLOTS:
 
-    void slotCheckMysqlServerConnection();
-    void slotResetMysqlServerDBNames();
+    void slotCheckMariaDBServerConnection();
+    void slotResetMariaDBServerDBNames();
 
 // --------------------------------------------------------
 

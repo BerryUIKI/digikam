@@ -42,8 +42,8 @@ QString DatabaseSettingsWidget::databaseBackend() const
 {
     switch (databaseType())
     {
-        case MysqlInternal:
-        case MysqlServer:
+        case MariaDBInternal:
+        case MariaDBServer:
         {
             return DbEngineParameters::MySQLDatabaseType();
         }
@@ -74,7 +74,7 @@ void DatabaseSettingsWidget::setDatabaseInputFields(int index)
             d->dbPathEdit->setVisible(true);
             d->walModeCheck->setVisible(true);
             d->walModeBtn->setVisible(true);
-            d->mysqlCmdBox->setVisible(false);
+            d->mariadbCmdBox->setVisible(false);
             d->tab->setVisible(false);
 
             connect(d->dbPathEdit->lineEdit(), SIGNAL(textChanged(QString)),
@@ -83,14 +83,14 @@ void DatabaseSettingsWidget::setDatabaseInputFields(int index)
             break;
         }
 
-        case MysqlInternal:
+        case MariaDBInternal:
         {
             d->dbPathBtn->setVisible(true);
             d->dbPathLbl->setVisible(true);
             d->dbPathEdit->setVisible(true);
             d->walModeCheck->setVisible(false);
             d->walModeBtn->setVisible(false);
-            d->mysqlCmdBox->setVisible(true);
+            d->mariadbCmdBox->setVisible(true);
             d->tab->setVisible(false);
 
             connect(d->dbPathEdit->lineEdit(), SIGNAL(textChanged(QString)),
@@ -99,14 +99,14 @@ void DatabaseSettingsWidget::setDatabaseInputFields(int index)
             break;
         }
 
-        default: // MysqlServer
+        default: // MariaDBServer
         {
             d->dbPathBtn->setVisible(false);
             d->dbPathLbl->setVisible(false);
             d->dbPathEdit->setVisible(false);
             d->walModeCheck->setVisible(false);
             d->walModeBtn->setVisible(false);
-            d->mysqlCmdBox->setVisible(false);
+            d->mariadbCmdBox->setVisible(false);
             d->tab->setVisible(true);
 
             disconnect(d->dbPathEdit->lineEdit(), SIGNAL(textChanged(QString)),
@@ -118,7 +118,7 @@ void DatabaseSettingsWidget::setDatabaseInputFields(int index)
 
 void DatabaseSettingsWidget::handleInternalServer(int index)
 {
-    bool internal = (index == MysqlInternal);
+    bool internal = (index == MariaDBInternal);
 
     d->hostName->setDisabled(internal);
     d->hostPort->setDisabled(internal);
@@ -141,7 +141,7 @@ void DatabaseSettingsWidget::setParametersFromSettings(const ApplicationSettings
         d->dbPathEdit->setFileDlgPath(d->orgPrms.getCoreDatabaseNameOrDir());
         d->dbType->setCurrentIndex(d->dbTypeMap[SQlite]);
         d->walModeCheck->setChecked(d->orgPrms.walMode);
-        slotResetMysqlServerDBNames();
+        slotResetMariaDBServerDBNames();
 
         if (settings->getDatabaseDirSetAtCmd() && !migration)
         {
@@ -162,21 +162,21 @@ void DatabaseSettingsWidget::setParametersFromSettings(const ApplicationSettings
     else if ((d->orgPrms.databaseType == DbEngineParameters::MySQLDatabaseType()) && d->orgPrms.internalServer)
     {
         d->dbPathEdit->setFileDlgPath(d->orgPrms.internalServerPath());
-        d->dbType->setCurrentIndex(d->dbTypeMap[MysqlInternal]);
-        d->mysqlUpgradeBin.setup(QFileInfo(d->orgPrms.internalServerMysqlUpgradeCmd).absolutePath());
-        d->mysqlServerBin.setup(QFileInfo(d->orgPrms.internalServerMysqlServerCmd).absolutePath());
-        d->mysqlAdminBin.setup(QFileInfo(d->orgPrms.internalServerMysqlAdminCmd).absolutePath());
-        d->mysqlInitBin.setup(QFileInfo(d->orgPrms.internalServerMysqlInitCmd).absolutePath());
+        d->dbType->setCurrentIndex(d->dbTypeMap[MariaDBInternal]);
+        d->mariadbUpgradeBin.setup(QFileInfo(d->orgPrms.internalServerMysqlUpgradeCmd).absolutePath());
+        d->mariadbServerBin.setup(QFileInfo(d->orgPrms.internalServerMysqlServerCmd).absolutePath());
+        d->mariadbAdminBin.setup(QFileInfo(d->orgPrms.internalServerMysqlAdminCmd).absolutePath());
+        d->mariadbInitBin.setup(QFileInfo(d->orgPrms.internalServerMysqlInitCmd).absolutePath());
         d->dbBinariesWidget->allBinariesFound();
         d->walModeCheck->setChecked(false);
-        slotResetMysqlServerDBNames();
+        slotResetMariaDBServerDBNames();
     }
 
 #   endif
 
     else
     {
-        d->dbType->setCurrentIndex(d->dbTypeMap[MysqlServer]);
+        d->dbType->setCurrentIndex(d->dbTypeMap[MariaDBServer]);
         d->dbNameCore->setText(d->orgPrms.databaseNameCore);
         d->dbNameThumbs->setFileDlgPath(d->orgPrms.databaseNameThumbnails);
         d->dbNameFace->setText(d->orgPrms.databaseNameFace);
@@ -207,18 +207,18 @@ DbEngineParameters DatabaseSettingsWidget::getDbEngineParameters() const
             break;
         }
 
-        case MysqlInternal:
+        case MariaDBInternal:
         {
             prm = DbEngineParameters::defaultParameters(databaseBackend());
             prm.setInternalServerPath(databasePath());
-            prm.internalServerMysqlUpgradeCmd = d->mysqlUpgradeBin.path();
-            prm.internalServerMysqlServerCmd  = d->mysqlServerBin.path();
-            prm.internalServerMysqlAdminCmd   = d->mysqlAdminBin.path();
-            prm.internalServerMysqlInitCmd    = d->mysqlInitBin.path();
+            prm.internalServerMysqlUpgradeCmd = d->mariadbUpgradeBin.path();
+            prm.internalServerMysqlServerCmd  = d->mariadbServerBin.path();
+            prm.internalServerMysqlAdminCmd   = d->mariadbAdminBin.path();
+            prm.internalServerMysqlInitCmd    = d->mariadbInitBin.path();
             break;
         }
 
-        default: // MysqlServer
+        default: // MariaDBServer
         {
             prm.internalServer         = false;
             prm.databaseType           = databaseBackend();
@@ -268,7 +268,7 @@ bool DatabaseSettingsWidget::checkDatabaseSettings()
             return checkDatabasePath();
         }
 
-        case MysqlInternal:
+        case MariaDBInternal:
         {
             if (!checkDatabasePath())
             {
@@ -283,11 +283,11 @@ bool DatabaseSettingsWidget::checkDatabaseSettings()
             return true;
         }
 
-        default:  // MysqlServer
+        default:  // MariaDBServer
         {
             QString error;
 
-            if (!checkMysqlServerDbNamesConfig(error))
+            if (!checkMariaDBServerDbNamesConfig(error))
             {
                 QMessageBox::critical(qApp->activeWindow(), i18nc("@title:window", "Database Configuration"),
                                       i18n("The database names configuration is not valid. Error is <br><p>%1</p><br>"
@@ -296,7 +296,7 @@ bool DatabaseSettingsWidget::checkDatabaseSettings()
                 return false;
             }
 
-            if (!checkMysqlServerConnection(error))
+            if (!checkMariaDBServerConnection(error))
             {
                 QMessageBox::critical(qApp->activeWindow(), i18nc("@title:window", "Database Connection Test"),
                                       i18n("Testing database connection has failed with error<br><p>%1</p><br>"
