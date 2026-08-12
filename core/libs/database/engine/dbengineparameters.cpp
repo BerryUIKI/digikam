@@ -39,35 +39,35 @@
 namespace
 {
 
-static const QLatin1String configGroupDatabase                         ("Database Settings");
-static const QLatin1String configInternalDatabaseServer                ("Internal Database Server");
-static const QLatin1String configInternalDatabaseServerPath            ("Internal Database Server Path");
-static const QLatin1String configInternalDatabaseServerUseMariaDB      ("Internal Database Server Use MariaDB");
-static const QLatin1String configInternalDatabaseServerMysqlInitCmd    ("Internal Database Server Mysql Init Command");
-static const QLatin1String configInternalDatabaseServerMysqlAdminCmd   ("Internal Database Server Mysql Admin Command");
-static const QLatin1String configInternalDatabaseServerMysqlServerCmd  ("Internal Database Server Mysql Server Command");
-static const QLatin1String configInternalDatabaseServerMysqlUpgradeCmd ("Internal Database Server Mysql Upgrade Command");
-static const QLatin1String configDatabaseType                          ("Database Type");
-static const QLatin1String configDatabaseName                          ("Database Name");              ///< For Sqlite the DB file path, for Mysql the DB name
-static const QLatin1String configDatabaseNameThumbnails                ("Database Name Thumbnails");   ///< For Sqlite the DB file path, for MariaDB the DB name
-static const QLatin1String configDatabaseNameFace                      ("Database Name Face");         ///< For Sqlite the DB file path, for MariaDB the DB name
-static const QLatin1String configDatabaseNameSimilarity                ("Database Name Similarity");   ///< For Sqlite the DB file path, for MariaDB the DB name
-static const QLatin1String configDatabaseHostName                      ("Database Hostname");
-static const QLatin1String configDatabasePort                          ("Database Port");
-static const QLatin1String configDatabaseUsername                      ("Database Username");
-static const QLatin1String configDatabasePassword                      ("Database Password");          ///< For compatbilitity. Use encrypted version instead.
-static const QLatin1String configDatabaseEncryptedPassword             ("Database Encrypted Password");
-static const QLatin1String configDatabaseConnectOptions                ("Database Connectoptions");
-static const QLatin1String configDatabaseWALMode                       ("Database WAL Mode");
+static const QLatin1String configGroupDatabase                          ("Database Settings");
+static const QLatin1String configInternalDatabaseServer                 ("Internal Database Server");
+static const QLatin1String configInternalDatabaseServerPath             ("Internal Database Server Path");
+static const QLatin1String configInternalDatabaseServerUseMariaDB       ("Internal Database Server Use MariaDB");
+static const QLatin1String configInternalDatabaseServerMariaDBInitCmd   ("Internal Database Server Mysql Init Command");
+static const QLatin1String configInternalDatabaseServerMariaDBAdminCmd  ("Internal Database Server Mysql Admin Command");
+static const QLatin1String configInternalDatabaseServerMariaDBServerCmd ("Internal Database Server Mysql Server Command");
+static const QLatin1String configInternalDatabaseServerMariaDBUpgradeCmd("Internal Database Server Mysql Upgrade Command");
+static const QLatin1String configDatabaseType                           ("Database Type");
+static const QLatin1String configDatabaseName                           ("Database Name");              ///< For Sqlite the DB file path, for MariaDB the DB name
+static const QLatin1String configDatabaseNameThumbnails                 ("Database Name Thumbnails");   ///< For Sqlite the DB file path, for MariaDB the DB name
+static const QLatin1String configDatabaseNameFace                       ("Database Name Face");         ///< For Sqlite the DB file path, for MariaDB the DB name
+static const QLatin1String configDatabaseNameSimilarity                 ("Database Name Similarity");   ///< For Sqlite the DB file path, for MariaDB the DB name
+static const QLatin1String configDatabaseHostName                       ("Database Hostname");
+static const QLatin1String configDatabasePort                           ("Database Port");
+static const QLatin1String configDatabaseUsername                       ("Database Username");
+static const QLatin1String configDatabasePassword                       ("Database Password");          ///< For compatbilitity. Use encrypted version instead.
+static const QLatin1String configDatabaseEncryptedPassword              ("Database Encrypted Password");
+static const QLatin1String configDatabaseConnectOptions                 ("Database Connectoptions");
+static const QLatin1String configDatabaseWALMode                        ("Database WAL Mode");
 
 /// Legacy for older versions.
-static const QLatin1String configDatabaseFilePathEntry                 ("Database File Path");
-static const QLatin1String configAlbumPathEntry                        ("Album Path");
+static const QLatin1String configDatabaseFilePathEntry                  ("Database File Path");
+static const QLatin1String configAlbumPathEntry                         ("Album Path");
 /// Sqlite DB file names
-static const QLatin1String digikam4db                                  ("digikam4.db");
-static const QLatin1String thumbnails_digikamdb                        ("thumbnails-digikam.db");
-static const QLatin1String face_digikamdb                              ("recognition.db");
-static const QLatin1String similarity_digikamdb                        ("similarity.db");
+static const QLatin1String digikam4db                                   ("digikam4.db");
+static const QLatin1String thumbnails_digikamdb                         ("thumbnails-digikam.db");
+static const QLatin1String face_digikamdb                               ("recognition.db");
+static const QLatin1String similarity_digikamdb                         ("similarity.db");
 
 }
 
@@ -433,19 +433,19 @@ void DbEngineParameters::readFromConfig(const QString& configGroup)
     {
         internalServer                = group.readEntry(configInternalDatabaseServer,                false);
         internalServerDBPath          = group.readEntry(configInternalDatabaseServerPath,            QString());
-        internalServerMariaDBInitCmd    = group.readEntry(configInternalDatabaseServerMysqlInitCmd,    QString());
-        internalServerMariaDBAdminCmd   = group.readEntry(configInternalDatabaseServerMysqlAdminCmd,   QString());
-        internalServerMariaDBServerCmd  = group.readEntry(configInternalDatabaseServerMysqlServerCmd,  QString());
-        internalServerMariaDBUpgradeCmd = group.readEntry(configInternalDatabaseServerMysqlUpgradeCmd, QString());
+        internalServerMariaDBInitCmd    = group.readEntry(configInternalDatabaseServerMariaDBInitCmd,    QString());
+        internalServerMariaDBAdminCmd   = group.readEntry(configInternalDatabaseServerMariaDBAdminCmd,   QString());
+        internalServerMariaDBServerCmd  = group.readEntry(configInternalDatabaseServerMariaDBServerCmd,  QString());
+        internalServerMariaDBUpgradeCmd = group.readEntry(configInternalDatabaseServerMariaDBUpgradeCmd, QString());
     }
     else
     {
         internalServer                = group.readEntry(configInternalDatabaseServer,                false);
         internalServerDBPath          = group.readEntry(configInternalDatabaseServerPath,            serverPrivatePath());
-        internalServerMariaDBInitCmd    = group.readEntry(configInternalDatabaseServerMysqlInitCmd,    defaultMariaDBInitCmd());
-        internalServerMariaDBAdminCmd   = group.readEntry(configInternalDatabaseServerMysqlAdminCmd,   defaultMariaDBAdminCmd());
-        internalServerMariaDBServerCmd  = group.readEntry(configInternalDatabaseServerMysqlServerCmd,  defaultMariaDBServerCmd());
-        internalServerMariaDBUpgradeCmd = group.readEntry(configInternalDatabaseServerMysqlUpgradeCmd, defaultMariaDBUpgradeCmd());
+        internalServerMariaDBInitCmd    = group.readEntry(configInternalDatabaseServerMariaDBInitCmd,    defaultMariaDBInitCmd());
+        internalServerMariaDBAdminCmd   = group.readEntry(configInternalDatabaseServerMariaDBAdminCmd,   defaultMariaDBAdminCmd());
+        internalServerMariaDBServerCmd  = group.readEntry(configInternalDatabaseServerMariaDBServerCmd,  defaultMariaDBServerCmd());
+        internalServerMariaDBUpgradeCmd = group.readEntry(configInternalDatabaseServerMariaDBUpgradeCmd, defaultMariaDBUpgradeCmd());
     }
 
 #else
@@ -692,10 +692,10 @@ void DbEngineParameters::writeToConfig(const QString& configGroup) const
     group.writeEntry(configDatabaseConnectOptions,                connectOptions);
     group.writeEntry(configInternalDatabaseServer,                internalServer);
     group.writeEntry(configInternalDatabaseServerPath,            internalServerDBPath);
-    group.writeEntry(configInternalDatabaseServerMysqlInitCmd,    internalServerMariaDBInitCmd);
-    group.writeEntry(configInternalDatabaseServerMysqlAdminCmd,   internalServerMariaDBAdminCmd);
-    group.writeEntry(configInternalDatabaseServerMysqlServerCmd,  internalServerMariaDBServerCmd);
-    group.writeEntry(configInternalDatabaseServerMysqlUpgradeCmd, internalServerMariaDBUpgradeCmd);
+    group.writeEntry(configInternalDatabaseServerMariaDBInitCmd,    internalServerMariaDBInitCmd);
+    group.writeEntry(configInternalDatabaseServerMariaDBAdminCmd,   internalServerMariaDBAdminCmd);
+    group.writeEntry(configInternalDatabaseServerMariaDBServerCmd,  internalServerMariaDBServerCmd);
+    group.writeEntry(configInternalDatabaseServerMariaDBUpgradeCmd, internalServerMariaDBUpgradeCmd);
 
     group.deleteEntry(configDatabasePassword);  // Remove non encrypted password
 }
@@ -798,25 +798,25 @@ DbEngineParameters DbEngineParameters::defaultParameters(const QString& database
 
     // only the database name is needed
 
-    DbEngineConfigSettings config            = DbEngineConfig::element(databaseType);
-    parameters.databaseType                  = databaseType;
-    parameters.databaseNameCore              = config.databaseName;
-    parameters.databaseNameThumbnails        = config.databaseName;
-    parameters.databaseNameFace              = config.databaseName;
-    parameters.databaseNameSimilarity        = config.databaseName;
-    parameters.userName                      = config.userName;
-    parameters.password                      = config.password;
-    parameters.walMode                       = false;
-    parameters.internalServer                = (databaseType == QLatin1String("QMYSQL"));
-    parameters.internalServerDBPath          = (databaseType == QLatin1String("QMYSQL")) ? serverPrivatePath()      : QString();
+    DbEngineConfigSettings config              = DbEngineConfig::element(databaseType);
+    parameters.databaseType                    = databaseType;
+    parameters.databaseNameCore                = config.databaseName;
+    parameters.databaseNameThumbnails          = config.databaseName;
+    parameters.databaseNameFace                = config.databaseName;
+    parameters.databaseNameSimilarity          = config.databaseName;
+    parameters.userName                        = config.userName;
+    parameters.password                        = config.password;
+    parameters.walMode                         = false;
+    parameters.internalServer                  = (databaseType == QLatin1String("QMYSQL"));
+    parameters.internalServerDBPath            = (databaseType == QLatin1String("QMYSQL")) ? serverPrivatePath()        : QString();
     parameters.internalServerMariaDBInitCmd    = (databaseType == QLatin1String("QMYSQL")) ? defaultMariaDBInitCmd()    : QString();
     parameters.internalServerMariaDBAdminCmd   = (databaseType == QLatin1String("QMYSQL")) ? defaultMariaDBAdminCmd()   : QString();
     parameters.internalServerMariaDBServerCmd  = (databaseType == QLatin1String("QMYSQL")) ? defaultMariaDBServerCmd()  : QString();
     parameters.internalServerMariaDBUpgradeCmd = (databaseType == QLatin1String("QMYSQL")) ? defaultMariaDBUpgradeCmd() : QString();
 
-    QString hostName                       = config.hostName;
-    QString port                           = config.port;
-    QString connectOptions                 = config.connectOptions;
+    QString hostName                           = config.hostName;
+    QString port                               = config.port;
+    QString connectOptions                     = config.connectOptions;
 
 #ifdef Q_OS_WIN
 

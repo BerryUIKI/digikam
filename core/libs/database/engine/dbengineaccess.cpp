@@ -58,7 +58,7 @@ bool DbEngineAccess::checkReadyForUse(QString& error)
         }
     }
 
-    // Checking for QMYSQL driver
+    // Checking for QtSql driver for MariaDB
 
     else if (internalServerParameters.MariaDBDatabaseType() == QLatin1String("QMYSQL"))
     {
@@ -67,7 +67,7 @@ bool DbEngineAccess::checkReadyForUse(QString& error)
             qCDebug(DIGIKAM_COREDB_LOG) << "Core database: no MariaDB driver available.\n"
                                            "List of QSqlDatabase drivers: " << drivers;
 
-            error = i18n("The driver \"MYSQL\" for MariaDB databases is not available.\n"
+            error = i18n("The driver \"QMYSQL\" for MariaDB databases is not available.\n"
                          "digiKam depends on the drivers provided by the Qt::SQL module.");
             return false;
         }

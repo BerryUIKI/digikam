@@ -221,7 +221,7 @@ void DatabaseSettingsWidget::setupMainArea()
     QLabel* const hostNameLabel                      = new QLabel(i18n("Host Name:"));
     d->hostName                                      = new QLineEdit();
     d->hostName->setPlaceholderText(i18n("Set the host computer name"));
-    d->hostName->setToolTip(i18n("This is the computer name running MySQL server.\n"
+    d->hostName->setToolTip(i18n("This is the computer name running MariaDB server.\n"
                                  "This can be \"localhost\" for a local server, "
                                  "or the network computer\n"
                                  "name (or IP address) in case of remote computer."));
