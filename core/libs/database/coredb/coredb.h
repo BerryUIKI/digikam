@@ -100,20 +100,25 @@ public:
     void getIgnoreDirectoryFilterSettings(QStringList* ignoreDirectoryFilter);
 
     /**
-     * Returns a UUID for the database file.
+     * @returns a UUID for the database file.
      * This UUID is kept stable over schema updates.
      */
     QUuid databaseUuid();
 
     /**
-     * Returns database encoding.
+     * @returns the database encoding as string.
      * For SQLite should UTF-8.
      * For MariaDB like UTF8MB4.
      */
     QString getDatabaseEncoding()                                                                                   const;
 
     /**
-     * Returns the version used for the unique hash in this database.
+     * @returns the database backend version string.
+     */
+    QString getBackendVersion()                                                                                     const;
+
+    /**
+     * @returns the version used for the unique hash in this database.
      * The value is cached.
      */
     int getUniqueHashVersion()                                                                                      const;
@@ -123,8 +128,7 @@ public:
     // ----------- AlbumRoot operations -----------
 
     /**
-     * Returns all albums and their attributes in the database
-     * @return a list of albums and their attributes
+     * @returns all albums and their attributes in the database
      */
     QList<AlbumRootInfo> getAlbumRoots()                                                                            const;
 

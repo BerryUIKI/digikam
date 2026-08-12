@@ -1054,6 +1054,32 @@ void CoreDB::setUniqueHashVersion(int version)
                QString::number(d->uniqueHashVersion));
 }
 
+QString CoreDB::getBackendVersion() const
+{
+    QVariantList values;
+
+    switch (d->db->databaseType())
+    {
+        case BdEngineBackend::DbType::MariaDB:
+        {
+            d->db->execSql(QString::fromUtf8("SELECT VERSION();"), &values);
+            break;
+        }
+
+        default: // BdEngineBackend::DbType::SQLite
+        {
+            d->db->execSql(QString::fromUtf8("SELECT sqlite_version();"), &values);
+            break;
+        }
+    }
+    if (values.isEmpty())
+    {
+        return QString();
+    }
+
+    return values.first().toString();
+}
+
 qlonglong CoreDB::getImageId(int albumID, const QString& name) const
 {
     QVariantList values;

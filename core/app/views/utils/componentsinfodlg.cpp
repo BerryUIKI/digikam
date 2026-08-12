@@ -31,6 +31,8 @@
 #include "digikam_config.h"
 #include "libsinfodlg.h"
 #include "dbstatdlg.h"
+#include "coredbaccess.h"
+#include "coredb.h"
 #include "digikam_opencv.h"
 
 // LibGphoto2 includes
@@ -213,6 +215,11 @@ public:
             new QTreeWidgetItem(m_features, QStringList() <<
                                 i18nc("@item: component info", "Database internal server") << internal);
         }
+
+        QString dbVersion = CoreDbAccess().db()->getBackendVersion();
+
+        new QTreeWidgetItem(m_features, QStringList() <<
+                            i18nc("@item: component info", "Database backend version") << dbVersion);
 
 #ifdef HAVE_MEDIAPLAYER
 
