@@ -51,8 +51,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:43+0000\n"
-"PO-Revision-Date: 2026-08-06 20:25+0300\n"
+"POT-Creation-Date: 2026-08-14 00:42+0000\n"
+"PO-Revision-Date: 2026-08-13 19:12+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -129,7 +129,7 @@ msgstr "Kapat"
 #: core/app/date/ddatepicker_p.cpp:160
 #, kde-format
 msgid "Week %1"
-msgstr "%1. hafta"
+msgstr "%1. Hafta"
 
 #: core/app/date/ddatepickerpopup.cpp:125
 #, kde-format
@@ -2786,33 +2786,25 @@ msgid "Start digikam with the configuration file \"config\""
 msgstr "digiKam’i “config” yapılandırma dosyasıyla başlat"
 
 #: core/app/main/main.cpp:303
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin is not available. please "
-#| "install it.\n"
-#| "There is no database plugin installed on your computer."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin is not available. please "
 "install it.\n"
 "There is no database plugin installed on your computer."
 msgstr ""
-"Çalışma zamanı Qt SQLite veya MySQL veri tabanı eklentisi kullanılabilir "
-"değil; lütfen kurun.\n"
+"Çalışma zamanı Qt SQLite veya MariaDB veri tabanı eklentisi kullanılabilir "
+"değil; lütfen bir tane kurun.\n"
 "Bilgisayarınızda herhangi bir veri tabanı eklentisi kurulu değil."
 
 #: core/app/main/main.cpp:312
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin are not available. Please "
-#| "install it.\n"
-#| "Database plugins installed on your computer are listed below."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin are not available. Please "
 "install it.\n"
 "Database plugins installed on your computer are listed below."
 msgstr ""
-"Çalışma zamanı Qt SQLite veya MySQL veri tabanı eklentisi kullanılabilir "
-"değil; lütfen kurun.\n"
+"Çalışma zamanı Qt SQLite veya MariaDB veri tabanı eklentisi kullanılabilir "
+"değil; lütfen bir tane kurun.\n"
 "Bilgisayarınızda herhangi bir veri tabanı eklentisi kurulu değil."
 
 #: core/app/main/main.cpp:356
@@ -27232,16 +27224,14 @@ msgid "Searches"
 msgstr "Aramalar"
 
 #: core/libs/album/manager/albummanager_database.cpp:111
-#, fuzzy, kde-format
-#| msgid "The MySQL database directory was not found."
+#, kde-format
 msgid "The MariaDB database directory was not found."
-msgstr "MySQL veri tabanı dizini bulunamadı."
+msgstr "MariaDB veri tabanı dizini bulunamadı."
 
 #: core/libs/album/manager/albummanager_database.cpp:128
-#, fuzzy, kde-format
-#| msgid "The MySQL binary tools was not found."
+#, kde-format
 msgid "The MariaDB binary tools was not found."
-msgstr "MySQL ikili araçları bulunamadı."
+msgstr "MariaDB ikili araçları bulunamadı."
 
 #: core/libs/album/manager/albummanager_database.cpp:135
 #, kde-format
@@ -28718,13 +28708,13 @@ msgstr ""
 #: core/libs/database/engine/dbengineaccess.cpp:70
 #, fuzzy, kde-format
 #| msgid ""
-#| "The driver \"MYSQL\" for MySQL databases is not available.\n"
+#| "The driver \"MYSQL\" for MariaDB databases is not available.\n"
 #| "digiKam depends on the drivers provided by the Qt::SQL module."
 msgid ""
-"The driver \"MYSQL\" for MariaDB databases is not available.\n"
+"The driver \"QMYSQL\" for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"MySQL veritabanları için “MYSQL” sürücüsü kullanılabilir değil.\n"
+"MariaDB veri tabanları için “MYSQL” sürücüsü kullanılabilir değil.\n"
 "digiKam, Qt::SQL modülü tarafından sağlanan sürücülere bağlıdır."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
@@ -28887,29 +28877,26 @@ msgid "Database type is not supported."
 msgstr "Veri tabanı türü desteklenmiyor."
 
 #: core/libs/database/server/databaseserver.cpp:296
-#, fuzzy, kde-format
-#| msgid "No path to mysql upgrade command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB upgrade command set in configuration file."
-msgstr "Yapılandırma dosyasında ayarlı MySQL yükseltme komutuna olan yol yok."
+msgstr ""
+"Yapılandırma dosyasında ayarlı MariaDB yükseltme komutuna olan yol yok."
 
 #: core/libs/database/server/databaseserver.cpp:305
-#, fuzzy, kde-format
-#| msgid "No path to mysql server command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB server command set in configuration file."
-msgstr "Yapılandırma dosyasında ayarlı MySQL sunucu komutuna olan yol yok."
+msgstr "Yapılandırma dosyasında ayarlı MariaDB sunucu komutuna olan yol yok."
 
 #: core/libs/database/server/databaseserver.cpp:314
-#, fuzzy, kde-format
-#| msgid "No path to mysql administration command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB administration command set in configuration file."
-msgstr "Yapılandırma dosyasında ayarlı MySQL yönetim komutuna olan yol yok."
+msgstr "Yapılandırma dosyasında ayarlı MariaDB yönetim komutuna olan yol yok."
 
 #: core/libs/database/server/databaseserver.cpp:323
-#, fuzzy, kde-format
-#| msgid "No path to mysql initialization command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB initialization command set in configuration file."
 msgstr ""
-"Yapılandırma dosyasında ayarlı MySQL ilklendirme komutuna olan yol yok."
+"Yapılandırma dosyasında ayarlı MariaDB ilklendirme komutuna olan yol yok."
 
 #: core/libs/database/server/databaseserver.cpp:333
 #: core/libs/database/server/databaseserver.cpp:343
@@ -28919,32 +28906,26 @@ msgid "Cannot create directory %1"
 msgstr "%1 dizini oluşturulamıyor"
 
 #: core/libs/database/server/databaseserver.cpp:436
-#, fuzzy, kde-format
-#| msgid ""
-#| "Unable to create MySQL server configuration file.<p>This means that "
-#| "either the default configuration file</p><p>%1</p><p>was not readable or "
-#| "the target file</p><p>%2</p><p>could not be written.</p>"
+#, kde-format
 msgid ""
 "Unable to create MariaDB server configuration file.<p>This means that either "
 "the default configuration file</p><p>%1</p><p>was not readable or the target "
 "file</p><p>%2</p><p>could not be written.</p>"
 msgstr ""
-"MySQL sunucusu yapılandırma dosyası oluşturulamıyor.<p>Bu, ya</p><p>%1</"
+"MariaDB sunucusu yapılandırma dosyası oluşturulamıyor.<p>Bu, ya</p><p>%1</"
 "p><p>öntanımlı yapılandırma dosyasının okunabilir olmadığı ya da</p><p>%2</"
 "p><p>hedef dosyasının yazılamadığı anlamına gelir.</p>"
 
 #: core/libs/database/server/databaseserver.cpp:458
-#, fuzzy, kde-format
-#| msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+#, kde-format
 msgid "Cannot find MariaDB server default configuration (mysql-global.conf)."
 msgstr ""
-"MySQL sunucusunun öntanımlı yapılandırması (mysql-global.conf) bulunamıyor."
+"MariaDB sunucusunun öntanımlı yapılandırması (mysql-global.conf) bulunamıyor."
 
 #: core/libs/database/server/databaseserver.cpp:505
-#, fuzzy, kde-format
-#| msgid "The internal MySQL database is initializing, please wait..."
+#, kde-format
 msgid "The internal MariaDB database is initializing, please wait..."
-msgstr "İçsel MySQL veri tabanı ilklendiriliyor; lütfen bekleyin…"
+msgstr "İçsel MariaDB veri tabanı ilklendiriliyor; lütfen bekleyin…"
 
 #: core/libs/database/server/databaseserver.cpp:553
 #, kde-format
@@ -28982,10 +28963,9 @@ msgstr ""
 "p>"
 
 #: core/libs/database/server/databaseserver.cpp:751
-#, fuzzy, kde-format
-#| msgid "A MySQL database upgrade is in progress, please wait..."
+#, kde-format
 msgid "A MariaDB database upgrade is in progress, please wait..."
-msgstr "Bir MySQL veri tabanı yükseltme işlemi sürüyor; lütfen bekleyin…"
+msgstr "Bir MariaDB veri tabanı yükseltme işlemi sürüyor; lütfen bekleyin…"
 
 #: core/libs/database/server/databaseserver.cpp:795
 #, kde-format
@@ -29293,24 +29273,17 @@ msgid "SQLite"
 msgstr "SQLite"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Mysql Internal"
+#, kde-format
 msgid "MariaDB Internal"
-msgstr "İçsel MySQL"
+msgstr "İçsel MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:67
-#, fuzzy, kde-format
-#| msgid "%1 Media Server"
+#, kde-format
 msgid "MariaDB Server"
-msgstr "%1 Ortam Sunucusu"
+msgstr "MariaDB Sunucu"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend "
-#| "is for local database storage with a small or medium collection sizes. It "
-#| "is the default and recommended backend for collections with less than "
-#| "100K items.</p>"
+#, kde-format
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small or medium collection sizes. It is "
@@ -29319,37 +29292,29 @@ msgid ""
 msgstr ""
 "<p>Veri tabanı arka ucu türünü burada seçin.</p><p><b>SQlite</b> arka ucu, "
 "küçük veya orta koleksiyon boyutlarına sahip yerel veri tabanı depolaması "
-"içindir. 100.000’den az öge içeren koleksiyonlar için öntanımlı ve önerilen "
+"içindir. 500.000’den az öge içeren koleksiyonlar için öntanımlı ve önerilen "
 "arka uçtur.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Internal</b> backend is for local database storage with huge "
-#| "collection sizes. This backend is recommend for local collections with "
-#| "more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Internal</b> backend is for local database storage with huge "
 "collection sizes. This backend is recommend for local collections with more "
 "than 500K items.</p>"
 msgstr ""
-"<p><b>MySQL İçsel</b> arka ucu, büyük koleksiyon boyutlarına sahip yerel "
-"veri tabanı depolaması içindir. Bu arka uç, 100.000’den fazla öge içeren "
+"<p><b>MariaDB İçsel</b> arka ucu, büyük koleksiyon boyutlarına sahip yerel "
+"veri tabanı depolaması içindir. Bu arka uç, 500.000’den fazla öge içeren "
 "yerel koleksiyonlar için önerilir.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:86
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Server</b> backend is a more robust solution especially for "
-#| "remote and shared database storage. It is also more efficient to manage "
-#| "huge collection sizes with more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Server</b> backend is a more robust solution especially for "
 "remote and shared database storage. It is also more efficient to manage huge "
 "collection sizes with more than 500K items.</p>"
 msgstr ""
-"<p><b>MySQL Sunucu</b> arka ucu, özellikle uzak ve paylaşılan veri tabanı "
-"depolaması için daha sağlam bir çözümdür. Ayrıca 100.000’den fazla öge "
+"<p><b>MariaDB Sunucu</b> arka ucu, özellikle uzak ve paylaşılan veri tabanı "
+"depolaması için daha sağlam bir çözümdür. Ayrıca 500.000’den fazla öge "
 "içeren devasa koleksiyon boyutlarını yönetmek de daha verimlidir.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:93
@@ -29398,7 +29363,7 @@ msgstr ""
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:141
 #, kde-format
 msgid "Enable WAL mode for the databases"
-msgstr "Veritabanları için WAL kipini etkinleştir"
+msgstr "Veri tabanları için WAL kipini etkinleştir"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:142
 #, kde-format
@@ -29426,36 +29391,30 @@ msgid ""
 "before the changes are written to the database. This made database requests "
 "atomic and robust in extensive and critical use cases."
 msgstr ""
-"WAL (Write-Ahead-Log, Önden Yazılan Günlük), işlenen ancak henüz "
-"veritabanlarına uygulanmamış işlemleri kaydeden bir ileri sarma günlüğü "
-"kullanma kipidir. Bir çökme sırasında kurtarma işlemlerine yönelik yapıları "
+"WAL (Write-Ahead-Log, Önden Yazılan Günlük), işlenen ancak henüz veri "
+"tabanlarına uygulanmamış işlemleri kaydeden bir ileri sarma günlüğü kullanma "
+"kipidir. Bir çökme sırasında kurtarma işlemlerine yönelik yapıları "
 "barındırmak için günlükleştirilmiş yardımcı bir dosya kullanır. "
 "Değişiklikler veri tabanına yazılmadan önce ilk olarak günlüğe kaydedilir. "
 "Bu, veri tabanı isteklerinin kapsamlı ve kritik kullanım durumlarında atomik "
 "ve sağlam olmasını sağlar."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:169
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Here you can configure locations where MySQL binary tools are located. "
-#| "digiKam will try to find these binaries automatically if they are already "
-#| "installed on your computer.</p>"
+#, kde-format
 msgid ""
 "<p>Here you can configure locations where MariaDB binary tools are located. "
 "digiKam will try to find these binaries automatically if they are already "
 "installed on your computer.</p>"
 msgstr ""
-"<p>Burada MySQL ikili araçlarının bulunduğu konumları yapılandırabilirsiniz. "
-"digiKam, bilgisayarınızda hâlihazırda kuruluysa bu ikili dosyaları "
-"kendiliğinden bulmaya çalışacaktır.</p>"
+"<p>Burada MariaDB ikili araçlarının bulunduğu konumları "
+"yapılandırabilirsiniz. digiKam, bilgisayarınızda hâlihazırda kuruluysa bu "
+"ikili dosyaları kendiliğinden bulmaya çalışacaktır.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:178
-#, fuzzy, kde-format
-#| msgctxt "@title: group"
-#| msgid "Panorama Binaries"
+#, kde-format
 msgctxt "@title:group"
 msgid "MariaDB Binaries"
-msgstr "Panorama İkilileri"
+msgstr "MariaDB İkilileri"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:221
 #, kde-format
@@ -29468,9 +29427,13 @@ msgid "Set the host computer name"
 msgstr "Ana makine adını ayarla"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:224
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This is the computer name running MySQL server.\n"
+#| "This can be \"localhost\" for a local server, or the network computer\n"
+#| "name (or IP address) in case of remote computer."
 msgid ""
-"This is the computer name running MySQL server.\n"
+"This is the computer name running MariaDB server.\n"
 "This can be \"localhost\" for a local server, or the network computer\n"
 "name (or IP address) in case of remote computer."
 msgstr ""
@@ -29493,15 +29456,12 @@ msgid "Set the database connection options"
 msgstr "Veri tabanı bağlantı seçeneklerini ayarla"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:234
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server connection options.\n"
-#| "For advanced users only."
+#, kde-format
 msgid ""
 "Set the MariaDB server connection options.\n"
 "For advanced users only."
 msgstr ""
-"MySQL sunucusu bağlantı seçeneklerini ayarlayın.\n"
+"MariaDB sunucusu bağlantı seçeneklerini ayarlayın.\n"
 "Yalnızca ileri düzey kullanıcılar içindir."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:237
@@ -29515,12 +29475,7 @@ msgid "Set the database account name"
 msgstr "Veri tabanı hesap adını ayarla"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:240
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account name used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "This account must be available on the remote\n"
-#| "MySQL server when database have been created."
+#, kde-format
 msgid ""
 "Set the MariaDB server account name used\n"
 "by digiKam to be connected to the server.\n"
@@ -29528,25 +29483,21 @@ msgid ""
 "MariaDB server when database have been created."
 msgstr ""
 "Sunucuya bağlanmak için digiKam tarafından\n"
-"kullanılan MySQL sunucu hesap adını ayarlayın.\n"
+"kullanılan MariaDB sunucu hesap adını ayarlayın.\n"
 "Veri tabanı oluşturulduğunda bu hesabın uzak\n"
-"MySQL sunucusunda kullanılabilir olması gerekir."
+"MariaDB sunucusunda kullanılabilir olması gerekir."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:247
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account password used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "You can left this field empty to use an account set without password."
+#, kde-format
 msgid ""
 "Set the MariaDB server account password used\n"
 "by digiKam to be connected to the server.\n"
 "You can left this field empty to use an account set without password."
 msgstr ""
 "Sunucuya bağlanmak için digiKam tarafından\n"
-"kullanılan MySQL sunucu hesap parolasını ayarlayın.\n"
+"kullanılan MariaDB sunucu hesap parolasını ayarlayın.\n"
 "Veri tabanı oluşturulduğunda bu hesabın uzak\n"
-"MySQL sunucusunda kullanılabilir olması gerekir."
+"MariaDB sunucusunda kullanılabilir olması gerekir."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:253
 #, kde-format
@@ -29554,16 +29505,13 @@ msgid "Host Port:"
 msgstr "Makine kapısı:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:255
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the host computer port.\n"
-#| "Usually, MySQL server use port number 3306 by default"
+#, kde-format
 msgid ""
 "Set the host computer port.\n"
 "Usually, MariaDB server use port number 3306 by default"
 msgstr ""
 "Ana bilgisayar kapısını ayarlayın.\n"
-"Genellikle MySQL sunucusu öntanımlı olarak 3306 numaralı kapıyı kullanır"
+"Genellikle MariaDB sunucusu öntanımlı olarak 3306 numaralı kapıyı kullanır"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:260
 #, kde-format
@@ -29571,16 +29519,13 @@ msgid "Check Connection"
 msgstr "Bağlantıyı Denetle"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:261
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run a basic database connection to see if current MySQL server settings "
-#| "is suitable."
+#, kde-format
 msgid ""
 "Run a basic database connection to see if current MariaDB server settings is "
 "suitable."
 msgstr ""
-"Geçerli MySQL sunucu ayarlarının uygun olup olmadığını görmek için temel bir "
-"veri tabanı bağlantısı çalıştırın."
+"Geçerli MariaDB sunucu ayarlarının uygun olup olmadığını görmek için temel "
+"bir veri tabanı bağlantısı çalıştırın."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:268
 #, kde-format
@@ -29708,14 +29653,14 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>Note: with a Linux server, a database can be initialized following the "
-#| "commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql "
-#| "-u root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init "
-#| "digiKam databases with grant privileges (see behind)</p><p>...</"
-#| "p><p>quit</p><p>NOTE: If you have problems with a MySQL server on Ubuntu "
-#| "based Linux system, use the addition command in the mysql prompt to be "
-#| "able to create MySQL triggers.<br>SET GLOBAL "
+#| "commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
+#| "mariadb -u root</p><p>...</p><p>Enter SQL code to MariaDB prompt in order "
+#| "to init digiKam databases with grant privileges (see behind)</p><p>...</"
+#| "p><p>quit</p><p>NOTE: If you have problems with a MariaDB server on "
+#| "Ubuntu based Linux system, use the addition command in the mysql prompt "
+#| "to be able to create MariaDB triggers.<br>SET GLOBAL "
 #| "log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
-#| "collection, you should start MySQL server with mysql --"
+#| "collection, you should start MariaDB server with mysql --"
 #| "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
 msgid ""
 "<p>Note: with a Linux server, a database can be initialized following the "
@@ -29723,22 +29668,22 @@ msgid ""
 "mariadb -u root</p><p>...</p><p>Enter SQL code to MariaDB prompt in order to "
 "init digiKam databases with grant privileges (see behind)</p><p>...</"
 "p><p>quit</p><p>NOTE: If you have problems with a MariaDB server on Ubuntu "
-"based Linux system, use the addition command in the mysql prompt to be able "
-"to create MariaDB triggers.<br>SET GLOBAL log_bin_trust_function_creators=1;"
-"</p><p>NOTE: If you have an enormous collection, you should start MariaDB "
-"server with mysql --max_allowed_packet=128M OR in my.ini or ~/.my.cnf, "
-"change the settings</p>"
+"based Linux system, use the addition command in the MariaDB prompt to be "
+"able to create MariaDB triggers.<br>SET GLOBAL "
+"log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
+"collection, you should start MariaDB server with mariadb --"
+"max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
 msgstr ""
 "<p>Not: Linux sunucularında, bir veri tabanı aşağıdaki komutlarla "
-"ilklendirilebilir:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql "
-"-u root</p><p>…</p><p>digiKam veritabanlarını ayrıcalıklarla ilklendirmek "
-"için MySQL istemine SQL kodunu girin (arkaya bakın)</p><p>…</p><p>çık</"
-"p><p>NOT: Ubuntu tabanlı bir Linux dağıtımında MySQL sunucularıyla "
-"sorunlarınız varsa MySQL tetikleyicilerini oluşturabilmek için toplama "
-"komutunu kullanın.<br>SET GLOBAL log_bin_trust_function_creators=1;</"
-"p><p>NOT: Devasa bir koleksiyonunuz varsa MySQL sunucusunu mysql --"
-"max_allowed_packet=128M OR in my.ini veya ~/.my.cnf ile başlatıp ayarları "
-"değiştirmelisiniz.</p>"
+"ilklendirilebilir:</p><p># su</p><p># systemctl restart mariadb</p><p># "
+"mariadb -u root</p><p>…</p><p>digiKam veri tabanlarını ayrıcalıklarla "
+"ilklendirmek için MariaDB istemine SQL kodunu girin (arkaya bakın)</p><p>…</"
+"p><p>çık</p><p>NOT: Ubuntu tabanlı bir Linux dağıtımında MariaDB "
+"sunucularıyla sorunlarınız varsa MariaDB tetikleyicilerini oluşturabilmek "
+"için toplama komutunu kullanın.<br>SET GLOBAL "
+"log_bin_trust_function_creators=1;</p><p>NOT: Devasa bir koleksiyonunuz "
+"varsa MariaDB sunucusunu mariadb --max_allowed_packet=128M OR in my.ini veya "
+"~/.my.cnf ile başlatıp ayarları değiştirmelisiniz.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:365
 #, kde-format
@@ -29751,25 +29696,7 @@ msgid "Database Server Technical Details"
 msgstr "Veri Tabanı Sunucusu Teknik Ayrıntıları"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:371
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Use this configuration view to set all information to be connected to "
-#| "a remote <a href=\"https://en.wikipedia.org/wiki/MySQL\">Mysql database "
-#| "server</a> (or <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</"
-#| "a>) through a network. As with Sqlite or MySQL internal server, 3 "
-#| "databases will be stored on the remote server: one for all collections "
-#| "properties, one to store compressed thumbnails, and one to store faces "
-#| "recognition metadata.</p><p>Unlike Sqlite or MySQL internal server, you "
-#| "can customize the database names to simplify your backups.</"
-#| "p><p>Databases are digiKam core engines. To prevent performance issues, "
-#| "take a care to use a fast network link between the client and the server "
-#| "computers. It is also recommended to host database files on fast hardware "
-#| "(as <a href=\"https://en.wikipedia.org/wiki/Solid-state_drive\">SSD</a>) "
-#| "with enough free space, especially for thumbnails database, even if data "
-#| "are compressed using wavelets image format <a href=\"https://en.wikipedia."
-#| "org/wiki/Progressive_Graphics_File\">PGF</a>.</p><p>The databases must be "
-#| "created previously on the remote server by the administrator. Look in "
-#| "<b>Requirements</b> tab for details.</p>"
+#, kde-format
 msgid ""
 "<p>Use this configuration view to set all information to be connected to a "
 "remote <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</a> through "
@@ -29788,19 +29715,19 @@ msgid ""
 "administrator. Look in <b>Requirements</b> tab for details.</p>"
 msgstr ""
 "<p>Bütün verileri ağ üzerinden uzak bir <a href=\"https://en.wikipedia.org/"
-"wiki/MySQL\">MySQL veri tabanı sunucusu</a> (ya da <a href=\"https://en."
-"wikipedia.org/wiki/MariaDB\">MariaDB</a>) üzerinde ayarlamak için bu "
-"yapılandırma görünümünü kullanın. Sqlite ya da dahili MySQL sunucusu gibi, "
+"wiki/MariaDB\">MariaDB veri tabanı sunucusu</a> üzerinde ayarlamak için bu "
+"yapılandırma görünümünü kullanın. Sqlite veya içsel MariaDB sunucusu gibi, "
 "bu uzak sunucularda da 3 veri tabanı saklanacaktır: Bir tanesi tüm "
 "koleksiyonun özellikleri için bir tanesi sıkıştırılmış küçük görseller için "
-"bir tane de yüz tanıma üst verisi içindir.</p><p>Sqlite veya içsel MySQL "
+"bir tane de yüz tanıma üst verisi içindir.</p><p>Sqlite veya içsel MariaDB "
 "sunucusunun aksine, yedekleri basitleştirmek için veri tabanı adlarını "
-"özelleştirebilirsiniz.</p><p>Veritabanları, digiKam çekirdek işletkeleridir. "
-"Özellikle küçük görsel veri tabanı için hızlı donanımların barındırdığı "
-"(örn. <a href=\"https://en.wikipedia.org/wiki/Solid-state_drive\">SSD</a> "
-"veya NVMe) yeterli boş alana sahip bir yer kullanmaya özen gösterin.</"
-"p><p>Veritabanları uzak sunucuda, yönetici tarafından oluşturulmuş "
-"olmalıdır. Ayrıntılar için <b>Gereksinimler</b> tablosuna bakın.</p>"
+"özelleştirebilirsiniz.</p><p>Veri tabanları, digiKam çekirdek "
+"işletkeleridir. Özellikle küçük görsel veri tabanı için hızlı donanımların "
+"barındırdığı (örn. <a href=\"https://en.wikipedia.org/wiki/Solid-state_drive"
+"\">SSD</a> veya NVMe) yeterli boş alana sahip bir yer kullanmaya özen "
+"gösterin.</p><p>Veri tabanları uzak sunucuda, yönetici tarafından "
+"oluşturulmuş olmalıdır. Ayrıntılar için <b>Gereksinimler</b> tablosuna bakın."
+"</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:396
 #, kde-format
@@ -29812,50 +29739,50 @@ msgstr "Belgelendirme"
 msgid "Thumbs Db Folder:"
 msgstr "Küçük görsel veri tabanı adı:"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:35
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:40
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:35
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:40
 #: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:301
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Connection Test"
 msgstr "Veri Tabanı Bağlantısı Sınaması"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:36
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:36
 #, kde-format
 msgid "Database connection test successful."
 msgstr "Veri tabanı bağlantı sınaması başarılı."
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:41
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:41
 #, kde-format
 msgid "Database connection test was not successful. <p>Error was: %1</p>"
 msgstr "Veri tabanı bağlantısı sınaması başarısız oldu.<p>Hata şu idi:%1</p>"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:50
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:50
 #, kde-format
 msgid "The server hostname is empty"
 msgstr "Sunucu makine adı boş"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:56
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:56
 #, kde-format
 msgid "The server user name is empty"
 msgstr "Sunucu kullanıcı adı boş"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:67
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:67
 #, kde-format
 msgid "The core database name is empty"
 msgstr "Çekirdek veri tabanı adı boş"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:73
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:73
 #, kde-format
 msgid "The thumbnails database name is empty"
 msgstr "Küçük görsel veri tabanı adı boş"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:79
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:79
 #, kde-format
 msgid "The face database name is empty"
 msgstr "Yüz veri tabanı adı boş"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:85
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:85
 #, kde-format
 msgid "The similarity database name is empty"
 msgstr "Benzerlik veri tabanı adı boş"
@@ -44152,10 +44079,9 @@ msgid "Color Management"
 msgstr "Renk Yönetimi"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:350
-#, fuzzy, kde-format
-#| msgid "MySQL interface"
+#, kde-format
 msgid "MariaDB interface"
-msgstr "MySQL arayüzü"
+msgstr "MariaDB arayüzü"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:355
 #, kde-format
@@ -53075,7 +53001,7 @@ msgstr ""
 #: core/utilities/firstrun/databasepage.cpp:49
 #, kde-format
 msgid "<b>Configure where you will store databases</b>"
-msgstr "<b>Veritabanlarını nerede depolayacağınızı yapılandırın</b>"
+msgstr "<b>Veri tabanlarını nerede depolayacağınızı yapılandırın</b>"
 
 #: core/utilities/firstrun/metadatapage.cpp:51
 #, kde-format
@@ -53138,7 +53064,7 @@ msgstr ""
 "bir yapılandırma oluşturmak, görsellerin içine gömülü olmayan ve yalnızca "
 "digiKam 4’ün veri tabanında var olan künyelerin ve diğer üst verinin "
 "kaybolmasıyla sonuçlanabilir.</p><p>Her iki durumda da sürdürmeden önce "
-"yapılandırma dosyalarını ve veritabanlarını yedeklemeniz önerilir.</p></qt>"
+"yapılandırma dosyalarını ve veri tabanlarını yedeklemeniz önerilir.</p></qt>"
 
 #: core/utilities/firstrun/migratefromdigikam4page.cpp:89
 #, kde-format
@@ -61551,7 +61477,7 @@ msgid ""
 "qt>"
 msgstr ""
 "<qt><i>Not: Etkinse çekirdek veri tabanı her zaman temizlenir. Temizlemek "
-"için ek veritabanları seçebilirsiniz.<br>Aşağıdaki seçeneklerden birini "
+"için ek veri tabanları seçebilirsiniz.<br>Aşağıdaki seçeneklerden birini "
 "seçerseniz işlem çok zaman alabilir ve hiçbir veri tabanı bozulmasının "
 "meydana gelmediğinden emin olmak için digiKam’i geçici olarak dondurabilir.</"
 "i></qt>"
@@ -61574,19 +61500,16 @@ msgstr "Ayrıca benzerlik veri tabanını da temizleyin."
 #: core/utilities/maintenance/main/maintenancedlg.cpp:99
 #, kde-format
 msgid "Extended clean up and shrink all databases."
-msgstr "Ayrıntılı temizlik yapın ve tüm veritabanlarını küçültün."
+msgstr "Ayrıntılı temizlik yapın ve tüm veri tabanlarını küçültün."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:100
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option leads to the vacuuming (shrinking) of the databases. "
-#| "Vacuuming is supported both for SQLite and MySQL."
+#, kde-format
 msgid ""
 "This option leads to the vacuuming (shrinking) of the databases. Vacuuming "
 "is supported both for SQLite and MariaDB."
 msgstr ""
-"Bu seçenek, veritabanlarının vakumlanmasına (küçültülmesine) yol açar. "
-"Vakumlama hem SQLite hem de MySQL için desteklenir."
+"Bu seçenek, veri tabanlarının vakumlanmasına (küçültülmesine) yol açar. "
+"Vakumlama, hem SQLite hem de MariaDB için desteklenir."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:107
 #, kde-format
@@ -61766,12 +61689,12 @@ msgstr ""
 #: core/utilities/maintenance/tools/dbcleaner/dbcleaner.cpp:370
 #, kde-format
 msgid "Clean up the databases : "
-msgstr "Veritabanlarını temizle : "
+msgstr "Veri tabanlarını temizle : "
 
 #: core/utilities/maintenance/tools/dbcleaner/dbcleaner.cpp:123
 #, kde-format
 msgid "analysing databases"
-msgstr "veritabanları çözümleniyor"
+msgstr "veri tabanları çözümleniyor"
 
 #: core/utilities/maintenance/tools/dbcleaner/dbcleaner.cpp:226
 #, kde-format
@@ -61796,7 +61719,7 @@ msgstr "benzerlik veri tabanı temizleniyor"
 #: core/utilities/maintenance/tools/dbcleaner/dbcleaner.cpp:370
 #, kde-format
 msgid "shrinking databases"
-msgstr "veritabanları küçültülüyor"
+msgstr "veri tabanları küçültülüyor"
 
 #: core/utilities/maintenance/tools/dbcleaner/dbshrinkdialog.cpp:66
 #, kde-format
@@ -61807,8 +61730,8 @@ msgid ""
 "info box will vanish when the shrinking process is finished.</p>Current "
 "Status:"
 msgstr ""
-"<p>Veri tabanı küçültme işlemi sürüyor.</p><p>Şu anda veritabanlarınız "
-"küçültülüyor. Veritabanlarınızın boyutuna bağlı olarak bu biraz zaman "
+"<p>Veri tabanı küçültme işlemi sürüyor.</p><p>Şu anda veri tabanlarınız "
+"küçültülüyor. Veri tabanlarınızın boyutuna bağlı olarak bu biraz zaman "
 "alacaktır.</p><p>Veri tabanının bozulmasını önlemek için digiKam’i "
 "dondurmamız gerekir. Küçültme işlemi bittiğinde bu bilgi kutusu "
 "kaybolacaktır.</p>Şu anki durum:"
@@ -67959,9 +67882,9 @@ msgstr ""
 "için bu seçeneği ayarlayın.\n"
 "Girdiler yalnızca bağlı görsel/video/ses dosyası hâlihazırda kaldırılmışsa "
 "silinir; yani veri tabanı nesnesi yer israfına neden olur.\n"
-"Bu seçenek, küçük görseller veya tanıma veri tabanı olarak diğer "
-"veritabanlarını temizlemez.\n"
-"Diğer veritabanlarına yönelik temizleme rutinleri için lütfen bakımı "
+"Bu seçenek, küçük görseller veya tanıma veri tabanı olarak diğer veri "
+"tabanlarını temizlemez.\n"
+"Diğer veri tabanlarına yönelik temizleme rutinleri için lütfen bakımı "
 "kullanın."
 
 #: core/utilities/setup/misc/setupmisc_behavior.cpp:73
