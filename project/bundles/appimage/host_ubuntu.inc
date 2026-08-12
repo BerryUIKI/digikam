@@ -106,7 +106,7 @@ optional_packages=("ruby"                               # For i18n extraction
                    "ccache"                             # For compiling
                    "bison"                              # For Qt build (>= 2.5.0)
                    "flex"                               # For compiling (>= 2.5.0)
-                   "mysql-server"                       # Run-time: mysql internal server init
+                   "mariadb-server"                     # Run-time: mariadb internal server init
                    "libeigen3-dev"                      # >= 3.2
                    "libgomp1"                           # For Libraw compilation
                    "libxslt-dev"                        # >= 1.1.0
@@ -132,7 +132,7 @@ optional_packages=("ruby"                               # For i18n extraction
                    "zlib1g-dev"
                    "libfuse-dev"
                    "libc6-dev"
-                   "default-libmysqlclient-dev"
+                   "default-libmysqlclient-dev"         # Rerouted to MariaDB
                    "libcppunit-dev"
                    "libc++-dev"
                    "libudev-dev"
