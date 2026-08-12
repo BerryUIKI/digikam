@@ -4849,7 +4849,7 @@ bool CoreDB::integrityCheck() const
             return result;
         }
 
-        case BdEngineBackend::DbType::MySQL:
+        case BdEngineBackend::DbType::MariaDB:
         {
             // For MariaDB, for every checked table, the table name, operation (check), message type (status) and the message text (ok on success)
             // are returned. So we check if there are four elements and if yes, whether the fourth element is "ok".

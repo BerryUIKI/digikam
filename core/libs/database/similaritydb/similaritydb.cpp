@@ -334,9 +334,9 @@ void SimilarityDb::removeImageFingerprint(qlonglong imageID,
         // TODO: Extend this when we have another algorithm in place.
     }
 
-    // Also, remove all similarities for the image and algorithm if the backend is a MySQL DB.
+    // Also, remove all similarities for the image and algorithm if the backend is a MariaDB Database.
 
-    if (d->db->databaseType() == BdEngineBackend::DbType::MySQL)
+    if (d->db->databaseType() == BdEngineBackend::DbType::MariaDB)
     {
         removeImageSimilarity(imageID, algorithm);
     }
@@ -510,11 +510,11 @@ bool SimilarityDb::integrityCheck()
             return result;
         }
 
-        case BdEngineBackend::DbType::MySQL:
+        case BdEngineBackend::DbType::MariaDB:
         {
-            // For MySQL, for every checked table, the table name, operation (check), message type (status) and the message text (ok on success)
+            // For MariaDB, for every checked table, the table name, operation (check), message type (status) and the message text (ok on success)
             // are returned. So we check if there are four elements and if yes, whether the fourth element is "ok".
-            //qCDebug(DIGIKAM_DATABASE_LOG) << "MySQL check returned " << values.size() << " rows";
+            //qCDebug(DIGIKAM_DATABASE_LOG) << "MariaDB check returned " << values.size() << " rows";
 
             if ((values.size() % 4) != 0)
             {

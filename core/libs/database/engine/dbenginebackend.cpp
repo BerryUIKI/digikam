@@ -692,7 +692,7 @@ BdEngineBackend::DbType BdEngineBackend::databaseType() const
 {
     Q_D(const BdEngineBackend);
 
-    return (d->parameters.isSQLite() ? DbType::SQLite : DbType::MySQL);
+    return (d->parameters.isSQLite() ? DbType::SQLite : DbType::MariaDB);
 }
 
 BdEngineBackend::QueryState BdEngineBackend::execDBAction(const DbEngineAction& action,

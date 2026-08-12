@@ -110,7 +110,7 @@ public:
     enum DbType
     {
         SQLite,
-        MySQL
+        MariaDB
     };
 
 public:

@@ -94,7 +94,7 @@ public:
     QByteArray hash()                                           const;
 
     /**
-     * Return a set of default parameters for the given type. For Mysql, it return internal server configuration.
+     * Return a set of default parameters for the given type. For MariaDB, it return internal server configuration.
      */
     static DbEngineParameters defaultParameters(const QString& databaseType);
 
@@ -134,7 +134,7 @@ public:
     static QString similarityDatabaseDirectorySQLite(const QString& path);
 
     /**
-     * For Mysql internal server: manage the database path to store database files.
+     * For MariaDB internal server: manage the database path to store database files.
      */
     void    setInternalServerPath(const QString& path);
     QString internalServerPath()                                const;
