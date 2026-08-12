@@ -293,7 +293,7 @@ MAIN_EXPORT int MAIN_FN(int argc, char** argv)
 
     if (
         !QSqlDatabase::isDriverAvailable(DbEngineParameters::SQLiteDatabaseType()) &&
-        !QSqlDatabase::isDriverAvailable(DbEngineParameters::MySQLDatabaseType())
+        !QSqlDatabase::isDriverAvailable(DbEngineParameters::MariaDBDatabaseType())
        )
     {
         if (QSqlDatabase::drivers().isEmpty())

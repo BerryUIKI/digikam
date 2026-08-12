@@ -94,10 +94,10 @@ DatabaseServer::DatabaseServer(const DbEngineParameters& params, DatabaseServerS
     qCDebug(DIGIKAM_DATABASESERVER_LOG) << "Internal Server data path:" << dataDir;
 
     d->internalDBName       = QLatin1String("digikam");
-    d->mariadbUpgradePath   = d->params.internalServerMysqlUpgradeCmd;
-    d->mariadbServerPath    = d->params.internalServerMysqlServerCmd;
-    d->mariadbAdminPath     = d->params.internalServerMysqlAdminCmd;
-    d->mariadbInitPath      = d->params.internalServerMysqlInitCmd;
+    d->mariadbUpgradePath   = d->params.internalServerMariaDBUpgradeCmd;
+    d->mariadbServerPath    = d->params.internalServerMariaDBServerCmd;
+    d->mariadbAdminPath     = d->params.internalServerMariaDBAdminCmd;
+    d->mariadbInitPath      = d->params.internalServerMariaDBInitCmd;
     d->dataDir              = dataDir;
     d->miscDir              = QDir(defaultAkDir).absoluteFilePath(QLatin1String("db_misc"));
     d->fileDataDir          = QDir(defaultAkDir).absoluteFilePath(QLatin1String("file_db_data"));
@@ -145,7 +145,7 @@ DatabaseServerError DatabaseServer::startDatabaseProcess()
 {
     DatabaseServerError error;
 
-    if (d->params.isMySQL())
+    if (d->params.isMariaDB())
     {
         error = startMariaDBDatabaseProcess();
     }
@@ -631,7 +631,7 @@ DatabaseServerError DatabaseServer::initMariaDBDatabase(bool useDatabase) const
     const QLatin1String initCon("initConnection");
 
     {
-        QSqlDatabase db = QSqlDatabase::addDatabase(DbEngineParameters::MySQLDatabaseType(), initCon);
+        QSqlDatabase db = QSqlDatabase::addDatabase(DbEngineParameters::MariaDBDatabaseType(), initCon);
 
 #ifdef Q_OS_WIN
 

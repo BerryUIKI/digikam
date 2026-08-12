@@ -53,10 +53,10 @@ public:
                        const QString& _databaseNameFace = QString(),
                        const QString& _databaseNameSimilarity = QString(),
                        const QString& _internalServerDBPath = QString(),
-                       const QString& _internalServerMysqlInitCmd = QString(),
-                       const QString& _internalServerMysqlAdminCmd = QString(),
-                       const QString& _internalServerMysqlServerCmd = QString(),
-                       const QString& _internalServerMysqlUpgradeCmd = QString());
+                       const QString& _internalServerMariaDBInitCmd = QString(),
+                       const QString& _internalServerMariaDBAdminCmd = QString(),
+                       const QString& _internalServerMariaDBServerCmd = QString(),
+                       const QString& _internalServerMariaDBUpgradeCmd = QString());
 
     DbEngineParameters() = default;;
 
@@ -77,7 +77,7 @@ public:
     bool    isValid()                                           const;
 
     bool    isSQLite()                                          const;
-    bool    isMySQL()                                           const;
+    bool    isMariaDB()                                         const;
     QString SQLiteDatabaseFile()                                const;
 
     /**
@@ -86,7 +86,7 @@ public:
      *  These strings are identical to the driver identifiers in the Qt SQL module.
      */
     static QString SQLiteDatabaseType();
-    static QString MySQLDatabaseType();
+    static QString MariaDBDatabaseType();
 
     /**
      * Creates a unique hash of the values stored in this object.
@@ -166,29 +166,29 @@ public:
 
     /**
      * Return the hidden path from home directory to store private
-     * data used by internal Mysql server.
+     * data used by internal MariaDB server.
      */
     static QString serverPrivatePath();
 
     /**
-     * Return the default Mysql initialization command name (Internal server only).
+     * Return the default MariaDB initialization command name (Internal server only).
      */
-    static QString defaultMysqlInitCmd();
+    static QString defaultMariaDBInitCmd();
 
     /**
-     * Return the default Mysql server administration name (Internal server only).
+     * Return the default MariaDB server administration name (Internal server only).
      */
-    static QString defaultMysqlAdminCmd();
+    static QString defaultMariaDBAdminCmd();
 
     /**
-     * Return the default Mysql server command name (Internal server only).
+     * Return the default MariaDB server command name (Internal server only).
      */
-    static QString defaultMysqlServerCmd();
+    static QString defaultMariaDBServerCmd();
 
     /**
-     * Return the default Mysql upgrade command name (Internal server only).
+     * Return the default MariaDB upgrade command name (Internal server only).
      */
-    static QString defaultMysqlUpgradeCmd();
+    static QString defaultMariaDBUpgradeCmd();
 
 public:
 
@@ -211,10 +211,10 @@ public:
      * Settings stored in config file and used only with internal server at runtime
      * to start server instance or init database tables.
      */
-    QString internalServerMysqlInitCmd;
-    QString internalServerMysqlAdminCmd;
-    QString internalServerMysqlServerCmd;
-    QString internalServerMysqlUpgradeCmd;
+    QString internalServerMariaDBInitCmd;
+    QString internalServerMariaDBAdminCmd;
+    QString internalServerMariaDBServerCmd;
+    QString internalServerMariaDBUpgradeCmd;
 };
 
 DIGIKAM_EXPORT QDebug operator<<(QDebug dbg, const DbEngineParameters& t);

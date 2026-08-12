@@ -356,14 +356,14 @@ public:
     /**
      * Calls exec on the query, and handles debug output if something went wrong.
      * The query is not prepared, which can be fail in certain situations
-     * (e.g. trigger statements on QMYSQL).
+     * (e.g. trigger statements on QtSQL for MariaDB).
      */
     QueryState execDirectSql(const QString& query);
 
     /**
      * Calls exec on the query, and handles debug output if something went wrong.
      * The query is not prepared, which can be fail in certain situations
-     * (e.g. trigger statements on QMYSQL).
+     * (e.g. trigger statements on QtSQL for MariaDB).
      */
     QueryState execDirectSqlWithResult(const QString& query,
                                        QList<QVariant>* const values = nullptr,
@@ -515,7 +515,7 @@ public:
     /**
      * Depending on the database backend return a local or UTC date format.
      * SQLite: local date format
-     * MySQL:  UTC date format
+     * MariaDB:  UTC date format
      */
     QDateTime asDBDateTime(const QDateTime& dateTime) const;
 
@@ -529,7 +529,7 @@ public:
             PreparedQueries
             PositionalPlaceholders
             SimpleLocking
-        MySQL:
+        MariaDB:
             Transactions (3.?)
             QuerySize
             BLOB

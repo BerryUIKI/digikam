@@ -115,7 +115,7 @@ void DatabaseMariaDBInitTest::testMariaDBInit()
         return;
     }
 
-    if (!QSqlDatabase::isDriverAvailable(DbEngineParameters::MySQLDatabaseType()))
+    if (!QSqlDatabase::isDriverAvailable(DbEngineParameters::MariaDBDatabaseType()))
     {
         qWarning() << QLatin1String("Qt MariaDB plugin is missing.");
         return;
@@ -124,7 +124,7 @@ void DatabaseMariaDBInitTest::testMariaDBInit()
     DbEngineParameters params;
     QString defaultAkDir                 = DbEngineParameters::serverPrivatePath();
     QString miscDir                      = QDir(defaultAkDir).absoluteFilePath(QLatin1String("db_misc"));
-    params.databaseType                  = DbEngineParameters::MySQLDatabaseType();
+    params.databaseType                  = DbEngineParameters::MariaDBDatabaseType();
     params.databaseNameCore              = QLatin1String("digikam");
     params.databaseNameThumbnails        = QLatin1String("digikam");
     params.databaseNameFace              = QLatin1String("digikam");
@@ -133,10 +133,10 @@ void DatabaseMariaDBInitTest::testMariaDBInit()
     params.password                      = QString();
     params.internalServer                = true;
     params.internalServerDBPath          = m_tempDir.path();
-    params.internalServerMysqlUpgradeCmd = mariadbUpgradeBin.path();
-    params.internalServerMysqlServerCmd  = mariadbServerBin.path();
-    params.internalServerMysqlAdminCmd   = mariadbAdminBin.path();
-    params.internalServerMysqlInitCmd    = mariadbInitBin.path();
+    params.internalServerMariaDBUpgradeCmd = mariadbUpgradeBin.path();
+    params.internalServerMariaDBServerCmd  = mariadbServerBin.path();
+    params.internalServerMariaDBAdminCmd   = mariadbAdminBin.path();
+    params.internalServerMariaDBInitCmd    = mariadbInitBin.path();
     params.hostName                      = QString();
     params.port                          = -1;
     params.connectOptions                = QString::fromLatin1("UNIX_SOCKET=%1/mysql.socket").arg(miscDir);

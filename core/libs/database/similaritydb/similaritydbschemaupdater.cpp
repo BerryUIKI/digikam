@@ -124,7 +124,7 @@ bool SimilarityDbSchemaUpdater::startUpdates()
             version = d->dbAccess->db()->getSetting(QLatin1String("DBVersion"));
         }
 
-        if (version.isEmpty() && d->dbAccess->parameters().isMySQL())
+        if (version.isEmpty() && d->dbAccess->parameters().isMariaDB())
         {
             version         = d->dbAccess->db()->getLegacySetting(QLatin1String("DBSimilarityVersion"));
             versionRequired = d->dbAccess->db()->getLegacySetting(QLatin1String("DBSimilarityVersionRequired"));

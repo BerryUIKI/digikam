@@ -112,16 +112,16 @@ bool AlbumManager::setDatabase(const DbEngineParameters& params, bool priority, 
         }
         else if (
                  (
-                  !QFileInfo::exists(params.internalServerMysqlUpgradeCmd)                        &&
-                  QStandardPaths::findExecutable(params.internalServerMysqlUpgradeCmd).isEmpty()
+                  !QFileInfo::exists(params.internalServerMariaDBUpgradeCmd)                        &&
+                  QStandardPaths::findExecutable(params.internalServerMariaDBUpgradeCmd).isEmpty()
                  ) ||
                  (
-                  !QFileInfo::exists(params.internalServerMysqlServerCmd)                         &&
-                  QStandardPaths::findExecutable(params.internalServerMysqlServerCmd).isEmpty()
+                  !QFileInfo::exists(params.internalServerMariaDBServerCmd)                         &&
+                  QStandardPaths::findExecutable(params.internalServerMariaDBServerCmd).isEmpty()
                  ) ||
                  (
-                 !QFileInfo::exists(params.internalServerMysqlAdminCmd)                           &&
-                  QStandardPaths::findExecutable(params.internalServerMysqlAdminCmd).isEmpty()
+                 !QFileInfo::exists(params.internalServerMariaDBAdminCmd)                           &&
+                  QStandardPaths::findExecutable(params.internalServerMariaDBAdminCmd).isEmpty()
                  )
                 )
         {

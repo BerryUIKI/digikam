@@ -93,7 +93,7 @@ private Q_SLOTS:
     void slotDatabasePathEditedDelayed();
     void slotDatabasePathEdited();
 
-// --- Mysql ----------------------------------------------
+// --- MariaDB---------------------------------------------
 
 private:
 

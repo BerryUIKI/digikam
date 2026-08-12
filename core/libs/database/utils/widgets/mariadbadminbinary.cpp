@@ -26,7 +26,7 @@ namespace Digikam
 {
 
 MariaDBAdminBinary::MariaDBAdminBinary()
-    : DBinaryIface(DbEngineParameters::defaultMysqlAdminCmd(),
+    : DBinaryIface(DbEngineParameters::defaultMariaDBAdminCmd(),
                    QLatin1String("MariaDB"),
                    QLatin1String("https://mariadb.org/download/"),
                    QString(),

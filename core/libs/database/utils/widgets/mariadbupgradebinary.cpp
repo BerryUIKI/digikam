@@ -26,7 +26,7 @@ namespace Digikam
 {
 
 MariaDBUpgradeBinary::MariaDBUpgradeBinary()
-    : DBinaryIface(DbEngineParameters::defaultMysqlUpgradeCmd(),
+    : DBinaryIface(DbEngineParameters::defaultMariaDBUpgradeCmd(),
                    QLatin1String("MariaDB"),
                    QLatin1String("https://mariadb.org/download/"),
                    QString(),

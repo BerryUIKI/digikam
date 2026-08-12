@@ -60,7 +60,7 @@ bool DbEngineAccess::checkReadyForUse(QString& error)
 
     // Checking for QMYSQL driver
 
-    else if (internalServerParameters.MySQLDatabaseType() == QLatin1String("QMYSQL"))
+    else if (internalServerParameters.MariaDBDatabaseType() == QLatin1String("QMYSQL"))
     {
         if (!drivers.contains(QLatin1String("QMYSQL")))
         {

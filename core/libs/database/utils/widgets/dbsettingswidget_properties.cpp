@@ -45,7 +45,7 @@ QString DatabaseSettingsWidget::databaseBackend() const
         case MariaDBInternal:
         case MariaDBServer:
         {
-            return DbEngineParameters::MySQLDatabaseType();
+            return DbEngineParameters::MariaDBDatabaseType();
         }
 
         default: // SQlite
@@ -159,14 +159,14 @@ void DatabaseSettingsWidget::setParametersFromSettings(const ApplicationSettings
 
 #   ifdef HAVE_INTERNALMARIADB
 
-    else if ((d->orgPrms.databaseType == DbEngineParameters::MySQLDatabaseType()) && d->orgPrms.internalServer)
+    else if ((d->orgPrms.databaseType == DbEngineParameters::MariaDBDatabaseType()) && d->orgPrms.internalServer)
     {
         d->dbPathEdit->setFileDlgPath(d->orgPrms.internalServerPath());
         d->dbType->setCurrentIndex(d->dbTypeMap[MariaDBInternal]);
-        d->mariadbUpgradeBin.setup(QFileInfo(d->orgPrms.internalServerMysqlUpgradeCmd).absolutePath());
-        d->mariadbServerBin.setup(QFileInfo(d->orgPrms.internalServerMysqlServerCmd).absolutePath());
-        d->mariadbAdminBin.setup(QFileInfo(d->orgPrms.internalServerMysqlAdminCmd).absolutePath());
-        d->mariadbInitBin.setup(QFileInfo(d->orgPrms.internalServerMysqlInitCmd).absolutePath());
+        d->mariadbUpgradeBin.setup(QFileInfo(d->orgPrms.internalServerMariaDBUpgradeCmd).absolutePath());
+        d->mariadbServerBin.setup(QFileInfo(d->orgPrms.internalServerMariaDBServerCmd).absolutePath());
+        d->mariadbAdminBin.setup(QFileInfo(d->orgPrms.internalServerMariaDBAdminCmd).absolutePath());
+        d->mariadbInitBin.setup(QFileInfo(d->orgPrms.internalServerMariaDBInitCmd).absolutePath());
         d->dbBinariesWidget->allBinariesFound();
         d->walModeCheck->setChecked(false);
         slotResetMariaDBServerDBNames();
@@ -211,10 +211,10 @@ DbEngineParameters DatabaseSettingsWidget::getDbEngineParameters() const
         {
             prm = DbEngineParameters::defaultParameters(databaseBackend());
             prm.setInternalServerPath(databasePath());
-            prm.internalServerMysqlUpgradeCmd = d->mariadbUpgradeBin.path();
-            prm.internalServerMysqlServerCmd  = d->mariadbServerBin.path();
-            prm.internalServerMysqlAdminCmd   = d->mariadbAdminBin.path();
-            prm.internalServerMysqlInitCmd    = d->mariadbInitBin.path();
+            prm.internalServerMariaDBUpgradeCmd = d->mariadbUpgradeBin.path();
+            prm.internalServerMariaDBServerCmd  = d->mariadbServerBin.path();
+            prm.internalServerMariaDBAdminCmd   = d->mariadbAdminBin.path();
+            prm.internalServerMariaDBInitCmd    = d->mariadbInitBin.path();
             break;
         }
 

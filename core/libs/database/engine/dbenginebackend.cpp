@@ -284,7 +284,7 @@ bool BdEngineBackendPrivate::isInUIThread() const
 
 bool BdEngineBackendPrivate::reconnectOnError() const
 {
-    return parameters.isMySQL();
+    return parameters.isMariaDB();
 }
 
 bool BdEngineBackendPrivate::isSQLiteLockError(const QSqlQuery& query) const
@@ -2026,7 +2026,7 @@ void BdEngineBackend::setForeignKeyChecks(bool check)
     // cppcheck-suppress constVariablePointer
     Q_D(BdEngineBackend);
 
-    if (d->parameters.isMySQL())
+    if (d->parameters.isMariaDB())
     {
         if (check)
         {
@@ -2043,7 +2043,7 @@ QDateTime BdEngineBackend::asDBDateTime(const QDateTime& dateTime) const
 {
     Q_D(const BdEngineBackend);
 
-    if (d->parameters.isMySQL())
+    if (d->parameters.isMariaDB())
     {
         return asDateTimeUTC(dateTime);
     }
