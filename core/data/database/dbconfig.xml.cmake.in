@@ -1048,8 +1048,8 @@
             </dbaction>
 
             <!--
-              statements for shrinking the databases. We need actions for each database since MySQL has only vacuum
-              and integtrity check for tables. Thus, MySQL needs at least one action per table.
+              statements for shrinking the databases. We need actions for each database since MariaDB has only vacuum
+              and integtrity check for tables. Thus, MariaDB needs at least one action per table.
               Vacuum (SQLite) creates a temporary database that replaces the current one on successful vacuuming.
             -->
 
@@ -1092,14 +1092,14 @@
 
 
     <!-- =============================================================================================================== -->
-    <!-- ========================================== MYSQL DATABASE STATEMENTS ========================================== -->
+    <!-- ========================================= MARIADB DATABASE STATEMENTS ========================================= -->
     <!-- =============================================================================================================== -->
 
 
 
     <database name="QMYSQL">
 
-        <!-- NOTE: default settings for Mysql Internal server -->
+        <!-- NOTE: default settings for MariaDB Internal server -->
         <hostName>$$DBHOSTNAME$$</hostName>
         <databaseName>digikam</databaseName>
         <userName>root</userName>
@@ -1109,7 +1109,7 @@
 
         <dbactions>
 
-            <!-- Mysql check privileges rules -->
+            <!-- MariaDB check privileges rules -->
 
             <dbaction name="CheckPriv_CREATE_TRIGGER">
             </dbaction>
@@ -1143,7 +1143,7 @@
                 </statement>
             </dbaction>
 
-            <!-- Mysql Core Schema Database -->
+            <!-- MariaDB Core Schema Database -->
 
             <dbaction name="CreateDB" mode="transaction">
                 <statement mode="plain">CREATE TABLE IF NOT EXISTS AlbumRoots
@@ -1360,7 +1360,7 @@
                 </statement>
             </dbaction>
 
-            <!-- Mysql Core Indexes -->
+            <!-- MariaDB Core Indexes -->
 
             <dbaction name="CreateIndices" mode="transaction">
                 <statement mode="plain">
@@ -1413,7 +1413,7 @@
                 <statement mode="plain">CALL create_index_if_not_exists('TagsTree','tagstree_pid_index','pid');</statement>
             </dbaction>
 
-            <!-- Mysql Core Triggers -->
+            <!-- MariaDB Core Triggers -->
 
             <dbaction name="CreateTriggers" mode="transaction">
                 <statement mode="plain">SET @OLD_SQL_MODE=@@SQL_MODE, SQL_MODE='NO_AUTO_VALUE_ON_ZERO';</statement>
@@ -1575,7 +1575,7 @@
                 <statement mode="query">SELECT @@character_set_database;</statement>
             </dbaction>
 
-            <!-- Mysql Thumbnails Schema Database -->
+            <!-- MariaDB Thumbnails Schema Database -->
 
             <dbaction name="CreateThumbnailsDB" mode="transaction">
                 <statement mode="plain">CREATE TABLE IF NOT EXISTS Thumbnails
@@ -1616,7 +1616,7 @@
                 </statement>
             </dbaction>
 
-            <!-- Mysql Thumbnails Indexes -->
+            <!-- MariaDB Thumbnails Indexes -->
 
             <dbaction name="CreateThumbnailsDBIndices" mode="transaction">
                 <statement mode="plain">
@@ -1655,11 +1655,11 @@
                 <statement mode="plain">CALL create_index_if_not_exists('CustomIdentifiers','id_customIdentifiers','thumbId');</statement>
             </dbaction>
 
-            <!-- Mysql Thumbnails Trigger -->
+            <!-- MariaDB Thumbnails Trigger -->
 
             <dbaction name="CreateThumbnailsDBTrigger" mode="transaction"></dbaction>
 
-            <!-- Mysql Thumbnails Queries -->
+            <!-- MAriaDB Thumbnails Queries -->
 
             <dbaction name="SelectThumbnailSetting">
                 <statement mode="query">SELECT value FROM ThumbSettings WHERE keyword=:keyword;</statement>
@@ -1673,7 +1673,7 @@
                 <statement mode="query">REPLACE INTO ThumbSettings VALUES (:keyword, :value);</statement>
             </dbaction>
 
-            <!-- Mysql Face Schema Database -->
+            <!-- MariaDB Face Schema Database -->
             <!--
                 The face database file contains the tables listed below:
                 Identities:         contains a list of identities with type.
@@ -1730,7 +1730,7 @@
                 </statement>
             </dbaction>
 
-            <!-- Mysql face Indexes -->
+            <!-- MariaDB face Indexes -->
 
             <dbaction name="CreateFaceIndices" mode="transaction">
                 <statement mode="plain">
@@ -1768,12 +1768,12 @@
                 <statement mode="plain">CALL create_index_if_not_exists('FaceMatrices','idx_FaceMatricesHash','removeHash');</statement>
             </dbaction>
 
-            <!-- Mysql Face Triggers -->
+            <!-- MariaDB Face Triggers -->
 
             <dbaction name="CreateFaceTriggers" mode="transaction">
             </dbaction>
 
-            <!-- Mysql Face Queries -->
+            <!-- MariaDB Face Queries -->
 
             <dbaction name="SelectFaceSetting">
                 <statement mode="query">SELECT value FROM FaceSettings WHERE keyword=:keyword;</statement>
@@ -1784,7 +1784,7 @@
             </dbaction>
 
 
-            <!-- Mysql Similarity Schema Database -->
+            <!-- MariaDB Similarity Schema Database -->
 
             <dbaction name="CreateSimilarityDB" mode="transaction">
                 <statement mode="plain">CREATE TABLE IF NOT EXISTS ImageSimilarity
@@ -1810,11 +1810,11 @@
                 </statement>
             </dbaction>
 
-            <!-- Mysql Similarity Indexes -->
+            <!-- MariaDB Similarity Indexes -->
             <dbaction name="CreateSimilarityDBIndices" mode="transaction">
             </dbaction>
 
-            <!-- Mysql Similarity Triggers -->
+            <!-- MariaDB Similarity Triggers -->
             <dbaction name="CreateSimilarityDBTriggers" mode="transaction">
                     <!--
                 <statement mode="plain">
@@ -1836,7 +1836,7 @@
                     -->
             </dbaction>
 
-            <!-- Mysql Similarity Queries -->
+            <!-- MariaDB Similarity Queries -->
 
             <dbaction name="SelectSimilaritySetting">
                 <statement mode="query">SELECT value FROM SimilaritySettings WHERE keyword=:keyword;</statement>
@@ -1850,7 +1850,7 @@
                 <statement mode="query">REPLACE INTO SimilaritySettings VALUES (:keyword, :value);</statement>
             </dbaction>
 
-            <!-- Mysql Migration Statements -->
+            <!-- MariaDB Migration Statements -->
 
             <!-- NOTE: Migrate_Cleanup_DB now it's done by the program except for cleanup prepare -->
             <dbaction name="Migrate_Cleanup_Prepare" mode="transaction">
@@ -2105,7 +2105,7 @@
                 </statement>
             </dbaction>
 
-            <!-- Mysql Migration from Database Version 5 (0.10 - 1.4) to Version 6 (1.5-) -->
+            <!-- MariaDB Migration from Database Version 5 (0.10 - 1.4) to Version 6 (1.5-) -->
 
             <dbaction name="UpdateSchemaFromV5ToV6" mode="transaction">
                 <statement mode="plain">CREATE TABLE IF NOT EXISTS ImageHistory
