@@ -40,7 +40,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-11 00:42+0000\n"
+"POT-Creation-Date: 2026-08-13 00:43+0000\n"
 "PO-Revision-Date: 2026-07-29 09:32+0200\n"
 "Last-Translator: Benedek Péter <benedekppeter@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -2790,10 +2790,14 @@ msgid "Start digikam with the configuration file \"config\""
 msgstr "A digiKam indítása a \"config\" konfigurációs fájl használatával"
 
 #: core/app/main/main.cpp:303
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Run-time Qt SQLite or MySQL database plugin is not available. please "
+#| "install it.\n"
+#| "There is no database plugin installed on your computer."
 msgid ""
-"Run-time Qt SQLite or MySQL database plugin is not available. please install "
-"it.\n"
+"Run-time Qt SQLite or MariaDB database plugin is not available. please "
+"install it.\n"
 "There is no database plugin installed on your computer."
 msgstr ""
 "A futásidejű Qt SQLite vagy MySQL adatbázis bővítmény nem elérhető. Kérjük, "
@@ -2801,9 +2805,13 @@ msgstr ""
 "Nincs adatbázis bővítmény telepítve a számítógépén."
 
 #: core/app/main/main.cpp:312
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Run-time Qt SQLite or MySQL database plugin are not available. Please "
+#| "install it.\n"
+#| "Database plugins installed on your computer are listed below."
 msgid ""
-"Run-time Qt SQLite or MySQL database plugin are not available. Please "
+"Run-time Qt SQLite or MariaDB database plugin are not available. Please "
 "install it.\n"
 "Database plugins installed on your computer are listed below."
 msgstr ""
@@ -27241,13 +27249,15 @@ msgid "Searches"
 msgstr "Keresések"
 
 #: core/libs/album/manager/albummanager_database.cpp:111
-#, kde-format
-msgid "The MySQL database directory was not found."
+#, fuzzy, kde-format
+#| msgid "The MySQL database directory was not found."
+msgid "The MariaDB database directory was not found."
 msgstr "A MySQL adatbázis könyvtár nem található."
 
 #: core/libs/album/manager/albummanager_database.cpp:128
-#, kde-format
-msgid "The MySQL binary tools was not found."
+#, fuzzy, kde-format
+#| msgid "The MySQL binary tools was not found."
+msgid "The MariaDB binary tools was not found."
 msgstr "A MySQL bináris eszközök nem találhatók."
 
 #: core/libs/album/manager/albummanager_database.cpp:135
@@ -28725,9 +28735,12 @@ msgstr ""
 "A digiKam a Qt::SQL modul által biztosított illesztőprogramoktól függ."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The driver \"MYSQL\" for MySQL databases is not available.\n"
+#| "digiKam depends on the drivers provided by the Qt::SQL module."
 msgid ""
-"The driver \"MYSQL\" for MySQL databases is not available.\n"
+"The driver \"MYSQL\" for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
 "A MySQL adatbázisokhoz szükséges \"MySQL\" illesztőprogram nem érhető el.\n"
@@ -28897,28 +28910,32 @@ msgid "Database type is not supported."
 msgstr "Az adatbázis típusa nem támogatott."
 
 #: core/libs/database/server/databaseserver.cpp:296
-#, kde-format
-msgid "No path to mysql upgrade command set in configuration file."
+#, fuzzy, kde-format
+#| msgid "No path to mysql upgrade command set in configuration file."
+msgid "No path to MariaDB upgrade command set in configuration file."
 msgstr ""
 "A konfigurációs fájlban nincs megadva elérési út a mysql upgrade parancshoz."
 
 #: core/libs/database/server/databaseserver.cpp:305
-#, kde-format
-msgid "No path to mysql server command set in configuration file."
+#, fuzzy, kde-format
+#| msgid "No path to mysql server command set in configuration file."
+msgid "No path to MariaDB server command set in configuration file."
 msgstr ""
 "A konfigurációs fájlban nincs beállítva elérési út a mysql szerver "
 "parancshoz."
 
 #: core/libs/database/server/databaseserver.cpp:314
-#, kde-format
-msgid "No path to mysql administration command set in configuration file."
+#, fuzzy, kde-format
+#| msgid "No path to mysql administration command set in configuration file."
+msgid "No path to MariaDB administration command set in configuration file."
 msgstr ""
 "A konfigurációs fájlban nincs megadva elérési út a mysql adminisztrációs "
 "parancshoz."
 
 #: core/libs/database/server/databaseserver.cpp:323
-#, kde-format
-msgid "No path to mysql initialization command set in configuration file."
+#, fuzzy, kde-format
+#| msgid "No path to mysql initialization command set in configuration file."
+msgid "No path to MariaDB initialization command set in configuration file."
 msgstr ""
 "A konfigurációs fájlban nincs megadva elérési út a mysql inicializálási "
 "parancshoz."
@@ -28931,9 +28948,13 @@ msgid "Cannot create directory %1"
 msgstr "Nem lehet létrehozni a(z) %1 mappát"
 
 #: core/libs/database/server/databaseserver.cpp:436
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Unable to create MySQL server configuration file.<p>This means that "
+#| "either the default configuration file</p><p>%1</p><p>was not readable or "
+#| "the target file</p><p>%2</p><p>could not be written.</p>"
 msgid ""
-"Unable to create MySQL server configuration file.<p>This means that either "
+"Unable to create MariaDB server configuration file.<p>This means that either "
 "the default configuration file</p><p>%1</p><p>was not readable or the target "
 "file</p><p>%2</p><p>could not be written.</p>"
 msgstr ""
@@ -28942,15 +28963,17 @@ msgstr ""
 "volt olvasható, vagy a célfájl</p><p>%2</p><p>nem írható.</p>"
 
 #: core/libs/database/server/databaseserver.cpp:458
-#, kde-format
-msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+#, fuzzy, kde-format
+#| msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+msgid "Cannot find MariaDB server default configuration (mysql-global.conf)."
 msgstr ""
 "Nem található a MySQL szerver alapértelmezett konfigurációja (mysql-global."
 "conf)."
 
 #: core/libs/database/server/databaseserver.cpp:505
-#, kde-format
-msgid "The internal MySQL database is initializing, please wait..."
+#, fuzzy, kde-format
+#| msgid "The internal MySQL database is initializing, please wait..."
+msgid "The internal MariaDB database is initializing, please wait..."
 msgstr "A belső MySQL adatbázis inicializálása folyamatban, kérjük várjon..."
 
 #: core/libs/database/server/databaseserver.cpp:553
@@ -28989,8 +29012,9 @@ msgstr ""
 "%2</p>"
 
 #: core/libs/database/server/databaseserver.cpp:751
-#, kde-format
-msgid "A MySQL database upgrade is in progress, please wait..."
+#, fuzzy, kde-format
+#| msgid "A MySQL database upgrade is in progress, please wait..."
+msgid "A MariaDB database upgrade is in progress, please wait..."
 msgstr "MySQL adatbázis frissítés zajlik, kérjük várjon..."
 
 #: core/libs/database/server/databaseserver.cpp:795
@@ -29298,21 +29322,28 @@ msgid "SQLite"
 msgstr "SQLite"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:62
-#, kde-format
-msgid "Mysql Internal"
+#, fuzzy, kde-format
+#| msgid "Mysql Internal"
+msgid "MariaDB Internal"
 msgstr "MySQL belső"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:67
-#, kde-format
-msgid "MySQL Server"
-msgstr "MySQL szerver"
+#, fuzzy, kde-format
+#| msgid "%1 Media Server"
+msgid "MariaDB Server"
+msgstr "%1 médiaszerver"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:72
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend "
+#| "is for local database storage with a small or medium collection sizes. It "
+#| "is the default and recommended backend for collections with less than "
+#| "100K items.</p>"
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small or medium collection sizes. It is "
-"the default and recommended backend for collections with less than 100K "
+"the default and recommended backend for collections with less than 500K "
 "items.</p>"
 msgstr ""
 "<p>Válassza ki az adatbázis alrendszer típusát.</p><p><b>SQlite</b> "
@@ -29321,22 +29352,30 @@ msgstr ""
 "kevesebb elemet tartalmazó gyűjteményekhez.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p><b>MySQL Internal</b> backend is for local database storage with huge "
+#| "collection sizes. This backend is recommend for local collections with "
+#| "more than 100K items.</p>"
 msgid ""
-"<p><b>MySQL Internal</b> backend is for local database storage with huge "
+"<p><b>MariaDB Internal</b> backend is for local database storage with huge "
 "collection sizes. This backend is recommend for local collections with more "
-"than 100K items.</p>"
+"than 500K items.</p>"
 msgstr ""
 "<p><b>MySQL belső</b> alrendszer helyi adatbázis tárolására szolgál, nagy "
 "méretű gyűjtemény esetén. Ez a tároló a százezernél több elemet tartalmazó "
 "helyi gyűjteményekhez ajánlott.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:86
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p><b>MySQL Server</b> backend is a more robust solution especially for "
+#| "remote and shared database storage. It is also more efficient to manage "
+#| "huge collection sizes with more than 100K items.</p>"
 msgid ""
-"<p><b>MySQL Server</b> backend is a more robust solution especially for "
+"<p><b>MariaDB Server</b> backend is a more robust solution especially for "
 "remote and shared database storage. It is also more efficient to manage huge "
-"collection sizes with more than 100K items.</p>"
+"collection sizes with more than 500K items.</p>"
 msgstr ""
 "<p><b>MySQL szerver</b> alrendszer egy robusztus megoldás, különösen távoli "
 "és megosztott adatbázis-tárolás esetén. Hatékony a több százezer elemet "
@@ -29422,9 +29461,13 @@ msgstr ""
 "kéréseket atomivá és robusztussá kiterjedt és kritikus használat esetén."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:169
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Here you can configure locations where MySQL binary tools are located. "
+#| "digiKam will try to find these binaries automatically if they are already "
+#| "installed on your computer.</p>"
 msgid ""
-"<p>Here you can configure locations where MySQL binary tools are located. "
+"<p>Here you can configure locations where MariaDB binary tools are located. "
 "digiKam will try to find these binaries automatically if they are already "
 "installed on your computer.</p>"
 msgstr ""
@@ -29433,10 +29476,12 @@ msgstr ""
 "telepítve vannak a számítógépen.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:178
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title: group"
+#| msgid "Panorama Binaries"
 msgctxt "@title:group"
-msgid "MySQL Binaries"
-msgstr "MySQL binárisok"
+msgid "MariaDB Binaries"
+msgstr "Panoráma binárisok"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:221
 #, kde-format
@@ -29474,9 +29519,12 @@ msgid "Set the database connection options"
 msgstr "Adja meg az adatbázis-kapcsolat beállításait"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:234
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the MySQL server connection options.\n"
+#| "For advanced users only."
 msgid ""
-"Set the MySQL server connection options.\n"
+"Set the MariaDB server connection options.\n"
 "For advanced users only."
 msgstr ""
 "Adja meg a MySQL szerver csatlakozási beállításait.\n"
@@ -29493,12 +29541,17 @@ msgid "Set the database account name"
 msgstr "Állítsa be az adatbázis-fiók nevét"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:240
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the MySQL server account name used\n"
+#| "by digiKam to be connected to the server.\n"
+#| "This account must be available on the remote\n"
+#| "MySQL server when database have been created."
 msgid ""
-"Set the MySQL server account name used\n"
+"Set the MariaDB server account name used\n"
 "by digiKam to be connected to the server.\n"
 "This account must be available on the remote\n"
-"MySQL server when database have been created."
+"MariaDB server when database have been created."
 msgstr ""
 "Állítsa be a digiKam által használt MySQL szerver fiók nevét\n"
 "a szerverhez történő csatlakozáshoz.\n"
@@ -29506,9 +29559,13 @@ msgstr ""
 "MySQL szerveren, miután az adatbázis létrejött."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:247
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the MySQL server account password used\n"
+#| "by digiKam to be connected to the server.\n"
+#| "You can left this field empty to use an account set without password."
 msgid ""
-"Set the MySQL server account password used\n"
+"Set the MariaDB server account password used\n"
 "by digiKam to be connected to the server.\n"
 "You can left this field empty to use an account set without password."
 msgstr ""
@@ -29522,10 +29579,13 @@ msgid "Host Port:"
 msgstr "Gazdagép portja:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:255
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the host computer port.\n"
+#| "Usually, MySQL server use port number 3306 by default"
 msgid ""
 "Set the host computer port.\n"
-"Usually, MySQL server use port number 3306 by default"
+"Usually, MariaDB server use port number 3306 by default"
 msgstr ""
 "Állítsa be a gazdagép portját.\n"
 "A MySQL szerver alapértelmezés szerint általában a 3306-os portszámot "
@@ -29537,9 +29597,12 @@ msgid "Check Connection"
 msgstr "Kapcsolat ellenőrzése"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:261
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Run a basic database connection to see if current MySQL server settings "
+#| "is suitable."
 msgid ""
-"Run a basic database connection to see if current MySQL server settings is "
+"Run a basic database connection to see if current MariaDB server settings is "
 "suitable."
 msgstr ""
 "Futtasson egy alap adatbázis kapcsolatot az aktuális MySQL szerver "
@@ -29565,7 +29628,7 @@ msgstr ""
 "az albumok, elemek és keresési metaadatok tárolására szolgál."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:275
-#: core/libs/database/utils/widgets/dbsettingswidget.cpp:513
+#: core/libs/database/utils/widgets/dbsettingswidget.cpp:512
 #, kde-format
 msgid "Thumbs Db Name:"
 msgstr "Miniatűr Db név:"
@@ -29668,17 +29731,29 @@ msgstr ""
 "i></b> a helyesre cserélte).</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:341
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Note: with a Linux server, a database can be initialized following the "
+#| "commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql "
+#| "-u root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init "
+#| "digiKam databases with grant privileges (see behind)</p><p>...</"
+#| "p><p>quit</p><p>NOTE: If you have problems with a MySQL server on Ubuntu "
+#| "based Linux system, use the addition command in the mysql prompt to be "
+#| "able to create MySQL triggers.<br>SET GLOBAL "
+#| "log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
+#| "collection, you should start MySQL server with mysql --"
+#| "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
 msgid ""
 "<p>Note: with a Linux server, a database can be initialized following the "
-"commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql -u "
-"root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init digiKam "
-"databases with grant privileges (see behind)</p><p>...</p><p>quit</"
-"p><p>NOTE: If you have problems with a MySQL server on Ubuntu based Linux "
-"system, use the addition command in the mysql prompt to be able to create "
-"MySQL triggers.<br>SET GLOBAL log_bin_trust_function_creators=1;</p><p>NOTE: "
-"If you have an enormous collection, you should start MySQL server with mysql "
-"--max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
+"commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
+"mariadb -u root</p><p>...</p><p>Enter SQL code to MariaDB prompt in order to "
+"init digiKam databases with grant privileges (see behind)</p><p>...</"
+"p><p>quit</p><p>NOTE: If you have problems with a MariaDB server on Ubuntu "
+"based Linux system, use the addition command in the mysql prompt to be able "
+"to create MariaDB triggers.<br>SET GLOBAL log_bin_trust_function_creators=1;"
+"</p><p>NOTE: If you have an enormous collection, you should start MariaDB "
+"server with mysql --max_allowed_packet=128M OR in my.ini or ~/.my.cnf, "
+"change the settings</p>"
 msgstr ""
 "<p>Megjegyzés: Linux szerver esetén az adatbázis az alábbi parancsokkal "
 "inicializálható:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql -"
@@ -29703,15 +29778,32 @@ msgid "Database Server Technical Details"
 msgstr "Adatbázis szerver technikai részletei"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:371
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Use this configuration view to set all information to be connected to "
+#| "a remote <a href=\"https://en.wikipedia.org/wiki/MySQL\">Mysql database "
+#| "server</a> (or <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</"
+#| "a>) through a network. As with Sqlite or MySQL internal server, 3 "
+#| "databases will be stored on the remote server: one for all collections "
+#| "properties, one to store compressed thumbnails, and one to store faces "
+#| "recognition metadata.</p><p>Unlike Sqlite or MySQL internal server, you "
+#| "can customize the database names to simplify your backups.</"
+#| "p><p>Databases are digiKam core engines. To prevent performance issues, "
+#| "take a care to use a fast network link between the client and the server "
+#| "computers. It is also recommended to host database files on fast hardware "
+#| "(as <a href=\"https://en.wikipedia.org/wiki/Solid-state_drive\">SSD</a>) "
+#| "with enough free space, especially for thumbnails database, even if data "
+#| "are compressed using wavelets image format <a href=\"https://en.wikipedia."
+#| "org/wiki/Progressive_Graphics_File\">PGF</a>.</p><p>The databases must be "
+#| "created previously on the remote server by the administrator. Look in "
+#| "<b>Requirements</b> tab for details.</p>"
 msgid ""
 "<p>Use this configuration view to set all information to be connected to a "
-"remote <a href=\"https://en.wikipedia.org/wiki/MySQL\">Mysql database "
-"server</a> (or <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</"
-"a>) through a network. As with Sqlite or MySQL internal server, 3 databases "
-"will be stored on the remote server: one for all collections properties, one "
-"to store compressed thumbnails, and one to store faces recognition metadata."
-"</p><p>Unlike Sqlite or MySQL internal server, you can customize the "
+"remote <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</a> through "
+"a network. As with Sqlite or MariaDB internal server, 3 databases will be "
+"stored on the remote server: one for all collections properties, one to "
+"store compressed thumbnails, and one to store faces recognition metadata.</"
+"p><p>Unlike Sqlite or MariaDB internal server, you can customize the "
 "database names to simplify your backups.</p><p>Databases are digiKam core "
 "engines. To prevent performance issues, take a care to use a fast network "
 "link between the client and the server computers. It is also recommended to "
@@ -29742,19 +29834,19 @@ msgstr ""
 "adatbázisokat a rendszergazdának előzetesen létre kell hoznia a távoli "
 "szerveren. Részletekért lásd a <b>Követelmények</b> fület.</p>"
 
-#: core/libs/database/utils/widgets/dbsettingswidget.cpp:397
+#: core/libs/database/utils/widgets/dbsettingswidget.cpp:396
 #, kde-format
 msgid "Documentation"
 msgstr "Dokumentáció"
 
-#: core/libs/database/utils/widgets/dbsettingswidget.cpp:509
+#: core/libs/database/utils/widgets/dbsettingswidget.cpp:508
 #, kde-format
 msgid "Thumbs Db Folder:"
 msgstr "Miniatűrök Db mappa:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:35
 #: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:40
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:302
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:301
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Connection Test"
@@ -29800,7 +29892,7 @@ msgstr "Az arc adatbázis neve üres"
 msgid "The similarity database name is empty"
 msgstr "A hasonlósági adatbázis neve üres"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:154
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:153
 #, kde-format
 msgid ""
 "<p>This path was set as a command lineoption (--database-directory).</p>"
@@ -29808,13 +29900,13 @@ msgstr ""
 "<p>Ez az útvonal parancssori opcióként lett beállítva (--database-directory)."
 "</p>"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:293
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:292
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Configuration"
 msgstr "Adatbázis konfiguráció"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:294
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:293
 #, kde-format
 msgid ""
 "The database names configuration is not valid. Error is <br><p>%1</"
@@ -29823,7 +29915,7 @@ msgstr ""
 "Az adatbázisnevek konfigurációja érvénytelen. A hiba a következő: <br><p>%1</"
 "p><br>Kérjük, ellenőrizze a konfigurációt."
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:303
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:302
 #, kde-format
 msgid ""
 "Testing database connection has failed with error<br><p>%1</p><br>Please "
@@ -29832,7 +29924,7 @@ msgstr ""
 "Adatbázis-kapcsolat tesztelése sikertelen. Hiba:<br><p>%1</p><br>Kérjük, "
 "ellenőrizze a konfigurációját."
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:322
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:321
 #, kde-format
 msgid ""
 "You must select a folder for digiKam to store information and metadata in a "
@@ -29841,13 +29933,13 @@ msgstr ""
 "Ki kell választania egy mappát a digiKam számára, ahol az alkalmazás az "
 "információkat és a metaadatokat egy adatbázisfájlban tárolja."
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:331
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:330
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Database Folder?"
 msgstr "Adatbázis mappa létrehozása?"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:332
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:331
 #, kde-format
 msgid ""
 "<p>The folder to put your database in does not seem to exist:</p><p><b>%1</"
@@ -29856,13 +29948,13 @@ msgstr ""
 "<p>A mappa, ahová az adatbázisát helyezné, úgy tűnik, nem létezik:</p><p><b>"
 "%1</b></p>Szeretné, ha a digiKam létrehozná?"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:343
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:342
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Database Folder Failed"
 msgstr "Adatbázis mappa létrehozása sikertelen"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:344
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:343
 #, kde-format
 msgid ""
 "<p>digiKam could not create the folder to host your database file.<br>Please "
@@ -29871,13 +29963,13 @@ msgstr ""
 "<p>A digiKam nem tudta létrehozni az adatbázisfájl tárolására szolgáló "
 "mappát. <br>Kérjük, válasszon egy másik helyet!</p><p><b>%1</b></p>"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:369
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:368
 #, kde-format
 msgctxt "@title:window"
 msgid "No Database Write Access"
 msgstr "Az adatbázishoz nincs írási jog"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:370
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:369
 #, kde-format
 msgid ""
 "<p>You do not seem to have write access for the folder to host the database "
@@ -29989,14 +30081,14 @@ msgctxt "@info: total number of items"
 msgid "total"
 msgstr "teljes"
 
-#: core/libs/database/utils/widgets/mysqladminbinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbadminbinary.cpp:34
 #, kde-format
 msgid ""
 "This binary file is used to manage a dedicated instance of MariaDB server."
 msgstr ""
 "Ez a bináris fájl a MariaDB szerver dedikált példányának kezelésére szolgál."
 
-#: core/libs/database/utils/widgets/mysqlinitbinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbinitbinary.cpp:34
 #, kde-format
 msgid ""
 "This binary file is used to initialize the MariaDB data files for the "
@@ -30005,14 +30097,14 @@ msgstr ""
 "Ez a bináris fájl a MariaDB adatbázis adatfájljainak inicializálására "
 "szolgál."
 
-#: core/libs/database/utils/widgets/mysqlserverbinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbserverbinary.cpp:34
 #, kde-format
 msgid ""
 "This binary file is used to start a dedicated instance of MariaDB server."
 msgstr ""
 "Ez a bináris fájl a MariaDB szerver dedikált példányának indítására szolgál."
 
-#: core/libs/database/utils/widgets/mysqlupgradebinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbupgradebinary.cpp:34
 #, kde-format
 msgid ""
 "This binary file is used to upgrade the database to current server version."
@@ -44131,8 +44223,9 @@ msgid "Color Management"
 msgstr "Színkezelés"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:350
-#, kde-format
-msgid "MySQL interface"
+#, fuzzy, kde-format
+#| msgid "MySQL interface"
+msgid "MariaDB interface"
 msgstr "MySQL interfész"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:355
@@ -61583,10 +61676,13 @@ msgid "Extended clean up and shrink all databases."
 msgstr "Minden adatbázis megtisztítása és tömörítése."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This option leads to the vacuuming (shrinking) of the databases. "
+#| "Vacuuming is supported both for SQLite and MySQL."
 msgid ""
 "This option leads to the vacuuming (shrinking) of the databases. Vacuuming "
-"is supported both for SQLite and MySQL."
+"is supported both for SQLite and MariaDB."
 msgstr ""
 "Ez a beállítás az adatbázisok vákuumozásához (méretcsökkentéséhez) vezet. A "
 "vákuumozás mind az SQLite, mind a MySQL adatbázisok esetében támogatott."
@@ -69054,3 +69150,10 @@ msgstr "Elemek importálása"
 #, kde-format
 msgid "Survey"
 msgstr "Szemléző"
+
+#~ msgid "MySQL Server"
+#~ msgstr "MySQL szerver"
+
+#~ msgctxt "@title:group"
+#~ msgid "MySQL Binaries"
+#~ msgstr "MySQL binárisok"

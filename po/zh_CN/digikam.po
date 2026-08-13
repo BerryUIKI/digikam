@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-11 00:42+0000\n"
+"POT-Creation-Date: 2026-08-13 00:43+0000\n"
 "PO-Revision-Date: 2024-04-23 11:20\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -2709,19 +2709,27 @@ msgid "Start digikam with the configuration file \"config\""
 msgstr "启动 digiKam 时使用名为 \"config\" 的配置文件"
 
 #: core/app/main/main.cpp:303
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Run-time Qt SQLite or MySQL database plugin is not available. please "
+#| "install it.\n"
+#| "There is no database plugin installed on your computer."
 msgid ""
-"Run-time Qt SQLite or MySQL database plugin is not available. please install "
-"it.\n"
+"Run-time Qt SQLite or MariaDB database plugin is not available. please "
+"install it.\n"
 "There is no database plugin installed on your computer."
 msgstr ""
 "Qt SQLite 运行时组件或 MySQL 数据库插件不可用。请安装该组件。\n"
 "本机并未安装任何数据库插件。"
 
 #: core/app/main/main.cpp:312
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Run-time Qt SQLite or MySQL database plugin are not available. Please "
+#| "install it.\n"
+#| "Database plugins installed on your computer are listed below."
 msgid ""
-"Run-time Qt SQLite or MySQL database plugin are not available. Please "
+"Run-time Qt SQLite or MariaDB database plugin are not available. Please "
 "install it.\n"
 "Database plugins installed on your computer are listed below."
 msgstr ""
@@ -26278,13 +26286,15 @@ msgid "Searches"
 msgstr "搜索记录"
 
 #: core/libs/album/manager/albummanager_database.cpp:111
-#, kde-format
-msgid "The MySQL database directory was not found."
+#, fuzzy, kde-format
+#| msgid "The MySQL database directory was not found."
+msgid "The MariaDB database directory was not found."
 msgstr "找不到 MySQL 数据库目录。"
 
 #: core/libs/album/manager/albummanager_database.cpp:128
-#, kde-format
-msgid "The MySQL binary tools was not found."
+#, fuzzy, kde-format
+#| msgid "The MySQL binary tools was not found."
+msgid "The MariaDB binary tools was not found."
 msgstr "找不到 MySQL 二进制工具。"
 
 #: core/libs/album/manager/albummanager_database.cpp:135
@@ -27707,9 +27717,12 @@ msgstr ""
 "digiKam 依赖 Qt::SQL 模块提供的驱动工作。"
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The driver \"MYSQL\" for MySQL databases is not available.\n"
+#| "digiKam depends on the drivers provided by the Qt::SQL module."
 msgid ""
-"The driver \"MYSQL\" for MySQL databases is not available.\n"
+"The driver \"MYSQL\" for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
 "MySQL 数据库的驱动程序“MYSQL”不可用。\n"
@@ -27868,23 +27881,27 @@ msgid "Database type is not supported."
 msgstr "数据库类型不支持。"
 
 #: core/libs/database/server/databaseserver.cpp:296
-#, kde-format
-msgid "No path to mysql upgrade command set in configuration file."
+#, fuzzy, kde-format
+#| msgid "No path to mysql upgrade command set in configuration file."
+msgid "No path to MariaDB upgrade command set in configuration file."
 msgstr "配置文件中并未设置 MySQL 升级命令的路径。"
 
 #: core/libs/database/server/databaseserver.cpp:305
-#, kde-format
-msgid "No path to mysql server command set in configuration file."
+#, fuzzy, kde-format
+#| msgid "No path to mysql server command set in configuration file."
+msgid "No path to MariaDB server command set in configuration file."
 msgstr "配置文件中并未设置 MySQL 服务器命令的路径。"
 
 #: core/libs/database/server/databaseserver.cpp:314
-#, kde-format
-msgid "No path to mysql administration command set in configuration file."
+#, fuzzy, kde-format
+#| msgid "No path to mysql administration command set in configuration file."
+msgid "No path to MariaDB administration command set in configuration file."
 msgstr "配置文件中并未设置 MySQL 管理命令的路径。"
 
 #: core/libs/database/server/databaseserver.cpp:323
-#, kde-format
-msgid "No path to mysql initialization command set in configuration file."
+#, fuzzy, kde-format
+#| msgid "No path to mysql initialization command set in configuration file."
+msgid "No path to MariaDB initialization command set in configuration file."
 msgstr "配置文件中并未设置 MySQL 初始化命令的路径。"
 
 #: core/libs/database/server/databaseserver.cpp:333
@@ -27895,9 +27912,13 @@ msgid "Cannot create directory %1"
 msgstr "无法创建目录“%1”"
 
 #: core/libs/database/server/databaseserver.cpp:436
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Unable to create MySQL server configuration file.<p>This means that "
+#| "either the default configuration file</p><p>%1</p><p>was not readable or "
+#| "the target file</p><p>%2</p><p>could not be written.</p>"
 msgid ""
-"Unable to create MySQL server configuration file.<p>This means that either "
+"Unable to create MariaDB server configuration file.<p>This means that either "
 "the default configuration file</p><p>%1</p><p>was not readable or the target "
 "file</p><p>%2</p><p>could not be written.</p>"
 msgstr ""
@@ -27905,13 +27926,15 @@ msgstr ""
 "取，或者目标文件</p><p>%2</p><p>不可写入。"
 
 #: core/libs/database/server/databaseserver.cpp:458
-#, kde-format
-msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+#, fuzzy, kde-format
+#| msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+msgid "Cannot find MariaDB server default configuration (mysql-global.conf)."
 msgstr "无法找到 MySQL 服务器的默认配置文件 (mysql-global.conf)。"
 
 #: core/libs/database/server/databaseserver.cpp:505
-#, kde-format
-msgid "The internal MySQL database is initializing, please wait..."
+#, fuzzy, kde-format
+#| msgid "The internal MySQL database is initializing, please wait..."
+msgid "The internal MariaDB database is initializing, please wait..."
 msgstr "内建 MySQL 数据库正在初始化，请稍候..."
 
 #: core/libs/database/server/databaseserver.cpp:553
@@ -27946,8 +27969,9 @@ msgid ""
 msgstr "无法创建数据库<p>查询错误：%1</p><p>数据库错误：%2</p>"
 
 #: core/libs/database/server/databaseserver.cpp:751
-#, kde-format
-msgid "A MySQL database upgrade is in progress, please wait..."
+#, fuzzy, kde-format
+#| msgid "A MySQL database upgrade is in progress, please wait..."
+msgid "A MariaDB database upgrade is in progress, please wait..."
 msgstr "正在进行 MySQL 数据库升级，请稍候..."
 
 #: core/libs/database/server/databaseserver.cpp:795
@@ -28248,42 +28272,57 @@ msgid "SQLite"
 msgstr "SQLite"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:62
-#, kde-format
-msgid "Mysql Internal"
+#, fuzzy, kde-format
+#| msgid "Mysql Internal"
+msgid "MariaDB Internal"
 msgstr "MySQL 内建服务器"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:67
-#, kde-format
-msgid "MySQL Server"
-msgstr "MySQL 远程服务器"
+#, fuzzy, kde-format
+#| msgid "%1 Media Server"
+msgid "MariaDB Server"
+msgstr "%1 媒体服务器"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:72
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend "
+#| "is for local database storage with a small or medium collection sizes. It "
+#| "is the default and recommended backend for collections with less than "
+#| "100K items.</p>"
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small or medium collection sizes. It is "
-"the default and recommended backend for collections with less than 100K "
+"the default and recommended backend for collections with less than 500K "
 "items.</p>"
 msgstr ""
 "<p>在此选择数据库后端程序。</p><p><b>SQLite</b> 后端程序适用于数据库存储在本"
 "地的中小规模相册集合。此为默认设置，推荐 100K 件项目以内的相册集合使用。</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p><b>MySQL Internal</b> backend is for local database storage with huge "
+#| "collection sizes. This backend is recommend for local collections with "
+#| "more than 100K items.</p>"
 msgid ""
-"<p><b>MySQL Internal</b> backend is for local database storage with huge "
+"<p><b>MariaDB Internal</b> backend is for local database storage with huge "
 "collection sizes. This backend is recommend for local collections with more "
-"than 100K items.</p>"
+"than 500K items.</p>"
 msgstr ""
 "<p><b>MySQL 内建服务器</b>后端程序适用于数据库存储在本地的大型相册集合。推荐"
 "超过 100K 件项目的本地相册集合使用。</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:86
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p><b>MySQL Server</b> backend is a more robust solution especially for "
+#| "remote and shared database storage. It is also more efficient to manage "
+#| "huge collection sizes with more than 100K items.</p>"
 msgid ""
-"<p><b>MySQL Server</b> backend is a more robust solution especially for "
+"<p><b>MariaDB Server</b> backend is a more robust solution especially for "
 "remote and shared database storage. It is also more efficient to manage huge "
-"collection sizes with more than 100K items.</p>"
+"collection sizes with more than 500K items.</p>"
 msgstr ""
 "<p><b>MySQL 远程服务器</b>后端程序是一套更为强大的解决方案，尤其是对于远程和"
 "共享数据库存储而言。此后端在管理 100K 件项目以上的大型相册集合时更为高效。</"
@@ -28364,9 +28403,13 @@ msgstr ""
 "大幅降低数据的写入量，并提高系统的可靠性。"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:169
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Here you can configure locations where MySQL binary tools are located. "
+#| "digiKam will try to find these binaries automatically if they are already "
+#| "installed on your computer.</p>"
 msgid ""
-"<p>Here you can configure locations where MySQL binary tools are located. "
+"<p>Here you can configure locations where MariaDB binary tools are located. "
 "digiKam will try to find these binaries automatically if they are already "
 "installed on your computer.</p>"
 msgstr ""
@@ -28374,10 +28417,12 @@ msgstr ""
 "试自动定位它的可执行文件。</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:178
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title: group"
+#| msgid "Panorama Binaries"
 msgctxt "@title:group"
-msgid "MySQL Binaries"
-msgstr "MySQL 可执行文件"
+msgid "MariaDB Binaries"
+msgstr "全景图拼接所需外挂程序"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:221
 #, kde-format
@@ -28414,9 +28459,12 @@ msgid "Set the database connection options"
 msgstr "设置数据库连接选项"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:234
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the MySQL server connection options.\n"
+#| "For advanced users only."
 msgid ""
-"Set the MySQL server connection options.\n"
+"Set the MariaDB server connection options.\n"
 "For advanced users only."
 msgstr ""
 "设置 MySQL 服务器连接选项。\n"
@@ -28433,20 +28481,29 @@ msgid "Set the database account name"
 msgstr "设置数据库账户名称"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:240
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the MySQL server account name used\n"
+#| "by digiKam to be connected to the server.\n"
+#| "This account must be available on the remote\n"
+#| "MySQL server when database have been created."
 msgid ""
-"Set the MySQL server account name used\n"
+"Set the MariaDB server account name used\n"
 "by digiKam to be connected to the server.\n"
 "This account must be available on the remote\n"
-"MySQL server when database have been created."
+"MariaDB server when database have been created."
 msgstr ""
 "设置 digiKam 使用的 MySQL 服务器账户名称以连接到服务器。\n"
 "数据库创建后，此账户必须在远程 MySQL 服务器上可用。"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:247
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the MySQL server account password used\n"
+#| "by digiKam to be connected to the server.\n"
+#| "You can left this field empty to use an account set without password."
 msgid ""
-"Set the MySQL server account password used\n"
+"Set the MariaDB server account password used\n"
 "by digiKam to be connected to the server.\n"
 "You can left this field empty to use an account set without password."
 msgstr ""
@@ -28459,10 +28516,13 @@ msgid "Host Port:"
 msgstr "主机端口："
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:255
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the host computer port.\n"
+#| "Usually, MySQL server use port number 3306 by default"
 msgid ""
 "Set the host computer port.\n"
-"Usually, MySQL server use port number 3306 by default"
+"Usually, MariaDB server use port number 3306 by default"
 msgstr ""
 "设置目标计算机的主机端口。\n"
 "MySQL 服务器通常默认使用 3306 端口。"
@@ -28473,9 +28533,12 @@ msgid "Check Connection"
 msgstr "检查连接"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:261
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Run a basic database connection to see if current MySQL server settings "
+#| "is suitable."
 msgid ""
-"Run a basic database connection to see if current MySQL server settings is "
+"Run a basic database connection to see if current MariaDB server settings is "
 "suitable."
 msgstr "执行一次基本数据库连接，以检查当前 MySQL 服务器设置是否正确。"
 
@@ -28499,7 +28562,7 @@ msgstr ""
 "用于存储相册、项目和搜索元数据。"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:275
-#: core/libs/database/utils/widgets/dbsettingswidget.cpp:513
+#: core/libs/database/utils/widgets/dbsettingswidget.cpp:512
 #, kde-format
 msgid "Thumbs Db Name:"
 msgstr "缩略图数据库名称："
@@ -28600,17 +28663,29 @@ msgstr ""
 "命令建立它 (记得将 <b>password</b> 替换为实际密码)。</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:341
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Note: with a Linux server, a database can be initialized following the "
+#| "commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql "
+#| "-u root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init "
+#| "digiKam databases with grant privileges (see behind)</p><p>...</"
+#| "p><p>quit</p><p>NOTE: If you have problems with a MySQL server on Ubuntu "
+#| "based Linux system, use the addition command in the mysql prompt to be "
+#| "able to create MySQL triggers.<br>SET GLOBAL "
+#| "log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
+#| "collection, you should start MySQL server with mysql --"
+#| "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
 msgid ""
 "<p>Note: with a Linux server, a database can be initialized following the "
-"commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql -u "
-"root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init digiKam "
-"databases with grant privileges (see behind)</p><p>...</p><p>quit</"
-"p><p>NOTE: If you have problems with a MySQL server on Ubuntu based Linux "
-"system, use the addition command in the mysql prompt to be able to create "
-"MySQL triggers.<br>SET GLOBAL log_bin_trust_function_creators=1;</p><p>NOTE: "
-"If you have an enormous collection, you should start MySQL server with mysql "
-"--max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
+"commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
+"mariadb -u root</p><p>...</p><p>Enter SQL code to MariaDB prompt in order to "
+"init digiKam databases with grant privileges (see behind)</p><p>...</"
+"p><p>quit</p><p>NOTE: If you have problems with a MariaDB server on Ubuntu "
+"based Linux system, use the addition command in the mysql prompt to be able "
+"to create MariaDB triggers.<br>SET GLOBAL log_bin_trust_function_creators=1;"
+"</p><p>NOTE: If you have an enormous collection, you should start MariaDB "
+"server with mysql --max_allowed_packet=128M OR in my.ini or ~/.my.cnf, "
+"change the settings</p>"
 msgstr ""
 "<p>提示：在 Linux 服务器上，可以使用以下命令初始化数据库：</p><p># su</"
 "p><p># systemctl restart mysqld</p><p># mysql -u root</p><p>...</p><p>在 SQL "
@@ -28632,15 +28707,32 @@ msgid "Database Server Technical Details"
 msgstr "数据库服务器技术详情"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:371
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Use this configuration view to set all information to be connected to "
+#| "a remote <a href=\"https://en.wikipedia.org/wiki/MySQL\">Mysql database "
+#| "server</a> (or <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</"
+#| "a>) through a network. As with Sqlite or MySQL internal server, 3 "
+#| "databases will be stored on the remote server: one for all collections "
+#| "properties, one to store compressed thumbnails, and one to store faces "
+#| "recognition metadata.</p><p>Unlike Sqlite or MySQL internal server, you "
+#| "can customize the database names to simplify your backups.</"
+#| "p><p>Databases are digiKam core engines. To prevent performance issues, "
+#| "take a care to use a fast network link between the client and the server "
+#| "computers. It is also recommended to host database files on fast hardware "
+#| "(as <a href=\"https://en.wikipedia.org/wiki/Solid-state_drive\">SSD</a>) "
+#| "with enough free space, especially for thumbnails database, even if data "
+#| "are compressed using wavelets image format <a href=\"https://en.wikipedia."
+#| "org/wiki/Progressive_Graphics_File\">PGF</a>.</p><p>The databases must be "
+#| "created previously on the remote server by the administrator. Look in "
+#| "<b>Requirements</b> tab for details.</p>"
 msgid ""
 "<p>Use this configuration view to set all information to be connected to a "
-"remote <a href=\"https://en.wikipedia.org/wiki/MySQL\">Mysql database "
-"server</a> (or <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</"
-"a>) through a network. As with Sqlite or MySQL internal server, 3 databases "
-"will be stored on the remote server: one for all collections properties, one "
-"to store compressed thumbnails, and one to store faces recognition metadata."
-"</p><p>Unlike Sqlite or MySQL internal server, you can customize the "
+"remote <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</a> through "
+"a network. As with Sqlite or MariaDB internal server, 3 databases will be "
+"stored on the remote server: one for all collections properties, one to "
+"store compressed thumbnails, and one to store faces recognition metadata.</"
+"p><p>Unlike Sqlite or MariaDB internal server, you can customize the "
 "database names to simplify your backups.</p><p>Databases are digiKam core "
 "engines. To prevent performance issues, take a care to use a fast network "
 "link between the client and the server computers. It is also recommended to "
@@ -28665,19 +28757,19 @@ msgstr ""
 "压缩。</p><p>远程数据库要由服务器管理员事先创建。请在<b>技术要求</b>标签页查"
 "看有关详情。</p>"
 
-#: core/libs/database/utils/widgets/dbsettingswidget.cpp:397
+#: core/libs/database/utils/widgets/dbsettingswidget.cpp:396
 #, kde-format
 msgid "Documentation"
 msgstr "技术说明"
 
-#: core/libs/database/utils/widgets/dbsettingswidget.cpp:509
+#: core/libs/database/utils/widgets/dbsettingswidget.cpp:508
 #, kde-format
 msgid "Thumbs Db Folder:"
 msgstr "缩略图数据库名文件夹："
 
 #: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:35
 #: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:40
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:302
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:301
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Connection Test"
@@ -28723,46 +28815,46 @@ msgstr "人脸数据库名称为空"
 msgid "The similarity database name is empty"
 msgstr "相似性数据库名称为空"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:154
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:153
 #, kde-format
 msgid ""
 "<p>This path was set as a command lineoption (--database-directory).</p>"
 msgstr "<p>此路径已被设置为命令行选项 (--database-directory)。</p>"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:293
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:292
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Configuration"
 msgstr "数据库配置"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:294
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:293
 #, kde-format
 msgid ""
 "The database names configuration is not valid. Error is <br><p>%1</"
 "p><br>Please check your configuration."
 msgstr "数据库名称配置无效。错误：<br><p>%1</p><br>请检查您的配置是否正确。"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:303
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:302
 #, kde-format
 msgid ""
 "Testing database connection has failed with error<br><p>%1</p><br>Please "
 "check your configuration."
 msgstr "数据库连接测试失败，错误：<br><p>%1</p><br>请检查您的配置是否正确。"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:322
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:321
 #, kde-format
 msgid ""
 "You must select a folder for digiKam to store information and metadata in a "
 "database file."
 msgstr "您必须为 digiKam 选择一个文件夹，用于存储信息和元数据的数据库文件。"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:331
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:330
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Database Folder?"
 msgstr "您想要创建数据库文件夹吗？"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:332
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:331
 #, kde-format
 msgid ""
 "<p>The folder to put your database in does not seem to exist:</p><p><b>%1</"
@@ -28771,13 +28863,13 @@ msgstr ""
 "<p>用于存储数据库的文件夹不存在：</p><p><b>%1</b></p>您想要让 digiKam 现在创"
 "建它吗？"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:343
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:342
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Database Folder Failed"
 msgstr "创建数据库文件夹失败"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:344
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:343
 #, kde-format
 msgid ""
 "<p>digiKam could not create the folder to host your database file.<br>Please "
@@ -28786,13 +28878,13 @@ msgstr ""
 "<p>digiKam 无法创建用于存储您数据库文件的文件夹。<br>请选择一个不同的位置。</"
 "p><p><b>%1</b></p>"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:369
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:368
 #, kde-format
 msgctxt "@title:window"
 msgid "No Database Write Access"
 msgstr "没有数据库写入权限"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:370
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:369
 #, kde-format
 msgid ""
 "<p>You do not seem to have write access for the folder to host the database "
@@ -28904,26 +28996,26 @@ msgctxt "@info: total number of items"
 msgid "total"
 msgstr "总计"
 
-#: core/libs/database/utils/widgets/mysqladminbinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbadminbinary.cpp:34
 #, kde-format
 msgid ""
 "This binary file is used to manage a dedicated instance of MariaDB server."
 msgstr "此可执行文件用于管理一个 MariaDB 服务器的专用实例。"
 
-#: core/libs/database/utils/widgets/mysqlinitbinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbinitbinary.cpp:34
 #, kde-format
 msgid ""
 "This binary file is used to initialize the MariaDB data files for the "
 "database."
 msgstr "此可执行文件用于初始化数据库的 MariaDB 数据文件。"
 
-#: core/libs/database/utils/widgets/mysqlserverbinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbserverbinary.cpp:34
 #, kde-format
 msgid ""
 "This binary file is used to start a dedicated instance of MariaDB server."
 msgstr "此可执行文件用于启动一个 MariaDB 服务器的专用实例。"
 
-#: core/libs/database/utils/widgets/mysqlupgradebinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbupgradebinary.cpp:34
 #, kde-format
 msgid ""
 "This binary file is used to upgrade the database to current server version."
@@ -42592,8 +42684,9 @@ msgid "Color Management"
 msgstr "色彩管理"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:350
-#, kde-format
-msgid "MySQL interface"
+#, fuzzy, kde-format
+#| msgid "MySQL interface"
+msgid "MariaDB interface"
 msgstr "MySQL 界面"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:355
@@ -59696,10 +59789,13 @@ msgid "Extended clean up and shrink all databases."
 msgstr "深度清理并压缩所有数据库。"
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This option leads to the vacuuming (shrinking) of the databases. "
+#| "Vacuuming is supported both for SQLite and MySQL."
 msgid ""
 "This option leads to the vacuuming (shrinking) of the databases. Vacuuming "
-"is supported both for SQLite and MySQL."
+"is supported both for SQLite and MariaDB."
 msgstr ""
 "此选项将对数据库进行压缩 (vacuuming/shrinking)，SQLite 和 MySQL 均支持此功"
 "能。"
@@ -66764,3 +66860,10 @@ msgstr "导入视图项目"
 #, kde-format
 msgid "Survey"
 msgstr "单窗预览"
+
+#~ msgid "MySQL Server"
+#~ msgstr "MySQL 远程服务器"
+
+#~ msgctxt "@title:group"
+#~ msgid "MySQL Binaries"
+#~ msgstr "MySQL 可执行文件"

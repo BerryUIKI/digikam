@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-11 00:42+0000\n"
+"POT-Creation-Date: 2026-08-13 00:43+0000\n"
 "PO-Revision-Date: 2026-07-09 09:12+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -2763,10 +2763,14 @@ msgid "Start digikam with the configuration file \"config\""
 msgstr "Ræsa digiKam með stillingaskránni \"config\""
 
 #: core/app/main/main.cpp:303
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Run-time Qt SQLite or MySQL database plugin is not available. please "
+#| "install it.\n"
+#| "There is no database plugin installed on your computer."
 msgid ""
-"Run-time Qt SQLite or MySQL database plugin is not available. please install "
-"it.\n"
+"Run-time Qt SQLite or MariaDB database plugin is not available. please "
+"install it.\n"
 "There is no database plugin installed on your computer."
 msgstr ""
 "Keyranlega (run-time) Qt SQLite eða MySQL gagnagrunnsviðbótin er ekki tiltæk "
@@ -2774,9 +2778,13 @@ msgstr ""
 "Það er engin gagnagrunnsviðbót uppsett á tölvunni þinni."
 
 #: core/app/main/main.cpp:312
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Run-time Qt SQLite or MySQL database plugin are not available. Please "
+#| "install it.\n"
+#| "Database plugins installed on your computer are listed below."
 msgid ""
-"Run-time Qt SQLite or MySQL database plugin are not available. Please "
+"Run-time Qt SQLite or MariaDB database plugin are not available. Please "
 "install it.\n"
 "Database plugins installed on your computer are listed below."
 msgstr ""
@@ -27094,13 +27102,15 @@ msgid "Searches"
 msgstr "Leitir"
 
 #: core/libs/album/manager/albummanager_database.cpp:111
-#, kde-format
-msgid "The MySQL database directory was not found."
+#, fuzzy, kde-format
+#| msgid "The MySQL database directory was not found."
+msgid "The MariaDB database directory was not found."
 msgstr "Mappa MySQL gagnagrunnsins fannst ekki."
 
 #: core/libs/album/manager/albummanager_database.cpp:128
-#, kde-format
-msgid "The MySQL binary tools was not found."
+#, fuzzy, kde-format
+#| msgid "The MySQL binary tools was not found."
+msgid "The MariaDB binary tools was not found."
 msgstr "Tvíundarkerfistól MySQL gagnagrunnsins fundust ekki."
 
 #: core/libs/album/manager/albummanager_database.cpp:135
@@ -28576,9 +28586,12 @@ msgstr ""
 "digiKam styðst við þennan rekil sem kemur úr Qt::SQL einingunni."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "The driver \"MYSQL\" for MySQL databases is not available.\n"
+#| "digiKam depends on the drivers provided by the Qt::SQL module."
 msgid ""
-"The driver \"MYSQL\" for MySQL databases is not available.\n"
+"The driver \"MYSQL\" for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
 "Rekillinn \"MYSQL\" fyrir MySQL gagnagrunna er ekki aðgengilegur.\n"
@@ -28745,23 +28758,27 @@ msgid "Database type is not supported."
 msgstr "Ekki er stuðningur við þessa tegund gagnagrunns."
 
 #: core/libs/database/server/databaseserver.cpp:296
-#, kde-format
-msgid "No path to mysql upgrade command set in configuration file."
+#, fuzzy, kde-format
+#| msgid "No path to mysql upgrade command set in configuration file."
+msgid "No path to MariaDB upgrade command set in configuration file."
 msgstr "Engin slóð á uppfærsluskipun mysql er sett í stillingaskránni."
 
 #: core/libs/database/server/databaseserver.cpp:305
-#, kde-format
-msgid "No path to mysql server command set in configuration file."
+#, fuzzy, kde-format
+#| msgid "No path to mysql server command set in configuration file."
+msgid "No path to MariaDB server command set in configuration file."
 msgstr "Engin slóð á skipun mysqld-þjóns er sett í stillingaskránni."
 
 #: core/libs/database/server/databaseserver.cpp:314
-#, kde-format
-msgid "No path to mysql administration command set in configuration file."
+#, fuzzy, kde-format
+#| msgid "No path to mysql administration command set in configuration file."
+msgid "No path to MariaDB administration command set in configuration file."
 msgstr "Engin slóð á mysql-stýriskipun er sett í stillingaskránni."
 
 #: core/libs/database/server/databaseserver.cpp:323
-#, kde-format
-msgid "No path to mysql initialization command set in configuration file."
+#, fuzzy, kde-format
+#| msgid "No path to mysql initialization command set in configuration file."
+msgid "No path to MariaDB initialization command set in configuration file."
 msgstr "Engin slóð á mysql-ræsiskipun er sett í stillingaskránni."
 
 #: core/libs/database/server/databaseserver.cpp:333
@@ -28772,9 +28789,13 @@ msgid "Cannot create directory %1"
 msgstr "Get ekki búið til möppuna %1"
 
 #: core/libs/database/server/databaseserver.cpp:436
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Unable to create MySQL server configuration file.<p>This means that "
+#| "either the default configuration file</p><p>%1</p><p>was not readable or "
+#| "the target file</p><p>%2</p><p>could not be written.</p>"
 msgid ""
-"Unable to create MySQL server configuration file.<p>This means that either "
+"Unable to create MariaDB server configuration file.<p>This means that either "
 "the default configuration file</p><p>%1</p><p>was not readable or the target "
 "file</p><p>%2</p><p>could not be written.</p>"
 msgstr ""
@@ -28783,13 +28804,15 @@ msgstr ""
 "ekki var hægt að skrifa úttaksskrána</p><p>%2</p>."
 
 #: core/libs/database/server/databaseserver.cpp:458
-#, kde-format
-msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+#, fuzzy, kde-format
+#| msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+msgid "Cannot find MariaDB server default configuration (mysql-global.conf)."
 msgstr "Fann ekki sjálfgefnar stillingar MySQL-þjónsins (mysql-global.conf)."
 
 #: core/libs/database/server/databaseserver.cpp:505
-#, kde-format
-msgid "The internal MySQL database is initializing, please wait..."
+#, fuzzy, kde-format
+#| msgid "The internal MySQL database is initializing, please wait..."
+msgid "The internal MariaDB database is initializing, please wait..."
 msgstr "Frumstilling innbyggðs MySQL-gagnagrunns í gangi - dokaðu við..."
 
 #: core/libs/database/server/databaseserver.cpp:553
@@ -28826,8 +28849,9 @@ msgstr ""
 "p><p>Gagnagrunnsvilla: %2</p>"
 
 #: core/libs/database/server/databaseserver.cpp:751
-#, kde-format
-msgid "A MySQL database upgrade is in progress, please wait..."
+#, fuzzy, kde-format
+#| msgid "A MySQL database upgrade is in progress, please wait..."
+msgid "A MariaDB database upgrade is in progress, please wait..."
 msgstr "Uppfærsla MySQL-gagnagrunns í gangi - dokaðu við..."
 
 #: core/libs/database/server/databaseserver.cpp:795
@@ -29135,21 +29159,28 @@ msgid "SQLite"
 msgstr "SQLite"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:62
-#, kde-format
-msgid "Mysql Internal"
+#, fuzzy, kde-format
+#| msgid "Mysql Internal"
+msgid "MariaDB Internal"
 msgstr "Innbyggt-MySQL"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:67
-#, kde-format
-msgid "MySQL Server"
-msgstr "MySQL-þjónn"
+#, fuzzy, kde-format
+#| msgid "%1 Media Server"
+msgid "MariaDB Server"
+msgstr "%1 margmiðlunarþjónn"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:72
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend "
+#| "is for local database storage with a small or medium collection sizes. It "
+#| "is the default and recommended backend for collections with less than "
+#| "100K items.</p>"
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small or medium collection sizes. It is "
-"the default and recommended backend for collections with less than 100K "
+"the default and recommended backend for collections with less than 500K "
 "items.</p>"
 msgstr ""
 "<p>Veldu hér gerð af gagnagrunnsbakenda.</p><p><b>SQlite</b> bakendinn er "
@@ -29158,22 +29189,30 @@ msgstr ""
 "fyrir söfn með minna en 100K atriðum.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:81
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p><b>MySQL Internal</b> backend is for local database storage with huge "
+#| "collection sizes. This backend is recommend for local collections with "
+#| "more than 100K items.</p>"
 msgid ""
-"<p><b>MySQL Internal</b> backend is for local database storage with huge "
+"<p><b>MariaDB Internal</b> backend is for local database storage with huge "
 "collection sizes. This backend is recommend for local collections with more "
-"than 100K items.</p>"
+"than 500K items.</p>"
 msgstr ""
 "<p><b>Innbyggður MySQL</b> bakendi er fyrir staðværan gagnagrunn á "
 "viðkomandi tölvu en þá fyrir mjög stór söfn. Mælt er með þessu fyrir söfn "
 "með meira en 100K atriðum.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:86
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p><b>MySQL Server</b> backend is a more robust solution especially for "
+#| "remote and shared database storage. It is also more efficient to manage "
+#| "huge collection sizes with more than 100K items.</p>"
 msgid ""
-"<p><b>MySQL Server</b> backend is a more robust solution especially for "
+"<p><b>MariaDB Server</b> backend is a more robust solution especially for "
 "remote and shared database storage. It is also more efficient to manage huge "
-"collection sizes with more than 100K items.</p>"
+"collection sizes with more than 500K items.</p>"
 msgstr ""
 "<p><b>MySQL-þjónn</b>, þessi bakendi er margprófuð lausn sem hentar "
 "sérstaklega fyrir fjartengda og samnýtta gagnagrunna. Þetta er einnig mun "
@@ -29262,9 +29301,13 @@ msgstr ""
 "smættaðar og áreiðanlegar við umfangsmikla og áríðandi notkun."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:169
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Here you can configure locations where MySQL binary tools are located. "
+#| "digiKam will try to find these binaries automatically if they are already "
+#| "installed on your computer.</p>"
 msgid ""
-"<p>Here you can configure locations where MySQL binary tools are located. "
+"<p>Here you can configure locations where MariaDB binary tools are located. "
 "digiKam will try to find these binaries automatically if they are already "
 "installed on your computer.</p>"
 msgstr ""
@@ -29273,10 +29316,12 @@ msgstr ""
 "þegar fyrir hendi á tölvunni þinni.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:178
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Panorama Binaries"
 msgctxt "@title:group"
-msgid "MySQL Binaries"
-msgstr "MySQL tvíundarkerfisskrár"
+msgid "MariaDB Binaries"
+msgstr "Keyrsluskrár Panorama"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:221
 #, kde-format
@@ -29313,9 +29358,12 @@ msgid "Set the database connection options"
 msgstr "Setja upp valkosti gagnagrunnstengingar"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:234
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the MySQL server connection options.\n"
+#| "For advanced users only."
 msgid ""
-"Set the MySQL server connection options.\n"
+"Set the MariaDB server connection options.\n"
 "For advanced users only."
 msgstr ""
 "Setja upp valkosti tengingar við MySQL-þjón.\n"
@@ -29332,12 +29380,17 @@ msgid "Set the database account name"
 msgstr "Setja heiti gagnagrunnsaðgangs"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:240
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the MySQL server account name used\n"
+#| "by digiKam to be connected to the server.\n"
+#| "This account must be available on the remote\n"
+#| "MySQL server when database have been created."
 msgid ""
-"Set the MySQL server account name used\n"
+"Set the MariaDB server account name used\n"
 "by digiKam to be connected to the server.\n"
 "This account must be available on the remote\n"
-"MySQL server when database have been created."
+"MariaDB server when database have been created."
 msgstr ""
 "Stilltu heiti aðgangsins á MySQL-þjóninum sem digiKam\n"
 "ætti að nota til að tengjast við gagnagrunnsþjóninn.\n"
@@ -29345,9 +29398,13 @@ msgstr ""
 "MySQL-þjóninum þegar gagnagrunnurinn hefur verið útbúinn."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:247
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the MySQL server account password used\n"
+#| "by digiKam to be connected to the server.\n"
+#| "You can left this field empty to use an account set without password."
 msgid ""
-"Set the MySQL server account password used\n"
+"Set the MariaDB server account password used\n"
 "by digiKam to be connected to the server.\n"
 "You can left this field empty to use an account set without password."
 msgstr ""
@@ -29361,10 +29418,13 @@ msgid "Host Port:"
 msgstr "Gátt vélar:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:255
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Set the host computer port.\n"
+#| "Usually, MySQL server use port number 3306 by default"
 msgid ""
 "Set the host computer port.\n"
-"Usually, MySQL server use port number 3306 by default"
+"Usually, MariaDB server use port number 3306 by default"
 msgstr ""
 "Settu inn gátt hýsilvélar.\n"
 "Venjulega notar MySQL-þjónn gátt númer 3306 sjálfgefið"
@@ -29375,9 +29435,12 @@ msgid "Check Connection"
 msgstr "Athuga tengingu"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:261
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "Run a basic database connection to see if current MySQL server settings "
+#| "is suitable."
 msgid ""
-"Run a basic database connection to see if current MySQL server settings is "
+"Run a basic database connection to see if current MariaDB server settings is "
 "suitable."
 msgstr ""
 "Keyrðu einfalda gagnagrunnstengingu til að sjá hvort stillingar MySQL-þjóns "
@@ -29403,7 +29466,7 @@ msgstr ""
 "albúm, atriði og lýsigögn fyrir leitir."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:275
-#: core/libs/database/utils/widgets/dbsettingswidget.cpp:513
+#: core/libs/database/utils/widgets/dbsettingswidget.cpp:512
 #, kde-format
 msgid "Thumbs Db Name:"
 msgstr "Heiti smámyndagagnagrunns:"
@@ -29507,17 +29570,29 @@ msgstr ""
 "að hafa skipt út <b><i>password</i></b> fyrir rétta lykilorðið).</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:341
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Note: with a Linux server, a database can be initialized following the "
+#| "commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql "
+#| "-u root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init "
+#| "digiKam databases with grant privileges (see behind)</p><p>...</"
+#| "p><p>quit</p><p>NOTE: If you have problems with a MySQL server on Ubuntu "
+#| "based Linux system, use the addition command in the mysql prompt to be "
+#| "able to create MySQL triggers.<br>SET GLOBAL "
+#| "log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
+#| "collection, you should start MySQL server with mysql --"
+#| "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
 msgid ""
 "<p>Note: with a Linux server, a database can be initialized following the "
-"commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql -u "
-"root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init digiKam "
-"databases with grant privileges (see behind)</p><p>...</p><p>quit</"
-"p><p>NOTE: If you have problems with a MySQL server on Ubuntu based Linux "
-"system, use the addition command in the mysql prompt to be able to create "
-"MySQL triggers.<br>SET GLOBAL log_bin_trust_function_creators=1;</p><p>NOTE: "
-"If you have an enormous collection, you should start MySQL server with mysql "
-"--max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
+"commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
+"mariadb -u root</p><p>...</p><p>Enter SQL code to MariaDB prompt in order to "
+"init digiKam databases with grant privileges (see behind)</p><p>...</"
+"p><p>quit</p><p>NOTE: If you have problems with a MariaDB server on Ubuntu "
+"based Linux system, use the addition command in the mysql prompt to be able "
+"to create MariaDB triggers.<br>SET GLOBAL log_bin_trust_function_creators=1;"
+"</p><p>NOTE: If you have an enormous collection, you should start MariaDB "
+"server with mysql --max_allowed_packet=128M OR in my.ini or ~/.my.cnf, "
+"change the settings</p>"
 msgstr ""
 "<p>Athugaðu: á Linux-þjóni er hægt að forstilla gagnagrunn með eftirfarandi "
 "skipunum:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql -u root</"
@@ -29542,15 +29617,32 @@ msgid "Database Server Technical Details"
 msgstr "Tæknilegar upplýsingar um gagnagrunnsmiðlara"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:371
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "<p>Use this configuration view to set all information to be connected to "
+#| "a remote <a href=\"https://en.wikipedia.org/wiki/MySQL\">Mysql database "
+#| "server</a> (or <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</"
+#| "a>) through a network. As with Sqlite or MySQL internal server, 3 "
+#| "databases will be stored on the remote server: one for all collections "
+#| "properties, one to store compressed thumbnails, and one to store faces "
+#| "recognition metadata.</p><p>Unlike Sqlite or MySQL internal server, you "
+#| "can customize the database names to simplify your backups.</"
+#| "p><p>Databases are digiKam core engines. To prevent performance issues, "
+#| "take a care to use a fast network link between the client and the server "
+#| "computers. It is also recommended to host database files on fast hardware "
+#| "(as <a href=\"https://en.wikipedia.org/wiki/Solid-state_drive\">SSD</a>) "
+#| "with enough free space, especially for thumbnails database, even if data "
+#| "are compressed using wavelets image format <a href=\"https://en.wikipedia."
+#| "org/wiki/Progressive_Graphics_File\">PGF</a>.</p><p>The databases must be "
+#| "created previously on the remote server by the administrator. Look in "
+#| "<b>Requirements</b> tab for details.</p>"
 msgid ""
 "<p>Use this configuration view to set all information to be connected to a "
-"remote <a href=\"https://en.wikipedia.org/wiki/MySQL\">Mysql database "
-"server</a> (or <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</"
-"a>) through a network. As with Sqlite or MySQL internal server, 3 databases "
-"will be stored on the remote server: one for all collections properties, one "
-"to store compressed thumbnails, and one to store faces recognition metadata."
-"</p><p>Unlike Sqlite or MySQL internal server, you can customize the "
+"remote <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</a> through "
+"a network. As with Sqlite or MariaDB internal server, 3 databases will be "
+"stored on the remote server: one for all collections properties, one to "
+"store compressed thumbnails, and one to store faces recognition metadata.</"
+"p><p>Unlike Sqlite or MariaDB internal server, you can customize the "
 "database names to simplify your backups.</p><p>Databases are digiKam core "
 "engines. To prevent performance issues, take a care to use a fast network "
 "link between the client and the server computers. It is also recommended to "
@@ -29581,19 +29673,19 @@ msgstr ""
 "kerfisstjóri að útbúa fyrirfram á fjartengda þjóninum. Skoðaðu flipann "
 "<b>Kerfiskröfur</b> til að sjá nańari upplýsingar.</p>"
 
-#: core/libs/database/utils/widgets/dbsettingswidget.cpp:397
+#: core/libs/database/utils/widgets/dbsettingswidget.cpp:396
 #, kde-format
 msgid "Documentation"
 msgstr "Handbækur"
 
-#: core/libs/database/utils/widgets/dbsettingswidget.cpp:509
+#: core/libs/database/utils/widgets/dbsettingswidget.cpp:508
 #, kde-format
 msgid "Thumbs Db Folder:"
 msgstr "Mappa smámyndagagnagrunns:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:35
 #: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:40
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:302
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:301
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Connection Test"
@@ -29639,20 +29731,20 @@ msgstr "Andlitagagnagrunnurinn er tómur"
 msgid "The similarity database name is empty"
 msgstr "Líkindagagnagrunnurinn er tómur"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:154
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:153
 #, kde-format
 msgid ""
 "<p>This path was set as a command lineoption (--database-directory).</p>"
 msgstr ""
 "<p>Þessi slóð var sett sem rofi á skipanalínu (--database-directory).</p>"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:293
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:292
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Configuration"
 msgstr "Uppsetning gagnagrunns"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:294
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:293
 #, kde-format
 msgid ""
 "The database names configuration is not valid. Error is <br><p>%1</"
@@ -29661,7 +29753,7 @@ msgstr ""
 "Uppsetning nafna í gagnagrunninum er ógild. Villan er <br><p>%1</"
 "p><br>Athugaðu uppsetninguna þína."
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:303
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:302
 #, kde-format
 msgid ""
 "Testing database connection has failed with error<br><p>%1</p><br>Please "
@@ -29670,7 +29762,7 @@ msgstr ""
 "Prófun á gagnagrunnstengingu mistókst með villumeldingunni <br><p>%1</"
 "p><br>Athugaðu uppsetninguna þína."
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:322
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:321
 #, kde-format
 msgid ""
 "You must select a folder for digiKam to store information and metadata in a "
@@ -29679,13 +29771,13 @@ msgstr ""
 "Þú verður að velja möppu sem digiKam mun nota fyrir ýmis gögn í "
 "gagnagrunnsskrá."
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:331
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:330
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Database Folder?"
 msgstr "Búa til gagnagrunnsmöppu?"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:332
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:331
 #, kde-format
 msgid ""
 "<p>The folder to put your database in does not seem to exist:</p><p><b>%1</"
@@ -29694,13 +29786,13 @@ msgstr ""
 "<p>Mappan sem þú valdir er ekki til: </p><p><b>%1</b></p>Viltu að digiKam "
 "búi hana til fyrir þig?"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:343
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:342
 #, kde-format
 msgctxt "@title:window"
 msgid "Create Database Folder Failed"
 msgstr "Mistókst að búa til gagnagrunnsmöppu"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:344
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:343
 #, kde-format
 msgid ""
 "<p>digiKam could not create the folder to host your database file.<br>Please "
@@ -29709,13 +29801,13 @@ msgstr ""
 "<p>digiKam gat ekki búið til möppuna til að geyma gagnagrunnsskrána þína."
 "<br>Veldu aðra staðsetningu.</p><p><b>%1</b></p>"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:369
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:368
 #, kde-format
 msgctxt "@title:window"
 msgid "No Database Write Access"
 msgstr "Enginn skrifaðgangur í gagnagrunn"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:370
+#: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:369
 #, kde-format
 msgid ""
 "<p>You do not seem to have write access for the folder to host the database "
@@ -29827,7 +29919,7 @@ msgctxt "@info: total number of items"
 msgid "total"
 msgstr "samtals"
 
-#: core/libs/database/utils/widgets/mysqladminbinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbadminbinary.cpp:34
 #, kde-format
 msgid ""
 "This binary file is used to manage a dedicated instance of MariaDB server."
@@ -29835,7 +29927,7 @@ msgstr ""
 "Þessi tvíundaskrá er notuð til að sýsla með sérstakt tilvik af MariaDB-"
 "þjóninum."
 
-#: core/libs/database/utils/widgets/mysqlinitbinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbinitbinary.cpp:34
 #, kde-format
 msgid ""
 "This binary file is used to initialize the MariaDB data files for the "
@@ -29844,14 +29936,14 @@ msgstr ""
 "Þessi tvíundaskrá er notuð til að frumstilla gagnaskrár MariaDB fyrir "
 "gagnagrunninn."
 
-#: core/libs/database/utils/widgets/mysqlserverbinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbserverbinary.cpp:34
 #, kde-format
 msgid ""
 "This binary file is used to start a dedicated instance of MariaDB server."
 msgstr ""
 "Þessi tvíundaskrá er notuð til að ræsa sérstakt tilvik af MariaDB-þjóninum."
 
-#: core/libs/database/utils/widgets/mysqlupgradebinary.cpp:34
+#: core/libs/database/utils/widgets/mariadbupgradebinary.cpp:34
 #, kde-format
 msgid ""
 "This binary file is used to upgrade the database to current server version."
@@ -43943,9 +44035,11 @@ msgid "Color Management"
 msgstr "Litastýring"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:350
-#, kde-format
-msgid "MySQL interface"
-msgstr "MySQL viðmót"
+#, fuzzy, kde-format
+#| msgctxt "@title:group"
+#| msgid "Panorama Binaries"
+msgid "MariaDB interface"
+msgstr "Keyrsluskrár Panorama"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:355
 #, kde-format
@@ -61348,10 +61442,13 @@ msgid "Extended clean up and shrink all databases."
 msgstr "Ítarleg hreinsun og smækkun allra gagnagrunna."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:100
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This option leads to the vacuuming (shrinking) of the databases. "
+#| "Vacuuming is supported both for SQLite and MySQL."
 msgid ""
 "This option leads to the vacuuming (shrinking) of the databases. Vacuuming "
-"is supported both for SQLite and MySQL."
+"is supported both for SQLite and MariaDB."
 msgstr ""
 "Þessi kostur leiðir til minnkunnar (ryksugun - herping) of the databases. "
 "Herping er studd af bæði SQLite og MySQL."
@@ -68731,6 +68828,16 @@ msgstr "Flytja inn atriði"
 #, kde-format
 msgid "Survey"
 msgstr "Könnun"
+
+#~ msgid "MySQL Server"
+#~ msgstr "MySQL-þjónn"
+
+#~ msgctxt "@title:group"
+#~ msgid "MySQL Binaries"
+#~ msgstr "MySQL tvíundarkerfisskrár"
+
+#~ msgid "MySQL interface"
+#~ msgstr "MySQL viðmót"
 
 #~ msgid ""
 #~ "Test failed. Your system may not be able to use GPU acceleration for the "
@@ -78374,13 +78481,6 @@ msgstr "Könnun"
 
 #~ msgid "A tool identified as \"%1\" is already running...."
 #~ msgstr "Áhald með heitinu \"%1\" er þegar keyrandi...."
-
-#, fuzzy
-#~| msgctxt "@title:group"
-#~| msgid "Panorama Binaries"
-#~ msgctxt "@title:group"
-#~ msgid "MariaDB Binaries"
-#~ msgstr "Keyrsluskrár Panorama"
 
 #~ msgid "showFoto"
 #~ msgstr "showFoto"
