@@ -49,11 +49,6 @@ using namespace Digikam;
 
 QTEST_MAIN(DatabaseMariaDBInitTest)
 
-void DatabaseMariaDBInitTest::cleanupTestCase()
-{
-    WSToolUtils::removeTemporaryDir(m_tempPath.toLatin1().data());
-}
-
 void DatabaseMariaDBInitTest::initTestCase()
 {
     m_tempPath  = QString::fromLatin1(QTest::currentAppName());
@@ -122,24 +117,24 @@ void DatabaseMariaDBInitTest::testMariaDBInit()
     }
 
     DbEngineParameters params;
-    QString defaultAkDir                 = DbEngineParameters::serverPrivatePath();
-    QString miscDir                      = QDir(defaultAkDir).absoluteFilePath(QLatin1String("db_misc"));
-    params.databaseType                  = DbEngineParameters::MariaDBDatabaseType();
-    params.databaseNameCore              = QLatin1String("digikam");
-    params.databaseNameThumbnails        = QLatin1String("digikam");
-    params.databaseNameFace              = QLatin1String("digikam");
-    params.databaseNameSimilarity        = QLatin1String("digikam");
-    params.userName                      = QLatin1String("root");
-    params.password                      = QString();
-    params.internalServer                = true;
-    params.internalServerDBPath          = m_tempDir.path();
+    QString defaultAkDir                   = DbEngineParameters::serverPrivatePath();
+    QString miscDir                        = QDir(defaultAkDir).absoluteFilePath(QLatin1String("db_misc"));
+    params.databaseType                    = DbEngineParameters::MariaDBDatabaseType();
+    params.databaseNameCore                = QLatin1String("digikam");
+    params.databaseNameThumbnails          = QLatin1String("digikam");
+    params.databaseNameFace                = QLatin1String("digikam");
+    params.databaseNameSimilarity          = QLatin1String("digikam");
+    params.userName                        = QLatin1String("root");
+    params.password                        = QString();
+    params.internalServer                  = true;
+    params.internalServerDBPath            = m_tempDir.path();
     params.internalServerMariaDBUpgradeCmd = mariadbUpgradeBin.path();
     params.internalServerMariaDBServerCmd  = mariadbServerBin.path();
     params.internalServerMariaDBAdminCmd   = mariadbAdminBin.path();
     params.internalServerMariaDBInitCmd    = mariadbInitBin.path();
-    params.hostName                      = QString();
-    params.port                          = -1;
-    params.connectOptions                = QString::fromLatin1("UNIX_SOCKET=%1/mysql.socket").arg(miscDir);
+    params.hostName                        = QString();
+    params.port                            = -1;
+    params.connectOptions                  = QString::fromLatin1("UNIX_SOCKET=%1/mysql.socket").arg(miscDir);
 
     // ------------------------------------------------------------------------------------
 
@@ -160,6 +155,11 @@ void DatabaseMariaDBInitTest::testMariaDBInit()
     SimilarityDbAccess::cleanUpDatabase();
 
     DatabaseServerStarter::instance()->stopServerManagerProcess();
+}
+
+void DatabaseMariaDBInitTest::cleanupTestCase()
+{
+    WSToolUtils::removeTemporaryDir(m_tempPath.toLatin1().data());
 }
 
 #include "moc_databasemariadbinit_utest.cpp"

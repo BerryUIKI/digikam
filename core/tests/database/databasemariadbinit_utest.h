@@ -34,7 +34,6 @@ public:
 private Q_SLOTS:
 
     void testMariaDBInit();
-
     void initTestCase();
     void cleanupTestCase();
 
