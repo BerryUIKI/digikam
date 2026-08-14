@@ -1,11 +1,14 @@
 #!/usr/bin/env bash
+# ============================================================
 #
-# Runs the NL-search benchmark across the candidate models and writes
-# per-model JSON results into results/. Model GGUFs are expected under
-# models/ (not committed - see README.md for download instructions).
+# This file is a part of digiKam project
+# https://www.digikam.org
 #
-# Usage:  ./run_benchmark.sh
+# SPDX-FileCopyrightText: 2026 by Srirupa Datta <srirupa dot sps at gmail dot com>
+# SPDX-License-Identifier: GPL-2.0-or-later
 #
+# ============================================================
+
 set -euo pipefail
 
 cd "$(dirname "$0")"

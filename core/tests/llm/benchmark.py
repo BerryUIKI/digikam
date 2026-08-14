@@ -1,4 +1,14 @@
 #!/usr/bin/env python3
+# ============================================================
+#
+# This file is a part of digiKam project
+# https://www.digikam.org
+#
+# SPDX-FileCopyrightText: 2026 by Srirupa Datta <srirupa dot sps at gmail dot com>
+# SPDX-License-Identifier: GPL-2.0-or-later
+#
+# ============================================================
+
 """NL-search model benchmark: latency, memory, structured-output accuracy.
 
 Mirrors SearchPromptBuilder::buildPrompt exactly (raw prompt, no chat template,
