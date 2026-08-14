@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:43+0000\n"
-"PO-Revision-Date: 2026-07-21 06:21+0200\n"
+"POT-Creation-Date: 2026-08-14 00:42+0000\n"
+"PO-Revision-Date: 2026-08-13 07:13+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -2750,33 +2750,25 @@ msgid "Start digikam with the configuration file \"config\""
 msgstr "digiKam-ის გასვება კონფიგურაციის ფაილით \"config\""
 
 #: core/app/main/main.cpp:303
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin is not available. please "
-#| "install it.\n"
-#| "There is no database plugin installed on your computer."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin is not available. please "
 "install it.\n"
 "There is no database plugin installed on your computer."
 msgstr ""
-"Qt-ის SQLite, ან MySQL მონაცემთა ბაზის დამატება ხელმისაწვდომი არაა. დააყენეთ "
-"ის.\n"
+"Qt-ის SQLite, ან MariaDB მონაცემთა ბაზის დამატება ხელმისაწვდომი არაა. "
+"დააყენეთ ის.\n"
 "თქვენს კომპიუტერზე მონაცემთა ბაზის დამატება დაყენებული არაა."
 
 #: core/app/main/main.cpp:312
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin are not available. Please "
-#| "install it.\n"
-#| "Database plugins installed on your computer are listed below."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin are not available. Please "
 "install it.\n"
 "Database plugins installed on your computer are listed below."
 msgstr ""
-"Qt-ის SQLite, ან MySQL მონაცემთა ბაზის დამატება ხელმისაწვდომი არაა. დააყენეთ "
-"ის.\n"
+"Qt-ის SQLite, ან MariaDB მონაცემთა ბაზის დამატება ხელმისაწვდომი არაა. "
+"დააყენეთ ის.\n"
 "თქვენს კომპიუტერზე დაყენებული მონაცემთა ბაზის დამატებები ქვემოთაა ჩამოთვლილი."
 
 #: core/app/main/main.cpp:356
@@ -26518,16 +26510,14 @@ msgid "Searches"
 msgstr "ძებნები"
 
 #: core/libs/album/manager/albummanager_database.cpp:111
-#, fuzzy, kde-format
-#| msgid "The MySQL database directory was not found."
+#, kde-format
 msgid "The MariaDB database directory was not found."
-msgstr "MySQL-ის მონაცემთა ბაზის საქაღალდე აღმოჩენილი არაა."
+msgstr "MariaDB-ის მონაცემთა ბაზის საქაღალდე აღმოჩენილი არაა."
 
 #: core/libs/album/manager/albummanager_database.cpp:128
-#, fuzzy, kde-format
-#| msgid "The MySQL binary tools was not found."
+#, kde-format
 msgid "The MariaDB binary tools was not found."
-msgstr "MySQL-ის ხელსაწყოები აღმოჩენილი არაა."
+msgstr "MariaDB-ის ხელსაწყოები აღმოჩენილი არაა."
 
 #: core/libs/album/manager/albummanager_database.cpp:135
 #, kde-format
@@ -27919,13 +27909,13 @@ msgstr ""
 #: core/libs/database/engine/dbengineaccess.cpp:70
 #, fuzzy, kde-format
 #| msgid ""
-#| "The driver \"MYSQL\" for MySQL databases is not available.\n"
+#| "The driver \"MYSQL\" for MariaDB databases is not available.\n"
 #| "digiKam depends on the drivers provided by the Qt::SQL module."
 msgid ""
-"The driver \"MYSQL\" for MariaDB databases is not available.\n"
+"The driver \"QMYSQL\" for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"MySQL მონაცემთა ბაზისთვის დრაივერი \"MYSQL\" ხელმისაწვდომი არაა.\n"
+"MariaDB-ის მონაცემთა ბაზისთვის დრაივერი \"MariaDB\" ხელმისაწვდომი არაა.\n"
 "digiKam იყენებს დრაივერებს, რომლებსაც მოდული Qt::SQL მოდული შეიცავს."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
@@ -28088,34 +28078,30 @@ msgid "Database type is not supported."
 msgstr "მონაცემთა ბაზის ტიპი მხარდაჭერილი არაა."
 
 #: core/libs/database/server/databaseserver.cpp:296
-#, fuzzy, kde-format
-#| msgid "No path to mysql upgrade command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB upgrade command set in configuration file."
 msgstr ""
-"კონფიგურაციის ფაილსი mysql-ის ვერსიის აწევის ბრძანებამდე ბილიკი დაყენებული "
+"კონფიგურაციის ფაილსი MariaDB-ის ვერსიის აწევის ბრძანებამდე ბილიკი დაყენებული "
 "არაა."
 
 #: core/libs/database/server/databaseserver.cpp:305
-#, fuzzy, kde-format
-#| msgid "No path to mysql server command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB server command set in configuration file."
 msgstr ""
-"კონფიგურაციის ფაილში mysql-ის სერვერის ბრძანებამდე ბილიკი დაყენებული არაა."
+"კონფიგურაციის ფაილში MariaDB-ის სერვერის ბრძანებამდე ბილიკი დაყენებული არაა."
 
 #: core/libs/database/server/databaseserver.cpp:314
-#, fuzzy, kde-format
-#| msgid "No path to mysql administration command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB administration command set in configuration file."
 msgstr ""
-"კონფიგურაციის ფაილში mysql-ის ადმინისტრირების ბრძანების ბილიკი დაყენებული "
+"კონფიგურაციის ფაილში MariaDB-ის ადმინისტრირების ბრძანების ბილიკი დაყენებული "
 "არაა."
 
 #: core/libs/database/server/databaseserver.cpp:323
-#, fuzzy, kde-format
-#| msgid "No path to mysql initialization command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB initialization command set in configuration file."
 msgstr ""
-"კონფიგურაციის ფაილში mysql-ის ინიციალიზაციის ბრძანების ბილიკი დაყენებული "
+"კონფიგურაციის ფაილში MariaDB-ის ინიციალიზაციის ბრძანების ბილიკი დაყენებული "
 "არაა."
 
 #: core/libs/database/server/databaseserver.cpp:333
@@ -28134,18 +28120,17 @@ msgid ""
 msgstr ""
 
 #: core/libs/database/server/databaseserver.cpp:458
-#, fuzzy, kde-format
-#| msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+#, kde-format
 msgid "Cannot find MariaDB server default configuration (mysql-global.conf)."
 msgstr ""
-"MySQL სერვერის ნაგულისხმევი კონფიგურაციის ფაილი (mysql-global.conf) "
+"MariaDB-ის სერვერის ნაგულისხმევი კონფიგურაციის ფაილი (mysql-global.conf) "
 "აღმოჩენილი არაა."
 
 #: core/libs/database/server/databaseserver.cpp:505
-#, fuzzy, kde-format
-#| msgid "The internal MySQL database is initializing, please wait..."
+#, kde-format
 msgid "The internal MariaDB database is initializing, please wait..."
-msgstr "მიმდინარეობს შიდა MySQL მონაცემთა ბაზის ინიციალიზაცია. მოითმინეთ..."
+msgstr ""
+"მიმდინარეობს შიდა MariaDB-ის მონაცემთა ბაზის ინიციალიზაცია. მოითმინეთ..."
 
 #: core/libs/database/server/databaseserver.cpp:553
 #, kde-format
@@ -28181,10 +28166,9 @@ msgstr ""
 "შეცდომა: %2</p>"
 
 #: core/libs/database/server/databaseserver.cpp:751
-#, fuzzy, kde-format
-#| msgid "A MySQL database upgrade is in progress, please wait..."
+#, kde-format
 msgid "A MariaDB database upgrade is in progress, please wait..."
-msgstr "მიმდინარეობს MySQL მონაცემთა ბაზის განახლება. მოითმინეთ..."
+msgstr "მიმდინარეობს MariaDB-ის მონაცემთა ბაზის განახლება. მოითმინეთ..."
 
 #: core/libs/database/server/databaseserver.cpp:795
 #, kde-format
@@ -28480,62 +28464,49 @@ msgid "SQLite"
 msgstr "SQLite"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Mysql Internal"
+#, kde-format
 msgid "MariaDB Internal"
-msgstr "Mysql შიდა"
+msgstr "MariaDB შიდა"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:67
-#, fuzzy, kde-format
-#| msgid "%1 Media Server"
+#, kde-format
 msgid "MariaDB Server"
-msgstr "%1 მედია სერვერი"
+msgstr "MariaDB სერვერი"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Internal</b> backend is for local database storage with huge "
-#| "collection sizes. This backend is recommend for local collections with "
-#| "more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small or medium collection sizes. It is "
 "the default and recommended backend for collections with less than 500K "
 "items.</p>"
 msgstr ""
-"<p>უკანაბოლო <b>შიდა MySQL</b> განკუთვნილია ლოკალური საცავისთვის, უზარმაზარი "
-"კოლექციის ზომებით. ეს უკანაბოლო რეკომენდებულია ლოკალური კოლექციებისთვის, "
-"რომლებიც 100, 000-ზე მეტ ელემენტს შეიცავს.</p>"
+"<p>აირჩიეთ აქ მონაცემთა ბაზის უკანაბოლოს ტიპი.</p><p><b>SQlite</b> უკანაბოლო "
+"წარმოადგენს ლოკალურ მონაცემთა ბაზის საცავს პატარა, ან საშუალო ზომის "
+"კოლექციებისთვის. ეს ნაგულისხმევი და რეკომენდებული უკანაბოლოა კოლექციებისთვის "
+"500 000-ზე ნაკლები ჩანაწერით</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Internal</b> backend is for local database storage with huge "
-#| "collection sizes. This backend is recommend for local collections with "
-#| "more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Internal</b> backend is for local database storage with huge "
 "collection sizes. This backend is recommend for local collections with more "
 "than 500K items.</p>"
 msgstr ""
-"<p>უკანაბოლო <b>შიდა MySQL</b> განკუთვნილია ლოკალური საცავისთვის, უზარმაზარი "
-"კოლექციის ზომებით. ეს უკანაბოლო რეკომენდებულია ლოკალური კოლექციებისთვის, "
-"რომლებიც 100, 000-ზე მეტ ელემენტს შეიცავს.</p>"
+"<p><b>შიდა MariaDB</b>-ის უკანაბოლო განკუთვნილია ლოკალური საცავისთვის, "
+"უზარმაზარი კოლექციის ზომებით. ეს უკანაბოლო რეკომენდებულია ლოკალური "
+"კოლექციებისთვის, რომლებიც 500, 000-ზე მეტ ელემენტს შეიცავს.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:86
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Internal</b> backend is for local database storage with huge "
-#| "collection sizes. This backend is recommend for local collections with "
-#| "more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Server</b> backend is a more robust solution especially for "
 "remote and shared database storage. It is also more efficient to manage huge "
 "collection sizes with more than 500K items.</p>"
 msgstr ""
-"<p>უკანაბოლო <b>შიდა MySQL</b> განკუთვნილია ლოკალური საცავისთვის, უზარმაზარი "
-"კოლექციის ზომებით. ეს უკანაბოლო რეკომენდებულია ლოკალური კოლექციებისთვის, "
-"რომლებიც 100, 000-ზე მეტ ელემენტს შეიცავს.</p>"
+"<p><b>MariaDB სერვერის</b> უკანაბოლო განკუთვნილია ლოკალური საცავისთვის, "
+"უზარმაზარი კოლექციის ზომებით. ეს უკანაბოლო რეკომენდებულია ლოკალური "
+"კოლექციებისთვის, რომლებიც 500, 000-ზე მეტ ელემენტს შეიცავს.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:93
 #, kde-format
@@ -28610,12 +28581,10 @@ msgid ""
 msgstr ""
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:178
-#, fuzzy, kde-format
-#| msgctxt "@title: group"
-#| msgid "Panorama Binaries"
+#, kde-format
 msgctxt "@title:group"
 msgid "MariaDB Binaries"
-msgstr "გამშვები ფაილები პანორამისთვის"
+msgstr "MariaDB-ის გამშვები ფაილები"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:221
 #, kde-format
@@ -28630,7 +28599,7 @@ msgstr "ჰოსტის სახელი"
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:224
 #, kde-format
 msgid ""
-"This is the computer name running MySQL server.\n"
+"This is the computer name running MariaDB server.\n"
 "This can be \"localhost\" for a local server, or the network computer\n"
 "name (or IP address) in case of remote computer."
 msgstr ""
@@ -28650,16 +28619,13 @@ msgid "Set the database connection options"
 msgstr "დააყენეთ მონაცემთა ბაზასთან დაკავშირების პარამეტრები"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:234
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server connection options.\n"
-#| "For advanced users only."
+#, kde-format
 msgid ""
 "Set the MariaDB server connection options.\n"
 "For advanced users only."
 msgstr ""
-"დააყენეთ MySQL სერვერთან დაკავშირების პარამეტრები.\n"
-"მხოლოდ გამოცდილი მომხმარებლებისთვის."
+"დააყენეთ MariaDB-ის სერვერთან დაკავშირების პარამეტრები.\n"
+"მხოლოდ, გამოცდილი მომხმარებლებისთვის."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:237
 #, kde-format
@@ -28672,35 +28638,26 @@ msgid "Set the database account name"
 msgstr "დააყენეთ მონაცემთა ბაზის ანგარიშის სახელი"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:240
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account name used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "This account must be available on the remote\n"
-#| "MySQL server when database have been created."
+#, kde-format
 msgid ""
 "Set the MariaDB server account name used\n"
 "by digiKam to be connected to the server.\n"
 "This account must be available on the remote\n"
 "MariaDB server when database have been created."
 msgstr ""
-"დააყენეთ MySQL სერვერის ანგარიშის სახელი, რომელსაც\n"
+"დააყენეთ MariaDB-ის სერვერის ანგარიშის სახელი, რომელსაც\n"
 "digiKam სერვერთან დასაკავშირებლად გამოიყენებს.\n"
-"ეს ანგარიში ხელმისაწვდომი უნდა იყოს დაშორებულ MySQL სერვერზე,\n"
+"ეს ანგარიში ხელმისაწვდომი უნდა იყოს დაშორებულ MariaDB სერვერზე,\n"
 "როცა მონაცემთა ბაზა შეიქმნა."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:247
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account password used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "You can left this field empty to use an account set without password."
+#, kde-format
 msgid ""
 "Set the MariaDB server account password used\n"
 "by digiKam to be connected to the server.\n"
 "You can left this field empty to use an account set without password."
 msgstr ""
-"დააყენეთ MySQL სერვერის პაროლი, რომელსაც\n"
+"დააყენეთ MariaDB-ის სერვერის პაროლი, რომელსაც\n"
 "digiKam სერვერთან დასაკავშირებლად გამოიყენებს.\n"
 "თუ ანგარიშს პაროლი არ აქვს, ეს ველი, შეგიძლიათ, ცარიელი დატოვოთ."
 
@@ -28710,16 +28667,13 @@ msgid "Host Port:"
 msgstr "ჰოსტის პორტი:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:255
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the host computer port.\n"
-#| "Usually, MySQL server use port number 3306 by default"
+#, kde-format
 msgid ""
 "Set the host computer port.\n"
 "Usually, MariaDB server use port number 3306 by default"
 msgstr ""
 "აირჩიეთ ჰოსტი კომპიუტერის პორტი.\n"
-"ჩვეულებრივ, MySQL სერვერი ნაგულისხმევად 3306-ე პორტს იყენებს"
+"ჩვეულებრივ, MariaDB-ის სერვერი ნაგულისხმევად 3306-ე პორტს იყენებს"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:260
 #, kde-format
@@ -28727,16 +28681,13 @@ msgid "Check Connection"
 msgstr "შეერთების შემოწმება"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:261
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run a basic database connection to see if current MySQL server settings "
-#| "is suitable."
+#, kde-format
 msgid ""
 "Run a basic database connection to see if current MariaDB server settings is "
 "suitable."
 msgstr ""
 "ძირითადი მონაცემთა ბაზის კავშირის დამყარება დასარწმუნებლად, რომ შეყვანილი "
-"MySQL-ის სერვერის პარამეტრები შესაფერისია."
+"MariaDB-ის სერვერის პარამეტრები შესაფერისია."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:268
 #, kde-format
@@ -28854,11 +28805,11 @@ msgid ""
 "mariadb -u root</p><p>...</p><p>Enter SQL code to MariaDB prompt in order to "
 "init digiKam databases with grant privileges (see behind)</p><p>...</"
 "p><p>quit</p><p>NOTE: If you have problems with a MariaDB server on Ubuntu "
-"based Linux system, use the addition command in the mysql prompt to be able "
-"to create MariaDB triggers.<br>SET GLOBAL log_bin_trust_function_creators=1;"
-"</p><p>NOTE: If you have an enormous collection, you should start MariaDB "
-"server with mysql --max_allowed_packet=128M OR in my.ini or ~/.my.cnf, "
-"change the settings</p>"
+"based Linux system, use the addition command in the MariaDB prompt to be "
+"able to create MariaDB triggers.<br>SET GLOBAL "
+"log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
+"collection, you should start MariaDB server with mariadb --"
+"max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
 msgstr ""
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:365
@@ -28901,51 +28852,51 @@ msgstr "დოკუმენტაცია"
 msgid "Thumbs Db Folder:"
 msgstr "მინიატურების ბაზის საქაღალდე:"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:35
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:40
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:35
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:40
 #: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:301
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Connection Test"
 msgstr "ბაზასთან შეერთების შემოწმება"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:36
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:36
 #, kde-format
 msgid "Database connection test successful."
 msgstr "ბაზასთან სატესტო შეერთება წარმატებით დასრულდა."
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:41
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:41
 #, kde-format
 msgid "Database connection test was not successful. <p>Error was: %1</p>"
 msgstr ""
 "მონაცემთა ბაზასთან დაკავშირების შემოწმება წარუმატებელია. <p>შეცდომაა: %1</p>"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:50
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:50
 #, kde-format
 msgid "The server hostname is empty"
 msgstr "სერვერის ჰოსტის სახელი ცარიელია"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:56
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:56
 #, kde-format
 msgid "The server user name is empty"
 msgstr "სერვერის მომხმარებლის სახელი ცარიელია"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:67
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:67
 #, kde-format
 msgid "The core database name is empty"
 msgstr "ბირთვი მონაცემთა ბაზის სახელი ცარიელია"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:73
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:73
 #, kde-format
 msgid "The thumbnails database name is empty"
 msgstr "მინიატურების მონაცემთა ბაზის სახელი ცარიელია"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:79
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:79
 #, kde-format
 msgid "The face database name is empty"
 msgstr "სახეების მონაცემთა ბაზის სახელი ცარიელია"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:85
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:85
 #, kde-format
 msgid "The similarity database name is empty"
 msgstr "მსგავსების მონაცემთა ბაზის სახელი ცარიელია"
@@ -42650,10 +42601,9 @@ msgid "Color Management"
 msgstr "ფერების მართვა"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:350
-#, fuzzy, kde-format
-#| msgid "MySQL interface"
+#, kde-format
 msgid "MariaDB interface"
-msgstr "MySQL-ის ინტერფეისი"
+msgstr "MariaDB-ის ინტერფეისი"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:355
 #, kde-format
@@ -59661,16 +59611,13 @@ msgid "Extended clean up and shrink all databases."
 msgstr "ყველა მონაცემთა ბაზის გაფართოებული გასუფთავება და შემცირება."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:100
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option leads to the vacuuming (shrinking) of the databases. "
-#| "Vacuuming is supported both for SQLite and MySQL."
+#, kde-format
 msgid ""
 "This option leads to the vacuuming (shrinking) of the databases. Vacuuming "
 "is supported both for SQLite and MariaDB."
 msgstr ""
 "ეს პარამეტრი მონაცემთა ბაზების მომტვერსასრუტებას (შემცირებას) იწვევს. ეს "
-"მხარდაჭერილია ორივეგან, SQLite და MySQL."
+"მხარდაჭერილია ორივეგან, SQLite და MariaDB."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:107
 #, kde-format

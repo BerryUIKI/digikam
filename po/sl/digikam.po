@@ -37,8 +37,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-13 00:43+0000\n"
-"PO-Revision-Date: 2026-07-28 13:00+0200\n"
+"POT-Creation-Date: 2026-08-14 00:42+0000\n"
+"PO-Revision-Date: 2026-08-13 07:38+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -2821,32 +2821,24 @@ msgid "Start digikam with the configuration file \"config\""
 msgstr "Zaženi digikam z nastavitveno datoteko \"config\""
 
 #: core/app/main/main.cpp:303
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin is not available. please "
-#| "install it.\n"
-#| "There is no database plugin installed on your computer."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin is not available. please "
 "install it.\n"
 "There is no database plugin installed on your computer."
 msgstr ""
-"Vstavek za zaganjanje podatkovnih zbirk Qt SQLite ali MySQL ni na voljo, "
+"Vstavek za zaganjanje podatkovnih zbirk Qt SQLite ali MariaDB ni na voljo, "
 "namestite ga.\n"
 "Na vašem računalniku ni nameščen noben vstavek za podatkovne zbirke."
 
 #: core/app/main/main.cpp:312
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin are not available. Please "
-#| "install it.\n"
-#| "Database plugins installed on your computer are listed below."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin are not available. Please "
 "install it.\n"
 "Database plugins installed on your computer are listed below."
 msgstr ""
-"Vstavek za izvajanje podatkovnih zbirk Qt SQLite ali MySQL ni na voljo. "
+"Vstavek za izvajanje podatkovnih zbirk Qt SQLite ali MariaDB ni na voljo. "
 "Prosim namestite ga.\n"
 "Nameščeni vstavki so na spodnjem seznamu."
 
@@ -27222,16 +27214,14 @@ msgid "Searches"
 msgstr "Iskanja"
 
 #: core/libs/album/manager/albummanager_database.cpp:111
-#, fuzzy, kde-format
-#| msgid "The MySQL database directory was not found."
+#, kde-format
 msgid "The MariaDB database directory was not found."
-msgstr "Mape za podatkovno bazo MySQL ni mogoče najti."
+msgstr "Imenika za podatkovno bazo MariaDB ni mogoče najti."
 
 #: core/libs/album/manager/albummanager_database.cpp:128
-#, fuzzy, kde-format
-#| msgid "The MySQL binary tools was not found."
+#, kde-format
 msgid "The MariaDB binary tools was not found."
-msgstr "Binarnega orodja MySQL ni bilo mogoče najti."
+msgstr "Binarnega orodja MariaDB ni bilo mogoče najti."
 
 #: core/libs/album/manager/albummanager_database.cpp:135
 #, kde-format
@@ -28715,13 +28705,13 @@ msgstr ""
 #: core/libs/database/engine/dbengineaccess.cpp:70
 #, fuzzy, kde-format
 #| msgid ""
-#| "The driver \"MYSQL\" for MySQL databases is not available.\n"
+#| "The driver \"MYSQL\" for MariaDB databases is not available.\n"
 #| "digiKam depends on the drivers provided by the Qt::SQL module."
 msgid ""
-"The driver \"MYSQL\" for MariaDB databases is not available.\n"
+"The driver \"QMYSQL\" for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"Gonilnik \"MYSQL\" za podatkovne zbirke MySQL ni na voljo.\n"
+"Gonilnik \"MYSQL\" za podatkovne zbirke MariaDB ni na voljo.\n"
 "digiKam je odvisen od gonilnikov iz modula Qt::SQL."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
@@ -28889,31 +28879,28 @@ msgid "Database type is not supported."
 msgstr "Ta vrsta podatkovne zbirke ni podprta."
 
 #: core/libs/database/server/databaseserver.cpp:296
-#, fuzzy, kde-format
-#| msgid "No path to mysql upgrade command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB upgrade command set in configuration file."
 msgstr ""
-"V konfiguracijski datoteki ni nastavljene poti do ukaza za nadgradnjo mysql."
+"V konfiguracijski datoteki ni nastavljene poti do ukaza za nadgradnjo "
+"MariaDB."
 
 #: core/libs/database/server/databaseserver.cpp:305
-#, fuzzy, kde-format
-#| msgid "No path to mysql server command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB server command set in configuration file."
 msgstr ""
-"V nastavitvah strežnika ni nastavljene poti do zbirke ukazov za mysql!."
+"V nastavitvah strežnika ni nastavljene poti do zbirke ukazov za MariaDB!."
 
 #: core/libs/database/server/databaseserver.cpp:314
-#, fuzzy, kde-format
-#| msgid "No path to mysql administration command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB administration command set in configuration file."
-msgstr "V nastavitvah ni nastavljene poti do skrbniške ukaze mysql!."
+msgstr "V nastavitvah ni nastavljene poti do skrbniške ukaze MariaDB!."
 
 #: core/libs/database/server/databaseserver.cpp:323
-#, fuzzy, kde-format
-#| msgid "No path to mysql initialization command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB initialization command set in configuration file."
 msgstr ""
-"V nastavitvah strežnika ni nastavljene poti do zagonskih ukazov za mysql!."
+"V nastavitvah strežnika ni nastavljene poti do zagonskih ukazov za MariaDB!."
 
 #: core/libs/database/server/databaseserver.cpp:333
 #: core/libs/database/server/databaseserver.cpp:343
@@ -28923,32 +28910,26 @@ msgid "Cannot create directory %1"
 msgstr "Ni mogoče ustvariti direktorija %1"
 
 #: core/libs/database/server/databaseserver.cpp:436
-#, fuzzy, kde-format
-#| msgid ""
-#| "Unable to create MySQL server configuration file.<p>This means that "
-#| "either the default configuration file</p><p>%1</p><p>was not readable or "
-#| "the target file</p><p>%2</p><p>could not be written.</p>"
+#, kde-format
 msgid ""
 "Unable to create MariaDB server configuration file.<p>This means that either "
 "the default configuration file</p><p>%1</p><p>was not readable or the target "
 "file</p><p>%2</p><p>could not be written.</p>"
 msgstr ""
-"Ni bilo mogoče ustvariti nastavitvene datoteke strežnika MySQL.<p>To pomeni, "
-"da bodisi datoteka s privzetimi nastavitvami </p><p>%1</p><p>ni berljiva ali "
-"pa ciljne datoteke </p><p>%2</p><p>ni bilo mogoče zapisati.</p>"
+"Ni bilo mogoče ustvariti nastavitvene datoteke strežnika MariaDB.<p>To "
+"pomeni, da bodisi datoteka s privzetimi nastavitvami </p><p>%1</p><p>ni "
+"berljiva ali pa ciljne datoteke </p><p>%2</p><p>ni bilo mogoče zapisati.</p>"
 
 #: core/libs/database/server/databaseserver.cpp:458
-#, fuzzy, kde-format
-#| msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+#, kde-format
 msgid "Cannot find MariaDB server default configuration (mysql-global.conf)."
 msgstr ""
-"Privzetih nastavitev strežnika MySQL (mysql-global.conf) ni mogoče najti."
+"Privzetih nastavitev strežnika MariaDB (mysql-global.conf) ni mogoče najti."
 
 #: core/libs/database/server/databaseserver.cpp:505
-#, fuzzy, kde-format
-#| msgid "The internal MySQL database is initializing, please wait..."
+#, kde-format
 msgid "The internal MariaDB database is initializing, please wait..."
-msgstr "Notranja zbirka podatkov MySQL se inicializira, počakajte..."
+msgstr "Notranja zbirka podatkov MariaDB se inicializira, počakajte..."
 
 #: core/libs/database/server/databaseserver.cpp:553
 #, kde-format
@@ -28988,10 +28969,9 @@ msgstr ""
 "p><p>Napaka podatkovne zbirke: %2</p>"
 
 #: core/libs/database/server/databaseserver.cpp:751
-#, fuzzy, kde-format
-#| msgid "A MySQL database upgrade is in progress, please wait..."
+#, kde-format
 msgid "A MariaDB database upgrade is in progress, please wait..."
-msgstr "V teku je nadgradnja baze podatkov MySQL, prosim počakajte..."
+msgstr "V teku je nadgradnja baze podatkov MariaDB, prosim počakajte..."
 
 #: core/libs/database/server/databaseserver.cpp:795
 #, kde-format
@@ -29300,24 +29280,17 @@ msgid "SQLite"
 msgstr "SQLite"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Mysql Internal"
+#, kde-format
 msgid "MariaDB Internal"
-msgstr "Interni MySql"
+msgstr "Interni MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:67
-#, fuzzy, kde-format
-#| msgid "%1 Media Server"
+#, kde-format
 msgid "MariaDB Server"
-msgstr "%1 medijski strežnik"
+msgstr "Strežnik MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend "
-#| "is for local database storage with a small or medium collection sizes. It "
-#| "is the default and recommended backend for collections with less than "
-#| "100K items.</p>"
+#, kde-format
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small or medium collection sizes. It is "
@@ -29326,37 +29299,29 @@ msgid ""
 msgstr ""
 "<p>Tu izberite vrsto zaledne baze podatkov.</p><p><b>SQlite</b> je za "
 "lokalno shranjevanje baz podatkov z majhno ali srednje velikostjo zbirke. Je "
-"privzeta in priporočena podpora za zbirke z manj kot 100 tisoč predmetov.</p>"
+"privzeta in priporočena podpora za zbirke z manj kot 500 tisoč predmetov.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Internal</b> backend is for local database storage with huge "
-#| "collection sizes. This backend is recommend for local collections with "
-#| "more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Internal</b> backend is for local database storage with huge "
 "collection sizes. This backend is recommend for local collections with more "
 "than 500K items.</p>"
 msgstr ""
-"<p><b>Interni MySQL</b> je zaledje za shranjevanje lokalnih baz podatkov "
+"<p><b>Interni MariaDB</b> je zaledje za shranjevanje lokalnih baz podatkov "
 "ogromnih velikosti zbirke. Ta predstavitev je priporočljiva za lokalne "
-"zbirke z več več kot 100 tisoč predmetov.</p>"
+"zbirke z več več kot 500 tisoč predmetov.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:86
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Server</b> backend is a more robust solution especially for "
-#| "remote and shared database storage. It is also more efficient to manage "
-#| "huge collection sizes with more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Server</b> backend is a more robust solution especially for "
 "remote and shared database storage. It is also more efficient to manage huge "
 "collection sizes with more than 500K items.</p>"
 msgstr ""
-"<p>Zaledje <b>MySQL Server</b> je bolj robustna rešitev, posebej za "
+"<p>Zaledje <b>MariaDB Server</b> je bolj robustna rešitev, posebej za "
 "oddaljeno in skupno shranjevanje podatkovne baze. Učinkovitejše je tudi "
-"upravljanje ogromnih velikosti zbirke z več kot 100 tisoč predmeti.</p>"
+"upravljanje ogromnih velikosti zbirke z več kot 500 tisoč predmeti.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:93
 #, kde-format
@@ -29440,27 +29405,21 @@ msgstr ""
 "kritični rabi."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:169
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Here you can configure locations where MySQL binary tools are located. "
-#| "digiKam will try to find these binaries automatically if they are already "
-#| "installed on your computer.</p>"
+#, kde-format
 msgid ""
 "<p>Here you can configure locations where MariaDB binary tools are located. "
 "digiKam will try to find these binaries automatically if they are already "
 "installed on your computer.</p>"
 msgstr ""
-"<p>Tu lahko nastavljate lokacije, kjer se nahajajo izvajalna orodja MySQL. "
+"<p>Tu lahko nastavljate lokacije, kjer se nahajajo izvajalna orodja MariaDB. "
 "digiKam bo poskušal samodejno najti te datoteke, če so že nameščene v "
 "računalniku.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:178
-#, fuzzy, kde-format
-#| msgctxt "@title: group"
-#| msgid "Panorama Binaries"
+#, kde-format
 msgctxt "@title:group"
 msgid "MariaDB Binaries"
-msgstr "Izvajalni programi za Panoramo"
+msgstr "Izvajalni programi za MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:221
 #, kde-format
@@ -29473,9 +29432,13 @@ msgid "Set the host computer name"
 msgstr "Nastavi ime gostitelja"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:224
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This is the computer name running MySQL server.\n"
+#| "This can be \"localhost\" for a local server, or the network computer\n"
+#| "name (or IP address) in case of remote computer."
 msgid ""
-"This is the computer name running MySQL server.\n"
+"This is the computer name running MariaDB server.\n"
 "This can be \"localhost\" for a local server, or the network computer\n"
 "name (or IP address) in case of remote computer."
 msgstr ""
@@ -29498,15 +29461,12 @@ msgid "Set the database connection options"
 msgstr "Nastavi možnosti povezave s podatkovno zbirko"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:234
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server connection options.\n"
-#| "For advanced users only."
+#, kde-format
 msgid ""
 "Set the MariaDB server connection options.\n"
 "For advanced users only."
 msgstr ""
-"Nastavi možnosti povezave strežnika Mysql.\n"
+"Nastavi možnosti povezave strežnika MariaDB.\n"
 "Samo za napredne uporabnike."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:237
@@ -29520,35 +29480,26 @@ msgid "Set the database account name"
 msgstr "Nastavi ime računa podatkovne zbirke"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:240
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account name used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "This account must be available on the remote\n"
-#| "MySQL server when database have been created."
+#, kde-format
 msgid ""
 "Set the MariaDB server account name used\n"
 "by digiKam to be connected to the server.\n"
 "This account must be available on the remote\n"
 "MariaDB server when database have been created."
 msgstr ""
-"Nastavite ime računa strežnika MySQL, ki ga bo\n"
+"Nastavite ime računa strežnika MariaDB, ki ga bo\n"
 "digiKam uporabil za povezavo s strežnikom.\n"
 "Ta račun mora biti na voljo na oddaljenem strežniku\n"
-"MySQL, ko bo podatkovna zbirka ustvarjena."
+"MariaDB, ko bo podatkovna zbirka ustvarjena."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:247
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account password used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "You can left this field empty to use an account set without password."
+#, kde-format
 msgid ""
 "Set the MariaDB server account password used\n"
 "by digiKam to be connected to the server.\n"
 "You can left this field empty to use an account set without password."
 msgstr ""
-"Nastavite geslo računa strežnika MySQL, ki ga bo\n"
+"Nastavite geslo računa strežnika MariaDB, ki ga bo\n"
 "digiKam uporabil za povezavo s strežnikom.\n"
 "To polje lahko pustite prazno, če bo uporabljen račun brez gesla."
 
@@ -29558,16 +29509,13 @@ msgid "Host Port:"
 msgstr "Vrata gostitelja:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:255
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the host computer port.\n"
-#| "Usually, MySQL server use port number 3306 by default"
+#, kde-format
 msgid ""
 "Set the host computer port.\n"
 "Usually, MariaDB server use port number 3306 by default"
 msgstr ""
 "Nastavite vrata gostiteljskega računalnika.\n"
-"Običajno strežnik MySQL privzeto uporablja vrata 3306"
+"Običajno strežnik MariaDB privzeto uporablja vrata 3306"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:260
 #, kde-format
@@ -29575,16 +29523,13 @@ msgid "Check Connection"
 msgstr "Preveri povezavo"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:261
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run a basic database connection to see if current MySQL server settings "
-#| "is suitable."
+#, kde-format
 msgid ""
 "Run a basic database connection to see if current MariaDB server settings is "
 "suitable."
 msgstr ""
 "Izvede osnovno povezavo s podatkovno zbirko, da preveri, če so trenutne "
-"nastavitve strežnika MySQL ustrezne."
+"nastavitve strežnika MariaDB ustrezne."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:268
 #, kde-format
@@ -29714,14 +29659,14 @@ msgstr ""
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>Note: with a Linux server, a database can be initialized following the "
-#| "commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql "
-#| "-u root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init "
-#| "digiKam databases with grant privileges (see behind)</p><p>...</"
-#| "p><p>quit</p><p>NOTE: If you have problems with a MySQL server on Ubuntu "
-#| "based Linux system, use the addition command in the mysql prompt to be "
-#| "able to create MySQL triggers.<br>SET GLOBAL "
+#| "commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
+#| "mariadb -u root</p><p>...</p><p>Enter SQL code to MariaDB prompt in order "
+#| "to init digiKam databases with grant privileges (see behind)</p><p>...</"
+#| "p><p>quit</p><p>NOTE: If you have problems with a MariaDB server on "
+#| "Ubuntu based Linux system, use the addition command in the mysql prompt "
+#| "to be able to create MariaDB triggers.<br>SET GLOBAL "
 #| "log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
-#| "collection, you should start MySQL server with mysql --"
+#| "collection, you should start MariaDB server with mysql --"
 #| "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
 msgid ""
 "<p>Note: with a Linux server, a database can be initialized following the "
@@ -29729,21 +29674,22 @@ msgid ""
 "mariadb -u root</p><p>...</p><p>Enter SQL code to MariaDB prompt in order to "
 "init digiKam databases with grant privileges (see behind)</p><p>...</"
 "p><p>quit</p><p>NOTE: If you have problems with a MariaDB server on Ubuntu "
-"based Linux system, use the addition command in the mysql prompt to be able "
-"to create MariaDB triggers.<br>SET GLOBAL log_bin_trust_function_creators=1;"
-"</p><p>NOTE: If you have an enormous collection, you should start MariaDB "
-"server with mysql --max_allowed_packet=128M OR in my.ini or ~/.my.cnf, "
-"change the settings</p>"
+"based Linux system, use the addition command in the MariaDB prompt to be "
+"able to create MariaDB triggers.<br>SET GLOBAL "
+"log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
+"collection, you should start MariaDB server with mariadb --"
+"max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
 msgstr ""
 "<p>Opomba: s strežnikom Linux je bazo podatkov mogoče inicializirati z "
-"naslednjimi ukazi:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql "
-"- u root</p><p>...</p><p>Vnesite kodo SQL v poziv Mysql, da zaženete baze "
-"podatkov digiKam z dodelitvijo privilegijev (glejte za)</p><p>...</"
-"p><p>zapri</p><p>OPOMBA: Če imate težave s strežnikom MySQL v sistemu Linux, "
-"ki temelji na Ubuntu, uporabite ukaz add v pozivu mysql, da lahko ustvarite "
-"sprožilce MySQL.<br>SET GLOBAL log_bin_trust_function_creators=1;</"
-"p><p>OPOMBA: Če imate ogromno zbirko, zaženite strežnik MySQL z mysql --"
-"max_allowed_packet=128M ALI v my.ini ali ~/.my.cnf spremenite nastavitve</p>"
+"naslednjimi ukazi:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
+"mariadbd - u root</p><p>...</p><p>Vnesite kodo SQL v poziv MariaDB, da "
+"zaženete baze podatkov digiKam z dodelitvijo privilegijev (glejte za)</"
+"p><p>...</p><p>quit</p><p>OPOMBA: Če imate težave s strežnikom MariaDB v "
+"sistemu Linux, ki temelji na Ubuntu, uporabite ukaz add v pozivu mysql, da "
+"lahko ustvarite sprožilnike MariaDB.<br>SET GLOBAL "
+"log_bin_trust_function_creators=1;</p><p>OPOMBA: Če imate ogromno zbirko, "
+"zaženite strežnik MariaDB z mysql --max_allowed_packet=128M ALI v my.ini ali "
+"~/.my.cnf spremenite nastavitve</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:365
 #, kde-format
@@ -29756,25 +29702,7 @@ msgid "Database Server Technical Details"
 msgstr "Tehnične podrobnosti strežnika podatkovne zbirke"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:371
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Use this configuration view to set all information to be connected to "
-#| "a remote <a href=\"https://en.wikipedia.org/wiki/MySQL\">Mysql database "
-#| "server</a> (or <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</"
-#| "a>) through a network. As with Sqlite or MySQL internal server, 3 "
-#| "databases will be stored on the remote server: one for all collections "
-#| "properties, one to store compressed thumbnails, and one to store faces "
-#| "recognition metadata.</p><p>Unlike Sqlite or MySQL internal server, you "
-#| "can customize the database names to simplify your backups.</"
-#| "p><p>Databases are digiKam core engines. To prevent performance issues, "
-#| "take a care to use a fast network link between the client and the server "
-#| "computers. It is also recommended to host database files on fast hardware "
-#| "(as <a href=\"https://en.wikipedia.org/wiki/Solid-state_drive\">SSD</a>) "
-#| "with enough free space, especially for thumbnails database, even if data "
-#| "are compressed using wavelets image format <a href=\"https://en.wikipedia."
-#| "org/wiki/Progressive_Graphics_File\">PGF</a>.</p><p>The databases must be "
-#| "created previously on the remote server by the administrator. Look in "
-#| "<b>Requirements</b> tab for details.</p>"
+#, kde-format
 msgid ""
 "<p>Use this configuration view to set all information to be connected to a "
 "remote <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</a> through "
@@ -29792,24 +29720,23 @@ msgid ""
 "</p><p>The databases must be created previously on the remote server by the "
 "administrator. Look in <b>Requirements</b> tab for details.</p>"
 msgstr ""
-"<p>Uporabite ta pogled nastavitev za nastavitev vseh podatkov omrežne "
-"povezave z oddaljenim <a href=\"https://en.wikipedia.org/wiki/MySQL"
-"\">strežnikom s podatkovno zbirko MySQL</a> (ali <a href=\"https://en."
-"wikipedia.org/wiki/MariaDB\">MariaDB</a>). Kot v primeru notranjega "
-"strežnika Sqlite ali Mysql, bodo tudi na oddaljenem strežniku shranjene 3 "
-"podatkovne zbirke: ena za vse lastnosti zbirk, ena za shrambo stisnjenih "
-"sličic in ena za shrambo metapodatkov za zaznavo obrazov.</p><p>V tem "
-"primeru lahko spremenite imena podatkovnih zbirk, kar omogoča lažje "
-"varnostno kopiranje.</p><p>Podatkovne zbirke so jedrni ključni podatkovni "
-"viri digiKama. Da se izognete težavam z zmogljivostjo, uporabite hitro "
-"povezavo med odjemalci in strežniki. Priporočeno je tudi, da so podatkovne "
-"zbirke shranjene na hitri strojni opremi (npr. <a href=\"https://en."
-"wikipedia.org/wiki/Solid-state_drive\">SSD</a>), ki ima še dovolj prostega "
-"prostora. Slednje je še posebej pomembno za podatkovno zbirko s sličicami, "
-"četudi so podatki v stisnjeni obliki s pomočjo valovčkov<a href=\"https://en."
-"wikipedia.org/wiki/Progressive_Graphics_File\">PGF</a>.</p><p>Podatkovne "
-"zbirke morajo biti že ustvarjene s strani skrbnika. Za podrobnosti si "
-"oglejte zavihek <b>Zahteve</b>.</p>"
+"<p>S tem konfiguracijskim pogledom nastavite, da bodo vse informacije "
+"povezane z oddaljenim strežnikom <a href=\"https://en.wikipedia.org/wiki/"
+"MariaDB\">MariaDB</a> prek omrežja. Tako kot pri notranjem strežniku Sqlite "
+"ali MariaDB bodo na oddaljenem strežniku shranjene 3 baze podatkov: ena za "
+"vse lastnosti zbirk, ena za shranjevanje stisnjenih sličic in ena za "
+"shranjevanje metapodatkov za prepoznavanje obrazov.</p><p>Za razliko od "
+"notranjega strežnika Sqlite ali MariaDB lahko imena baz podatkov "
+"prilagodite, da poenostavite varnostne kopije.</p><p>Baze podatkov so "
+"osrednji mehanizmi digiKam. Da preprečite težave z zmogljivostjo, poskrbite "
+"za hitro omrežno povezavo med odjemalcem in strežnikom. Priporočljivo je "
+"tudi gostovanje datotek baze podatkov na hitri strojni opremi (kot je <a "
+"href=\"https://en.wikipedia.org/wiki/Solid-state_drive\">SSD</a>) z dovolj "
+"prostega prostora, zlasti za bazo podatkov sličic, tudi če so podatki "
+"stisnjeni z uporabo formata slik z valovčki <a href=\"https://en.wikipedia."
+"org/wiki/Progressive_Graphics_File\">PGF</a>.</p><p>Baze podatkov mora "
+"skrbnik predhodno ustvariti na oddaljenem strežniku. Za podrobnosti glejte "
+"zavihek <b>Requirements</b>.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:396
 #, kde-format
@@ -29821,52 +29748,52 @@ msgstr "Dokumentacija"
 msgid "Thumbs Db Folder:"
 msgstr "Mapa sličic Db:"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:35
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:40
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:35
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:40
 #: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:301
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Connection Test"
 msgstr "Preizkus povezave do podatkovne zbirke"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:36
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:36
 #, kde-format
 msgid "Database connection test successful."
 msgstr "Preizkus povezave do podatkovne zbirke je bil uspešen."
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:41
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:41
 #, kde-format
 msgid "Database connection test was not successful. <p>Error was: %1</p>"
 msgstr ""
 "Preizkus povezave do podatkovne zbirke ni bil uspešen. <p>Napaka je bila: "
 "%1</p>"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:50
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:50
 #, kde-format
 msgid "The server hostname is empty"
 msgstr "Ime gostitelja strežnika je prazno"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:56
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:56
 #, kde-format
 msgid "The server user name is empty"
 msgstr "Uporabniško ime strežnika je prazno"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:67
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:67
 #, kde-format
 msgid "The core database name is empty"
 msgstr "Ime jedrne podatkovne zbirke je prazno"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:73
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:73
 #, kde-format
 msgid "The thumbnails database name is empty"
 msgstr "Ime podatkovne zbirke sličic je prazno"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:79
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:79
 #, kde-format
 msgid "The face database name is empty"
 msgstr "Ime podatkovne zbirke obrazov je prazno"
 
-#: core/libs/database/utils/widgets/dbsettingswidget_mysql.cpp:85
+#: core/libs/database/utils/widgets/dbsettingswidget_mariadb.cpp:85
 #, kde-format
 msgid "The similarity database name is empty"
 msgstr "Ime podatkovne zbirke podobnosti je prazno"
@@ -44257,10 +44184,9 @@ msgid "Color Management"
 msgstr "Upravljanje barv"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:350
-#, fuzzy, kde-format
-#| msgid "MySQL interface"
+#, kde-format
 msgid "MariaDB interface"
-msgstr "Vmesnik MySQL"
+msgstr "Vmesnik MariaDB"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:355
 #, kde-format
@@ -61700,16 +61626,13 @@ msgid "Extended clean up and shrink all databases."
 msgstr "Razširjeno čiščenje in strnjevanje vseh podatkovnih zbirk."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:100
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option leads to the vacuuming (shrinking) of the databases. "
-#| "Vacuuming is supported both for SQLite and MySQL."
+#, kde-format
 msgid ""
 "This option leads to the vacuuming (shrinking) of the databases. Vacuuming "
 "is supported both for SQLite and MariaDB."
 msgstr ""
 "Ta možnost vodi do pospravljanja (krčenja) podatkovnih baz. Pospravljanje je "
-"podprto tako za SQLite kot MySQL."
+"podprto tako za SQLite kot MariaDB."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:107
 #, kde-format
