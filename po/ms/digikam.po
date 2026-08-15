@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:42+0000\n"
+"POT-Creation-Date: 2026-08-15 00:42+0000\n"
 "PO-Revision-Date: 2010-08-27 21:57+0800\n"
 "Last-Translator: Sharuzzaman Ahmat Raslan <sharuzzaman@gmail.com>\n"
 "Language-Team: Malay <kedidiemas@yahoogroups.com>\n"
@@ -4386,165 +4386,171 @@ msgstr "Buang Kumpulan"
 msgid "Configure this column"
 msgstr "Tetapkan"
 
-#: core/app/views/utils/componentsinfodlg.cpp:85
+#: core/app/views/utils/componentsinfodlg.cpp:87
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "Unknown"
 msgstr "Tidak diketahui"
 
-#: core/app/views/utils/componentsinfodlg.cpp:88
+#: core/app/views/utils/componentsinfodlg.cpp:90
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "LibGphoto2"
 msgstr "Saiz Semula Imej"
 
-#: core/app/views/utils/componentsinfodlg.cpp:93
+#: core/app/views/utils/componentsinfodlg.cpp:95
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibGphoto2 support"
 msgstr ""
 
-#: core/app/views/utils/componentsinfodlg.cpp:93
-#: core/app/views/utils/componentsinfodlg.cpp:105
-#: core/app/views/utils/componentsinfodlg.cpp:117
-#: core/app/views/utils/componentsinfodlg.cpp:142
-#: core/app/views/utils/componentsinfodlg.cpp:154
-#: core/app/views/utils/componentsinfodlg.cpp:166
-#: core/app/views/utils/componentsinfodlg.cpp:178
-#: core/app/views/utils/componentsinfodlg.cpp:190
-#: core/app/views/utils/componentsinfodlg.cpp:212
+#: core/app/views/utils/componentsinfodlg.cpp:95
+#: core/app/views/utils/componentsinfodlg.cpp:107
+#: core/app/views/utils/componentsinfodlg.cpp:119
+#: core/app/views/utils/componentsinfodlg.cpp:144
+#: core/app/views/utils/componentsinfodlg.cpp:156
+#: core/app/views/utils/componentsinfodlg.cpp:168
+#: core/app/views/utils/componentsinfodlg.cpp:180
+#: core/app/views/utils/componentsinfodlg.cpp:192
+#: core/app/views/utils/componentsinfodlg.cpp:214
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "No"
 msgstr "Tidak"
 
-#: core/app/views/utils/componentsinfodlg.cpp:100
-#: core/app/views/utils/componentsinfodlg.cpp:105
+#: core/app/views/utils/componentsinfodlg.cpp:102
+#: core/app/views/utils/componentsinfodlg.cpp:107
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "Baloo support"
 msgstr "Kalendar"
 
-#: core/app/views/utils/componentsinfodlg.cpp:100
-#: core/app/views/utils/componentsinfodlg.cpp:112
-#: core/app/views/utils/componentsinfodlg.cpp:124
-#: core/app/views/utils/componentsinfodlg.cpp:149
-#: core/app/views/utils/componentsinfodlg.cpp:161
-#: core/app/views/utils/componentsinfodlg.cpp:173
-#: core/app/views/utils/componentsinfodlg.cpp:185
-#: core/app/views/utils/componentsinfodlg.cpp:211
+#: core/app/views/utils/componentsinfodlg.cpp:102
+#: core/app/views/utils/componentsinfodlg.cpp:114
+#: core/app/views/utils/componentsinfodlg.cpp:126
+#: core/app/views/utils/componentsinfodlg.cpp:151
+#: core/app/views/utils/componentsinfodlg.cpp:163
+#: core/app/views/utils/componentsinfodlg.cpp:175
+#: core/app/views/utils/componentsinfodlg.cpp:187
+#: core/app/views/utils/componentsinfodlg.cpp:213
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "Yes"
 msgstr "Ya"
 
-#: core/app/views/utils/componentsinfodlg.cpp:112
-#: core/app/views/utils/componentsinfodlg.cpp:117
+#: core/app/views/utils/componentsinfodlg.cpp:114
+#: core/app/views/utils/componentsinfodlg.cpp:119
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "AddressBook support"
 msgstr "Kalendar"
 
-#: core/app/views/utils/componentsinfodlg.cpp:124
-#: core/app/views/utils/componentsinfodlg.cpp:142
+#: core/app/views/utils/componentsinfodlg.cpp:126
+#: core/app/views/utils/componentsinfodlg.cpp:144
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "Media player support"
 msgstr "Kalendar"
 
-#: core/app/views/utils/componentsinfodlg.cpp:127
+#: core/app/views/utils/componentsinfodlg.cpp:129
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "LibAVFormat"
 msgstr "Format"
 
-#: core/app/views/utils/componentsinfodlg.cpp:130
+#: core/app/views/utils/componentsinfodlg.cpp:132
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "LibAVCodec"
 msgstr "Paparkan"
 
-#: core/app/views/utils/componentsinfodlg.cpp:133
+#: core/app/views/utils/componentsinfodlg.cpp:135
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "LibAVUtil"
 msgstr "Format"
 
-#: core/app/views/utils/componentsinfodlg.cpp:136
+#: core/app/views/utils/componentsinfodlg.cpp:138
 #, kde-format
 msgctxt "@item: component info"
 msgid "FFMpeg"
 msgstr ""
 
-#: core/app/views/utils/componentsinfodlg.cpp:149
-#: core/app/views/utils/componentsinfodlg.cpp:154
+#: core/app/views/utils/componentsinfodlg.cpp:151
+#: core/app/views/utils/componentsinfodlg.cpp:156
 #, kde-format
 msgctxt "@item: component info"
 msgid "DBus support"
 msgstr ""
 
-#: core/app/views/utils/componentsinfodlg.cpp:161
-#: core/app/views/utils/componentsinfodlg.cpp:166
+#: core/app/views/utils/componentsinfodlg.cpp:163
+#: core/app/views/utils/componentsinfodlg.cpp:168
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "Panorama support"
 msgstr "Kalendar"
 
-#: core/app/views/utils/componentsinfodlg.cpp:173
-#: core/app/views/utils/componentsinfodlg.cpp:178
+#: core/app/views/utils/componentsinfodlg.cpp:175
+#: core/app/views/utils/componentsinfodlg.cpp:180
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "HTML Gallery support"
 msgstr "Kalendar"
 
-#: core/app/views/utils/componentsinfodlg.cpp:185
-#: core/app/views/utils/componentsinfodlg.cpp:190
+#: core/app/views/utils/componentsinfodlg.cpp:187
+#: core/app/views/utils/componentsinfodlg.cpp:192
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "Calendar support"
 msgstr "Kalendar"
 
-#: core/app/views/utils/componentsinfodlg.cpp:195
+#: core/app/views/utils/componentsinfodlg.cpp:197
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "LibOpenCV"
 msgstr "Buka Dengan..."
 
-#: core/app/views/utils/componentsinfodlg.cpp:202
+#: core/app/views/utils/componentsinfodlg.cpp:204
 #, kde-format
 msgctxt "@item: component info"
 msgid "Qt Sql drivers"
 msgstr ""
 
-#: core/app/views/utils/componentsinfodlg.cpp:207
+#: core/app/views/utils/componentsinfodlg.cpp:209
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "Database backend"
 msgstr "Pangkalan Data"
 
-#: core/app/views/utils/componentsinfodlg.cpp:214
+#: core/app/views/utils/componentsinfodlg.cpp:216
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "Database internal server"
 msgstr "Pangkalan Data"
 
-#: core/app/views/utils/componentsinfodlg.cpp:219
+#: core/app/views/utils/componentsinfodlg.cpp:222
+#, fuzzy, kde-format
+msgctxt "@item: component info"
+msgid "Database backend version"
+msgstr "Pangkalan Data"
+
+#: core/app/views/utils/componentsinfodlg.cpp:226
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "FFmpeg Configuration"
 msgstr "Tetapkan"
 
-#: core/app/views/utils/componentsinfodlg.cpp:226
+#: core/app/views/utils/componentsinfodlg.cpp:233
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "Video Decoders"
 msgstr "Paparkan"
 
-#: core/app/views/utils/componentsinfodlg.cpp:240
-#: core/app/views/utils/componentsinfodlg.cpp:257
-#: core/app/views/utils/componentsinfodlg.cpp:277
-#: core/app/views/utils/componentsinfodlg.cpp:294
-#: core/app/views/utils/componentsinfodlg.cpp:312
+#: core/app/views/utils/componentsinfodlg.cpp:247
+#: core/app/views/utils/componentsinfodlg.cpp:264
+#: core/app/views/utils/componentsinfodlg.cpp:284
+#: core/app/views/utils/componentsinfodlg.cpp:301
+#: core/app/views/utils/componentsinfodlg.cpp:319
 #: core/libs/dialogs/libsinfodlg_opencv.cpp:69
 #: core/libs/dialogs/libsinfodlg_opencv.cpp:75
 #: core/libs/dialogs/libsinfodlg_opencv.cpp:150
@@ -4552,25 +4558,25 @@ msgstr "Paparkan"
 msgid "no entry"
 msgstr "Negara:"
 
-#: core/app/views/utils/componentsinfodlg.cpp:243
+#: core/app/views/utils/componentsinfodlg.cpp:250
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "Video Encoders"
 msgstr "Paparkan"
 
-#: core/app/views/utils/componentsinfodlg.cpp:263
+#: core/app/views/utils/componentsinfodlg.cpp:270
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "Audio Decoders"
 msgstr "Paparkan"
 
-#: core/app/views/utils/componentsinfodlg.cpp:280
+#: core/app/views/utils/componentsinfodlg.cpp:287
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "Audio Encoders"
 msgstr "Paparkan"
 
-#: core/app/views/utils/componentsinfodlg.cpp:300
+#: core/app/views/utils/componentsinfodlg.cpp:307
 #, fuzzy, kde-format
 msgctxt "@item: component info"
 msgid "Supported Extensions"
@@ -26776,7 +26782,7 @@ msgstr ""
 #: core/libs/database/engine/dbengineaccess.cpp:70
 #, kde-format
 msgid ""
-"The driver \"QMYSQL\" for MariaDB databases is not available.\n"
+"The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
 

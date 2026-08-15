@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:42+0000\n"
+"POT-Creation-Date: 2026-08-15 00:42+0000\n"
 "PO-Revision-Date: 2026-01-04 22:32+0100\n"
 "Last-Translator: Jose Riha <jose1711@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -2783,33 +2783,25 @@ msgid "Start digikam with the configuration file \"config\""
 msgstr "Spustiť digiKam so súborom databázy z adresára \"config\""
 
 #: core/app/main/main.cpp:303
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin is not available. please "
-#| "install it.\n"
-#| "There is no database plugin installed on your computer."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin is not available. please "
 "install it.\n"
 "There is no database plugin installed on your computer."
 msgstr ""
-"Zásuvný modul pre Qt4 SQLite alebo MySQL databázu nie je dostupný - prosím, "
-"nainštalujte ho.\n"
+"Zásuvný modul pre Qt4 SQLite alebo MariaDB databázu nie je dostupný - "
+"prosím, nainštalujte ho.\n"
 "Na vašom počítači nemáte nainštalovaný žiaden zásuvný modul databáz."
 
 #: core/app/main/main.cpp:312
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin are not available. Please "
-#| "install it.\n"
-#| "Database plugins installed on your computer are listed below."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin are not available. Please "
 "install it.\n"
 "Database plugins installed on your computer are listed below."
 msgstr ""
-"Zásuvný modul pre Qt4 SQLite alebo MySQL databázu nie je dostupný - prosím, "
-"nainštalujte ho.\n"
+"Zásuvný modul pre Qt4 SQLite alebo MariaDB databázu nie je dostupný - "
+"prosím, nainštalujte ho.\n"
 "Tieto zásuvné moduly databáz máte nainštalované na vašom počítači:"
 
 #: core/app/main/main.cpp:356
@@ -3877,16 +3869,13 @@ msgid "New RAW camera supported:"
 msgstr "Nové podporované RAW fotoaparáty:"
 
 #: core/app/views/stack/welcomepageview_features.cpp:93
-#, fuzzy, kde-format
-#| msgid ""
-#| "Canon EOS R1, EOS R5 Mark II, EOS R5 C, EOS R6 Mark II, EOS R8, EOS R50, "
-#| "EOS R100, EOS Ra Canon EOS Kiss M2;"
+#, kde-format
 msgid ""
 "Canon R50 V, Canon EOS R1, EOS R5 Mark II, EOS R5 C, EOS R6 Mark II, EOS R8, "
 "EOS R50, EOS R100, EOS Ra Canon EOS Kiss M2;"
 msgstr ""
-"Canon EOS R1, EOS R5 Mark II, EOS R5 C, EOS R6 Mark II, EOS R8, EOS R50, EOS "
-"R100, EOS Ra Canon EOS Kiss M2;"
+"Canon R50 V, Canon EOS R1, EOS R5 Mark II, EOS R5 C, EOS R6 Mark II, EOS R8, "
+"EOS R50, EOS R100, EOS Ra Canon EOS Kiss M2;"
 
 #: core/app/views/stack/welcomepageview_features.cpp:94
 #, kde-format
@@ -3928,16 +3917,13 @@ msgid "Pentax KF, K III Monochrome ;"
 msgstr "Pentax KF, K III Monochrome ;"
 
 #: core/app/views/stack/welcomepageview_features.cpp:101
-#, fuzzy, kde-format
-#| msgid ""
-#| "Sony ZV-E10M2, UMC-R10C, A9-III, ILX-LR1, A7C-II, A7CR, ILCE-6700,  "
-#| "ZV-1M2, ZV-E1, ILCE-7RM5 (A7R-V), ILME-FX30, A1 ;"
+#, kde-format
 msgid ""
 "Sony Sony ARW6 CRAW HQ, Sony ILCE-7M, VZV-E10M2, UMC-R10C, A9-III, ILX-LR1, "
 "A7C-II, A7CR, ILCE-6700,  ZV-1M2, ZV-E1, ILCE-7RM5 (A7R-V), ILME-FX30, A1 ;"
 msgstr ""
-"Sony ZV-E10M2, UMC-R10C, A9-III, ILX-LR1, A7C-II, A7CR, ILCE-6700,  ZV-1M2, "
-"ZV-E1, ILCE-7RM5 (A7R-V), ILME-FX30, A1 ;"
+"Sony Sony ARW6 CRAW HQ, Sony ILCE-7M, VZV-E10M2, UMC-R10C, A9-III, ILX-LR1, "
+"A7C-II, A7CR, ILCE-6700,  ZV-1M2, ZV-E1, ILCE-7RM5 (A7R-V), ILME-FX30, A1 ;"
 
 #: core/app/views/stack/welcomepageview_features.cpp:102
 #, kde-format
@@ -4602,165 +4588,173 @@ msgstr "Odstrániť tento stĺpec"
 msgid "Configure this column"
 msgstr "Nastaviť tento stĺpec"
 
-#: core/app/views/utils/componentsinfodlg.cpp:85
+#: core/app/views/utils/componentsinfodlg.cpp:87
 #, kde-format
 msgctxt "@item: component info"
 msgid "Unknown"
 msgstr "Neznáme"
 
-#: core/app/views/utils/componentsinfodlg.cpp:88
+#: core/app/views/utils/componentsinfodlg.cpp:90
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibGphoto2"
 msgstr "LibGphoto2"
 
-#: core/app/views/utils/componentsinfodlg.cpp:93
+#: core/app/views/utils/componentsinfodlg.cpp:95
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibGphoto2 support"
 msgstr "Podpora pre LibGphoto2"
 
-#: core/app/views/utils/componentsinfodlg.cpp:93
-#: core/app/views/utils/componentsinfodlg.cpp:105
-#: core/app/views/utils/componentsinfodlg.cpp:117
-#: core/app/views/utils/componentsinfodlg.cpp:142
-#: core/app/views/utils/componentsinfodlg.cpp:154
-#: core/app/views/utils/componentsinfodlg.cpp:166
-#: core/app/views/utils/componentsinfodlg.cpp:178
-#: core/app/views/utils/componentsinfodlg.cpp:190
-#: core/app/views/utils/componentsinfodlg.cpp:212
+#: core/app/views/utils/componentsinfodlg.cpp:95
+#: core/app/views/utils/componentsinfodlg.cpp:107
+#: core/app/views/utils/componentsinfodlg.cpp:119
+#: core/app/views/utils/componentsinfodlg.cpp:144
+#: core/app/views/utils/componentsinfodlg.cpp:156
+#: core/app/views/utils/componentsinfodlg.cpp:168
+#: core/app/views/utils/componentsinfodlg.cpp:180
+#: core/app/views/utils/componentsinfodlg.cpp:192
+#: core/app/views/utils/componentsinfodlg.cpp:214
 #, kde-format
 msgctxt "@item: component info"
 msgid "No"
 msgstr "Nie"
 
-#: core/app/views/utils/componentsinfodlg.cpp:100
-#: core/app/views/utils/componentsinfodlg.cpp:105
+#: core/app/views/utils/componentsinfodlg.cpp:102
+#: core/app/views/utils/componentsinfodlg.cpp:107
 #, kde-format
 msgctxt "@item: component info"
 msgid "Baloo support"
 msgstr "Podpora pre Baloo"
 
-#: core/app/views/utils/componentsinfodlg.cpp:100
-#: core/app/views/utils/componentsinfodlg.cpp:112
-#: core/app/views/utils/componentsinfodlg.cpp:124
-#: core/app/views/utils/componentsinfodlg.cpp:149
-#: core/app/views/utils/componentsinfodlg.cpp:161
-#: core/app/views/utils/componentsinfodlg.cpp:173
-#: core/app/views/utils/componentsinfodlg.cpp:185
-#: core/app/views/utils/componentsinfodlg.cpp:211
+#: core/app/views/utils/componentsinfodlg.cpp:102
+#: core/app/views/utils/componentsinfodlg.cpp:114
+#: core/app/views/utils/componentsinfodlg.cpp:126
+#: core/app/views/utils/componentsinfodlg.cpp:151
+#: core/app/views/utils/componentsinfodlg.cpp:163
+#: core/app/views/utils/componentsinfodlg.cpp:175
+#: core/app/views/utils/componentsinfodlg.cpp:187
+#: core/app/views/utils/componentsinfodlg.cpp:213
 #, kde-format
 msgctxt "@item: component info"
 msgid "Yes"
 msgstr "Áno"
 
-#: core/app/views/utils/componentsinfodlg.cpp:112
-#: core/app/views/utils/componentsinfodlg.cpp:117
+#: core/app/views/utils/componentsinfodlg.cpp:114
+#: core/app/views/utils/componentsinfodlg.cpp:119
 #, kde-format
 msgctxt "@item: component info"
 msgid "AddressBook support"
 msgstr "Podpora adresára"
 
-#: core/app/views/utils/componentsinfodlg.cpp:124
-#: core/app/views/utils/componentsinfodlg.cpp:142
+#: core/app/views/utils/componentsinfodlg.cpp:126
+#: core/app/views/utils/componentsinfodlg.cpp:144
 #, kde-format
 msgctxt "@item: component info"
 msgid "Media player support"
 msgstr "Podpora pre Media player"
 
-#: core/app/views/utils/componentsinfodlg.cpp:127
+#: core/app/views/utils/componentsinfodlg.cpp:129
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibAVFormat"
 msgstr "LibAVFormat"
 
-#: core/app/views/utils/componentsinfodlg.cpp:130
+#: core/app/views/utils/componentsinfodlg.cpp:132
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibAVCodec"
 msgstr "LibAVCodec"
 
-#: core/app/views/utils/componentsinfodlg.cpp:133
+#: core/app/views/utils/componentsinfodlg.cpp:135
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibAVUtil"
 msgstr "LibAVUtil"
 
-#: core/app/views/utils/componentsinfodlg.cpp:136
+#: core/app/views/utils/componentsinfodlg.cpp:138
 #, kde-format
 msgctxt "@item: component info"
 msgid "FFMpeg"
 msgstr "FFMpeg"
 
-#: core/app/views/utils/componentsinfodlg.cpp:149
-#: core/app/views/utils/componentsinfodlg.cpp:154
+#: core/app/views/utils/componentsinfodlg.cpp:151
+#: core/app/views/utils/componentsinfodlg.cpp:156
 #, kde-format
 msgctxt "@item: component info"
 msgid "DBus support"
 msgstr "Podpora pre DBus"
 
-#: core/app/views/utils/componentsinfodlg.cpp:161
-#: core/app/views/utils/componentsinfodlg.cpp:166
+#: core/app/views/utils/componentsinfodlg.cpp:163
+#: core/app/views/utils/componentsinfodlg.cpp:168
 #, kde-format
 msgctxt "@item: component info"
 msgid "Panorama support"
 msgstr "Podpora pre panorámu"
 
-#: core/app/views/utils/componentsinfodlg.cpp:173
-#: core/app/views/utils/componentsinfodlg.cpp:178
+#: core/app/views/utils/componentsinfodlg.cpp:175
+#: core/app/views/utils/componentsinfodlg.cpp:180
 #, kde-format
 msgctxt "@item: component info"
 msgid "HTML Gallery support"
 msgstr "Podpora pre HTML galériu"
 
-#: core/app/views/utils/componentsinfodlg.cpp:185
-#: core/app/views/utils/componentsinfodlg.cpp:190
+#: core/app/views/utils/componentsinfodlg.cpp:187
+#: core/app/views/utils/componentsinfodlg.cpp:192
 #, kde-format
 msgctxt "@item: component info"
 msgid "Calendar support"
 msgstr "Podpora kalendára"
 
-#: core/app/views/utils/componentsinfodlg.cpp:195
+#: core/app/views/utils/componentsinfodlg.cpp:197
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibOpenCV"
 msgstr "LibOpenCV"
 
-#: core/app/views/utils/componentsinfodlg.cpp:202
+#: core/app/views/utils/componentsinfodlg.cpp:204
 #, kde-format
 msgctxt "@item: component info"
 msgid "Qt Sql drivers"
 msgstr "Ovládače Qt Sql"
 
-#: core/app/views/utils/componentsinfodlg.cpp:207
+#: core/app/views/utils/componentsinfodlg.cpp:209
 #, kde-format
 msgctxt "@item: component info"
 msgid "Database backend"
 msgstr "Backend databázy"
 
-#: core/app/views/utils/componentsinfodlg.cpp:214
+#: core/app/views/utils/componentsinfodlg.cpp:216
 #, kde-format
 msgctxt "@item: component info"
 msgid "Database internal server"
 msgstr "Interná chyba servera"
 
-#: core/app/views/utils/componentsinfodlg.cpp:219
+#: core/app/views/utils/componentsinfodlg.cpp:222
+#, fuzzy, kde-format
+#| msgctxt "@item: component info"
+#| msgid "Database backend"
+msgctxt "@item: component info"
+msgid "Database backend version"
+msgstr "Backend databázy"
+
+#: core/app/views/utils/componentsinfodlg.cpp:226
 #, kde-format
 msgctxt "@item: component info"
 msgid "FFmpeg Configuration"
 msgstr "Konfigurácia FFmpeg"
 
-#: core/app/views/utils/componentsinfodlg.cpp:226
+#: core/app/views/utils/componentsinfodlg.cpp:233
 #, kde-format
 msgctxt "@item: component info"
 msgid "Video Decoders"
 msgstr "Videodekodéry"
 
-#: core/app/views/utils/componentsinfodlg.cpp:240
-#: core/app/views/utils/componentsinfodlg.cpp:257
-#: core/app/views/utils/componentsinfodlg.cpp:277
-#: core/app/views/utils/componentsinfodlg.cpp:294
-#: core/app/views/utils/componentsinfodlg.cpp:312
+#: core/app/views/utils/componentsinfodlg.cpp:247
+#: core/app/views/utils/componentsinfodlg.cpp:264
+#: core/app/views/utils/componentsinfodlg.cpp:284
+#: core/app/views/utils/componentsinfodlg.cpp:301
+#: core/app/views/utils/componentsinfodlg.cpp:319
 #: core/libs/dialogs/libsinfodlg_opencv.cpp:69
 #: core/libs/dialogs/libsinfodlg_opencv.cpp:75
 #: core/libs/dialogs/libsinfodlg_opencv.cpp:150
@@ -4768,25 +4762,25 @@ msgstr "Videodekodéry"
 msgid "no entry"
 msgstr "žiadny záznam"
 
-#: core/app/views/utils/componentsinfodlg.cpp:243
+#: core/app/views/utils/componentsinfodlg.cpp:250
 #, kde-format
 msgctxt "@item: component info"
 msgid "Video Encoders"
 msgstr "Videokodéry"
 
-#: core/app/views/utils/componentsinfodlg.cpp:263
+#: core/app/views/utils/componentsinfodlg.cpp:270
 #, kde-format
 msgctxt "@item: component info"
 msgid "Audio Decoders"
 msgstr "Audio dekodéry"
 
-#: core/app/views/utils/componentsinfodlg.cpp:280
+#: core/app/views/utils/componentsinfodlg.cpp:287
 #, kde-format
 msgctxt "@item: component info"
 msgid "Audio Encoders"
 msgstr "Audio enkodéry"
 
-#: core/app/views/utils/componentsinfodlg.cpp:300
+#: core/app/views/utils/componentsinfodlg.cpp:307
 #, kde-format
 msgctxt "@item: component info"
 msgid "Supported Extensions"
@@ -27089,16 +27083,14 @@ msgid "Searches"
 msgstr "Hľadania"
 
 #: core/libs/album/manager/albummanager_database.cpp:111
-#, fuzzy, kde-format
-#| msgid "The MySQL database directory was not found."
+#, kde-format
 msgid "The MariaDB database directory was not found."
-msgstr "Priečinok databázy MySQL nebol nájdený."
+msgstr "Priečinok databázy MariaDB nebol nájdený."
 
 #: core/libs/album/manager/albummanager_database.cpp:128
-#, fuzzy, kde-format
-#| msgid "The MySQL binary tools was not found."
+#, kde-format
 msgid "The MariaDB binary tools was not found."
-msgstr "Binárne nástroje MySQL neboli nájdené."
+msgstr "Binárne nástroje MariaDB neboli nájdené."
 
 #: core/libs/album/manager/albummanager_database.cpp:135
 #, kde-format
@@ -28560,13 +28552,13 @@ msgstr ""
 #: core/libs/database/engine/dbengineaccess.cpp:70
 #, fuzzy, kde-format
 #| msgid ""
-#| "The driver \"MYSQL\" for MySQL databases is not available.\n"
+#| "The driver \"QMYSQL\" for MariaDB databases is not available.\n"
 #| "digiKam depends on the drivers provided by the Qt::SQL module."
 msgid ""
-"The driver \"QMYSQL\" for MariaDB databases is not available.\n"
+"The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"Ovládač „MYSQL“ pre databázy MySQL nie je dostupný.\n"
+"Ovládač „QMYSQL“ pre databázy MariaDB nie je dostupný.\n"
 "digiKam závisí na ovládačoch, ktoré poskytuje SQL modul Qt."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
@@ -28729,33 +28721,30 @@ msgid "Database type is not supported."
 msgstr "Typ databázy nie je podporovaný."
 
 #: core/libs/database/server/databaseserver.cpp:296
-#, fuzzy, kde-format
-#| msgid "No path to mysql upgrade command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB upgrade command set in configuration file."
 msgstr ""
-"V konfiguračnom súbore nie je uvedená cesta k príkazu pre aktualizáciu mysql!"
+"V konfiguračnom súbore nie je uvedená cesta k príkazu pre aktualizáciu "
+"MariaDB!"
 
 #: core/libs/database/server/databaseserver.cpp:305
-#, fuzzy, kde-format
-#| msgid "No path to mysql server command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB server command set in configuration file."
 msgstr ""
-"V konfiguračnom súbore nie je uvedená cesta k príkazu pre mysql server!"
+"V konfiguračnom súbore nie je uvedená cesta k príkazu pre server MariaDB!"
 
 #: core/libs/database/server/databaseserver.cpp:314
-#, fuzzy, kde-format
-#| msgid "No path to mysql administration command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB administration command set in configuration file."
 msgstr ""
-"V konfiguračnom súbore nie je uvedená cesta k príkazu pre správu mysql!"
+"V konfiguračnom súbore nie je uvedená cesta k príkazu pre správu MariaDB!"
 
 #: core/libs/database/server/databaseserver.cpp:323
-#, fuzzy, kde-format
-#| msgid "No path to mysql initialization command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB initialization command set in configuration file."
 msgstr ""
 "V konfiguračnom súbore nie je uvedená cesta k príkazu pre inicializáciu "
-"mysql!"
+"MariaDB!"
 
 #: core/libs/database/server/databaseserver.cpp:333
 #: core/libs/database/server/databaseserver.cpp:343
@@ -28765,32 +28754,26 @@ msgid "Cannot create directory %1"
 msgstr "Nie je možné vytvoriť adresár %1"
 
 #: core/libs/database/server/databaseserver.cpp:436
-#, fuzzy, kde-format
-#| msgid ""
-#| "Unable to create MySQL server configuration file.<p>This means that "
-#| "either the default configuration file</p><p>%1</p><p>was not readable or "
-#| "the target file</p><p>%2</p><p>could not be written.</p>"
+#, kde-format
 msgid ""
 "Unable to create MariaDB server configuration file.<p>This means that either "
 "the default configuration file</p><p>%1</p><p>was not readable or the target "
 "file</p><p>%2</p><p>could not be written.</p>"
 msgstr ""
-"Nedá sa vytvoriť konfiguračný súbor pre MySQL server.<p>To znamená, že buď "
+"Nedá sa vytvoriť konfiguračný súbor pre MariaDB server.<p>To znamená, že buď "
 "predvolený konfiguračný súbor</p><p>%1</p><p>sa nedá čítať alebo do "
 "cieľového súboru</p><p>%2</p><p>sa nedá zapisovať.</p>"
 
 #: core/libs/database/server/databaseserver.cpp:458
-#, fuzzy, kde-format
-#| msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+#, kde-format
 msgid "Cannot find MariaDB server default configuration (mysql-global.conf)."
 msgstr ""
-"Predvolená konfigurácia servera MySQL (mysql-global.conf) nebola nájdená."
+"Predvolená konfigurácia servera MariaDB (mysql-global.conf) nebola nájdená."
 
 #: core/libs/database/server/databaseserver.cpp:505
-#, fuzzy, kde-format
-#| msgid "The internal MySQL database is initializing, please wait..."
+#, kde-format
 msgid "The internal MariaDB database is initializing, please wait..."
-msgstr "Inicializuje sa interná databáza MySQL, čakajte prosím..."
+msgstr "Inicializuje sa interná databáza MariaDB, čakajte prosím..."
 
 #: core/libs/database/server/databaseserver.cpp:553
 #, kde-format
@@ -28826,10 +28809,9 @@ msgstr ""
 "p>"
 
 #: core/libs/database/server/databaseserver.cpp:751
-#, fuzzy, kde-format
-#| msgid "A MySQL database upgrade is in progress, please wait..."
+#, kde-format
 msgid "A MariaDB database upgrade is in progress, please wait..."
-msgstr "Prebieha inovácia databázy MySQL, čakajte prosím..."
+msgstr "Prebieha inovácia databázy MariaDB, čakajte prosím..."
 
 #: core/libs/database/server/databaseserver.cpp:795
 #, kde-format
@@ -29138,64 +29120,48 @@ msgid "SQLite"
 msgstr "SQLite"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Mysql Internal"
+#, kde-format
 msgid "MariaDB Internal"
-msgstr "Interné Mysql"
+msgstr "MariaDB interný"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:67
-#, fuzzy, kde-format
-#| msgid "%1 Media Server"
+#, kde-format
 msgid "MariaDB Server"
-msgstr "Multimediálny server %1"
+msgstr "Server MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend "
-#| "is for local database storage with a small or medium collection sizes. It "
-#| "is the default and recommended backend for collections with less than "
-#| "100K items.</p>"
+#, kde-format
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small or medium collection sizes. It is "
 "the default and recommended backend for collections with less than 500K "
 "items.</p>"
 msgstr ""
-"<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
-"for local database storage with a small or medium collection sizes. It is "
-"the default and recommended backend for collections with less than 100K "
-"items.</p>"
+"<p>Tu vyberte typ databázového backendu.</p><p>Backend <b>SQlite</b> slúži "
+"na lokálne ukladanie databázy pri malých a stredne veľkých zbierkach. Je "
+"predvolený a odporúčaný pre zbierky s menej než 500 tisíc položkami.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Internal</b> backend is for local database storage with huge "
-#| "collection sizes. This backend is recommend for local collections with "
-#| "more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Internal</b> backend is for local database storage with huge "
 "collection sizes. This backend is recommend for local collections with more "
 "than 500K items.</p>"
 msgstr ""
-"<p><b>MySQL Internal</b> backend is for local database storage with huge "
-"collection sizes. This backend is recommend for local collections with more "
-"than 100K items.</p>"
+"<p>Backend <b>MariaDB Internal</b> slúži na lokálne ukladanie databázy pri "
+"veľmi rozsiahlych zbierkach. Odporúča sa pre lokálne zbierky s viac než 500 "
+"tisíc položkami.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:86
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Server</b> backend is a more robust solution especially for "
-#| "remote and shared database storage. It is also more efficient to manage "
-#| "huge collection sizes with more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Server</b> backend is a more robust solution especially for "
 "remote and shared database storage. It is also more efficient to manage huge "
 "collection sizes with more than 500K items.</p>"
 msgstr ""
-"<p><b>MySQL Server</b> backend is a more robust solution especially for "
-"remote and shared database storage. It is also more efficient to manage huge "
-"collection sizes with more than 100K items.</p>"
+"<p>Backend <b>MariaDB Server</b> je robustnejšie riešenie, najmä pre "
+"vzdialené a zdieľané ukladanie databázy. Je tiež efektívnejší pri správe "
+"veľmi rozsiahlych zbierok s viac než 500 tisíc položkami.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:93
 #, kde-format
@@ -29278,25 +29244,21 @@ msgstr ""
 "atomic and robust in extensive and critical use cases."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:169
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Here you can configure locations where MySQL binary tools are located. "
-#| "digiKam will try to find these binaries automatically if they are already "
-#| "installed on your computer.</p>"
+#, kde-format
 msgid ""
 "<p>Here you can configure locations where MariaDB binary tools are located. "
 "digiKam will try to find these binaries automatically if they are already "
 "installed on your computer.</p>"
 msgstr ""
-"<p>Tu môžete nastaviť umiestnenie obslužných programov MySQL. Ak sú už "
+"<p>Tu môžete nastaviť umiestnenie obslužných programov MariaDB. Ak sú už "
 "nainštalované na vašom počítači, digiKam sa pokúsi ich nájsť  automaticky.</"
 "p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:178
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "MariaDB Binaries"
-msgstr "Zobraziť položku"
+msgstr "Binárne súbory MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:221
 #, kde-format
@@ -29309,17 +29271,13 @@ msgid "Set the host computer name"
 msgstr "Nastavte názov hostiteľského počítača"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is the computer name running MySQL server.\n"
-#| "This can be \"localhost\" for a local server, or the network computer\n"
-#| "name (or IP address) in case of remote computer."
+#, kde-format
 msgid ""
 "This is the computer name running MariaDB server.\n"
 "This can be \"localhost\" for a local server, or the network computer\n"
 "name (or IP address) in case of remote computer."
 msgstr ""
-"Toto je názov počítače s bežiacim MySQL serverom.\n"
+"Toto je názov počítače s bežiacim MariaDB serverom.\n"
 "Môže tu byť \"localhost\" pre miestny server alebo meno (či IP adresa)\n"
 "vzdialeného počítača v sieti."
 
@@ -29338,15 +29296,12 @@ msgid "Set the database connection options"
 msgstr "Nastaviť možnosti pripojenia k databáze"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:234
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server connection options.\n"
-#| "For advanced users only."
+#, kde-format
 msgid ""
 "Set the MariaDB server connection options.\n"
 "For advanced users only."
 msgstr ""
-"Zadajte možnosti pripojenia k serveru MySQL.\n"
+"Zadajte možnosti pripojenia k serveru MariaDB.\n"
 "Iba pre skúsených používateľov."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:237
@@ -29360,34 +29315,25 @@ msgid "Set the database account name"
 msgstr "Zadejte názov databázového účtu"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:240
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account name used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "This account must be available on the remote\n"
-#| "MySQL server when database have been created."
+#, kde-format
 msgid ""
 "Set the MariaDB server account name used\n"
 "by digiKam to be connected to the server.\n"
 "This account must be available on the remote\n"
 "MariaDB server when database have been created."
 msgstr ""
-"Zadajte názov účtu MySQL servera,\n"
+"Zadajte názov účtu MariaDB servera,\n"
 "který bude digiKam používať pre pripojenie na server.\n"
 "Tento účet už musí v okamihu vytvárania databázy existovať."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:247
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account password used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "You can left this field empty to use an account set without password."
+#, kde-format
 msgid ""
 "Set the MariaDB server account password used\n"
 "by digiKam to be connected to the server.\n"
 "You can left this field empty to use an account set without password."
 msgstr ""
-"Zadajte heslo k účtu MySQL servera,\n"
+"Zadajte heslo k účtu MariaDB servera,\n"
 "ktoré bude digiKam používať pre pripojenie na server.\n"
 "Pre účet bez hesla môžete ponechať toto pole prázdne."
 
@@ -29397,16 +29343,13 @@ msgid "Host Port:"
 msgstr "Host Port:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:255
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the host computer port.\n"
-#| "Usually, MySQL server use port number 3306 by default"
+#, kde-format
 msgid ""
 "Set the host computer port.\n"
 "Usually, MariaDB server use port number 3306 by default"
 msgstr ""
 "Zadajte port na cieľovom počítači.\n"
-"Predvolený port pre MySQL je obvykle 3306."
+"Predvolený port pre MariaDB je obvykle 3306."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:260
 #, kde-format
@@ -29414,15 +29357,13 @@ msgid "Check Connection"
 msgstr "Skontrolovať pripojenie"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:261
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run a basic database connection to see if current MySQL server settings "
-#| "is suitable."
+#, kde-format
 msgid ""
 "Run a basic database connection to see if current MariaDB server settings is "
 "suitable."
 msgstr ""
-"Pokúsi sa pripojiť k databáze a overí tak správnosť nastavení MySQL servera."
+"Pokúsi sa pripojiť k databáze a overí tak správnosť nastavení MariaDB "
+"servera."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:268
 #, kde-format
@@ -29545,18 +29486,7 @@ msgstr ""
 "nasledujúce príkazy SQL (nahraďte <b><i>password</i></b> vašim heslom).</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:341
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Note: with a Linux server, a database can be initialized following the "
-#| "commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql "
-#| "-u root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init "
-#| "digiKam databases with grant privileges (see behind)</p><p>...</"
-#| "p><p>quit</p><p>NOTE: If you have problems with a MySQL server on Ubuntu "
-#| "based Linux system, use the addition command in the mysql prompt to be "
-#| "able to create MySQL triggers.<br>SET GLOBAL "
-#| "log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
-#| "collection, you should start MySQL server with mysql --"
-#| "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
+#, kde-format
 msgid ""
 "<p>Note: with a Linux server, a database can be initialized following the "
 "commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
@@ -29569,15 +29499,16 @@ msgid ""
 "collection, you should start MariaDB server with mariadb --"
 "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
 msgstr ""
-"<p>Note: with a Linux server, a database can be initialized following the "
-"commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql -u "
-"root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init digiKam "
-"databases with grant privileges (see behind)</p><p>...</p><p>quit</"
-"p><p>NOTE: If you have problems with a MySQL server on Ubuntu based Linux "
-"system, use the addition command in the mysql prompt to be able to create "
-"MySQL triggers.<br>SET GLOBAL log_bin_trust_function_creators=1;</p><p>NOTE: "
-"If you have an enormous collection, you should start MySQL server with mysql "
-"--max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
+"<p>Poznámka: na linuxovom serveri sa databáza dá inicializovať nasledujúcimi "
+"príkazmi:</p><p># su</p><p># systemctl restart mariadbd</p><p># mariadb -u "
+"root</p><p>...</p><p>Zadajte SQL kód do príkazového riadka MariaDB, aby sa "
+"databázy digiKamu inicializovali s pridelenými oprávneniami (pozri nižšie)</"
+"p><p>...</p><p>quit</p><p>POZNÁMKA: Ak máte problémy so serverom MariaDB na "
+"linuxovom systéme založenom na Ubuntu, použite v príkazovom riadku MariaDB "
+"doplnkový príkaz, aby ste mohli vytvárať spúšťače MariaDB.<br>SET GLOBAL "
+"log_bin_trust_function_creators=1;</p><p>POZNÁMKA: Ak máte obrovskú zbierku, "
+"spúšťajte server MariaDB príkazom mariadb --max_allowed_packet=128M ALEBO "
+"zmeňte nastavenia v my.ini či ~/.my.cnf</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:365
 #, kde-format
@@ -29590,25 +29521,7 @@ msgid "Database Server Technical Details"
 msgstr "Technické detaily databázového servera"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:371
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Use this configuration view to set all information to be connected to "
-#| "a remote <a href=\"https://en.wikipedia.org/wiki/MySQL\">Mysql database "
-#| "server</a> (or <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</"
-#| "a>) through a network. As with Sqlite or MySQL internal server, 3 "
-#| "databases will be stored on the remote server: one for all collections "
-#| "properties, one to store compressed thumbnails, and one to store faces "
-#| "recognition metadata.</p><p>Unlike Sqlite or MySQL internal server, you "
-#| "can customize the database names to simplify your backups.</"
-#| "p><p>Databases are digiKam core engines. To prevent performance issues, "
-#| "take a care to use a fast network link between the client and the server "
-#| "computers. It is also recommended to host database files on fast hardware "
-#| "(as <a href=\"https://en.wikipedia.org/wiki/Solid-state_drive\">SSD</a>) "
-#| "with enough free space, especially for thumbnails database, even if data "
-#| "are compressed using wavelets image format <a href=\"https://en.wikipedia."
-#| "org/wiki/Progressive_Graphics_File\">PGF</a>.</p><p>The databases must be "
-#| "created previously on the remote server by the administrator. Look in "
-#| "<b>Requirements</b> tab for details.</p>"
+#, kde-format
 msgid ""
 "<p>Use this configuration view to set all information to be connected to a "
 "remote <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</a> through "
@@ -29626,8 +29539,21 @@ msgid ""
 "</p><p>The databases must be created previously on the remote server by the "
 "administrator. Look in <b>Requirements</b> tab for details.</p>"
 msgstr ""
-"<p>Tu môžete zadať umiestnenie k hlavnej digiKam knižnici albumov vo vašom "
-"počítači.\\nJe potrebné mať práva na zápis pre toto umiestnenie.</p>"
+"<p>V tomto nastavení zadajte všetky údaje potrebné na pripojenie k "
+"vzdialenej databáze <a href=\"https://en.wikipedia.org/wiki/MariaDB"
+"\">MariaDB</a> cez sieť. Rovnako ako pri Sqlite alebo internom serveri "
+"MariaDB sa na vzdialenom serveri uložia tri databázy: jedna pre vlastnosti "
+"všetkých zbierok, jedna na komprimované náhľady a jedna na metaúdaje "
+"rozpoznávania tvárí.</p><p>Na rozdiel od Sqlite či interného servera MariaDB "
+"si názvy databáz môžete prispôsobiť a zjednodušiť si tak zálohovanie.</"
+"p><p>Databázy sú jadrom digiKamu. Aby nevznikali problémy s výkonom, dbajte "
+"na rýchle sieťové spojenie medzi klientom a serverom. Súbory databáz sa tiež "
+"odporúča umiestniť na rýchly hardvér (napríklad <a href=\"https://en."
+"wikipedia.org/wiki/Solid-state_drive\">SSD</a>) s dostatkom voľného miesta, "
+"najmä databázu náhľadov, aj keď sú údaje komprimované vlnkovým obrazovým "
+"formátom <a href=\"https://en.wikipedia.org/wiki/Progressive_Graphics_File"
+"\">PGF</a>.</p><p>Databázy musí na vzdialenom serveri vopred vytvoriť "
+"správca. Podrobnosti nájdete na karte <b>Požiadavky</b>.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:396
 #, kde-format
@@ -43981,9 +43907,9 @@ msgid "Color Management"
 msgstr "Správa farieb"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:350
-#, fuzzy, kde-format
+#, kde-format
 msgid "MariaDB interface"
-msgstr "Zobraziť položku"
+msgstr "Rozhranie MariaDB"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:355
 #, kde-format
@@ -61390,16 +61316,13 @@ msgid "Extended clean up and shrink all databases."
 msgstr "Rozšírené vyčistenie a zmenšenie všetkých databáz."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:100
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option leads to the vacuuming (shrinking) of the databases. "
-#| "Vacuuming is supported both for SQLite and MySQL."
+#, kde-format
 msgid ""
 "This option leads to the vacuuming (shrinking) of the databases. Vacuuming "
 "is supported both for SQLite and MariaDB."
 msgstr ""
 "Toto nastavenie spustí zmenšenie (\"vakuovanie\") jednotlivých databáz. "
-"Podporované databázy sú SQLite a MySQL."
+"Podporované databázy sú SQLite a MariaDB."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:107
 #, kde-format

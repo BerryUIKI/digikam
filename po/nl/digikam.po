@@ -62,8 +62,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:42+0000\n"
-"PO-Revision-Date: 2026-08-13 14:40+0200\n"
+"POT-Creation-Date: 2026-08-15 00:42+0000\n"
+"PO-Revision-Date: 2026-08-14 10:45+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -4635,165 +4635,173 @@ msgstr "Deze kolom verwijderen"
 msgid "Configure this column"
 msgstr "Deze kolom instellen"
 
-#: core/app/views/utils/componentsinfodlg.cpp:85
+#: core/app/views/utils/componentsinfodlg.cpp:87
 #, kde-format
 msgctxt "@item: component info"
 msgid "Unknown"
 msgstr "Onbekend"
 
-#: core/app/views/utils/componentsinfodlg.cpp:88
+#: core/app/views/utils/componentsinfodlg.cpp:90
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibGphoto2"
 msgstr "LibGphoto2"
 
-#: core/app/views/utils/componentsinfodlg.cpp:93
+#: core/app/views/utils/componentsinfodlg.cpp:95
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibGphoto2 support"
 msgstr "Ondersteuning van LibGphoto2"
 
-#: core/app/views/utils/componentsinfodlg.cpp:93
-#: core/app/views/utils/componentsinfodlg.cpp:105
-#: core/app/views/utils/componentsinfodlg.cpp:117
-#: core/app/views/utils/componentsinfodlg.cpp:142
-#: core/app/views/utils/componentsinfodlg.cpp:154
-#: core/app/views/utils/componentsinfodlg.cpp:166
-#: core/app/views/utils/componentsinfodlg.cpp:178
-#: core/app/views/utils/componentsinfodlg.cpp:190
-#: core/app/views/utils/componentsinfodlg.cpp:212
+#: core/app/views/utils/componentsinfodlg.cpp:95
+#: core/app/views/utils/componentsinfodlg.cpp:107
+#: core/app/views/utils/componentsinfodlg.cpp:119
+#: core/app/views/utils/componentsinfodlg.cpp:144
+#: core/app/views/utils/componentsinfodlg.cpp:156
+#: core/app/views/utils/componentsinfodlg.cpp:168
+#: core/app/views/utils/componentsinfodlg.cpp:180
+#: core/app/views/utils/componentsinfodlg.cpp:192
+#: core/app/views/utils/componentsinfodlg.cpp:214
 #, kde-format
 msgctxt "@item: component info"
 msgid "No"
 msgstr "Nee"
 
-#: core/app/views/utils/componentsinfodlg.cpp:100
-#: core/app/views/utils/componentsinfodlg.cpp:105
+#: core/app/views/utils/componentsinfodlg.cpp:102
+#: core/app/views/utils/componentsinfodlg.cpp:107
 #, kde-format
 msgctxt "@item: component info"
 msgid "Baloo support"
 msgstr "Ondersteuning van Baloo"
 
-#: core/app/views/utils/componentsinfodlg.cpp:100
-#: core/app/views/utils/componentsinfodlg.cpp:112
-#: core/app/views/utils/componentsinfodlg.cpp:124
-#: core/app/views/utils/componentsinfodlg.cpp:149
-#: core/app/views/utils/componentsinfodlg.cpp:161
-#: core/app/views/utils/componentsinfodlg.cpp:173
-#: core/app/views/utils/componentsinfodlg.cpp:185
-#: core/app/views/utils/componentsinfodlg.cpp:211
+#: core/app/views/utils/componentsinfodlg.cpp:102
+#: core/app/views/utils/componentsinfodlg.cpp:114
+#: core/app/views/utils/componentsinfodlg.cpp:126
+#: core/app/views/utils/componentsinfodlg.cpp:151
+#: core/app/views/utils/componentsinfodlg.cpp:163
+#: core/app/views/utils/componentsinfodlg.cpp:175
+#: core/app/views/utils/componentsinfodlg.cpp:187
+#: core/app/views/utils/componentsinfodlg.cpp:213
 #, kde-format
 msgctxt "@item: component info"
 msgid "Yes"
 msgstr "Ja"
 
-#: core/app/views/utils/componentsinfodlg.cpp:112
-#: core/app/views/utils/componentsinfodlg.cpp:117
+#: core/app/views/utils/componentsinfodlg.cpp:114
+#: core/app/views/utils/componentsinfodlg.cpp:119
 #, kde-format
 msgctxt "@item: component info"
 msgid "AddressBook support"
 msgstr "Ondersteuning van adresboek"
 
-#: core/app/views/utils/componentsinfodlg.cpp:124
-#: core/app/views/utils/componentsinfodlg.cpp:142
+#: core/app/views/utils/componentsinfodlg.cpp:126
+#: core/app/views/utils/componentsinfodlg.cpp:144
 #, kde-format
 msgctxt "@item: component info"
 msgid "Media player support"
 msgstr "Ondersteuning van mediaspeler"
 
-#: core/app/views/utils/componentsinfodlg.cpp:127
+#: core/app/views/utils/componentsinfodlg.cpp:129
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibAVFormat"
 msgstr "LibAVFormat"
 
-#: core/app/views/utils/componentsinfodlg.cpp:130
+#: core/app/views/utils/componentsinfodlg.cpp:132
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibAVCodec"
 msgstr "LibAVCodec"
 
-#: core/app/views/utils/componentsinfodlg.cpp:133
+#: core/app/views/utils/componentsinfodlg.cpp:135
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibAVUtil"
 msgstr "LibAVUtil"
 
-#: core/app/views/utils/componentsinfodlg.cpp:136
+#: core/app/views/utils/componentsinfodlg.cpp:138
 #, kde-format
 msgctxt "@item: component info"
 msgid "FFMpeg"
 msgstr "FFMpeg"
 
-#: core/app/views/utils/componentsinfodlg.cpp:149
-#: core/app/views/utils/componentsinfodlg.cpp:154
+#: core/app/views/utils/componentsinfodlg.cpp:151
+#: core/app/views/utils/componentsinfodlg.cpp:156
 #, kde-format
 msgctxt "@item: component info"
 msgid "DBus support"
 msgstr "Ondersteuning van DBus"
 
-#: core/app/views/utils/componentsinfodlg.cpp:161
-#: core/app/views/utils/componentsinfodlg.cpp:166
+#: core/app/views/utils/componentsinfodlg.cpp:163
+#: core/app/views/utils/componentsinfodlg.cpp:168
 #, kde-format
 msgctxt "@item: component info"
 msgid "Panorama support"
 msgstr "Ondersteuning van panorama"
 
-#: core/app/views/utils/componentsinfodlg.cpp:173
-#: core/app/views/utils/componentsinfodlg.cpp:178
+#: core/app/views/utils/componentsinfodlg.cpp:175
+#: core/app/views/utils/componentsinfodlg.cpp:180
 #, kde-format
 msgctxt "@item: component info"
 msgid "HTML Gallery support"
 msgstr "Ondersteuning van HTML-galerij"
 
-#: core/app/views/utils/componentsinfodlg.cpp:185
-#: core/app/views/utils/componentsinfodlg.cpp:190
+#: core/app/views/utils/componentsinfodlg.cpp:187
+#: core/app/views/utils/componentsinfodlg.cpp:192
 #, kde-format
 msgctxt "@item: component info"
 msgid "Calendar support"
 msgstr "Ondersteuning van Kalender"
 
-#: core/app/views/utils/componentsinfodlg.cpp:195
+#: core/app/views/utils/componentsinfodlg.cpp:197
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibOpenCV"
 msgstr "LibOpenCV"
 
-#: core/app/views/utils/componentsinfodlg.cpp:202
+#: core/app/views/utils/componentsinfodlg.cpp:204
 #, kde-format
 msgctxt "@item: component info"
 msgid "Qt Sql drivers"
 msgstr "Qt SQL stuurprogramma's"
 
-#: core/app/views/utils/componentsinfodlg.cpp:207
+#: core/app/views/utils/componentsinfodlg.cpp:209
 #, kde-format
 msgctxt "@item: component info"
 msgid "Database backend"
 msgstr "Database-backend"
 
-#: core/app/views/utils/componentsinfodlg.cpp:214
+#: core/app/views/utils/componentsinfodlg.cpp:216
 #, kde-format
 msgctxt "@item: component info"
 msgid "Database internal server"
 msgstr "Interne databaseserver"
 
-#: core/app/views/utils/componentsinfodlg.cpp:219
+#: core/app/views/utils/componentsinfodlg.cpp:222
+#, fuzzy, kde-format
+#| msgctxt "@item: component info"
+#| msgid "Database backend"
+msgctxt "@item: component info"
+msgid "Database backend version"
+msgstr "Database-backend"
+
+#: core/app/views/utils/componentsinfodlg.cpp:226
 #, kde-format
 msgctxt "@item: component info"
 msgid "FFmpeg Configuration"
 msgstr "FFmpeg-configuratie"
 
-#: core/app/views/utils/componentsinfodlg.cpp:226
+#: core/app/views/utils/componentsinfodlg.cpp:233
 #, kde-format
 msgctxt "@item: component info"
 msgid "Video Decoders"
 msgstr "Video-decoders"
 
-#: core/app/views/utils/componentsinfodlg.cpp:240
-#: core/app/views/utils/componentsinfodlg.cpp:257
-#: core/app/views/utils/componentsinfodlg.cpp:277
-#: core/app/views/utils/componentsinfodlg.cpp:294
-#: core/app/views/utils/componentsinfodlg.cpp:312
+#: core/app/views/utils/componentsinfodlg.cpp:247
+#: core/app/views/utils/componentsinfodlg.cpp:264
+#: core/app/views/utils/componentsinfodlg.cpp:284
+#: core/app/views/utils/componentsinfodlg.cpp:301
+#: core/app/views/utils/componentsinfodlg.cpp:319
 #: core/libs/dialogs/libsinfodlg_opencv.cpp:69
 #: core/libs/dialogs/libsinfodlg_opencv.cpp:75
 #: core/libs/dialogs/libsinfodlg_opencv.cpp:150
@@ -4801,25 +4809,25 @@ msgstr "Video-decoders"
 msgid "no entry"
 msgstr "geen item"
 
-#: core/app/views/utils/componentsinfodlg.cpp:243
+#: core/app/views/utils/componentsinfodlg.cpp:250
 #, kde-format
 msgctxt "@item: component info"
 msgid "Video Encoders"
 msgstr "Video-codeerders"
 
-#: core/app/views/utils/componentsinfodlg.cpp:263
+#: core/app/views/utils/componentsinfodlg.cpp:270
 #, kde-format
 msgctxt "@item: component info"
 msgid "Audio Decoders"
 msgstr "Audio-decoders"
 
-#: core/app/views/utils/componentsinfodlg.cpp:280
+#: core/app/views/utils/componentsinfodlg.cpp:287
 #, kde-format
 msgctxt "@item: component info"
 msgid "Audio Encoders"
 msgstr "Audio-codeerders"
 
-#: core/app/views/utils/componentsinfodlg.cpp:300
+#: core/app/views/utils/componentsinfodlg.cpp:307
 #, kde-format
 msgctxt "@item: component info"
 msgid "Supported Extensions"
@@ -28966,13 +28974,13 @@ msgstr ""
 #: core/libs/database/engine/dbengineaccess.cpp:70
 #, fuzzy, kde-format
 #| msgid ""
-#| "The driver \"MYSQL\" for MariaDB databases is not available.\n"
+#| "The driver \"QMYSQL\" for MariaDB databases is not available.\n"
 #| "digiKam depends on the drivers provided by the Qt::SQL module."
 msgid ""
-"The driver \"QMYSQL\" for MariaDB databases is not available.\n"
+"The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"Het stuurprogramma \"MYSQL\" voor MariaDB-databases is niet beschikbaar.\n"
+"Het stuurprogramma \"QMYSQL\" voor MariaDB-databases is niet beschikbaar.\n"
 "digiKam is afhankelijk van de stuurprogramma's die door de Qt::SQL-module "
 "worden aangeleverd."
 
@@ -29699,17 +29707,13 @@ msgid "Set the host computer name"
 msgstr "De hostcomputernaam instellen"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is the computer name running MySQL server.\n"
-#| "This can be \"localhost\" for a local server, or the network computer\n"
-#| "name (or IP address) in case of remote computer."
+#, kde-format
 msgid ""
 "This is the computer name running MariaDB server.\n"
 "This can be \"localhost\" for a local server, or the network computer\n"
 "name (or IP address) in case of remote computer."
 msgstr ""
-"Dit is de naam van de computer waarop de MySQL-server draait.\n"
+"Dit is de naam van de computer waarop de MariaDB-server draait.\n"
 "Dit kan \"localhost\" zijn voor een lokale server of de naam van een "
 "computer\n"
 "in het network (of IP-adres) in geval van een computer op afstand."
@@ -29925,18 +29929,7 @@ msgstr ""
 "<b><i>wachtwoord</i></b> door het juiste).</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:341
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Note: with a Linux server, a database can be initialized following the "
-#| "commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
-#| "mariadb -u root</p><p>...</p><p>Enter SQL code to MariaDB prompt in order "
-#| "to init digiKam databases with grant privileges (see behind)</p><p>...</"
-#| "p><p>quit</p><p>NOTE: If you have problems with a MariaDB server on "
-#| "Ubuntu based Linux system, use the addition command in the mysql prompt "
-#| "to be able to create MariaDB triggers.<br>SET GLOBAL "
-#| "log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
-#| "collection, you should start MariaDB server with mysql --"
-#| "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
+#, kde-format
 msgid ""
 "<p>Note: with a Linux server, a database can be initialized following the "
 "commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
@@ -29955,11 +29948,11 @@ msgstr ""
 "prompt om de digiKam databases te initialiseren met grant privileges (zie "
 "hierna)</p><p>...</p><p>quit</p><p>>OPMERKING: Als u problemen hebt met een "
 "MySQL-server op een op Linux gebaseerd Ubuntu, gebruik dan het commando voor "
-"toevoegen in de mysql-prompt om in staat te zijn MariaDB-triggers aan te "
+"toevoegen in de MariaDB-prompt om in staat te zijn MariaDB-triggers aan te "
 "maken.<br>SET GLOBAL log_bin_trust_function_creators=1;</p><p>OPMERKING: Als "
 "u een enorme verzameling hebt, dan zou u moeten beginnen met het starten van "
-"de MySQL-server met mysql --max_allowed_packet=128M of in my.ini of ~/.my."
-"cnf, de instellingen wijzigen</p>"
+"de MariaDB-server met mariadb --max_allowed_packet=128M of in my.ini of ~/."
+"my.cnf, de instellingen wijzigen</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:365
 #, kde-format

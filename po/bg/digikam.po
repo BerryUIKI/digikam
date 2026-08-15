@@ -33,8 +33,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-14 00:42+0000\n"
-"PO-Revision-Date: 2026-08-13 10:07+0200\n"
+"POT-Creation-Date: 2026-08-15 00:42+0000\n"
+"PO-Revision-Date: 2026-08-14 23:27+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -4613,165 +4613,173 @@ msgstr "Премахване на тази колона"
 msgid "Configure this column"
 msgstr "Настройване на колоната"
 
-#: core/app/views/utils/componentsinfodlg.cpp:85
+#: core/app/views/utils/componentsinfodlg.cpp:87
 #, kde-format
 msgctxt "@item: component info"
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: core/app/views/utils/componentsinfodlg.cpp:88
+#: core/app/views/utils/componentsinfodlg.cpp:90
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibGphoto2"
 msgstr "LibGphoto2"
 
-#: core/app/views/utils/componentsinfodlg.cpp:93
+#: core/app/views/utils/componentsinfodlg.cpp:95
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibGphoto2 support"
 msgstr "Поддръжка на LibGphoto2"
 
-#: core/app/views/utils/componentsinfodlg.cpp:93
-#: core/app/views/utils/componentsinfodlg.cpp:105
-#: core/app/views/utils/componentsinfodlg.cpp:117
-#: core/app/views/utils/componentsinfodlg.cpp:142
-#: core/app/views/utils/componentsinfodlg.cpp:154
-#: core/app/views/utils/componentsinfodlg.cpp:166
-#: core/app/views/utils/componentsinfodlg.cpp:178
-#: core/app/views/utils/componentsinfodlg.cpp:190
-#: core/app/views/utils/componentsinfodlg.cpp:212
+#: core/app/views/utils/componentsinfodlg.cpp:95
+#: core/app/views/utils/componentsinfodlg.cpp:107
+#: core/app/views/utils/componentsinfodlg.cpp:119
+#: core/app/views/utils/componentsinfodlg.cpp:144
+#: core/app/views/utils/componentsinfodlg.cpp:156
+#: core/app/views/utils/componentsinfodlg.cpp:168
+#: core/app/views/utils/componentsinfodlg.cpp:180
+#: core/app/views/utils/componentsinfodlg.cpp:192
+#: core/app/views/utils/componentsinfodlg.cpp:214
 #, kde-format
 msgctxt "@item: component info"
 msgid "No"
 msgstr "Не"
 
-#: core/app/views/utils/componentsinfodlg.cpp:100
-#: core/app/views/utils/componentsinfodlg.cpp:105
+#: core/app/views/utils/componentsinfodlg.cpp:102
+#: core/app/views/utils/componentsinfodlg.cpp:107
 #, kde-format
 msgctxt "@item: component info"
 msgid "Baloo support"
 msgstr "Поддръжка на Baloo"
 
-#: core/app/views/utils/componentsinfodlg.cpp:100
-#: core/app/views/utils/componentsinfodlg.cpp:112
-#: core/app/views/utils/componentsinfodlg.cpp:124
-#: core/app/views/utils/componentsinfodlg.cpp:149
-#: core/app/views/utils/componentsinfodlg.cpp:161
-#: core/app/views/utils/componentsinfodlg.cpp:173
-#: core/app/views/utils/componentsinfodlg.cpp:185
-#: core/app/views/utils/componentsinfodlg.cpp:211
+#: core/app/views/utils/componentsinfodlg.cpp:102
+#: core/app/views/utils/componentsinfodlg.cpp:114
+#: core/app/views/utils/componentsinfodlg.cpp:126
+#: core/app/views/utils/componentsinfodlg.cpp:151
+#: core/app/views/utils/componentsinfodlg.cpp:163
+#: core/app/views/utils/componentsinfodlg.cpp:175
+#: core/app/views/utils/componentsinfodlg.cpp:187
+#: core/app/views/utils/componentsinfodlg.cpp:213
 #, kde-format
 msgctxt "@item: component info"
 msgid "Yes"
 msgstr "Да"
 
-#: core/app/views/utils/componentsinfodlg.cpp:112
-#: core/app/views/utils/componentsinfodlg.cpp:117
+#: core/app/views/utils/componentsinfodlg.cpp:114
+#: core/app/views/utils/componentsinfodlg.cpp:119
 #, kde-format
 msgctxt "@item: component info"
 msgid "AddressBook support"
 msgstr "Поддръжка на AaddressBbook"
 
-#: core/app/views/utils/componentsinfodlg.cpp:124
-#: core/app/views/utils/componentsinfodlg.cpp:142
+#: core/app/views/utils/componentsinfodlg.cpp:126
+#: core/app/views/utils/componentsinfodlg.cpp:144
 #, kde-format
 msgctxt "@item: component info"
 msgid "Media player support"
 msgstr "Поддръжка на медия плеър"
 
-#: core/app/views/utils/componentsinfodlg.cpp:127
+#: core/app/views/utils/componentsinfodlg.cpp:129
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibAVFormat"
 msgstr "LibAVFormat"
 
-#: core/app/views/utils/componentsinfodlg.cpp:130
+#: core/app/views/utils/componentsinfodlg.cpp:132
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibAVCodec"
 msgstr "LibAVCodec"
 
-#: core/app/views/utils/componentsinfodlg.cpp:133
+#: core/app/views/utils/componentsinfodlg.cpp:135
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibAVUtil"
 msgstr "LibAVUtil"
 
-#: core/app/views/utils/componentsinfodlg.cpp:136
+#: core/app/views/utils/componentsinfodlg.cpp:138
 #, kde-format
 msgctxt "@item: component info"
 msgid "FFMpeg"
 msgstr "FFMpeg"
 
-#: core/app/views/utils/componentsinfodlg.cpp:149
-#: core/app/views/utils/componentsinfodlg.cpp:154
+#: core/app/views/utils/componentsinfodlg.cpp:151
+#: core/app/views/utils/componentsinfodlg.cpp:156
 #, kde-format
 msgctxt "@item: component info"
 msgid "DBus support"
 msgstr "Поддръжка на DBus"
 
-#: core/app/views/utils/componentsinfodlg.cpp:161
-#: core/app/views/utils/componentsinfodlg.cpp:166
+#: core/app/views/utils/componentsinfodlg.cpp:163
+#: core/app/views/utils/componentsinfodlg.cpp:168
 #, kde-format
 msgctxt "@item: component info"
 msgid "Panorama support"
 msgstr "Поддръжка на Panorama"
 
-#: core/app/views/utils/componentsinfodlg.cpp:173
-#: core/app/views/utils/componentsinfodlg.cpp:178
+#: core/app/views/utils/componentsinfodlg.cpp:175
+#: core/app/views/utils/componentsinfodlg.cpp:180
 #, kde-format
 msgctxt "@item: component info"
 msgid "HTML Gallery support"
 msgstr "Поддръжка на HTML галерия"
 
-#: core/app/views/utils/componentsinfodlg.cpp:185
-#: core/app/views/utils/componentsinfodlg.cpp:190
+#: core/app/views/utils/componentsinfodlg.cpp:187
+#: core/app/views/utils/componentsinfodlg.cpp:192
 #, kde-format
 msgctxt "@item: component info"
 msgid "Calendar support"
 msgstr "Поддръжка на Календар"
 
-#: core/app/views/utils/componentsinfodlg.cpp:195
+#: core/app/views/utils/componentsinfodlg.cpp:197
 #, kde-format
 msgctxt "@item: component info"
 msgid "LibOpenCV"
 msgstr "LibOpenCV"
 
-#: core/app/views/utils/componentsinfodlg.cpp:202
+#: core/app/views/utils/componentsinfodlg.cpp:204
 #, kde-format
 msgctxt "@item: component info"
 msgid "Qt Sql drivers"
 msgstr "Qt Sql драйвери"
 
-#: core/app/views/utils/componentsinfodlg.cpp:207
+#: core/app/views/utils/componentsinfodlg.cpp:209
 #, kde-format
 msgctxt "@item: component info"
 msgid "Database backend"
 msgstr "Тип на базата от данни"
 
-#: core/app/views/utils/componentsinfodlg.cpp:214
+#: core/app/views/utils/componentsinfodlg.cpp:216
 #, kde-format
 msgctxt "@item: component info"
 msgid "Database internal server"
 msgstr "Вграден сървър за база от данни"
 
-#: core/app/views/utils/componentsinfodlg.cpp:219
+#: core/app/views/utils/componentsinfodlg.cpp:222
+#, fuzzy, kde-format
+#| msgctxt "@item: component info"
+#| msgid "Database backend"
+msgctxt "@item: component info"
+msgid "Database backend version"
+msgstr "Тип на базата от данни"
+
+#: core/app/views/utils/componentsinfodlg.cpp:226
 #, kde-format
 msgctxt "@item: component info"
 msgid "FFmpeg Configuration"
 msgstr "Конфигурация на FFmpeg"
 
-#: core/app/views/utils/componentsinfodlg.cpp:226
+#: core/app/views/utils/componentsinfodlg.cpp:233
 #, kde-format
 msgctxt "@item: component info"
 msgid "Video Decoders"
 msgstr "Видеодекодери"
 
-#: core/app/views/utils/componentsinfodlg.cpp:240
-#: core/app/views/utils/componentsinfodlg.cpp:257
-#: core/app/views/utils/componentsinfodlg.cpp:277
-#: core/app/views/utils/componentsinfodlg.cpp:294
-#: core/app/views/utils/componentsinfodlg.cpp:312
+#: core/app/views/utils/componentsinfodlg.cpp:247
+#: core/app/views/utils/componentsinfodlg.cpp:264
+#: core/app/views/utils/componentsinfodlg.cpp:284
+#: core/app/views/utils/componentsinfodlg.cpp:301
+#: core/app/views/utils/componentsinfodlg.cpp:319
 #: core/libs/dialogs/libsinfodlg_opencv.cpp:69
 #: core/libs/dialogs/libsinfodlg_opencv.cpp:75
 #: core/libs/dialogs/libsinfodlg_opencv.cpp:150
@@ -4779,25 +4787,25 @@ msgstr "Видеодекодери"
 msgid "no entry"
 msgstr "няма запис"
 
-#: core/app/views/utils/componentsinfodlg.cpp:243
+#: core/app/views/utils/componentsinfodlg.cpp:250
 #, kde-format
 msgctxt "@item: component info"
 msgid "Video Encoders"
 msgstr "Видеокодиращи устройства"
 
-#: core/app/views/utils/componentsinfodlg.cpp:263
+#: core/app/views/utils/componentsinfodlg.cpp:270
 #, kde-format
 msgctxt "@item: component info"
 msgid "Audio Decoders"
 msgstr "Аудиодекодери"
 
-#: core/app/views/utils/componentsinfodlg.cpp:280
+#: core/app/views/utils/componentsinfodlg.cpp:287
 #, kde-format
 msgctxt "@item: component info"
 msgid "Audio Encoders"
 msgstr "Аудиокодиращи устройства"
 
-#: core/app/views/utils/componentsinfodlg.cpp:300
+#: core/app/views/utils/componentsinfodlg.cpp:307
 #, kde-format
 msgctxt "@item: component info"
 msgid "Supported Extensions"
@@ -28990,14 +28998,14 @@ msgstr ""
 #: core/libs/database/engine/dbengineaccess.cpp:70
 #, fuzzy, kde-format
 #| msgid ""
-#| "The driver \"MYSQL\" for MariaDB databases is not available.\n"
+#| "The driver \"QMYSQL\" for MariaDB databases is not available.\n"
 #| "digiKam depends on the drivers provided by the Qt::SQL module."
 msgid ""
-"The driver \"QMYSQL\" for MariaDB databases is not available.\n"
+"The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"Драйверът \"MYSQL\" за базите данни MariaDB не е наличен.\n"
-"digiKam зависи от драйверите, предоставени от модула Qt::SQL."
+"Драйверът \"QMYSQL\" за бази данни MariaDB не е наличен.\n"
+"digiKam разчита на драйверите, предоставени от модула Qt::SQL."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
 #, kde-format
@@ -29724,19 +29732,15 @@ msgid "Set the host computer name"
 msgstr "Задаване на името на хост компютъра"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is the computer name running MySQL server.\n"
-#| "This can be \"localhost\" for a local server, or the network computer\n"
-#| "name (or IP address) in case of remote computer."
+#, kde-format
 msgid ""
 "This is the computer name running MariaDB server.\n"
 "This can be \"localhost\" for a local server, or the network computer\n"
 "name (or IP address) in case of remote computer."
 msgstr ""
-"Това е името на компютъра, на който работи MySQL сървърът.\n"
-"То може да бъде \"localhost\" за локален сървър, името (или IP адрес) \n"
-" на мрежовия компютър в случай на отдалечен компютър."
+"Това е името на компютъра, който изпълнява сървъра MariaDB.\n"
+"Това може да бъде „localhost“ за локален сървър или мрежовото име на "
+"компютъра (или IP адрес) при отдалечен компютър."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:229
 #, kde-format
@@ -29946,18 +29950,7 @@ msgstr ""
 "<b><i>паролата</i></b> с правилната).</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:341
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Note: with a Linux server, a database can be initialized following the "
-#| "commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
-#| "mariadb -u root</p><p>...</p><p>Enter SQL code to MariaDB prompt in order "
-#| "to init digiKam databases with grant privileges (see behind)</p><p>...</"
-#| "p><p>quit</p><p>NOTE: If you have problems with a MariaDB server on "
-#| "Ubuntu based Linux system, use the addition command in the mysql prompt "
-#| "to be able to create MariaDB triggers.<br>SET GLOBAL "
-#| "log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
-#| "collection, you should start MariaDB server with mysql --"
-#| "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
+#, kde-format
 msgid ""
 "<p>Note: with a Linux server, a database can be initialized following the "
 "commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
@@ -29970,16 +29963,17 @@ msgid ""
 "collection, you should start MariaDB server with mariadb --"
 "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
 msgstr ""
-"<p>Забележка: с Linux сървър, базата данни може да бъде инициализирана, като "
-"се използват командите по-долу:</p><p># su</p><p># systemctl restart "
-"mariadbd</p><p># mariadb -u root</p><p>...</p><p>Въведете SQL код в промпта "
-"на MariaDB, за да инициализирате базата данни на digiKam с привилегии за "
-"достъп (вижте по-горе)</p><p>...</p><p>quit</p><p>ЗАБЕЛЕЖКА: Ако имате "
-"проблеми с MariaDB сървър на Ubuntu базирана Linux система, използвайте "
-"командата за добавяне в промпта на mysql, за да можете да създавате MariaDB "
-"тригери.<br>SET GLOBAL log_bin_trust_function_creators=1;</p><p>ЗАБЕЛЕЖКА: "
-"Ако имате огромна колекция, трябва да стартирате MariaDB сървъра с mysql --"
-"max_allowed_packet=128M ИЛИ в my.ini или ~/.my.cnf, променете настройките</p>"
+"<p>Забележка: При Linux сървър, базата данни може да бъде инициализирана "
+"чрез командите по-долу:</p><p># su</p><p># systemctl restart mariadbd</"
+"p><p># mariadb -u root</p><p>...</p><p>Въведете SQL код в MariaDB командния "
+"ред, за да инициализирате базите данни на digiKam с привилегии за "
+"разрешаване (вижте по-долу)</p><p>...</p><p>quit</p><p>ЗАБЕЛЕЖКА: Ако имате "
+"проблеми със сървъра MariaDB в система, базирана на Ubuntu, използвайте "
+"допълнителната команда в командния ред на MariaDB, за да можете да създавате "
+"тригери на MariaDB.<br>SET GLOBAL log_bin_trust_function_creators=1;</"
+"p><p>ЗАБЕЛЕЖКА: Ако имате огромна колекция, трябва да стартирате сървъра "
+"MariaDB с mariadb --max_allowed_packet=128M ИЛИ в my.ini или ~/.my.cnf, "
+"променете настройките</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:365
 #, kde-format
@@ -69593,10 +69587,3 @@ msgstr "Импортиране на елементи"
 #, kde-format
 msgid "Survey"
 msgstr "Анкета"
-
-#~ msgid "MySQL Server"
-#~ msgstr "MySQL Server"
-
-#~ msgctxt "@title:group"
-#~ msgid "MySQL Binaries"
-#~ msgstr "Двоичен код MySQL"
