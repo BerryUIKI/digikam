@@ -170,7 +170,7 @@ else
 
     # KDE KF6 frameworks version.
     # See official release here: https://download.kde.org/stable/frameworks/
-    DK_KDE_VERSION="v6.29.0"
+    DK_KDE_VERSION="v6.28.0"
 
     # KDE Plasma version.
     # See official release here: https://download.kde.org/stable/plasma/
