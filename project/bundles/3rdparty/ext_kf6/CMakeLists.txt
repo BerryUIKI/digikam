@@ -133,7 +133,7 @@ InstallKF6Component(karchive                 ${KDE_VERSION}     "${Qt6CommonOpti
 InstallKF6Component(kdbusaddons              ${KDE_VERSION}     "${Qt6CommonOptions}"                                                                       "")
 InstallKF6Component(ki18n                    ${KDE_VERSION}     "${Qt6CommonOptions}"                                                                       "ki18n-disable-isocodes.patch")
 InstallKF6Component(kcrash                   ${KDE_VERSION}     "${Qt6CommonOptions}"                                                                       "")
-InstallKF6Component(kcodecs                  ${KDE_VERSION}     "${Qt6CommonOptions}"                                                                       "kcodecs-disable-c++20.patch")
+InstallKF6Component(kcodecs                  ${KDE_VERSION}     "${Qt6CommonOptions}"                                                                       "")
 InstallKF6Component(kauth                    ${KDE_VERSION}     "${Qt6CommonOptions}"                                                                       "")
 InstallKF6Component(kguiaddons               ${KDE_VERSION}     "${Qt6CommonOptions};-DWITH_WAYLAND=OFF"                                                    "")
 InstallKF6Component(kwidgetsaddons           ${KDE_VERSION}     "${Qt6CommonOptions}"                                                                       "")
