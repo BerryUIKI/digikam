@@ -4731,12 +4731,10 @@ msgid "Database internal server"
 msgstr "Interná chyba servera"
 
 #: core/app/views/utils/componentsinfodlg.cpp:222
-#, fuzzy, kde-format
-#| msgctxt "@item: component info"
-#| msgid "Database backend"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Database backend version"
-msgstr "Backend databázy"
+msgstr "Verzia backendu databázy"
 
 #: core/app/views/utils/componentsinfodlg.cpp:226
 #, kde-format
@@ -28550,15 +28548,12 @@ msgstr ""
 "digiKam závisí na ovládačoch, ktoré poskytuje SQL modul Qt4."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, fuzzy, kde-format
-#| msgid ""
-#| "The driver \"QMYSQL\" for MariaDB databases is not available.\n"
-#| "digiKam depends on the drivers provided by the Qt::SQL module."
+#, kde-format
 msgid ""
 "The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"Ovládač „QMYSQL“ pre databázy MariaDB nie je dostupný.\n"
+"Ovládač Qt::SQL pre databázy MariaDB nie je dostupný.\n"
 "digiKam závisí na ovládačoch, ktoré poskytuje SQL modul Qt."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
