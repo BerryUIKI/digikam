@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-15 00:42+0000\n"
-"PO-Revision-Date: 2026-08-14 07:32+0200\n"
+"PO-Revision-Date: 2026-08-15 04:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -4682,12 +4682,10 @@ msgid "Database internal server"
 msgstr "მონაცემთა ბაზის შიდა სერვერი"
 
 #: core/app/views/utils/componentsinfodlg.cpp:222
-#, fuzzy, kde-format
-#| msgctxt "@item: component info"
-#| msgid "Database backend"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Database backend version"
-msgstr "მონაცემთა ბაზის უკანაბოლო"
+msgstr "მონაცემთა ბაზის უკანაბოლოს ვერსია"
 
 #: core/app/views/utils/componentsinfodlg.cpp:226
 #, kde-format
@@ -27915,15 +27913,12 @@ msgstr ""
 "digiKam იყენებს დრაივერებს, რომლებსაც მოდული Qt::SQL მოდული შეიცავს."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, fuzzy, kde-format
-#| msgid ""
-#| "The driver \"QMYSQL\" for MariaDB databases is not available.\n"
-#| "digiKam depends on the drivers provided by the Qt::SQL module."
+#, kde-format
 msgid ""
 "The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"MariaDB-ის მონაცემთა ბაზისთვის დრაივერი \"QMYSQL\" ხელმისაწვდომი არაა.\n"
+"MariaDB-ის მონაცემთა ბაზისთვის დრაივერი \"Qt::SQL\" ხელმისაწვდომი არაა.\n"
 "digiKam იყენებს დრაივერებს, რომლებსაც მოდული Qt::SQL მოდული შეიცავს."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170

@@ -11,7 +11,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-15 00:42+0000\n"
-"PO-Revision-Date: 2026-08-14 08:49+0300\n"
+"PO-Revision-Date: 2026-08-15 13:48+0300\n"
 "Last-Translator: Yuri Chornoivan <yurchor@ukr.net>\n"
 "Language-Team: Ukrainian <trans-uk@lists.fedoraproject.org>\n"
 "Language: uk\n"
@@ -4776,12 +4776,10 @@ msgid "Database internal server"
 msgstr "Вбудований сервер бази даних"
 
 #: core/app/views/utils/componentsinfodlg.cpp:222
-#, fuzzy, kde-format
-#| msgctxt "@item: component info"
-#| msgid "Database backend"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Database backend version"
-msgstr "Сервер бази даних"
+msgstr "Версія модуля бази даних"
 
 #: core/app/views/utils/componentsinfodlg.cpp:226
 #, kde-format
@@ -29098,15 +29096,12 @@ msgstr ""
 "digiKam залежить від драйверів наданих модулем Qt::SQL."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, fuzzy, kde-format
-#| msgid ""
-#| "The driver \"QMYSQL\" for MariaDB databases is not available.\n"
-#| "digiKam depends on the drivers provided by the Qt::SQL module."
+#, kde-format
 msgid ""
 "The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"Немає драйвера «QMYSQL» для бази даних MariaDB.\n"
+"Немає драйвера Qt::SQL для бази даних MariaDB.\n"
 "digiKam залежить від драйверів наданих модулем Qt::SQL."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170

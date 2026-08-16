@@ -38,7 +38,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-15 00:42+0000\n"
-"PO-Revision-Date: 2026-08-14 07:05+0200\n"
+"PO-Revision-Date: 2026-08-15 07:40+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -4777,12 +4777,10 @@ msgid "Database internal server"
 msgstr "Notranji strežnik podatkovne zbirke"
 
 #: core/app/views/utils/componentsinfodlg.cpp:222
-#, fuzzy, kde-format
-#| msgctxt "@item: component info"
-#| msgid "Database backend"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Database backend version"
-msgstr "Zaledje podatkovne zbirke"
+msgstr "Različica zaledja podatkovne zbirke"
 
 #: core/app/views/utils/componentsinfodlg.cpp:226
 #, kde-format
@@ -28711,16 +28709,13 @@ msgstr ""
 "digiKam je odvisen od gonilnikov iz modula Qt::SQL."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, fuzzy, kde-format
-#| msgid ""
-#| "The driver \"QMYSQL\" for MariaDB databases is not available.\n"
-#| "digiKam depends on the drivers provided by the Qt::SQL module."
+#, kde-format
 msgid ""
 "The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"Gonilnik \"QMYSQL\" za podatkovne zbirke MariaDB ni na voljo.\n"
-"digiKam je odvisen od gonilnikov iz modula Qt::SQL."
+"Gonilnik Qt::SQL za podatkovne baze MariaDB ni na voljo.\n"
+"digiKam je odvisen od gonilnikov, ki jih zagotavlja modul Qt::SQL."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
 #, kde-format

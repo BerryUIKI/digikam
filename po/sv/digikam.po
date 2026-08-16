@@ -44,7 +44,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-15 00:42+0000\n"
-"PO-Revision-Date: 2026-08-14 18:21+0200\n"
+"PO-Revision-Date: 2026-08-15 08:26+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -4722,12 +4722,10 @@ msgid "Database internal server"
 msgstr "Intern databasserver"
 
 #: core/app/views/utils/componentsinfodlg.cpp:222
-#, fuzzy, kde-format
-#| msgctxt "@item: component info"
-#| msgid "Database backend"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Database backend version"
-msgstr "Databasgränssnitt"
+msgstr "Version av databasgränssnitt"
 
 #: core/app/views/utils/componentsinfodlg.cpp:226
 #, kde-format
@@ -28648,15 +28646,12 @@ msgstr ""
 "Digikam beror på drivrutiner som tillhandahålls av Qt::SQL-modulen."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, fuzzy, kde-format
-#| msgid ""
-#| "The driver \"QMYSQL\" for MariaDB databases is not available.\n"
-#| "digiKam depends on the drivers provided by the Qt::SQL module."
+#, kde-format
 msgid ""
 "The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"Drivrutinen \"QMYSQL\" för MariaDB-databaser är inte tillgänglig.\n"
+"Drivrutinen \"Qt::SQL\" för MariaDB-databaser är inte tillgänglig.\n"
 "Digikam beror på drivrutiner som tillhandahålls av Qt::SQL-modulen."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
@@ -64050,7 +64045,7 @@ msgstr "Välj teckensnittet som används för att visa text i ikonvyer här."
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:104
 #, kde-format
 msgid "Use large thumbnail size for high screen resolution"
-msgstr "Använd stor miniatyrbildstorlek för hög skärmupplösning"
+msgstr "Använd stor miniatyrbildsstorlek för hög skärmupplösning"
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:105
 #, kde-format
@@ -64067,7 +64062,7 @@ msgid ""
 msgstr ""
 "Ställ in alternativet för att återge ikonvyn med stora miniatyrbilder, "
 "exempelvis i fallet då en 4K-bildskärm används.\n"
-"Normalt är alternativet avstängt, och den maximala miniatyrbildstorleken är "
+"Normalt är alternativet avstängt, och den maximala miniatyrbildsstorleken är "
 "begränsad till 256 x 256 bildpunkter. När alternativet är aktiverat kan "
 "miniatyrbildernas storlek utökas till 512 x 512 bildpunkter.\n"
 "Alternativet lagrar mer information i miniatyrbildsdatabasen och använder "
@@ -64140,8 +64135,7 @@ msgstr "Obehandlad data med full storlek (hög kvalitet)"
 #: core/utilities/setup/album/setupalbumview_preview.cpp:42
 #, kde-format
 msgid "Preview image is converted to 8 bits for a faster viewing"
-msgstr ""
-"Förhandsgranskningsbilden har konverterats till 8 bitar för snabbare visning"
+msgstr "Förhandsgranskningsbild konverteras till 8 bitar för snabbare visning"
 
 #: core/utilities/setup/album/setupalbumview_preview.cpp:43
 #, kde-format

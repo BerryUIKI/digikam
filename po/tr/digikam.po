@@ -52,7 +52,7 @@ msgstr ""
 "Project-Id-Version: Digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-15 00:42+0000\n"
-"PO-Revision-Date: 2026-08-14 19:09+0300\n"
+"PO-Revision-Date: 2026-08-15 20:14+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -4732,12 +4732,10 @@ msgid "Database internal server"
 msgstr "Veri tabanı içsel sunucusu"
 
 #: core/app/views/utils/componentsinfodlg.cpp:222
-#, fuzzy, kde-format
-#| msgctxt "@item: component info"
-#| msgid "Database backend"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Database backend version"
-msgstr "Veri tabanı arka ucu"
+msgstr "Veri tabanı arka ucu sürümü"
 
 #: core/app/views/utils/componentsinfodlg.cpp:226
 #, kde-format
@@ -28714,15 +28712,12 @@ msgstr ""
 "digiKam, Qt::SQL modülü tarafından sağlanan sürücülere bağlıdır."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, fuzzy, kde-format
-#| msgid ""
-#| "The driver \"QMYSQL\" for MariaDB databases is not available.\n"
-#| "digiKam depends on the drivers provided by the Qt::SQL module."
+#, kde-format
 msgid ""
 "The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"MariaDB veri tabanları için “QMYSQL” sürücüsü kullanılabilir değil.\n"
+"MariaDB veri tabanları için Qt::SQL sürücüsü kullanılabilir değil.\n"
 "digiKam, Qt::SQL modülü tarafından sağlanan sürücülere bağlıdır."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
