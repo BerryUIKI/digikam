@@ -69,7 +69,7 @@ BUGFIXES:
 043 --> 524196 - Solved for me after performing the mention steps.
 044 --> 524254 - Unable to add /usr/bin/tesseract binary to digiKam.
 045 --> 511758 - digiKam is almost unusable when mysql is not connected over lan.
-046 --> 
+046 --> 524383 - Fingerprint maintenance stuck at 0% for hours on large collections — calculateAffectedAlbums() is O(N²) due to QList::contains() per item.
 047 --> 
 048 --> 
 049 --> 

@@ -55,7 +55,7 @@ public:
 
     AlbumList            albumList;
 
-    QList<qlonglong>     allItemIds;
+    QSet<qlonglong>      allItemIds;
 
     QFuture<void>        affectedAlbumTask;
     QFutureWatcher<void> affectedAlbumWatcher;
@@ -137,7 +137,7 @@ void FingerPrintsGenerator::slotAffectedAlbumsFinished()
 
     setTotalItems(d->allItemIds.count());
 
-    d->thread->generateFingerprints(d->allItemIds, d->rebuildAll);
+    d->thread->generateFingerprints(d->allItemIds.values(), d->rebuildAll);
     d->thread->start();
 }
 
@@ -159,10 +159,7 @@ void FingerPrintsGenerator::calculateAffectedAlbums()
 
             for (const qlonglong& id : ids)
             {
-                if (!d->allItemIds.contains(id))
-                {
-                    d->allItemIds << id;
-                }
+                d->allItemIds.insert(id);
             }
         }
         else if ((*it)->type() == Album::TAG)
@@ -171,10 +168,7 @@ void FingerPrintsGenerator::calculateAffectedAlbums()
 
             for (const qlonglong& id : ids)
             {
-                if (!d->allItemIds.contains(id))
-                {
-                    d->allItemIds << id;
-                }
+                d->allItemIds.insert(id);
             }
         }
     }
