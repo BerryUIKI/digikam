@@ -736,7 +736,7 @@ ln -sv "../../../digikam.app/Contents/etc/mariadb$MARIADB_SUFFIX"               
 
 ln -sv "../../../../digikam.app/Contents/lib/mariadb$MARIADB_SUFFIX"                                 "$TEMPROOT/digikam.app/Contents/lib/mariadb/lib"
 ln -sv "../../../../digikam.app/Contents/lib/mariadb"                                                "$TEMPROOT/digikam.app/Contents/lib/mariadb$MARIADB_SUFFIX"
-ln -sv "../../../../digikam.app/Contents/lib/mariadb/lib/mariadb$MARIADB_SUFFIX"                     "../../../../digikam.app/Contents/lib/mariadb/lib/mariadb"
+ln -sv "$TEMPROOT/digikam.app/Contents/lib/mariadb/lib/mariadb$MARIADB_SUFFIX"                       "$TEMPROOT/digikam.app/Contents/lib/mariadb/lib/mariadb"
 
 #################################################################################################
 # Install ExifTool binary.
