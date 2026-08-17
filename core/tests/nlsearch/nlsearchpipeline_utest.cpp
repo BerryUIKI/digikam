@@ -230,6 +230,51 @@ private Q_SLOTS:
                  QLatin1String("2023-01-01..2023-12-31"));
     }
 
+        void testVideoDurationParses()
+    {
+        // Regression: videoduration must accept the "between" operator with a
+        // numeric range. Previously "between" was restricted to daterange and
+        // rating, so video-property queries were rejected by the parser.
+
+        SearchIntentParser parser;
+
+        const QByteArray json =
+            QByteArrayLiteral("{\"constraints\":[{\"field\":\"videoduration\","
+                              "\"op\":\"between\","
+                              "\"value\":\"300..99999\"}]}");
+
+        const SearchQueryIntent intent = parser.parse(json,
+                                                      QLatin1String("videos longer than 5 minutes"),
+                                                      QLatin1String("videos longer than 5 minutes"));
+
+        QVERIFY(intent.parseSucceeded);
+        QCOMPARE(intent.constraints.size(), 1);
+        QCOMPARE(intent.constraints.first().field, QLatin1String("videoduration"));
+        QCOMPARE(intent.constraints.first().op,    QLatin1String("between"));
+        QCOMPARE(intent.constraints.first().value, QLatin1String("300..99999"));
+    }
+
+    void testFileFormatParses()
+    {
+        // File format is a plain string field matched with "eq".
+
+        SearchIntentParser parser;
+
+        const QByteArray json =
+            QByteArrayLiteral("{\"constraints\":[{\"field\":\"format\","
+                              "\"op\":\"eq\","
+                              "\"value\":\"raw\"}]}");
+
+        const SearchQueryIntent intent = parser.parse(json,
+                                                      QLatin1String("raw files"),
+                                                      QLatin1String("raw files"));
+
+        QVERIFY(intent.parseSucceeded);
+        QCOMPARE(intent.constraints.size(), 1);
+        QCOMPARE(intent.constraints.first().field, QLatin1String("format"));
+        QCOMPARE(intent.constraints.first().value, QLatin1String("raw"));
+    }
+
     void testRealInferenceProducesConstraints()
     {
 #ifdef HAVE_LLAMACPP

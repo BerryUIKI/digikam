@@ -825,6 +825,81 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
 
         writer.finishGroup();
     }
+    else if (c.field == QLatin1String("videoduration"))
+    {
+        auto toSeconds = [](const QString& token, bool* ok) -> int
+        {
+            QString t = token.trimmed();
+            int mult = 1;
+
+            if      (t.endsWith(QLatin1Char('m'))) { mult = 60; t.chop(1); }
+            else if (t.endsWith(QLatin1Char('s'))) { mult = 1;  t.chop(1); }
+
+            const int n = t.toInt(ok);
+            return n * mult;
+        };
+
+        const QStringList parts = c.value.split(QLatin1String(".."));
+
+        if (parts.size() == 2)
+        {
+            bool okLo = false;
+            bool okHi = false;
+            const int lo = toSeconds(parts.at(0), &okLo);
+            const int hi = toSeconds(parts.at(1), &okHi);
+
+            if (okLo && okHi)
+            {
+                writer.writeField(QLatin1String("videoduration"), SearchXml::Interval);
+                writer.writeValue(QList<int>() << lo << hi);
+                writer.finishField();
+            }
+        }
+    }
+    else if (c.field == QLatin1String("videoframerate"))
+    {
+        const QStringList parts = c.value.split(QLatin1String(".."));
+
+        if (parts.size() == 2)
+        {
+            bool okLo = false;
+            bool okHi = false;
+            const double lo = parts.at(0).toDouble(&okLo);
+            const double hi = parts.at(1).toDouble(&okHi);
+
+            if (okLo && okHi)
+            {
+                writer.writeField(QLatin1String("videoframerate"), SearchXml::Interval);
+                writer.writeValue(QList<double>() << lo << hi);
+                writer.finishField();
+            }
+        }
+    }
+    else if (c.field == QLatin1String("videoaudiobitrate"))
+    {
+        const QStringList parts = c.value.split(QLatin1String(".."));
+
+        if (parts.size() == 2)
+        {
+            bool okLo = false;
+            bool okHi = false;
+            const int lo = parts.at(0).toInt(&okLo);
+            const int hi = parts.at(1).toInt(&okHi);
+
+            if (okLo && okHi)
+            {
+                writer.writeField(QLatin1String("videoaudiobitrate"), SearchXml::Interval);
+                writer.writeValue(QList<int>() << lo << hi);
+                writer.finishField();
+            }
+        }
+    }
+    else if (c.field == QLatin1String("format"))
+    {
+        writer.writeField(QLatin1String("format"), SearchXml::Equal);
+        writer.writeValue(c.value.toUpper());
+        writer.finishField();
+    }
     else
     {
         qCDebug(DIGIKAM_NLSEARCH_LOG) << "NL search: no XML mapping for field"

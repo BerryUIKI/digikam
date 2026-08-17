@@ -39,6 +39,10 @@ const QSet<QString>& supportedFields()
         QLatin1String("colorlabel"),
         QLatin1String("orientation"),
         QLatin1String("caption"),
+        QLatin1String("videoduration"),
+        QLatin1String("videoframerate"),
+        QLatin1String("videoaudiobitrate"),
+        QLatin1String("format"),
     };
 
     return s;
@@ -260,10 +264,13 @@ bool SearchIntentParser::validateOperator(const QString& field, const QString& o
                (field == QLatin1String("daterange"));
     }
 
-    if (op == QLatin1String("between"))
+        if (op == QLatin1String("between"))
     {
-        return (field == QLatin1String("daterange")) ||
-               (field == QLatin1String("rating"));
+        return (field == QLatin1String("daterange"))      ||
+               (field == QLatin1String("rating"))         ||
+               (field == QLatin1String("videoduration"))  ||
+               (field == QLatin1String("videoframerate")) ||
+               (field == QLatin1String("videoaudiobitrate"));
     }
 
     return true;

@@ -110,6 +110,26 @@ void SearchCapabilityDictionary::initializeDefaults()
     addField(QLatin1String("caption"),
              { QLatin1String("caption"), QLatin1String("description"),
                QLatin1String("comment") });
+    
+    addField(QLatin1String("videoduration"),
+             { QLatin1String("video"), QLatin1String("videos"),
+               QLatin1String("clip"), QLatin1String("clips"),
+               QLatin1String("footage"), QLatin1String("duration") });
+    
+    addField(QLatin1String("videoframerate"),
+             { QLatin1String("fps"), QLatin1String("frame rate"),
+               QLatin1String("framerate"), QLatin1String("frames per second") });
+
+    addField(QLatin1String("videoaudiobitrate"),
+             { QLatin1String("bitrate"), QLatin1String("bit rate"),
+               QLatin1String("kbps") });
+
+    addField(QLatin1String("format"),
+             { QLatin1String("format"), QLatin1String("file type"),
+               QLatin1String("filetype") },
+             { QLatin1String("jpeg"), QLatin1String("png"),
+               QLatin1String("tiff"), QLatin1String("raw"),
+               QLatin1String("pgf") });
 
     d->valueAliases.insert(QLatin1String("picklabel/best"),
                            { QLatin1String("accepted") });
