@@ -34,7 +34,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-15 00:42+0000\n"
-"PO-Revision-Date: 2026-08-14 23:27+0200\n"
+"PO-Revision-Date: 2026-08-17 11:03+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -4756,12 +4756,10 @@ msgid "Database internal server"
 msgstr "Вграден сървър за база от данни"
 
 #: core/app/views/utils/componentsinfodlg.cpp:222
-#, fuzzy, kde-format
-#| msgctxt "@item: component info"
-#| msgid "Database backend"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Database backend version"
-msgstr "Тип на базата от данни"
+msgstr "Версия на бекенда на базата данни"
 
 #: core/app/views/utils/componentsinfodlg.cpp:226
 #, kde-format
@@ -28996,15 +28994,12 @@ msgstr ""
 "digiKam зависи от драйверите, предоставени от модула Qt::SQL."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, fuzzy, kde-format
-#| msgid ""
-#| "The driver \"QMYSQL\" for MariaDB databases is not available.\n"
-#| "digiKam depends on the drivers provided by the Qt::SQL module."
+#, kde-format
 msgid ""
 "The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"Драйверът \"QMYSQL\" за бази данни MariaDB не е наличен.\n"
+"Драйверът Qt::SQ за бази данни MariaDB не е наличен.\n"
 "digiKam разчита на драйверите, предоставени от модула Qt::SQL."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170

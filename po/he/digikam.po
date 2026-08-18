@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-15 00:42+0000\n"
-"PO-Revision-Date: 2026-08-12 09:26+0300\n"
+"PO-Revision-Date: 2026-08-16 08:38+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -10398,14 +10398,14 @@ msgid "Set here the desired custom aspect denominator value."
 msgstr ""
 
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:317
-#, fuzzy, kde-format
+#, kde-format
 msgid "Set width position to center."
-msgstr ", תציג את התמונה המעובדת.<p>בחירה באפשרות זו "
+msgstr "הגדרת נקודת הרוחב למרכז."
 
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:329
-#, fuzzy, kde-format
+#, kde-format
 msgid "Set height position to center."
-msgstr ", תציג את התמונה המעובדת.<p>בחירה באפשרות זו "
+msgstr "הגדרת נקודת הגובה למרכז."
 
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:355
 #, kde-format
@@ -10543,11 +10543,10 @@ msgid "Custom"
 msgstr "מותאם אישית"
 
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptoolplugin.cpp:40
-#, fuzzy, kde-format
-#| msgid "Aspect Ratio Crop"
+#, kde-format
 msgctxt "@title"
 msgid "Aspect Ratio Crop"
-msgstr "חיתוך לפי יחס"
+msgstr "חיתוך לפי יחס גובה־רוחב"
 
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptoolplugin.cpp:55
 #, fuzzy, kde-format
@@ -12533,9 +12532,9 @@ msgid "Device type:"
 msgstr "סוג מכשיר:"
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exifdevice.cpp:119
-#, fuzzy, kde-format
+#, kde-format
 msgid "Film scanner"
-msgstr "גרעיניות תמונה"
+msgstr "סורק פילמים"
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exifdevice.cpp:120
 #, kde-format
@@ -12548,9 +12547,9 @@ msgid "Digital still camera"
 msgstr "מצלמת תמונות דיגיטלית"
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exifdevice.cpp:122
-#, fuzzy, kde-format
+#, kde-format
 msgid "Select here the image input equipment type used to take the picture."
-msgstr "<p>סמנו את הערכי העצמה הנמוכים ביותר להיסתוגרמה שנבחרה"
+msgstr "כאן אפשר לתעד את סוג ציוד צילום התמונות ששימש לצילום התמונה."
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exifdevice.cpp:125
 #, kde-format
@@ -14369,10 +14368,10 @@ msgid "Evening"
 msgstr "ערב"
 
 #: core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp:184
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "Select here the editorial cycle of content."
-msgstr "<p>קבעו כאן את צבע קווי ההנחייה המקווקוים."
+msgstr "כאן אפשר לבחור את מחזור העריכה של התוכן."
 
 #: core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp:191
 #, kde-format
@@ -14395,9 +14394,9 @@ msgid "Advisory"
 msgstr "ייעוץ"
 
 #: core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp:197
-#, fuzzy, kde-format
+#, kde-format
 msgid "Select here the editorial type of content."
-msgstr "<p>קבעו כאן את צבע קווי ההנחייה המקווקוים."
+msgstr "כאן אפשר לבחור את סוג העריכה של התוכן."
 
 #: core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp:198
 #, fuzzy, kde-format
@@ -14412,9 +14411,9 @@ msgid "Reference:"
 msgstr "סימוכין:"
 
 #: core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp:210
-#, fuzzy, kde-format
+#, kde-format
 msgid "Set here the content reference"
-msgstr "<p>קבעו כאן את צבע קווי ההנחייה המקווקוים."
+msgstr "כאן אפשר להגדיר את הסימוכין לתוכן"
 
 #: core/dplugins/generic/metadata/metadataedit/iptc/iptcproperties.cpp:212
 #, fuzzy, kde-format
@@ -14565,14 +14564,14 @@ msgid "Edit Metadata..."
 msgstr "עריכת נתוני על…"
 
 #: core/dplugins/generic/metadata/metadataedit/xmp/xmpcategories.cpp:82
-#, fuzzy, kde-format
+#, kde-format
 msgid "Enter here a new supplemental category of content."
-msgstr "פתיחה במנהל-הקבצים"
+msgstr "כאן אפשר למלא קטגוריה משלימה לתוכן."
 
 #: core/dplugins/generic/metadata/metadataedit/xmp/xmpcontent.cpp:72
-#, fuzzy, kde-format
+#, kde-format
 msgid "Set here the content synopsis."
-msgstr "פתיחה במנהל-הקבצים"
+msgstr "כאן אפשר להגדיר את תקציר התוכן."
 
 #: core/dplugins/generic/metadata/metadataedit/xmp/xmpcontent.cpp:76
 #, kde-format
@@ -14596,9 +14595,9 @@ msgid "Set here the name of the caption author."
 msgstr "אפשר להגדיר כאן את שם יוצר/ת הכיתוב."
 
 #: core/dplugins/generic/metadata/metadataedit/xmp/xmpcontent.cpp:99
-#, fuzzy, kde-format
+#, kde-format
 msgid "Set here the necessary copyright notice."
-msgstr "פתיחה במנהל-הקבצים"
+msgstr "כאן אפשר להגדיר את הצהרת זכויות היוצרים ההכרחית."
 
 #: core/dplugins/generic/metadata/metadataedit/xmp/xmpcontent.cpp:101
 #, kde-format
@@ -16592,9 +16591,9 @@ msgid "Could not copy image to file '%1'"
 msgstr "לא ניתן להעתיק את התמונה לקובץ ‚%1’"
 
 #: core/dplugins/generic/tools/htmlgallery/generator/galleryelementfunctor.cpp:173
-#, fuzzy, kde-format
+#, kde-format
 msgid "Could not save thumbnail for image '%1' to '%2'"
-msgstr "לא ניתן לייצר תצוגה-ממוזערת של תמונה עבור %1"
+msgstr "לא ניתן לשמור את התמונה הממוזערת לתמונה ‚%1’ אל ‚%2’"
 
 #: core/dplugins/generic/tools/htmlgallery/generator/galleryelementfunctor.cpp:185
 #: core/libs/properties/itempropertiestab_setters.cpp:395
@@ -16964,9 +16963,9 @@ msgid "Thumbnail Properties:"
 msgstr "מאפייני תמונה ממוזערת:"
 
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlimagesettingspage.cpp:208
-#, fuzzy, kde-format
+#, kde-format
 msgid "Square thumbnails"
-msgstr "הצגת תמונות-ממוזערות"
+msgstr "תמונות ממוזערות ריבועיות"
 
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlintropage.cpp:69
 #, kde-format
@@ -25838,16 +25837,14 @@ msgid "Searches"
 msgstr "חיפושים"
 
 #: core/libs/album/manager/albummanager_database.cpp:111
-#, fuzzy, kde-format
-#| msgid "The MySQL database directory was not found."
+#, kde-format
 msgid "The MariaDB database directory was not found."
-msgstr "תיקיית מסד הנתונים של MySQL לא נמצאה."
+msgstr "תיקיית מסד הנתונים של MariaDB לא נמצאה."
 
 #: core/libs/album/manager/albummanager_database.cpp:128
-#, fuzzy, kde-format
-#| msgid "The MySQL binary tools was not found."
+#, kde-format
 msgid "The MariaDB binary tools was not found."
-msgstr "הכלי הבינריים של MySQL לא נמצאו."
+msgstr "הכליo הבינריים של MariaDB לא נמצאו."
 
 #: core/libs/album/manager/albummanager_database.cpp:135
 #, kde-format
@@ -27207,16 +27204,13 @@ msgstr ""
 "ב־digiKam קיימת תלות במנהלי ההתקנים שסופקו על ידי מודול Qt::SQL."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, fuzzy, kde-format
-#| msgid ""
-#| "The driver \"MYSQL\" for MySQL databases is not available.\n"
-#| "digiKam depends on the drivers provided by the Qt::SQL module."
+#, kde-format
 msgid ""
 "The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"מנהל ההתקן „MYSQL” למסדי נתונים מסוג MySQL לא זמין.\n"
-"ב־digiKam קיימת תלות במנהלי ההתקנים שסופקו על ידי מודול Qt::SQL"
+"מנהל ההתקן Qt::SQL למסדי נתונים מסוג MariaDB לא זמין.\n"
+"ב־digiKam קיימת תלות במנהלי ההתקנים שסופקו על ידי מודול Qt::SQL/"
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
 #, kde-format
@@ -27374,28 +27368,24 @@ msgid "Database type is not supported."
 msgstr "סוג מסד הנתונים לא נתמך."
 
 #: core/libs/database/server/databaseserver.cpp:296
-#, fuzzy, kde-format
-#| msgid "No path to mysql upgrade command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB upgrade command set in configuration file."
-msgstr "לא הוגדר נתיב לפקודה לשדרוג mysql בקובץ ההגדרות."
+msgstr "לא הוגדר נתיב לפקודה לשדרוג MariaDB בקובץ ההגדרות."
 
 #: core/libs/database/server/databaseserver.cpp:305
-#, fuzzy, kde-format
-#| msgid "No path to mysql server command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB server command set in configuration file."
-msgstr "לא הוגדר נתיב לפקודה לשרת mysql בקובץ ההגדרות."
+msgstr "לא הוגדר נתיב לפקודה לשרת MariaDB בקובץ ההגדרות."
 
 #: core/libs/database/server/databaseserver.cpp:314
-#, fuzzy, kde-format
-#| msgid "No path to mysql administration command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB administration command set in configuration file."
-msgstr "לא הוגדר נתיב לפקודה לניהול mysql בקובץ ההגדרות."
+msgstr "לא הוגדר נתיב לפקודה לניהול MariaDB בקובץ ההגדרות."
 
 #: core/libs/database/server/databaseserver.cpp:323
-#, fuzzy, kde-format
-#| msgid "No path to mysql initialization command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB initialization command set in configuration file."
-msgstr "לא הוגדר נתיב לפקודה לאתחול mysql בקובץ ההגדרות."
+msgstr "לא הוגדר נתיב לפקודה לאתחול MariaDB בקובץ ההגדרות."
 
 #: core/libs/database/server/databaseserver.cpp:333
 #: core/libs/database/server/databaseserver.cpp:343
@@ -27405,30 +27395,24 @@ msgid "Cannot create directory %1"
 msgstr "לא ניתן ליצור את התיקייה %1"
 
 #: core/libs/database/server/databaseserver.cpp:436
-#, fuzzy, kde-format
-#| msgid ""
-#| "Unable to create MySQL server configuration file.<p>This means that "
-#| "either the default configuration file</p><p>%1</p><p>was not readable or "
-#| "the target file</p><p>%2</p><p>could not be written.</p>"
+#, kde-format
 msgid ""
 "Unable to create MariaDB server configuration file.<p>This means that either "
 "the default configuration file</p><p>%1</p><p>was not readable or the target "
 "file</p><p>%2</p><p>could not be written.</p>"
 msgstr ""
-"לא ניתן ליצור קובץ הגדרות שרת MySQL.<p>המשמעות היא שכנראה ש־</p><p>%1</"
+"לא ניתן ליצור קובץ הגדרות שרת MariaDB.<p>המשמעות היא שכנראה ש־</p><p>%1</"
 "p><p>לא היה קריא או שלא ניתן היה לכתוב לקובץ היעד</p><p>%2</p><p>.</p>"
 
 #: core/libs/database/server/databaseserver.cpp:458
-#, fuzzy, kde-format
-#| msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+#, kde-format
 msgid "Cannot find MariaDB server default configuration (mysql-global.conf)."
-msgstr "לא ניתן למצוא הגדרות ברירת מחדל לשרת ה־MySQL‏ (mysql-global.conf)."
+msgstr "לא ניתן למצוא הגדרות ברירת מחדל לשרת ה־MariaDB‏ (mysql-global.conf)."
 
 #: core/libs/database/server/databaseserver.cpp:505
-#, fuzzy, kde-format
-#| msgid "The internal MySQL database is initializing, please wait..."
+#, kde-format
 msgid "The internal MariaDB database is initializing, please wait..."
-msgstr "מסד הנתונים הפנימי מסוג MySQL עולה, נא להמתין…"
+msgstr "מסד הנתונים הפנימי מסוג MariaDB עולה, נא להמתין…"
 
 #: core/libs/database/server/databaseserver.cpp:553
 #, kde-format
@@ -27463,10 +27447,9 @@ msgstr ""
 "יצירת מסד נתונים נכשלה<p>שגיאת שאילתה: %1</p><p>שגיאת מסד נתונים: %2</p>"
 
 #: core/libs/database/server/databaseserver.cpp:751
-#, fuzzy, kde-format
-#| msgid "A MySQL database upgrade is in progress, please wait..."
+#, kde-format
 msgid "A MariaDB database upgrade is in progress, please wait..."
-msgstr "מתבצע תהליך שדרוג מסד נתוני MySQL, נא להמתין…"
+msgstr "מתבצע תהליך שדרוג מסד נתוני MariaDB, נא להמתין…"
 
 #: core/libs/database/server/databaseserver.cpp:795
 #, kde-format
@@ -27754,16 +27737,14 @@ msgid "SQLite"
 msgstr "SQLite"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Mysql Internal"
+#, kde-format
 msgid "MariaDB Internal"
-msgstr "Mysql פנימי"
+msgstr "MariaDB פנימי"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:67
-#, fuzzy, kde-format
-#| msgid "%1 Media Server"
+#, kde-format
 msgid "MariaDB Server"
-msgstr "שרת מדיה %1"
+msgstr "שרת MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:72
 #, kde-format
@@ -27861,12 +27842,10 @@ msgid ""
 msgstr ""
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:178
-#, fuzzy, kde-format
-#| msgctxt "@title: group"
-#| msgid "Panorama Binaries"
+#, kde-format
 msgctxt "@title:group"
 msgid "MariaDB Binaries"
-msgstr "קובצי ההפעלה של Panorama"
+msgstr "קובצי ההפעלה של MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:221
 #, kde-format
@@ -27900,15 +27879,12 @@ msgid "Set the database connection options"
 msgstr "הגדרת אפשרויות החיבור למסד הנתונים"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:234
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server connection options.\n"
-#| "For advanced users only."
+#, kde-format
 msgid ""
 "Set the MariaDB server connection options.\n"
 "For advanced users only."
 msgstr ""
-"הגדרת אפשרויות החיבור לשרת ה־MySQL.\n"
+"הגדרת אפשרויות החיבור לשרת MariaDB.\n"
 "למשתמשים מתקדמים בלבד."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:237
@@ -27944,16 +27920,13 @@ msgid "Host Port:"
 msgstr "פתחת מארח:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:255
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the host computer port.\n"
-#| "Usually, MySQL server use port number 3306 by default"
+#, kde-format
 msgid ""
 "Set the host computer port.\n"
 "Usually, MariaDB server use port number 3306 by default"
 msgstr ""
 "הגדרת פתחת המחשב המארח.\n"
-"בדרך כלל, שרת MySQL משתמש כברירת המחדל בפתחה 3306"
+"בדרך כלל, שרת MariaDB משתמש כברירת המחדל בפתחה 3306"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:260
 #, kde-format
@@ -27961,15 +27934,12 @@ msgid "Check Connection"
 msgstr "בדיקת החיבור"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:261
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run a basic database connection to see if current MySQL server settings "
-#| "is suitable."
+#, kde-format
 msgid ""
 "Run a basic database connection to see if current MariaDB server settings is "
 "suitable."
 msgstr ""
-"הקמת חיבור בסיסי למסד הנתונים כדי לראות אם הגדרות שרת ה־MySQL הנוכחיות "
+"הקמת חיבור בסיסי למסד הנתונים כדי לראות אם הגדרות שרת ה־MariaDB הנוכחיות "
 "מתאימות."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:268

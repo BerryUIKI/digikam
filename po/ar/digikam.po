@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-08-15 00:42+0000\n"
-"PO-Revision-Date: 2026-08-10 18:10+0400\n"
+"PO-Revision-Date: 2026-08-17 20:00+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2834,31 +2834,23 @@ msgid "Start digikam with the configuration file \"config\""
 msgstr "ابدأ دجيكام بملف التكوين \"config\""
 
 #: core/app/main/main.cpp:303
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin is not available. please "
-#| "install it.\n"
-#| "There is no database plugin installed on your computer."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin is not available. please "
 "install it.\n"
 "There is no database plugin installed on your computer."
 msgstr ""
-"برنامج قاعدة بيانات Qt SQLite أو MySQL ليس متوفرا. رجاء قم بتثبيته.\n"
+"برنامج قاعدة بيانات Qt SQLite أو MariaDB ليس متوفرًا. رجاءً تثبتها.\n"
 "لا يوجد برنامج قاعدة بيانات مثبت على حاسوبك."
 
 #: core/app/main/main.cpp:312
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin are not available. Please "
-#| "install it.\n"
-#| "Database plugins installed on your computer are listed below."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin are not available. Please "
 "install it.\n"
 "Database plugins installed on your computer are listed below."
 msgstr ""
-"برنامج قاعدة بيانات Qt SQLite أو MySQL ليس متوفرا. رجاء قم بتثبيته.\n"
+"برنامج قاعدة بيانات Qt SQLite أو MariaDB ليس متوفرا. رجاءً ثبتها.\n"
 "برامج قاعدة البيانات المثبتة على حاسوبك مدرجة أدناه."
 
 #: core/app/main/main.cpp:356
@@ -4763,12 +4755,10 @@ msgid "Database internal server"
 msgstr "خطأ داخليّ بقاعدة البيانات"
 
 #: core/app/views/utils/componentsinfodlg.cpp:222
-#, fuzzy, kde-format
-#| msgctxt "@item: component info"
-#| msgid "Database backend"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Database backend version"
-msgstr "سند قاعدة البيانات"
+msgstr "إصدارة قاعدة البيانات الخلفية"
 
 #: core/app/views/utils/componentsinfodlg.cpp:226
 #, kde-format
@@ -11928,7 +11918,7 @@ msgstr "حرر الموقع الجغرافي..."
 #: core/dplugins/generic/tools/htmlgallery/generator/galleryelementfunctor.cpp:71
 #, kde-format
 msgid "Could not read image '%1'"
-msgstr "لا أقدر على قراءة الصورة '%1'"
+msgstr "لا يُمكن قراءة الصورة '%1'"
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:142
 #, kde-format
@@ -11945,7 +11935,7 @@ msgstr "خطأ في تحميل الصورة '%1'"
 #: core/dplugins/generic/tools/htmlgallery/generator/galleryelementfunctor.cpp:137
 #, kde-format
 msgid "Could not save image '%1' to '%2'"
-msgstr "لا أقدر على حفظ الصورة '%1' إلى '%2'"
+msgstr "لا يُمكن حفظ الصورة '%1' إلى '%2'"
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:207
 #, kde-format
@@ -11955,7 +11945,7 @@ msgstr "تكوين الصورة '%1'"
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:223
 #, kde-format
 msgid "Cannot get GPS Information from %1 file."
-msgstr "لا أقدر على الحصول على معلومات GPS من ملف %1."
+msgstr "لا يُمكن الحصول على معلومات GPS من ملف %1."
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:312
 #, kde-format
@@ -11965,7 +11955,7 @@ msgstr "تكوين وسم الموضع '%1'"
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:321
 #, kde-format
 msgid "Could not save icon for image '%1' to '%2'"
-msgstr "لا أقدر على حفظ الأيقونة للصورة '%1' إلى '%2'"
+msgstr "لا يُمكن حفظ الأيقونة للصورة '%1' إلى '%2'"
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:325
 #, kde-format
@@ -11980,7 +11970,7 @@ msgstr "لم يختر أي ملف GPX."
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:361
 #, kde-format
 msgid "Cannot parse %1 GPX file."
-msgstr "لا أقدر على تحليل ملف %1 GPX."
+msgstr "لا يُمكن تحليل ملف %1 GPX."
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:367
 #, kde-format
@@ -12010,7 +12000,7 @@ msgstr "انقل %1 إلى المجلد النهائي %2"
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:511
 #, kde-format
 msgid "Cannot move data to destination directory"
-msgstr "لا أقدر على نقل البيانات إلى مجلد الوجهة"
+msgstr "لا يُمكن نقل البيانات إلى مجلد الوجهة"
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:521
 #, kde-format
@@ -26591,7 +26581,7 @@ msgid ""
 "Cannot decode RAW image\n"
 "\"%1\""
 msgstr ""
-"لا أقدر على فك ترميز صورة خام\n"
+"لا يُمكن فك ترميز صورة خام\n"
 "\"%1\""
 
 #: core/dplugins/rawimport/native/rawsettingsbox.cpp:138
@@ -26874,16 +26864,14 @@ msgid "Searches"
 msgstr "عمليات البحث"
 
 #: core/libs/album/manager/albummanager_database.cpp:111
-#, fuzzy, kde-format
-#| msgid "The MySQL database directory was not found."
+#, kde-format
 msgid "The MariaDB database directory was not found."
-msgstr "دليل قاعدة بيانات ماي إس كيو إل لم يعثر عليه."
+msgstr "لم يعثر على دليل قاعدة بيانات MariaDB."
 
 #: core/libs/album/manager/albummanager_database.cpp:128
-#, fuzzy, kde-format
-#| msgid "The MySQL binary tools was not found."
+#, kde-format
 msgid "The MariaDB binary tools was not found."
-msgstr "أدوات ماي إس كيو إل الثنائية لم يعثر عليها."
+msgstr "لم يعثر على أدوات MariaDB الثنائية."
 
 #: core/libs/album/manager/albummanager_database.cpp:135
 #, kde-format
@@ -26925,9 +26913,9 @@ msgid ""
 "be functional. Please check the database settings in the <b>configuration "
 "menu</b>.</p>"
 msgstr ""
-"<p>فشل فتح قاعدة البيانات.</p><p>لا أقدر على استخدام دجيكام بدون قاعدة "
-"بيانات عاملة. دجيكام سيحاول التشغيل الآن، لكنه <b>لن</b> يعمل. رجاء فحص "
-"إعدادات قاعدة البيانات في <b>قائمة اضبط</b>.</p>"
+"<p>فشل فتح قاعدة البيانات.</p><p>لا يُمكن استخدام دجيكام بدون قاعدة بيانات "
+"عاملة. دجيكام سيحاول التشغيل الآن، لكنه <b>لن</b> يعمل. رجاء فحص إعدادات "
+"قاعدة البيانات في <b>قائمة اضبط</b>.</p>"
 
 #: core/libs/album/manager/albummanager_database.cpp:224
 #, kde-format
@@ -26938,9 +26926,9 @@ msgid ""
 "database settings in the <b>configuration menu</b>.</p>"
 msgstr ""
 "<p>فشل فتح قاعدة البيانات. رسالة خطأ من قاعدة البيانات:</p><p><b>%1</b></"
-"p><p>لا أقدر على استخدام دجيكام بدون قاعدة بيانات عاملة. دجيكام سيحاول "
-"التشغيل الآن، لكنه <b>لن</b> يعمل. رجاء فحص إعدادات قاعدة البيانات في "
-"<b>قائمة اضبط</b>.</p>"
+"p><p>لا يُمكن استخدام دجيكام بدون قاعدة بيانات عاملة. دجيكام سيحاول التشغيل "
+"الآن، لكنه <b>لن</b> يعمل. رجاء فحص إعدادات قاعدة البيانات في <b>قائمة اضبط</"
+"b>.</p>"
 
 #: core/libs/album/manager/albummanager_database.cpp:243
 #, kde-format
@@ -27277,12 +27265,12 @@ msgstr "فشلت إضافة الوسم إلى قاعدة البيانات"
 #: core/libs/album/manager/albummanager_talbum.cpp:372
 #, kde-format
 msgid "Cannot delete root tag"
-msgstr "لا أقدر على حذف علامة الجذر"
+msgstr "لا يُمكن حذف علامة الجذر"
 
 #: core/libs/album/manager/albummanager_talbum.cpp:381
 #, kde-format
 msgid "Cannot delete required face tag"
-msgstr "لا أقدر على حذف علامة الوجه المطلوبة"
+msgstr "لا يُمكن حذف علامة الوجه المطلوبة"
 
 #: core/libs/album/manager/albummanager_talbum.cpp:470
 #: core/libs/album/manager/albummanager_talbum.cpp:709
@@ -27321,17 +27309,17 @@ msgstr ""
 #: core/libs/album/manager/albummanager_talbum.cpp:599
 #, kde-format
 msgid "Cannot merge root tag"
-msgstr "لا أقدر على دمج علامة الجذر"
+msgstr "لا يُمكن دمج علامة الجذر"
 
 #: core/libs/album/manager/albummanager_talbum.cpp:605
 #, kde-format
 msgid "Cannot merge required face tag"
-msgstr "لا أقدر على دمج علامة الوجه المطلوبة"
+msgstr "لا يُمكن دمج علامة الوجه المطلوبة"
 
 #: core/libs/album/manager/albummanager_talbum.cpp:611
 #, kde-format
 msgid "Only a tag without children can be merged!"
-msgstr "لا أقدر على دمج إلا علامة بلا أبناء!"
+msgstr "لا يُمكن دمج إلا علامة بلا أبناء!"
 
 #: core/libs/album/manager/albummanager_talbum.cpp:623
 #, kde-format
@@ -27735,13 +27723,13 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window, album properties"
 msgid "Could not Calculate Average"
-msgstr "لا أقدر على حساب المتوسط"
+msgstr "لا يُمكن حساب المتوسط"
 
 #: core/libs/album/widgets/albumpropsedit.cpp:478
 #, kde-format
 msgctxt "@info: album properties"
 msgid "Could not calculate date average for this album."
-msgstr "لا أقدر على حساب متوسط التاريخ لهذا الألبوم."
+msgstr "لا يُمكن حساب متوسط التاريخ لهذا الألبوم."
 
 #: core/libs/album/widgets/albumselectcombobox.cpp:69
 #: core/libs/album/widgets/albumselectcombobox.cpp:86
@@ -27929,7 +27917,7 @@ msgstr "هناك تجميعة تحوي المجلّد ”%1“ فعلًا"
 #: core/libs/database/collection/collectionmanager_location.cpp:284
 #, kde-format
 msgid "The storage media can be uniquely identified."
-msgstr "وسائط التخزين أقدر على تحديدها بشكل فريد."
+msgstr "وسائط التخزين يُمكن تحديدها بشكل فريد."
 
 #: core/libs/database/collection/collectionmanager_location.cpp:296
 #, kde-format
@@ -27946,12 +27934,12 @@ msgid ""
 "please set a unique label on your CDs and DVDs if you intend to use them "
 "with digiKam."
 msgstr ""
-"هذا قرص مضغوط/دي في دي، والذي يعرف باللصيقة التي أقدر على ضبطها في تطبيق نسخ "
+"هذا قرص مضغوط/دي في دي، والذي يعرف باللصيقة التي يُمكن ضبطها في تطبيق نسخ "
 "الأقراص المدمجة الخاص بك. يوجد بالفعل إدخال آخر بنفس اللصيقة. سأميّز بين "
 "الاثنين بواسطة الملفات الموجودة في الدليل العلوي، لذا رجاء عدم إلحاق الملفات "
-"بالقرص المضغوط، وإلا فلن أقدر على التعرف عليه. في المستقبل، رجاء ضبط لصيقة "
-"فريدة على الأقراص المضغوطة وأقراص الدي في دي الخاصة بك إذا كنت تنوي "
-"استخدامها مع دجيكام."
+"بالقرص المضغوط، وإلا فلن يُمكن التعرف عليه. في المستقبل، رجاء ضبط لصيقة فريدة "
+"على الأقراص المضغوطة وأقراص الدي في دي الخاصة بك إذا كنت تنوي استخدامها مع "
+"دجيكام."
 
 #: core/libs/database/collection/collectionmanager_location.cpp:351
 #, kde-format
@@ -28131,9 +28119,9 @@ msgid ""
 "recent.) Please use the more recent version of digiKam that you used before. "
 msgstr ""
 "قاعدة البيانات استخدمت مع إصدار أحدث من دجيكام ورُقيت إلى مخطط قاعدة بيانات "
-"لا أقدر على استخدامه مع هذا الإصدار. (هذا يعني أن إصدار دجيكام هذا قديم جدًا، "
-"أو أن تنسيق قاعدة البيانات حديث جدًا.) رجاء استخدم الإصدار الأحدث من دجيكام "
-"الذي استخدمته من قبل."
+"لا يُمكن استخدامه مع هذا الإصدار. (هذا يعني أن إصدار دجيكام هذا قديم جدًا، أو "
+"أن تنسيق قاعدة البيانات حديث جدًا.) رجاء استخدم الإصدار الأحدث من دجيكام الذي "
+"استخدمته من قبل."
 
 #: core/libs/database/coredb/coredbschemaupdater.cpp:328
 #: core/libs/database/similaritydb/similaritydbschemaupdater.cpp:204
@@ -28157,7 +28145,7 @@ msgid ""
 msgstr ""
 "فشل فتح معاملة قاعدة بيانات على ملف قاعدة البيانات الخاص بك \"%1\". هذا غير "
 "عادي. رجاء فحص إمكانية وصولك إلى الملف وأن لا توجد عملية أخرى أقفلت الملف "
-"حاليًا. إذا استمرت المشكلة أقدر على الحصول على المساعدة من قائمة المراسلة "
+"حاليًا. إذا استمرت المشكلة يُمكن الحصول على المساعدة من قائمة المراسلة "
 "للمطورين في دجيكام (انظر www.digikam.org/support). وكذلك، رجاء إلقاء نظرة "
 "على ما يطبعه دجيكام على الطرفية. "
 
@@ -28171,12 +28159,11 @@ msgid ""
 "this error to the digikam developers mailing list (see www.digikam.org/"
 "support). As well, please have a look at what digiKam prints on the console. "
 msgstr ""
-"فشلت عملية تحديث المخطط من الإصدار 4 إلى 6، بسبب خطأ لم نتوقعه. أقدر على "
-"محاولة تجاهل قاعدة البيانات القديمة والبدء بواحدة فارغة. (في هذه الحالة، "
-"رجاء نقل ملفات قاعدة البيانات \"%1\" و \"%2\" من الدليل \"%3\"). على الأرجح "
-"سترغب في الإبلاغ عن هذا الخطأ إلى قائمة المراسلة للمطورين في دجيكام (انظر "
-"www.digikam.org/support). وكذلك، رجاء إلقاء نظرة على ما يطبعه دجيكام على "
-"الطرفية. "
+"فشلت عملية تحديث المخطط من الإصدار 4 إلى 6، بسبب خطأ لم نتوقعه. يُمكن محاولة "
+"تجاهل قاعدة البيانات القديمة والبدء بواحدة فارغة. (في هذه الحالة، رجاء نقل "
+"ملفات قاعدة البيانات \"%1\" و \"%2\" من الدليل \"%3\"). على الأرجح سترغب في "
+"الإبلاغ عن هذا الخطأ إلى قائمة المراسلة للمطورين في دجيكام (انظر www.digikam."
+"org/support). وكذلك، رجاء إلقاء نظرة على ما يطبعه دجيكام على الطرفية. "
 
 #: core/libs/database/coredb/coredbschemaupdater.cpp:450
 #, kde-format
@@ -28239,7 +28226,7 @@ msgid ""
 "with an empty database. "
 msgstr ""
 "ملف قاعدة البيانات القديمة (\"%1\") نسخ إلى الموقع الجديد (\"%2\") لكن لا "
-"أقدر على فتحه. رجاء حذف كلا الملفين والمحاولة مرة أخرى، بدءًا بقاعدة بيانات "
+"يُمكن فتحه. رجاء حذف كلا الملفين والمحاولة مرة أخرى، بدءًا بقاعدة بيانات "
 "فارغة. "
 
 #: core/libs/database/coredb/coredbschemaupdater.cpp:923
@@ -28264,7 +28251,7 @@ msgid ""
 "the schema updating process. Please try with an empty database, or repair "
 "your configuration."
 msgstr ""
-"لم يعثر على مسار مكتبة الألبوم في ملف اضبط. أتخلى عن عملية تحديث المخطط. "
+"لم يعثر على مسار مكتبة الألبوم في ملف الضبط. أتخلى عن عملية تحديث المخطط. "
 "رجاء المحاولة بقاعدة بيانات فارغة، أو أصلح اضبط الخاص بك."
 
 #: core/libs/database/coredb/coredbschemaupdater.cpp:1076
@@ -28280,7 +28267,7 @@ msgid ""
 msgstr ""
 "حدث خطأ في ربط مسار مكتبة الألبوم (\"%1\") الخاص بك بحجم تخزين في نظامك. هذه "
 "المشكلة قد تشير إلى وجود مشكلة في تثبيتك. إذا كنت تعمل على لينكس، افحص أن "
-"هال مثبتا ويعمل. على أي حال، أقدر على طلب المشورة من قائمة المراسلة لمطوري "
+"هال مثبتا ويعمل. على أي حال، يُمكن طلب المشورة من قائمة المراسلة لمطوري "
 "دجيكام (انظر www.digikam.org/support). عملية تحديث قاعدة البيانات ستتوقف "
 "الآن لأننا لا نريد إنشاء قاعدة بيانات جديدة بناءً على افتراضات خاطئة من تثبيت "
 "معطل."
@@ -28345,15 +28332,12 @@ msgstr ""
 "يعتمد «دِجي‌كام» على المشغّلات التي توفّرها وحدة Qt::SQL."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, fuzzy, kde-format
-#| msgid ""
-#| "The driver \"MYSQL\" for MySQL databases is not available.\n"
-#| "digiKam depends on the drivers provided by the Qt::SQL module."
+#, kde-format
 msgid ""
 "The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"مشغّل ”MYSQL“ لقواعد بيانات MySQL غير متوفّر.\n"
+"مشغّل Qt::SQL لقواعد بيانات MariaDB غير متوفّر.\n"
 "يعتمد «دِجي‌كام» على المشغّلات التي توفّرها وحدة Qt::SQL."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
@@ -28397,8 +28381,8 @@ msgid ""
 "An old version of the configuration file <b>%1</b> is found. Please ensure "
 "that the version released with the running version of digiKam is installed. "
 msgstr ""
-"عثر على إصدار قديم من ملف اضبط <b>%1</b>. رجاء التأكد من أن الإصدار الذي صدر "
-"مع إصدار دجيكام الحالي مثبتا. "
+"عثر على إصدار قديم من ملف الضبط <b>%1</b>. رجاء التأكد من أن الإصدار الذي "
+"صدر مع إصدار دجيكام الحالي مثبتا. "
 
 #: core/libs/database/engine/dbengineguierrorhandler.cpp:206
 #, kde-format
@@ -28516,28 +28500,24 @@ msgid "Database type is not supported."
 msgstr "نوع قاعدة البيانات غير مدعوم."
 
 #: core/libs/database/server/databaseserver.cpp:296
-#, fuzzy, kde-format
-#| msgid "No path to mysql upgrade command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB upgrade command set in configuration file."
-msgstr "لم يعين مسار أمر ترقية ماي إس كيو إل في ملف اضبط."
+msgstr "لم يعين مسار أمر ترقية MariaDB في ملف الضبط."
 
 #: core/libs/database/server/databaseserver.cpp:305
-#, fuzzy, kde-format
-#| msgid "No path to mysql server command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB server command set in configuration file."
-msgstr "لم يعين مسار أمر خادم ماي إس كيو إل في ملف اضبط."
+msgstr "لم يعين مسار أمر خادم MariaDB في ملف الضبط."
 
 #: core/libs/database/server/databaseserver.cpp:314
-#, fuzzy, kde-format
-#| msgid "No path to mysql administration command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB administration command set in configuration file."
-msgstr "لم يعين مسار أمر إدارة ماي إس كيو إل في ملف اضبط."
+msgstr "لم يعين مسار أمر إدارة MariaDB في ملف الضبط."
 
 #: core/libs/database/server/databaseserver.cpp:323
-#, fuzzy, kde-format
-#| msgid "No path to mysql initialization command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB initialization command set in configuration file."
-msgstr "لم يعين مسار أمر تهيئة ماي إس كيو إل في ملف اضبط."
+msgstr "لم يعين مسار أمر تهيئة MariaDB في ملف الضبط."
 
 #: core/libs/database/server/databaseserver.cpp:333
 #: core/libs/database/server/databaseserver.cpp:343
@@ -28547,31 +28527,25 @@ msgid "Cannot create directory %1"
 msgstr "تعذّر إنشاء الدّليل %1"
 
 #: core/libs/database/server/databaseserver.cpp:436
-#, fuzzy, kde-format
-#| msgid ""
-#| "Unable to create MySQL server configuration file.<p>This means that "
-#| "either the default configuration file</p><p>%1</p><p>was not readable or "
-#| "the target file</p><p>%2</p><p>could not be written.</p>"
+#, kde-format
 msgid ""
 "Unable to create MariaDB server configuration file.<p>This means that either "
 "the default configuration file</p><p>%1</p><p>was not readable or the target "
 "file</p><p>%2</p><p>could not be written.</p>"
 msgstr ""
-"لا أقدر على إنشاء ملف اضبط لخادم ماي إس كيو إل.<p>هذا يعني إما أن ملف اضبط "
-"المبدئي</p><p>%1</p><p>لم يكن قابلًا للقراءة أو أن الملف المستهدف</p><p>%2</"
-"p><p>لا أقدر على الكتابة فيه.</p>"
+"لا يُمكن إنشاء ملف الضبط لخادم MariaDB.<p>هذا يعني إما أن ملف الضبط المبدئي</"
+"p><p>%1</p><p>لم يكن قابلًا للقراءة أو أن الملف المستهدف</p><p>%2</p><p>لا "
+"يُمكن الكتابة فيه.</p>"
 
 #: core/libs/database/server/databaseserver.cpp:458
-#, fuzzy, kde-format
-#| msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+#, kde-format
 msgid "Cannot find MariaDB server default configuration (mysql-global.conf)."
-msgstr "تعذّر العثور على الضّبط المبدئي لخادم MySQL ‏(mysql-global.conf)."
+msgstr "تعذّر العثور على الضّبط المبدئي لخادم MariaDB ‏(mysql-global.conf)."
 
 #: core/libs/database/server/databaseserver.cpp:505
-#, fuzzy, kde-format
-#| msgid "The internal MySQL database is initializing, please wait..."
+#, kde-format
 msgid "The internal MariaDB database is initializing, please wait..."
-msgstr "قاعدة بيانات ماي إس كيو إل الداخلية تهيأ، رجاء الانتظار..."
+msgstr "قاعدة بيانات MariaDB الداخلية تهيأ، الرجاء الانتظار..."
 
 #: core/libs/database/server/databaseserver.cpp:553
 #, kde-format
@@ -28606,15 +28580,14 @@ msgstr ""
 "فشل إنشاء قاعدة البيانات<p>خطأ الاستعلام: %1</p><p>خطأ قاعدة البيانات: %2</p>"
 
 #: core/libs/database/server/databaseserver.cpp:751
-#, fuzzy, kde-format
-#| msgid "A MySQL database upgrade is in progress, please wait..."
+#, kde-format
 msgid "A MariaDB database upgrade is in progress, please wait..."
-msgstr "ترقية قاعدة بيانات ماي إس كيو إل جارية، رجاء الانتظار..."
+msgstr "ترقية قاعدة بيانات MariaDB جارية، رجاء الانتظار..."
 
 #: core/libs/database/server/databaseserver.cpp:795
 #, kde-format
 msgid "Could not upgrade database."
-msgstr "لا أقدر على ترقية قاعدة البيانات."
+msgstr "لا يُمكن ترقية قاعدة البيانات."
 
 #: core/libs/database/server/databaseserver.cpp:831
 #, kde-format
@@ -28628,9 +28601,8 @@ msgid ""
 "exist. The current database schema version cannot be verified. Try to start "
 "with an empty database. "
 msgstr ""
-"قاعدة البيانات غير صالحة: إعداد \"DBSimilarityVersion\" غير موجود. لا أقدر "
-"على التحقق من إصدار مخطط قاعدة البيانات الحالي. حاول البدء بقاعدة بيانات "
-"فارغة. "
+"قاعدة البيانات غير صالحة: إعداد \"DBSimilarityVersion\" غير موجود. لا يُمكن "
+"التحقق من إصدار مخطط قاعدة البيانات الحالي. حاول البدء بقاعدة بيانات فارغة. "
 
 #: core/libs/database/similaritydb/similaritydbschemaupdater.cpp:174
 #: core/libs/database/thumbsdb/thumbsdbschemaupdater.cpp:170
@@ -28642,9 +28614,9 @@ msgid ""
 "recent) Please use the more recent version of digikam that you used before. "
 msgstr ""
 "قاعدة البيانات استخدمت مع إصدار أحدث من دجيكام ورُقيت إلى مخطط قاعدة بيانات "
-"لا أقدر على استخدامه مع هذا الإصدار. (هذا يعني أن إصدار دجيكام هذا قديم جدًا، "
-"أو أن تنسيق قاعدة البيانات حديث جدًا) رجاء استخدم الإصدار الأحدث من دجيكام "
-"الذي استخدمته من قبل. "
+"لا يُمكن استخدامه مع هذا الإصدار. (هذا يعني أن إصدار دجيكام هذا قديم جدًا، أو "
+"أن تنسيق قاعدة البيانات حديث جدًا) رجاء استخدم الإصدار الأحدث من دجيكام الذي "
+"استخدمته من قبل. "
 
 #: core/libs/database/tags/facetags.cpp:460
 #, kde-format
@@ -28798,8 +28770,8 @@ msgid ""
 "previous scan of collections have not been fully completed."
 msgstr ""
 "هذا يظهر تقدم المسح الضوئي. أثناء المسح، كل الملفات على القرص تسجل في قاعدة "
-"بيانات. ملاحظة: هذا الحوار أقدر على ظهوره آليًا إذا لم يكتمل مسح سابق "
-"للمجموعات بالكامل."
+"بيانات. ملاحظة: هذا الحوار يمكن أن يظهر آليًا إذا لم يكتمل مسح سابق للمجموعات "
+"بالكامل."
 
 #: core/libs/database/utils/scan/scancontroller.cpp:274
 #, kde-format
@@ -28877,7 +28849,7 @@ msgstr "نوع أو موقع قاعدة البيانات يجب أن يكون م
 #: core/libs/database/utils/widgets/dbmigrationdlg.cpp:225
 #, kde-format
 msgid "Internal server can only be used once!"
-msgstr "الخادم الداخلي لا أقدر على استخدامه إلا مرة واحدة!"
+msgstr "الخادم الداخلي لا يُمكن استخدامه إلا مرة واحدة!"
 
 #: core/libs/database/utils/widgets/dbmigrationdlg.cpp:234
 #, kde-format
@@ -28915,24 +28887,17 @@ msgid "SQLite"
 msgstr "SQLite"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Mysql Internal"
+#, kde-format
 msgid "MariaDB Internal"
-msgstr "ماي إس كيو إل داخلي"
+msgstr "MariaDB داخلي"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:67
-#, fuzzy, kde-format
-#| msgid "%1 Media Server"
+#, kde-format
 msgid "MariaDB Server"
-msgstr "%1 خادم وسائط"
+msgstr "خادم MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend "
-#| "is for local database storage with a small or medium collection sizes. It "
-#| "is the default and recommended backend for collections with less than "
-#| "100K items.</p>"
+#, kde-format
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small or medium collection sizes. It is "
@@ -28942,37 +28907,29 @@ msgstr ""
 "<p>اختر هنا نوع الواجهة الخلفية لقاعدة البيانات.</p><p>الواجهة الخلفية <b>إس "
 "كيو لايت</b> هي لتخزين قاعدة البيانات المحلية بأحجام مجموعات صغيرة أو "
 "متوسطة. هي الواجهة الخلفية المبدئية والموصى بها للمجموعات التي بها أقل من "
-"100 ألف عنصر.</p>"
+"500 ألف عنصر.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Internal</b> backend is for local database storage with huge "
-#| "collection sizes. This backend is recommend for local collections with "
-#| "more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Internal</b> backend is for local database storage with huge "
 "collection sizes. This backend is recommend for local collections with more "
 "than 500K items.</p>"
 msgstr ""
-"<p>الواجهة الخلفية <b>ماي إس كيو إل الداخلية</b> هي لتخزين قاعدة البيانات "
-"المحلية بأحجام مجموعات ضخمة. هذه الواجهة الخلفية موصى بها للمجموعات المحلية "
-"التي بها أكثر من 100 ألف عنصر.</p>"
+"<p>الواجهة الخلفية <b>MariaDB الداخلية</b> هي لتخزين قاعدة البيانات المحلية "
+"بأحجام مجموعات ضخمة. هذه الواجهة الخلفية موصى بها للمجموعات المحلية التي بها "
+"أكثر من 100 ألف عنصر.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:86
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Server</b> backend is a more robust solution especially for "
-#| "remote and shared database storage. It is also more efficient to manage "
-#| "huge collection sizes with more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Server</b> backend is a more robust solution especially for "
 "remote and shared database storage. It is also more efficient to manage huge "
 "collection sizes with more than 500K items.</p>"
 msgstr ""
-"<p>الواجهة الخلفية <b>خادم ماي إس كيو إل</b> هي حل أكثر قوة خاصة للتخزين "
-"البعيد والمشترك لقاعدة البيانات. هي أيضًا أكثر كفاءة لإدارة أحجام المجموعات "
-"الضخمة التي بها أكثر من 100 ألف عنصر.</p>"
+"<p>الواجهة الخلفية <b>خادم MariaDB</b> هي حل أكثر قوة خاصة للتخزين البعيد "
+"والمشترك لقاعدة البيانات. هي أيضًا أكثر كفاءة لإدارة أحجام المجموعات الضخمة "
+"التي بها أكثر من 100 ألف عنصر.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:93
 #, kde-format
@@ -29012,8 +28969,8 @@ msgstr ""
 "بصمات التشابه.<br>يلزم الوصول للكتابة لتكون قادرًا على تحرير خصائص الصورة.</"
 "p><p>قواعد البيانات هي محركات دجيكام الأساسية. احرص على استخدام مكان يستضيفه "
 "جهاز سريع (مثل إس إس دي أو إن في إم إي) مع مساحة حرة كافية خاصة لقاعدة "
-"بيانات الصور المصغرة.</p><p>ملاحظة: نظام ملفات بعيد مثل إن إف إس، لا أقدر "
-"على استخدامه هنا. لأسباب تتعلق بالأداء، يوصى أيضًا بعدم استخدام وسائط تخزين "
+"بيانات الصور المصغرة.</p><p>ملاحظة: نظام ملفات بعيد مثل إن إف إس، لا يُمكن "
+"استخدامه هنا. لأسباب تتعلق بالأداء، يوصى أيضًا بعدم استخدام وسائط تخزين "
 "الشبكة.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:141
@@ -29053,24 +29010,20 @@ msgstr ""
 "في حالات الاستخدام الواسعة والحرجة."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:169
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Here you can configure locations where MySQL binary tools are located. "
-#| "digiKam will try to find these binaries automatically if they are already "
-#| "installed on your computer.</p>"
+#, kde-format
 msgid ""
 "<p>Here you can configure locations where MariaDB binary tools are located. "
 "digiKam will try to find these binaries automatically if they are already "
 "installed on your computer.</p>"
 msgstr ""
-"<p>يمكنك هنا ضبط أماكن وجود أدوات MySQL الثّنائيّة. سيحاول «دِجي‌كام» العثور على "
-"هذه الثّنائيّات آليًّا إن كانت مثبّتة فعلًا على حاسوبك.</p>"
+"<p>يمكنك هنا ضبط أماكن وجود أدوات MariaDB الثّنائيّة. سيحاول «دِجي‌كام» العثور "
+"على هذه الثّنائيّات آليًّا إن كانت مثبّتة فعلًا على حاسوبك.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:178
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "MariaDB Binaries"
-msgstr "يصبح معاينة."
+msgstr "ملفات التنفيذية لـMariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:221
 #, kde-format
@@ -29083,18 +29036,14 @@ msgid "Set the host computer name"
 msgstr "اضبط اسم الحاسوب المضيف"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is the computer name running MySQL server.\n"
-#| "This can be \"localhost\" for a local server, or the network computer\n"
-#| "name (or IP address) in case of remote computer."
+#, kde-format
 msgid ""
 "This is the computer name running MariaDB server.\n"
 "This can be \"localhost\" for a local server, or the network computer\n"
 "name (or IP address) in case of remote computer."
 msgstr ""
-"هذا هو اسم الحاسوب الذي يشغل خادم ماي إس كيو إل.\n"
-"أقدر على كونه \"المضيف المحلي\" لخادم محلي، أو اسم حاسوب الشبكة\n"
+"هذا هو اسم الحاسوب الذي يشغل خادم MariaDB.\n"
+"يُمكن أن يكون \"localhost\" لخادم محلي، أو اسم حاسوب الشبكة\n"
 "(أو عنوان أي بي) في حالة الحاسوب البعيد."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:229
@@ -29111,15 +29060,12 @@ msgid "Set the database connection options"
 msgstr "اضبط خيارات الاتّصال بقاعدة البيانات"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:234
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server connection options.\n"
-#| "For advanced users only."
+#, kde-format
 msgid ""
 "Set the MariaDB server connection options.\n"
 "For advanced users only."
 msgstr ""
-"اضبط خيارات الاتّصال بخادم MySQL.\n"
+"اضبط خيارات الاتّصال بخادم MariaDB.\n"
 "للمستخدمين المتقدّمين فقط."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:237
@@ -29133,37 +29079,28 @@ msgid "Set the database account name"
 msgstr "اضبط اسم حساب قاعدة البيانات"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:240
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account name used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "This account must be available on the remote\n"
-#| "MySQL server when database have been created."
+#, kde-format
 msgid ""
 "Set the MariaDB server account name used\n"
 "by digiKam to be connected to the server.\n"
 "This account must be available on the remote\n"
 "MariaDB server when database have been created."
 msgstr ""
-"اضبط اسم حساب خادم ماي إس كيو إل الذي يستخدمه\n"
+"اضبط اسم حساب خادم MariaDB الذي يستخدمه\n"
 "دجيكام للاتصال بالخادم.\n"
 "هذا الحساب يجب أن يكون متاحًا على خادم\n"
 "ماي إس كيو إل البعيد عندما أوجِدَت قاعدة البيانات."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:247
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account password used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "You can left this field empty to use an account set without password."
+#, kde-format
 msgid ""
 "Set the MariaDB server account password used\n"
 "by digiKam to be connected to the server.\n"
 "You can left this field empty to use an account set without password."
 msgstr ""
-"اضبط كلمة مرور حساب خادم ماي إس كيو إل التي يستخدمها\n"
+"اضبط كلمة سر حساب خادم MariaDB التي يستخدمها\n"
 "دجيكام للاتصال بالخادم.\n"
-"أقدر على ترك هذا الحقل فارغًا لاستخدام حساب بدون كلمة مرور."
+"يمكنك ترك هذا الحقل فارغًا لاستخدام حساب بدون كلمة سر."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:253
 #, kde-format
@@ -29171,16 +29108,13 @@ msgid "Host Port:"
 msgstr "منفذ المضيف:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:255
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the host computer port.\n"
-#| "Usually, MySQL server use port number 3306 by default"
+#, kde-format
 msgid ""
 "Set the host computer port.\n"
 "Usually, MariaDB server use port number 3306 by default"
 msgstr ""
 "اضبط منفذ الحاسوب المضيف.\n"
-"غالبًا لخواديم MySQL سيكون رقم المنفذ مبدئيًا هو 3306"
+"غالبًا لخواديم MariaDB سيكون رقم المنفذ مبدئيًا هو 3306"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:260
 #, kde-format
@@ -29188,15 +29122,12 @@ msgid "Check Connection"
 msgstr "افحص الاتّصال"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:261
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run a basic database connection to see if current MySQL server settings "
-#| "is suitable."
+#, kde-format
 msgid ""
 "Run a basic database connection to see if current MariaDB server settings is "
 "suitable."
 msgstr ""
-"أجرِ اتّصالًا بسيطًا بقاعدة البيانات لترى إن كانت إعدادات خادم MySQL مناسبة."
+"أجرِ اتّصالًا بسيطًا بقاعدة البيانات لترى إن كانت إعدادات خادم MariaDB مناسبة."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:268
 #, kde-format
@@ -29239,7 +29170,7 @@ msgid ""
 msgstr ""
 "قاعدة بيانات الصور المصغرة يستخدمها دجيكام لاستضافة\n"
 "صور مصغرة مع صور ضغط الموجات.\n"
-"أقدر على استخدام مساحة كبيرة بسرعة,\n"
+"يُمكن استخدام مساحة كبيرة بسرعة,\n"
 "خاصة إذا كانت لديك مجموعات ضخمة.\n"
 "اختر مجلدًا محليًا لاستخدام قاعدة بيانات إس كيو لايت."
 
@@ -29263,7 +29194,7 @@ msgid ""
 msgstr ""
 "قاعدة بيانات الوجه يستخدمها دجيكام لاستضافة مدرجات الصور\n"
 "المخصصة لعملية التعرف على الوجوه.\n"
-"أقدر على استخدام مساحة كبيرة بسرعة، خاصة\n"
+"يُمكن استخدام مساحة كبيرة بسرعة، خاصة\n"
 "إذا كان لديك الكثير من الصور بوجوه أشخاص مكتشفة وموسومة."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:295
@@ -29316,22 +29247,11 @@ msgid ""
 msgstr ""
 "<p>دجيكام يتوقع أن قاعدة البيانات أوجِدت بالفعل بحساب مستخدم مخصص. هذا الاسم "
 "للمستخدم <i>دجيكام</i> سيتطلب وصولًا كاملًا إلى قاعدة البيانات.<br>إذا لم تكن "
-"قاعدة البيانات الخاصة بك معدة بالفعل، أقدر على استخدام أوامر إس كيو إل "
-"التالية (بعد استبدال <b><i>كلمة المرور</i></b> بالكلمة الصحيحة).</p>"
+"قاعدة البيانات الخاصة بك معدة بالفعل، يمكن استخدام أوامر إس كيو إل التالية "
+"(بعد استبدال <b><i>كلمة السر</i></b> بالكلمة الصحيحة).</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:341
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Note: with a Linux server, a database can be initialized following the "
-#| "commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql "
-#| "-u root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init "
-#| "digiKam databases with grant privileges (see behind)</p><p>...</"
-#| "p><p>quit</p><p>NOTE: If you have problems with a MySQL server on Ubuntu "
-#| "based Linux system, use the addition command in the mysql prompt to be "
-#| "able to create MySQL triggers.<br>SET GLOBAL "
-#| "log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
-#| "collection, you should start MySQL server with mysql --"
-#| "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
+#, kde-format
 msgid ""
 "<p>Note: with a Linux server, a database can be initialized following the "
 "commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
@@ -29344,15 +29264,16 @@ msgid ""
 "collection, you should start MariaDB server with mariadb --"
 "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
 msgstr ""
-"<p>ملاحظة: مع خادم لينكس، أقدر على تهيئة قاعدة بيانات باتباع الأوامر أدناه:</"
-"p><p># su</p><p># systemctl restart mysqld</p><p># mysql -u root</p><p>...</"
-"p><p>أدخل رمز إس كيو إل إلى موجه ماي إس كيو إل لتهيئة قواعد بيانات دجيكام "
-"بصلاحيات المنحة (انظر في الخلف)</p><p>...</p><p>quit</p><p>ملاحظة: إذا كانت "
-"لديك مشاكل مع خادم ماي إس كيو إل على نظام لينكس مبني على أبونتو، استخدم "
-"الأمر الإضافي في موجه ماي إس كيو إل لتكون قادرًا على إنشاء مشغلات ماي إس كيو "
-"إل.<br>SET GLOBAL log_bin_trust_function_creators=1;</p><p>ملاحظة: إذا كانت "
-"لديك مجموعة هائلة، يجب عليك بدء خادم ماي إس كيو إل بـ mysql --"
-"max_allowed_packet=128M أو في my.ini أو ~/.my.cnf، غير الإعدادات</p>"
+"<p>ملاحظة: في حالة استخدام خادم Linux، يمكن تهيئة قاعدة البيانات باتباع "
+"الأوامر التالية:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
+"mariadb -u root</p><p>...</p><p>أدخل كود SQL في موجه MariaDB لتهيئة قواعد "
+"بيانات digiKam مع منح الامتيازات (انظر أدناه)</p><p>...</p><p>quit</"
+"p><p>ملاحظة: إذا واجهت مشاكل مع خادم MariaDB على نظام Linux القائم على "
+"Ubuntu، فاستخدم الأمر الإضافي في موجه MariaDB لتتمكن من إنشاء مشغلات MariaDB."
+"<br>SET GLOBAL log_bin_trust_function_creators=1;</p><p>ملاحظة: إذا كانت "
+"لديك مجموعة ضخمة، فيجب عليك تشغيل خادم MariaDB باستخدام mariadb --"
+"max_allowed_packet=128M أو في ملف my.ini أو ~/.my.cnf، قم بتغيير الإعدادات</"
+"p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:365
 #, kde-format
@@ -29365,25 +29286,7 @@ msgid "Database Server Technical Details"
 msgstr "التّفاصيل التّقنيّة لخادم قاعدة البيانات"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:371
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Use this configuration view to set all information to be connected to "
-#| "a remote <a href=\"https://en.wikipedia.org/wiki/MySQL\">Mysql database "
-#| "server</a> (or <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</"
-#| "a>) through a network. As with Sqlite or MySQL internal server, 3 "
-#| "databases will be stored on the remote server: one for all collections "
-#| "properties, one to store compressed thumbnails, and one to store faces "
-#| "recognition metadata.</p><p>Unlike Sqlite or MySQL internal server, you "
-#| "can customize the database names to simplify your backups.</"
-#| "p><p>Databases are digiKam core engines. To prevent performance issues, "
-#| "take a care to use a fast network link between the client and the server "
-#| "computers. It is also recommended to host database files on fast hardware "
-#| "(as <a href=\"https://en.wikipedia.org/wiki/Solid-state_drive\">SSD</a>) "
-#| "with enough free space, especially for thumbnails database, even if data "
-#| "are compressed using wavelets image format <a href=\"https://en.wikipedia."
-#| "org/wiki/Progressive_Graphics_File\">PGF</a>.</p><p>The databases must be "
-#| "created previously on the remote server by the administrator. Look in "
-#| "<b>Requirements</b> tab for details.</p>"
+#, kde-format
 msgid ""
 "<p>Use this configuration view to set all information to be connected to a "
 "remote <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</a> through "
@@ -29401,19 +29304,21 @@ msgid ""
 "</p><p>The databases must be created previously on the remote server by the "
 "administrator. Look in <b>Requirements</b> tab for details.</p>"
 msgstr ""
-"<p>استخدم عرض الضبط هذا لضبط كل المعلومات للاتصال بخادم قاعدة بيانات ماي إس "
-"كيو إل (أو ماريا دي بي) بعيد من خلال شبكة. كما هو الحال مع إس كيو لايت أو "
-"خادم ماي إس كيو إل الداخلي، ستخزن 3 قواعد بيانات على الخادم البعيد: واحدة "
-"لجميع خصائص المجموعات، وواحدة لتخزين الصور المصغرة المضغوطة، وواحدة لتخزين "
-"البيانات الوصفية للتعرف على الوجوه.</p><p>على عكس إس كيو لايت أو خادم ماي إس "
-"كيو إل الداخلي، أقدر على تخصيص أسماء قواعد البيانات لتبسيط النسخ الاحتياطية "
-"الخاصة بك.</p><p>قواعد البيانات هي محركات دجيكام الأساسية. لمنع مشاكل "
-"الأداء، احرص على استخدام رابط شبكة سريع بين حاسوب العميل والخادم. يوصى أيضًا "
-"باستضافة ملفات قاعدة البيانات على جهاز سريع (مثل إس إس دي) مع مساحة حرة "
-"كافية، خاصة لقاعدة بيانات الصور المصغرة، حتى إذا ضغطت البيانات باستخدام "
-"تنسيق صورة الموجات بي جي إف.</p><p>قواعد البيانات يجب أن توجد مسبقًا على "
-"الخادم البعيد من قبل المسؤول. انظر في علامة تبويب <b>المتطلبات</b> لمزيد من "
-"التفاصيل.</p>"
+"<p>استخدم شاشة الإعدادات هذه لتعيين جميع المعلومات اللازمة للاتصال بخادم <a "
+"href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</a> عن بُعد عبر "
+"الشبكة. وكما هو الحال مع Sqlite أو الخادم الداخلي لـ MariaDB، سيتم تخزين 3 "
+"قواعد بيانات على الخادم البعيد: واحدة لخصائص جميع المجموعات، وأخرى لتخزين "
+"الصور المصغرة المضغوطة، وثالثة لتخزين البيانات الوصفية الخاصة بالتعرف على "
+"الوجوه.</p><p>على عكس Sqlite أو الخادم الداخلي لـ MariaDB، يمكنك تخصيص أسماء "
+"قواعد البيانات لتبسيط عمليات النسخ الاحتياطي.</p><p>تعد قواعد البيانات "
+"محركات أساسية لبرنامج digiKam. لتجنب مشاكل الأداء، احرص على استخدام اتصال "
+"شبكي سريع بين أجهزة الكمبيوتر العميلة والخادم. يُنصح أيضًا باستضافة ملفات "
+"قواعد البيانات على أجهزة سريعة (مثل <a href=\"https://en.wikipedia.org/wiki/"
+"Solid-state_drive\">SSD</a>) ذات مساحة خالية كافية، خاصةً لقاعدة بيانات الصور "
+"المصغرة، حتى لو تم ضغط البيانات باستخدام تنسيق الصور الموجية <a href="
+"\"https://en.wikipedia.org/wiki/Progressive_Graphics_File\">PGF</a>. </"
+"p><p>يجب أن يقوم المسؤول بإنشاء قواعد البيانات مسبقًا على الخادم البعيد. راجع "
+"علامة التبويب <b>المتطلبات</b> للحصول على التفاصيل.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:396
 #, kde-format
@@ -29539,14 +29444,14 @@ msgid ""
 "<p>digiKam could not create the folder to host your database file.<br>Please "
 "select a different location.</p><p><b>%1</b></p>"
 msgstr ""
-"<p>دجيكام لا أقدر على إنشاء المجلد لاستضافة ملف قاعدة البيانات الخاص بك."
+"<p>دجيكام لا يستطيع  إنشاء المجلد لاستضافة ملف قاعدة البيانات الخاص بك."
 "<br>رجاء اختر موقعًا مختلفًا.</p><p><b>%1</b></p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:368
 #, kde-format
 msgctxt "@title:window"
 msgid "No Database Write Access"
-msgstr "لا أقدر على الوصول للكتابة في قاعدة البيانات"
+msgstr "لا يُمكن الوصول للكتابة في قاعدة البيانات"
 
 #: core/libs/database/utils/widgets/dbsettingswidget_properties.cpp:369
 #, kde-format
@@ -29717,7 +29622,7 @@ msgid ""
 msgstr ""
 "<p>إذا وضع علامة في هذا المربع، فستُزال العناصر <b>بشكل دائم</b> بدلًا من "
 "وضعها في سلة المهملات.</p><p><em>استخدم هذا الخيار بحذر</em>: معظم أنظمة "
-"الملفات لا أقدر على استعادة العناصر المحذوفة بشكل موثوق.</p>"
+"الملفات لا يُمكن استعادة العناصر المحذوفة بشكل موثوق.</p>"
 
 #: core/libs/dialogs/deletedialog.cpp:298
 #, kde-format
@@ -30240,7 +30145,7 @@ msgstr "افتح صفحة البداية باستخدام متصفح الوب ا
 #: core/libs/dialogs/webbrowserdlg.cpp:212
 #, kde-format
 msgid "Cannot load page %1"
-msgstr "لا أقدر على تحميل الصفحة %1"
+msgstr "لا يُمكن تحميل الصفحة %1"
 
 #: core/libs/dimg/dimg_metadata.cpp:447
 #, kde-format
@@ -30969,7 +30874,7 @@ msgstr "اختر ملف خلط كسب جيمب للتحميل"
 #, kde-format
 msgctxt "@info"
 msgid "Cannot load settings from the Gains Mixer text file."
-msgstr "لا أقدر على تحميل الإعدادات من ملف نص خلط الكسب."
+msgstr "لا يُمكن تحميل الإعدادات من ملف نص خلط الكسب."
 
 #: core/libs/dimg/filters/bw/mixersettings.cpp:596
 #, kde-format
@@ -30981,7 +30886,7 @@ msgstr "ملف خلط كسب جيمب للحفظ"
 #, kde-format
 msgctxt "@info"
 msgid "Cannot save settings to the Gains Mixer text file."
-msgstr "لا أقدر على حفظ الإعدادات إلى ملف نص خلط الكسب."
+msgstr "لا يُمكن حفظ الإعدادات إلى ملف نص خلط الكسب."
 
 #: core/libs/dimg/filters/bw/tonalityfilter.cpp:54
 #, kde-format
@@ -43743,9 +43648,9 @@ msgid "Color Management"
 msgstr "إدارة الألوان"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:350
-#, fuzzy, kde-format
+#, kde-format
 msgid "MariaDB interface"
-msgstr "يصبح معاينة."
+msgstr "واجهة MariaDB"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:355
 #, kde-format
@@ -61064,16 +60969,13 @@ msgid "Extended clean up and shrink all databases."
 msgstr "تنظيف وتصغير موسع لجميع قواعد البيانات."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:100
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option leads to the vacuuming (shrinking) of the databases. "
-#| "Vacuuming is supported both for SQLite and MySQL."
+#, kde-format
 msgid ""
 "This option leads to the vacuuming (shrinking) of the databases. Vacuuming "
 "is supported both for SQLite and MariaDB."
 msgstr ""
 "هذا الخيار يؤدي إلى تفريغ (تصغير) قواعد البيانات. التفريغ مدعوم لكل من "
-"SQLite و MySQL."
+"SQLite و MariaDB."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:107
 #, kde-format
