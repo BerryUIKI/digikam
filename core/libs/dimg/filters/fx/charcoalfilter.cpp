@@ -183,7 +183,7 @@ void CharcoalFilter::filterImage()
     }
 }
 
-void CharcoalFilter::convolveImageMultithreaded(uint start, uint stop, double* normal_kernel, double kernelWidth)
+void CharcoalFilter::convolveImageMultithreaded(uint start, uint stop, const double* const normal_kernel, double kernelWidth)
 {
     ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
 

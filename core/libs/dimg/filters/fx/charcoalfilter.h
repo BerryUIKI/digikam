@@ -69,7 +69,7 @@ private:
     int  getOptimalKernelWidth(double radius, double sigma);
     void convolveImageMultithreaded(uint start,
                                     uint stop,
-                                    double* normal_kernel,
+                                    const double* const normal_kernel,
                                     double kernelWidth);
 
 private:

@@ -38,14 +38,16 @@ public:
 
     Private() = default;
 
-    TagCompleter*       completer       = nullptr;
-    TagTreeView*        tagView         = nullptr;
-    AlbumFilterModel*   tagFilterModel  = nullptr;
+public:
+
+    TagCompleter*       completer            = nullptr;
+    TagTreeView*        tagView              = nullptr;
+    AlbumFilterModel*   tagFilterModel       = nullptr;
 
     TaggingAction       currentTaggingAction;
-    int                 parentTagId     = 0;
+    int                 parentTagId          = 0;
 
-    bool                returnPressed   = false;
+    bool                returnPressed        = false;
 };
 
 AddTagsLineEdit::AddTagsLineEdit(QWidget* const parent)
@@ -93,7 +95,7 @@ void AddTagsLineEdit::setSupportingTagModel(TagModel* const model)
     d->completer->setSupportingTagModel(model);
 }
 
-void AddTagsLineEdit::setFilterModel(AlbumFilterModel* const model)
+void AddTagsLineEdit::setFilterModel(AlbumFilterModel* const model)         // cppcheck-suppress constParameterCallback
 {
     d->tagFilterModel = model;
     d->completer->setTagFilterModel(d->tagFilterModel);
