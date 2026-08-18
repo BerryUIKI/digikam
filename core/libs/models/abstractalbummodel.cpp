@@ -500,7 +500,7 @@ bool AbstractAlbumModel::filterAlbum(Album* album) const
     return (album && (album->type() == d->type));
 }
 
-void AbstractAlbumModel::slotAlbumAboutToBeAdded(Album* album, Album* parent, Album* prev)
+void AbstractAlbumModel::slotAlbumAboutToBeAdded(Album* album, Album* parent, Album* prev)  // cppcheck-suppress constParameterCallback
 {
     if (!filterAlbum(album))
     {
@@ -534,7 +534,7 @@ void AbstractAlbumModel::slotAlbumAboutToBeAdded(Album* album, Album* parent, Al
     d->addingAlbum = album;
 }
 
-void AbstractAlbumModel::slotAlbumAdded(Album* album)
+void AbstractAlbumModel::slotAlbumAdded(Album* album)   // cppcheck-suppress constParameterCallback
 {
     if (d->addingAlbum == album)
     {
@@ -576,7 +576,7 @@ void AbstractAlbumModel::slotAlbumAboutToBeDeleted(Album* album)
     d->removingAlbum = album;
 }
 
-void AbstractAlbumModel::slotAlbumHasBeenDeleted(Album* album)
+void AbstractAlbumModel::slotAlbumHasBeenDeleted(Album* album)  // cppcheck-suppress constParameterCallback
 {
     if (d->removingAlbum == album)
     {
