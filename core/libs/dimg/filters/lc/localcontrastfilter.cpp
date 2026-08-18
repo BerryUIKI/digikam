@@ -267,7 +267,7 @@ float LocalContrastFilter::func(float x1, float x2)
     return result;
 }
 
-void LocalContrastFilter::blurMultithreaded(uint start, uint stop, float* const img, float* const blurimage)
+void LocalContrastFilter::blurMultithreaded(uint start, uint stop, float* const img, const float* const blurimage)
 {
     ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
 
@@ -293,7 +293,7 @@ void LocalContrastFilter::blurMultithreaded(uint start, uint stop, float* const 
     }
 }
 
-void LocalContrastFilter::saturationMultithreaded(uint start, uint stop, float* const img, float* const srcimg)
+void LocalContrastFilter::saturationMultithreaded(uint start, uint stop, float* const img, const float* const srcimg)
 {
     ActionThreadBase::setCurrentThreadName(QLatin1String(__FUNCTION__));       // To customize thread name
 

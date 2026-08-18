@@ -104,8 +104,8 @@ private:
     inline void rgb2hsv(const float& r, const float& g, const float& b, float& h, float& s, float& v);
     inline void hsv2rgb(const float& h, const float& s, const float& v, float& r, float& g, float& b);
 
-    void blurMultithreaded(uint start, uint stop, float* const img, float* const blurimage);
-    void saturationMultithreaded(uint start, uint stop, float* const img, float* const srcimg);
+    void blurMultithreaded(uint start, uint stop, float* const img, const float* const blurimage);
+    void saturationMultithreaded(uint start, uint stop, float* const img, const float* const srcimg);
 
     void inplaceBlurYMultithreaded(const Args& prm);
     void inplaceBlurXMultithreaded(const Args& prm);
