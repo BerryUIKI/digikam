@@ -11,8 +11,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-15 00:42+0000\n"
-"PO-Revision-Date: 2026-08-16 08:38+0300\n"
+"POT-Creation-Date: 2026-08-19 00:42+0000\n"
+"PO-Revision-Date: 2026-08-18 14:20+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -54117,7 +54117,7 @@ msgstr "קילומטר, מטר"
 #: core/utilities/geolocation/engine/settings/MarbleConfigView.cpp:114
 #, kde-format
 msgid "Miles, Feet"
-msgstr ""
+msgstr "מיילים, רגל"
 
 #: core/utilities/geolocation/engine/settings/MarbleConfigView.cpp:115
 #, kde-format
@@ -54419,7 +54419,7 @@ msgstr "הורדת מסלול"
 #: core/utilities/geolocation/engine/storage/DownloadRegionDialog.cpp:144
 #, kde-format
 msgid "Enabled when a route exists"
-msgstr ""
+msgstr "פעיל כשיש מסלול"
 
 #: core/utilities/geolocation/engine/storage/DownloadRegionDialog.cpp:157
 #, kde-format
@@ -54434,7 +54434,7 @@ msgstr "שיטת בחירה"
 #: core/utilities/geolocation/engine/storage/DownloadRegionDialog.cpp:200
 #, kde-format
 msgid "Number of tiles to download:"
-msgstr ""
+msgstr "מספר האריחים להורדה:"
 
 #: core/utilities/geolocation/engine/storage/DownloadRegionDialog.cpp:263
 #, kde-format
@@ -54474,12 +54474,12 @@ msgstr ""
 #: core/utilities/geolocation/engine/storage/DownloadRegionDialog.cpp:642
 #, kde-format
 msgid "Estimated download size: %1 MB"
-msgstr ""
+msgstr "גודל ההורדה המשוערך: %1 מ״ב"
 
 #: core/utilities/geolocation/engine/storage/DownloadRegionDialog.cpp:646
 #, kde-format
 msgid "Estimated download size: %1 kB"
-msgstr ""
+msgstr "גודל ההורדה המשוערך: %1 ק״ב"
 
 #. i18n: ectx: property (windowTitle), widget (QWidget, LatLonBoxWidget)
 #: core/utilities/geolocation/engine/storage/LatLonBoxWidget.ui:17
@@ -54620,7 +54620,7 @@ msgstr "מפת דרכים"
 #: core/utilities/geolocation/geoiface/backends/backendgooglemaps.cpp:150
 #, kde-format
 msgid "Hybrid"
-msgstr ""
+msgstr "כלאיים"
 
 #: core/utilities/geolocation/geoiface/backends/backendgooglemaps.cpp:169
 #, kde-format
@@ -54917,13 +54917,13 @@ msgid ""
 msgstr ""
 
 #: core/utilities/geolocation/geoiface/core/gpsgeoifacemodelhelper.cpp:208
-#, fuzzy, kde-format
+#, kde-format
 msgid "1 image moved"
 msgid_plural "%1 images moved"
-msgstr[0] "לא נבחרו תמונות"
-msgstr[1] "לא נבחרו תמונות"
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "תמונה הועברה"
+msgstr[1] "שתי תמונות הועברו"
+msgstr[2] "%1 תמונות הועברו"
+msgstr[3] "%1 תמונות הועברו"
 
 #: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:132
 #, kde-format
@@ -55022,10 +55022,10 @@ msgstr "מתאם:"
 #, kde-format
 msgid "The following GPX file could not be loaded:"
 msgid_plural "The following %1 GPX files could not be loaded:"
-msgstr[0] ""
-msgstr[1] ""
-msgstr[2] ""
-msgstr[3] ""
+msgstr[0] "לא ניתן לטעון את קובץ ה־GPX הבא:"
+msgstr[1] "לא ניתן לטעון את שני קובצי ה־GPX הבאים:"
+msgstr[2] "לא ניתן לטעון את %1 קובצי ה־GPX הבאים:"
+msgstr[3] "לא ניתן לטעון את %1 קובצי ה־GPX הבאים:"
 
 #: core/utilities/geolocation/geoiface/correlator/gpscorrelatorwidget.cpp:305
 #, fuzzy, kde-format
@@ -55223,7 +55223,7 @@ msgstr "לפריטים יש נקודות ציון שונות."
 msgid ""
 "Found more than one point on the clipboard - can only assign one point at a "
 "time."
-msgstr ""
+msgstr "נמצאה יותר מנקודה אחת בלוח הגזירים - אפשר להקצות נקודה אחת בכל פעם."
 
 #: core/utilities/geolocation/geoiface/items/gpsitemlistcontextmenu.cpp:535
 #, kde-format
@@ -55523,7 +55523,7 @@ msgstr "הוספת תגית חדשה"
 #: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:800
 #, kde-format
 msgid "Select a name for the new tag:"
-msgstr ""
+msgstr "נא לבחור שם לתגית החדשה:"
 
 #: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:942
 #, kde-format
@@ -55564,7 +55564,7 @@ msgstr "כנראה שזה לא קובץ GPX."
 #, kde-format
 msgid ""
 "File is a GPX file, but no track points with valid timestamps were found."
-msgstr ""
+msgstr "הקובץ הוא קובץ GPX, אך לא נמצאו נקודות מעקב עם חותמות זמן."
 
 #: core/utilities/geolocation/geoiface/widgets/mapwidget_setup.cpp:63
 #, kde-format
@@ -59078,22 +59078,22 @@ msgstr "זוהו: %1"
 msgid "Finger-prints"
 msgstr "טביעות אצבע"
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:194
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:188
 #, kde-format
 msgid "Rebuild Fingerprint: %1\n"
 msgstr "טביעת אצבע מורכבת מחדש: %1\n"
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:195
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:189
 #, kde-format
 msgid "Album: %1"
 msgstr "אלבום: %1"
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:209
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:203
 #, kde-format
 msgid "Items scanned for fingerprint: %1"
 msgstr "פריטים שנסרקו לאיתור טביעות אצבע: %1"
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:213
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:207
 #, kde-format
 msgid "Item scanned for fingerprint: %1"
 msgstr "הפריט נסרק לאיתור טביעות אצבע: %1"
