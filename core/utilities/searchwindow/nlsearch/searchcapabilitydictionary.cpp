@@ -126,10 +126,12 @@ void SearchCapabilityDictionary::initializeDefaults()
 
     addField(QLatin1String("format"),
              { QLatin1String("format"), QLatin1String("file type"),
-               QLatin1String("filetype") },
+               QLatin1String("filetype"), QLatin1String("image format") },
              { QLatin1String("jpeg"), QLatin1String("png"),
-               QLatin1String("tiff"), QLatin1String("raw"),
-               QLatin1String("pgf") });
+               QLatin1String("tiff"), QLatin1String("pgf"),
+               QLatin1String("jp2"),  QLatin1String("jxl"),
+               QLatin1String("webp"), QLatin1String("heif"),
+               QLatin1String("avif"), QLatin1String("raw") });
 
     d->valueAliases.insert(QLatin1String("picklabel/best"),
                            { QLatin1String("accepted") });
@@ -139,6 +141,27 @@ void SearchCapabilityDictionary::initializeDefaults()
 
     d->valueAliases.insert(QLatin1String("rating/high rating"),
                            { QLatin1String("4") });
+
+    d->valueAliases.insert(QLatin1String("format/heic"),
+                           { QLatin1String("heif") });
+
+    d->valueAliases.insert(QLatin1String("format/jpg"),
+                           { QLatin1String("jpeg") });
+
+    d->valueAliases.insert(QLatin1String("format/jpeg 2000"),
+                           { QLatin1String("jp2") });
+
+    d->valueAliases.insert(QLatin1String("format/jpeg2000"),
+                           { QLatin1String("jp2") });
+
+    d->valueAliases.insert(QLatin1String("format/j2k"),
+                           { QLatin1String("jp2") });
+
+    d->valueAliases.insert(QLatin1String("format/jpeg-2000"),
+                           { QLatin1String("jp2") });
+
+    d->valueAliases.insert(QLatin1String("format/jp2k"),
+                           { QLatin1String("jp2") });
 
     // ambiguous words -> clarification choices
 
