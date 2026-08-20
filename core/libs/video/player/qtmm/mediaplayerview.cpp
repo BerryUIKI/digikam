@@ -779,15 +779,22 @@ void MediaPlayerView::slotMetaDataChanged()
     qCDebug(DIGIKAM_GENERAL_LOG) << "Found video orientation with QtMultimedia:"
                                  << rotate;
 
-    rotate     = (-rotate) + d->videoOrientation;
-
-    if      (rotate > 270)
+    if (d->motionPhotoMode)
     {
-        rotate = 0;
+        rotate     = d->videoOrientation;
     }
-    else if (rotate < 0)
+    else
     {
-        rotate = 270;
+        rotate     = (-rotate) + d->videoOrientation;
+
+        if      (rotate > 270)
+        {
+            rotate = 0;
+        }
+        else if (rotate < 0)
+        {
+            rotate = 270;
+        }
     }
 
     d->setVideoItemOrientation(rotate);
