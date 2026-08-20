@@ -127,7 +127,7 @@ void SearchCapabilityDictionary::initializeDefaults()
     addField(QLatin1String("format"),
              { QLatin1String("format"), QLatin1String("file type"),
                QLatin1String("filetype"), QLatin1String("image format") },
-             { QLatin1String("jpeg"), QLatin1String("png"),
+             { QLatin1String("jpg"),  QLatin1String("png"),
                QLatin1String("tiff"), QLatin1String("pgf"),
                QLatin1String("jp2"),  QLatin1String("jxl"),
                QLatin1String("webp"), QLatin1String("heif"),
@@ -145,9 +145,6 @@ void SearchCapabilityDictionary::initializeDefaults()
     d->valueAliases.insert(QLatin1String("format/heic"),
                            { QLatin1String("heif") });
 
-    d->valueAliases.insert(QLatin1String("format/jpg"),
-                           { QLatin1String("jpeg") });
-
     d->valueAliases.insert(QLatin1String("format/jpeg 2000"),
                            { QLatin1String("jp2") });
 
@@ -162,6 +159,12 @@ void SearchCapabilityDictionary::initializeDefaults()
 
     d->valueAliases.insert(QLatin1String("format/jp2k"),
                            { QLatin1String("jp2") });
+
+    d->valueAliases.insert(QLatin1String("format/jpeg"),
+                           { QLatin1String("jpg") });
+
+    d->valueAliases.insert(QLatin1String("format/tif"),
+                           { QLatin1String("tiff") });
 
     // ambiguous words -> clarification choices
 
