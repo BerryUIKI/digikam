@@ -72,7 +72,7 @@ BUGFIXES:
 046 --> 524383 - Fingerprint maintenance stuck at 0% for hours on large collections — calculateAffectedAlbums() is O(N²) due to QList::contains() per item.
 047 --> 514751 - Implement dynamic, multi-column metadata filtering with real-time item counts (Lightroom-style "Filter Bar").
 048 --> 524498 - [Feature Request] Display current image index and total image count (e.g., "12 / 150") in full-screen slideshow OSD.
-049 --> 
+049 --> 524505 - G'MIC filter list can't be updated: https://gmic.eu/update360.gmic 404 not found.é
 050 --> 
 051 --> 
 052 --> 
