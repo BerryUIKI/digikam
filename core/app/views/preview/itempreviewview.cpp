@@ -237,7 +237,8 @@ ItemPreviewView::ItemPreviewView(QWidget* const parent, Mode mode, Album* const 
                                               i18nc("@info:tooltip", "Play Motion Photo"),                      this);
     d->playMotionPhotoAction->setVisible(false);
 
-    connect(d->playMotionPhotoAction, SIGNAL(triggered()), this, SLOT(slotPlayMotionPhoto()));
+    connect(d->playMotionPhotoAction, SIGNAL(triggered()),
+            this, SLOT(slotPlayMotionPhoto()));
 
 #endif
 
