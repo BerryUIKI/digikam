@@ -233,7 +233,7 @@ ItemPreviewView::ItemPreviewView(QWidget* const parent, Mode mode, Album* const 
 
 #ifdef HAVE_MEDIAPLAYER
 
-    d->playMotionPhotoAction = new QAction(QIcon::fromTheme(QLatin1String("video-clip")),
+    d->playMotionPhotoAction = new QAction(QIcon::fromTheme(QLatin1String("folder-video")),
                                            i18nc("@info:tooltip", "Play Motion Photo"),
                                            this);
     d->playMotionPhotoAction->setVisible(false);
