@@ -896,9 +896,23 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
     }
     else if (c.field == QLatin1String("format"))
     {
-        writer.writeField(QLatin1String("format"), SearchXml::Equal);
-        writer.writeValue(c.value.toUpper());
-        writer.finishField();
+        const QString fmt = c.value.toUpper();
+
+        if (fmt == QLatin1String("RAW"))
+        {
+            // RAW files are stored as "RAW-<EXT>" (RAW-CR2, RAW-NEF, ...).
+            // Match by wildcard the way digiKam's own MIME filter does with
+            // startsWith("RAW").
+            writer.writeField(QLatin1String("format"), SearchXml::Like);
+            writer.writeValue(QLatin1String("RAW*"));
+            writer.finishField();
+        }
+        else
+        {
+            writer.writeField(QLatin1String("format"), SearchXml::Equal);
+            writer.writeValue(fmt);
+            writer.finishField();
+        }
     }
     else
     {
