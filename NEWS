@@ -71,7 +71,7 @@ BUGFIXES:
 045 --> 511758 - digiKam is almost unusable when mysql is not connected over lan.
 046 --> 524383 - Fingerprint maintenance stuck at 0% for hours on large collections — calculateAffectedAlbums() is O(N²) due to QList::contains() per item.
 047 --> 514751 - Implement dynamic, multi-column metadata filtering with real-time item counts (Lightroom-style "Filter Bar").
-048 --> 
+048 --> 524498 - [Feature Request] Display current image index and total image count (e.g., "12 / 150") in full-screen slideshow OSD.
 049 --> 
 050 --> 
 051 --> 
