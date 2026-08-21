@@ -81,21 +81,21 @@ int main(int argc, char* argv[])
 
     // page Segmentation mode
 
-    if (!psm.isEmpty())
+    if (!psm.isEmpty())     // cppcheck-suppress knownConditionTrueFalse
     {
         args << QLatin1String("--psm") << psm;
     }
 
     // OCR engine mode
 
-    if (!oem.isEmpty())
+    if (!oem.isEmpty())     // cppcheck-suppress knownConditionTrueFalse
     {
         args << QLatin1String("--oem") << oem;
     }
 
     // Language
 
-    if (!lang.isEmpty())
+    if (!lang.isEmpty())    // cppcheck-suppress knownConditionTrueFalse
     {
         args << QLatin1String("-l") << lang;
     }
@@ -103,7 +103,7 @@ int main(int argc, char* argv[])
     // Specify DPI for input image
     // Tesseract work best with 300 dpi for input image
 
-    if (!dpi.isEmpty())
+    if (!dpi.isEmpty())     // cppcheck-suppress knownConditionTrueFalse
     {
         args << QLatin1String("--dpi") << dpi;
     }

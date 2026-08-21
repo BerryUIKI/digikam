@@ -20,8 +20,8 @@ include_directories(
                     $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::Service,INTERFACE_INCLUDE_DIRECTORIES>
 )
 
-add_executable(ocrTesseract_cli  ${CMAKE_CURRENT_SOURCE_DIR}/ocrTesseract_cli.cpp)
-target_link_libraries(ocrTesseract_cli
+add_executable(ocr_tesseract_cli  ${CMAKE_CURRENT_SOURCE_DIR}/ocr_tesseract_cli.cpp)
+target_link_libraries(ocr_tesseract_cli
 
                       textconverterbackend
                       digikamcore
@@ -29,8 +29,8 @@ target_link_libraries(ocrTesseract_cli
                       ${COMMON_TEST_LINK}
 )
 
-add_executable(ocrTesseract_process   ${CMAKE_CURRENT_SOURCE_DIR}/ocrTesseract_process_cli.cpp)
-target_link_libraries(ocrTesseract_process
+add_executable(ocr_tesseract_process   ${CMAKE_CURRENT_SOURCE_DIR}/ocr_tesseract_process_cli.cpp)
+target_link_libraries(ocr_tesseract_process
 
                       textconverterbackend
                       digikamcore
