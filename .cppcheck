@@ -119,4 +119,5 @@ CPPCHECK_SUPPRESSIONS="\
 --suppress=checkersReport \
 --suppress=unusedFunction \
 --suppress=functionStatic \
+--suppress=shadowFunction \
 "
