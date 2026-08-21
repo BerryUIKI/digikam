@@ -30,6 +30,7 @@
 #include <QCheckBox>
 #include <QPushButton>
 #include <QPointer>
+#include <QTimer>
 
 
 // KDE includes
@@ -65,6 +66,7 @@
 
 #include "coredbaccess.h"
 #include "coredb.h"
+#include "dworkingpixmap.h"
 
 namespace Digikam
 {
@@ -84,6 +86,10 @@ public:
 
     QLineEdit*                  describeEdit    = nullptr;
     QLabel*                     nlStatusLabel   = nullptr;
+    QLabel*                     nlSpinnerLabel  = nullptr;
+    DWorkingPixmap*             nlSpinnerPix    = nullptr;
+    QTimer*                     nlSpinnerTimer  = nullptr;
+    int                         nlSpinnerIndex  = 0;
     QCheckBox*                  translateCheck  = nullptr;
     QWidget*  nlReadyPanel                      = nullptr;
     QWidget*  nlDownloadPanel                   = nullptr;
@@ -132,6 +138,20 @@ SearchWindow::SearchWindow()
     d->nlStatusLabel->setWordWrap(true);
     d->nlStatusLabel->hide();
 
+    d->nlSpinnerLabel           = new QLabel(d->nlReadyPanel);
+    d->nlSpinnerLabel->hide();
+    d->nlSpinnerPix             = new DWorkingPixmap(this);
+    d->nlSpinnerTimer           = new QTimer(this);
+
+    connect(d->nlSpinnerTimer, &QTimer::timeout, this, [this]()
+        {
+            if (d->nlSpinnerPix->frameCount() > 0)
+            {
+                d->nlSpinnerIndex = (d->nlSpinnerIndex + 1) % d->nlSpinnerPix->frameCount();
+                d->nlSpinnerLabel->setPixmap(d->nlSpinnerPix->frameAt(d->nlSpinnerIndex));
+            }
+        });
+
     d->translateCheck           = new QCheckBox(i18n("Translate my query to English first"), d->nlReadyPanel);
     d->translateCheck->setChecked(d->nlTranslate);
     d->translateCheck->setToolTip(i18n("When enabled, your query is translated to English before "
@@ -140,7 +160,11 @@ SearchWindow::SearchWindow()
 
     readyLay->addWidget(nlTitle);
     readyLay->addWidget(d->describeEdit);
-    readyLay->addWidget(d->nlStatusLabel);
+    QHBoxLayout* const nlStatusRow = new QHBoxLayout();
+    nlStatusRow->setContentsMargins(0, 0, 0, 0);
+    nlStatusRow->addWidget(d->nlSpinnerLabel);
+    nlStatusRow->addWidget(d->nlStatusLabel, 1);
+    readyLay->addLayout(nlStatusRow);
     readyLay->addWidget(d->translateCheck);
 
     // Download state: shown when llama.cpp is built but the model is missing.
@@ -326,7 +350,23 @@ void SearchWindow::searchTryout()
 {
     if (!isVisible()) { return; }
 
+    // If the user has typed a natural-language description, interpret that
+    // instead of running the (possibly empty) structured form.
+    if (d->describeEdit)
+    {
+        const QString describe = d->describeEdit->text().trimmed();
+
+        if (!describe.isEmpty())
+        {
+            d->nlFromDialog = true;
+            startInterpretation(describe);
+
+            return;
+        }
+    }
+
     const QString xml = search();
+    
     if (xml.contains(QLatin1String("<group/>")) ||
         xml.contains(QLatin1String("<group></group>")))
     {
@@ -451,6 +491,13 @@ void SearchWindow::startInterpretation(const QString& text)
 {
     d->pendingNlText = text;
 
+    d->nlStatusLabel->setAutoFillBackground(false);
+    d->nlStatusLabel->setText(i18n("Interpreting the search..."));
+    d->nlStatusLabel->show();
+    d->nlSpinnerIndex = 0;
+    d->nlSpinnerTimer->start(100);
+    d->nlSpinnerLabel->show();
+
     if (!d->nlTranslate)
     {
         // Translation disabled: pass the original text straight through.
@@ -500,7 +547,11 @@ void SearchWindow::slotTranslationFinished()
  
 void SearchWindow::slotNlIntentReady(const SearchQueryIntent& intent)
 {
+    d->nlSpinnerTimer->stop();
+    d->nlSpinnerLabel->hide();
+
     d->describeEdit->setEnabled(true);
+    d->nlStatusLabel->setAutoFillBackground(false);
     d->nlStatusLabel->hide();
 
     if (d->nlFromDialog)
@@ -524,6 +575,8 @@ void SearchWindow::slotNlIntentReady(const SearchQueryIntent& intent)
  
 void SearchWindow::slotNlClarificationRequired(const SearchQueryIntent& intent)
 {
+    d->nlSpinnerTimer->stop();
+    d->nlSpinnerLabel->hide();
     d->describeEdit->setEnabled(true);
 
     QMenu menu(this);
@@ -573,9 +626,19 @@ void SearchWindow::slotNlClarificationRequired(const SearchQueryIntent& intent)
  
 void SearchWindow::slotNlError(const QString& message)
 {
+    d->nlSpinnerTimer->stop();
+    d->nlSpinnerLabel->setPixmap(QPixmap());
+
     d->describeEdit->setEnabled(true);
     d->nlStatusLabel->setText(message);
-    d->nlStatusLabel->show(); 
+
+    QPalette pal = d->nlStatusLabel->palette();
+    pal.setColor(QPalette::Active, QPalette::Window, QColor(220, 140, 140));   
+    pal.setColor(QPalette::Active, QPalette::WindowText, Qt::black);
+    d->nlStatusLabel->setPalette(pal);
+    d->nlStatusLabel->setAutoFillBackground(true);
+
+    d->nlStatusLabel->show();
 }
  
 void SearchWindow::slotNlStatus(const QString& message)
@@ -590,14 +653,25 @@ void SearchWindow::applyResolvedIntent(const SearchQueryIntent& intent)
 
     if (xml.contains(QLatin1String("<group/>")))
     {
+        d->nlSpinnerTimer->stop();
+        d->nlSpinnerLabel->setPixmap(QPixmap());
+
         d->nlStatusLabel->setText(i18nc("@info", "None of that could be turned into "
                                                  "a search. Try describing tags, dates, "
                                                  "ratings, labels, people, or places."));
+
+        QPalette pal = d->nlStatusLabel->palette();
+        pal.setColor(QPalette::Active, QPalette::Window, QColor(220, 140, 140));
+        pal.setColor(QPalette::Active, QPalette::WindowText, Qt::black);
+        d->nlStatusLabel->setPalette(pal);
+        d->nlStatusLabel->setAutoFillBackground(true);
+
         d->nlStatusLabel->show();
 
         return;
     }
 
+    d->nlStatusLabel->setAutoFillBackground(false);   // clear highlight on success
     d->nlStatusLabel->hide();
     d->searchView->read(xml);
     d->nlCommittedXml = xml;
