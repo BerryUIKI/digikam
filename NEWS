@@ -19,6 +19,7 @@ Bundles component versions:
 Icon-View  : Improve filename matching for timelapse/burst grouping items.
 Raw Support: Add support of Sony ARW6 CRAW HQ, Sony ILCE-7M5, and Canon R50 V.
 Database   : MySql support is dropped in favor of MariaDB. It's highly recommended to migrate from MySql to MariaDB.
+Search     : Natural Language Search in the Advanced Search tool, powered by a local LLM (Qwen2.5-1.5B-Instruct) that runs entirely on your computer. Describe what you want in plain language and digiKam builds the corresponding structured search. Supports tags, people, albums, ratings, labels, orientation, places, dates, captions, video properties (duration, frame rate, bitrate), and file formats.
 
 *****************************************************************************************************
 
