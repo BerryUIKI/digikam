@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-19 00:42+0000\n"
+"POT-Creation-Date: 2026-08-21 00:42+0000\n"
 "PO-Revision-Date: 2010-03-28 14:17+0700\n"
 "Last-Translator: Thanomsub Noppaburana <donga.nb@gmail.com>\n"
 "Language-Team: Thai <thai-l10n@googlegroups.com>\n"
@@ -309,7 +309,7 @@ msgstr "เปลี่ยนตัวพิมพ์ของอักษร: "
 
 #: core/app/dragdrop/itemdragdrop.cpp:763
 #: core/app/dragdrop/itemdragdrop.cpp:814
-#: core/app/views/preview/itempreviewview.cpp:1037
+#: core/app/views/preview/itempreviewview.cpp:1038
 #, kde-format
 msgid "&Cancel"
 msgstr "&ยกเลิก"
@@ -320,7 +320,7 @@ msgid "Assign Tags to &Selected Items"
 msgstr "กำหนดป้ายกำกับไปยังรายการที่เ&ลือกไว้"
 
 #: core/app/dragdrop/itemdragdrop.cpp:807
-#: core/app/views/preview/itempreviewview.cpp:1035
+#: core/app/views/preview/itempreviewview.cpp:1036
 #, kde-format
 msgid "Assign Tags to &This Item"
 msgstr "กำหนดป้ายกำกับไปยัง&รายการนี้"
@@ -545,7 +545,7 @@ msgid "This item has geolocation information."
 msgstr "แก้ไขคุณสมบัติของอัลบั้มและข้อมูลรายละเอียดของคลังภาพ"
 
 #: core/app/items/overlays/itemfullscreenoverlay.cpp:49
-#: core/app/views/preview/itempreviewview.cpp:287
+#: core/app/views/preview/itempreviewview.cpp:288
 #, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid "Show Fullscreen"
@@ -3026,7 +3026,7 @@ msgid "Donate: "
 msgstr "วันที่: "
 
 #: core/app/views/preview/itempreviewvideo.cpp:98
-#: core/app/views/preview/itempreviewview.cpp:283
+#: core/app/views/preview/itempreviewview.cpp:284
 #, fuzzy, kde-format
 msgctxt "@info:tooltip"
 msgid "Show OSD Information"
@@ -3092,42 +3092,42 @@ msgctxt "@info:tooltip"
 msgid "Play Motion Photo"
 msgstr "ผิดพลาด"
 
-#: core/app/views/preview/itempreviewview.cpp:247
+#: core/app/views/preview/itempreviewview.cpp:248
 #, fuzzy, kde-format
 #| msgid "Show numbers"
 msgctxt "@info:tooltip"
 msgid "Show Magnifier"
 msgstr "แสดงตัวเลขต่าง ๆ"
 
-#: core/app/views/preview/itempreviewview.cpp:252
+#: core/app/views/preview/itempreviewview.cpp:253
 #, fuzzy, kde-format
 #| msgid "Zoom to 1:1"
 msgctxt "@info:tooltip"
 msgid "Zoom Factor"
 msgstr "ปรับขนาดเป็น 1:1"
 
-#: core/app/views/preview/itempreviewview.cpp:275
+#: core/app/views/preview/itempreviewview.cpp:276
 #, fuzzy, kde-format
 #| msgid "Under-Exposure Indicator"
 msgctxt "@info:tooltip"
 msgid "Under-Exposure Indicator"
 msgstr "แสดงตำแหน่งค่าแสงมืดจัด"
 
-#: core/app/views/preview/itempreviewview.cpp:279
+#: core/app/views/preview/itempreviewview.cpp:280
 #, fuzzy, kde-format
 #| msgid "Over-Exposure Indicator"
 msgctxt "@info:tooltip"
 msgid "Over-Exposure Indicator"
 msgstr "แสดงตำแหน่งค่าแสงสว่างจัด"
 
-#: core/app/views/preview/itempreviewview.cpp:724
+#: core/app/views/preview/itempreviewview.cpp:725
 #: core/app/views/stack/itemiconview_views.cpp:325
 #, fuzzy, kde-format
 msgctxt "@action: face workflow"
 msgid "Faces"
 msgstr "ไม่เลือกเลย"
 
-#: core/app/views/preview/itempreviewview.cpp:920
+#: core/app/views/preview/itempreviewview.cpp:921
 #, kde-format
 msgid "Show Magnifier (x%1)"
 msgstr ""

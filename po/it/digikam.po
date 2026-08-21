@@ -24,8 +24,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-19 00:42+0000\n"
-"PO-Revision-Date: 2026-07-21 18:36+0200\n"
+"POT-Creation-Date: 2026-08-21 00:42+0000\n"
+"PO-Revision-Date: 2026-08-16 13:13+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
 "Language: it\n"
@@ -286,7 +286,7 @@ msgstr "Cambia il tag volto"
 
 #: core/app/dragdrop/itemdragdrop.cpp:763
 #: core/app/dragdrop/itemdragdrop.cpp:814
-#: core/app/views/preview/itempreviewview.cpp:1037
+#: core/app/views/preview/itempreviewview.cpp:1038
 #, kde-format
 msgid "&Cancel"
 msgstr "&Annulla"
@@ -297,7 +297,7 @@ msgid "Assign Tags to &Selected Items"
 msgstr "Assegna i tag agli elementi &selezionati"
 
 #: core/app/dragdrop/itemdragdrop.cpp:807
-#: core/app/views/preview/itempreviewview.cpp:1035
+#: core/app/views/preview/itempreviewview.cpp:1036
 #, kde-format
 msgid "Assign Tags to &This Item"
 msgstr "Assegna i tag a questo elemen&to"
@@ -518,7 +518,7 @@ msgid "This item has geolocation information."
 msgstr "Questo elemento possiede informazioni di geolocalizzazione."
 
 #: core/app/items/overlays/itemfullscreenoverlay.cpp:49
-#: core/app/views/preview/itempreviewview.cpp:287
+#: core/app/views/preview/itempreviewview.cpp:288
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show Fullscreen"
@@ -2778,32 +2778,24 @@ msgid "Start digikam with the configuration file \"config\""
 msgstr "Avvia digiKam con il file di configurazione «config»"
 
 #: core/app/main/main.cpp:303
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin is not available. please "
-#| "install it.\n"
-#| "There is no database plugin installed on your computer."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin is not available. please "
 "install it.\n"
 "There is no database plugin installed on your computer."
 msgstr ""
-"L'estensione di run-time Qt per le banche dati SQLite o MySQL non è "
+"L'estensione di run-time Qt per le banche dati SQLite o MariaDB non è "
 "disponibile, installala.\n"
 "Non c'è alcuna estensione per banche dati installata nel tuo computer."
 
 #: core/app/main/main.cpp:312
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin are not available. Please "
-#| "install it.\n"
-#| "Database plugins installed on your computer are listed below."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin are not available. Please "
 "install it.\n"
 "Database plugins installed on your computer are listed below."
 msgstr ""
-"L'estensione di run-time Qt per le banche dati SQLite o MySQL non è "
+"L'estensione di run-time Qt per le banche dati SQLite o MariaDB non è "
 "disponibile, installala.\n"
 "Le estensioni per le banche dati installate nel tuo computer sono elencate "
 "sotto."
@@ -2891,7 +2883,7 @@ msgid "Donate: "
 msgstr "Fai una donazione: "
 
 #: core/app/views/preview/itempreviewvideo.cpp:98
-#: core/app/views/preview/itempreviewview.cpp:283
+#: core/app/views/preview/itempreviewview.cpp:284
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show OSD Information"
@@ -2951,38 +2943,38 @@ msgctxt "@info:tooltip"
 msgid "Play Motion Photo"
 msgstr "Riproduci foto in movimento"
 
-#: core/app/views/preview/itempreviewview.cpp:247
+#: core/app/views/preview/itempreviewview.cpp:248
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show Magnifier"
 msgstr "Mostra lente d'ingrandimento"
 
-#: core/app/views/preview/itempreviewview.cpp:252
+#: core/app/views/preview/itempreviewview.cpp:253
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Zoom Factor"
 msgstr "Fattore d'ingrandimento"
 
-#: core/app/views/preview/itempreviewview.cpp:275
+#: core/app/views/preview/itempreviewview.cpp:276
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Under-Exposure Indicator"
 msgstr "Indicatore di sottoesposizione"
 
-#: core/app/views/preview/itempreviewview.cpp:279
+#: core/app/views/preview/itempreviewview.cpp:280
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Over-Exposure Indicator"
 msgstr "Indicatore di sovraesposizione"
 
-#: core/app/views/preview/itempreviewview.cpp:724
+#: core/app/views/preview/itempreviewview.cpp:725
 #: core/app/views/stack/itemiconview_views.cpp:325
 #, kde-format
 msgctxt "@action: face workflow"
 msgid "Faces"
 msgstr "Volti"
 
-#: core/app/views/preview/itempreviewview.cpp:920
+#: core/app/views/preview/itempreviewview.cpp:921
 #, kde-format
 msgid "Show Magnifier (x%1)"
 msgstr "Mostra lente d'ingrandimento (x%1)"
@@ -4765,12 +4757,10 @@ msgid "Database internal server"
 msgstr "Server interno della banca dati"
 
 #: core/app/views/utils/componentsinfodlg.cpp:222
-#, fuzzy, kde-format
-#| msgctxt "@item: component info"
-#| msgid "Database backend"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Database backend version"
-msgstr "Motore della banca dati"
+msgstr "Versione motore della banca dati"
 
 #: core/app/views/utils/componentsinfodlg.cpp:226
 #, kde-format
@@ -27510,16 +27500,14 @@ msgid "Searches"
 msgstr "Ricerche"
 
 #: core/libs/album/manager/albummanager_database.cpp:111
-#, fuzzy, kde-format
-#| msgid "The MySQL database directory was not found."
+#, kde-format
 msgid "The MariaDB database directory was not found."
-msgstr "La cartella della banca dati MySQL non è stata trovata."
+msgstr "La cartella della banca dati MariaDB non è stata trovata."
 
 #: core/libs/album/manager/albummanager_database.cpp:128
-#, fuzzy, kde-format
-#| msgid "The MySQL binary tools was not found."
+#, kde-format
 msgid "The MariaDB binary tools was not found."
-msgstr "Lo strumento dell'eseguibile MySQL non è stato trovato."
+msgstr "Lo strumento dell'eseguibile MariaDB non è stato trovato."
 
 #: core/libs/album/manager/albummanager_database.cpp:135
 #, kde-format
@@ -29011,15 +28999,12 @@ msgstr ""
 "digiKam dipende dai driver forniti dal modulo Qt::SQL."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, fuzzy, kde-format
-#| msgid ""
-#| "The driver \"MYSQL\" for MySQL databases is not available.\n"
-#| "digiKam depends on the drivers provided by the Qt::SQL module."
+#, kde-format
 msgid ""
 "The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"Il driver «MYSQL» per le banche dati MySQL non è disponibile.\n"
+"Il driver Qt::SQL per le banche dati MariaDB non è disponibile.\n"
 "digiKam dipende dai driver forniti dal modulo Qt::SQL."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
@@ -29187,36 +29172,32 @@ msgid "Database type is not supported."
 msgstr "Il tipo di banca dati non è supportata."
 
 #: core/libs/database/server/databaseserver.cpp:296
-#, fuzzy, kde-format
-#| msgid "No path to mysql upgrade command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB upgrade command set in configuration file."
 msgstr ""
-"Nessun percorso impostato ai comandi di aggiornamento di mysql nel file di "
+"Nessun percorso impostato ai comandi di aggiornamento di MariaDB nel file di "
 "configurazione."
 
 #: core/libs/database/server/databaseserver.cpp:305
-#, fuzzy, kde-format
-#| msgid "No path to mysql server command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB server command set in configuration file."
 msgstr ""
-"Nessun percorso impostato ai comandi del server mysql nel file di "
+"Nessun percorso impostato ai comandi del server MariaDB nel file di "
 "configurazione."
 
 # VM: nel sorgente c'è un punto finale in più.
 #: core/libs/database/server/databaseserver.cpp:314
-#, fuzzy, kde-format
-#| msgid "No path to mysql administration command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB administration command set in configuration file."
 msgstr ""
-"Nessun percorso impostato ai comandi di amministrazione mysql nel file di "
+"Nessun percorso impostato ai comandi di amministrazione MariaDB nel file di "
 "configurazione."
 
 #: core/libs/database/server/databaseserver.cpp:323
-#, fuzzy, kde-format
-#| msgid "No path to mysql initialization command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB initialization command set in configuration file."
 msgstr ""
-"Nessun percorso impostato ai comandi di inizializzazione mysql nel file di "
+"Nessun percorso impostato ai comandi di inizializzazione MariaDB nel file di "
 "configurazione."
 
 #: core/libs/database/server/databaseserver.cpp:333
@@ -29227,34 +29208,28 @@ msgid "Cannot create directory %1"
 msgstr "Impossibile creare la cartella %1"
 
 #: core/libs/database/server/databaseserver.cpp:436
-#, fuzzy, kde-format
-#| msgid ""
-#| "Unable to create MySQL server configuration file.<p>This means that "
-#| "either the default configuration file</p><p>%1</p><p>was not readable or "
-#| "the target file</p><p>%2</p><p>could not be written.</p>"
+#, kde-format
 msgid ""
 "Unable to create MariaDB server configuration file.<p>This means that either "
 "the default configuration file</p><p>%1</p><p>was not readable or the target "
 "file</p><p>%2</p><p>could not be written.</p>"
 msgstr ""
-"Impossibile creare il file di configurazione del server MySQL.<p>Questo "
+"Impossibile creare il file di configurazione del server MariaDB.<p>Questo "
 "significa o che il file di configurazione predefinito</p><p>%1</p><p>non è "
 "leggibile, o che il file di destinazione</p><p>%2</p><p>non può essere "
 "scritto.</p>"
 
 #: core/libs/database/server/databaseserver.cpp:458
-#, fuzzy, kde-format
-#| msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+#, kde-format
 msgid "Cannot find MariaDB server default configuration (mysql-global.conf)."
 msgstr ""
-"Impossibile trovare la configurazione predefinita del server MySQL (mysql-"
+"Impossibile trovare la configurazione predefinita del server MariaDB (mysql-"
 "global.conf)."
 
 #: core/libs/database/server/databaseserver.cpp:505
-#, fuzzy, kde-format
-#| msgid "The internal MySQL database is initializing, please wait..."
+#, kde-format
 msgid "The internal MariaDB database is initializing, please wait..."
-msgstr "Si sta inizializzando la banca dati MySQL interna, attendi..."
+msgstr "Si sta inizializzando la banca dati MariaDB interna, attendi..."
 
 #: core/libs/database/server/databaseserver.cpp:553
 #, kde-format
@@ -29296,10 +29271,9 @@ msgstr ""
 "p><p>Errore della banca dati: %2</p>"
 
 #: core/libs/database/server/databaseserver.cpp:751
-#, fuzzy, kde-format
-#| msgid "A MySQL database upgrade is in progress, please wait..."
+#, kde-format
 msgid "A MariaDB database upgrade is in progress, please wait..."
-msgstr "È in corso un aggiornamento della banca dati MySQL, attendi..."
+msgstr "È in corso un aggiornamento della banca dati MariaDB, attendi..."
 
 #: core/libs/database/server/databaseserver.cpp:795
 #, kde-format
@@ -29609,24 +29583,17 @@ msgid "SQLite"
 msgstr "SQLite"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Mysql Internal"
+#, kde-format
 msgid "MariaDB Internal"
-msgstr "MySQL interno"
+msgstr "MariaDB interno"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:67
-#, fuzzy, kde-format
-#| msgid "%1 Media Server"
+#, kde-format
 msgid "MariaDB Server"
-msgstr "Server multimediale %1"
+msgstr "Server MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend "
-#| "is for local database storage with a small or medium collection sizes. It "
-#| "is the default and recommended backend for collections with less than "
-#| "100K items.</p>"
+#, kde-format
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small or medium collection sizes. It is "
@@ -29636,37 +29603,29 @@ msgstr ""
 "<p>Seleziona qui il tipo di motore per la banca dati.</p><p>Il motore "
 "<b>SQlite</b> si utilizza per banche dati locali di piccole o medie "
 "dimensioni. È il motore predefinito e consigliato per le collezioni che "
-"contengono meno di 100.000 elementi.</p>"
+"contengono meno di 500.000 elementi.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Internal</b> backend is for local database storage with huge "
-#| "collection sizes. This backend is recommend for local collections with "
-#| "more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Internal</b> backend is for local database storage with huge "
 "collection sizes. This backend is recommend for local collections with more "
 "than 500K items.</p>"
 msgstr ""
-"<p>Il motore <b>MySQL interno</b> si rivolge a banche dati con collezioni "
-"molto grandi. Questo motore è consigliato per collezioni locali che "
-"contengono più di 100.000 elementi.</p>"
+"<p>Il motore <b>MariaDB interno</b> si rivolge a banche dati con raccolte "
+"molto grandi. Questo motore è consigliato per raccolte locali che contengono "
+"più di 500.000 elementi.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:86
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Server</b> backend is a more robust solution especially for "
-#| "remote and shared database storage. It is also more efficient to manage "
-#| "huge collection sizes with more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Server</b> backend is a more robust solution especially for "
 "remote and shared database storage. It is also more efficient to manage huge "
 "collection sizes with more than 500K items.</p>"
 msgstr ""
-"<p>Il motore <b>MySQL Server</b> è una soluzione più robusta studiata in "
+"<p>Il motore <b>MariaDB Server</b> è una soluzione più robusta studiata in "
 "special modo per banche dati condivise e remote. È inoltre più efficiente "
-"nella gestione di collezioni che contengono più di 100.000 elementi.</p>"
+"nella gestione di raccolte che contengono più di 500.000 elementi.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:93
 #, kde-format
@@ -29752,27 +29711,21 @@ msgstr ""
 "casi di utilizzo critico ed esteso."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:169
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Here you can configure locations where MySQL binary tools are located. "
-#| "digiKam will try to find these binaries automatically if they are already "
-#| "installed on your computer.</p>"
+#, kde-format
 msgid ""
 "<p>Here you can configure locations where MariaDB binary tools are located. "
 "digiKam will try to find these binaries automatically if they are already "
 "installed on your computer.</p>"
 msgstr ""
 "<p>Qui puoi configurare le posizioni dove sono memorizzati gli strumenti "
-"eseguibili di MySQL. digiKam proverà a cercare automaticamente questi "
+"eseguibili di MariaDB. digiKam proverà a cercare automaticamente questi "
 "eseguibili, se sono già installati sul tuo computer.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:178
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Panorama Binaries"
+#, kde-format
 msgctxt "@title:group"
 msgid "MariaDB Binaries"
-msgstr "Binari panorama"
+msgstr "Binari MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:221
 #, kde-format
@@ -29785,17 +29738,13 @@ msgid "Set the host computer name"
 msgstr "Imposta il nome del computer host"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is the computer name running MySQL server.\n"
-#| "This can be \"localhost\" for a local server, or the network computer\n"
-#| "name (or IP address) in case of remote computer."
+#, kde-format
 msgid ""
 "This is the computer name running MariaDB server.\n"
 "This can be \"localhost\" for a local server, or the network computer\n"
 "name (or IP address) in case of remote computer."
 msgstr ""
-"Questo è il nome del computer che esegue il server MySQL.\n"
+"Questo è il nome del computer che esegue il server MariaDB.\n"
 "Può essere «localhost» per un server locale, o il nome del computer\n"
 " di rete (o il suo indirizzo IP) in caso di computer remoto."
 
@@ -29814,15 +29763,12 @@ msgid "Set the database connection options"
 msgstr "Imposta le opzioni di connessione alla banca dati"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:234
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server connection options.\n"
-#| "For advanced users only."
+#, kde-format
 msgid ""
 "Set the MariaDB server connection options.\n"
 "For advanced users only."
 msgstr ""
-"Imposta le opzioni di connessione del server MySQL.\n"
+"Imposta le opzioni di connessione del server MariaDB.\n"
 "Solo per utenti avanzati."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:237
@@ -29836,35 +29782,26 @@ msgid "Set the database account name"
 msgstr "Imposta il nome account della banca dati"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:240
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account name used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "This account must be available on the remote\n"
-#| "MySQL server when database have been created."
+#, kde-format
 msgid ""
 "Set the MariaDB server account name used\n"
 "by digiKam to be connected to the server.\n"
 "This account must be available on the remote\n"
 "MariaDB server when database have been created."
 msgstr ""
-"Imposta il nome account del server MySQL utilizzato\n"
+"Imposta il nome account del server MariaDB utilizzato\n"
 "da digiKam per connettersi ad esso.\n"
-"Questo account deve essere disponibile sul server MySQL remoto\n"
+"Questo account deve essere disponibile sul server MariaDB remoto\n"
 "quando la banca dati è stata creata."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:247
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account password used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "You can left this field empty to use an account set without password."
+#, kde-format
 msgid ""
 "Set the MariaDB server account password used\n"
 "by digiKam to be connected to the server.\n"
 "You can left this field empty to use an account set without password."
 msgstr ""
-"Imposta la password utilizzata per l'account del server MySQL\n"
+"Imposta la password utilizzata per l'account del server MariaDB\n"
 "da digiKam per connettersi al server.\n"
 "Puoi lasciare questo campo vuoto per utilizzare un account impostato senza "
 "password."
@@ -29875,16 +29812,13 @@ msgid "Host Port:"
 msgstr "Porta host:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:255
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the host computer port.\n"
-#| "Usually, MySQL server use port number 3306 by default"
+#, kde-format
 msgid ""
 "Set the host computer port.\n"
 "Usually, MariaDB server use port number 3306 by default"
 msgstr ""
 "Imposta la porta del computer host.\n"
-"In genere, il server MySQL usa il numero di porta predefinito 3306"
+"Il server MariaDB usa normalmente il numero di porta predefinito 3306"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:260
 #, kde-format
@@ -29892,16 +29826,13 @@ msgid "Check Connection"
 msgstr "Verifica la connessione"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:261
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run a basic database connection to see if current MySQL server settings "
-#| "is suitable."
+#, kde-format
 msgid ""
 "Run a basic database connection to see if current MariaDB server settings is "
 "suitable."
 msgstr ""
 "Avvia una connessione alla banca dati standard per verificare se le attuali "
-"impostazioni del server MySQL sono corrette."
+"impostazioni del server MariaDB sono corrette."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:268
 #, kde-format
@@ -30030,18 +29961,7 @@ msgstr ""
 "quella corretta).</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:341
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Note: with a Linux server, a database can be initialized following the "
-#| "commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql "
-#| "-u root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init "
-#| "digiKam databases with grant privileges (see behind)</p><p>...</"
-#| "p><p>quit</p><p>NOTE: If you have problems with a MySQL server on Ubuntu "
-#| "based Linux system, use the addition command in the mysql prompt to be "
-#| "able to create MySQL triggers.<br>SET GLOBAL "
-#| "log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
-#| "collection, you should start MySQL server with mysql --"
-#| "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
+#, kde-format
 msgid ""
 "<p>Note: with a Linux server, a database can be initialized following the "
 "commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
@@ -30056,15 +29976,16 @@ msgid ""
 msgstr ""
 "<p>Nota: in un server Linux, una banca dati può essere inizializzata "
 "seguendo i comandi sotto riportati:</p><p># su</p><p># systemctl restart "
-"mysqld</p><p># mysql -u root</p><p>...</p><p>Digitate il codice SQL al "
-"prompt di Mysql in modo da inizializzare le banche dati di digiKam con "
+"mariadbd</p><p># mariadbd -u root</p><p>...</p><p>Digita il codice SQL al "
+"prompt di MariaDB in modo da inizializzare le banche dati di digiKam con "
 "privilegi di amministrazione (vedi indietro)</p><p>...</p><p>quit</"
-"p><p>NOTA: se hai problemi con un server MySQL in Ubuntu, un sistema basato "
-"su Linux, usa il comando aggiuntivo nella finestra di prompt MySQL per "
-"creare attivatori MySQL.<br>SET GLOBAL log_bin_trust_function_creators=1;</"
-"p><p>NOTA: se possiedi una raccolta molto grande, devi avviare il server "
-"MySQL con mysql --max_allowed_packet=128M OPPURE cambiare le impostazioni in "
-"my.ini o ~/.my.cnf</p>"
+"p><p>NOTA: se hai problemi con un server MariaDB in Ubuntu, un sistema "
+"basato su Linux, usa il comando aggiuntivo nella finestra di prompt MariaDB "
+"per creare attivatori MariaDB.<br>SET GLOBAL "
+"log_bin_trust_function_creators=1;</p><p>NOTA: se possiedi una raccolta "
+"molto grande, devi avviare il server MariaDB con mariadb --"
+"max_allowed_packet=128M OPPURE cambiare le impostazioni in my.ini o ~/.my."
+"cnf</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:365
 #, kde-format
@@ -30077,25 +29998,7 @@ msgid "Database Server Technical Details"
 msgstr "Dettagli tecnici del server della banca dati"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:371
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Use this configuration view to set all information to be connected to "
-#| "a remote <a href=\"https://en.wikipedia.org/wiki/MySQL\">Mysql database "
-#| "server</a> (or <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</"
-#| "a>) through a network. As with Sqlite or MySQL internal server, 3 "
-#| "databases will be stored on the remote server: one for all collections "
-#| "properties, one to store compressed thumbnails, and one to store faces "
-#| "recognition metadata.</p><p>Unlike Sqlite or MySQL internal server, you "
-#| "can customize the database names to simplify your backups.</"
-#| "p><p>Databases are digiKam core engines. To prevent performance issues, "
-#| "take a care to use a fast network link between the client and the server "
-#| "computers. It is also recommended to host database files on fast hardware "
-#| "(as <a href=\"https://en.wikipedia.org/wiki/Solid-state_drive\">SSD</a>) "
-#| "with enough free space, especially for thumbnails database, even if data "
-#| "are compressed using wavelets image format <a href=\"https://en.wikipedia."
-#| "org/wiki/Progressive_Graphics_File\">PGF</a>.</p><p>The databases must be "
-#| "created previously on the remote server by the administrator. Look in "
-#| "<b>Requirements</b> tab for details.</p>"
+#, kde-format
 msgid ""
 "<p>Use this configuration view to set all information to be connected to a "
 "remote <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</a> through "
@@ -30113,24 +30016,24 @@ msgid ""
 "</p><p>The databases must be created previously on the remote server by the "
 "administrator. Look in <b>Requirements</b> tab for details.</p>"
 msgstr ""
-"<p>Usa questa panoramica per impostare tutte le informazioni per il <a href="
-"\"https://it.wikipedia.org/wiki/MySQL\">server di banca dati MySQL</a> (o <a "
-"href=\"https://it.wikipedia.org/wiki/MariaDB\">MariaDB</a>) remoto tramite "
-"una rete. Come il server interno Sqlite o MySQL, tre banche dati saranno "
-"memorizzate nel server remoto: una per tutte le proprietà delle collezioni, "
-"una per memorizzare le miniature compresse e una per memorizzare i metadati "
-"del riconoscimento dei volti.</p><p>A differenza del server interno Sqlite o "
-"MySQL, puoi personalizzare i nomi delle banche dati per semplificare le tue "
-"copie di sicurezza.</p><p>Le banche dati sono il nucleo centrale di digiKam. "
-"Per prevenire problemi di prestazioni, cerca di utilizzare una connessione "
-"di rete veloce tra i computer client e server. È inoltre consigliato di "
-"ospitare i file delle banche dati su dispositivi veloci (tipo <a href="
-"\"https://it.wikipedia.org/wiki/Unità_a_stato_solido\">SSD</a>) con "
-"sufficiente spazio libero, soprattutto per la banca dati delle miniature, "
-"anche se i dati sono compressi utilizzando il formato di immagine <a href="
-"\"https://en.wikipedia.org/wiki/Progressive_Graphics_File\">PGF</a> wavelet."
-"</p><p>Le banche dati devono essere previamente create nel server remoto "
-"dall'amministratore. Guarda la scheda <b>Requisiti</b> per dettagli.</p>"
+"<p>Usa questa panoramica per impostare tutte le informazioni per una banca "
+"dati <a href=\"https://it.wikipedia.org/wiki/MariaDB\">MariaDB</a>) remota "
+"attraverso una rete. Come il server interno Sqlite o MariaDB, saranno "
+"memorizzate tre banche dati  nel server remoto: una per tutte le proprietà "
+"delle collezioni, una per memorizzare le miniature compresse e una per "
+"memorizzare i metadati del riconoscimento dei volti.</p><p>A differenza del "
+"server interno Sqlite o MariaDB, puoi personalizzare i nomi delle banche "
+"dati per semplificare le tue copie di sicurezza.</p><p>Le banche dati sono "
+"il nucleo centrale di digiKam. Per prevenire problemi di prestazioni, cerca "
+"di utilizzare una connessione di rete veloce tra i computer client e server. "
+"È inoltre consigliato di ospitare i file delle banche dati su dispositivi "
+"veloci (tipo <a href=\"https://it.wikipedia.org/wiki/Unità_a_stato_solido"
+"\">SSD</a>) con sufficiente spazio libero, soprattutto per la banca dati "
+"delle miniature, anche se i dati sono compressi utilizzando il formato di "
+"immagine <a href=\"https://en.wikipedia.org/wiki/Progressive_Graphics_File"
+"\">PGF</a> wavelet.</p><p>Le banche dati devono essere previamente create "
+"nel server remoto dall'amministratore. Guarda la scheda <b>Requisiti</b> per "
+"dettagli.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:396
 #, kde-format
@@ -44654,11 +44557,9 @@ msgid "Color Management"
 msgstr "Gestione del colore"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:350
-#, fuzzy, kde-format
-#| msgctxt "@title:group"
-#| msgid "Panorama Binaries"
+#, kde-format
 msgid "MariaDB interface"
-msgstr "Binari panorama"
+msgstr "Interfaccia di MariaDB"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:355
 #, kde-format
@@ -62173,16 +62074,13 @@ msgid "Extended clean up and shrink all databases."
 msgstr "Pulizia estesa e compressione di tutte le banche dati."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:100
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option leads to the vacuuming (shrinking) of the databases. "
-#| "Vacuuming is supported both for SQLite and MySQL."
+#, kde-format
 msgid ""
 "This option leads to the vacuuming (shrinking) of the databases. Vacuuming "
 "is supported both for SQLite and MariaDB."
 msgstr ""
 "Questa opzione porta allo svuotamento (compattazione) delle banche dati. Lo "
-"svuotamento è supportato sia per SQLite, sia per MySQL."
+"svuotamento è supportato sia per SQLite, sia per MariaDB."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:107
 #, kde-format

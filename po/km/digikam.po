@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-19 00:42+0000\n"
+"POT-Creation-Date: 2026-08-21 00:42+0000\n"
 "PO-Revision-Date: 2010-06-23 14:54+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -341,7 +341,7 @@ msgstr "បន្ថែម​ស្លាក​មុខ"
 
 #: core/app/dragdrop/itemdragdrop.cpp:763
 #: core/app/dragdrop/itemdragdrop.cpp:814
-#: core/app/views/preview/itempreviewview.cpp:1037
+#: core/app/views/preview/itempreviewview.cpp:1038
 #, kde-format
 msgid "&Cancel"
 msgstr "បោះបង់"
@@ -352,7 +352,7 @@ msgid "Assign Tags to &Selected Items"
 msgstr "កំណត់​ស្លាក​ទៅកាន់​ធាតុ​ដែល​បាន​ជ្រើស"
 
 #: core/app/dragdrop/itemdragdrop.cpp:807
-#: core/app/views/preview/itempreviewview.cpp:1035
+#: core/app/views/preview/itempreviewview.cpp:1036
 #, kde-format
 msgid "Assign Tags to &This Item"
 msgstr "កំណត់​ស្លាក​ទៅកាន់​ធាតុ​នេះ"
@@ -590,7 +590,7 @@ msgid "This item has geolocation information."
 msgstr "កែសម្រួល​លក្ខណ​សម្បត្តិ​អាល់ប៊ុម និង​ព័ត៌មាន​សម្រាំង ។"
 
 #: core/app/items/overlays/itemfullscreenoverlay.cpp:49
-#: core/app/views/preview/itempreviewview.cpp:287
+#: core/app/views/preview/itempreviewview.cpp:288
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show Fullscreen"
@@ -3128,7 +3128,7 @@ msgid "Donate: "
 msgstr "កាលបរិច្ឆេទ ៖"
 
 #: core/app/views/preview/itempreviewvideo.cpp:98
-#: core/app/views/preview/itempreviewview.cpp:283
+#: core/app/views/preview/itempreviewview.cpp:284
 #, fuzzy, kde-format
 #| msgid "Crop Information"
 msgctxt "@info:tooltip"
@@ -3199,42 +3199,42 @@ msgctxt "@info:tooltip"
 msgid "Play Motion Photo"
 msgstr "កំហុស"
 
-#: core/app/views/preview/itempreviewview.cpp:247
+#: core/app/views/preview/itempreviewview.cpp:248
 #, fuzzy, kde-format
 #| msgid "Show numbers"
 msgctxt "@info:tooltip"
 msgid "Show Magnifier"
 msgstr "បង្ហាញ​លេខ"
 
-#: core/app/views/preview/itempreviewview.cpp:252
+#: core/app/views/preview/itempreviewview.cpp:253
 #, fuzzy, kde-format
 #| msgid "Zoom out"
 msgctxt "@info:tooltip"
 msgid "Zoom Factor"
 msgstr "បង្រួម"
 
-#: core/app/views/preview/itempreviewview.cpp:275
+#: core/app/views/preview/itempreviewview.cpp:276
 #, fuzzy, kde-format
 #| msgid "Exposure mode:"
 msgctxt "@info:tooltip"
 msgid "Under-Exposure Indicator"
 msgstr "របៀប​ដាក់​ឲ្យ​ត្រូវ​ ៖"
 
-#: core/app/views/preview/itempreviewview.cpp:279
+#: core/app/views/preview/itempreviewview.cpp:280
 #, fuzzy, kde-format
 #| msgid "Exposure mode:"
 msgctxt "@info:tooltip"
 msgid "Over-Exposure Indicator"
 msgstr "របៀប​ដាក់​ឲ្យ​ត្រូវ​ ៖"
 
-#: core/app/views/preview/itempreviewview.cpp:724
+#: core/app/views/preview/itempreviewview.cpp:725
 #: core/app/views/stack/itemiconview_views.cpp:325
 #, fuzzy, kde-format
 msgctxt "@action: face workflow"
 msgid "Faces"
 msgstr "ជ្រើស​គ្មាន"
 
-#: core/app/views/preview/itempreviewview.cpp:920
+#: core/app/views/preview/itempreviewview.cpp:921
 #, kde-format
 msgid "Show Magnifier (x%1)"
 msgstr ""

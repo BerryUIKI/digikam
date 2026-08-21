@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: libkdcraw\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-19 00:42+0000\n"
+"POT-Creation-Date: 2026-08-21 00:42+0000\n"
 "PO-Revision-Date: 2023-07-03 01:05+0100\n"
 "Last-Translator: José Nuno Coelho Pires <zepires@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-doc@kde.org>\n"
@@ -426,7 +426,7 @@ msgstr "Modificar a Marca da Cara"
 
 #: core/app/dragdrop/itemdragdrop.cpp:763
 #: core/app/dragdrop/itemdragdrop.cpp:814
-#: core/app/views/preview/itempreviewview.cpp:1037
+#: core/app/views/preview/itempreviewview.cpp:1038
 #, kde-format
 msgid "&Cancel"
 msgstr "&Cancelar"
@@ -437,7 +437,7 @@ msgid "Assign Tags to &Selected Items"
 msgstr "Atribuir as Marcas aos Itens &Seleccionados"
 
 #: core/app/dragdrop/itemdragdrop.cpp:807
-#: core/app/views/preview/itempreviewview.cpp:1035
+#: core/app/views/preview/itempreviewview.cpp:1036
 #, kde-format
 msgid "Assign Tags to &This Item"
 msgstr "A&tribuir as Marcas a Este Item"
@@ -667,7 +667,7 @@ msgid "This item has geolocation information."
 msgstr "Este item tem informação de localização geográfica."
 
 #: core/app/items/overlays/itemfullscreenoverlay.cpp:49
-#: core/app/views/preview/itempreviewview.cpp:287
+#: core/app/views/preview/itempreviewview.cpp:288
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Show Fullscreen"
@@ -3036,7 +3036,7 @@ msgid "Donate: "
 msgstr "Data: "
 
 #: core/app/views/preview/itempreviewvideo.cpp:98
-#: core/app/views/preview/itempreviewview.cpp:283
+#: core/app/views/preview/itempreviewview.cpp:284
 #, fuzzy, kde-format
 #| msgid "Crop Information"
 msgctxt "@info:tooltip"
@@ -3107,14 +3107,14 @@ msgctxt "@info:tooltip"
 msgid "Play Motion Photo"
 msgstr ""
 
-#: core/app/views/preview/itempreviewview.cpp:247
+#: core/app/views/preview/itempreviewview.cpp:248
 #, fuzzy, kde-format
 #| msgid "Show numbers"
 msgctxt "@info:tooltip"
 msgid "Show Magnifier"
 msgstr "Mostrar os números"
 
-#: core/app/views/preview/itempreviewview.cpp:252
+#: core/app/views/preview/itempreviewview.cpp:253
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Zoom to Fit"
@@ -3122,7 +3122,7 @@ msgctxt "@info:tooltip"
 msgid "Zoom Factor"
 msgstr "Ampliar para Caber"
 
-#: core/app/views/preview/itempreviewview.cpp:275
+#: core/app/views/preview/itempreviewview.cpp:276
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Under-Exposure Indicator"
@@ -3130,7 +3130,7 @@ msgctxt "@info:tooltip"
 msgid "Under-Exposure Indicator"
 msgstr "Indicador de Subexposição"
 
-#: core/app/views/preview/itempreviewview.cpp:279
+#: core/app/views/preview/itempreviewview.cpp:280
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Over-Exposure Indicator"
@@ -3138,7 +3138,7 @@ msgctxt "@info:tooltip"
 msgid "Over-Exposure Indicator"
 msgstr "Indicador de Sobreexposição"
 
-#: core/app/views/preview/itempreviewview.cpp:724
+#: core/app/views/preview/itempreviewview.cpp:725
 #: core/app/views/stack/itemiconview_views.cpp:325
 #, fuzzy, kde-format
 #| msgid "Faces"
@@ -3146,7 +3146,7 @@ msgctxt "@action: face workflow"
 msgid "Faces"
 msgstr "Caras"
 
-#: core/app/views/preview/itempreviewview.cpp:920
+#: core/app/views/preview/itempreviewview.cpp:921
 #, kde-format
 msgid "Show Magnifier (x%1)"
 msgstr ""
