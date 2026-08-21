@@ -81,7 +81,7 @@ public Q_SLOTS:
      * @brief Set a parent tag for suggesting a parent tag for a new tag, and a default action.
      * If you set a tag tree view, this is taken care for automatically.
      */
-    void setParentTag(Album* const album);
+    void setParentTag(const Album* const album);
 
 Q_SIGNALS:
 

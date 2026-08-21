@@ -142,9 +142,9 @@ void AddTagsLineEdit::setCurrentTag(TAlbum* const album)
     setText(album ? album->title() : QString());
 }
 
-void AddTagsLineEdit::setParentTag(Album* const album)
+void AddTagsLineEdit::setParentTag(const Album* const album)
 {
-    d->parentTagId = album ? album->id() : 0;
+    d->parentTagId = (album ? album->id() : 0);
     d->completer->setContextParentTag(d->parentTagId);
 }
 
@@ -152,7 +152,7 @@ void AddTagsLineEdit::setAllowExceedBound(bool value)
 {
     Q_UNUSED(value);
 
-    // -> the pop-up is allowed to be bigger than the line edit widget
+    // NOTE: the pop-up is allowed to be bigger than the line edit widget
     // Currently unimplemented, QCompleter calculates the size automatically.
     // Idea: intercept show event via event filter on completer->popup(); from there, change width.
 }
