@@ -4578,7 +4578,7 @@ msgstr "数据库内建服务器"
 #, kde-format
 msgctxt "@item: component info"
 msgid "Database backend version"
-msgstr ""
+msgstr "数据库后端程序版本"
 
 #: core/app/views/utils/componentsinfodlg.cpp:226
 #, kde-format
@@ -27710,7 +27710,7 @@ msgid ""
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
 "SQLite3 数据库的驱动程序“SQLITE”不可用。\n"
-"digiKam 依赖 Qt::SQL 模块提供的驱动工作。"
+"digiKam 依赖于 Qt::SQL 模块提供的驱动程序。"
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
 #, kde-format
@@ -27718,6 +27718,8 @@ msgid ""
 "The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
+"MariaDB 数据库的 Qt::SQL 驱动程序不可用。  \n"
+"digiKam 依赖于 Qt::SQL 模块提供的驱动程序。"
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
 #, kde-format
@@ -28400,6 +28402,9 @@ msgid ""
 "This can be \"localhost\" for a local server, or the network computer\n"
 "name (or IP address) in case of remote computer."
 msgstr ""
+"这是正在运行该 MariaDB 服务器的计算机名称。\n"
+"对于本地服务器而言它可能是“localhost”，\n"
+"对于远程计算机而言则可能是该计算机的网络名称或 IP 地址。"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:229
 #, kde-format
@@ -28614,6 +28619,15 @@ msgid ""
 "collection, you should start MariaDB server with mariadb --"
 "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
 msgstr ""
+"<p>提示：在 Linux 服务器上，可以使用以下命令初始化数据库：</p><p># su</"
+"p><p># systemctl restart mariadbd</p><p># mariadbd -u root</p><p>...</p><p>"
+"在 SQL 提示符下输入以下 SQL 命令初始化 digiKam 数据库并授予所需权限 (详见后"
+"文)</p><p>...</p><p>quit</p><p>提示：如果您在基于 Ubuntu 的发行版中遇到了 "
+"MariaDB 服务器问题，请在 MariaDB 的命令行模式中输入以下的附加命令来创建 "
+"MariaDB 触发器：<br>SET GLOBAL log_bin_trust_function_creators=1;</p><p>提"
+"示：如果您的相册集合规模庞大，请在启动 MariaDB 服务器时使用 mariadb --"
+"max_allowed_packet=128M 命令，也可以在 my.ini 或 ~/.my.cnf 中更改相关设置。</"
+"p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:365
 #, kde-format
