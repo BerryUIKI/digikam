@@ -46,7 +46,7 @@ void SearchGroup::setup(Type type)
     (void)group;
     (void)label;
 
-    // ----- //
+    // ---
 
     group    = new SearchFieldGroup(this);
     group->addField(SearchField::createField(QLatin1String("keyword"), group));
@@ -57,7 +57,7 @@ void SearchGroup::setup(Type type)
 
     group->setFieldsVisible(true);
 
-    // ----- //
+    // ---
 
     label = new SearchFieldGroupLabel(this);
     label->setTitle(i18n("File, Album, Tags"));
@@ -77,7 +77,7 @@ void SearchGroup::setup(Type type)
     m_layout->addWidget(label);
     m_layout->addWidget(group);
 
-    // ----- //
+    // ---
 
     label = new SearchFieldGroupLabel(this);
     label->setTitle(i18n("Item Properties"));
@@ -99,7 +99,7 @@ void SearchGroup::setup(Type type)
     group->addField(SearchField::createField(QLatin1String("colormodel"),       group));
     group->addField(SearchField::createField(QLatin1String("modificationdate"), group));
     group->addField(SearchField::createField(QLatin1String("digitizationdate"), group));
-    group->addField(SearchField::createField(QLatin1String("modifiedrecent"), group));
+    group->addField(SearchField::createField(QLatin1String("modifiedrecent"),   group));
     group->addField(SearchField::createField(QLatin1String("filesize"),         group));
     group->addField(SearchField::createField(QLatin1String("bytesize"),         group));
     group->addField(SearchField::createField(QLatin1String("monthday"),         group));
@@ -109,7 +109,7 @@ void SearchGroup::setup(Type type)
     m_layout->addWidget(label);
     m_layout->addWidget(group);
 
-    // ----- //
+    // ---
 
     label = new SearchFieldGroupLabel(this);
     label->setTitle(i18n("Audio/Video Properties"));
@@ -129,7 +129,7 @@ void SearchGroup::setup(Type type)
     m_layout->addWidget(label);
     m_layout->addWidget(group);
 
-    // ----- //
+    // ---
 
     label = new SearchFieldGroupLabel(this);
     label->setTitle(i18n("Caption, Comment, Title"));
@@ -148,7 +148,7 @@ void SearchGroup::setup(Type type)
     m_layout->addWidget(label);
     m_layout->addWidget(group);
 
-    // ----- //
+    // ---
 
     label = new SearchFieldGroupLabel(this);
     label->setTitle(i18n("Photograph Information"));
@@ -173,14 +173,14 @@ void SearchGroup::setup(Type type)
     group->addField(SearchField::createField(QLatin1String("meteringmode"),                 group));
     group->addField(SearchField::createField(QLatin1String("subjectdistance"),              group));
     group->addField(SearchField::createField(QLatin1String("subjectdistancecategory"),      group));
-    group->addField(SearchField::createField(QLatin1String("nocapturesettings"),                     group));
+    group->addField(SearchField::createField(QLatin1String("nocapturesettings"),            group));
 
     m_fieldLabels << label;
     m_fieldGroups << group;
     m_layout->addWidget(label);
     m_layout->addWidget(group);
 
-    // ----- //
+    // ---
 
     label = new SearchFieldGroupLabel(this);
     label->setTitle(i18n("Geographic position"));
@@ -188,8 +188,8 @@ void SearchGroup::setup(Type type)
     group->setLabel(label);
 
 /*
-    group->addField(SearchField::createField("latitude", group));
-    group->addField(SearchField::createField("longitude", group));
+    group->addField(SearchField::createField(QLatin1String("latitude"),      group));
+    group->addField(SearchField::createField(QLatin1String("longitude"),     group));
 */
     group->addField(SearchField::createField(QLatin1String("altitude"),      group));
     group->addField(SearchField::createField(QLatin1String("nogps"),         group));
@@ -204,7 +204,7 @@ void SearchGroup::setup(Type type)
     m_layout->addWidget(label);
     m_layout->addWidget(group);
 
-    // ----- //
+    // ---
 
     label = new SearchFieldGroupLabel(this);
     label->setTitle(i18n("Face regions"));
@@ -220,8 +220,6 @@ void SearchGroup::setup(Type type)
     m_layout->addWidget(label);
     m_layout->addWidget(group);
 
-    // ----- //
-
     // prepare subgroup layout
 
     QHBoxLayout* const indentLayout = new QHBoxLayout;
@@ -230,8 +228,8 @@ void SearchGroup::setup(Type type)
 
     QStyleOption option;
     option.initFrom(this);
-    int indent = 5 * style()->pixelMetric(QStyle::PM_LayoutLeftMargin, &option, this);
-    indent     = qMax(indent, 20);
+    int indent       = 5 * style()->pixelMetric(QStyle::PM_LayoutLeftMargin, &option, this);
+    indent           = qMax(indent, 20);
     indentLayout->addSpacing(indent);
 
     m_subgroupLayout = new QVBoxLayout;
@@ -242,12 +240,10 @@ void SearchGroup::setup(Type type)
 
     m_layout->addLayout(indentLayout);
 
-    // ----- //
+    // ---
 
     m_layout->addStretch(1);
     setLayout(m_layout);
-
-    // ----- //
 
     // initialization as empty group
 
@@ -281,8 +277,7 @@ void SearchGroup::read(SearchXmlCachingReader& reader)
 
         if (reader.isFieldElement())
         {
-            QString name = reader.fieldName();
-
+            QString name                 = reader.fieldName();
             SearchField* field           = nullptr;
             SearchFieldGroup* fieldGroup = nullptr;
 

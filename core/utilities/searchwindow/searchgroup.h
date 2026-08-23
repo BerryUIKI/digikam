@@ -51,6 +51,8 @@ public:
 
     explicit SearchGroup(SearchView* const parent);
 
+public:
+
     void setup(Type type = FirstGroup);
 
     void read(SearchXmlCachingReader& reader);
@@ -95,7 +97,9 @@ public:
     SearchGroupLabel(SearchViewThemedPartsCache* const cache,
                      SearchGroup::Type type,
                      QWidget* const parent = nullptr);
-    ~SearchGroupLabel()             override;
+    ~SearchGroupLabel()                              override;
+
+public:
 
     void setGroupOperator(SearchXml::Operator op);
     void setDefaultFieldOperator(SearchXml::Operator op);
@@ -119,7 +123,7 @@ protected:
     void adjustOperatorOptions();
     void updateGroupLabel();
 
-    void paintEvent(QPaintEvent*)   override;
+    void paintEvent(QPaintEvent*)                    override;
 
 private:
 

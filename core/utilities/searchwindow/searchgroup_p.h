@@ -49,7 +49,9 @@ class Q_DECL_HIDDEN RadioButtonHBox : public QHBoxLayout
 
 public:
 
-    RadioButtonHBox(QWidget* const left, QWidget* const right, Qt::LayoutDirection dir);
+    RadioButtonHBox(QWidget* const left,
+                    QWidget* const right,
+                    Qt::LayoutDirection dir);
 };
 
 } // namespace Digikam

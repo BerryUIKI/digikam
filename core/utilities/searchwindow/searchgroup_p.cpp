@@ -18,7 +18,9 @@
 namespace Digikam
 {
 
-RadioButtonHBox::RadioButtonHBox(QWidget* const left, QWidget* const right, Qt::LayoutDirection dir)
+RadioButtonHBox::RadioButtonHBox(QWidget* const left,
+                                 QWidget* const right,
+                                 Qt::LayoutDirection dir)
     : QHBoxLayout()
 {
     if (dir == Qt::RightToLeft)

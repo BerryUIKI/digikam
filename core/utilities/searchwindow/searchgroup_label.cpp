@@ -24,6 +24,8 @@ public:
 
     Private() = default;
 
+public:
+
     bool                        extended        = false;
     SearchXml::Operator         groupOp         = SearchXml::And;
     SearchXml::Operator         fieldOp         = SearchXml::And;
@@ -142,12 +144,12 @@ SearchGroupLabel::SearchGroupLabel(SearchViewThemedPartsCache* const cache, Sear
         connect(d->removeLabel, SIGNAL(activated()),
                 this, SIGNAL(removeClicked()));
 
-        d->layout->addWidget(d->groupOpLabel, 0, 0, 1, 1);
+        d->layout->addWidget(d->groupOpLabel,                                                      0, 0, 1, 1);
         d->layout->addLayout(new RadioButtonHBox(d->allBox, allBoxLabel, layoutDirection()),       1, 0, 1, 1);
         d->layout->addLayout(new RadioButtonHBox(d->anyBox, anyBoxLabel, layoutDirection()),       2, 0, 1, 1);
         d->layout->addLayout(new RadioButtonHBox(d->noneBox, noneBoxLabel, layoutDirection()),     3, 0, 1, 1);
         d->layout->addLayout(new RadioButtonHBox(d->oneNotBox, oneNotBoxLabel, layoutDirection()), 4, 0, 1, 1);
-        d->layout->addWidget(d->removeLabel,  0, 2, 1, 1);
+        d->layout->addWidget(d->removeLabel,                                                       0, 2, 1, 1);
         d->layout->setColumnStretch(1, 10);
     }
 
@@ -292,15 +294,17 @@ void SearchGroupLabel::setDefaultFieldOperator(SearchXml::Operator op)
 
 void SearchGroupLabel::adjustOperatorOptions()
 {
-    // In the UI, the NOT is done at the level of the field operator,
-    // but in fact we put a NOT in front of the whole group, so it is the group operator!
-
-    // 1. allBox, All of these conditions are met: (A && B && C), Group And/Or, Field And
-    // 2. anyBox, Any of these conditions are met: (A || B || C), Group And/Or, Field Or
-    // 3. oneNotBox, At least one of these conditions is not met: !(A && B && C) = (!A || !B || !C),
-    //    Group AndNot/OrNot, Field And
-    // 4. noneBox, None of these conditions are met: !(A || B || C) = (!A && !B && !C),
-    //    Group AndNot/OrNot, Field Or
+    /**
+     * In the UI, the NOT is done at the level of the field operator,
+     * but in fact we put a NOT in front of the whole group, so it is the group operator!
+     *
+     * 1. allBox, All of these conditions are met: (A && B && C), Group And/Or, Field And
+     * 2. anyBox, Any of these conditions are met: (A || B || C), Group And/Or, Field Or
+     * 3. oneNotBox, At least one of these conditions is not met: !(A && B && C) = (!A || !B || !C),
+     *    Group AndNot/OrNot, Field And
+     * 4. noneBox, None of these conditions are met: !(A || B || C) = (!A && !B && !C),
+     *    Group AndNot/OrNot, Field Or
+     */
 
     switch (d->groupOp)
     {
