@@ -20,10 +20,10 @@ namespace Digikam
 void LibsInfoDlg::populateManifest()
 {
     /**
-     * NOTE: MANIFEST.txt is a text file generated with the bundles and listing all git revisions of rolling release components.
-     *       One section title start with '+'.
-     *       All component revisions are listed below line by line with the name and the revision separated by ':'.
-     *       More than one section can be listed in manifest.
+     * @note: MANIFEST.txt is a text file generated with the bundles and listing all git revisions of rolling release components.
+     *        One section title start with '+'.
+     *        All component revisions are listed below line by line with the name and the revision separated by ':'.
+     *        More than one section can be listed in manifest.
      */
 
     const QString gitRevs = QStandardPaths::locate(QStandardPaths::AppDataLocation,
