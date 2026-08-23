@@ -41,15 +41,15 @@ class DIGIKAM_GUI_EXPORT SearchLlamaBackend : public SearchLanguageBackend
 public:
 
     explicit SearchLlamaBackend(QObject* const parent = nullptr);
-    ~SearchLlamaBackend() override;
+    ~SearchLlamaBackend()                        override;
 
     Q_DISABLE_COPY(SearchLlamaBackend)
 
-    bool loadModel(const QString& modelPath)   override;
-    void unloadModel()                         override;
-    bool isModelLoaded()                 const override;
-    QString modelPath()                  const override;
-    QString backendName()                const override;
+    bool loadModel(const QString& modelPath)     override;
+    void unloadModel()                           override;
+    bool isModelLoaded()                   const override;
+    QString modelPath()                    const override;
+    QString backendName()                  const override;
 
     void setMaxTokens(int maxTokens);
     void setTemperature(float temperature);
@@ -72,11 +72,12 @@ private:
     bool                m_modelLoaded = false;
     int                 m_maxTokens   = 128;
 
-    // Sampling temperature for token generation. 0.0 = greedy/deterministic
-    // decoding which always pick the most-probable token, which is what we want:
-    // the model must emit structured, parseable JSON, so reproducible output
-    // matters more than creative variation. Higher values would add randomness.
-
+    /**
+     * @brief Sampling temperature for token generation. 0.0 = greedy/deterministic
+     * decoding which always pick the most-probable token, which is what we want:
+     * the model must emit structured, parseable JSON, so reproducible output
+     * matters more than creative variation. Higher values would add randomness.
+     */
     float               m_temperature = 0.0F;
 };
 

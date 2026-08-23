@@ -36,10 +36,10 @@ class DIGIKAM_GUI_EXPORT SearchLanguageBackend : public QObject
 public:
 
     explicit SearchLanguageBackend(QObject* const parent = nullptr);
-    ~SearchLanguageBackend() override;
+    ~SearchLanguageBackend() override = default;
 
     /**
-     * Load the model from a local path (resolved by SearchNlModelManager).
+     * @brief Load the model from a local path (resolved by SearchNlModelManager).
      * Implementations should perform heavy loading off the GUI thread and
      * report completion through signalModelLoaded().
      * Returns false immediately if the path is invalid.
@@ -50,13 +50,13 @@ public:
     virtual bool isModelLoaded()               const = 0;
     virtual QString modelPath()                const = 0;
 
-    // Human-readable backend identifier ("llama.cpp", "onnx", "mock").
+    /// @brief Human-readable backend identifier ("llama.cpp", "onnx", "mock").
     virtual QString backendName()              const = 0;
 
 public Q_SLOTS:
 
     /**
-     * Run inference asynchronously. Result is delivered via
+     * @brief Run inference asynchronously. Result is delivered via
      * signalRawOutputReady() or signalInferenceError(). Implementations must be
      * safe to call from the GUI thread and must not block it.
      */

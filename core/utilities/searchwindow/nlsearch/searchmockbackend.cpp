@@ -3,6 +3,11 @@
  * This file is a part of digiKam project
  * https://www.digikam.org
  *
+ * Description : Mock inference backend. Returns canned JSON for known
+ *               prompts so the whole pipeline (prompt -> parse ->
+ *               resolve -> XML) can be developed and unit-tested
+ *               before any real model is wired in.
+ *
  * SPDX-FileCopyrightText: 2026 by Srirupa Datta <srirupa dot sps at gmail dot com>
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -20,7 +25,6 @@ namespace Digikam
 SearchMockBackend::SearchMockBackend(QObject* const parent)
     : SearchLanguageBackend(parent)
 {
-
     addCannedResponse(QLatin1String("photos from Paris in 2023"),
         QLatin1String(R"({
             "constraints": [
@@ -28,7 +32,8 @@ SearchMockBackend::SearchMockBackend(QObject* const parent)
                 { "field": "daterange", "op": "between",  "value": "2023-01-01..2023-12-31" }
             ],
             "clarification": null
-        })"));
+        })")
+    );
 
     addCannedResponse(QLatin1String("sunset photos with red labels"),
         QLatin1String(R"({
@@ -37,7 +42,8 @@ SearchMockBackend::SearchMockBackend(QObject* const parent)
                 { "field": "colorlabel", "op": "eq",       "value": "red" }
             ],
             "clarification": null
-        })"));
+        })")
+    );
 
     addCannedResponse(QLatin1String("best photos from last summer"),
         QLatin1String(R"({
@@ -48,7 +54,8 @@ SearchMockBackend::SearchMockBackend(QObject* const parent)
                 "message": "What does 'best' mean for you?",
                 "choices": [ "Pick Label: Accepted", "Rating >= 4" ]
             }
-        })"));
+        })")
+    );
 }
 
 bool SearchMockBackend::loadModel(const QString& modelPath)
@@ -91,6 +98,7 @@ void SearchMockBackend::slotRunInference(const QString& prompt)
 {
     // Deliver asynchronously to mimic real backend behaviour and keep
     // signal/slot ordering identical to the llama.cpp backend.
+
     QTimer::singleShot(0, this, [this, prompt]()
         {
             for (auto it = m_canned.constBegin() ; it != m_canned.constEnd() ; ++it)
@@ -104,8 +112,10 @@ void SearchMockBackend::slotRunInference(const QString& prompt)
             }
 
             // Unknown query: empty but valid schema (nothing understood).
+
             Q_EMIT signalRawOutputReady(QLatin1String(R"({ "constraints": [], "clarification": null })"));
-        });
+        }
+    );
 }
 
 } // namespace Digikam
