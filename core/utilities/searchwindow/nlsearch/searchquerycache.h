@@ -33,13 +33,19 @@ public:
 
     SearchQueryCache() = default;
 
-    // Lookup by normalized query text (case-insensitive, trimmed).
-    bool lookup(const QString& query, SearchQueryIntent* outIntent) const;
+public:
+
+    /**
+     * @brief Lookup by normalized query text (case-insensitive, trimmed).
+     */
+    bool lookup(const QString& query, SearchQueryIntent* const outIntent) const;
 
     void store(const QString& query, const SearchQueryIntent& intent);
     void clear();
 
-    // Drop cached entries when the prompt/JSON schema changes.
+    /**
+     * @brief Drop cached entries when the prompt/JSON schema changes.
+     */
     void invalidateSchemaVersion(int version);
 
     int size() const;
@@ -50,15 +56,20 @@ private:
 
 private:
 
-    // In-memory only. Persistence to a small JSON file under
-    // the digiKam config dir is planned for later.
+    /**
+     * @note In-memory only. Persistence to a small JSON file under
+     * the digiKam config dir is planned for later.
+     */
 
     QHash<QString, SearchQueryIntent> m_entries;
 
-    /// Current version of the cached-intent schema. invalidateSchemaVersion()
-    /// clears the cache when a newer version is supplied, so entries written
-    /// under an older SearchQueryIntent layout are dropped rather than reused.
+    /**
+     * @note Current version of the cached-intent schema. invalidateSchemaVersion()
+     * clears the cache when a newer version is supplied, so entries written
+     * under an older SearchQueryIntent layout are dropped rather than reused.
+     */
     int                               m_schemaVersion = 1;
+
     static const int                  s_maxEntries    = 256;
 };
 
