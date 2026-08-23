@@ -18,11 +18,13 @@
 
 #include <QWidget>
 
-#include "searchqueryintent.h" 
+// Local includes
+
+#include "searchqueryintent.h"
 
 namespace Digikam
 {
-    class SearchQueryEngine;           
+    class SearchQueryEngine;
     class SearchXmlWriter;
 
 class SearchWindow : public QWidget
@@ -36,7 +38,7 @@ public:
      */
     SearchWindow();
 
-    ~SearchWindow() override;
+    ~SearchWindow()                                                   override;
 
     /**
      * Read the given search into the search widgets.
@@ -53,11 +55,11 @@ public:
     /**
      * Returns the currently produced search string
      */
-    QString search() const;
+    QString search()                                            const;
 
     void applyResolvedIntent(const SearchQueryIntent& intent);
-    QString intentToXml(const SearchQueryIntent& intent) const;
-    SearchQueryEngine* queryEngine() const;
+    QString intentToXml(const SearchQueryIntent& intent)        const;
+    SearchQueryEngine* queryEngine()                            const;
     void startInterpretation(const QString& text);
 
 Q_SIGNALS:
@@ -96,7 +98,7 @@ private:
 
     void setupNlSearch();
     void writeConstraintToXml(SearchXmlWriter& writer,
-                              const SearchQueryConstraint& c) const;
+                              const SearchQueryConstraint& c)   const;
 
 private:
 

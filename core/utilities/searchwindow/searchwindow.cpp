@@ -32,7 +32,6 @@
 #include <QPointer>
 #include <QTimer>
 
-
 // KDE includes
 
 #include <klocalizedstring.h>
@@ -41,29 +40,25 @@
 
 // Local includes
 
+#include "digikam_config.h"
+#include "digikam_debug.h"
 #include "searchview.h"
 #include "coredbsearchxml.h"
 #include "thememanager.h"
-#include "digikam_debug.h"
-
-
 #include "searchqueryengine.h"
 #include "searchlanguagebackend.h"
 #include "searchmockbackend.h"
 #include "searchllamabackend.h"
 #include "searchnlmodelmanager.h"
-#include "digikam_config.h"
 #include "searchpromptbuilder.h"
 #include "searchintentparser.h"
 #include "searchcapabilitydictionary.h"
 #include "searchintentresolver.h"
 #include "searchquerycache.h"
-#include "donlinetranslator.h"      
-
+#include "donlinetranslator.h"
 #include "tagscache.h"
 #include "colorlabelwidget.h"
 #include "filesdownloader.h"
-
 #include "coredbaccess.h"
 #include "coredb.h"
 #include "dworkingpixmap.h"
@@ -77,46 +72,48 @@ public:
 
     Private() = default;
 
-    QScrollArea*         scrollArea     = nullptr;
-    SearchView*          searchView     = nullptr;
-    SearchViewBottomBar* bottomBar      = nullptr;
-    int                  currentId      = -1;
-    bool                 hasTouchedXml  = false;
-    QString              oldXml;
+public:
 
-    QLineEdit*                  describeEdit    = nullptr;
-    QLabel*                     nlStatusLabel   = nullptr;
-    QLabel*                     nlSpinnerLabel  = nullptr;
-    DWorkingPixmap*             nlSpinnerPix    = nullptr;
-    QTimer*                     nlSpinnerTimer  = nullptr;
-    int                         nlSpinnerIndex  = 0;
-    QCheckBox*                  translateCheck  = nullptr;
-    QWidget*  nlReadyPanel                      = nullptr;
-    QWidget*  nlDownloadPanel                   = nullptr;
+    QScrollArea*                scrollArea              = nullptr;
+    SearchView*                 searchView              = nullptr;
+    SearchViewBottomBar*        bottomBar               = nullptr;
+    int                         currentId               = -1;
+    bool                        hasTouchedXml           = false;
+    QString                     oldXml;
 
-    SearchQueryEngine*          nlEngine        = nullptr;
-    SearchLanguageBackend*      nlBackend       = nullptr;
+    QLineEdit*                  describeEdit            = nullptr;
+    QLabel*                     nlStatusLabel           = nullptr;
+    QLabel*                     nlSpinnerLabel          = nullptr;
+    DWorkingPixmap*             nlSpinnerPix            = nullptr;
+    QTimer*                     nlSpinnerTimer          = nullptr;
+    int                         nlSpinnerIndex          = 0;
+    QCheckBox*                  translateCheck          = nullptr;
+    QWidget*  nlReadyPanel                              = nullptr;
+    QWidget*  nlDownloadPanel                           = nullptr;
+
+    SearchQueryEngine*          nlEngine                = nullptr;
+    SearchLanguageBackend*      nlBackend               = nullptr;
     SearchPromptBuilder         nlPromptBuilder;
     SearchIntentParser          nlParser;
     SearchCapabilityDictionary  nlDictionary;
-    SearchIntentResolver*       nlResolver      = nullptr;
+    SearchIntentResolver*       nlResolver              = nullptr;
     SearchQueryCache            nlCache;
-    DOnlineTranslator*          nlTranslator    = nullptr;
+    DOnlineTranslator*          nlTranslator            = nullptr;
 
     QString                     pendingNlText;
-    bool                        nlTranslate     = false;
-    bool                        nlFromDialog    = false;
-    bool pendingOkAfterInterpret = false;
+    bool                        nlTranslate             = false;
+    bool                        nlFromDialog            = false;
+    bool                        pendingOkAfterInterpret = false;
 
-    SearchQueryIntent nlLastIntent;
-    QString nlCommittedXml;
+    SearchQueryIntent           nlLastIntent;
+    QString                     nlCommittedXml;
 };
 
 SearchWindow::SearchWindow()
     : QWidget(nullptr),
       d      (new Private)
 {
-    QVBoxLayout* const layout = new QVBoxLayout;
+    QVBoxLayout* const layout   = new QVBoxLayout;
 
     QWidget* const nlPanel      = new QWidget(this);
     QVBoxLayout* const nlLayout = new QVBoxLayout(nlPanel);
@@ -124,6 +121,7 @@ SearchWindow::SearchWindow()
 #ifdef HAVE_LLAMACPP
 
     // Ready state: the describe box, shown when the model is present.
+
     d->nlReadyPanel             = new QWidget(nlPanel);
     QVBoxLayout* const readyLay = new QVBoxLayout(d->nlReadyPanel);
     readyLay->setContentsMargins(0, 0, 0, 0);
@@ -150,7 +148,8 @@ SearchWindow::SearchWindow()
                 d->nlSpinnerIndex = (d->nlSpinnerIndex + 1) % d->nlSpinnerPix->frameCount();
                 d->nlSpinnerLabel->setPixmap(d->nlSpinnerPix->frameAt(d->nlSpinnerIndex));
             }
-        });
+        }
+    );
 
     d->translateCheck           = new QCheckBox(i18n("Translate my query to English first"), d->nlReadyPanel);
     d->translateCheck->setChecked(d->nlTranslate);
@@ -168,6 +167,7 @@ SearchWindow::SearchWindow()
     readyLay->addWidget(d->translateCheck);
 
     // Download state: shown when llama.cpp is built but the model is missing.
+
     d->nlDownloadPanel          = new QWidget(nlPanel);
     QVBoxLayout* const dlLay    = new QVBoxLayout(d->nlDownloadPanel);
     dlLay->setContentsMargins(0, 0, 0, 0);
@@ -190,12 +190,12 @@ SearchWindow::SearchWindow()
 
     updateNlPanelState();
 
-#else
+#else  // HAVE_LLAMACPP
 
     Q_UNUSED(nlLayout);
     nlPanel->hide();
 
-#endif
+#endif // HAVE_LLAMACPP
 
     layout->addWidget(nlPanel);
 
@@ -232,8 +232,8 @@ SearchWindow::SearchWindow()
     }
 
     QRect srect = screen->availableGeometry();
-    QSize wsize = QSize(1024 <= srect.width()  ? 1024 : srect.width(),
-                         800 <= srect.height() ?  800 : srect.height());
+    QSize wsize = QSize((1024 <= srect.width())  ? 1024 : srect.width(),
+                        (800  <= srect.height()) ?  800 : srect.height());
 
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup group      = config->group(QLatin1String("AdvancedSearch Widget"));
@@ -259,13 +259,14 @@ SearchWindow::SearchWindow()
 
     connect(d->translateCheck, &QCheckBox::toggled,
             this, [this](bool on)
-            {
-                d->nlTranslate          = on;
-                KSharedConfigPtr config = KSharedConfig::openConfig();
-                KConfigGroup group      = config->group(QLatin1String("NL Search Settings"));
-                group.writeEntry(QLatin1String("Translate Queries"), on);
-                group.sync();
-            });
+        {
+            d->nlTranslate          = on;
+            KSharedConfigPtr config = KSharedConfig::openConfig();
+            KConfigGroup group      = config->group(QLatin1String("NL Search Settings"));
+            group.writeEntry(QLatin1String("Translate Queries"), on);
+            group.sync();
+        }
+    );
 
     setupNlSearch();
 
@@ -279,7 +280,7 @@ SearchWindow::~SearchWindow()
     KConfigGroup group      = config->group(QLatin1String("AdvancedSearch Widget"));
     group.writeEntry(QLatin1String("Widget Size"), size());
 
-    delete d->nlResolver;     
+    delete d->nlResolver;
 
     delete d;
 }
@@ -297,7 +298,7 @@ void SearchWindow::reset()
     d->currentId     = -1;
     d->hasTouchedXml = false;
     d->oldXml.clear();
-    d->nlCommittedXml.clear();          
+    d->nlCommittedXml.clear();
     d->searchView->read(QString());
 }
 
@@ -308,27 +309,37 @@ QString SearchWindow::search() const
 
 void SearchWindow::searchOk()
 {
-    if (!isVisible()) { return; }
-
-    const QString describe = d->describeEdit->text().trimmed();
-    if (!describe.isEmpty() && d->nlCommittedXml.isEmpty())
+    if (!isVisible())
     {
-        d->nlFromDialog = true;
-        d->pendingOkAfterInterpret = true;   
-        startInterpretation(describe);
-        return;                              
+        return;
     }
 
-    QString xml = d->nlCommittedXml.isEmpty() ? search() : d->nlCommittedXml;
-    if (xml.contains(QLatin1String("<group/>")) ||
-        xml.contains(QLatin1String("<group></group>")))
+    const QString describe = d->describeEdit->text().trimmed();
+
+    if (!describe.isEmpty() && d->nlCommittedXml.isEmpty())
+    {
+        d->nlFromDialog            = true;
+        d->pendingOkAfterInterpret = true;
+        startInterpretation(describe);
+
+        return;
+    }
+
+    QString xml = (d->nlCommittedXml.isEmpty() ? search() : d->nlCommittedXml);
+
+    if (
+        xml.contains(QLatin1String("<group/>")) ||
+        xml.contains(QLatin1String("<group></group>"))
+       )
     {
         hide();
         return;
     }
 
     d->hasTouchedXml = true;
+
     Q_EMIT searchEdited(d->currentId, xml);
+
     hide();
 }
 
@@ -348,10 +359,14 @@ void SearchWindow::searchCancel()
 
 void SearchWindow::searchTryout()
 {
-    if (!isVisible()) { return; }
+    if (!isVisible())
+    {
+        return;
+    }
 
     // If the user has typed a natural-language description, interpret that
     // instead of running the (possibly empty) structured form.
+
     if (d->describeEdit)
     {
         const QString describe = d->describeEdit->text().trimmed();
@@ -366,22 +381,27 @@ void SearchWindow::searchTryout()
     }
 
     const QString xml = search();
-    
-    if (xml.contains(QLatin1String("<group/>")) ||
-        xml.contains(QLatin1String("<group></group>")))
+
+    if (
+        xml.contains(QLatin1String("<group/>")) ||
+        xml.contains(QLatin1String("<group></group>"))
+       )
     {
         return;   // not to let an empty tryout overwrite committed results
     }
 
     qCDebug(DIGIKAM_GENERAL_LOG) << "SearchWindow: search tryout";
     d->hasTouchedXml = true;
+
     Q_EMIT searchEdited(d->currentId, xml);
 }
 
 void SearchWindow::keyPressEvent(QKeyEvent* e)
 {
-    if (d->describeEdit && d->describeEdit->hasFocus() &&
-        ((e->key() == Qt::Key_Return) || (e->key() == Qt::Key_Enter)))
+    if (
+        d->describeEdit && d->describeEdit->hasFocus() &&
+        ((e->key() == Qt::Key_Return) || (e->key() == Qt::Key_Enter))
+       )
     {
         QWidget::keyPressEvent(e);
         return;
@@ -420,49 +440,49 @@ void SearchWindow::setupNlSearch()
 {
     d->nlResolver = new SearchIntentResolver(&d->nlDictionary);
  
-    #ifdef HAVE_LLAMACPP
+#ifdef HAVE_LLAMACPP
 
         if (SearchNlModelManager::isModelAvailable())
         {
             SearchLlamaBackend* const llamaBackend = new SearchLlamaBackend(this);
             llamaBackend->loadModel(SearchNlModelManager::defaultModelPath());
-            d->nlBackend = llamaBackend;
+            d->nlBackend                           = llamaBackend;
 
             qCInfo(DIGIKAM_NLSEARCH_LOG) << "NL search: using llama.cpp backend";
         }
         else
 
-    #endif
+#endif
 
         {
             d->nlBackend = new SearchMockBackend(this);
             d->nlBackend->loadModel(QString());
 
             qCInfo(DIGIKAM_NLSEARCH_LOG) << "NL search: using mock backend"
-                                        << "(model not available or built without llama.cpp)";
+                                         << "(model not available or built without llama.cpp)";
         }
- 
+
     d->nlEngine   = new SearchQueryEngine(this);
     d->nlEngine->setBackend(d->nlBackend);
     d->nlEngine->setPromptBuilder(&d->nlPromptBuilder);
     d->nlEngine->setParser(&d->nlParser);
     d->nlEngine->setResolver(d->nlResolver);
     d->nlEngine->setCache(&d->nlCache);
- 
+
     // TODO: collection-aware prompt hints
- 
+
     connect(d->nlEngine, &SearchQueryEngine::signalIntentReady,
             this, &SearchWindow::slotNlIntentReady);
- 
+
     connect(d->nlEngine, &SearchQueryEngine::signalClarificationRequired,
             this, &SearchWindow::slotNlClarificationRequired);
- 
+
     connect(d->nlEngine, &SearchQueryEngine::signalErrorOccurred,
             this, &SearchWindow::slotNlError);
- 
+
     connect(d->nlEngine, &SearchQueryEngine::signalStatusMessage,
             this, &SearchWindow::slotNlStatus);
- 
+
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup group      = config->group(QLatin1String("NL Search Settings"));
     d->nlTranslate          = group.readEntry(QLatin1String("Translate Queries"), false);
@@ -472,24 +492,28 @@ void SearchWindow::setupNlSearch()
         d->translateCheck->setChecked(d->nlTranslate);
     }
 }
- 
+
 SearchQueryEngine* SearchWindow::queryEngine() const
 {
     return d->nlEngine;
 }
- 
+
 void SearchWindow::slotDescribeSearchSubmitted()
 {
     const QString text = d->describeEdit->text().trimmed();
-    if (text.isEmpty()) { return; }
 
-    d->nlFromDialog = true;          
+    if (text.isEmpty())
+    {
+        return;
+    }
+
+    d->nlFromDialog = true;
     startInterpretation(text);
 }
- 
+
 void SearchWindow::startInterpretation(const QString& text)
 {
-    d->pendingNlText = text;
+    d->pendingNlText  = text;
 
     d->nlStatusLabel->setAutoFillBackground(false);
     d->nlStatusLabel->setText(i18n("Interpreting the search..."));
@@ -502,6 +526,7 @@ void SearchWindow::startInterpretation(const QString& text)
     {
         // Translation disabled: pass the original text straight through.
         // Empty normalizedText makes the engine reuse the original.
+
         d->nlEngine->slotInterpretQuery(text, QString());
 
         return;
@@ -509,6 +534,7 @@ void SearchWindow::startInterpretation(const QString& text)
 
     // Translation enabled: normalize the query to English first, then
     // interpret. On failure we fall back to the original in the finished slot.
+
     if (!d->nlTranslator)
     {
         d->nlTranslator = new DOnlineTranslator(this);
@@ -522,18 +548,21 @@ void SearchWindow::startInterpretation(const QString& text)
                                DOnlineTranslator::English,   // translate INTO English
                                DOnlineTranslator::Auto);     // auto-detect source
 }
- 
+
 void SearchWindow::slotTranslationFinished()
 {
     QString normalized;
 
-    if (d->nlTranslator &&
-        (d->nlTranslator->error() == DOnlineTranslator::NoError))
+    if (
+        d->nlTranslator &&
+        (d->nlTranslator->error() == DOnlineTranslator::NoError)
+       )
     {
         const QString translated = d->nlTranslator->translation();
 
         // Only use the translation if it actually produced something and
         // differs from the source; otherwise fall back to the original.
+
         if (!translated.isEmpty())
         {
             normalized = translated;
@@ -542,9 +571,10 @@ void SearchWindow::slotTranslationFinished()
 
     // normalized may be empty here (translation disabled/failed/no-op),
     // in which case the engine reuses the original pendingNlText.
+
     d->nlEngine->slotInterpretQuery(d->pendingNlText, normalized);
 }
- 
+
 void SearchWindow::slotNlIntentReady(const SearchQueryIntent& intent)
 {
     d->nlSpinnerTimer->stop();
@@ -562,6 +592,7 @@ void SearchWindow::slotNlIntentReady(const SearchQueryIntent& intent)
         if (!d->nlCommittedXml.isEmpty())
         {
             d->hasTouchedXml = true;
+
             Q_EMIT searchEdited(d->currentId, d->nlCommittedXml);
         }
 
@@ -572,7 +603,7 @@ void SearchWindow::slotNlIntentReady(const SearchQueryIntent& intent)
         }
     }
 }
- 
+
 void SearchWindow::slotNlClarificationRequired(const SearchQueryIntent& intent)
 {
     d->nlSpinnerTimer->stop();
@@ -589,6 +620,7 @@ void SearchWindow::slotNlClarificationRequired(const SearchQueryIntent& intent)
     }
 
     // Build one action per option, stashing its index in the action data.
+
     for (int i = 0 ; i < intent.clarificationOptions.size() ; ++i)
     {
         QAction* const a = menu.addAction(intent.clarificationOptions.at(i).displayText);
@@ -608,6 +640,7 @@ void SearchWindow::slotNlClarificationRequired(const SearchQueryIntent& intent)
 
             // Apply the chosen meaning directly - no second inference pass,
             // so the ambiguous word can't re-trigger clarification.
+
             SearchQueryIntent resolved;
             resolved.parseSucceeded = true;
             resolved.originalQuery  = intent.originalQuery;
@@ -623,7 +656,7 @@ void SearchWindow::slotNlClarificationRequired(const SearchQueryIntent& intent)
         }
     }
 }
- 
+
 void SearchWindow::slotNlError(const QString& message)
 {
     d->nlSpinnerTimer->stop();
@@ -633,20 +666,20 @@ void SearchWindow::slotNlError(const QString& message)
     d->nlStatusLabel->setText(message);
 
     QPalette pal = d->nlStatusLabel->palette();
-    pal.setColor(QPalette::Active, QPalette::Window, QColor(220, 140, 140));   
+    pal.setColor(QPalette::Active, QPalette::Window, QColor(220, 140, 140));
     pal.setColor(QPalette::Active, QPalette::WindowText, Qt::black);
     d->nlStatusLabel->setPalette(pal);
     d->nlStatusLabel->setAutoFillBackground(true);
 
     d->nlStatusLabel->show();
 }
- 
+
 void SearchWindow::slotNlStatus(const QString& message)
 {
     d->nlStatusLabel->setText(message);
     d->nlStatusLabel->show();
 }
- 
+
 void SearchWindow::applyResolvedIntent(const SearchQueryIntent& intent)
 {
     const QString xml = intentToXml(intent);
@@ -676,7 +709,7 @@ void SearchWindow::applyResolvedIntent(const SearchQueryIntent& intent)
     d->searchView->read(xml);
     d->nlCommittedXml = xml;
 }
- 
+
 QString SearchWindow::intentToXml(const SearchQueryIntent& intent) const
 {
     SearchXmlWriter writer;
@@ -694,11 +727,11 @@ QString SearchWindow::intentToXml(const SearchQueryIntent& intent) const
 
     return xml;
 }
- 
+
 void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
                                         const SearchQueryConstraint& c) const
 {
-    if (c.field == QLatin1String("tag"))
+    if      (c.field == QLatin1String("tag"))
     {
         QList<int> ids = TagsCache::instance()->tagsForName(c.value);
 
@@ -733,7 +766,8 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
     }
     else if (c.field == QLatin1String("colorlabel"))
     {
-        static const QMap<QString, int> nameToEnum = {
+        static const QMap<QString, int> nameToEnum =
+        {
             { QLatin1String("none"),    NoColorLabel },
             { QLatin1String("red"),     RedLabel     },
             { QLatin1String("orange"),  OrangeLabel  },
@@ -796,7 +830,8 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
     }
     else if (c.field == QLatin1String("picklabel"))
     {
-        static const QMap<QString, int> nameToEnum = {
+        static const QMap<QString, int> nameToEnum =
+        {
             { QLatin1String("none"),     NoPickLabel   },
             { QLatin1String("rejected"), RejectedLabel },
             { QLatin1String("pending"),  PendingLabel  },
@@ -874,7 +909,12 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
         writer.writeGroup();
         writer.setDefaultFieldOperator(SearchXml::Or);
 
-        const char* const locFields[] = { "city", "country", "location" };
+        const char* const locFields[] =
+        {
+            "city",
+            "country",
+            "location"
+        };
 
         for (const char* const lf : locFields)
         {
@@ -883,6 +923,7 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
             // The model lowercases values, but location values are stored with
             // their original case. Match the value against the collection's
             // known values case-insensitively and emit the stored spelling.
+
             const QStringList known = CoreDbAccess().db()->getAllImagePropertiesByName(field);
 
             for (const QString& kv : known)
@@ -903,22 +944,23 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
     {
         auto toSeconds = [](const QString& token, bool* ok) -> int
         {
-            QString t = token.trimmed();
-            int mult = 1;
+            QString t   = token.trimmed();
+            int mult    = 1;
 
             if      (t.endsWith(QLatin1Char('m'))) { mult = 60; t.chop(1); }
             else if (t.endsWith(QLatin1Char('s'))) { mult = 1;  t.chop(1); }
 
             const int n = t.toInt(ok);
-            return n * mult;
+
+            return (n * mult);
         };
 
         const QStringList parts = c.value.split(QLatin1String(".."));
 
         if (parts.size() == 2)
         {
-            bool okLo = false;
-            bool okHi = false;
+            bool okLo    = false;
+            bool okHi    = false;
             const int lo = toSeconds(parts.at(0), &okLo);
             const int hi = toSeconds(parts.at(1), &okHi);
 
@@ -936,8 +978,8 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
 
         if (parts.size() == 2)
         {
-            bool okLo = false;
-            bool okHi = false;
+            bool okLo       = false;
+            bool okHi       = false;
             const double lo = parts.at(0).toDouble(&okLo);
             const double hi = parts.at(1).toDouble(&okHi);
 
@@ -955,8 +997,8 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
 
         if (parts.size() == 2)
         {
-            bool okLo = false;
-            bool okHi = false;
+            bool okLo    = false;
+            bool okHi    = false;
             const int lo = parts.at(0).toInt(&okLo);
             const int hi = parts.at(1).toInt(&okHi);
 
@@ -977,6 +1019,7 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
             // RAW files are stored as "RAW-<EXT>" (RAW-CR2, RAW-NEF, ...).
             // Match by wildcard the way digiKam's own MIME filter does with
             // startsWith("RAW").
+
             writer.writeField(QLatin1String("format"), SearchXml::Like);
             writer.writeValue(QLatin1String("RAW*"));
             writer.finishField();
@@ -997,6 +1040,7 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
 
 void SearchWindow::updateNlPanelState()
 {
+
 #ifdef HAVE_LLAMACPP
 
     const bool ready = SearchNlModelManager::isModelAvailable();
@@ -1005,10 +1049,12 @@ void SearchWindow::updateNlPanelState()
     if (d->nlDownloadPanel) { d->nlDownloadPanel->setVisible(!ready); }
 
 #endif
+
 }
 
 void SearchWindow::slotDownloadNlModel()
 {
+
 #ifdef HAVE_LLAMACPP
 
     QPointer<FilesDownloader> floader = new FilesDownloader(this);
@@ -1019,7 +1065,7 @@ void SearchWindow::slotDownloadNlModel()
     {
         SearchLlamaBackend* const llamaBackend = new SearchLlamaBackend(this);
         llamaBackend->loadModel(SearchNlModelManager::defaultModelPath());
-        d->nlBackend = llamaBackend;
+        d->nlBackend                           = llamaBackend;
         d->nlEngine->setBackend(d->nlBackend);
 
         qCInfo(DIGIKAM_NLSEARCH_LOG) << "NL search: llama.cpp backend loaded after download";
@@ -1028,6 +1074,7 @@ void SearchWindow::slotDownloadNlModel()
     updateNlPanelState();
 
 #endif
+
 }
 
 } // namespace Digikam
