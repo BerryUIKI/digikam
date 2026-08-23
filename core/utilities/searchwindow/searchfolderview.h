@@ -25,10 +25,8 @@ namespace Digikam
 {
 
 /**
- * Tree view for all saved "normal" searches. Allows editing and creating
+ * @brief Tree view for all saved "normal" searches. Allows editing and creating
  * searches in the context menu.
- *
- * @author jwienke
  */
 class NormalSearchTreeView : public EditableSearchTreeView
 {
@@ -37,7 +35,7 @@ class NormalSearchTreeView : public EditableSearchTreeView
 public:
 
     /**
-     * Constructor.
+     * @brief Constructor.
      *
      * @param parent qt parent
      * @param searchModel the model this view should act on
@@ -49,26 +47,26 @@ public:
                          SearchModificationHelper* const searchModificationHelper);
 
     /**
-     * Destructor.
+     * @brief Destructor.
      */
-    ~NormalSearchTreeView() override;
+    ~NormalSearchTreeView()                                                               override;
 
 Q_SIGNALS:
 
     /**
-     * Emitted of a new search shall be created.
+     * @brief Emitted of a new search shall be created.
      */
     void newSearch();
 
     /**
-     * Emitted if the given search shall be copied.
+     * @brief Emitted if the given search shall be copied.
      *
      * @param album search to copy
      */
     void copySearch(SAlbum* album);
 
     /**
-     * Emitted if the given search shall be edited.
+     * @brief Emitted if the given search shall be edited.
      *
      * @param album search to edit
      */

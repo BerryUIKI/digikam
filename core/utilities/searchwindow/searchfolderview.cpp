@@ -45,7 +45,6 @@ public:
     QAction* newAction  = nullptr;
     QAction* copyAction = nullptr;
     QAction* editAction = nullptr;
-
 };
 
 NormalSearchTreeView::NormalSearchTreeView(QWidget* const parent,
