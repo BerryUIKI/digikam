@@ -19,6 +19,15 @@
 #include <QObject>
 #include <QTest>
 #include <QDir>
+#include <QHash>
+#include <QList>
+
+// Local includes
+
+#include "album.h"
+#include "iteminfo.h"
+
+using namespace Digikam;
 
 /**
  * Unit tests for HaarIface class in core/libs/database/haar/haariface
@@ -47,6 +56,10 @@ private Q_SLOTS:
     void testReferenceFolderPartlySelected();
 
 private:
+
+    void startSearchingDuplicates(const AlbumList& searchAlbums, const AlbumList& tags,
+                                  const auto refImageSelMethod, const AlbumList& referenceAlbums,
+                                  QHash<QString, QList<ItemInfo> >& references);
 
     void startSqlite(const QDir& dbDir);
     void stopSql();
