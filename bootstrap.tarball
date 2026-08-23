@@ -7,7 +7,7 @@
 
 # Configuration to tune before to build tarball.
 
-TARBALL_VERSION="9.0.0"
+TARBALL_VERSION="9.2.0"
 
 # Location to host target files.
 TARBALL_DIR="$PWD/../digikam-$TARBALL_VERSION"
@@ -41,6 +41,7 @@ cmake -G "Unix Makefiles" . \
       -DENABLE_MEDIAPLAYER=OFF \
       -DENABLE_DBUS=OFF \
       -DENABLE_APPSTYLES=OFF \
+      -DENABLE_NLSEARCH_LLAMACPP=OFF \
       -Wno-dev \
       .. || exit 1
 
