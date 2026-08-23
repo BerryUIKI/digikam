@@ -21,7 +21,7 @@
 // Local includes
 
 #include "coredbalbuminfo.h"
-#include "searchqueryintent.h" 
+#include "searchqueryintent.h"
 
 namespace Digikam
 {
@@ -37,7 +37,7 @@ class SearchTabHeader : public QWidget
 public:
 
     explicit SearchTabHeader(QWidget* const parent);
-    ~SearchTabHeader() override;
+    ~SearchTabHeader()                                                override;
 
 public Q_SLOTS:
 
@@ -70,10 +70,13 @@ private Q_SLOTS:
 
 private:
 
-    void          setCurrentSearch(DatabaseSearch::Type type, const QString& query, bool selectCurrentAlbum = true);
-    QString       queryFromKeywords(const QString& keywords) const;
-    QString       keywordsFromQuery(const QString& query) const;
-    SearchWindow* searchWindow() const;
+    void          setCurrentSearch(DatabaseSearch::Type type,
+                                   const QString& query,
+                                   bool selectCurrentAlbum = true);
+
+    QString       queryFromKeywords(const QString& keywords)    const;
+    QString       keywordsFromQuery(const QString& query)       const;
+    SearchWindow* searchWindow()                                const;
 
 private:
 

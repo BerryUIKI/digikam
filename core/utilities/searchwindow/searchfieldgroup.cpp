@@ -82,7 +82,7 @@ SearchField* SearchFieldGroup::fieldForName(const QString& fieldName) const
     for (SearchField* const field : std::as_const(m_fields))
     {
         if (field->supportsField(fieldName))
-        {    // cppcheck-suppress useStlAlgorithm
+        {   // cppcheck-suppress useStlAlgorithm
             return field;
         }
     }

@@ -48,7 +48,6 @@
 #include "searchwindow.h"
 #include "coredbsearchxml.h"
 #include "dexpanderbox.h"
-
 #include "searchqueryengine.h"
 
 namespace Digikam
@@ -165,6 +164,8 @@ public:
 
     Private() = default;
 
+public:
+
     QGroupBox*          newSearchWidget         = nullptr;
     QGroupBox*          saveAsWidget            = nullptr;
     QGroupBox*          editSimpleWidget        = nullptr;
@@ -194,7 +195,6 @@ public:
     QString             oldKeywordContent;
     QString             oldStoredKeywordContent;
 
-    
     QToolButton*        nlInterpretButton       = nullptr;
     QGroupBox*          nlInterpretedPanel      = nullptr;
     QLabel*             nlInterpretedLabel      = nullptr;
@@ -210,25 +210,24 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
     : QWidget(parent),
       d      (new Private)
 {
-    const int spacing = layoutSpacing();
-
+    const int spacing             = layoutSpacing();
     QVBoxLayout* const mainLayout = new QVBoxLayout(this);
     mainLayout->setContentsMargins(QMargins());
     setLayout(mainLayout);
 
     // upper part
 
-    d->newSearchWidget      = new QGroupBox(this);
+    d->newSearchWidget            = new QGroupBox(this);
     mainLayout->addWidget(d->newSearchWidget);
 
     // lower part
 
-    d->lowerArea            = new QStackedLayout;
+    d->lowerArea                  = new QStackedLayout;
     mainLayout->addLayout(d->lowerArea);
 
-    d->saveAsWidget         = new QGroupBox(this);
-    d->editSimpleWidget     = new QGroupBox(this);
-    d->editAdvancedWidget   = new QGroupBox(this);
+    d->saveAsWidget               = new QGroupBox(this);
+    d->editSimpleWidget           = new QGroupBox(this);
+    d->editAdvancedWidget         = new QGroupBox(this);
     d->lowerArea->addWidget(d->saveAsWidget);
     d->lowerArea->addWidget(d->editSimpleWidget);
     d->lowerArea->addWidget(d->editAdvancedWidget);
@@ -483,14 +482,14 @@ void SearchTabHeader::selectedSearchChanged(Album* a)
     }
 }
 
-void SearchTabHeader::copySearch(SAlbum* album)
+void SearchTabHeader::copySearch(SAlbum* album)         // cppcheck-suppress constParameterPointer
 {
     if (!album)
     {
         return;
     }
 
-    if  (album->isAdvancedSearch())
+    if (album->isAdvancedSearch())
     {
         SAlbum* const salbum = AlbumManager::instance()->findSAlbum(SAlbum::getTemporaryTitle(DatabaseSearch::AdvancedSearch));
 
@@ -507,7 +506,7 @@ void SearchTabHeader::copySearch(SAlbum* album)
     }
 }
 
-void SearchTabHeader::editSearch(SAlbum* album)
+void SearchTabHeader::editSearch(SAlbum* album)         // cppcheck-suppress constParameterPointer
 {
     if (!album)
     {
@@ -677,8 +676,8 @@ void SearchTabHeader::advancedSearchEdited(int id, const QString& query)
     // We go the hard way and check this case.
 
     KeywordSearchReader check(query);
-    DatabaseSearch::Type type = check.isSimpleKeywordSearch() ? DatabaseSearch::KeywordSearch
-                                                              : DatabaseSearch::AdvancedSearch;
+    DatabaseSearch::Type type = (check.isSimpleKeywordSearch() ? DatabaseSearch::KeywordSearch
+                                                               : DatabaseSearch::AdvancedSearch);
 
     if (id == -1)
     {
@@ -749,11 +748,13 @@ void SearchTabHeader::slotNlInterpretClicked()
 
     // Claim this text so the keyword edit's editingFinished/timer paths
     // treat it as already-handled and don't fire a racing keyword search.
+
     d->oldKeywordContent = d->keywordEdit->getText();
     d->keywordEditTimer->stop();
 
     // searchWindow() lazily creates the dialog (and with it the one
     // shared engine  model). Connections are made once, on first use.
+
     SearchWindow* const window = searchWindow();
 
     if (!d->nlConnected)
@@ -779,17 +780,18 @@ void SearchTabHeader::slotNlIntentReady(const SearchQueryIntent& intent)
     d->nlInterpretButton->setEnabled(true);
     d->nlPendingIntent = intent;
 
-    d->nlOpenAdvancedButton->setVisible(true);  
+    d->nlOpenAdvancedButton->setVisible(true);
     d->nlRunNowButton->setVisible(true);
 
     QStringList lines;
+
     for (const SearchQueryConstraint& c : intent.constraints)
     {
         lines << QString::fromLatin1("%1: %2").arg(c.field, c.value);
     }
+
     d->nlInterpretedLabel->setText(i18n("Interpreted as:\n%1", lines.join(QLatin1Char('\n'))));
     d->nlInterpretedPanel->show();
-
 }
 
 void SearchTabHeader::slotNlClarificationRequired(const SearchQueryIntent& intent)
@@ -800,6 +802,7 @@ void SearchTabHeader::slotNlClarificationRequired(const SearchQueryIntent& inten
 
     // Ambiguity needs the full dialog: its clarification UI takes over.
     // The dialog's own describe field re-runs the query there.
+
     SearchWindow* const window = searchWindow();
     window->show();
     window->raise();
@@ -817,7 +820,11 @@ void SearchTabHeader::slotNlError(const QString& message)
 
 void SearchTabHeader::slotNlRunNow()
 {
-    if (d->nlPendingIntent.isEmpty()) { return; }
+    if (d->nlPendingIntent.isEmpty())
+    {
+        return;
+    }
+
     const QString xml = searchWindow()->intentToXml(d->nlPendingIntent);
     searchWindow()->hide();   
     setCurrentSearch(DatabaseSearch::AdvancedSearch, xml);
@@ -838,7 +845,6 @@ void SearchTabHeader::slotNlOpenAdvanced()
     window->raise();
     d->nlInterpretedPanel->hide();
 }
-
 
 } // namespace Digikam
 
