@@ -63,34 +63,34 @@ public:
     ~VisibilityController() override;
 
     /**
-     * Set the widget containing the widgets added to this controller
+     * @brief set the widget containing the widgets added to this controller
      */
     void setContainerWidget(QWidget* const widget);
 
     /**
-     * Add a widget to this controller.
+     * @brief add a widget to this controller.
      */
     void addWidget(QWidget* const widget);
 
     /**
-     * Add an object implementing the VisibilityObject interface.
+     * @brief add an object implementing the VisibilityObject interface.
      * You can use this if you have your widgets grouped in intermediate objects.
      */
     void addObject(VisibilityObject* const object);
 
     /**
-     * Returns true if the contained objects are visible or becoming visible.
+     * @return true if the contained objects are visible or becoming visible.
      */
     bool isVisible() const;
 
 public Q_SLOTS:
 
-    /// Shows/hides all added objects
+    /// @brief shows/hides all added objects
     void setVisible(bool visible);
     void show();
     void hide();
 
-    /// Shows if hidden and hides if visible.
+    /// @brief shows if hidden and hides if visible.
     void triggerVisibility();
 
 protected:

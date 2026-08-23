@@ -23,6 +23,8 @@ public:
 
     Private() = default;
 
+public:
+
     VisibilityController::Status status             = VisibilityController::Unknown;
     QList<VisibilityObject*>     objects;
     QWidget*                     containerWidget    = nullptr;
@@ -50,6 +52,8 @@ public:
     {
         return m_widget->isVisible();
     }
+
+public:
 
     QWidget* m_widget = nullptr;
 };
@@ -179,6 +183,7 @@ void VisibilityController::step()
             if (!o->isVisible())
             {   // cppcheck-suppress useStlAlgorithm
                 o->setVisible(true);
+
                 return;
             }
         }
@@ -190,6 +195,7 @@ void VisibilityController::step()
             if (o->isVisible())
             {   // cppcheck-suppress useStlAlgorithm
                 o->setVisible(false);
+
                 return;
             }
         }
