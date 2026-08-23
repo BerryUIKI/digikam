@@ -43,36 +43,39 @@ public:
 
     explicit AnimatedClearButton(QWidget* const parent = nullptr);
 
-    QSize sizeHint() const override;
+public:
+
+    QSize sizeHint()                            const override;
 
     void setPixmap(const QPixmap& p);
-    QPixmap pixmap() const;
+    QPixmap pixmap()                            const;
 
     /**
-     * Sets a primary condition for the button to be shown.
+     * @brief sets a primary condition for the button to be shown.
      * If false, animateVisible() will have no effect.
      */
     void setShallBeShown(bool show);
 
-    /** This parameter determines the behavior when the animation
-     *  to hide the widget has finished:
-     *  If stayVisible is true, the widget remains visible,
-     *  but paints nothing.
-     *  If stayVisible is false, setVisible(false) is called,
-     *  which removes the widget for layouting etc.
-     *  Default: false
+    /**
+     * @brief This parameter determines the behavior when the animation
+     * to hide the widget has finished:
+     * if stayVisible is true, the widget remains visible,
+     * but paints nothing.
+     * If stayVisible is false, setVisible(false) is called,
+     * which removes the widget for layouting etc.
+     * Default: false
      */
     void stayVisibleWhenAnimatedOut(bool stayVisible);
 
 public Q_SLOTS:
 
-    /// Set visible, possibly with animation
+    /// @brief Set visible, possibly with animation
     void animateVisible(bool visible);
 
-    /// Set visible without animation
+    /// @brief Set visible without animation
     void setDirectlyVisible(bool visible);
 
-    /// Set enabled state for drawing the pixmap
+    /// @brief Set enabled state for drawing the pixmap
     void slotPixmapEnabled(bool b);
 
 Q_SIGNALS:
@@ -82,7 +85,7 @@ Q_SIGNALS:
 
 protected:
 
-    void paintEvent(QPaintEvent* event)        override;
+    void paintEvent(QPaintEvent* event)               override;
     void mouseReleaseEvent(QMouseEvent* event) override;
 
 protected Q_SLOTS:
@@ -105,15 +108,17 @@ class CustomStepsDoubleSpinBox : public QDoubleSpinBox
 public:
 
     /**
-     * This is a normal QDoubleSpinBox which allows to
+     * @brief This is a normal QDoubleSpinBox which allows to
      * customize the stepping behavior, for cases where
      * linear steps are not applicable
      */
     explicit CustomStepsDoubleSpinBox(QWidget* const parent = nullptr);
-    ~CustomStepsDoubleSpinBox() override;
+    ~CustomStepsDoubleSpinBox()     override;
+
+public:
 
     /**
-     * Set a list of values that are usually applicable for the
+     * @brief Set a list of values that are usually applicable for the
      * type of data of the combo box. The user can still type in
      * any other value. Boundaries are not touched.
      * Up or below the min and max values of the list given,
@@ -122,13 +127,13 @@ public:
     void setSuggestedValues(const QList<double>& values);
 
     /**
-     * Sets the value that should be set as first value
+     * @brief Sets the value that should be set as first value
      * when first moving away from the minimum value.
      */
     void setSuggestedInitialValue(double initialValue);
 
     /**
-     * Allows to set to different default single steps,
+     * @brief Allows to set to different default single steps,
      * for the range below m_values, the other for above.
      */
     void setSingleSteps(double smaller, double larger);
@@ -136,11 +141,11 @@ public:
     void setInvertStepping(bool invert);
 
     /**
-     * Resets to minimum value.
+     * @brief Resets to minimum value.
      */
     void reset();
 
-    void stepBy(int steps) override;
+    void stepBy(int steps)          override;
 
 private Q_SLOTS:
 
@@ -161,15 +166,17 @@ class CustomStepsIntSpinBox : public QSpinBox
 public:
 
     /**
-     * This is a normal QIntSpinBox which allows to
+     * @brief This is a normal QIntSpinBox which allows to
      * customize the stepping behavior, for cases where
      * linear steps are not applicable
      */
     explicit CustomStepsIntSpinBox(QWidget* const parent = nullptr);
-    ~CustomStepsIntSpinBox() override;
+    ~CustomStepsIntSpinBox()                      override;
+
+public:
 
     /**
-     * Set a list of values that are usually applicable for the
+     * @brief Set a list of values that are usually applicable for the
      * type of data of the combo box. The user can still type in
      * any other value. Boundaries are not touched.
      * Up or below the min and max values of the list given,
@@ -178,13 +185,13 @@ public:
     void setSuggestedValues(const QList<int>& values);
 
     /**
-     * Sets the value that should be set as first value
+     * @brief Sets the value that should be set as first value
      * when first moving away from the minimum value.
      */
     void setSuggestedInitialValue(int initialValue);
 
     /**
-     * Allows to set to different default single steps,
+     * @brief Allows to set to different default single steps,
      * for the range below m_values, the other for above.
      */
     void setSingleSteps(int smaller, int larger);
@@ -192,29 +199,29 @@ public:
     void setInvertStepping(bool invert);
 
     /**
-     * Call this with a fraction prefix (like "1/") to enable
+     * @brief Call this with a fraction prefix (like "1/") to enable
      * magic handling of the value as fraction denominator.
      */
     void enableFractionMagic(const QString& prefix);
 
     /**
-     * Resets to minimum value
+     * @brief Resets to minimum value
      */
     void reset();
 
     /**
-     * value() and setValue() for fraction magic value.
+     * @brief getter and setter for fraction magic value.
      */
-    double fractionMagicValue() const;
+    double fractionMagicValue()             const;
     void   setFractionMagicValue(double value);
 
-    void stepBy(int steps) override;
+    void stepBy(int steps)                        override;
 
 protected:
 
-    QString textFromValue(int value) const override;
-    int valueFromText(const QString& text) const override;
-    StepEnabled stepEnabled() const override;
+    QString textFromValue(int value)        const override;
+    int valueFromText(const QString& text)  const override;
+    StepEnabled stepEnabled()               const override;
 
 private Q_SLOTS:
 
@@ -235,7 +242,7 @@ class StyleSheetDebugger : public QWidget
 public:
 
     /**
-     * This widget is for development purpose only:
+     * @brief This widget is for development purpose only:
      * It allows the developer to change the style sheet
      * on a widget dynamically.
      * If you want to develop or debug the stylesheet on your widget,

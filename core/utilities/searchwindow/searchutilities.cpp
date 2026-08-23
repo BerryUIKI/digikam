@@ -87,7 +87,7 @@ QSize AnimatedClearButton::sizeHint() const
 {
     QFontMetrics fm(font());
 
-    return QSize(d->pixmap.width(), fm.lineSpacing());
+    return (QSize(d->pixmap.width(), fm.lineSpacing()));
 }
 
 void AnimatedClearButton::stayVisibleWhenAnimatedOut(bool stayVisible)
@@ -223,12 +223,14 @@ void CustomStepsDoubleSpinBox::stepBy(int steps)
     if (d->values.isEmpty())
     {
         QDoubleSpinBox::stepBy(steps);
+
         return;
     }
 
     if (d->beforeInitialValue && (d->initialValue > minimum()))
     {
         setValue(d->initialValue);
+
         return;
     }
 
@@ -247,6 +249,7 @@ void CustomStepsDoubleSpinBox::stepBy(int steps)
                 if (v <= d->values.at(nextStep))
                 {
                     ++nextStep;
+
                     break;
                 }
             }
@@ -278,6 +281,7 @@ void CustomStepsDoubleSpinBox::stepBy(int steps)
                 if (v >= d->values.at(nextStep))
                 {
                     --nextStep;
+
                     break;
                 }
             }
@@ -395,12 +399,14 @@ void CustomStepsIntSpinBox::stepBy(int steps)
     if (d->values.isEmpty())
     {
         QSpinBox::stepBy(steps);
+
         return;
     }
 
     if (d->beforeInitialValue && d->initialValue > minimum())
     {
         setValue(d->initialValue);
+
         return;
     }
 
@@ -450,6 +456,7 @@ void CustomStepsIntSpinBox::stepBy(int steps)
                 if (v >= d->values.at(nextStep))
                 {
                     --nextStep;
+
                     break;
                 }
             }
@@ -523,7 +530,7 @@ QString CustomStepsIntSpinBox::textFromValue(int value) const
 
     if (value < 0)
     {
-        return d->fractionPrefix + QSpinBox::textFromValue(- value);
+        return (d->fractionPrefix + QSpinBox::textFromValue(- value));
     }
     else
     {
@@ -596,6 +603,7 @@ void CustomStepsIntSpinBox::setFractionMagicValue(double value)
     if (d->fractionPrefix.isNull())
     {
         setValue((int)value);
+
         return;
     }
 
@@ -632,7 +640,7 @@ void CustomStepsIntSpinBox::slotValueChanged(int val)
 // ------------------------------------------------------------------------
 
 StyleSheetDebugger::StyleSheetDebugger(QWidget* const object)
-    : QWidget(nullptr),
+    : QWidget (nullptr),
       m_widget(object)
 {
     setAttribute(Qt::WA_DeleteOnClose);
