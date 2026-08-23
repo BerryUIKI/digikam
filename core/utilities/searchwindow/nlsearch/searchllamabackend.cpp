@@ -27,6 +27,10 @@
 #include <vector>
 #include <QElapsedTimer>
 
+// KDE includes
+
+#include <klocalizedstring.h>
+
 // Local includes
 
 #include "digikam_debug.h"
@@ -184,7 +188,7 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
     {
         qCWarning(DIGIKAM_NLSEARCH_LOG) << "NL search: failed to load model:" << modelPath;
 
-        Q_EMIT signalError(QLatin1String("Failed to load the language model."));
+        Q_EMIT signalError(i18n("Failed to load the language model."));
         Q_EMIT signalLoaded(false);
 
         return;
@@ -193,6 +197,10 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
     // Context window large enough for the prompt and the structured output, and thread counts sized to the machine.
 
     llama_context_params cparams = llama_context_default_params();
+
+    // Context window: the maximum combined prompt + generated tokens the model
+    // holds at once. 4096 comfortably fits the system prompt, the field schema,
+    // collection hints, and the user query, with headroom to spare.
     cparams.n_ctx                = 4096;
     cparams.n_threads            = QThread::idealThreadCount();
     cparams.n_threads_batch      = QThread::idealThreadCount();
@@ -204,7 +212,7 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
         qCWarning(DIGIKAM_NLSEARCH_LOG) << "NL search: failed to create llama context";
         llama_model_free(model);
 
-        Q_EMIT signalError(QLatin1String("Failed to initialize the model context."));
+        Q_EMIT signalError(i18n("Failed to initialize the model context."));
         Q_EMIT signalLoaded(false);
 
         return;
@@ -218,7 +226,7 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
 #else
 
     Q_UNUSED(modelPath);
-    Q_EMIT signalError(QLatin1String("digiKam was built without llama.cpp support."));
+    Q_EMIT signalError(i18n("digiKam was built without llama.cpp support."));
     Q_EMIT signalLoaded(false);
 
 #endif
@@ -235,7 +243,7 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
 
     if (!m_model || !m_context)
     {
-        Q_EMIT signalError(QLatin1String("Model is not loaded."));
+        Q_EMIT signalError(i18n("Model is not loaded."));
 
         return;
     }
@@ -256,7 +264,7 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
 
     if (n_prompt <= 0)
     {
-        Q_EMIT signalError(QLatin1String("Failed to tokenize the prompt."));
+        Q_EMIT signalError(i18n("Failed to tokenize the prompt."));
 
         return;
     }
@@ -266,7 +274,7 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
     if (llama_tokenize(vocab, promptUtf8.constData(), promptUtf8.size(),
                        tokens.data(), tokens.size(), true, true) < 0)
     {
-        Q_EMIT signalError(QLatin1String("Failed to tokenize the prompt."));
+        Q_EMIT signalError(i18n("Failed to tokenize the prompt."));
 
         return;
     }
@@ -292,7 +300,7 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
         if (llama_decode(ctx, batch) != 0)
         {
             llama_sampler_free(smpl);
-            Q_EMIT signalError(QLatin1String("Model decode failed."));
+            Q_EMIT signalError(i18n("Model decode failed."));
 
             return;
         }
@@ -345,7 +353,7 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
     Q_UNUSED(prompt);
     Q_UNUSED(maxTokens);
     Q_UNUSED(temperature);
-    Q_EMIT signalError(QLatin1String("digiKam was built without llama.cpp support."));
+    Q_EMIT signalError(i18n("digiKam was built without llama.cpp support."));
 
 #endif
 

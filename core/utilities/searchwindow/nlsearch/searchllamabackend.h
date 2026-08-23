@@ -70,6 +70,12 @@ private:
     SearchLlamaWorker*  m_worker      = nullptr;
     QString             m_modelPath;
     bool                m_modelLoaded = false;
+
+    /**
+    * @brief Maximum number of tokens to generate. The model only needs to emit
+    * a small JSON object (a handful of search constraints), so 128 gives ample
+    * headroom while capping runaway generation and keeping latency low.
+    */
     int                 m_maxTokens   = 128;
 
     /**

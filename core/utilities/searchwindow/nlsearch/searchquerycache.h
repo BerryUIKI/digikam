@@ -69,6 +69,11 @@ private:
      */
     int                               m_schemaVersion = 1;
 
+    /**
+    * @brief Maximum number of cached query results, evicted least-recently-used.
+    * Repeated identical queries return instantly without re-running inference;
+    * 256 entries is a negligible memory footprint.
+    */
     static const int                  s_maxEntries    = 256;
 };
 
