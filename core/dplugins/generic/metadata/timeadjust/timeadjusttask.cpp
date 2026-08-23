@@ -86,6 +86,7 @@ void TimeAdjustTask::run()
     QDateTime adj          = asDateTimeLocal(d->settings.calculateAdjustedDate(org, d->thread->indexForUrl(d->url)));
     bool writeToSidecar    = (MetaEngineSettings::instance()->settings()
                               .metadataWritingMode != DMetadata::WRITE_TO_FILE_ONLY);
+    bool writeMetaDateTime = (MetaEngineSettings::instance()->settings().saveDateTime);
     bool writeWithExifTool = (MetaEngineSettings::instance()->settings().writeWithExifTool);
 
     if (!adj.isValid())
@@ -101,7 +102,7 @@ void TimeAdjustTask::run()
         return;
     }
 
-    if (d->settings.enableExifTool && d->settings.updUseExifTool)
+    if      (writeMetaDateTime && d->settings.enableExifTool && d->settings.updUseExifTool)
     {
         QScopedPointer<ExifToolParser> const parser(new ExifToolParser(nullptr));
 
@@ -132,7 +133,7 @@ void TimeAdjustTask::run()
             status |= TimeAdjustList::META_TIME_ERROR;
         }
     }
-    else
+    else if (writeMetaDateTime)
     {
         bool metadataChanged       = false;
         QString xmpDateTimeFormat  = QLatin1String("yyyy-MM-ddThh:mm:ss");
