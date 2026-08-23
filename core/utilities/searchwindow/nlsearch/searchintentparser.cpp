@@ -3,6 +3,12 @@
  * This file is a part of digiKam project
  * https://www.digikam.org
  *
+ * Date        : 2026-06-10
+ * Description : Parses and validates raw model output into a
+ *               SearchQueryIntent. Rejects anything that is not a
+ *               well-formed JSON object matching the schema. The
+ *               model output is NEVER trusted directly.
+ *
  * SPDX-FileCopyrightText: 2026 by Srirupa Datta <srirupa dot sps at gmail dot com>
  * SPDX-License-Identifier: GPL-2.0-or-later
  *

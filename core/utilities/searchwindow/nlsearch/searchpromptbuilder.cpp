@@ -3,6 +3,12 @@
  * This file is a part of digiKam project
  * https://www.digikam.org
  *
+ * Date        : 2026-06-10
+ * Description : Builds the constrained prompt sent to the model.
+ *               Embeds the JSON schema, the list of supported fields,
+ *               and optional collection-aware hints (known tags,
+ *               albums, people).
+ *
  * SPDX-FileCopyrightText: 2026 by Srirupa Datta <srirupa dot sps at gmail dot com>
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -11,6 +17,7 @@
 #include "searchpromptbuilder.h"
 
 // Qt includes
+
 #include <QDate>
 
 namespace Digikam
@@ -23,7 +30,8 @@ SearchPromptBuilder::SearchPromptBuilder()
 
 void SearchPromptBuilder::initSystemPrompt()
 {
-    m_systemPrompt = QLatin1String(
+    m_systemPrompt = QLatin1String
+    (
         "You translate photo search requests into JSON.\n"
         "Respond with ONLY a single JSON object. No prose, no markdown.\n"
         "If a term is subjective or cannot be mapped to a supported field, "
@@ -33,12 +41,14 @@ void SearchPromptBuilder::initSystemPrompt()
         "\"vacation\" is not a person and \"nice\" is not a caption. "
         "Returning fewer constraints is always better than returning wrong ones. "
         "If nothing maps cleanly, return {\"constraints\":[]} with a "
-        "clarification asking the user to refine.\n");
+        "clarification asking the user to refine.\n"
+    );
 }
 
 QString SearchPromptBuilder::schemaDescription() const
 {
-    return QLatin1String(
+    return QLatin1String
+    (
         "JSON schema:\n"
         "{\n"
         "  \"constraints\": [ { \"field\": F, \"op\": O, \"value\": V } ],\n"
@@ -102,7 +112,8 @@ QString SearchPromptBuilder::schemaDescription() const
         "\"value\": \"30..999\" } ] }\n"
         "Example: request \"RAW files\" produces:\n"
         "{ \"constraints\": [ "
-        "{ \"field\": \"format\", \"op\": \"eq\", \"value\": \"RAW\" } ] }\n");
+        "{ \"field\": \"format\", \"op\": \"eq\", \"value\": \"RAW\" } ] }\n"
+    );
 }
 
 QString SearchPromptBuilder::buildPrompt(const QString& userQuery,
@@ -110,22 +121,23 @@ QString SearchPromptBuilder::buildPrompt(const QString& userQuery,
                                          const QStringList& knownAlbums,
                                          const QStringList& knownPeople) const
 {
-    QString prompt = m_systemPrompt;
-    prompt        += QLatin1Char('\n');
-    prompt        += schemaDescription();
+    QString prompt    = m_systemPrompt;
+    prompt           += QLatin1Char('\n');
+    prompt           += schemaDescription();
 
     // Give the model a reference point for resolving relative dates
     // ("last year", "this month", ...) - it has no clock of its own.
+
     const QDate today = QDate::currentDate();
 
-    prompt += QString::fromLatin1("\nToday's date is %1. Resolve relative dates "
-                                  "against it: \"last year\" means %2-01-01..%2-12-31, "
-                                  "\"this year\" means %3-01-01..%3-12-31.\n")
-              .arg(today.toString(QLatin1String("yyyy-MM-dd")))
-              .arg(today.year() - 1)
-              .arg(today.year());
+    prompt           += QString::fromLatin1("\nToday's date is %1. Resolve relative dates "
+                                            "against it: \"last year\" means %2-01-01..%2-12-31, "
+                                            "\"this year\" means %3-01-01..%3-12-31.\n")
+                        .arg(today.toString(QLatin1String("yyyy-MM-dd")))
+                        .arg(today.year() - 1)
+                        .arg(today.year());
 
-    auto appendHints = [&prompt](const QString& label, const QStringList& items)
+    auto appendHints  = [&prompt](const QString& label, const QStringList& items)
     {
         if (items.isEmpty())
         {
@@ -133,7 +145,7 @@ QString SearchPromptBuilder::buildPrompt(const QString& userQuery,
         }
 
         const QStringList trimmed = items.mid(0, s_maxHintItems);
-        prompt += QString::fromLatin1("\n%1: %2\n").arg(label, trimmed.join(QLatin1String(", ")));
+        prompt                   += QString::fromLatin1("\n%1: %2\n").arg(label, trimmed.join(QLatin1String(", ")));
     };
 
     appendHints(QLatin1String("Known tags in this collection"),   knownTags);

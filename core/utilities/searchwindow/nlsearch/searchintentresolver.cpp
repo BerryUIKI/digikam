@@ -3,6 +3,13 @@
  * This file is a part of digiKam project
  * https://www.digikam.org
  *
+ * Date        : 2026-06-10
+ * Description : Resolves a parsed SearchQueryIntent into concrete
+ *               criteria the Advanced Search UI can apply. Decides
+ *               what applies directly, what stays unresolved (shown
+ *               to the user, never silently invented), and whether
+ *               clarification is needed.
+ *
  * SPDX-FileCopyrightText: 2026 by Srirupa Datta <srirupa dot sps at gmail dot com>
  * SPDX-License-Identifier: GPL-2.0-or-later
  *

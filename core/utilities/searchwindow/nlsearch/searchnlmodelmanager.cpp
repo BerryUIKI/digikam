@@ -3,6 +3,14 @@
  * This file is a part of digiKam project
  * https://www.digikam.org
  *
+ * Date        : 2026-06-10
+ * Description : Lifecycle management of the NL search model file.
+ *               Thin bridge to digiKam's existing infrastructure:
+ *               DNNModelManager (core/libs/dnnmodelmanager) for
+ *               registration/path lookup and FilesDownloader
+ *               (core/utilities/setup/downloader) for KDE-hosted
+ *               on-demand retrieval. No parallel download mechanism.
+ *
  * SPDX-FileCopyrightText: 2026 by Srirupa Datta <srirupa dot sps at gmail dot com>
  * SPDX-License-Identifier: GPL-2.0-or-later
  *
@@ -30,10 +38,11 @@ namespace Digikam
 
 namespace
 {
-    // DNNModelManager::getModel() lower-cases the lookup internally.
+    // @note DNNModelManager::getModel() lower-cases the lookup internally.
 
     const QLatin1String s_nlModelName("Qwen2.5-1.5B-Instruct");
-}
+
+} // namespace
 
 SearchNlModelManager::SearchNlModelManager(QObject* const parent)
     : QObject(parent)

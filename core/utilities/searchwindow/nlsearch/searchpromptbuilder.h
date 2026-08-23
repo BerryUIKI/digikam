@@ -36,7 +36,7 @@ public:
     SearchPromptBuilder();
 
     /**
-     * Build the full prompt for one user query. Known tags/albums/people
+     * @brief Build the full prompt for one user query. Known tags/albums/people
      * are truncated internally (s_maxHintItems) to keep the prompt small
      * for tiny-model context windows.
      */
@@ -45,10 +45,10 @@ public:
                         const QStringList& knownAlbums = {},
                         const QStringList& knownPeople = {}) const;
 
-    // JSON schema description embedded in every prompt.
+    /// @brief JSON schema description embedded in every prompt.
     QString schemaDescription() const;
 
-    // Static instruction block.
+    /// @brief Static instruction block.
     QString systemPrompt()      const;
 
 private:

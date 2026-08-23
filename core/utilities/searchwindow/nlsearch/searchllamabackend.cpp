@@ -3,6 +3,13 @@
  * This file is a part of digiKam project
  * https://www.digikam.org
  *
+ * Date        : 2026-06-10
+ * Description : llama.cpp-based inference backend (GGUF models).
+ *               First concrete backend.
+ *               TinyLlama 1.1B Q4 as baseline, Qwen2.5-1.5B-Instruct
+ *               as primary candidate. Inference runs on a worker
+ *               thread; results are delivered via queued signals.
+ *
  * SPDX-FileCopyrightText: 2026 by Srirupa Datta <srirupa dot sps at gmail dot com>
  * SPDX-License-Identifier: GPL-2.0-or-later
  *

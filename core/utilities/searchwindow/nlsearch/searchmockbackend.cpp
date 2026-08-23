@@ -3,6 +3,7 @@
  * This file is a part of digiKam project
  * https://www.digikam.org
  *
+ * Date        : 2026-06-10
  * Description : Mock inference backend. Returns canned JSON for known
  *               prompts so the whole pipeline (prompt -> parse ->
  *               resolve -> XML) can be developed and unit-tested
