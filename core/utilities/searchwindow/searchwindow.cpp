@@ -516,6 +516,7 @@ void SearchWindow::startInterpretation(const QString& text)
     d->pendingNlText  = text;
 
     d->nlStatusLabel->setAutoFillBackground(false);
+    d->nlStatusLabel->setPalette(QPalette());
     d->nlStatusLabel->setText(i18n("Interpreting the search..."));
     d->nlStatusLabel->show();
     d->nlSpinnerIndex = 0;
@@ -582,6 +583,7 @@ void SearchWindow::slotNlIntentReady(const SearchQueryIntent& intent)
 
     d->describeEdit->setEnabled(true);
     d->nlStatusLabel->setAutoFillBackground(false);
+    d->nlStatusLabel->setPalette(QPalette());
     d->nlStatusLabel->hide();
 
     if (d->nlFromDialog)
@@ -705,6 +707,7 @@ void SearchWindow::applyResolvedIntent(const SearchQueryIntent& intent)
     }
 
     d->nlStatusLabel->setAutoFillBackground(false);   // clear highlight on success
+    d->nlStatusLabel->setPalette(QPalette());         // restore default text/background colours
     d->nlStatusLabel->hide();
     d->searchView->read(xml);
     d->nlCommittedXml = xml;
