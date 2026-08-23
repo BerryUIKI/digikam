@@ -169,6 +169,18 @@ public:
 
 #endif
 
+#ifdef HAVE_LLAMACPP
+
+        new QTreeWidgetItem(m_features, QStringList() <<
+                            i18nc("@item: component info", "Natural-language search support") << i18nc("@item: component info", "Yes"));
+
+#else
+
+        new QTreeWidgetItem(m_features, QStringList() <<
+                            i18nc("@item: component info", "Natural-language search support") << i18nc("@item: component info", "No"));
+
+#endif
+
 #ifdef HAVE_HTMLGALLERY
 
         new QTreeWidgetItem(m_features, QStringList() <<
