@@ -8,7 +8,7 @@
  *
  * ============================================================ */
 
- #include "searchintentparser.h"
+#include "searchintentparser.h"
 
 // C++ includes
 
@@ -62,7 +62,7 @@ const QSet<QString>& supportedOps()
     return s;
 }
 
-} 
+} // namespace
 
 namespace Digikam
 {
@@ -84,11 +84,11 @@ QByteArray SearchIntentParser::extractJsonObject(const QByteArray& raw) const
     {
         const char c = raw.at(i);
 
-        if (escaped)            { escaped = false;   continue; }
-        if (c == '\\')          { escaped = true;    continue; }
-        if (c == '"')           { inStr   = !inStr;  continue; }
-        if (inStr)              {                    continue; }
-        if (c == '{')           { ++depth;                     }
+        if      (escaped)            { escaped = false;   continue; }
+        if      (c == '\\')          { escaped = true;    continue; }
+        if      (c == '"')           { inStr   = !inStr;  continue; }
+        if      (inStr)              {                    continue; }
+        if      (c == '{')           { ++depth;                     }
         else if (c == '}')
         {
             --depth;
@@ -108,28 +108,26 @@ SearchQueryIntent SearchIntentParser::parse(const QByteArray& rawJson,
                                             const QString& normalizedQuery) const
 {
     SearchQueryIntent intent;
-    intent.originalQuery   = originalQuery;
-    intent.normalizedQuery = normalizedQuery;
-    intent.rawModelOutput  = QString::fromUtf8(rawJson);
+    intent.originalQuery            = originalQuery;
+    intent.normalizedQuery          = normalizedQuery;
+    intent.rawModelOutput           = QString::fromUtf8(rawJson);
 
-    const QByteArray jsonBlock = extractJsonObject(rawJson);
+    const QByteArray jsonBlock      = extractJsonObject(rawJson);
 
     if (jsonBlock.isEmpty())
     {
-        return intent;  
+        return intent;
     }
 
-    QJsonParseError err{};
-    const QJsonDocument doc = QJsonDocument::fromJson(jsonBlock, &err);
+    QJsonParseError err {};
+    const QJsonDocument doc         = QJsonDocument::fromJson(jsonBlock, &err);
 
     if ((err.error != QJsonParseError::NoError) || !doc.isObject())
     {
         return intent;
     }
 
-    const QJsonObject root = doc.object();
-
-
+    const QJsonObject root          = doc.object();
     const QJsonValue constraintsVal = root.value(QLatin1String("constraints"));
 
     if (!constraintsVal.isArray())
@@ -137,7 +135,7 @@ SearchQueryIntent SearchIntentParser::parse(const QByteArray& rawJson,
         return intent;
     }
 
-    const auto arr = constraintsVal.toArray();
+    const auto arr                  = constraintsVal.toArray();
 
     for (const QJsonValue& v : arr)
     {
@@ -146,11 +144,11 @@ SearchQueryIntent SearchIntentParser::parse(const QByteArray& rawJson,
             return intent;   // malformed entry => reject whole output
         }
 
-        const QJsonObject o = v.toObject();
+        const QJsonObject o       = v.toObject();
 
         SearchQueryConstraint c;
-        c.field = o.value(QLatin1String("field")).toString().trimmed().toLower();
-        c.op    = o.value(QLatin1String("op")).toString().trimmed().toLower();
+        c.field                   = o.value(QLatin1String("field")).toString().trimmed().toLower();
+        c.op                      = o.value(QLatin1String("op")).toString().trimmed().toLower();
         const QJsonValue valueVal = o.value(QLatin1String("value"));
 
         if      (valueVal.isString())
@@ -192,10 +190,10 @@ SearchQueryIntent SearchIntentParser::parse(const QByteArray& rawJson,
 
     if (clarVal.isObject())
     {
-        const QJsonObject clar      = clarVal.toObject();
-        intent.clarificationMessage = clar.value(QLatin1String("message")).toString();
+        const QJsonObject clar       = clarVal.toObject();
+        intent.clarificationMessage  = clar.value(QLatin1String("message")).toString();
 
-        const auto choices = clar.value(QLatin1String("choices")).toArray();
+        const auto choices           = clar.value(QLatin1String("choices")).toArray();
 
         for (const QJsonValue& c : choices)
         {
@@ -258,19 +256,24 @@ bool SearchIntentParser::validateOperator(const QString& field, const QString& o
     }
 
     // Field-specific restrictions: numeric/date comparisons only where they make sense.
+
     if ((op == QLatin1String("gte")) || (op == QLatin1String("lte")))
     {
-        return (field == QLatin1String("rating")) ||
-               (field == QLatin1String("daterange"));
+        return (
+                (field == QLatin1String("rating")) ||
+                (field == QLatin1String("daterange"))
+               );
     }
 
         if (op == QLatin1String("between"))
     {
-        return (field == QLatin1String("daterange"))      ||
-               (field == QLatin1String("rating"))         ||
-               (field == QLatin1String("videoduration"))  ||
-               (field == QLatin1String("videoframerate")) ||
-               (field == QLatin1String("videoaudiobitrate"));
+        return (
+                (field == QLatin1String("daterange"))      ||
+                (field == QLatin1String("rating"))         ||
+                (field == QLatin1String("videoduration"))  ||
+                (field == QLatin1String("videoframerate")) ||
+                (field == QLatin1String("videoaudiobitrate"))
+               );
     }
 
     return true;

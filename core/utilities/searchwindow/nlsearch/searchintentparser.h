@@ -36,14 +36,14 @@ public:
     SearchIntentParser() = default;
 
     /**
-     * Parse raw model output. Tolerates leading/trailing junk by
+     * @brief Parse raw model output. Tolerates leading/trailing junk by
      * extracting the first balanced top-level JSON object, then
      * validates fields and operators against the supported sets.
      * On failure returns an intent with parseSucceeded == false.
      */
     SearchQueryIntent parse(const QByteArray& rawJson,
                             const QString& originalQuery,
-                            const QString& normalizedQuery) const;
+                            const QString& normalizedQuery)        const;
 
     bool validate(const SearchQueryIntent& intent)                 const;
     QStringList validationErrors(const SearchQueryIntent& intent)  const;
