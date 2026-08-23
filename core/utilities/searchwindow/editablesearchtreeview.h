@@ -24,10 +24,8 @@ namespace Digikam
 {
 
 /**
- * This tree view for searches adds basic editing functionality via the context
+ * @brief This tree view for searches adds basic editing functionality via the context
  * menu. This is in detail deleting and renaming existing searches.
- *
- * @author jwienke
  */
 class EditableSearchTreeView: public SearchTreeView
 {
@@ -36,7 +34,7 @@ class EditableSearchTreeView: public SearchTreeView
 public:
 
     /**
-     * Constructor.
+     * @brief Constructor.
      *
      * @param parent qt parent
      * @param searchModel the model this view should act on
@@ -48,26 +46,26 @@ public:
                            SearchModificationHelper* const searchModificationHelper);
 
     /**
-     * Destructor.
+     * @brief Destructor.
      */
-    ~EditableSearchTreeView() override;
+    ~EditableSearchTreeView()                                                                     override;
 
 protected:
 
     /**
-     * implemented hook methods for context menus.
+     * @brief implemented hook methods for context menus.
      */
-    QString contextMenuTitle() const override;
+    QString contextMenuTitle()                                                              const override;
 
     /**
-     * Adds actions to delete or rename existing searches.
+     * @brief Adds actions to delete or rename existing searches.
      */
-    void addCustomContextMenuActions(ContextMenuHelper& cmh, Album* album) override;
+    void addCustomContextMenuActions(ContextMenuHelper& cmh, Album* album)                        override;
 
     /**
-     * Handles deletion and renaming actions.
+     * @brief Handles deletion and renaming actions.
      */
-    void handleCustomContextMenuAction(QAction* action, const AlbumPointer<Album>& album) override;
+    void handleCustomContextMenuAction(QAction* action, const AlbumPointer<Album>& album)         override;
 
 private:
 
