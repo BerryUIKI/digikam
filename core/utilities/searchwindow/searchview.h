@@ -55,7 +55,7 @@ class AbstractSearchGroupContainer : public QWidget
 public:
 
     /**
-     * Abstract base class for classes that contain SearchGroups
+     * @brief Abstract base class for classes that contain SearchGroups
      * To contain common code of SearchView and SearchGroup,
      * as SearchGroups can have subgroups.
      */
@@ -68,25 +68,25 @@ public Q_SLOTS:
 
 protected:
 
-    /// Call before reading the XML part that could contain group elements
+    /// @brief Call before reading the XML part that could contain group elements
     void startReadingGroups(SearchXmlCachingReader& reader);
 
-    /// Call when a group element is the current element
+    /// @brief Call when a group element is the current element
     void readGroup(SearchXmlCachingReader& reader);
 
-    /// Call when the XML part is finished
+    /// @brief Call when the XML part is finished
     void finishReadingGroups();
 
-    /// Write contained groups to writer
+    /// @brief Write contained groups to writer
     void writeGroups(SearchXmlWriter& writer) const;
 
-    /// Collects the data from the same method of all contained groups (position relative to this widget)
+    /// @brief Collects the data from the same method of all contained groups (position relative to this widget)
     QList<QRect> startupAnimationAreaOfGroups() const;
 
-    /// Re-implement: create and setup a search group
+    /// @brief Re-implement: create and setup a search group
     virtual SearchGroup* createSearchGroup() = 0;
 
-    /// Re-implement: Adds a newly created group to the layout structures
+    /// @brief Re-implement: Adds a newly created group to the layout structures
     virtual void addGroupToLayout(SearchGroup* group) = 0;
 
 protected Q_SLOTS:

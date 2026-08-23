@@ -223,7 +223,7 @@ void SearchView::setBottomBar(SearchViewBottomBar* const bar)
 
     connect(d->bar, SIGNAL(resetPressed()),
             this, SLOT(slotResetButton()));
-            
+
     connect(d->bar, SIGNAL(clearAllPressed()),
             this, SLOT(slotClearAllGroups()));
 }
@@ -268,6 +268,7 @@ void SearchView::addGroupToLayout(SearchGroup* group)
     qCDebug(DIGIKAM_GENERAL_LOG) << "SearchView: Adding search group to layout";
 
     // insert at last-but-one position; leave stretch at the bottom
+
     d->layout->insertWidget(d->layout->count() - 1, group);
 }
 
@@ -303,12 +304,14 @@ void SearchView::slotResetButton()
 void SearchView::slotClearAllGroups()
 {
     // Remove all existing search groups
+
     while (!m_groups.isEmpty())
     {
         delete m_groups.takeLast();
     }
 
     // Add a new initial group so UI remains usable
+
     addSearchGroup();
 
     qCDebug(DIGIKAM_GENERAL_LOG) << "SearchView: Cleared all search groups";
@@ -420,51 +423,51 @@ void SearchView::setTheme()
 
     QString sheet =
         QLatin1String("#SearchGroupLabel_MainLabel "
-                      " { font-weight: bold; font-size: ")
-        + fontSizeLarger + QLatin1Char(';') +
-        QLatin1String("   color: ")
-        + qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';') +
+                      " { font-weight: bold; font-size: ")                           +
+        fontSizeLarger + QLatin1Char(';')                                            +
+        QLatin1String("   color: ")                                                  +
+        qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';')   +
         QLatin1String(" } "
                       "#SearchGroupLabel_SimpleLabel "
-                      " { font-size: ")
-        + fontSizeLarger + QLatin1Char(';') +
-        QLatin1String("   color: ")
-        + qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';') +
+                      " { font-size: ")                                              +
+        fontSizeLarger + QLatin1Char(';')                                            +
+        QLatin1String("   color: ")                                                  +
+        qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';')   +
         QLatin1String(" } "
                       "#SearchGroupLabel_GroupOpLabel "
-                      " { font-weight: bold; font-size: ")
-        + fontSizeLarger + QLatin1Char(';') +
-        QLatin1String("   color: ")
-        + qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';') +
+                      " { font-weight: bold; font-size: ")                           +
+        fontSizeLarger + QLatin1Char(';')                                            +
+        QLatin1String("   color: ")                                                  +
+        qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';')   +
         QLatin1String("   text-decoration: underline; "
                       " } "
                       "#SearchGroupLabel_CheckBox "
-                      " { color: ")
-        + qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';') +
+                      " { color: ")                                                  +
+        qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';')   +
         QLatin1String(" } "
                       "#SearchGroupLabel_RemoveLabel "
-                      " { color: ")
-        + qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';') +
+                      " { color: ")                                                  +
+        qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';')   +
         QLatin1String("   font-style: italic; "
                       "   text-decoration: underline; "
                       " } "
                       "#SearchGroupLabel_OptionsLabel "
-                      " { color: ")
-        + qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';') +
+                      " { color: ")                                                  +
+        qApp->palette().color(QPalette::HighlightedText).name() + QLatin1Char(';')   +
         QLatin1String("   font-style: italic; "
-                      "   text-decoration: underline; font-size: ")
-        + fontSizeSmaller + QLatin1Char(';') +
+                      "   text-decoration: underline; font-size: ")                  +
+        fontSizeSmaller + QLatin1Char(';')                                           +
         QLatin1String(" } "
                       "#SearchFieldGroupLabel_Label "
-                      " { color: ")
-        + qApp->palette().color(QPalette::Link).name() + QLatin1Char(';') +
+                      " { color: ")                                                  +
+        qApp->palette().color(QPalette::Link).name() + QLatin1Char(';')              +
         QLatin1String("   font-weight: bold; "
                       " } "
                       "#SearchField_MainLabel "
                       " { font-weight: bold; } "
                       "#SearchFieldChoice_ClickLabel "
-                      " { color: ")
-        + qApp->palette().color(QPalette::Link).name() + QLatin1Char(';') +
+                      " { color: ")                                                  +
+        qApp->palette().color(QPalette::Link).name() + QLatin1Char(';')              +
         QLatin1String("   font-style: italic; "
                       "   text-decoration: underline; "
                       " } "
@@ -516,9 +519,9 @@ SearchViewBottomBar::SearchViewBottomBar(SearchViewThemedPartsCache* const cache
     : QWidget     (parent),
       m_themeCache(cache)
 {
-    m_mainLayout      = new QHBoxLayout;
+    m_mainLayout              = new QHBoxLayout;
 
-    m_addGroupsButton = new QPushButton(i18n("Add Search Group"));
+    m_addGroupsButton         = new QPushButton(i18n("Add Search Group"));
     m_addGroupsButton->setIcon(QIcon::fromTheme(QLatin1String("list-add")));
 
     connect(m_addGroupsButton, SIGNAL(clicked()),
@@ -526,7 +529,7 @@ SearchViewBottomBar::SearchViewBottomBar(SearchViewThemedPartsCache* const cache
 
     m_mainLayout->addWidget(m_addGroupsButton);
 
-    m_resetButton = new QPushButton(i18n("Reset"));
+    m_resetButton             = new QPushButton(i18n("Reset"));
     m_resetButton->setIcon(QIcon::fromTheme(QLatin1String("edit-undo")));
 
     connect(m_resetButton, SIGNAL(clicked()),
@@ -534,7 +537,7 @@ SearchViewBottomBar::SearchViewBottomBar(SearchViewThemedPartsCache* const cache
 
     m_mainLayout->addWidget(m_resetButton);
 
-    m_clearAllButton = new QPushButton(i18n("Clear All Groups"));
+    m_clearAllButton          = new QPushButton(i18n("Clear All Groups"));
     m_clearAllButton->setIcon(QIcon::fromTheme(QLatin1String("edit-clear")));
 
     connect(m_clearAllButton, SIGNAL(clicked()),
@@ -544,9 +547,9 @@ SearchViewBottomBar::SearchViewBottomBar(SearchViewThemedPartsCache* const cache
 
     m_mainLayout->addStretch(1);
 
-    m_buttonBox = new QDialogButtonBox(this);
+    m_buttonBox               = new QDialogButtonBox(this);
 
-    QPushButton* const ok = m_buttonBox->addButton(QDialogButtonBox::Ok);
+    QPushButton* const ok     = m_buttonBox->addButton(QDialogButtonBox::Ok);
 
     connect(ok, SIGNAL(clicked()),
             this, SIGNAL(okPressed()));
@@ -556,14 +559,14 @@ SearchViewBottomBar::SearchViewBottomBar(SearchViewThemedPartsCache* const cache
     connect(cancel, SIGNAL(clicked()),
             this, SIGNAL(cancelPressed()));
 
-    QPushButton* const aBtn = m_buttonBox->addButton(i18n("Try"), QDialogButtonBox::ApplyRole);
+    QPushButton* const aBtn   = m_buttonBox->addButton(i18n("Try"), QDialogButtonBox::ApplyRole);
 
     connect(aBtn, SIGNAL(clicked()),
             this, SIGNAL(tryoutPressed()));
 
     m_mainLayout->addWidget(m_buttonBox);
 
-    QPushButton* const help = m_buttonBox->addButton(QDialogButtonBox::Help);
+    QPushButton* const help   = m_buttonBox->addButton(QDialogButtonBox::Help);
 
     connect(help, SIGNAL(clicked()),
             this, SLOT(slotHelp()));
