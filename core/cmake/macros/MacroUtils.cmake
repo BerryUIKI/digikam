@@ -209,6 +209,12 @@ macro(APPLY_COMMON_POLICIES)
         cmake_policy(SET CMP0092 NEW)
     endif()
 
+    if(POLICY CMP0167)
+        # The FindBoost module is removed introduced in CMake version 3.30
+        # Details: https://cmake.org/cmake/help/git-stage/policy/CMP0167.html
+        cmake_policy(SET CMP0167 OLD)
+    endif()
+
     if(POLICY CMP0177)
         # Destination paths are normalized introduced in CMake version 3.31
         # Details: https://cmake.org/cmake/help/git-stage/policy/CMP0177.html
