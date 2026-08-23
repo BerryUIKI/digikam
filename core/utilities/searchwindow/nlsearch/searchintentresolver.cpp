@@ -46,6 +46,7 @@ ResolvedSearchCriteria SearchIntentResolver::resolve(const SearchQueryIntent& in
         else
         {
             // Never silently invent metadata: surface it instead.
+
             result.unresolvedTerms << QString::fromLatin1("%1: %2").arg(in.field, in.value);
         }
     }
@@ -61,7 +62,7 @@ bool SearchIntentResolver::canApplyDirectly(const SearchQueryIntent& intent) con
     return resolve(intent).canApplyDirectly;
 }
 
-void SearchIntentResolver::applyDictionaryAmbiguity(SearchQueryIntent* intent) const
+void SearchIntentResolver::applyDictionaryAmbiguity(SearchQueryIntent* const intent) const
 {
     if (!intent || !m_dictionary || intent->requiresClarification)
     {
@@ -77,10 +78,12 @@ void SearchIntentResolver::applyDictionaryAmbiguity(SearchQueryIntent* intent) c
             intent->requiresClarification = true;
             intent->clarificationMessage  = i18nc("@info", "\"%1\" could mean more than one thing. "
                                                            "Which did you mean?", c.value);
-            intent->clarificationOptions   = choices;
+            intent->clarificationOptions  = choices;
 
             // keep the display-only list in sync for any code that still reads it
+
             intent->clarificationChoices.clear();
+
             for (const AmbiguityChoice& ch : choices)
             {
                 intent->clarificationChoices << ch.displayText;
@@ -92,7 +95,7 @@ void SearchIntentResolver::applyDictionaryAmbiguity(SearchQueryIntent* intent) c
 }
 
 bool SearchIntentResolver::resolveConstraint(const SearchQueryConstraint& in,
-                                             SearchQueryConstraint* out) const
+                                             SearchQueryConstraint* const out) const
 {
     if (!in.isValid() || !out)
     {

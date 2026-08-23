@@ -32,6 +32,10 @@ class ResolvedSearchCriteria
 {
 public:
 
+    ResolvedSearchCriteria() = default;
+
+public:
+
     QList<SearchQueryConstraint> resolvedConstraints;
     QStringList                  unresolvedTerms;
     bool                         canApplyDirectly = false;
@@ -43,17 +47,21 @@ public:
 
     explicit SearchIntentResolver(SearchCapabilityDictionary* const dictionary);
 
+public:
+
     ResolvedSearchCriteria resolve(const SearchQueryIntent& intent)  const;
     bool canApplyDirectly(const SearchQueryIntent& intent)           const;
-    
-    /// Dictionary-driven ambiguity: sets clarification fields on the intent if
-    /// any constraint value is a known ambiguous term the model did not flag.
-    void applyDictionaryAmbiguity(SearchQueryIntent* intent) const;
+
+    /**
+     * @brief Dictionary-driven ambiguity: sets clarification fields on the intent if
+     * any constraint value is a known ambiguous term the model did not flag.
+     */
+    void applyDictionaryAmbiguity(SearchQueryIntent* const intent)   const;
 
 private:
 
     bool resolveConstraint(const SearchQueryConstraint& in,
-                           SearchQueryConstraint* out)               const;
+                           SearchQueryConstraint* const out)         const;
 
 private:
 
