@@ -27,6 +27,8 @@ public:
 
     DictionaryEntry() = default;
 
+public:
+
     QString     canonicalField;   ///< e.g. "colorlabel"
     QStringList aliases;          ///< e.g. { "color label", "colour label" }
     QStringList allowedValues;    ///< e.g. { "red", "orange", ... }; empty = free-form
@@ -38,10 +40,12 @@ public:
 
     Private() = default;
 
-    QMap<QString, DictionaryEntry>  fieldMap;       ///< canonical field -> entry
-    QMap<QString, QStringList>      valueAliases;   ///< "field/rawvalue" -> resolved
+public:
+
+    QMap<QString, DictionaryEntry>          fieldMap;       ///< canonical field -> entry
+    QMap<QString, QStringList>              valueAliases;   ///< "field/rawvalue" -> resolved
     QMap<QString, QList<AmbiguityChoice> >  ambiguousWords;
-    QStringList                     knownTags;
+    QStringList                             knownTags;
 };
 
 SearchCapabilityDictionary::SearchCapabilityDictionary()
@@ -61,9 +65,11 @@ void SearchCapabilityDictionary::initializeDefaults()
     d->valueAliases.clear();
     d->ambiguousWords.clear();
 
-    auto addField = [this](const QString& canonical,
+    auto addField = [this](
+                           const QString& canonical,
                            const QStringList& aliases,
-                           const QStringList& allowedValues = {})
+                           const QStringList& allowedValues = {}
+                          )
     {
         DictionaryEntry e;
         e.canonicalField = canonical;
@@ -110,12 +116,12 @@ void SearchCapabilityDictionary::initializeDefaults()
     addField(QLatin1String("caption"),
              { QLatin1String("caption"), QLatin1String("description"),
                QLatin1String("comment") });
-    
+
     addField(QLatin1String("videoduration"),
              { QLatin1String("video"), QLatin1String("videos"),
                QLatin1String("clip"), QLatin1String("clips"),
                QLatin1String("footage"), QLatin1String("duration") });
-    
+
     addField(QLatin1String("videoframerate"),
              { QLatin1String("fps"), QLatin1String("frame rate"),
                QLatin1String("framerate"), QLatin1String("frames per second") });

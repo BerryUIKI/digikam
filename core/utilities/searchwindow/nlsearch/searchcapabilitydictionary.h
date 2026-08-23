@@ -45,20 +45,22 @@ public:
 
     Q_DISABLE_COPY(SearchCapabilityDictionary)
 
+public:
+
     void initializeDefaults();
 
-    /// "color label" -> "colorlabel". Returns false if unknown.
-    bool resolveFieldAlias(const QString& alias, QString* canonicalField) const;
+    /// @brief "color label" -> "colorlabel". Returns false if unknown.
+    bool resolveFieldAlias(const QString& alias, QString* canonicalField)                       const;
 
-    /// ("picklabel", "best") -> "accepted". Returns false if unknown.
-    bool resolveValue(const QString& field, const QString& rawValue, QString* resolvedValue) const;
+    /// @brief ("picklabel", "best") -> "accepted". Returns false if unknown.
+    bool resolveValue(const QString& field, const QString& rawValue, QString* resolvedValue)    const;
 
-    QStringList supportedFields() const;
+    QStringList supportedFields()                                                               const;
 
-    /// Clarification choices for an ambiguous term ("best" -> Pick Label / Rating).
-    QList<AmbiguityChoice> choicesForAmbiguousWord(const QString& word) const;
+    /// @brief Clarification choices for an ambiguous term ("best" -> Pick Label / Rating).
+    QList<AmbiguityChoice> choicesForAmbiguousWord(const QString& word)                         const;
 
-    bool isKnownTag(const QString& tag) const;
+    bool isKnownTag(const QString& tag)                                                         const;
     void setKnownTags(const QStringList& tags);
 
 private:
