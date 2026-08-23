@@ -38,23 +38,27 @@ class DIGIKAM_GUI_EXPORT SearchNlModelManager : public QObject
 public:
 
     explicit SearchNlModelManager(QObject* const parent = nullptr);
-    ~SearchNlModelManager() override;
+    ~SearchNlModelManager()              override;
 
-    static QString defaultModelPath();
-    static bool    isModelAvailable();
+public:
 
     QString currentModelPath()    const;
     QString currentModelVersion() const;
 
     /**
-     * Ensure the model file exists locally. If missing, triggers a
+     * @brief Ensure the model file exists locally. If missing, triggers a
      * download through FilesDownloader (KDE-hosted asset). Emits
      * signalModelReady() or signalModelError().
      */
     void ensureModelAvailable();
 
-    // Remove superseded model versions from the storage directory.
+    // @brief Remove superseded model versions from the storage directory.
     void cleanupObsoleteModels();
+
+public:
+
+    static QString defaultModelPath();
+    static bool    isModelAvailable();
 
 Q_SIGNALS:
 

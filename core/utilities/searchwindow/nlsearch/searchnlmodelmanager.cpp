@@ -31,6 +31,7 @@ namespace Digikam
 namespace
 {
     // DNNModelManager::getModel() lower-cases the lookup internally.
+
     const QLatin1String s_nlModelName("Qwen2.5-1.5B-Instruct");
 }
 
@@ -43,8 +44,10 @@ SearchNlModelManager::~SearchNlModelManager() = default;
 
 QString SearchNlModelManager::defaultModelPath()
 {
-    DNNModelBase* const model = DNNModelManager::instance()->getModel(
-        s_nlModelName, DNNModelUsage::DNNUsageNaturalLanguageSearch);
+    const DNNModelBase* const model = DNNModelManager::instance()->getModel(
+                                                                            s_nlModelName,
+                                                                            DNNModelUsage::DNNUsageNaturalLanguageSearch
+                                                                           );
 
     return (model ? model->getModelPath() : QString());
 }
@@ -76,7 +79,7 @@ void SearchNlModelManager::ensureModelAvailable()
         Q_EMIT signalModelReady(m_currentModelPath);
 
         qCInfo(DIGIKAM_NLSEARCH_LOG) << "isModelAvailable:" << isModelAvailable()
-                             << "path:" << defaultModelPath();
+                                     << "path:" << defaultModelPath();
 
         return;
     }
