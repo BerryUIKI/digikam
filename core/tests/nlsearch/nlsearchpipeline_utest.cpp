@@ -7,7 +7,7 @@
  * Description : End-to-end pipeline test:
  *               hardcoded query -> (mock) LLM -> parse -> resolve.
  *               Validates the resolution pipeline before any real
- *               model is integrated. The intent -> Search XML 
+ *               model is integrated. The intent -> Search XML
  *               serialization is not asserted here.
  *
  * SPDX-FileCopyrightText: 2026 by Srirupa Datta <srirupa dot sps at gmail dot com>
@@ -24,6 +24,7 @@
 
 // Local includes
 
+#include "digikam_config.h"
 #include "searchqueryengine.h"
 #include "searchmockbackend.h"
 #include "searchpromptbuilder.h"
@@ -31,7 +32,6 @@
 #include "searchcapabilitydictionary.h"
 #include "searchintentresolver.h"
 #include "searchquerycache.h"
-#include "digikam_config.h"
 #include "searchlanguagebackend.h"
 
 #ifdef HAVE_LLAMACPP
@@ -55,10 +55,13 @@ private:
                      SearchIntentResolver& resolver,
                      SearchQueryCache& cache)
     {
+        Q_UNUSED(dict);
+
         // The mock backend ignores the path, loadModel() only flips the
         // "ready" flag that SearchQueryEngine::isReady() checks. There is no
         // real model in this test. It validates the backend-independent pipeline.
         // Model loading is done by the llama backend (ENABLE_NLSEARCH_LLAMACPP).
+
         backend.loadModel(QLatin1String("mock-no-model"));
 
         engine.setBackend(&backend);
@@ -73,7 +76,7 @@ private Q_SLOTS:
     void initTestCase()
     {
         qRegisterMetaType<SearchQueryIntent>("SearchQueryIntent");
-        qRegisterMetaType<SearchQueryConstraint>("SearchQueryConstraint");  
+        qRegisterMetaType<SearchQueryConstraint>("SearchQueryConstraint");
     }
 
     void testCompositeQueryResolves()
@@ -90,11 +93,12 @@ private Q_SLOTS:
         QSignalSpy readySpy(&engine, &SearchQueryEngine::signalIntentReady);
 
         engine.slotInterpretQuery(QLatin1String("sunset photos with red labels"),
-                              QString());
+                                  QString());
 
         QVERIFY(readySpy.wait(2000));
 
         const auto intent = readySpy.takeFirst().at(0).value<SearchQueryIntent>();
+
         QCOMPARE(intent.constraints.size(), 2);
         QCOMPARE(intent.constraints.at(0).field, QLatin1String("tag"));
         QCOMPARE(intent.constraints.at(1).field, QLatin1String("colorlabel"));
@@ -102,6 +106,7 @@ private Q_SLOTS:
     }
 
     // "best photos from last summer" => clarification, never a silent guess.
+
     void testAmbiguousQueryAsksForClarification()
     {
         SearchQueryEngine engine;
@@ -123,11 +128,13 @@ private Q_SLOTS:
         QCOMPARE(readySpy.count(), 0);
 
         const auto intent = clarSpy.takeFirst().at(0).value<SearchQueryIntent>();
+
         QVERIFY(intent.requiresClarification);
         QVERIFY(!intent.clarificationChoices.isEmpty());
     }
 
     // Unknown query => user-visible error, nothing invented.
+
     void testUnknownQueryProducesErrorNotGuess()
     {
         SearchQueryEngine engine;
@@ -160,36 +167,45 @@ private Q_SLOTS:
         QSignalSpy readySpy(&engine, &SearchQueryEngine::signalIntentReady);
 
         engine.slotInterpretQuery(QLatin1String("photos from Paris in 2023"), QString());
+
         QVERIFY(readySpy.wait(2000));
         QCOMPARE(cache.size(), 1);
 
         // Unload model: a cache hit must still answer instantly.
+
         backend.unloadModel();
 
         engine.slotInterpretQuery(QLatin1String("Photos from PARIS in 2023  "), QString());
+
         QVERIFY(readySpy.wait(2000));
         QCOMPARE(readySpy.count(), 2);
     }
 
     // Malformed model output is rejected, never applied.
+
     void testMalformedOutputRejected()
     {
         SearchIntentParser parser;
 
         const auto intent = parser.parse("not json at all { broken",
-                                         QLatin1String("q"), QLatin1String("q"));
+                                         QLatin1String("q"), QLatin1String("q")
+        );
+
         QVERIFY(!intent.parseSucceeded);
 
         const auto intent2 = parser.parse(
             R"({ "constraints": [ { "field": "droptable", "op": "eq", "value": "x" } ] })",
-            QLatin1String("q"), QLatin1String("q"));
+            QLatin1String("q"), QLatin1String("q")
+        );
+
         QVERIFY(!intent2.parseSucceeded);
     }
 
     void testNumericJsonValueParsed()
     {
         // Regression: the model may emit numeric values as JSON numbers
-        // (e.g. rating: 5) rather than strings ("5"). 
+        // (e.g. rating: 5) rather than strings ("5").
+
         SearchIntentParser parser;
 
         const QByteArray json =
@@ -277,6 +293,7 @@ private Q_SLOTS:
 
     void testRealInferenceProducesConstraints()
     {
+
 #ifdef HAVE_LLAMACPP
 
         QString modelPath = SearchNlModelManager::defaultModelPath();
@@ -284,6 +301,7 @@ private Q_SLOTS:
         if (modelPath.isEmpty() || !QFileInfo::exists(modelPath))
         {
             // Allow pointing the test at a model explicitly, e.g. for local runs:
+
             modelPath = QString::fromLocal8Bit(qgetenv("DIGIKAM_NLSEARCH_TEST_MODEL"));
         }
 
@@ -306,6 +324,7 @@ private Q_SLOTS:
 
         // Model loading runs on a worker thread and reports completion via
         // signalModelLoaded(bool); wait for it before running inference.
+
         QVERIFY(loadedSpy.wait(30000));
         QVERIFY(loadedSpy.takeFirst().at(0).toBool());
 
@@ -321,16 +340,19 @@ private Q_SLOTS:
                                   QString());
 
         // Real CPU inference is slow; allow a generous timeout.
+
         QVERIFY(readySpy.wait(60000));
 
         const auto intent = readySpy.takeFirst().at(0).value<SearchQueryIntent>();
+
         QVERIFY(!intent.constraints.isEmpty());
 
         // The query names a year and a rating. Assert both fields appear,
         // without over-fitting to the model's exact values (real output is
         // not bit-for-bit deterministic across model or prompt changes).
-        bool hasDate   = false;
-        bool hasRating = false;
+
+        bool hasDate      = false;
+        bool hasRating    = false;
 
         for (const SearchQueryConstraint& c : intent.constraints)
         {
@@ -346,6 +368,7 @@ private Q_SLOTS:
         QSKIP("Built without llama.cpp; real-inference test not applicable.");
 
 #endif
+
     }
 };
 
