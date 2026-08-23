@@ -76,12 +76,12 @@ private:
     // decoding which always pick the most-probable token, which is what we want:
     // the model must emit structured, parseable JSON, so reproducible output
     // matters more than creative variation. Higher values would add randomness.
-    float               m_temperature = 0.0F;  
+
+    float               m_temperature = 0.0F;
 };
 
-
 /**
- * Worker object living on the worker thread. Owns the llama.cpp model
+ * @brief Worker object living on the worker thread. Owns the llama.cpp model
  * and context. All llama_* calls happen here, never on the GUI thread.
  */
 class SearchLlamaWorker : public QObject
@@ -114,8 +114,8 @@ private:
 
 #ifdef HAVE_LLAMACPP
 
-    void*                  m_model   = nullptr;
-    void*                  m_context = nullptr;
+    void*                  m_model       = nullptr;
+    void*                  m_context     = nullptr;
     int32_t                m_singleToken = 0;
 
 #endif

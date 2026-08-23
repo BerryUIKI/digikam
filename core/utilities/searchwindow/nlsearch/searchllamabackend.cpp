@@ -51,7 +51,8 @@ SearchLlamaBackend::SearchLlamaBackend(QObject* const parent)
         {
             m_modelLoaded = ok;
             Q_EMIT signalModelLoaded(ok);
-        });
+        }
+    );
 
     connect(m_worker, &SearchLlamaWorker::signalOutputReady,
             this, &SearchLlamaBackend::signalRawOutputReady);
@@ -156,12 +157,16 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
 
 #ifdef HAVE_LLAMACPP
 
-    slotDoUnload();  // clear any previously loaded model
+    // clear any previously loaded model
+
+    slotDoUnload();
 
     // Initialize the llama.cpp backend
+
     llama_backend_init();
 
     // Model parameters: CPU-only
+
     llama_model_params mparams = llama_model_default_params();
     mparams.n_gpu_layers       = 0;
 
@@ -171,6 +176,7 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
     if (!model)
     {
         qCWarning(DIGIKAM_NLSEARCH_LOG) << "NL search: failed to load model:" << modelPath;
+
         Q_EMIT signalError(QLatin1String("Failed to load the language model."));
         Q_EMIT signalLoaded(false);
 
@@ -178,6 +184,7 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
     }
 
     // Context window large enough for the prompt and the structured output, and thread counts sized to the machine.
+
     llama_context_params cparams = llama_context_default_params();
     cparams.n_ctx                = 4096;
     cparams.n_threads            = QThread::idealThreadCount();
@@ -189,6 +196,7 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
     {
         qCWarning(DIGIKAM_NLSEARCH_LOG) << "NL search: failed to create llama context";
         llama_model_free(model);
+
         Q_EMIT signalError(QLatin1String("Failed to initialize the model context."));
         Q_EMIT signalLoaded(false);
 
@@ -225,13 +233,14 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
         return;
     }
 
-    llama_model*       const model = static_cast<llama_model*>(m_model);
+    const llama_model* const model = static_cast<llama_model*>(m_model);
     llama_context*     const ctx   = static_cast<llama_context*>(m_context);
     const llama_vocab* const vocab = llama_model_get_vocab(model);
 
     llama_memory_clear(llama_get_memory(ctx), true);
 
     // 1. Tokenize the prompt
+
     const QByteArray promptUtf8 = prompt.toUtf8();
 
     const int32_t tokenized = llama_tokenize(vocab, promptUtf8.constData(),
@@ -256,10 +265,12 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
     }
 
     // 2. Greedy sampler (deterministic)
+
     llama_sampler* const smpl = llama_sampler_chain_init(llama_sampler_chain_default_params());
     llama_sampler_chain_add(smpl, llama_sampler_init_greedy());
 
     // 3. Decode the prompt, then generate token by token
+
     QString     result;
     llama_batch batch     = llama_batch_get_one(tokens.data(), tokens.size());
     int         generated = 0;
@@ -287,7 +298,7 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
         }
 
         char      piece[256] = { 0 };
-        const int n = llama_token_to_piece(vocab, newToken, piece, sizeof(piece), 0, true);
+        const int n          = llama_token_to_piece(vocab, newToken, piece, sizeof(piece), 0, true);
 
         if (n > 0)
         {
@@ -296,13 +307,12 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
 
         Q_EMIT signalProgress(++generated);
 
-        
         const QString trimmed = result.trimmed();
-        int depth = 0;
-        bool sawOpen = false; 
-        bool balanced = false;
+        int depth             = 0;
+        bool sawOpen          = false;
+        bool balanced         = false;
 
-        for (const QChar ch : trimmed)
+        for (const QChar& ch : trimmed)
         {
             if      (ch == QLatin1Char('{')) { ++depth; sawOpen = true; }
             else if (ch == QLatin1Char('}')) { --depth; }
@@ -314,7 +324,7 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
         {
             break;
         }
-        
+
         m_singleToken = newToken;
         batch         = llama_batch_get_one(&m_singleToken, 1);
     }
@@ -331,6 +341,7 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
     Q_EMIT signalError(QLatin1String("digiKam was built without llama.cpp support."));
 
 #endif
+
 }
 
 void SearchLlamaWorker::slotDoUnload()
