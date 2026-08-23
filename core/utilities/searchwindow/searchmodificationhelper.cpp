@@ -138,7 +138,7 @@ void SearchModificationHelper::slotSearchRename(SAlbum* searchAlbum)
     }
 
     QString oldName(searchAlbum->title());
-    bool    ok;
+    bool    ok   = false;
     QString name = QInputDialog::getText(d->dialogParent,
                                          i18nc("@title:window", "Rename Album (%1)", oldName),
                                          i18n("Enter new album name:"),

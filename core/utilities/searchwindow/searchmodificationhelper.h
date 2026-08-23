@@ -30,20 +30,18 @@ class SketchWidget;
 class ItemInfo;
 
 /**
- * Range of a contiguous dates selection <start date, end date>.
+ * @brief Range of a contiguous dates selection <start date, end date>.
  */
 typedef QPair<QDateTime, QDateTime> DateRange;
 
 /**
- * List of dates range selected.
+ * @brief List of dates range selected.
  */
 typedef QList<DateRange> DateRangeList;
 
 /**
- * Utility class providing methods to modify search albums (SAlbum) in a way
+ * @brief Utility class providing methods to modify search albums (SAlbum) in a way
  * useful to implement views.
- *
- * @author jwienke
  */
 class SearchModificationHelper: public QObject
 {
@@ -52,7 +50,7 @@ class SearchModificationHelper: public QObject
 public:
 
     /**
-     * Constructor.
+     * @brief Constructor.
      *
      * @param parent the parent for qt parent child mechanism
      * @param dialogParent parent widget for dialogs displayed by this object
@@ -60,9 +58,11 @@ public:
     SearchModificationHelper(QObject* const parent, QWidget* const dialogParent);
 
     /**
-     * Destructor.
+     * @brief Destructor.
      */
     ~SearchModificationHelper() override;
+
+public:
 
     /**
      * @see slotCreateFuzzySearchFromSketch()
@@ -99,21 +99,21 @@ public:
 public Q_SLOTS:
 
     /**
-     * Deletes the given search after prompting the user.
+     * @brief Deletes the given search after prompting the user.
      *
      * @param searchAlbum search to delete
      */
     void slotSearchDelete(SAlbum* searchAlbum);
 
     /**
-     * Renames the given search via a dialog.
+     * @brief Renames the given search via a dialog.
      *
      * @param searchAlbum search to rename
      */
     void slotSearchRename(SAlbum* searchAlbum);
 
     /**
-     * Creates a new timeline search.
+     * @brief Creates a new timeline search.
      *
      * @param desiredName desired name for the search. If this name already
      *                    exists and overwriteIfExisting is false, then the user
@@ -129,7 +129,7 @@ public Q_SLOTS:
                                      bool overwriteIfExisting = false);
 
     /**
-     * Creates a new fuzzy search based on a sketch created by the user and
+     * @brief Creates a new fuzzy search based on a sketch created by the user and
      * selects it in the AlbumManager after creation.
      *
      * @param name the name of the new sketch search
@@ -147,7 +147,7 @@ public Q_SLOTS:
                                          bool overwriteIfExisting = false);
 
     /**
-     * Creates a new fuzzy search for finding similar photos based on one photo
+     * @brief Creates a new fuzzy search for finding similar photos based on one photo
      * and selects it in the album manager after creation.
      *
      * @param name of the new search
@@ -167,7 +167,7 @@ public Q_SLOTS:
                                         bool overwriteIfExisting = false);
 
     /**
-     * Creates a new fuzzy search for finding similar photos based on the file
+     * @brief Creates a new fuzzy search for finding similar photos based on the file
      * path of a photo
      * and selects it in the album manager after creation.
      *
