@@ -19,7 +19,11 @@ Bundles component versions:
 Icon-View  : Improve filename matching for timelapse/burst grouping items.
 Raw Support: Add support of Sony ARW6 CRAW HQ, Sony ILCE-7M5, and Canon R50 V.
 Database   : MySql support is dropped in favor of MariaDB. It's highly recommended to migrate from MySql to MariaDB.
-Search     : Natural Language Search in the Advanced Search tool, powered by a local LLM (Qwen2.5-1.5B-Instruct) that runs entirely on your computer. Describe what you want in plain language and digiKam builds the corresponding structured search. Supports tags, people, albums, ratings, labels, orientation, places, dates, captions, video properties (duration, frame rate, bitrate), and file formats. See: https://community.kde.org/GSoC/2026/StatusReports/SrirupaDatta
+Search     : Natural Language Search in the Advanced Search tool, powered by a local LLM (Qwen2.5-1.5B-Instruct)
+             that runs entirely on your computer. Describe what you want in plain language and digiKam builds the corresponding
+             structured search. Supports tags, people, albums, ratings, labels, orientation, places, dates, captions, video properties
+             (duration, frame rate, bitrate), and file formats. For details, see this report:
+             https://community.kde.org/GSoC/2026/StatusReports/SrirupaDatta
 
 *****************************************************************************************************
 
@@ -76,9 +80,9 @@ BUGFIXES:
 049 --> 524505 - G'MIC filter list can't be updated: https://gmic.eu/update360.gmic 404 not found.
 050 --> 515936 - Support for Semantic Image Search using CLIP-ViT-H-14 models.
 051 --> 428545 - Wish: Writing SQL query in Advanced Search or Access to all fields of the database.
-052 --> 473731 - User input SQL statement to search. 
+052 --> 473731 - User input SQL statement to search.
 053 --> 497938 - Text-based Image Search.
-054 --> 367700 - It should be possible to search for more, if not all metadata fields. 
+054 --> 367700 - It should be possible to search for more, if not all metadata fields.
 055 --> 
 056 --> 
 057 --> 
