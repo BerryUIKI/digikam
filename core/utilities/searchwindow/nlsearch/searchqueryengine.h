@@ -48,15 +48,19 @@ public:
 
     Q_DISABLE_COPY(SearchQueryEngine)
 
-    // Dependency injection: keeps the engine unit-testable with the
-    // mock backend and lets SearchWindow own component lifetimes.
+    /**
+     * @brief Dependency injection: keeps the engine unit-testable with the
+     * mock backend and lets SearchWindow own component lifetimes.
+     */
     void setBackend(SearchLanguageBackend* const backend);
     void setPromptBuilder(SearchPromptBuilder* const builder);
     void setParser(SearchIntentParser* const parser);
     void setResolver(SearchIntentResolver* const resolver);
     void setCache(SearchQueryCache* const cache);
 
-    // Collection-aware hints injected into prompts.
+    /**
+     * @brief Collection-aware hints injected into prompts.
+     */
     void setKnownTags(const QStringList& tags);
     void setKnownAlbums(const QStringList& albums);
     void setKnownPeople(const QStringList& people);
@@ -66,7 +70,7 @@ public:
 public Q_SLOTS:
 
     /**
-     * Entry point used by SearchWindow / SearchTabHeader.
+     * @brief Entry point used by SearchWindow / SearchTabHeader.
      * originalText: what the user typed.
      * normalizedText: post-DOnlineTranslator text, or empty to reuse
      * the original (translation disabled / failed -> fallback).
@@ -78,10 +82,10 @@ public Q_SLOTS:
 
 Q_SIGNALS:
 
-    // Resolved, unambiguous: UI can populate Advanced Search fields.
+    /// @brief Resolved, unambiguous: UI can populate Advanced Search fields.
     void signalIntentReady(const SearchQueryIntent& intent);
 
-    // Ambiguous: UI must show clarification choices, never guess.
+    /// @brief Ambiguous: UI must show clarification choices, never guess.
     void signalClarificationRequired(const SearchQueryIntent& intent);
 
     void signalErrorOccurred(const QString& message);

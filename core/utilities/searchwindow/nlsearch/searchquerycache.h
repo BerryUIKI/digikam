@@ -60,7 +60,6 @@ private:
      * @note In-memory only. Persistence to a small JSON file under
      * the digiKam config dir is planned for later.
      */
-
     QHash<QString, SearchQueryIntent> m_entries;
 
     /**

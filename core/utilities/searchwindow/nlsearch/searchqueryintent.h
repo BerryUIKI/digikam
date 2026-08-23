@@ -31,8 +31,8 @@ namespace Digikam
 {
 
 /**
- * A single search constraint extracted from the user's query.
- * Example: { field = "tag", op = "contains", value = "landscape" }
+ * @brief A single search constraint extracted from the user's query.
+ * @example { field = "tag", op = "contains", value = "landscape" }
  *
  * The set of valid fields/operators is defined and validated by
  * SearchIntentParser and SearchCapabilityDictionary, never trusted
@@ -41,9 +41,12 @@ namespace Digikam
 class SearchQueryConstraint
 {
 public:
-    QString field;   // Canonical field name (e.g. "tag", "picklabel", "daterange", "place")
-    QString op;      // Operator (e.g. "eq", "contains", "gte", "between")
-    QString value;   // Raw or resolved value (e.g. "landscape", "2025-06-01..2025-08-31")
+
+    QString field;   ///< Canonical field name (e.g. "tag", "picklabel", "daterange", "place")
+    QString op;      ///< Operator (e.g. "eq", "contains", "gte", "between")
+    QString value;   ///< Raw or resolved value (e.g. "landscape", "2025-06-01..2025-08-31")
+
+public:
 
     bool isValid() const
     {
@@ -52,7 +55,7 @@ public:
 };
 
 /**
- * The full structured intent for one natural-language query.
+ * @brief The full structured intent for one natural-language query.
  * Produced by SearchIntentParser from raw model output, consumed by
  * SearchIntentResolver, and (after resolution) applied to the
  * Advanced Search UI via SearchWindow programmatic setters.
@@ -60,20 +63,27 @@ public:
 class SearchQueryIntent
 {
 public:
+
     QList<SearchQueryConstraint> constraints;
 
-    // Populated when the model flags an ambiguous term
+    /**
+     * @note Populated when the model flags an ambiguous term
+     */
     QString                      clarificationMessage;
     QStringList                  clarificationChoices;
-    QList<AmbiguityChoice>       clarificationOptions;   // Each carries field+value to apply on pick.
+    QList<AmbiguityChoice>       clarificationOptions;  ///< Each carries field+value to apply on pick.
 
-    // Book-keeping for transparency / SAlbum storage.
-    QString                      originalQuery;     // Exactly what the user typed.
-    QString                      normalizedQuery;   // After optional DOnlineTranslator pass.
-    QString                      rawModelOutput;    // Raw JSON from the backend (debugging).
+    /**
+     * @note Book-keeping for transparency / SAlbum storage.
+     */
+    QString                      originalQuery;         ///< Exactly what the user typed.
+    QString                      normalizedQuery;       ///< After optional DOnlineTranslator pass.
+    QString                      rawModelOutput;        ///< Raw JSON from the backend (debugging).
 
     bool                         requiresClarification = false;
     bool                         parseSucceeded        = false;
+
+public:
 
     bool isAmbiguous() const
     {
