@@ -45,7 +45,7 @@ public:
 private Q_SLOTS:
 
     void initTestCase();
-    void cleanupTestCase();
+
     void testOriginal();
     void testExcludeRefSelectpotentialDuplicates();
     void testPreferFolderSelectpotentialDuplicates();
@@ -55,14 +55,16 @@ private Q_SLOTS:
     void testReferenceFolderNotSelected();
     void testReferenceFolderPartlySelected();
 
+    void cleanupTestCase();
+
 private:
 
     void startSearchingDuplicates(const AlbumList& searchAlbums, const AlbumList& tags,
                                   const auto refImageSelMethod, const AlbumList& referenceAlbums,
                                   QHash<QString, QList<ItemInfo> >& references);
 
-    void startSqlite(const QDir& dbDir);
-    void stopSql();
+    void startDatabase(const QDir& dbDir);
+    void stopDatabase();
 
 private:
 

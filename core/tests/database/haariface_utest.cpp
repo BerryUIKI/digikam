@@ -61,7 +61,7 @@ HaarIfaceTest::HaarIfaceTest(QObject* const parent)
 void HaarIfaceTest::initTestCase()
 {
     auto dir        = QDir(filesPath);
-    startSqlite(dir);
+    startDatabase(dir);
 
     // Update collection path, because this is hardcoded
 
@@ -87,10 +87,10 @@ void HaarIfaceTest::initTestCase()
 
 void HaarIfaceTest::cleanupTestCase()
 {
-    stopSql();
+    stopDatabase();
 }
 
-void HaarIfaceTest::startSqlite(const QDir& dbDir)
+void HaarIfaceTest::startDatabase(const QDir& dbDir)
 {
     qCDebug(DIGIKAM_TESTS_LOG) << "Setup Sqlite Database...";
 
@@ -117,7 +117,7 @@ void HaarIfaceTest::startSqlite(const QDir& dbDir)
     QTest::qWait(3000);
 }
 
-void HaarIfaceTest::stopSql()
+void HaarIfaceTest::stopDatabase()
 {
     qCDebug(DIGIKAM_TESTS_LOG) << "Shutting down SQlite database";
 
