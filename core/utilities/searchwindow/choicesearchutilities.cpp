@@ -83,7 +83,9 @@ void ChoiceSearchModel::setChoice(const QStringList& data)
     if (m_entries.size())
     {
         beginResetModel();
-        m_entries.clear();
+        {
+            m_entries.clear();
+        }
         endResetModel();
     }
 
