@@ -132,6 +132,7 @@ Q_SIGNALS:
     void signalError(const QString& message);
     void signalProgress(int step);
     void signalLoadProgress(int percent);
+    void signalCancelled();
 
 private:
 

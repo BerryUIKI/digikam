@@ -90,11 +90,13 @@ Q_SIGNALS:
 
     void signalErrorOccurred(const QString& message);
     void signalStatusMessage(const QString& message);
+    void signalCancelled();
 
 private Q_SLOTS:
 
     void slotRawOutputReady(const QString& output);
     void slotBackendError(const QString& error);
+    void slotBackendCancelled();
 
 private:
 

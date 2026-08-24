@@ -29,6 +29,11 @@
 #include <QPoint>
 #include <QCheckBox>
 #include <QPushButton>
+#include <QGroupBox>
+#include <QToolButton>
+#include <QIcon>
+#include <QDesktopServices>
+#include <QUrl>
 #include <QPointer>
 #include <QTimer>
 
@@ -88,6 +93,7 @@ public:
     QTimer*                     nlSpinnerTimer          = nullptr;
     int                         nlSpinnerIndex          = 0;
     QCheckBox*                  translateCheck          = nullptr;
+    QToolButton*                nlCancelButton          = nullptr;
     QWidget*  nlReadyPanel                              = nullptr;
     QWidget*  nlDownloadPanel                           = nullptr;
 
@@ -122,24 +128,26 @@ SearchWindow::SearchWindow()
 
     // Ready state: the describe box, shown when the model is present.
 
-    d->nlReadyPanel             = new QWidget(nlPanel);
-    QVBoxLayout* const readyLay = new QVBoxLayout(d->nlReadyPanel);
-    readyLay->setContentsMargins(0, 0, 0, 0);
+    d->nlReadyPanel               = new QWidget(nlPanel);
+    QVBoxLayout* const readyOuter = new QVBoxLayout(d->nlReadyPanel);
+    readyOuter->setContentsMargins(0, 0, 0, 0);
 
-    QLabel* const nlTitle       = new QLabel(i18n("Describe what you want to find"), d->nlReadyPanel);
+    QGroupBox* const nlGroup      = new QGroupBox(i18n("Natural Language Search"), d->nlReadyPanel);
+    QVBoxLayout* const readyLay   = new QVBoxLayout(nlGroup);
 
-    d->describeEdit             = new QLineEdit(d->nlReadyPanel);
+    d->describeEdit               = new QLineEdit(nlGroup);
     d->describeEdit->setPlaceholderText(i18n("e.g. landscape photos with red labels taken near Paris"));
     d->describeEdit->setClearButtonEnabled(true);
 
-    d->nlStatusLabel            = new QLabel(d->nlReadyPanel);
-    d->nlStatusLabel->setWordWrap(true);
-    d->nlStatusLabel->hide();
+    d->translateCheck             = new QCheckBox(i18n("Translate my query to English first"), nlGroup);
+    d->translateCheck->setChecked(d->nlTranslate);
+    d->translateCheck->setToolTip(i18n("When enabled, your query is translated to English before "
+                                        "being interpreted, so you can type in your own language. "
+                                        "Requires an internet connection."));
 
-    d->nlSpinnerLabel           = new QLabel(d->nlReadyPanel);
-    d->nlSpinnerLabel->hide();
-    d->nlSpinnerPix             = new DWorkingPixmap(this);
-    d->nlSpinnerTimer           = new QTimer(this);
+    d->nlSpinnerLabel             = new QLabel(nlGroup);
+    d->nlSpinnerPix               = new DWorkingPixmap(this);
+    d->nlSpinnerTimer             = new QTimer(this);
 
     connect(d->nlSpinnerTimer, &QTimer::timeout, this, [this]()
         {
@@ -151,20 +159,48 @@ SearchWindow::SearchWindow()
         }
     );
 
-    d->translateCheck           = new QCheckBox(i18n("Translate my query to English first"), d->nlReadyPanel);
-    d->translateCheck->setChecked(d->nlTranslate);
-    d->translateCheck->setToolTip(i18n("When enabled, your query is translated to English before "
-                                       "being interpreted, so you can type in your own language. "
-                                       "Requires an internet connection."));
+    d->nlStatusLabel              = new QLabel(nlGroup);
+    d->nlStatusLabel->setWordWrap(true);
 
-    readyLay->addWidget(nlTitle);
-    readyLay->addWidget(d->describeEdit);
+    d->nlCancelButton             = new QToolButton(nlGroup);
+    d->nlCancelButton->setIcon(QIcon::fromTheme(QLatin1String("dialog-cancel")));
+    d->nlCancelButton->setToolTip(i18n("Cancel the current interpretation"));
+    d->nlCancelButton->setAutoRaise(true);
+    d->nlCancelButton->setEnabled(false);
+
+    connect(d->nlCancelButton, &QToolButton::clicked, this, [this]()
+        {
+            if (d->nlEngine)
+            {
+                d->nlEngine->slotCancel();
+            }
+        }
+    );
+
+    QToolButton* const nlHelpButton = new QToolButton(nlGroup);
+    nlHelpButton->setIcon(QIcon::fromTheme(QLatin1String("help-contents")));
+    nlHelpButton->setToolTip(i18n("Open the Natural Language Search handbook"));
+    nlHelpButton->setAutoRaise(true);
+
+    connect(nlHelpButton, &QToolButton::clicked, this, []()
+        {
+            QDesktopServices::openUrl(QUrl(QLatin1String(
+                "https://docs.digikam.org/en/left_sidebar/search_view.html")));
+        }
+    );
+
     QHBoxLayout* const nlStatusRow = new QHBoxLayout();
     nlStatusRow->setContentsMargins(0, 0, 0, 0);
+    nlStatusRow->addWidget(d->translateCheck, 1);
     nlStatusRow->addWidget(d->nlSpinnerLabel);
     nlStatusRow->addWidget(d->nlStatusLabel, 1);
+    nlStatusRow->addWidget(d->nlCancelButton);
+    nlStatusRow->addWidget(nlHelpButton);
+
+    readyLay->addWidget(d->describeEdit);
     readyLay->addLayout(nlStatusRow);
-    readyLay->addWidget(d->translateCheck);
+
+    readyOuter->addWidget(nlGroup);
 
     // Download state: shown when llama.cpp is built but the model is missing.
 
@@ -347,6 +383,12 @@ void SearchWindow::searchCancel()
 {
     qCDebug(DIGIKAM_GENERAL_LOG) << "SearchWindow: search cancelled";
 
+    // Abort any running natural-language interpretation when the dialog closes.
+    if (d->nlEngine)
+    {
+        d->nlEngine->slotCancel();
+    }
+
     if (d->hasTouchedXml)
     {
         Q_EMIT searchEdited(d->currentId, d->oldXml);
@@ -479,9 +521,17 @@ void SearchWindow::setupNlSearch()
 
     connect(d->nlEngine, &SearchQueryEngine::signalErrorOccurred,
             this, &SearchWindow::slotNlError);
+    
+    connect(d->nlEngine, &SearchQueryEngine::signalCancelled,
+            this, &SearchWindow::slotNlCancelled);
 
-    connect(d->nlEngine, &SearchQueryEngine::signalStatusMessage,
-            this, &SearchWindow::slotNlStatus);
+    connect(d->nlBackend, &SearchLanguageBackend::signalModelLoadProgress,
+            this, [this](int percent)
+        {
+            d->nlStatusLabel->setText(i18n("Loading the language model... %1%", percent));
+            d->nlStatusLabel->show();
+        }
+    );
 
     KSharedConfigPtr config = KSharedConfig::openConfig();
     KConfigGroup group      = config->group(QLatin1String("NL Search Settings"));
@@ -522,6 +572,7 @@ void SearchWindow::startInterpretation(const QString& text)
     d->nlSpinnerIndex = 0;
     d->nlSpinnerTimer->start(100);
     d->nlSpinnerLabel->show();
+    d->nlCancelButton->setEnabled(true);
 
     if (!d->nlTranslate)
     {
@@ -579,6 +630,7 @@ void SearchWindow::slotTranslationFinished()
 void SearchWindow::slotNlIntentReady(const SearchQueryIntent& intent)
 {
     d->nlSpinnerTimer->stop();
+    d->nlCancelButton->setEnabled(false);
     d->nlSpinnerLabel->hide();
 
     d->describeEdit->setEnabled(true);
@@ -609,6 +661,7 @@ void SearchWindow::slotNlIntentReady(const SearchQueryIntent& intent)
 void SearchWindow::slotNlClarificationRequired(const SearchQueryIntent& intent)
 {
     d->nlSpinnerTimer->stop();
+    d->nlCancelButton->setEnabled(false);
     d->nlSpinnerLabel->hide();
     d->describeEdit->setEnabled(true);
 
@@ -659,9 +712,24 @@ void SearchWindow::slotNlClarificationRequired(const SearchQueryIntent& intent)
     }
 }
 
+void SearchWindow::slotNlCancelled()
+{
+    d->nlSpinnerTimer->stop();
+    d->nlSpinnerLabel->hide();
+    d->nlCancelButton->setEnabled(false);
+    d->describeEdit->setEnabled(true);
+
+    // Neutral message, no error highlight.
+    d->nlStatusLabel->setAutoFillBackground(false);
+    d->nlStatusLabel->setPalette(QPalette());
+    d->nlStatusLabel->setText(i18n("Interpretation cancelled."));
+    d->nlStatusLabel->show();
+}
+
 void SearchWindow::slotNlError(const QString& message)
 {
     d->nlSpinnerTimer->stop();
+    d->nlCancelButton->setEnabled(false);
     d->nlSpinnerLabel->setPixmap(QPixmap());
 
     d->describeEdit->setEnabled(true);
@@ -689,6 +757,7 @@ void SearchWindow::applyResolvedIntent(const SearchQueryIntent& intent)
     if (xml.contains(QLatin1String("<group/>")))
     {
         d->nlSpinnerTimer->stop();
+    d->nlCancelButton->setEnabled(false);
         d->nlSpinnerLabel->setPixmap(QPixmap());
 
         d->nlStatusLabel->setText(i18nc("@info", "None of that could be turned into "

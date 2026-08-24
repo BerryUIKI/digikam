@@ -82,6 +82,7 @@ private Q_SLOTS:
     void slotNlIntentReady(const SearchQueryIntent& intent);
     void slotNlClarificationRequired(const SearchQueryIntent& intent);
     void slotNlError(const QString& message);
+    void slotNlCancelled();
     void slotNlStatus(const QString& message);
     void slotTranslationFinished();
     void updateNlPanelState();

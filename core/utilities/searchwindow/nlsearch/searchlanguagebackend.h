@@ -70,6 +70,8 @@ Q_SIGNALS:
     void signalInferenceError(const QString& errorMessage);
     void signalModelLoaded(bool success);
     void signalInferenceProgress(int step);
+    void signalModelLoadProgress(int percent);
+    void signalInferenceCancelled();
 };
 
 } // namespace Digikam

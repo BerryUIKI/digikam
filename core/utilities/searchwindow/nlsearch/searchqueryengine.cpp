@@ -89,6 +89,9 @@ void SearchQueryEngine::setBackend(SearchLanguageBackend* const backend)
 
         connect(d->backend, &SearchLanguageBackend::signalInferenceError,
                 this, &SearchQueryEngine::slotBackendError);
+
+        connect(d->backend, &SearchLanguageBackend::signalInferenceCancelled,
+               this, &SearchQueryEngine::slotBackendCancelled);
     }
 }
 
@@ -262,6 +265,11 @@ void SearchQueryEngine::slotRawOutputReady(const QString& output)
     }
 
     Q_EMIT signalIntentReady(intent);
+}
+
+void SearchQueryEngine::slotBackendCancelled()
+{
+    Q_EMIT signalCancelled();
 }
 
 void SearchQueryEngine::slotBackendError(const QString& error)

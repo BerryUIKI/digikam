@@ -136,6 +136,12 @@ SearchLlamaBackend::SearchLlamaBackend(QObject* const parent)
     connect(m_worker, &SearchLlamaWorker::signalProgress,
             this, &SearchLlamaBackend::signalInferenceProgress);
 
+    connect(m_worker, &SearchLlamaWorker::signalLoadProgress,
+            this, &SearchLlamaBackend::signalModelLoadProgress);
+
+    connect(m_worker, &SearchLlamaWorker::signalCancelled,
+            this, &SearchLlamaBackend::signalInferenceCancelled);
+
     m_workerThread.start();
 }
 
@@ -369,13 +375,23 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
     {
         if (m_cancelRequested.loadRelaxed())
         {
-            break;
+            llama_sampler_free(smpl);
+            Q_EMIT signalCancelled();
+            return;
         }
 
         if (llama_decode(ctx, batch) != 0)
         {
             llama_sampler_free(smpl);
-            Q_EMIT signalError(i18n("Model decode failed."));
+
+            if (m_cancelRequested.loadRelaxed())
+            {
+                Q_EMIT signalCancelled();
+            }
+            else
+            {
+                Q_EMIT signalError(i18n("Model decode failed."));
+            }
 
             return;
         }
