@@ -81,11 +81,11 @@ QSize RatingComboBoxDelegate::sizeHint(const QStyleOptionViewItem& option, const
 #endif
 
     {
-        return QSize(RatingMax * (m_starPolygonSize.width() + 1), m_starPolygonSize.height());
+        return (QSize(RatingMax * (m_starPolygonSize.width() + 1), m_starPolygonSize.height()));
     }
     else
     {
-        return QItemDelegate::sizeHint(option, index);
+        return (QItemDelegate::sizeHint(option, index));
     }
 }
 
@@ -419,7 +419,7 @@ void RatingComboBox::setRatingValue(RatingComboBox::RatingValue value)
 
 RatingComboBox::RatingValue RatingComboBox::ratingValue() const
 {
-    return (RatingValue)(view()->currentIndex().data(RatingComboBoxModel::RatingRole).toInt());
+    return ((RatingValue)(view()->currentIndex().data(RatingComboBoxModel::RatingRole).toInt()));
 }
 
 void RatingComboBox::currentValueChanged(const QModelIndex& current, const QModelIndex&)

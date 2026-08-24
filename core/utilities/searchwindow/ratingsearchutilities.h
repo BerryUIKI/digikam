@@ -42,13 +42,13 @@ class RatingComboBox : public ModelIndexBasedComboBox
 public:
 
     /**
-     * An advanced widget for entering a rating,
+     * @brief An advanced widget for entering a rating,
      * including support for Null and NoRating values
      */
     enum RatingValue
     {
         /**
-         * The rating value. All values except Null correspond to
+         * @brief The rating value. All values except Null correspond to
          * the integers used by the database.
          */
         Null     = -2,
@@ -64,6 +64,8 @@ public:
 public:
 
     explicit RatingComboBox(QWidget* const parent = nullptr);
+
+public:
 
     void setRatingValue(RatingValue value);
     RatingValue ratingValue()                                                                   const;
@@ -115,7 +117,7 @@ class RatingComboBoxWidget : public RatingWidget,
 public:
 
     /**
-     * Internal sub-classing the classic RatingWidget,
+     * @brief Internal sub-classing the classic RatingWidget,
      * this provides support for the Null and NoRating states.
      */
     explicit RatingComboBoxWidget(QWidget* const parent = nullptr);
@@ -159,6 +161,8 @@ public:
 
     explicit RatingComboBoxModel(QObject* const parent = nullptr);
 
+public:
+
     QModelIndex indexForRatingValue(RatingComboBox::RatingValue value)                          const;
 
     int rowCount(const QModelIndex& parent)                                                     const override;
@@ -184,6 +188,8 @@ class RatingComboBoxDelegate : public QItemDelegate,
 public:
 
     explicit RatingComboBoxDelegate(QObject* const parent = nullptr);
+
+public:
 
     QSize sizeHint(const QStyleOptionViewItem& option, const QModelIndex& index)                const override;
     void paint(QPainter* painter, const QStyleOptionViewItem& option, const QModelIndex& index) const override;
