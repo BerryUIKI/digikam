@@ -104,6 +104,12 @@ public:
 
     void requestCancel();
 
+   /**
+    * @brief Thread-safe check used by the llama.cpp abort callback to stop
+    * an in-progress decode when cancellation has been requested.
+    */
+   bool abortRequested() const { return (m_cancelRequested.loadRelaxed() != 0); }
+
 public Q_SLOTS:
 
     void slotDoLoad(const QString& modelPath);

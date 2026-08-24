@@ -67,6 +67,23 @@ void s_llamaLogCallback(ggml_log_level level, const char* text, void* userData)
     }
 }
 
+/**
+ * @brief Abort callback for llama.cpp. Returns true to stop an in-progress
+ * decode. The void* carries the worker instance, so a cancellation requested
+ * from the GUI interrupts computation mid-decode, not only between tokens.
+ */
+bool s_llamaAbortCallback(void* userData)
+{
+    if (userData)
+    {
+        const SearchLlamaWorker* const worker = static_cast<const SearchLlamaWorker*>(userData);
+
+        return worker->abortRequested();
+    }
+
+    return false;
+}
+
 } // anonymous namespace
 
 #endif // HAVE_LLAMACPP
@@ -253,6 +270,11 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
 
     m_model   = model;
     m_context = ctx;
+
+   // Allow the GUI to abort a long decode mid-computation (checked by
+   // llama.cpp during llama_decode), in addition to the between-token
+   // check in slotDoInference.
+   llama_set_abort_callback(ctx, s_llamaAbortCallback, this);
 
     Q_EMIT signalLoaded(true);
 
