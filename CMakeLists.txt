@@ -172,7 +172,7 @@ set_property(GLOBAL PROPERTY AUTOGEN_TARGETS_FOLDER "Generated")
 
 message(STATUS "Compiler is         : ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
 
-### COMPILATION OPTIONS MANAGEMENT ####################################################################################
+### PACKAGING COMPILATION OPTIONS #####################################################################################
 
 option(DIGIKAMSC_COMPILE_PO              "Build translations files (default=ON)" ON)
 option(DIGIKAMSC_COMPILE_DIGIKAM         "Build digiKam core (default=ON)"       ON)
@@ -194,14 +194,9 @@ message(STATUS "Top level compilation configuration for ${PROJECT_NAME}")
 message(STATUS "")
 
 if(DIGIKAMSC_COMPILE_DIGIKAM)
-    if(NOT EXISTS ${CMAKE_SOURCE_DIR}/core)
-        message(STATUS "${PROJECT_NAME} will be compiled....................... NO (source code not available)")
-        set(DIGIKAMSC_COMPILE_DIGIKAM OFF)
-    else()
-        message(STATUS "${PROJECT_NAME} will be compiled....................... YES")
-    endif()
+    message(STATUS "${PROJECT_NAME} will be compiled....................... YES")
 else()
-    message(STATUS     "${PROJECT_NAME} will be compiled....................... NO")
+    message(STATUS "${PROJECT_NAME} will be compiled....................... NO")
 endif()
 
 if(DIGIKAMSC_COMPILE_PO)

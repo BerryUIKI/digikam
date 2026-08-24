@@ -265,8 +265,8 @@
                 "-DENABLE_MEDIAPLAYER=ON",
                 "-DENABLE_DBUS=ON",
                 "-DENABLE_APPSTYLES=ON",
-                "-DDIGIKAMSC_CHECKOUT_PO=OFF",
-                "-DENABLE_QWEBENGINE=ON"
+                "-DENABLE_GEOLOCATION=ON",
+                "-DENABLE_NLSEARCH_LLAMACPP=ON"
             ],
             "builddir": true,
             "sources": [ { "type": "git", "url": "https://invent.kde.org/graphics/digikam.git" } ]
