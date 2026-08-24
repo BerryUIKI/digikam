@@ -112,8 +112,31 @@ find_package(Jasper)                               # For JPEG 2000 support.
 find_package(Eigen3)                               # For Refocus tool.
 
 if(ENABLE_NLSEARCH_LLAMACPP)
-    set(HAVE_LLAMACPP TRUE)
-    message(STATUS "NL search: bundled llama.cpp backend enabled")
+
+    if(ENABLE_NLSEARCH_SYSTEM_LLAMACPP)
+
+        find_package(llama CONFIG)
+        find_package(ggml CONFIG)
+
+        if(llama_FOUND AND ggml_FOUND)
+
+            set(HAVE_LLAMACPP TRUE)
+            set(NLSEARCH_LLAMACPP_SYSTEM TRUE)
+            message(STATUS "NL search: system llama.cpp backend enabled")
+
+        else()
+
+            message(WARNING "NL search: system llama.cpp requested but not found; natural-language search disabled")
+
+        endif()
+
+    else()
+
+        set(HAVE_LLAMACPP TRUE)
+        message(STATUS "NL search: bundled llama.cpp backend enabled")
+
+    endif()
+
 endif()
 
 # -- ImageMagick checks and adjustments ---------------------------------------

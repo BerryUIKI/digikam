@@ -25,4 +25,4 @@ option(ENABLE_SANITIZERS                 "Enable ASAN and UBSAN sanitizers when 
 option(BUILD_WITH_CCACHE                 "Use ccache to speed up compilations"                                                OFF)
 option(BUILD_WITH_QT6                    "Build with Qt6, else Qt5"                                                           OFF)
 option(ENABLE_NLSEARCH_LLAMACPP          "Build digiKam with llama.cpp backend for natural-language search (default=OFF)"     OFF)
-
+option(ENABLE_NLSEARCH_SYSTEM_LLAMACPP   "Use a system-installed llama.cpp instead of the bundled copy (default=OFF)"         OFF)
