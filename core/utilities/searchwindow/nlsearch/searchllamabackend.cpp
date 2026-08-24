@@ -84,6 +84,22 @@ bool s_llamaAbortCallback(void* userData)
     return false;
 }
 
+/**
+ * @brief Model-load progress callback for llama.cpp. Forwards the 0.0-1.0
+ * load progress to the worker, which relays it to the GUI. Returns true to
+ * continue loading.
+ */
+bool s_llamaProgressCallback(float progress, void* userData)
+{
+    if (userData)
+    {
+        SearchLlamaWorker* const worker = static_cast<SearchLlamaWorker*>(userData);
+        worker->reportLoadProgress(progress);
+    }
+
+    return true;
+}
+
 } // anonymous namespace
 
 #endif // HAVE_LLAMACPP
@@ -231,6 +247,10 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
     llama_model_params mparams = llama_model_default_params();
     mparams.n_gpu_layers       = 0;
 
+    // Report model-load progress (0.0-1.0) to the GUI while the ~1 GB model loads.
+    mparams.progress_callback           = s_llamaProgressCallback;
+    mparams.progress_callback_user_data = this;
+
     const QByteArray pathUtf8  = modelPath.toUtf8();
     llama_model* const model   = llama_model_load_from_file(pathUtf8.constData(), mparams);
 
@@ -271,10 +291,10 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
     m_model   = model;
     m_context = ctx;
 
-   // Allow the GUI to abort a long decode mid-computation (checked by
-   // llama.cpp during llama_decode), in addition to the between-token
-   // check in slotDoInference.
-   llama_set_abort_callback(ctx, s_llamaAbortCallback, this);
+    // Allow the GUI to abort a long decode mid-computation (checked by
+    // llama.cpp during llama_decode), in addition to the between-token
+    // check in slotDoInference.
+    llama_set_abort_callback(ctx, s_llamaAbortCallback, this);
 
     Q_EMIT signalLoaded(true);
 
