@@ -42,6 +42,35 @@
 namespace Digikam
 {
 
+#ifdef HAVE_LLAMACPP
+
+namespace
+{
+
+/**
+ * @brief Route llama.cpp's internal logging through digiKam's NL-search log
+ * category instead of letting it print directly to stderr.
+ */
+void s_llamaLogCallback(ggml_log_level level, const char* text, void* userData)
+{
+    Q_UNUSED(level);
+    Q_UNUSED(userData);
+
+    if (text)
+    {
+        const QString msg = QString::fromUtf8(text).trimmed();
+
+        if (!msg.isEmpty())
+        {
+            qCDebug(DIGIKAM_NLSEARCH_LOG).noquote() << msg;
+        }
+    }
+}
+
+} // anonymous namespace
+
+#endif // HAVE_LLAMACPP
+
 SearchLlamaBackend::SearchLlamaBackend(QObject* const parent)
     : SearchLanguageBackend(parent)
 {
@@ -175,6 +204,10 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
     // Initialize the llama.cpp backend
 
     llama_backend_init();
+
+    // Route llama.cpp's internal logging through digiKam's log category.
+
+    llama_log_set(s_llamaLogCallback, nullptr);
 
     // Model parameters: CPU-only
 
