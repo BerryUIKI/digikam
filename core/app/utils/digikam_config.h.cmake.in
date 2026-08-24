@@ -113,7 +113,10 @@
 /* Define to 1 if ImageMagick codecs are supported */
 #cmakedefine HAVE_IMAGE_MAGICK 1
 
-#define LIBEXEC_INSTALL_DIR "${KDE_INSTALL_FULL_LIBEXECDIR}"
+#define LLAMA_VERSION_STRING        "${LLAMA_VERSION}"
+#define GGML_VERSION_STRING         "${GGML_VERSION}"
+
+#define LIBEXEC_INSTALL_DIR         "${KDE_INSTALL_FULL_LIBEXECDIR}"
 
 #define CMAKE_VERSION_STRING        "${CMAKE_VERSION}"
 #define CMAKE_CXX_COMPILER_ID       "${CMAKE_CXX_COMPILER_ID}"

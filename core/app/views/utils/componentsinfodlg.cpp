@@ -174,6 +174,18 @@ public:
         new QTreeWidgetItem(m_features, QStringList() <<
                             i18nc("@item: component info", "Natural-language search support") << i18nc("@item: component info", "Yes"));
 
+        QString llamaVersion = QString::fromLatin1(LLAMA_VERSION_STRING);
+
+        new QTreeWidgetItem(m_libraries, QStringList() <<
+                            i18nc("@item: component info", "LLAMA.cpp") << (!llamaVersion.isEmpty() ? llamaVersion
+                                                                                                    : i18nc("@item: component info", "Unknown")));
+
+        QString ggmlVersion  = QString::fromLatin1(GGML_VERSION_STRING);
+
+        new QTreeWidgetItem(m_libraries, QStringList() <<
+                            i18nc("@item: component info", "GGML") << (!ggmlVersion.isEmpty() ? ggmlVersion
+                                                                                              : i18nc("@item: component info", "Unknown")));
+
 #else
 
         new QTreeWidgetItem(m_features, QStringList() <<
