@@ -177,14 +177,14 @@ public:
         QString llamaVersion = QString::fromLatin1(LLAMA_VERSION_STRING);
 
         new QTreeWidgetItem(m_libraries, QStringList() <<
-                            i18nc("@item: component info", "LLAMA.cpp") << (!llamaVersion.isEmpty() ? llamaVersion
-                                                                                                    : i18nc("@item: component info", "Unknown")));
+                            i18nc("@item: component info", "Libllama.cpp") << (!llamaVersion.isEmpty() ? llamaVersion
+                                                                                                       : i18nc("@item: component info", "Unknown")));
 
         QString ggmlVersion  = QString::fromLatin1(GGML_VERSION_STRING);
 
         new QTreeWidgetItem(m_libraries, QStringList() <<
-                            i18nc("@item: component info", "GGML") << (!ggmlVersion.isEmpty() ? ggmlVersion
-                                                                                              : i18nc("@item: component info", "Unknown")));
+                            i18nc("@item: component info", "Libggml") << (!ggmlVersion.isEmpty() ? ggmlVersion
+                                                                                                 : i18nc("@item: component info", "Unknown")));
 
 #else
 
