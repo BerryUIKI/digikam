@@ -27,10 +27,6 @@ set(AKONADI_MIN_VERSION                     "5.95.0")       # Akonadi Contact de
 
 cmake_minimum_required(VERSION ${CMAKE_MIN_VERSION})
 
-# ==============================================================================
-
-include(RulesOptionDefinitions)
-
 ############## Find Packages ###################
 
 # Now detect the whole Qt6 or Qt5 framework.

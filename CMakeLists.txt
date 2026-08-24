@@ -172,10 +172,9 @@ set_property(GLOBAL PROPERTY AUTOGEN_TARGETS_FOLDER "Generated")
 
 message(STATUS "Compiler is         : ${CMAKE_CXX_COMPILER_ID} ${CMAKE_CXX_COMPILER_VERSION}")
 
-### PACKAGING COMPILATION OPTIONS #####################################################################################
+#######################################################################################################################
 
-option(DIGIKAMSC_COMPILE_PO              "Build translations files (default=ON)" ON)
-option(DIGIKAMSC_COMPILE_DIGIKAM         "Build digiKam core (default=ON)"       ON)
+include(RulesOptionDefinitions)
 
 #######################################################################################################################
 
