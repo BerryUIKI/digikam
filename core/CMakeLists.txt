@@ -122,18 +122,20 @@ if(ENABLE_NLSEARCH_LLAMACPP)
 
             set(HAVE_LLAMACPP TRUE)
             set(HAVE_LLAMACPP_SYSTEM TRUE)
-            message(STATUS "NL search: system llama.cpp backend enabled")
+            message(STATUS "NL search results: system llama.cpp backend enabled")
+            message(STATUS "llama.cpp version: ${LLAMA_VERSION}")
+            message(STATUS "ggml version     : ${GGML_VERSION}")
 
         else()
 
-            message(WARNING "NL search: system llama.cpp requested but not found; natural-language search disabled")
+            message(WARNING "NL search results: system llama.cpp requested but not found; natural-language search disabled")
 
         endif()
 
     else()
 
         set(HAVE_LLAMACPP TRUE)
-        message(STATUS "NL search: bundled llama.cpp backend enabled")
+        message(STATUS "NL search results: bundled llama.cpp backend enabled")
 
     endif()
 
