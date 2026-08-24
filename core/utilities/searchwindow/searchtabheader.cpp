@@ -49,6 +49,7 @@
 #include "coredbsearchxml.h"
 #include "dexpanderbox.h"
 #include "searchqueryengine.h"
+#include "dworkingpixmap.h"
 
 namespace Digikam
 {
@@ -196,6 +197,11 @@ public:
     QString             oldStoredKeywordContent;
 
     QToolButton*        nlInterpretButton       = nullptr;
+    QToolButton*        nlCancelButton          = nullptr;
+    QLabel*             nlSpinnerLabel          = nullptr;
+    DWorkingPixmap*     nlSpinnerPix            = nullptr;
+    QTimer*             nlSpinnerTimer          = nullptr;
+    int                 nlSpinnerIndex          = 0;
     QGroupBox*          nlInterpretedPanel      = nullptr;
     QLabel*             nlInterpretedLabel      = nullptr;
     QPushButton*        nlOpenAdvancedButton    = nullptr;
@@ -247,8 +253,31 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
     d->advancedEditSearch     = new QPushButton(i18n("Edit Current Search..."), this);
 
     d->nlInterpretButton      = new QToolButton(this);
-    d->nlInterpretButton->setIcon(QIcon::fromTheme(QLatin1String("tools-wizard")));
-    d->nlInterpretButton->setToolTip(i18n("Interpret as natural-language search"));
+    d->nlInterpretButton->setIcon(QIcon::fromTheme(QLatin1String("system-run")));
+    d->nlInterpretButton->setToolTip(i18n("Interpret the text above as a natural-language "
+                                            "search and build the query"));
+    d->nlInterpretButton->setCheckable(false);
+
+    d->nlCancelButton         = new QToolButton(this);
+    d->nlCancelButton->setIcon(QIcon::fromTheme(QLatin1String("dialog-cancel")));
+    d->nlCancelButton->setToolTip(i18n("Cancel the current interpretation"));
+    d->nlCancelButton->setAutoRaise(true);
+    d->nlCancelButton->setEnabled(false);
+
+    d->nlSpinnerLabel         = new QLabel(this);
+    d->nlSpinnerLabel->setFixedSize(22, 22);
+    d->nlSpinnerPix           = new DWorkingPixmap(this);
+    d->nlSpinnerTimer         = new QTimer(this);
+
+    connect(d->nlSpinnerTimer, &QTimer::timeout, this, [this]()
+        {
+            if (d->nlSpinnerPix->frameCount() > 0)
+            {
+                d->nlSpinnerIndex = (d->nlSpinnerIndex + 1) % d->nlSpinnerPix->frameCount();
+                d->nlSpinnerLabel->setPixmap(d->nlSpinnerPix->frameAt(d->nlSpinnerIndex));
+            }
+        }
+    );
 
     d->nlInterpretedPanel     = new QGroupBox(this);
     QVBoxLayout* const nlVbox = new QVBoxLayout;
@@ -270,7 +299,12 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
 
     grid1->addWidget(searchLabel,           0, 0, 1, 1);
     grid1->addWidget(d->keywordEdit,        0, 1, 1, 1);
-    grid1->addWidget(d->nlInterpretButton,  0, 2, 1, 1);
+    QHBoxLayout* const nlActionRow = new QHBoxLayout();
+    nlActionRow->setContentsMargins(0, 0, 0, 0);
+    nlActionRow->addWidget(d->nlSpinnerLabel);
+    nlActionRow->addWidget(d->nlCancelButton);
+    nlActionRow->addWidget(d->nlInterpretButton);
+    grid1->addLayout(nlActionRow, 0, 2, 1, 1);
     grid1->addWidget(d->advancedNewSearch,  1, 0, 1, 3);
     grid1->addWidget(d->advancedEditSearch, 2, 0, 1, 3);
     grid1->addWidget(d->nlInterpretedPanel, 3, 0, 1, 3);
@@ -408,13 +442,28 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
 
     connect(d->nlRunNowButton, &QPushButton::clicked,
             this, &SearchTabHeader::slotNlRunNow);
+    
+    connect(d->nlCancelButton, &QToolButton::clicked, this, [this]()
+        {
+            if (SearchWindow* const window = searchWindow())
+            {
+                window->queryEngine()->slotCancel();
+            }
+        }
+    );
 
 }
 
 SearchTabHeader::~SearchTabHeader()
 {
-    delete d->searchWindow;
-    delete d;
+   // Abort any running natural-language interpretation before teardown.
+   if (d->searchWindow && d->searchWindow->queryEngine())
+   {
+       d->searchWindow->queryEngine()->slotCancel();
+   }
+
+   delete d->searchWindow;
+   delete d;
 }
 
 SearchWindow* SearchTabHeader::searchWindow() const
@@ -737,6 +786,15 @@ QString SearchTabHeader::keywordsFromQuery(const QString& query) const
     return KeywordSearch::merge(keywordList);
 }
 
+void SearchTabHeader::stopNlSpinner()
+{
+    d->nlSpinnerTimer->stop();
+
+    d->nlSpinnerLabel->setPixmap(QPixmap());
+
+    d->nlCancelButton->setEnabled(false);
+}
+
 void SearchTabHeader::slotNlInterpretClicked()
 {
     const QString text = d->keywordEdit->getText().trimmed();
@@ -768,16 +826,23 @@ void SearchTabHeader::slotNlInterpretClicked()
         connect(window->queryEngine(), &SearchQueryEngine::signalErrorOccurred,
                 this, &SearchTabHeader::slotNlError);
 
+        connect(window->queryEngine(), &SearchQueryEngine::signalCancelled,
+                this, &SearchTabHeader::slotNlCancelled);
+
         d->nlConnected = true;
     }
 
     d->nlInterpretButton->setEnabled(false);
+    d->nlCancelButton->setEnabled(true);
+    d->nlSpinnerIndex = 0;
+    d->nlSpinnerTimer->start(100);
     window->startInterpretation(text);
 }
 
 void SearchTabHeader::slotNlIntentReady(const SearchQueryIntent& intent)
 {
     d->nlInterpretButton->setEnabled(true);
+    stopNlSpinner();
     d->nlPendingIntent = intent;
 
     d->nlOpenAdvancedButton->setVisible(true);
@@ -799,6 +864,7 @@ void SearchTabHeader::slotNlClarificationRequired(const SearchQueryIntent& inten
     Q_UNUSED(intent);
 
     d->nlInterpretButton->setEnabled(true);
+    stopNlSpinner();
 
     // Ambiguity needs the full dialog: its clarification UI takes over.
     // The dialog's own describe field re-runs the query there.
@@ -812,7 +878,18 @@ void SearchTabHeader::slotNlClarificationRequired(const SearchQueryIntent& inten
 void SearchTabHeader::slotNlError(const QString& message)
 {
     d->nlInterpretButton->setEnabled(true);
+    stopNlSpinner();
     d->nlInterpretedLabel->setText(message);
+    d->nlOpenAdvancedButton->setVisible(false);
+    d->nlRunNowButton->setVisible(false);
+    d->nlInterpretedPanel->show();
+}
+
+void SearchTabHeader::slotNlCancelled()
+{
+    d->nlInterpretButton->setEnabled(true);
+    stopNlSpinner();
+    d->nlInterpretedLabel->setText(i18n("Interpretation cancelled."));
     d->nlOpenAdvancedButton->setVisible(false);
     d->nlRunNowButton->setVisible(false);
     d->nlInterpretedPanel->show();

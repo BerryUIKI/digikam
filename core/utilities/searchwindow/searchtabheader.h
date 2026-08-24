@@ -65,6 +65,7 @@ private Q_SLOTS:
     void slotNlIntentReady(const SearchQueryIntent& intent);
     void slotNlClarificationRequired(const SearchQueryIntent& intent);
     void slotNlError(const QString& message);
+    void slotNlCancelled();
     void slotNlRunNow();
     void slotNlOpenAdvanced();
 
@@ -77,6 +78,7 @@ private:
     QString       queryFromKeywords(const QString& keywords)    const;
     QString       keywordsFromQuery(const QString& query)       const;
     SearchWindow* searchWindow()                                const;
+    void          stopNlSpinner();
 
 private:
 
