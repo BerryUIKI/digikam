@@ -21,9 +21,9 @@ namespace Digikam
 SearchField::SearchField(QObject* const parent)
     : QObject(parent)
 {
-    m_label                = new QLabel;
-    m_detailLabel          = new QLabel;
-    m_clearButton          = new AnimatedClearButton;
+    m_label       = new QLabel;
+    m_detailLabel = new QLabel;
+    m_clearButton = new AnimatedClearButton;
 }
 
 void SearchField::setup(QGridLayout* const layout, int line)
@@ -118,7 +118,7 @@ bool SearchField::isVisible()
 {
     // the detail label is considered representative for all widgets
 
-    return m_detailLabel->isVisible();
+    return (m_detailLabel->isVisible());
 }
 
 void SearchField::setCategoryLabelVisible(bool visible)

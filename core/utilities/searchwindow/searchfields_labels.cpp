@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2008-01-20
- * Description : User interface for searches
+ * Description : User interface for searches - labels
  *
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
@@ -115,8 +115,10 @@ void SearchFieldLabels::write(SearchXmlWriter& writer)
         return;
     }
 
-    // NOTE: As Color Labels are internal tags, we trig database on "tagid"
-    //       with "labels" in ItemQueryBuilder::buildField().
+    /**
+     * @note As Color Labels are internal tags, we trig database on "tagid"
+     *       with "labels" in ItemQueryBuilder::buildField().
+     */
 
     writer.writeField(m_name, SearchXml::InTree);
 

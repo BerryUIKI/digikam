@@ -581,7 +581,7 @@ class SearchFieldComboBox : public SearchField
 
 public:
 
-    explicit SearchFieldComboBox(QObject* const  parent);
+    explicit SearchFieldComboBox(QObject* const parent);
 
 public:
 

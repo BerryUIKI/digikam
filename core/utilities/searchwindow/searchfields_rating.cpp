@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2008-01-20
- * Description : User interface for searches
+ * Description : User interface for searches - rating
  *
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
@@ -109,13 +109,13 @@ void SearchFieldRating::write(SearchXmlWriter& writer)
         writer.writeValue(-1);
         writer.finishField();
     }
-    else if (first != RatingComboBox::Null && first == second)
+    else if ((first != RatingComboBox::Null) && (first == second))
     {
         writer.writeField(m_name, SearchXml::Equal);
         writer.writeValue(first);
         writer.finishField();
     }
-    else if (first != RatingComboBox::Null && second != RatingComboBox::Null)
+    else if ((first != RatingComboBox::Null) && (second != RatingComboBox::Null))
     {
         writer.writeField(m_name, SearchXml::Interval);
         writer.writeValue(QList<int>() << first << second);
@@ -167,7 +167,7 @@ void SearchFieldRating::firstValueChanged()
         }
     }
 
-    setValidValueState(first != RatingComboBox::Null || second != RatingComboBox::Null);
+    setValidValueState((first != RatingComboBox::Null) || (second != RatingComboBox::Null));
 }
 
 void SearchFieldRating::secondValueChanged()
@@ -177,7 +177,7 @@ void SearchFieldRating::secondValueChanged()
 
     // NoRating is not possible for the second box
 
-    if (second >= RatingComboBox::Rating0 && second <= RatingComboBox::Rating5)
+    if ((second >= RatingComboBox::Rating0) && (second <= RatingComboBox::Rating5))
     {
         if (first > second)
         {

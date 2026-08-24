@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2008-01-20
- * Description : User interface for searches
+ * Description : User interface for searches - choice
  *
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
@@ -78,7 +78,6 @@ void SearchFieldChoice::setChoice(const QStringList& choice)
 #endif
 
     m_model->setChoice(choice);
-
 }
 
 void SearchFieldChoice::setAnyText(const QString& anyText)

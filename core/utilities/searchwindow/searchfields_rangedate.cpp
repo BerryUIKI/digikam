@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2008-01-20
- * Description : User interface for searches
+ * Description : User interface for searches - range date
  *
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
@@ -45,8 +45,8 @@ void SearchFieldRangeDate::setupValueWidgets(QGridLayout* layout, int row, int c
         QHBoxLayout* const hbox1 = new QHBoxLayout;
         QHBoxLayout* const hbox2 = new QHBoxLayout;
 
-        m_firstTimeEdit  = new QTimeEdit;
-        m_secondTimeEdit = new QTimeEdit;
+        m_firstTimeEdit          = new QTimeEdit;
+        m_secondTimeEdit         = new QTimeEdit;
 
         hbox1->addWidget(m_firstDateEdit);
         hbox1->addWidget(m_firstTimeEdit);
@@ -114,7 +114,7 @@ void SearchFieldRangeDate::read(SearchXmlCachingReader& reader)
                 m_secondDateEdit->setDate(dt.date());
                 m_secondTimeEdit->setTime(dt.time());
             }
-            else if (relation == SearchXml::GreaterThanOrEqual || relation == SearchXml::GreaterThan)
+            else if ((relation == SearchXml::GreaterThanOrEqual) || (relation == SearchXml::GreaterThan))
             {
                 m_firstDateEdit->setDate(dt.date());
                 m_firstTimeEdit->setTime(dt.time());
@@ -136,11 +136,11 @@ void SearchFieldRangeDate::read(SearchXmlCachingReader& reader)
                 m_firstDateEdit->setDate(dt.date());
                 m_secondDateEdit->setDate(dt.date());
             }
-            else if (relation == SearchXml::GreaterThanOrEqual || relation == SearchXml::GreaterThan)
+            else if ((relation == SearchXml::GreaterThanOrEqual) || (relation == SearchXml::GreaterThan))
             {
                 m_firstDateEdit->setDate(dt.date());
             }
-            else if (relation == SearchXml::LessThanOrEqual || relation == SearchXml::LessThan)
+            else if ((relation == SearchXml::LessThanOrEqual) || (relation == SearchXml::LessThan))
             {
                 dt = dt.addDays(-1);
                 m_secondDateEdit->setDate(dt.date());
@@ -358,7 +358,7 @@ void SearchFieldRangeTime::write(SearchXmlWriter& writer)
 
         if (time > 0)
         {
-            QDateTime firstDate = QDateTime::currentDateTime();
+            QDateTime firstDate  = QDateTime::currentDateTime();
             firstDate.setTime(m_firstTimeEdit->time());
 
             QDateTime secondDate = QDateTime::currentDateTime();
@@ -420,8 +420,7 @@ void SearchFieldRangeTime::valueChanged()
             secondTime = m_firstTimeEdit->time();
         }
 
-        m_secondTimeEdit->setTime(QTime(secondTime.hour(),
-                                        secondTime.minute(), 59));
+        m_secondTimeEdit->setTime(QTime(secondTime.hour(), secondTime.minute(), 59));
 
         time = m_firstTimeEdit->time().hour()   +
                m_firstTimeEdit->time().minute() +
