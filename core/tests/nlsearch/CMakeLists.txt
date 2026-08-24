@@ -19,50 +19,37 @@ set(NLSEARCH_DIR ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/nlsearch)
 
 set(nlsearchpipeline_utest_SRCS
     nlsearchpipeline_utest.cpp
-
-    ${NLSEARCH_DIR}/searchqueryengine.cpp
-    ${NLSEARCH_DIR}/searchlanguagebackend.cpp
-    ${NLSEARCH_DIR}/searchmockbackend.cpp
-    ${NLSEARCH_DIR}/searchpromptbuilder.cpp
-    ${NLSEARCH_DIR}/searchintentparser.cpp
-    ${NLSEARCH_DIR}/searchcapabilitydictionary.cpp
-    ${NLSEARCH_DIR}/searchintentresolver.cpp
-    ${NLSEARCH_DIR}/searchquerycache.cpp
-    ${NLSEARCH_DIR}/searchnlmodelmanager.cpp
 )
-
-if(ENABLE_NLSEARCH_LLAMACPP)
-
-    list(APPEND nlsearchpipeline_utest_SRCS
-         ${NLSEARCH_DIR}/searchllamabackend.cpp
-    )
-
-endif()
 
 add_executable(nlsearchpipeline_utest ${nlsearchpipeline_utest_SRCS})
 
-if(ENABLE_NLSEARCH_LLAMACPP AND TARGET llama)
+if(HAVE_LLAMACPP AND TARGET llama)
 
-    target_compile_definitions(nlsearchpipeline_utest PRIVATE HAVE_LLAMACPP)
-    target_link_libraries(nlsearchpipeline_utest llama)
-    target_include_directories(nlsearchpipeline_utest PRIVATE
-        ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llama.cpp/include)
+   target_compile_definitions(nlsearchpipeline_utest PRIVATE HAVE_LLAMACPP)
+   target_include_directories(nlsearchpipeline_utest PRIVATE
+       ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llama.cpp/include)
 
 endif()
 
 target_link_libraries(nlsearchpipeline_utest
 
-                      digikamcore
-                      digikamdatabase
+                     nlsearch
 
-                      Qt${QT_VERSION_MAJOR}::Core
-                      Qt${QT_VERSION_MAJOR}::Gui
-                      Qt${QT_VERSION_MAJOR}::Widgets
-                      Qt${QT_VERSION_MAJOR}::Test
+                     digikamcore
+                     digikamdatabase
 
-                      KF${QT_VERSION_MAJOR}::I18n
+                     Qt${QT_VERSION_MAJOR}::Core
+                     Qt${QT_VERSION_MAJOR}::Gui
+                     Qt${QT_VERSION_MAJOR}::Widgets
+                     Qt${QT_VERSION_MAJOR}::Test
 
-                      ${OpenCV_LIBRARIES}
+                     KF${QT_VERSION_MAJOR}::I18n
+
+                     ${OpenCV_LIBRARIES}
 )
+
+if(HAVE_LLAMACPP AND TARGET llama)
+   target_link_libraries(nlsearchpipeline_utest llama)
+endif()
 
 add_test(NAME nlsearchpipeline_utest COMMAND nlsearchpipeline_utest)
