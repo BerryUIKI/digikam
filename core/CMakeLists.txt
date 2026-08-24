@@ -109,7 +109,11 @@ find_package(Eigen3)                               # For Refocus tool.
 
 if(ENABLE_NLSEARCH_LLAMACPP)
 
+    message(STATUS "Check for the NL Search requirements:")
+
     if(ENABLE_NLSEARCH_SYSTEM_LLAMACPP)
+
+        message(STATUS "Check for the availability of llama.cpp and ggml libraries from the system...")
 
         find_package(llama CONFIG)
         find_package(ggml CONFIG)
