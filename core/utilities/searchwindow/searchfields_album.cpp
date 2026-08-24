@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2008-01-20
- * Description : User interface for searches
+ * Description : User interface for searches - album
  *
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
@@ -72,7 +72,7 @@ void SearchFieldAlbum::updateState()
 void SearchFieldAlbum::read(SearchXmlCachingReader& reader)
 {
     QList<int> ids = reader.valueToIntOrIntList();
-    Album* a       = nullptr;
+    Album*a        = nullptr;
 
     if      (m_type == TypeAlbum)
     {
@@ -118,6 +118,7 @@ void SearchFieldAlbum::read(SearchXmlCachingReader& reader)
             if (!a)
             {
                 qCDebug(DIGIKAM_GENERAL_LOG) << "Search: Did not find album for ID" << id << "given in Search XML";
+
                 return;
             }
 

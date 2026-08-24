@@ -104,15 +104,15 @@ void SearchCapabilityDictionary::initializeDefaults()
 
     addField(QLatin1String("picklabel"),
              { QLatin1String("pick label"), QLatin1String("pick") },
-             { QLatin1String("none"), QLatin1String("rejected"),
-               QLatin1String("pending"), QLatin1String("accepted") });
+             { QLatin1String("none"),       QLatin1String("rejected"),
+               QLatin1String("pending"),    QLatin1String("accepted") });
 
     addField(QLatin1String("colorlabel"),
              { QLatin1String("color label"), QLatin1String("colour label"),
                QLatin1String("label") },
-             { QLatin1String("none"), QLatin1String("red"), QLatin1String("orange"),
-               QLatin1String("yellow"), QLatin1String("green"), QLatin1String("blue"),
-               QLatin1String("magenta"), QLatin1String("gray"), QLatin1String("black"),
+             { QLatin1String("none"),    QLatin1String("red"),   QLatin1String("orange"),
+               QLatin1String("yellow"),  QLatin1String("green"), QLatin1String("blue"),
+               QLatin1String("magenta"), QLatin1String("gray"),  QLatin1String("black"),
                QLatin1String("white") });
 
     addField(QLatin1String("orientation"),
@@ -124,12 +124,12 @@ void SearchCapabilityDictionary::initializeDefaults()
                QLatin1String("comment") });
 
     addField(QLatin1String("videoduration"),
-             { QLatin1String("video"), QLatin1String("videos"),
-               QLatin1String("clip"), QLatin1String("clips"),
+             { QLatin1String("video"),   QLatin1String("videos"),
+               QLatin1String("clip"),    QLatin1String("clips"),
                QLatin1String("footage"), QLatin1String("duration") });
 
     addField(QLatin1String("videoframerate"),
-             { QLatin1String("fps"), QLatin1String("frame rate"),
+             { QLatin1String("fps"),       QLatin1String("frame rate"),
                QLatin1String("framerate"), QLatin1String("frames per second") });
 
     addField(QLatin1String("videoaudiobitrate"),
@@ -137,13 +137,13 @@ void SearchCapabilityDictionary::initializeDefaults()
                QLatin1String("kbps") });
 
     addField(QLatin1String("format"),
-             { QLatin1String("format"), QLatin1String("file type"),
+             { QLatin1String("format"),   QLatin1String("file type"),
                QLatin1String("filetype"), QLatin1String("image format") },
-             { QLatin1String("jpg"),  QLatin1String("png"),
-               QLatin1String("tiff"), QLatin1String("pgf"),
-               QLatin1String("jp2"),  QLatin1String("jxl"),
-               QLatin1String("webp"), QLatin1String("heif"),
-               QLatin1String("avif"), QLatin1String("raw") });
+             { QLatin1String("jpg"),      QLatin1String("png"),
+               QLatin1String("tiff"),     QLatin1String("pgf"),
+               QLatin1String("jp2"),      QLatin1String("jxl"),
+               QLatin1String("webp"),     QLatin1String("heif"),
+               QLatin1String("avif"),     QLatin1String("raw") });
 
     d->valueAliases.insert(QLatin1String("picklabel/best"),
                            { QLatin1String("accepted") });
@@ -195,7 +195,7 @@ void SearchCapabilityDictionary::initializeDefaults()
     d->ambiguousWords.insert(QLatin1String("landscape"),
     {
         { i18nc("@item", "Oriented horizontally (landscape)"), QLatin1String("orientation"), QLatin1String("landscape") },
-        { i18nc("@item", "Subject tag: landscape"),           QLatin1String("tag"),          QLatin1String("landscape") },
+        { i18nc("@item", "Subject tag: landscape"),            QLatin1String("tag"),         QLatin1String("landscape") },
     });
 }
 
@@ -259,12 +259,12 @@ QStringList SearchCapabilityDictionary::supportedFields() const
 
 QList<AmbiguityChoice> SearchCapabilityDictionary::choicesForAmbiguousWord(const QString& word) const
 {
-    return d->ambiguousWords.value(word.trimmed().toLower());
+    return (d->ambiguousWords.value(word.trimmed().toLower()));
 }
 
 bool SearchCapabilityDictionary::isKnownTag(const QString& tag) const
 {
-    return d->knownTags.contains(tag, Qt::CaseInsensitive);
+    return (d->knownTags.contains(tag, Qt::CaseInsensitive));
 }
 
 void SearchCapabilityDictionary::setKnownTags(const QStringList& tags)

@@ -10,11 +10,12 @@ APPLY_COMMON_POLICIES()
 if(HAVE_LLAMACPP)
 
     # All vendored llama.cpp build concerns are handled in the wrapper.
+
     add_subdirectory(thirdparty)
 
 endif()
 
-include(${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/CMakeLists.txt) 
+include(${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/CMakeLists.txt)
 
 set(libsearchwindow_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/searchwindow.cpp

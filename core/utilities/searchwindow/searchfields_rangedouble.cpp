@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2008-01-20
- * Description : User interface for searches
+ * Description : User interface for searches - range double
  *
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
@@ -90,7 +90,7 @@ void SearchFieldRangeDouble::write(SearchXmlWriter& writer)
         }
         else
         {
-            // TODO: See SearchFieldRangeInt
+            /// @todo See SearchFieldRangeInt
 
             writer.writeField(m_name, SearchXml::Equal);
             writer.writeValue(m_firstBox->value() * m_factor);

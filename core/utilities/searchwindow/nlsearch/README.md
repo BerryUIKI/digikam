@@ -1,8 +1,6 @@
 # Interface the database search engine to an AI-based LLM
 
-
- A user
-types a description such as *"landscape photos with red labels"*; the pipeline
+A user types a description such as *"landscape photos with red labels"*; the pipeline
 maps that text to a structured intent, converts it to digiKam's Search XML, and
 populates the existing Advanced Search widgets. The LLM produces what
 a human clicking the dialog could produce.
@@ -27,8 +25,6 @@ emits exactly one of:
    signalClarificationRequired    > ask the user (e.g. "best" is ambiguous)
    signalErrorOccurred            > explain; leave the dialog untouched
 ```
-
-
 
 ## Classes
 
@@ -187,9 +183,6 @@ make -j$(nproc) nlsearchpipeline_utest
 ctest -R nlsearch --output-on-failure
 ```
 ---
-
-
-
 
 ## 1. Architecture
 
@@ -389,7 +382,6 @@ With the backend enabled and the model installed:
 Model load takes a few seconds on first use; querying before it finishes shows
 the "still loading" message.
 
-
 ---
 
 ## 6. Getting the model
@@ -413,7 +405,6 @@ Development notes and design rationale from the GSoC 2026 project:
 - [The Model Was Never the Hard Part: Integrating Qwen2.5 into digiKam for Natural Language Search](https://srirupa19.github.io/gsoc/2026/07/14/gsoc2.html) —
   vendoring and statically linking llama.cpp, the CMake wrapper that isolates
   its build, and why integration was the hard part rather than the model.
-
 
 ## Adding a new search criterion
 
@@ -441,4 +432,3 @@ Supporting a new field end-to-end touches four places, in pipeline order:
 
 Then add a canned response to `SearchMockBackend` and a case to the pipeline
 unit test so the new field is covered without a real model.
-

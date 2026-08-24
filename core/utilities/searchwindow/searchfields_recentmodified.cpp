@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2026-02-07
- * Description : User interface for searches
+ * Description : User interface for searches - recent modified
  *
  * SPDX-FileCopyrightText: 2026 by Srirupa Datta <srirupa dot sps at gmail dot com>
  *
@@ -82,7 +82,11 @@ void SearchFieldRecentModified::applySeconds(int seconds)
         return;
     }
 
-    struct Unit { int mult; };
+    struct Q_DECL_HIDDEN Unit
+    {
+        int mult;
+    };
+
     const Unit units[] =
     {
         { 86400 },

@@ -123,6 +123,7 @@ SearchLlamaBackend::SearchLlamaBackend(QObject* const parent)
             this, [this](bool ok)
         {
             m_modelLoaded = ok;
+
             Q_EMIT signalModelLoaded(ok);
         }
     );
@@ -277,6 +278,7 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
     // Context window: the maximum combined prompt + generated tokens the model
     // holds at once. 4096 comfortably fits the system prompt, the field schema,
     // collection hints, and the user query, with headroom to spare.
+
     cparams.n_ctx                = 4096;
     cparams.n_threads            = QThread::idealThreadCount();
     cparams.n_threads_batch      = QThread::idealThreadCount();
@@ -339,9 +341,9 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
 
     const QByteArray promptUtf8 = prompt.toUtf8();
 
-    const int32_t tokenized = llama_tokenize(vocab, promptUtf8.constData(),
-                                             promptUtf8.size(), nullptr, 0, true, true);
-    const int n_prompt      = (tokenized == INT32_MIN) ? 0 : -tokenized;
+    const int32_t tokenized     = llama_tokenize(vocab, promptUtf8.constData(),
+                                                 promptUtf8.size(), nullptr, 0, true, true);
+    const int n_prompt          = (tokenized == INT32_MIN) ? 0 : -tokenized;
 
     if (n_prompt <= 0)
     {
@@ -420,8 +422,15 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
 
         for (const QChar& ch : trimmed)
         {
-            if      (ch == QLatin1Char('{')) { ++depth; sawOpen = true; }
-            else if (ch == QLatin1Char('}')) { --depth; }
+            if      (ch == QLatin1Char('{'))
+            {
+                ++depth;
+                sawOpen = true;
+            }
+            else if (ch == QLatin1Char('}'))
+            {
+                --depth;
+            }
         }
 
         balanced = (sawOpen && depth == 0);

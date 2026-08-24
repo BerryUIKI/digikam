@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2008-01-20
- * Description : User interface for searches
+ * Description : User interface for searches - create field.
  *
  * SPDX-FileCopyrightText: 2008-2012 by Marcel Wiesweg <marcel dot wiesweg at gmx dot de>
  * SPDX-FileCopyrightText: 2011-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
@@ -378,7 +378,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         }
 
         make.clear();
-        
+
         QMap<QString, QString>::const_iterator it;
 
         for (it = makeMap.constBegin() ; it != makeMap.constEnd() ; ++it)
@@ -557,6 +557,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setText(i18n("Exposure"), i18n("Automatic or manual exposure"));
         QMap<int, QString> map = DMetadata::possibleValuesForEnumField(MetadataInfo::ExposureMode);
         field->setChoice(map);
+
         return field;
     }
     else if (name == QLatin1String("sensitivity"))
@@ -610,6 +611,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
     else if (name == QLatin1String("whitebalancecolortemperature"))
     {
         // int
+
         SearchFieldRangeInt* const field = new SearchFieldRangeInt(parent);
         field->setFieldName(name);
         field->setText(i18n("White balance"), i18n("Color temperature used for white balance"));
@@ -664,27 +666,24 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
 
         QStringList noCaptureSettings;
         noCaptureSettings
-        << QLatin1String("aperture")   << i18n("Aperture")
-        << QLatin1String("focallength")<< i18n("Focal length")
-        << QLatin1String("focallength35") << i18n("35mm equivalent focal length")
-        << QLatin1String("exposuretime")  << i18n("Exposure time")
-        << QLatin1String("exposureprogram") << i18n("Automatic exposure program")
-        << QLatin1String("exposuremode")    << i18n("Automatic or manual exposure")
-        << QLatin1String("sensitivity")     << i18n("ISO film speed")
-        << QLatin1String("meteringmode")    << i18n("Metering mode")
-        << QLatin1String("flashmode")       << i18nc("@label: flash mode used", "Flash mode")
-        << QLatin1String("whitebalance")    << i18n("White balance")
-        << QLatin1String("whitebalancecolortemperature") << i18n("White balance color temperature")
-        << QLatin1String("subjectdistance") << i18n("Subject Distance")
-        << QLatin1String("subjectdistancecategory") << i18n("Subject Distance Category");
-
+            << QLatin1String("aperture")                     << i18n("Aperture")
+            << QLatin1String("focallength")                  << i18n("Focal length")
+            << QLatin1String("focallength35")                << i18n("35mm equivalent focal length")
+            << QLatin1String("exposuretime")                 << i18n("Exposure time")
+            << QLatin1String("exposureprogram")              << i18n("Automatic exposure program")
+            << QLatin1String("exposuremode")                 << i18n("Automatic or manual exposure")
+            << QLatin1String("sensitivity")                  << i18n("ISO film speed")
+            << QLatin1String("meteringmode")                 << i18n("Metering mode")
+            << QLatin1String("flashmode")                    << i18nc("@label: flash mode used", "Flash mode")
+            << QLatin1String("whitebalance")                 << i18n("White balance")
+            << QLatin1String("whitebalancecolortemperature") << i18n("White balance color temperature")
+            << QLatin1String("subjectdistance")              << i18n("Subject Distance")
+            << QLatin1String("subjectdistancecategory")      << i18n("Subject Distance Category");
 
         field->setChoice(noCaptureSettings);
 
         return field;
     }
-
-
     else if (name == QLatin1String("latitude"))
     {
     }
@@ -791,7 +790,6 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
     {
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
         field->setFieldName(name);
-
         field->setText(i18n("Place"), i18n("Return items without selected place information ..."));
 
         QStringList noPlaceFields;
@@ -809,11 +807,10 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
     {
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
         field->setFieldName(name);
-        field->setText(i18nc("@label: item creator", "Creator"),
-                    i18n("Return items created by"));
+        field->setText(i18nc("@label: item creator", "Creator"), i18n("Return items created by"));
 
         QStringList creators = CoreDbAccess().db()->getAllImageCopyrightValues(QLatin1String("creator"));
-        creators += creators;
+        creators            += creators;
         creators.sort();
         field->setChoice(creators);
 
@@ -831,11 +828,10 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
     {
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
         field->setFieldName(name);
-        field->setText(i18n("Author"),
-                    i18n("Return items commented by"));
+        field->setText(i18n("Author"), i18n("Return items commented by"));
 
         QStringList authors = CoreDbAccess().db()->getAllCommentAuthors(DatabaseComment::Comment);
-        authors += authors;
+        authors            += authors;
         authors.sort();
         field->setChoice(authors);
 
@@ -870,6 +866,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
         field->setFieldName(name);
         field->setText(i18n("Empty Text"), i18n("Return items without text in"));
+
         QStringList comments;
         comments << QLatin1String("creator")  << i18nc("@label: search items without creator property",  "Creator");
         comments << QLatin1String("comment")  << i18nc("@label: search items without caption property",  "Caption");
@@ -905,6 +902,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
         field->setFieldName(name);
         field->setText(i18n("Aspect Ratio"), i18n("Return video with the frame aspect ratio"));
+
         QStringList ratio;
         ratio << QLatin1String("4:3")  << QLatin1String("4:3");
         ratio << QLatin1String("3:2")  << QLatin1String("3:2");
@@ -928,7 +926,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setSuggestedValues(QList<int>()
                                   << 10 << 30 << 60 << 90 << 120 << 240 << 360 << 500 << 1000 << 2000
                                   << 3000 << 4000 << 5000 << 6000 << 7000 << 8000 << 9000 << 10000
-                                  // TODO : adjust default values
+                                  /// @todo adjust default values
                                  );
         field->setSuggestedInitialValue(10);
         field->setSingleSteps(10, 100);
@@ -946,7 +944,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setSuggestedValues(QList<int>()
                                   << 10 << 15 << 20 << 25 << 30 << 35 << 40 << 45 << 55 << 60 << 120
                                   << 180 << 240 << 300 << 360 << 420 << 480 << 540 << 600
-                                  // TODO : adjust default values
+                                  /// @todo adjust default values
                                  );
         field->setSuggestedInitialValue(10);
         field->setSingleSteps(5, 60);
@@ -1034,7 +1032,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         field->setSuggestedValues(QList<int>()
                                   << 1000 << 4000 << 8000 << 12000 << 16000 << 20000 << 30000 << 40000 << 50000
                                   << 60000 << 700000 << 800000 << 900000 << 100000
-                                  // TODO : adjust default values
+                                  /// @todo adjust default values
                                  );
         field->setSuggestedInitialValue(1000);
         field->setSingleSteps(1000, 1000);
@@ -1046,6 +1044,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         SearchFieldChoice* const field = new SearchFieldChoice(parent);
         field->setFieldName(name);
         field->setText(i18n("Audio Channel Type"), i18n("Return Audio Channel Type"));
+
         QStringList type;
         type << QLatin1String("Mono")       << i18nc("@label: audio channel type", "Mono");
         type << QLatin1String("Stereo")     << i18nc("@label: audio channel type", "Stereo");
@@ -1054,7 +1053,7 @@ SearchField* SearchField::createField(const QString& name, SearchFieldGroup* con
         type << QLatin1String("16 Channel") << i18nc("@label: audio channel type", "16 Channels Sequence");
         type << QLatin1String("Other")      << i18nc("@label: audio channel type", "Other Channel Type");
 
-        // TODO: add more possible audio channel type
+        /// @todo add more possible audio channel type
 
         field->setChoice(type);
 
