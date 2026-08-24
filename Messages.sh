@@ -4,5 +4,5 @@
 #
 # SPDX-License-Identifier: BSD-3-Clause
 
-$EXTRACTRC `find ./core -name \*.rc -o -name \*.ui | grep -v '/tests/'` >> rc.cpp || exit 11
-$XGETTEXT rc.cpp `find ./core -name \*.h -o -name \*.cpp | grep -v '/tests/'` `find ./core/app -name \*.h.cmake.in` -o $podir/digikam.pot
+$EXTRACTRC `find ./core -name \*.rc -o -name \*.ui | grep -v '/tests/'` | grep -v '/llama\.cpp/'` >> rc.cpp || exit 11
+$XGETTEXT rc.cpp `find ./core -name \*.h -o -name \*.cpp | grep -v '/tests/'` | grep -v '/llama\.cpp/'` `find ./core/app -name \*.h.cmake.in` -o $podir/digikam.pot
