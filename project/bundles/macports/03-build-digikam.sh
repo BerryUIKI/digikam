@@ -138,7 +138,7 @@ fi
 echo -e "\n\n"
 echo "---------- Configure digiKam $DK_VERSION"
 
-sed -e "s/ENABLE_GUI_TRANSLATIONS=OFF/ENABLE_GUI_TRANSLATIONS=ON/g"                   ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
+sed -e "s/DENABLE_GUI_TRANSLATIONS=OFF/DENABLE_GUI_TRANSLATIONS=ON/g"                 ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
 sed -e "s/DBUILD_TESTING=ON/DBUILD_TESTING=OFF/g"                                     ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
 sed -e "s/DENABLE_DBUS=ON/DENABLE_DBUS=OFF/g"                                         ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
 sed -e "s/DENABLE_APPSTYLES=OFF/DENABLE_APPSTYLES=ON/g"                               ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
