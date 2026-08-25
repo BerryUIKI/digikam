@@ -67,10 +67,11 @@ cmake $ORIG_WD/../3rdparty \
        -DDK_APPLE_PACKAGE_MANAGER=$DK_APPLE_PACKAGE_MANAGER \
        -Wno-dev
 
-cmake --build . --config RelWithDebInfo --target ext_exiv2   -- -j$CPU_CORES
+cmake --build . --config RelWithDebInfo --target ext_exiv2    -- -j$CPU_CORES
 cp $DOWNLOAD_DIR/exiv2_manifest.txt $ORIG_WD/data/
-cmake --build . --config RelWithDebInfo --target ext_lensfun -- -j$CPU_CORES
+cmake --build . --config RelWithDebInfo --target ext_lensfun  -- -j$CPU_CORES
 cp $DOWNLOAD_DIR/lensfun_manifest.txt $ORIG_WD/data/
+cmake --build . --config RelWithDebInfo --target ext_llamacpp -- -j$CPU_CORES
 
 #################################################################################################
 # Build digiKam in temporary directory and installation
@@ -137,10 +138,12 @@ fi
 echo -e "\n\n"
 echo "---------- Configure digiKam $DK_VERSION"
 
-sed -e "s/ENABLE_GUI_TRANSLATIONS=OFF/ENABLE_GUI_TRANSLATIONS=ON/g"   ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
-sed -e "s/DBUILD_TESTING=ON/DBUILD_TESTING=OFF/g"               ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
-sed -e "s/DENABLE_DBUS=ON/DENABLE_DBUS=OFF/g"                   ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
-sed -e "s/DENABLE_APPSTYLES=OFF/DENABLE_APPSTYLES=ON/g"         ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
+sed -e "s/ENABLE_GUI_TRANSLATIONS=OFF/ENABLE_GUI_TRANSLATIONS=ON/g"                   ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
+sed -e "s/DBUILD_TESTING=ON/DBUILD_TESTING=OFF/g"                                     ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
+sed -e "s/DENABLE_DBUS=ON/DENABLE_DBUS=OFF/g"                                         ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
+sed -e "s/DENABLE_APPSTYLES=OFF/DENABLE_APPSTYLES=ON/g"                               ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
+sed -e "s/DENABLE_NLSEARCH_LLAMACPP=OFF/DENABLE_NLSEARCH_LLAMACPP=ON/g"               ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
+sed -e "s/DENABLE_NLSEARCH_SYSTEM_LLAMACPP=OFF/DENABLE_NLSEARCH_SYSTEM_LLAMACPP=ON/g" ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
 
 if [[ $DK_QTVERSION = 6 ]] ; then
 
