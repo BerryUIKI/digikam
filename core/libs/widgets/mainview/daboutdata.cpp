@@ -153,6 +153,12 @@ void DAboutData::authorsRegistration(KAboutData& aboutData)
 
     // -- Students ---------------------------------------------------------------
 
+    aboutData.addCredit ( QString::fromUtf8("Srirupa Datta"),
+                          i18n("Natural Language Search in the Advanced Search tool, powered with a local LLM"),
+                          QString::fromUtf8("srirupa dot sps at gmail dot com"),
+                          QString::fromUtf8("https://www.linkedin.com/in/srirupa-datta-a89a90405/")
+                        );
+
     aboutData.addCredit ( QString::fromUtf8("Anjani Kumar"),
                           i18n("Port to Qt6"),
                           QString::fromUtf8("anjanik012 at gmail dot com"),
