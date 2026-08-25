@@ -42,20 +42,59 @@ set(BUILD_SHARED_LIBS    OFF CACHE BOOL "" FORCE)
 # headers, pkg-config, or CMake package config into digiKam's prefix.
 set(CMAKE_SKIP_INSTALL_RULES ON)
 
+# Don't process automoc on llama.cpp headers
+
+file(GLOB_RECURSE llama_headers ${CMAKE_CURRENT_SOURCE_DIR}/llamacpp/*.h)
+
+foreach(_file ${llama_headers})
+
+    set_property(SOURCE ${_file} PROPERTY SKIP_AUTOMOC ON)
+
+endforeach()
+
 add_subdirectory(llamacpp EXCLUDE_FROM_ALL)
 
 if(NOT APPLE)   # OpenMP under macOS does not support multithreading
+
     find_package(OpenMP)
+
 endif()
 
 set(CMAKE_SKIP_INSTALL_RULES OFF)
 
 # ggml at -O0 (the Debug default) is unusably slow. Force -O2 on just these
 # targets so ggml stays fast while the rest of digiKam remains debuggable.
+
 if(CMAKE_CXX_COMPILER_ID MATCHES "GNU|Clang")
+
     foreach(_llama_target llama ggml ggml-base ggml-cpu)
+
         if(TARGET ${_llama_target})
+
             target_compile_options(${_llama_target} PRIVATE $<$<CONFIG:Debug>:-O2>)
+
         endif()
+
     endforeach()
+
 endif()
+
+# Disable compilation warnings from llama.cpp targets. Just to be clear on the console.
+
+foreach(_llama_target llama ggml ggml-base ggml-cpu)
+
+    if(TARGET ${_llama_target})
+
+        if(MSVC)
+
+            target_compile_options(${_llama_target} PRIVATE /W0)
+
+        else()
+
+            target_compile_options(${_llama_target} PRIVATE -w)
+
+        endif()
+
+    endif()
+
+endforeach()
