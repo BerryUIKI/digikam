@@ -142,7 +142,7 @@ fi
 echo -e "\n\n"
 echo "---------- Configure digiKam $DK_VERSION"
 
-sed -e "s/DIGIKAMSC_COMPILE_PO=OFF/DIGIKAMSC_COMPILE_PO=ON/g"   ./bootstrap.homebrew > ./tmp.homebrew ; mv -f ./tmp.homebrew ./bootstrap.homebrew
+sed -e "s/ENABLE_GUI_TRANSLATIONS=OFF/ENABLE_GUI_TRANSLATIONS=ON/g"   ./bootstrap.homebrew > ./tmp.homebrew ; mv -f ./tmp.homebrew ./bootstrap.homebrew
 sed -e "s/DBUILD_TESTING=ON/DBUILD_TESTING=OFF/g"               ./bootstrap.homebrew > ./tmp.homebrew ; mv -f ./tmp.homebrew ./bootstrap.homebrew
 sed -e "s/DENABLE_DBUS=ON/DENABLE_DBUS=OFF/g"                   ./bootstrap.homebrew > ./tmp.homebrew ; mv -f ./tmp.homebrew ./bootstrap.homebrew
 sed -e "s/DENABLE_APPSTYLES=OFF/DENABLE_APPSTYLES=ON/g"         ./bootstrap.homebrew > ./tmp.homebrew ; mv -f ./tmp.homebrew ./bootstrap.homebrew

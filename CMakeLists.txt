@@ -178,7 +178,7 @@ include(RulesOptionDefinitions)
 
 #######################################################################################################################
 
-if(DIGIKAMSC_COMPILE_PO AND NOT MSVC)
+if(ENABLE_GUI_TRANSLATIONS AND NOT MSVC)
     set_property(GLOBAL PROPERTY ALLOW_DUPLICATE_CUSTOM_TARGETS 1)
 endif()
 
@@ -192,13 +192,13 @@ message(STATUS "----------------------------------------------------------------
 message(STATUS "Top level compilation configuration for ${PROJECT_NAME}")
 message(STATUS "")
 
-if(DIGIKAMSC_COMPILE_DIGIKAM)
+if(ENABLE_DIGIKAM_CORE)
     message(STATUS "${PROJECT_NAME} will be compiled....................... YES")
 else()
     message(STATUS "${PROJECT_NAME} will be compiled....................... NO")
 endif()
 
-if(DIGIKAMSC_COMPILE_PO)
+if(ENABLE_GUI_TRANSLATIONS)
     message(STATUS "Translations will be compiled.................. YES")
 else()
     message(STATUS "Translations will be compiled.................. NO")
@@ -212,11 +212,11 @@ endif()
 
 ######################################################################################################################
 
-if(DIGIKAMSC_COMPILE_DIGIKAM)
+if(ENABLE_DIGIKAM_CORE)
     add_subdirectory(core)
 endif()
 
-if(DIGIKAMSC_COMPILE_PO)
+if(ENABLE_GUI_TRANSLATIONS)
     find_package(Gettext REQUIRED)
     find_package(KF${QT_VERSION_MAJOR}I18n NO_MODULE)
     ki18n_install(po)

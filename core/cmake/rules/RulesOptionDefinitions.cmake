@@ -6,8 +6,8 @@
 
 # Packaging options.
 
-option(DIGIKAMSC_COMPILE_DIGIKAM         "Build digiKam core (default=ON)"                                                           ON)
-option(DIGIKAMSC_COMPILE_PO              "Build GUI translations files (default=ON)"                                                 ON)
+option(ENABLE_DIGIKAM_CORE               "Build digiKam core (default=ON)"                                                           ON)
+option(ENABLE_GUI_TRANSLATIONS           "Build GUI translations files (default=ON)"                                                 ON)
 option(ENABLE_SHOWFOTO                   "Build with Showfoto stand-alone image editor (default=ON)"                                 ON)
 
 # Features options.
