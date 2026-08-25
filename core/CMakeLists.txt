@@ -121,7 +121,7 @@ if(ENABLE_NLSEARCH_LLAMACPP)
         if(llama_FOUND AND ggml_FOUND)
 
             set(HAVE_LLAMACPP TRUE)
-            set(NLSEARCH_LLAMACPP_SYSTEM TRUE)
+            set(HAVE_LLAMACPP_SYSTEM TRUE)
             message(STATUS "NL search: system llama.cpp backend enabled")
 
         else()

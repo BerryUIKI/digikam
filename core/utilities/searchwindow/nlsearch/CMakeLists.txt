@@ -49,7 +49,7 @@ if(HAVE_LLAMACPP)
 
    target_compile_definitions(core_nlsearch_obj PRIVATE HAVE_LLAMACPP)
 
-   if(NLSEARCH_LLAMACPP_SYSTEM)
+   if(HAVE_LLAMACPP_SYSTEM)
 
       target_link_libraries(core_nlsearch_obj PRIVATE llama ggml)
 

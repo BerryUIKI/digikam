@@ -7,7 +7,7 @@
 
 APPLY_COMMON_POLICIES()
 
-if(HAVE_LLAMACPP AND NOT NLSEARCH_LLAMACPP_SYSTEM)
+if(HAVE_LLAMACPP AND NOT HAVE_LLAMACPP_SYSTEM)
 
     # All vendored llama.cpp build concerns are handled in the wrapper.
 
@@ -75,7 +75,7 @@ target_compile_definitions(gui_searchwindow_obj
 
 if(HAVE_LLAMACPP)
 
-   if(NLSEARCH_LLAMACPP_SYSTEM)
+   if(HAVE_LLAMACPP_SYSTEM)
 
        target_link_libraries(gui_searchwindow_obj PRIVATE llama ggml)
 

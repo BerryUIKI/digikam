@@ -363,7 +363,7 @@ endif()
 
 if(HAVE_LLAMACPP)
 
-   if(NLSEARCH_LLAMACPP_SYSTEM)
+   if(HAVE_LLAMACPP_SYSTEM)
 
        target_link_libraries(digikamgui PRIVATE llama ggml)
 
