@@ -365,7 +365,7 @@ if(HAVE_LLAMACPP)
 
    if(HAVE_LLAMACPP_SYSTEM)
 
-       target_link_libraries(digikamgui PRIVATE llama ggml)
+       target_link_libraries(digikamgui PRIVATE ${llama_LIBRARY} ${GGML_LIBRARY})
 
    else()
 

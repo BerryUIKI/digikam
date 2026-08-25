@@ -20,9 +20,14 @@ if(ENABLE_NLSEARCH_LLAMACPP)
             set(HAVE_LLAMACPP TRUE)
             set(HAVE_LLAMACPP_SYSTEM TRUE)
 
-            message(STATUS "NL search results: system llama.cpp backend enabled")
-            message(STATUS "llama.cpp version: ${LLAMA_VERSION}")
-            message(STATUS "ggml version     : ${GGML_VERSION}")
+            message(STATUS "NL search results  : system llama.cpp backend enabled")
+            message(STATUS "llama.cpp version  : ${LLAMA_VERSION}")
+            message(STATUS "llama.cpp libraries: ${llama_LIBRARY}")
+            message(STATUS "ggml version       : ${GGML_VERSION}")
+            message(STATUS "ggml libraries     : ${GGML_LIBRARY}")
+
+#                      ${OPENMP_LDFLAGS}
+
 
             # Init the lists to store variables LLAMA_* and GGML_*
 
