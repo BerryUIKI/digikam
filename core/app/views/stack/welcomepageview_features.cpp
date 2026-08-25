@@ -85,6 +85,10 @@ QString WelcomePageView::featuresTabContent() const
                     << i18n("New options to find empty properties registered in the database.")
                     << i18n("Add support to search Creator and Author fields to be drop down lists populated with the values already presents in the database.")
                     << i18n("Add support to search recently modified items in the database.")
+                    << i18n("Natural Language Search, powered by a local LLM, that runs entirely on your computer. Describe what you want in plain language and "
+                            "digiKam builds the corresponding structured search. Supports tags, people, albums, ratings, labels, orientation, places, dates, "
+                            "captions, video properties (duration, frame rate, bitrate), and file formats. For details, see "
+                            "<a href=\"https://community.kde.org/GSoC/2026/StatusReports/SrirupaDatta\">this report</a>.")
                 );
 
     newFeatures << i18n("Update internal RAW engine to last Libraw snapshot 2026-04-06.");
