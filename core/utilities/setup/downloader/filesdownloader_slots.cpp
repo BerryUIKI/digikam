@@ -24,6 +24,7 @@ void FilesDownloader::slotDownload()
     d->faceEngineCheck->setEnabled(false);
     d->aestheticCheck->setEnabled(false);
     d->autoTagsCheck->setEnabled(false);
+    d->nlSearchCheck->setEnabled(false);
     d->selector->setEnabled(false);
 
     if (d->error.isEmpty())

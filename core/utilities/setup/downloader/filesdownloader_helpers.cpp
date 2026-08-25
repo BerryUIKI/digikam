@@ -74,11 +74,11 @@ void FilesDownloader::startDownload()
     d->selector->setFileDlgTitle(i18nc("@title:window", "Face Management Model Target"));
     d->selector->setWhatsThis(i18n("Sets the target address to download the face management model files to."));
 
-    d->aiAutoToolsCheck = new QCheckBox(i18n("Use AI Auto-Tools features"),       mainWidget);
-    d->faceEngineCheck  = new QCheckBox(i18n("Use Face Management feature"),      mainWidget);
-    d->aestheticCheck   = new QCheckBox(i18n("Use Aesthetic Detection feature"),  mainWidget);
-    d->autoTagsCheck    = new QCheckBox(i18n("Use AutoTags Assignment feature"),  mainWidget);
-    d->nlSearchCheck    = new QCheckBox(i18n("Use Natural Language Search feature"),  mainWidget);
+    d->aiAutoToolsCheck = new QCheckBox(i18n("Use AI Auto-Tools features"),          mainWidget);
+    d->faceEngineCheck  = new QCheckBox(i18n("Use Face Management feature"),         mainWidget);
+    d->aestheticCheck   = new QCheckBox(i18n("Use Aesthetic Detection feature"),     mainWidget);
+    d->autoTagsCheck    = new QCheckBox(i18n("Use AutoTags Assignment feature"),     mainWidget);
+    d->nlSearchCheck    = new QCheckBox(i18n("Use Natural Language Search feature"), mainWidget);
 
     d->progress         = new QProgressBar(mainWidget);
     d->progress->setFormat(i18nc("%p is the percent value, % is the percent sign", "%p%"));
