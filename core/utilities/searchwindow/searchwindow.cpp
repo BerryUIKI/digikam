@@ -208,13 +208,22 @@ SearchWindow::SearchWindow()
     QVBoxLayout* const dlLay    = new QVBoxLayout(d->nlDownloadPanel);
     dlLay->setContentsMargins(0, 0, 0, 0);
 
+    QLabel* const dlTitle       = new QLabel(i18n("Natural Language Search lets you find images by "
+                                                 "describing them in your own words, for example "
+                                                 "\"photos with red labels taken near Paris\". It "
+                                                 "uses a language model that runs locally on your "
+                                                 "computer, with no internet connection required "
+                                                 "once downloaded."), d->nlDownloadPanel);
+    dlTitle->setWordWrap(true);
+
     QLabel* const dlInfo        = new QLabel(i18n("The natural-language search model has not been "
-                                                  "downloaded yet."), d->nlDownloadPanel);
+                                                 "downloaded yet."), d->nlDownloadPanel);
     dlInfo->setWordWrap(true);
 
     QPushButton* const dlButton = new QPushButton(i18n("Download Model..."), d->nlDownloadPanel);
     dlButton->setSizePolicy(QSizePolicy::Maximum, QSizePolicy::Fixed);
 
+    dlLay->addWidget(dlTitle);
     dlLay->addWidget(dlInfo);
     dlLay->addWidget(dlButton);
 

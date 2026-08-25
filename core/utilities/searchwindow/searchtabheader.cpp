@@ -50,6 +50,7 @@
 #include "dexpanderbox.h"
 #include "searchqueryengine.h"
 #include "dworkingpixmap.h"
+#include "digikam_config.h"
 
 namespace Digikam
 {
@@ -252,6 +253,8 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
     d->advancedNewSearch      = new QPushButton(i18n("New Advanced Search..."), this);
     d->advancedEditSearch     = new QPushButton(i18n("Edit Current Search..."), this);
 
+#ifdef HAVE_LLAMACPP
+
     d->nlInterpretButton      = new QToolButton(this);
     d->nlInterpretButton->setIcon(QIcon::fromTheme(QLatin1String("system-run")));
     d->nlInterpretButton->setToolTip(i18n("Interpret the text above as a natural-language "
@@ -295,19 +298,32 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
     d->nlInterpretedPanel->setLayout(nlVbox);
     d->nlInterpretedPanel->hide();
 
+#endif // HAVE_LLAMACPP
     // ------------------------------------------------------------------
 
     grid1->addWidget(searchLabel,           0, 0, 1, 1);
     grid1->addWidget(d->keywordEdit,        0, 1, 1, 1);
+
+#ifdef HAVE_LLAMACPP
+
     QHBoxLayout* const nlActionRow = new QHBoxLayout();
     nlActionRow->setContentsMargins(0, 0, 0, 0);
     nlActionRow->addWidget(d->nlSpinnerLabel);
     nlActionRow->addWidget(d->nlCancelButton);
     nlActionRow->addWidget(d->nlInterpretButton);
     grid1->addLayout(nlActionRow, 0, 2, 1, 1);
+
+#endif // HAVE_LLAMACPP
+
     grid1->addWidget(d->advancedNewSearch,  1, 0, 1, 3);
     grid1->addWidget(d->advancedEditSearch, 2, 0, 1, 3);
+
+#ifdef HAVE_LLAMACPP
+
     grid1->addWidget(d->nlInterpretedPanel, 3, 0, 1, 3);
+
+#endif // HAVE_LLAMACPP
+
     grid1->setContentsMargins(spacing, spacing, spacing, spacing);
     grid1->setSpacing(spacing);
 
@@ -434,6 +450,8 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
     connect(d->storedAdvancedEditLabel, SIGNAL(clicked()),
             this, SLOT(editStoredAdvancedSearch()));
 
+#ifdef HAVE_LLAMACPP
+
     connect(d->nlInterpretButton, &QToolButton::clicked,
             this, &SearchTabHeader::slotNlInterpretClicked);
 
@@ -451,6 +469,8 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
             }
         }
     );
+
+#endif // HAVE_LLAMACPP
 
 }
 
