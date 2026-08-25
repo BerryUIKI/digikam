@@ -42,7 +42,7 @@ set(BUILD_SHARED_LIBS    OFF CACHE BOOL "" FORCE)
 # headers, pkg-config, or CMake package config into digiKam's prefix.
 set(CMAKE_SKIP_INSTALL_RULES ON)
 
-add_subdirectory(llama.cpp EXCLUDE_FROM_ALL)
+add_subdirectory(llamacpp EXCLUDE_FROM_ALL)
 
 if(NOT APPLE)   # OpenMP under macOS does not support multithreading
     find_package(OpenMP)

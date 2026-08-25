@@ -83,8 +83,8 @@ if(HAVE_LLAMACPP)
 
        target_include_directories(gui_searchwindow_obj
                                   PRIVATE
-                                  ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/llama.cpp/include
-                                  ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/llama.cpp/ggml/include
+                                  ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/llamacpp/include
+                                  ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/llamacpp/ggml/include
        )
 
    endif()
