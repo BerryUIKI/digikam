@@ -46,10 +46,10 @@ public:
                         const QStringList& knownPeople = {}) const;
 
     /// @brief JSON schema description embedded in every prompt.
-    QString schemaDescription() const;
+    QString schemaDescription()                              const;
 
     /// @brief Static instruction block.
-    QString systemPrompt()      const;
+    QString systemPrompt()                                   const;
 
 private:
 
@@ -60,11 +60,11 @@ private:
     QString          m_systemPrompt;
 
     /**
-    * @brief Cap on collection-specific hint items (tag, album, and people
-    * names) injected into the prompt. Limiting this keeps the prompt compact
-    * so inference stays fast and within the context window, even for large
-    * collections with thousands of tags.
-    */
+     * @brief Cap on collection-specific hint items (tag, album, and people
+     * names) injected into the prompt. Limiting this keeps the prompt compact
+     * so inference stays fast and within the context window, even for large
+     * collections with thousands of tags.
+     */
     static const int s_maxHintItems = 50;
 };
 

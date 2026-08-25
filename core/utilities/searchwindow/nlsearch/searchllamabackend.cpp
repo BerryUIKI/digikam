@@ -255,6 +255,7 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
     mparams.n_gpu_layers       = 0;
 
     // Report model-load progress (0.0-1.0) to the GUI while the ~1 GB model loads.
+
     mparams.progress_callback           = s_llamaProgressCallback;
     mparams.progress_callback_user_data = this;
 
@@ -288,6 +289,7 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
     if (!ctx)
     {
         qCWarning(DIGIKAM_NLSEARCH_LOG) << "NL search: failed to create llama context";
+
         llama_model_free(model);
 
         Q_EMIT signalError(i18n("Failed to initialize the model context."));
@@ -379,7 +381,9 @@ void SearchLlamaWorker::slotDoInference(const QString& prompt, int maxTokens, fl
         if (m_cancelRequested.loadRelaxed())
         {
             llama_sampler_free(smpl);
+
             Q_EMIT signalCancelled();
+
             return;
         }
 

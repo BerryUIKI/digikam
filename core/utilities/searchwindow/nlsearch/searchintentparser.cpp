@@ -90,11 +90,33 @@ QByteArray SearchIntentParser::extractJsonObject(const QByteArray& raw) const
     {
         const char c = raw.at(i);
 
-        if      (escaped)            { escaped = false;   continue; }
-        if      (c == '\\')          { escaped = true;    continue; }
-        if      (c == '"')           { inStr   = !inStr;  continue; }
-        if      (inStr)              {                    continue; }
-        if      (c == '{')           { ++depth;                     }
+        if (escaped)
+        {
+            escaped = false;
+            continue;
+        }
+
+        if (c == '\\')
+        {
+            escaped = true;
+            continue;
+        }
+
+        if (c == '"')
+        {
+            inStr = !inStr;
+            continue;
+        }
+
+        if (inStr)
+        {
+            continue;
+        }
+
+        if      (c == '{')
+        {
+            ++depth;
+        }
         else if (c == '}')
         {
             --depth;
@@ -271,7 +293,7 @@ bool SearchIntentParser::validateOperator(const QString& field, const QString& o
                );
     }
 
-        if (op == QLatin1String("between"))
+    if (op == QLatin1String("between"))
     {
         return (
                 (field == QLatin1String("daterange"))      ||

@@ -48,6 +48,8 @@ public:
 
     Q_DISABLE_COPY(SearchQueryEngine)
 
+public:
+
     /**
      * @brief Dependency injection: keeps the engine unit-testable with the
      * mock backend and lets SearchWindow own component lifetimes.

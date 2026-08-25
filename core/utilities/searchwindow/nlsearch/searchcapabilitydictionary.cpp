@@ -182,14 +182,14 @@ void SearchCapabilityDictionary::initializeDefaults()
 
     d->ambiguousWords.insert(QLatin1String("best"),
     {
-        { i18nc("@item", "Pick label: Accepted"), QLatin1String("picklabel"), QLatin1String("accepted") },
-        { i18nc("@item", "Rating 4 or more"),     QLatin1String("rating"),    QLatin1String("4") },
+        { i18nc("@item", "Pick label: Accepted"),              QLatin1String("picklabel"),   QLatin1String("accepted") },
+        { i18nc("@item", "Rating 4 or more"),                  QLatin1String("rating"),      QLatin1String("4") },
     });
 
     d->ambiguousWords.insert(QLatin1String("favorite"),
     {
-        { i18nc("@item", "Pick label: Accepted"), QLatin1String("picklabel"), QLatin1String("accepted") },
-        { i18nc("@item", "Rating 5"),             QLatin1String("rating"),    QLatin1String("5") },
+        { i18nc("@item", "Pick label: Accepted"),              QLatin1String("picklabel"),   QLatin1String("accepted") },
+        { i18nc("@item", "Rating 5"),                          QLatin1String("rating"),      QLatin1String("5") },
     });
 
     d->ambiguousWords.insert(QLatin1String("landscape"),

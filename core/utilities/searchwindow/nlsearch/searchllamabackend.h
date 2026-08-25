@@ -108,7 +108,10 @@ public:
     * @brief Thread-safe check used by the llama.cpp abort callback to stop
     * an in-progress decode when cancellation has been requested.
     */
-    bool abortRequested() const { return (m_cancelRequested.loadRelaxed() != 0); }
+    bool abortRequested() const
+    {
+        return (m_cancelRequested.loadRelaxed() != 0);
+    }
 
     /**
     * @brief Relay model-load progress (0.0-1.0) from the llama.cpp progress

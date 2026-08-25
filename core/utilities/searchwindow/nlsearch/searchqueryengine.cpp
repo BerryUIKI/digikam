@@ -91,7 +91,7 @@ void SearchQueryEngine::setBackend(SearchLanguageBackend* const backend)
                 this, &SearchQueryEngine::slotBackendError);
 
         connect(d->backend, &SearchLanguageBackend::signalInferenceCancelled,
-               this, &SearchQueryEngine::slotBackendCancelled);
+                this, &SearchQueryEngine::slotBackendCancelled);
     }
 }
 
