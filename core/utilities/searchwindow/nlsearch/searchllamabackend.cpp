@@ -302,6 +302,7 @@ void SearchLlamaWorker::slotDoLoad(const QString& modelPath)
     // Allow the GUI to abort a long decode mid-computation (checked by
     // llama.cpp during llama_decode), in addition to the between-token
     // check in slotDoInference.
+
     llama_set_abort_callback(ctx, s_llamaAbortCallback, this);
 
     Q_EMIT signalLoaded(true);

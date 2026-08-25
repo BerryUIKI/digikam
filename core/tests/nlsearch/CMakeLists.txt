@@ -27,7 +27,7 @@ if(HAVE_LLAMACPP AND TARGET llama)
 
    target_compile_definitions(nlsearchpipeline_utest PRIVATE HAVE_LLAMACPP)
    target_include_directories(nlsearchpipeline_utest PRIVATE
-       ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llama.cpp/include)
+       ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llamacpp/include)
 
 endif()
 

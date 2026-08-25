@@ -56,8 +56,8 @@ if(HAVE_LLAMACPP)
    else()
 
       target_include_directories(core_nlsearch_obj PRIVATE
-         ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llama.cpp/include
-         ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llama.cpp/ggml/include)
+         ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llamacpp/include
+         ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llamacpp/ggml/include)
 
    endif()
 

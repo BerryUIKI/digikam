@@ -370,7 +370,7 @@ if(HAVE_LLAMACPP)
    else()
 
        target_link_libraries(digikamgui PRIVATE llama)
-       target_include_directories(digikamgui PRIVATE ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llama.cpp/include)
+       target_include_directories(digikamgui PRIVATE ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llamacpp/include)
 
    endif()
 
