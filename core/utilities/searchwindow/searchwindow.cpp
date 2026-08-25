@@ -486,11 +486,12 @@ void SearchWindow::keyPressEvent(QKeyEvent* e)
     }
 }
 
- 
+// ---
+
 void SearchWindow::setupNlSearch()
 {
     d->nlResolver = new SearchIntentResolver(&d->nlDictionary);
- 
+
 #ifdef HAVE_LLAMACPP
 
         if (SearchNlModelManager::isModelAvailable())
@@ -530,7 +531,7 @@ void SearchWindow::setupNlSearch()
 
     connect(d->nlEngine, &SearchQueryEngine::signalErrorOccurred,
             this, &SearchWindow::slotNlError);
-    
+
     connect(d->nlEngine, &SearchQueryEngine::signalCancelled,
             this, &SearchWindow::slotNlCancelled);
 
@@ -729,6 +730,7 @@ void SearchWindow::slotNlCancelled()
     d->describeEdit->setEnabled(true);
 
     // Neutral message, no error highlight.
+
     d->nlStatusLabel->setAutoFillBackground(false);
     d->nlStatusLabel->setPalette(QPalette());
     d->nlStatusLabel->setText(i18n("Interpretation cancelled."));
@@ -766,7 +768,7 @@ void SearchWindow::applyResolvedIntent(const SearchQueryIntent& intent)
     if (xml.contains(QLatin1String("<group/>")))
     {
         d->nlSpinnerTimer->stop();
-    d->nlCancelButton->setEnabled(false);
+        d->nlCancelButton->setEnabled(false);
         d->nlSpinnerLabel->setPixmap(QPixmap());
 
         d->nlStatusLabel->setText(i18nc("@info", "None of that could be turned into "
@@ -902,8 +904,14 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
     {
         SearchXml::Relation rel = SearchXml::Equal;
 
-        if      (c.op == QLatin1String("gte")) { rel = SearchXml::GreaterThanOrEqual; }
-        else if (c.op == QLatin1String("lte")) { rel = SearchXml::LessThanOrEqual;    }
+        if      (c.op == QLatin1String("gte"))
+        {
+            rel = SearchXml::GreaterThanOrEqual;
+        }
+        else if (c.op == QLatin1String("lte"))
+        {
+            rel = SearchXml::LessThanOrEqual;
+        }
 
         writer.writeField(QLatin1String("rating"), rel);
         writer.writeValue(c.value.toInt());
@@ -975,8 +983,14 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
         const QString v = c.value.toLower();
         int code        = -1;
 
-        if      (v == QLatin1String("landscape")) { code = 1; }
-        else if (v == QLatin1String("portrait"))  { code = 2; }
+        if      (v == QLatin1String("landscape"))
+        {
+            code = 1;
+        }
+        else if (v == QLatin1String("portrait"))
+        {
+            code = 2;
+        }
 
         if (code > 0)
         {
@@ -1126,8 +1140,15 @@ void SearchWindow::updateNlPanelState()
 
     const bool ready = SearchNlModelManager::isModelAvailable();
 
-    if (d->nlReadyPanel)    { d->nlReadyPanel->setVisible(ready);     }
-    if (d->nlDownloadPanel) { d->nlDownloadPanel->setVisible(!ready); }
+    if (d->nlReadyPanel)
+    {
+        d->nlReadyPanel->setVisible(ready);
+    }
+
+    if (d->nlDownloadPanel)
+    {
+        d->nlDownloadPanel->setVisible(!ready);
+    }
 
 #endif
 
