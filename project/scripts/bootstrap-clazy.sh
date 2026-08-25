@@ -25,7 +25,7 @@ export Options='-DCLAZY_AST_MATCHERS_CRASH_WORKAROUND=ON \
                 -DCMAKE_SHARED_LINKER_FLAGS="-lstdc++"'
 
 
-export LLVM_VERSION=20
+export LLVM_VERSION=19
 
 export PATH=/usr/lib/llvm-$LLVM_VERSION/bin:$PATH
 

@@ -48,6 +48,8 @@ set(libsearchwindow_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/choicesearchutilities.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/searchfolderview.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/searchtabheader.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/searchtabheader_p.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/searchtabheader_nlsearch.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/searchmodificationhelper.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/editablesearchtreeview.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/visibilitycontroller.cpp
