@@ -256,8 +256,9 @@ void FilesDownloader::slotUpdateDownloadInfo()
 
     d->infoLabel->setText(i18n("<p>digiKam relies on large binary model files to power features like face management, "
                                "image classification based on aesthetics, AI AutoTools such as automatic image rotation, "
-                               "and automatic tag assignment. You have the option to select the specific features you want to "
-                               "enable.</p><p><b>Note:</b> The red-eye removal tool requires face management model files.</p>"));
+                               "automatic tag assignment, and the natural language search tool. "
+                               "You have the option to select the specific features you want to enable.</p>"
+                               "<p><b>Note:</b> The red-eye removal tool requires face management model files.</p>"));
 
     d->loadLabel->setText(i18n("<p>Some required files are missing. Click “Download” to start installing the necessary model files. "
                                "If you close this dialog you will be prompted again the next time you launch digiKam. The "
