@@ -210,7 +210,6 @@ public:
 
     SearchQueryIntent   nlPendingIntent;
     bool                nlConnected             = false;
-
 };
 
 SearchTabHeader::SearchTabHeader(QWidget* const parent)
@@ -477,6 +476,7 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
 SearchTabHeader::~SearchTabHeader()
 {
    // Abort any running natural-language interpretation before teardown.
+
    if (d->searchWindow && d->searchWindow->queryEngine())
    {
        d->searchWindow->queryEngine()->slotCancel();
@@ -806,6 +806,8 @@ QString SearchTabHeader::keywordsFromQuery(const QString& query) const
     return KeywordSearch::merge(keywordList);
 }
 
+// ---
+
 void SearchTabHeader::stopNlSpinner()
 {
     d->nlSpinnerTimer->stop();
@@ -923,7 +925,7 @@ void SearchTabHeader::slotNlRunNow()
     }
 
     const QString xml = searchWindow()->intentToXml(d->nlPendingIntent);
-    searchWindow()->hide();   
+    searchWindow()->hide();
     setCurrentSearch(DatabaseSearch::AdvancedSearch, xml);
     d->nlInterpretedPanel->hide();
 }
