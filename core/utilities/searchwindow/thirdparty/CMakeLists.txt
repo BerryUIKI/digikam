@@ -194,3 +194,60 @@ foreach(VAR IN LISTS GGML_VARIABLES_LIST)
     message(STATUS "   ${VAR} = ${${VAR}}")
 
 endforeach()
+
+# Flush the configuration to the template header
+
+set(LLAMA_CONFIG_ENTRIES "")
+set(GGML_CONFIG_ENTRIES "")
+
+# Fill LLAMA_CONFIG_ENTRIES
+
+foreach(_var IN LISTS LLAMA_VARIABLES_LIST)
+
+    # escape '"' in the values
+
+    string(REPLACE "\"" "" _clean_value "${${_var}}")
+
+    # Append a comma and a cariage return before each entry
+
+    if(LLAMA_CONFIG_ENTRIES STREQUAL "")
+
+        set(LLAMA_CONFIG_ENTRIES "    { QStringLiteral(\"${_var}\"), QStringLiteral(\"${_clean_value}\") }")
+
+    else()
+
+        set(LLAMA_CONFIG_ENTRIES "${LLAMA_CONFIG_ENTRIES},\n    { QStringLiteral(\"${_var}\"), QStringLiteral(\"${_clean_value}\") }")
+
+    endif()
+
+endforeach()
+
+# Fill GGML_CONFIG_ENTRIES
+
+foreach(_var IN LISTS GGML_VARIABLES_LIST)
+
+    # escape '"' in the values
+
+    string(REPLACE "\"" "" _clean_value "${${_var}}")
+
+    # Append a comma and a cariage return before each entry
+
+    if(GGML_CONFIG_ENTRIES STREQUAL "")
+
+        set(GGML_CONFIG_ENTRIES "    { QStringLiteral(\"${_var}\"), QStringLiteral(\"${_clean_value}\") }")
+
+    else()
+
+        set(GGML_CONFIG_ENTRIES "${GGML_CONFIG_ENTRIES},\n    { QStringLiteral(\"${_var}\"), QStringLiteral(\"${_clean_value}\") }")
+
+    endif()
+
+endforeach()
+
+# Configure the header
+
+configure_file(
+    "${CMAKE_SOURCE_DIR}/core/cmake/templates/llamaggmlconfig.h.cmake.in"
+    "${CMAKE_BINARY_DIR}/core/app/utils/digikam_llamaggmlconfig.h"
+)
+

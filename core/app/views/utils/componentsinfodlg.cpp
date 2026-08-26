@@ -65,6 +65,12 @@ const char* av_version_info(void);
 
 #endif
 
+#ifdef HAVE_LLAMACPP
+
+#   include "digikam_llamaggmlconfig.h"
+
+#endif
+
 namespace Digikam
 {
 
@@ -244,6 +250,31 @@ public:
 
         new QTreeWidgetItem(m_features, QStringList() <<
                             i18nc("@item: component info", "Database backend version") << dbVersion);
+
+#ifdef HAVE_LLAMACPP
+
+        QTreeWidgetItem* const nlEntry = new QTreeWidgetItem(listView(), QStringList() << i18nc("@item: component info", "Natural Language Configuration"));
+        listView()->addTopLevelItem(nlEntry);
+
+        // --- LLAMA.CPP configuration
+
+        QTreeWidgetItem* const llamaConf = new QTreeWidgetItem(nlEntry, QStringList() << i18nc("@item: component info", "LLAMA.CPP"));
+
+        for (auto it = LLAMA_CONFIG.constBegin() ; it != LLAMA_CONFIG.constEnd() ; ++it)
+        {
+            new QTreeWidgetItem(llamaConf, QStringList() << it.key() << it.value());
+        }
+
+        // --- GGML configuration
+
+        QTreeWidgetItem* const ggmlConf = new QTreeWidgetItem(nlEntry, QStringList() << i18nc("@item: component info", "GGML"));
+
+        for (auto it = GGML_CONFIG.constBegin() ; it != GGML_CONFIG.constEnd() ; ++it)
+        {
+            new QTreeWidgetItem(ggmlConf, QStringList() << it.key() << it.value());
+        }
+
+#endif
 
 #ifdef HAVE_MEDIAPLAYER
 
