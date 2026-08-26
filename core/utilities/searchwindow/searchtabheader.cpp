@@ -228,10 +228,10 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
             d->keywordEditTimer, SLOT(start()));
 
     connect(d->keywordEditTimer, SIGNAL(timeout()),
-            this, SLOT(keywordChangedTimer()));
+            this, SLOT(slotKeywordChangedTimer()));
 
     connect(d->keywordEdit, SIGNAL(editingFinished()),
-            this, SLOT(keywordChanged()));
+            this, SLOT(slotKeywordChanged()));
 
     connect(d->advancedNewSearch, SIGNAL(clicked()),
             this, SLOT(newAdvancedSearch()));
@@ -240,19 +240,19 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
             this, SLOT(slotEditCurrentSearch()));
 
     connect(d->saveNameEdit, SIGNAL(returnPressed()),
-            this, SLOT(saveSearch()));
+            this, SLOT(slotSaveSearch()));
 
     connect(d->saveButton, SIGNAL(clicked()),
-            this, SLOT(saveSearch()));
+            this, SLOT(slotSaveSearch()));
 
     connect(d->storedKeywordEditTimer, SIGNAL(timeout()),
-            this, SLOT(storedKeywordChanged()));
+            this, SLOT(slotStoredKeywordChanged()));
 
     connect(d->storedKeywordEdit, SIGNAL(editingFinished()),
-            this, SLOT(storedKeywordChanged()));
+            this, SLOT(slotStoredKeywordChanged()));
 
     connect(d->storedAdvancedEditLabel, SIGNAL(clicked()),
-            this, SLOT(editStoredAdvancedSearch()));
+            this, SLOT(slotEditStoredAdvancedSearch()));
 
 #ifdef HAVE_LLAMACPP
 
@@ -299,7 +299,7 @@ SearchWindow* SearchTabHeader::searchWindow() const
         d->searchWindow = new SearchWindow;
 
         connect(d->searchWindow, SIGNAL(searchEdited(int,QString)),
-                this, SLOT(advancedSearchEdited(int,QString)),
+                this, SLOT(slotAdvancedSearchEdited(int,QString)),
                 Qt::QueuedConnection);
     }
 
@@ -415,7 +415,7 @@ void SearchTabHeader::newAdvancedSearch()
     window->raise();
 }
 
-void SearchTabHeader::keywordChanged()
+void SearchTabHeader::slotKeywordChanged()
 {
     QString keywords = d->keywordEdit->getText();
 
@@ -436,11 +436,11 @@ void SearchTabHeader::keywordChanged()
     d->keywordEdit->setFocus();
 }
 
-void SearchTabHeader::keywordChangedTimer()
+void SearchTabHeader::slotKeywordChangedTimer()
 {
     if (d->keywordEdit->autoSearchEnabled())
     {
-        keywordChanged();
+        slotKeywordChanged();
     }
 }
 
@@ -462,7 +462,7 @@ void SearchTabHeader::slotEditCurrentSearch()
     window->raise();
 }
 
-void SearchTabHeader::saveSearch()
+void SearchTabHeader::slotSaveSearch()
 {
     // Only applicable if:
     // 1. current album is Search View Current Album Save this album as a user names search album.
@@ -510,7 +510,7 @@ void SearchTabHeader::saveSearch()
     Q_EMIT searchShallBeSelected(QList<Album*>() << newAlbum);
 }
 
-void SearchTabHeader::storedKeywordChanged()
+void SearchTabHeader::slotStoredKeywordChanged()
 {
     QString keywords = d->storedKeywordEdit->text();
 
@@ -531,7 +531,7 @@ void SearchTabHeader::storedKeywordChanged()
     }
 }
 
-void SearchTabHeader::editStoredAdvancedSearch()
+void SearchTabHeader::slotEditStoredAdvancedSearch()
 {
     if (d->currentAlbum)
     {
@@ -543,7 +543,7 @@ void SearchTabHeader::editStoredAdvancedSearch()
     }
 }
 
-void SearchTabHeader::advancedSearchEdited(int id, const QString& query)
+void SearchTabHeader::slotAdvancedSearchEdited(int id, const QString& query)
 {
     // if the user just pressed the button, but did not change anything in the window,
     // the search is effectively still a keyword search.

@@ -53,13 +53,13 @@ Q_SIGNALS:
 
 private Q_SLOTS:
 
-    void keywordChanged();
-    void keywordChangedTimer();
+    void slotKeywordChanged();
+    void slotKeywordChangedTimer();
+    void slotStoredKeywordChanged();
     void slotEditCurrentSearch();
-    void saveSearch();
-    void storedKeywordChanged();
-    void editStoredAdvancedSearch();
-    void advancedSearchEdited(int id, const QString& query);
+    void slotSaveSearch();
+    void slotEditStoredAdvancedSearch();
+    void slotAdvancedSearchEdited(int id, const QString& query);
 
     void slotNlInterpretClicked();
     void slotNlIntentReady(const SearchQueryIntent& intent);
