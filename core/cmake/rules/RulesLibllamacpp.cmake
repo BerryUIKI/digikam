@@ -24,16 +24,16 @@ if(ENABLE_NLSEARCH_LLAMACPP)
             message(STATUS "llama.cpp version: ${LLAMA_VERSION}")
             message(STATUS "ggml version     : ${GGML_VERSION}")
 
-            # Initialiser les listes pour stocker les variables LLAMA_* et GGML_*
+            # Init the lists to store variables LLAMA_* and GGML_*
 
             set(LLAMA_VARIABLES_LIST)
             set(GGML_VARIABLES_LIST)
 
-            # Récupérer toutes les variables CMake
+            # Get all cmake variables
 
             get_cmake_property(_all_vars VARIABLES)
 
-            # Parcourir toutes les variables et filtrer celles qui commencent par LLAMA_ ou GGML_
+            # Parse all variables and filter all items matching LLAMA_ and GGML_
 
             foreach(_var IN LISTS _all_vars)
 
@@ -80,7 +80,7 @@ if(ENABLE_NLSEARCH_LLAMACPP)
 
                 string(REPLACE "\"" "" _clean_value "${${_var}}")
 
-                # Append a comma and a cariage return before each entry
+                # Append a comma and a carriage return before each entry
 
                 if(LLAMA_CONFIG_ENTRIES STREQUAL "")
 
@@ -102,7 +102,7 @@ if(ENABLE_NLSEARCH_LLAMACPP)
 
                 string(REPLACE "\"" "" _clean_value "${${_var}}")
 
-                # Append a comma and a cariage return before each entry
+                # Append a comma and a carriage return before each entry
 
                 if(GGML_CONFIG_ENTRIES STREQUAL "")
 

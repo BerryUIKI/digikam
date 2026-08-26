@@ -208,7 +208,7 @@ foreach(_var IN LISTS LLAMA_VARIABLES_LIST)
 
     string(REPLACE "\"" "" _clean_value "${${_var}}")
 
-    # Append a comma and a cariage return before each entry
+    # Append a comma and a carriage return before each entry
 
     if(LLAMA_CONFIG_ENTRIES STREQUAL "")
 
@@ -230,7 +230,7 @@ foreach(_var IN LISTS GGML_VARIABLES_LIST)
 
     string(REPLACE "\"" "" _clean_value "${${_var}}")
 
-    # Append a comma and a cariage return before each entry
+    # Append a comma and a carriage return before each entry
 
     if(GGML_CONFIG_ENTRIES STREQUAL "")
 
