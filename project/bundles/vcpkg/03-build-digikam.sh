@@ -87,6 +87,7 @@ rm -rf $BUILDING_DIR/dk_cmake/* || true
 cp $DOWNLOAD_DIR/exiv2_manifest.txt $ORIG_WD/data/
 "${CMAKE_BIN}" --build . --config RelWithDebInfo --target ext_lensfun --parallel
 cp $DOWNLOAD_DIR/lensfun_manifest.txt $ORIG_WD/data/
+"${CMAKE_BIN}" --build . --config RelWithDebInfo --target ext_llamacpp --parallel
 
 #################################################################################################
 # Build digiKam in temporary directory and installation
@@ -152,9 +153,11 @@ fi
 echo -e "\n\n"
 echo "---------- Configure digiKam $DK_VERSION"
 
-sed -e "s/DENABLE_GUI_TRANSLATIONS=OFF/DENABLE_GUI_TRANSLATIONS=ON/g"   ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
-sed -e "s/DBUILD_TESTING=ON/DBUILD_TESTING=OFF/g"                       ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
-sed -e "s/DENABLE_DBUS=ON/DENABLE_DBUS=OFF/g"                           ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
+sed -e "s/DENABLE_GUI_TRANSLATIONS=OFF/DENABLE_GUI_TRANSLATIONS=ON/g"                 ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
+sed -e "s/DBUILD_TESTING=ON/DBUILD_TESTING=OFF/g"                                     ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
+sed -e "s/DENABLE_DBUS=ON/DENABLE_DBUS=OFF/g"                                         ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
+sed -e "s/DENABLE_NLSEARCH_LLAMACPP=OFF/DENABLE_NLSEARCH_LLAMACPP=ON/g"               ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
+sed -e "s/DENABLE_NLSEARCH_SYSTEM_LLAMACPP=OFF/DENABLE_NLSEARCH_SYSTEM_LLAMACPP=ON/g" ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
 
 if [[ $DK_QTVERSION = 5 ]] ; then
 
@@ -191,7 +194,6 @@ cat $DK_BUILDTEMP/digikam-$DK_VERSION/build/core/app/utils/digikam_builddate.h |
 cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/libs/dimg/filters/transform/lqr/liblqr_manifest.txt                  $ORIG_WD/data
 cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/libs/rawengine/libraw/libraw_manifest.txt                            $ORIG_WD/data
 cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/libs/dplugins/webservices/o2/o2_manifest.txt                         $ORIG_WD/data
-cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/utilities/searchwindow/thirdparty/llamacpp/llama_cpp_manifest.txt    $ORIG_WD/data
 
 echo -e "\n\n"
 echo "---------- Installing digiKam $DK_VERSION"
