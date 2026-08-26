@@ -19,9 +19,53 @@ if(ENABLE_NLSEARCH_LLAMACPP)
 
             set(HAVE_LLAMACPP TRUE)
             set(HAVE_LLAMACPP_SYSTEM TRUE)
+
             message(STATUS "NL search results: system llama.cpp backend enabled")
             message(STATUS "llama.cpp version: ${LLAMA_VERSION}")
             message(STATUS "ggml version     : ${GGML_VERSION}")
+
+            # Initialiser les listes pour stocker les variables LLAMA_* et GGML_*
+
+            set(LLAMA_VARIABLES_LIST)
+            set(GGML_VARIABLES_LIST)
+
+            # Récupérer toutes les variables CMake
+
+            get_cmake_property(_all_vars VARIABLES)
+
+            # Parcourir toutes les variables et filtrer celles qui commencent par LLAMA_ ou GGML_
+
+            foreach(_var IN LISTS _all_vars)
+
+                if(_var MATCHES "^LLAMA_")
+
+                    list(APPEND LLAMA_VARIABLES_LIST "${_var}")
+
+                elseif(_var MATCHES "^GGML_")
+
+                    list(APPEND GGML_VARIABLES_LIST "${_var}")
+
+                endif()
+
+            endforeach()
+
+            # Show all extracted variables
+
+            message(STATUS "LLAMA.CPP configuration:")
+
+            foreach(VAR IN LISTS LLAMA_VARIABLES_LIST)
+
+                message(STATUS "   ${VAR} = ${${VAR}}")
+
+            endforeach()
+
+            message(STATUS "GGML configuration:")
+
+            foreach(VAR IN LISTS GGML_VARIABLES_LIST)
+
+                message(STATUS "   ${VAR} = ${${VAR}}")
+
+            endforeach()
 
         else()
 

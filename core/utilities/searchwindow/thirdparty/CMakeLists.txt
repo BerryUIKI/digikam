@@ -99,39 +99,49 @@ foreach(_llama_target llama ggml ggml-base ggml-cpu)
 
 endforeach()
 
-# Extract config definition to identify the library features
+# Extract config definitions to identify the library features
 
-# Variables extraction for llama.cpp
+# --- Variables extraction for llama.cpp
 
-file(READ ${CMAKE_BINARY_DIR}/core/utilities/searchwindow/thirdparty/llamacpp/llama-config.cmake LLAMA_CONFIG_CONTENT)
+file(READ "${CMAKE_BINARY_DIR}/core/utilities/searchwindow/thirdparty/llamacpp/llama-config.cmake" LLAMA_CONFIG_CONTENT)
 
-string(REGEX MATCH "set\\(LLAMA_VERSION[ \t]+([0-9.a-zA-Z]+)\\)" _ ${LLAMA_CONFIG_CONTENT})
-string(REPLACE "\"" "" LLAMA_VERSION ${CMAKE_MATCH_1})
-set(LLAMA_VERSION ${LLAMA_VERSION} CACHE INTERNAL "Extracted from llama.cpp-config.cmake")
+set(LLAMA_VARIABLES_LIST)
 
-string(REGEX MATCH "set\\(LLAMA_BUILD_COMMIT[ \t]+([0-9a-fA-F]+)\\)" _ ${LLAMA_CONFIG_CONTENT})
-string(REPLACE "\"" "" LLAMA_BUILD_COMMIT ${CMAKE_MATCH_1})
-set(LLAMA_BUILD_COMMIT ${LLAMA_BUILD_COMMIT} CACHE INTERNAL "Extracted from llama.cpp-config.cmake")
+# Divide the contents by lines
 
-string(REGEX MATCH "set\\(LLAMA_BUILD_NUMBER[ \t]+([0-9]+)\\)" _ ${LLAMA_CONFIG_CONTENT})
-string(REPLACE "\"" "" LLAMA_BUILD_NUMBER ${CMAKE_MATCH_1})
-set(LLAMA_BUILD_NUMBER ${LLAMA_BUILD_NUMBER} CACHE INTERNAL "Extracted from llama.cpp-config.cmake")
+string(REPLACE "\n" ";" LINES "${LLAMA_CONFIG_CONTENT}")
 
-string(REGEX MATCH "set\\(LLAMA_SHARED_LIB[ \t]+(ON|OFF)\\)" _ ${LLAMA_CONFIG_CONTENT})
-string(REPLACE "\"" "" LLAMA_SHARED_LIB ${CMAKE_MATCH_1})
-set(LLAMA_SHARED_LIB ${LLAMA_SHARED_LIB} CACHE INTERNAL "Extracted from llama.cpp-config.cmake")
+# Parse each line from the file
 
-message(STATUS "LLAMA.CPP configuration:")
-message(STATUS "   LLAMA_VERSION:      ${LLAMA_VERSION}")
-message(STATUS "   LLAMA_BUILD_COMMIT: ${LLAMA_BUILD_COMMIT}")
-message(STATUS "   LLAMA_BUILD_NUMBER: ${LLAMA_BUILD_NUMBER}")
-message(STATUS "   LLAMA_SHARED_LIB:   ${LLAMA_SHARED_LIB}")
+foreach(LINE IN LISTS LINES)
 
-# Variables extraction for ggml
+    # Check if the line corresponds to `set(LLAMA_* ...)`
+
+    if(LINE MATCHES "^set\\(LLAMA_[A-Za-z0-9_]+ [^)]+\\)$")
+
+        # Variable name + value extraction
+
+        string(REGEX MATCH "set\\(([A-Za-z0-9_]+) ([^)]+)\\)" MATCH_RESULT "${LINE}")
+        string(REGEX REPLACE "set\\(([A-Za-z0-9_]+) ([^)]+)\\)" "\\1" VAR_NAME "${LINE}")
+        string(REGEX REPLACE "set\\(([A-Za-z0-9_]+) ([^)]+)\\)" "\\2" VAR_VALUE "${LINE}")
+
+        # Remove quotes from the value
+
+        string(REPLACE "\"" "" VAR_VALUE "${VAR_VALUE}")
+
+        # Append the variable to the list
+
+        list(APPEND LLAMA_VARIABLES_LIST "${VAR_NAME}")
+
+        set(${VAR_NAME} "${VAR_VALUE}" CACHE INTERNAL "Extracted from llama-config.cmake")
+
+    endif()
+
+endforeach()
+
+# --- Variables extraction for ggml
 
 file(READ "${CMAKE_BINARY_DIR}/core/utilities/searchwindow/thirdparty/llamacpp/ggml/ggml-config.cmake" GGML_CONFIG_CONTENT)
-
-# Init the list to store the extracted variables
 
 set(GGML_VARIABLES_LIST)
 
@@ -167,7 +177,15 @@ foreach(LINE IN LISTS LINES)
 
 endforeach()
 
-# Show all extracted variables
+# --- Show all extracted variables
+
+message(STATUS "LLAMA.CPP configuration:")
+
+foreach(VAR IN LISTS LLAMA_VARIABLES_LIST)
+
+    message(STATUS "   ${VAR} = ${${VAR}}")
+
+endforeach()
 
 message(STATUS "GGML configuration:")
 
