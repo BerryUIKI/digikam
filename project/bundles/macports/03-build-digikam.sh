@@ -184,7 +184,6 @@ cat $DK_BUILDTEMP/digikam-$DK_VERSION/build/core/app/utils/digikam_builddate.h |
 cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/libs/dimg/filters/transform/lqr/liblqr_manifest.txt                  $ORIG_WD/data
 cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/libs/rawengine/libraw/libraw_manifest.txt                            $ORIG_WD/data
 cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/libs/dplugins/webservices/o2/o2_manifest.txt                         $ORIG_WD/data
-cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/utilities/searchwindow/thirdparty/llama.cpp/llama_cpp_manifest.txt   $ORIG_WD/data
 
 echo -e "\n\n"
 echo "---------- Installing digiKam $DK_VERSION"
