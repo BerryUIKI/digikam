@@ -332,7 +332,7 @@ if(ENABLE_NLSEARCH_LLAMACPP)
 
     if (ENABLE_NLSEARCH_SYSTEM_LLAMACPP)
 
-        PRINT_OPTIONAL_LIBRARY_STATUS("libllama.cpp"      "https://github.com/ggml-org/llama.cpp"                           "(version >= 0.0.69364)"                "digiKam will be compiled without natural language search support."           HAVE_LLAMACPP AND HAVE_GGML)
+        PRINT_OPTIONAL_LIBRARY_STATUS("libllama.cpp"      "https://github.com/ggml-org/llama.cpp"                           "(version >= 0.0.69364)"                "digiKam will be compiled without natural language search support."           HAVE_LLAMACPP_SYSTEM)
 
     else()
 
