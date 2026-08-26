@@ -276,11 +276,6 @@ MACRO_BOOL_TO_01(JXL_FOUND                                      HAVE_JXL)
 MACRO_BOOL_TO_01(Qt5XmlPatterns_FOUND                           HAVE_QTXMLPATTERNS)
 MACRO_BOOL_TO_01(CCACHE_FOUND                                   HAVE_CCACHE)
 
-# Set config files accordingly with optional dependencies
-
-configure_file(app/utils/digikam_config.h.cmake.in
-               ${CMAKE_CURRENT_BINARY_DIR}/app/utils/digikam_config.h)
-
 # ==============================================================================
 # Log messages
 
@@ -580,5 +575,10 @@ if(DIGIKAM_CAN_BE_COMPILED)
     if(BUILD_TESTING)
         add_subdirectory(tests)
     endif()
+
+    # Set config files accordingly with optional dependencies
+
+    configure_file(app/utils/digikam_config.h.cmake.in
+                   ${CMAKE_CURRENT_BINARY_DIR}/app/utils/digikam_config.h)
 
 endif()
