@@ -262,6 +262,7 @@ PRINT_COMPONENT_COMPILE_STATUS("App. Style Support"                         ENAB
 PRINT_COMPONENT_COMPILE_STATUS("Geolocation Support"                        ENABLE_GEOLOCATION)
 PRINT_COMPONENT_COMPILE_STATUS("Media Player Support"                       ENABLE_MEDIAPLAYER)
 PRINT_COMPONENT_COMPILE_STATUS("QtMultimedia Support"                       ENABLE_QTMULTIMEDIA)
+PRINT_COMPONENT_COMPILE_STATUS("Native Language Search Support"             ENABLE_NLSEARCH_LLAMACPP)
 
 # ==============================================================================
 
@@ -325,6 +326,21 @@ PRINT_OPTIONAL_LIBRARY_STATUS("libxslt"           "https://gitlab.gnome.org/GNOM
 PRINT_OPTIONAL_LIBRARY_STATUS("libheif"           "https://github.com/strukturag/libheif"                           "(version >= 1.6.0)"                    "digiKam will be compiled without HEIF support."                              HEIF_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("libx265"           "https://github.com/videolan/x265.git"                            "(version >= 2.2)"                      "digiKam will be compiled without HEIF encoding support."                     X265_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("OpenGL"            "https://gitlab.freedesktop.org/mesa/mesa/"                       "(version >= 11.0.0)"                   "digiKam will be compiled without OpenGL support."                            HAVE_OPENGL)
+PRINT_OPTIONAL_LIBRARY_STATUS("Doxygen"           "https://github.com/doxygen/doxygen"                              "(version >= 1.8.0)"                    "digiKam will be configured without API documentation building support."      Doxygen_FOUND)
+
+if(ENABLE_NLSEARCH_LLAMACPP)
+
+    if (ENABLE_NLSEARCH_SYSTEM_LLAMACPP)
+
+        PRINT_OPTIONAL_LIBRARY_STATUS("libllama.cpp"      "https://github.com/ggml-org/llama.cpp"                           "(version >= 0.0.69364)"                "digiKam will be compiled without natural language search support."           HAVE_LLAMACPP AND HAVE_GGML)
+
+    else()
+
+        message (STATUS " Native language search will use the internal Libllama")
+
+    endif()
+
+endif()
 
 if(NOT Qt6_FOUND)
 
@@ -351,12 +367,12 @@ if(Boost_FOUND                          AND
    (CMAKE_USE_PTHREADS_INIT OR CMAKE_USE_WIN32_THREADS_INIT)
   )
 
-    message(STATUS " digiKam can be compiled.................. YES")
+    message(STATUS      " digiKam can be compiled.......................................... YES")
     set(DIGIKAM_CAN_BE_COMPILED true)
 
 else()
 
-    message(FATAL_ERROR " digiKam will be compiled.................. NO  (Check dependencies from the developer documentation https://files.kde.org/digikam/api/)")
+    message(FATAL_ERROR " digiKam will be compiled......................................... NO  (Check dependencies from https://www.digikam.org/download/git/#install-external-dependencies")
     set(DIGIKAM_CAN_BE_COMPILED false)
 
 endif()

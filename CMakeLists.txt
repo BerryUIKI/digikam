@@ -211,6 +211,11 @@ else()
 endif()
 
 ######################################################################################################################
+# API documentation generation
+
+include(RulesDoxygen)
+
+######################################################################################################################
 
 if(ENABLE_DIGIKAM_CORE)
     add_subdirectory(core)
@@ -239,8 +244,3 @@ if(BUILD_TESTING)
     add_custom_target(test-data ALL DEPENDS ${CMAKE_SOURCE_DIR}/test-data)
 
 endif()
-
-######################################################################################################################
-# API documentation generation
-
-include(RulesDoxygen)

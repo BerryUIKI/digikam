@@ -7,7 +7,7 @@
 
 # -------------------------------------------------------------------------
 
-set(PRINT_COMPILE_LENGTH "42")
+set(PRINT_COMPILE_LENGTH "64")
 
 macro(FILL_WITH_DOTS VAR)
 
