@@ -264,10 +264,10 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
 
     connect(d->nlRunNowButton, &QPushButton::clicked,
             this, &SearchTabHeader::slotNlRunNow);
-    
+
     connect(d->nlCancelButton, &QToolButton::clicked, this, [this]()
         {
-            if (SearchWindow* const window = searchWindow())
+            if (const SearchWindow* const window = searchWindow())
             {
                 window->queryEngine()->slotCancel();
             }

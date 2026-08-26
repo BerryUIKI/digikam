@@ -72,7 +72,7 @@ void s_llamaLogCallback(ggml_log_level level, const char* text, void* userData)
  * decode. The void* carries the worker instance, so a cancellation requested
  * from the GUI interrupts computation mid-decode, not only between tokens.
  */
-bool s_llamaAbortCallback(void* userData)
+bool s_llamaAbortCallback(void* userData)       // cppcheck-suppress constParameterCallback
 {
     if (userData)
     {
