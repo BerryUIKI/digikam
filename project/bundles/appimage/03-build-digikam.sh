@@ -61,6 +61,7 @@ cmake --build . --config RelWithDebInfo --target ext_exiv2         -- -j$CPU_COR
 cp $DOWNLOAD_DIR/exiv2_manifest.txt $ORIG_WD/data/
 cmake --build . --config RelWithDebInfo --target ext_lensfun       -- -j$CPU_CORES
 cp $DOWNLOAD_DIR/lensfun_manifest.txt $ORIG_WD/data/
+cmake --build . --config RelWithDebInfo --target ext_llamacpp      -- -j$CPU_CORES
 
 #################################################################################################
 # Build digiKam in temporary directory and installation
@@ -156,6 +157,7 @@ cmake -G "Unix Makefiles" .. \
       -DENABLE_QWEBENGINE=ON \
       -DENABLE_FACESENGINE_DNN=ON \
       -DENABLE_NLSEARCH_LLAMACPP=ON \
+      -DENABLE_NLSEARCH_SYSTEM_LLAMACPP=ON \
       -DENABLE_KIO=OFF \
       -DENABLE_LEGACY=OFF \
       -Wno-dev
@@ -183,7 +185,6 @@ cat $DK_BUILDTEMP/digikam-$DK_VERSION/build/core/app/utils/digikam_builddate.h |
 cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/libs/dimg/filters/transform/lqr/liblqr_manifest.txt                  $ORIG_WD/data
 cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/libs/rawengine/libraw/libraw_manifest.txt                            $ORIG_WD/data
 cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/libs/dplugins/webservices/o2/o2_manifest.txt                         $ORIG_WD/data
-cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/utilities/searchwindow/thirdparty/llamacpp/llama_cpp_manifest.txt    $ORIG_WD/data
 
 echo -e "\n\n"
 echo "---------- Installing digiKam $DK_VERSION"
