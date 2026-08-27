@@ -26,9 +26,6 @@ if(ENABLE_NLSEARCH_LLAMACPP)
             message(STATUS "ggml version       : ${GGML_VERSION}")
             message(STATUS "ggml libraries     : ${GGML_LIBRARY}")
 
-#                      ${OPENMP_LDFLAGS}
-
-
             # Init the lists to store variables LLAMA_* and GGML_*
 
             set(LLAMA_VARIABLES_LIST)
