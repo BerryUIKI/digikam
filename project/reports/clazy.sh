@@ -68,13 +68,13 @@ rm -fr build.clazy
 mkdir -p build.clazy
 cd build.clazy
 
-#export PATH=$PATH:/opt/clazy/bin
+export PATH=$PATH:/opt/clazy/bin
 
 if [[ -d /opt/qt6 ]] ; then
 
     export BUILD_WITH_QT6=1
     export Qt6_DIR=/opt/qt6
-    QTPATHS="/opt/qt6/bin/qtpaths6"
+#    QTPATHS="/opt/qt6/bin/qtpaths6"
     export CMAKE_BINARY=/opt/qt6/bin/cmake
 
 else
@@ -84,14 +84,14 @@ else
 
 fi
 
-export LLVM_VERSION=19
+#export LLVM_VERSION=19
 
-export PATH=/opt/qt6/bin/:/opt/clazy/bin/:$PATH
+#export PATH=/opt/qt6/bin/:/opt/clazy/bin/:$PATH
 
-$CMAKE_BINARY -G "Unix Makefiles" \
+$CMAKE_BINARY  \
       -DCMAKE_CXX_COMPILER=clazy \
-      -DCMAKE_BUILD_TYPE=Debug \
       -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
+      -DCMAKE_BUILD_TYPE=Debug \
       -DBUILD_WITH_QT6=$BUILD_WITH_QT6 \
       -DBUILD_TESTING=ON \
       -DDIGIKAMSC_CHECKOUT_PO=OFF \
@@ -109,6 +109,7 @@ $CMAKE_BINARY -G "Unix Makefiles" \
       -DENABLE_GEOLOCATION=ON \
       -DENABLE_QWEBENGINE=ON \
       -DENABLE_NLSEARCH_LLAMACPP=ON \
+      -G "Unix Makefiles" \
       -Wno-dev \
       ..
 
