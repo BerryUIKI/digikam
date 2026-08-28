@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-27 00:42+0000\n"
+"POT-Creation-Date: 2026-08-28 00:43+0000\n"
 "PO-Revision-Date: 2026-01-04 22:32+0100\n"
 "Last-Translator: Jose Riha <jose1711@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -58282,7 +58282,7 @@ msgstr "Zobraziť položky bez geolokácie"
 
 #: core/utilities/geolocation/mapsearches/gpssearchview.cpp:526
 #: core/utilities/searchwindow/searchmodificationhelper.cpp:111
-#: core/utilities/searchwindow/searchtabheader.cpp:683
+#: core/utilities/searchwindow/searchtabheader.cpp:488
 #, kde-format
 msgid ""
 "Search name already exists.\n"
@@ -58293,7 +58293,7 @@ msgstr ""
 
 #: core/utilities/geolocation/mapsearches/gpssearchview.cpp:530
 #: core/utilities/searchwindow/searchmodificationhelper.cpp:115
-#: core/utilities/searchwindow/searchtabheader.cpp:687
+#: core/utilities/searchwindow/searchtabheader.cpp:492
 #, kde-format
 msgctxt "@title:window"
 msgid "Name Exists"
@@ -62643,37 +62643,37 @@ msgctxt "@info"
 msgid "\"%1\" could mean more than one thing. Which did you mean?"
 msgstr ""
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:268
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:269
 #, fuzzy, kde-format
 #| msgid "Failed to load image"
 msgid "Failed to load the language model."
 msgstr "Nepodarilo sa načítať obrázok"
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:293
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:295
 #, fuzzy, kde-format
 #| msgid "Failed to initialize the database."
 msgid "Failed to initialize the model context."
 msgstr "Inicializácia databázy zlyhala."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:313
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:457
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:315
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:461
 #, kde-format
 msgid "digiKam was built without llama.cpp support."
 msgstr ""
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:330
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:332
 #, kde-format
 msgid "Model is not loaded."
 msgstr ""
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:351
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:361
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:353
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:363
 #, fuzzy, kde-format
 #| msgid "Failed to open the database."
 msgid "Failed to tokenize the prompt."
 msgstr "Nepodarilo sa otvoriť databázu."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:396
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:400
 #, fuzzy, kde-format
 #| msgid "Connection failed."
 msgid "Model decode failed."
@@ -63776,81 +63776,75 @@ msgstr "Odstrániť hľadanie?"
 msgid "Are you sure you want to delete the selected search \"%1\"?"
 msgstr "Naozaj chcete odstrániť vybrané hľadanie \"%1\"?"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:106
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Autostart Search"
-msgstr "Automaticky spustiť hľadanie"
-
-#: core/utilities/searchwindow/searchtabheader.cpp:246
+#: core/utilities/searchwindow/searchtabheader.cpp:50
 #, kde-format
 msgid "New Search"
 msgstr "Nové hľadanie"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:248
+#: core/utilities/searchwindow/searchtabheader.cpp:52
 #, kde-format
 msgctxt "@label: quick search properties"
 msgid "Search:"
 msgstr "Hľadať:"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:251
+#: core/utilities/searchwindow/searchtabheader.cpp:55
 #, kde-format
 msgid "Enter keywords here..."
 msgstr "Sem zadajte kľúčové slová..."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:253
+#: core/utilities/searchwindow/searchtabheader.cpp:57
 #, kde-format
 msgid "New Advanced Search..."
 msgstr "Nové pokročilé hľadanie..."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:254
+#: core/utilities/searchwindow/searchtabheader.cpp:58
 #, kde-format
 msgid "Edit Current Search..."
 msgstr "Upraviť aktuálne hľadanie..."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:260
+#: core/utilities/searchwindow/searchtabheader.cpp:64
 #, kde-format
 msgid ""
 "Interpret the text above as a natural-language search and build the query"
 msgstr ""
 
-#: core/utilities/searchwindow/searchtabheader.cpp:266
-#: core/utilities/searchwindow/searchwindow.cpp:167
+#: core/utilities/searchwindow/searchtabheader.cpp:70
+#: core/utilities/searchwindow/searchwindow.cpp:69
 #, fuzzy, kde-format
 #| msgid "Cancel current operation"
 msgid "Cancel the current interpretation"
 msgstr "Zruší túto operáciu."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:291
+#: core/utilities/searchwindow/searchtabheader.cpp:95
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Advanced Search"
 msgid "Open Advanced Search"
 msgstr "Rozšírené hľadanie"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:292
+#: core/utilities/searchwindow/searchtabheader.cpp:96
 #, kde-format
 msgid "Run Now"
 msgstr ""
 
-#: core/utilities/searchwindow/searchtabheader.cpp:336
+#: core/utilities/searchwindow/searchtabheader.cpp:140
 #, kde-format
 msgid "Save Current Search"
 msgstr "Uložiť aktuálne hľadanie"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:340
+#: core/utilities/searchwindow/searchtabheader.cpp:144
 #, kde-format
 msgid "Enter a name for the current search to save it in the \"Searches\" view"
 msgstr ""
 "Zadajte názov aktuálneho vyhľadávania, pod ktorým ho uložíte v pohľade "
 "„Vyhľadávania\""
 
-#: core/utilities/searchwindow/searchtabheader.cpp:345
+#: core/utilities/searchwindow/searchtabheader.cpp:149
 #, kde-format
 msgid "Save current search to a new virtual Album"
 msgstr "Uložiť aktuálne hľadanie ako nový virtuálny album"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:346
+#: core/utilities/searchwindow/searchtabheader.cpp:150
 #, kde-format
 msgid ""
 "If you press this button, the current search will be saved to a new virtual "
@@ -63859,18 +63853,18 @@ msgstr ""
 "Ak stlačíte toto tlačidlo, aktuálne hľadanie sa uloží ako nový virtuálny "
 "albumu pod názvom zadaným vľavo."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:361
-#: core/utilities/searchwindow/searchtabheader.cpp:388
+#: core/utilities/searchwindow/searchtabheader.cpp:165
+#: core/utilities/searchwindow/searchtabheader.cpp:192
 #, kde-format
 msgid "Edit Stored Search"
 msgstr "Upraviť uložené hľadanie"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:403
+#: core/utilities/searchwindow/searchtabheader.cpp:207
 #, kde-format
 msgid "Edit..."
 msgstr "Upraviť..."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:878
+#: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:89
 #, fuzzy, kde-format
 #| msgid "Imported %1"
 msgid ""
@@ -63878,12 +63872,18 @@ msgid ""
 "%1"
 msgstr "%1 importované"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:912
-#: core/utilities/searchwindow/searchwindow.cpp:734
+#: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:123
+#: core/utilities/searchwindow/searchwindow_slots.cpp:180
 #, fuzzy, kde-format
 #| msgid "Printing canceled"
 msgid "Interpretation cancelled."
 msgstr "Tlač zrušená"
+
+#: core/utilities/searchwindow/searchtabheader_p.cpp:62
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Autostart Search"
+msgstr "Automaticky spustiť hľadanie"
 
 #: core/utilities/searchwindow/searchview.cpp:524
 #, kde-format
@@ -63900,34 +63900,34 @@ msgstr "Vymazať všetky skupiny"
 msgid "Try"
 msgstr "Vyskúšať"
 
-#: core/utilities/searchwindow/searchwindow.cpp:135
+#: core/utilities/searchwindow/searchwindow.cpp:37
 #, fuzzy, kde-format
 msgid "Natural Language Search"
 msgstr "Predvolený jazyk"
 
-#: core/utilities/searchwindow/searchwindow.cpp:139
+#: core/utilities/searchwindow/searchwindow.cpp:41
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
 msgstr ""
 
-#: core/utilities/searchwindow/searchwindow.cpp:142
+#: core/utilities/searchwindow/searchwindow.cpp:44
 #, kde-format
 msgid "Translate my query to English first"
 msgstr ""
 
-#: core/utilities/searchwindow/searchwindow.cpp:144
+#: core/utilities/searchwindow/searchwindow.cpp:46
 #, kde-format
 msgid ""
 "When enabled, your query is translated to English before being interpreted, "
 "so you can type in your own language. Requires an internet connection."
 msgstr ""
 
-#: core/utilities/searchwindow/searchwindow.cpp:182
+#: core/utilities/searchwindow/searchwindow.cpp:84
 #, kde-format
 msgid "Open the Natural Language Search handbook"
 msgstr ""
 
-#: core/utilities/searchwindow/searchwindow.cpp:211
+#: core/utilities/searchwindow/searchwindow.cpp:113
 #, kde-format
 msgid ""
 "Natural Language Search lets you find images by describing them in your own "
@@ -63936,36 +63936,36 @@ msgid ""
 "connection required once downloaded."
 msgstr ""
 
-#: core/utilities/searchwindow/searchwindow.cpp:219
+#: core/utilities/searchwindow/searchwindow.cpp:121
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
 msgstr ""
 
-#: core/utilities/searchwindow/searchwindow.cpp:223
+#: core/utilities/searchwindow/searchwindow.cpp:125
 #, fuzzy, kde-format
 #| msgid "Download Route"
 msgid "Download Model..."
 msgstr "Stiahnuť trasu"
 
-#: core/utilities/searchwindow/searchwindow.cpp:267
+#: core/utilities/searchwindow/searchwindow.cpp:169
 #, kde-format
 msgctxt "@title:window"
 msgid "Advanced Search"
 msgstr "Rozšírené hľadanie"
 
-#: core/utilities/searchwindow/searchwindow.cpp:540
+#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:70
 #, fuzzy, kde-format
 #| msgid "Loading themes..."
 msgid "Loading the language model... %1%"
 msgstr "Načítam motívy..."
 
-#: core/utilities/searchwindow/searchwindow.cpp:579
+#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:96
 #, fuzzy, kde-format
 #| msgid "Edit Current Search..."
 msgid "Interpreting the search..."
 msgstr "Upraviť aktuálne hľadanie..."
 
-#: core/utilities/searchwindow/searchwindow.cpp:772
+#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:140
 #, kde-format
 msgctxt "@info"
 msgid ""

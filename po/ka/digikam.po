@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-27 00:42+0000\n"
-"PO-Revision-Date: 2026-08-15 04:53+0200\n"
+"POT-Creation-Date: 2026-08-28 00:43+0000\n"
+"PO-Revision-Date: 2026-08-27 08:53+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -3819,6 +3819,13 @@ msgid ""
 "frame rate, bitrate), and file formats. For details, see <a href=\"https://"
 "community.kde.org/GSoC/2026/StatusReports/SrirupaDatta\">this report</a>."
 msgstr ""
+"ბუნებრივი ენით ძებნა, რომელიც ლოკალურ LLM-ს იყენებს, სრულად თქვენს "
+"კომპიუტერზე ეშვება. აღწერეთ, რა გნებავთ უბრალო ენაზე და digiKam შესაბამისი "
+"სტრუქტურის მქონე ძებნას ააგებს. აქვს ჭდეების, ხალხის, ალბომების, "
+"რეიტინგების, ჭდეების, ორიენტაციის, ადგილების, თარიღების, წარწერების, ვიდეოს "
+"თვისებების (ხანგრძლივობის, კადრების სიხშირის, დისკრეტიზაციის სიხშირის) და "
+"ფაილის ფორმატების მხარდაჭერა. დეტალებისთვის იხილეთ <a href=\"https://"
+"community.kde.org/GSoC/2026/StatusReports/SrirupaDatta\">ეს ანგარიში</a>."
 
 #: core/app/views/stack/welcomepageview_features.cpp:94
 #, kde-format
@@ -4663,19 +4670,19 @@ msgstr "პანორამის მხარდაჭერა"
 #, kde-format
 msgctxt "@item: component info"
 msgid "Natural-language search support"
-msgstr ""
+msgstr "ბუნებრივი ენით ძებნის მხარდაჭერა"
 
 #: core/app/views/utils/componentsinfodlg.cpp:186
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libllama.cpp"
-msgstr ""
+msgstr "Libllama.cpp"
 
 #: core/app/views/utils/componentsinfodlg.cpp:192
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libggml"
-msgstr ""
+msgstr "Libggml"
 
 #: core/app/views/utils/componentsinfodlg.cpp:205
 #: core/app/views/utils/componentsinfodlg.cpp:210
@@ -4722,23 +4729,22 @@ msgid "Database backend version"
 msgstr "მონაცემთა ბაზის უკანაბოლოს ვერსია"
 
 #: core/app/views/utils/componentsinfodlg.cpp:256
-#, fuzzy, kde-format
-#| msgid "Database Configuration"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Natural Language Configuration"
-msgstr "ბაზის მორგება"
+msgstr "ბუნებრივი ენის მორგება"
 
 #: core/app/views/utils/componentsinfodlg.cpp:261
 #, kde-format
 msgctxt "@item: component info"
 msgid "LLAMA.CPP"
-msgstr ""
+msgstr "LLAMA.CPP"
 
 #: core/app/views/utils/componentsinfodlg.cpp:270
 #, kde-format
 msgctxt "@item: component info"
 msgid "GGML"
-msgstr ""
+msgstr "GGML"
 
 #: core/app/views/utils/componentsinfodlg.cpp:281
 #, kde-format
@@ -11906,6 +11912,12 @@ msgid ""
 "altitude of the coordinate relative to sea level, regardless of the actual "
 "elevation of the terrain beneath the element.</dd></dl></p>"
 msgstr ""
+"<p>მიუთითებს, როგორ ხდება სურათების ჩვენება <dl><dt>მიწაზე დამაგრებული "
+"(ნაგულისხმევი)</dt><dd>ნიშნავს, რომ მოხდება სიმაღლის სპეციფიკაციის "
+"იგნორირება</dd><dt>მიწიდან შედარებით</dt><dd>დააყენებს ელემენტს მითითებული "
+"მდებარეობაზე მიწის რეალური სიმაღლიდან.</dd><dt>აბსოლუტური</dt><dd>დააყენებს "
+"სიმაღლის კოორდინატებს იმის მიუხედავად, რა სიმაღლეზეა ზღვის დონიდან მიწა "
+"მოცემული ელემენტის ქვეშ.</dd></dl></p>"
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:100
 #, kde-format
@@ -12150,6 +12162,12 @@ msgid ""
 "altitude of the coordinate relative to sea level, regardless of the actual "
 "elevation of the terrain beneath the element.</dd></dl></p>"
 msgstr ""
+"<p>მიუთითებს, როგორ ხდება წერტილების ჩვენება <dl><dt>მიწაზე დამაგრებული "
+"(ნაგულისხმევი)</dt><dd>ნიშნავს, რომ მოხდება სიმაღლის სპეციფიკაცის "
+"იგნორირება</dd><dt>მიწიდან შედარებით</dt><dd>დააყენებს ელემენტს მითითებული "
+"მდებარეობაზე მიწის რეალური სიმაღლიდან.</dd><dt>აბსოლუტური</dt><dd>დააყენებს "
+"სიმაღლის კოორდინატებს იმის მიუხედავად, რა სიმაღლეზეა ზღვის დონიდან მიწა "
+"მოცემული ელემენტის ქვეშ.</dd></dl></p>"
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:249
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:295
@@ -19178,6 +19196,9 @@ msgid ""
 "Pre-processing also includes a calculation of some control points to match "
 "overlaps between images. For that purpose, the \"%1\" program will be used."
 msgstr ""
+"პრეპროცესინგი ასევე შეიცავს ზოგიერთი საკონტროლო წერტილის გამოთვლას, რომლებიც "
+"გამოსახულებებს შორის გადაფარვას უნდა დაემთხვეს. ამისთვის გამოყენებული იქნება "
+"პროგრამა \"%1\"."
 
 #: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:77
 #, kde-format
@@ -19403,6 +19424,11 @@ msgid ""
 "print ISO sensitivity from camera\n"
 "print date and time from camera"
 msgstr ""
+"ფაილის სახელის გამოტანა\n"
+"კამერის ექსპოზიციის დროის გამოტანა\n"
+"ელემენტის კომენტარის გამოტანა\n"
+"კამერის ISO მგრძნობიარობის გამოტანა\n"
+"დროისა და თარიღის გამოტანა კამერიდან"
 
 #. i18n: ectx: property (text), widget (QLabel, label_6)
 #: core/dplugins/generic/tools/printcreator/ui/advprintcaptionpage.ui:99
@@ -19443,6 +19469,10 @@ msgid ""
 "print focal length from camera\n"
 "add a new line"
 msgstr ""
+"კამერის სენსორსი გარჩევადობის გამოტანა\n"
+"კამერის აპერტურის გამოტანა\n"
+"ფოკუსური მანძილის გამოტანა კამერიდან\n"
+"ახალი ხაზის დამატება"
 
 #. i18n: ectx: property (placeholderText), widget (Digikam::DTextEdit, m_FreeCaptionFormat)
 #: core/dplugins/generic/tools/printcreator/ui/advprintcaptionpage.ui:145
@@ -28174,6 +28204,9 @@ msgid ""
 "the default configuration file</p><p>%1</p><p>was not readable or the target "
 "file</p><p>%2</p><p>could not be written.</p>"
 msgstr ""
+"MariaDB-ის სერვერის კონფიგურაციის ფაილის წაკითხვა შეუძლებელია.<p>ეს ნიშნავს, "
+"რომ, ან ნაგულისხმევი კონფიგურაციის ფაილის </p><p>%1</p><p> წაკითხვა "
+"შეუძლებელია, ან სამიზნე ფაილის </p><p>%2</p><p> ჩაწერა შეუძლებელია.</p>"
 
 #: core/libs/database/server/databaseserver.cpp:458
 #, kde-format
@@ -36472,6 +36505,13 @@ msgid ""
 "\n"
 "Press \"Open\" to show the bundle in file-manager..."
 msgstr ""
+"ახალი %1-ის\n"
+"პრე-სტაბილური ვერსია %2\n"
+"გადმოწერილია საქაღალდეში:\n"
+"\n"
+"%3\n"
+"\n"
+"პაკეტის ფაილების მმართველში საჩვენებლად დააჭირეთ ღილაკს \"გახსნა\"..."
 
 #: core/libs/onlineversion/onlineversiondlg.cpp:441
 #, kde-format
@@ -36484,6 +36524,13 @@ msgid ""
 "\n"
 "Press \"Open\" to show the bundle in file-manager..."
 msgstr ""
+"ახალი %1-ის\n"
+"სტაბილური ვერსია %2\n"
+"გადმოწერილია საქაღალდეში:\n"
+"\n"
+"%3\n"
+"\n"
+"პაკეტის ფაილების მმართველში საჩვენებლად დააჭირეთ ღილაკს \"გახსნა\"..."
 
 #: core/libs/onlineversion/onlineversiondlg.cpp:452
 #, kde-format
@@ -36501,6 +36548,13 @@ msgid ""
 "\n"
 "Press \"Install\" to close current session and upgrade..."
 msgstr ""
+"ახალი %1-ის\n"
+"პრე-სტაბილური ვერსია %2\n"
+"გადმოწერილია საქაღალდეში:\n"
+"\n"
+"%3\n"
+"\n"
+"მიმდინარე სესიის დასახურად და განახლებისთვის დააჭირეთ ღილაკს \"დაყენება\"..."
 
 #: core/libs/onlineversion/onlineversiondlg.cpp:466
 #, kde-format
@@ -36513,6 +36567,13 @@ msgid ""
 "\n"
 "Press \"Install\" to close current session and upgrade..."
 msgstr ""
+"ახალი %1-ის\n"
+"სტაბილური ვერსია %2\n"
+"გადმოწერილია საქაღალდეში:\n"
+"\n"
+"%3\n"
+"\n"
+"მიმდინარე სესიის დასახურად და განახლებისთვის დააჭირეთ ღილაკს \"დაყენება\"..."
 
 #: core/libs/onlineversion/onlineversiondlg.cpp:490
 #, kde-format
@@ -38217,6 +38278,8 @@ msgid ""
 "<title>Temperature</title><para>Set here the color temperature in Kelvin.</"
 "para>"
 msgstr ""
+"<title>ტემპერატურა</title><para>დააყენეთ აქ ფერის ტემპერატურა კელვინში.</"
+"para>"
 
 #: core/libs/rawengine/drawdecoderwidget.cpp:362
 #, kde-format
@@ -38231,6 +38294,8 @@ msgid ""
 "<para>Set here the green component to set magenta color cast removal level.</"
 "para>"
 msgstr ""
+"<para>დააყენეთ აქ მწვანე კომპონენტი ფუქსიის ფერის წაშლის დონის დასაყენებლად."
+"</para>"
 
 #: core/libs/rawengine/drawdecoderwidget.cpp:366
 #, kde-format
@@ -38378,6 +38443,8 @@ msgid ""
 "<title>Brightness</title><para>Specify the brightness level of output image. "
 "The default value is 1.0 (works in 8-bit mode only).</para>"
 msgstr ""
+"<title>სიკაშკაშე</title><p>მიუთითეთ გამოტანილი გამოსახულების სიკაშკაშის "
+"დონე. ნაგულისხმევი მნიშვნელობაა 1.0 (მუშაობს, მხოლოდ, 8-ბიტიან რეჟიმში).</p>"
 
 #: core/libs/rawengine/drawdecoderwidget.cpp:437
 #, kde-format
@@ -38393,6 +38460,9 @@ msgid ""
 "RAW pictures. If you set this option to off, the Black Point value will be "
 "automatically computed.</para>"
 msgstr ""
+"<title>შავი წერტილი</title><para>მითითებული შავი წერტილის მნიშვნელობის "
+"გამოყენება RAW სურათების დეკოდირებისთვის. თუ ამ პარამეტრს გამორთავთ, შავი "
+"წერტილის გამოთვლა ავტომატურად მოხდება.</para>"
 
 #: core/libs/rawengine/drawdecoderwidget.cpp:445
 #, kde-kuit-format
@@ -38401,6 +38471,8 @@ msgid ""
 "<title>Black point value</title><para>Specify specific black point value of "
 "the output image.</para>"
 msgstr ""
+"<title>შავი წერტილის მნიშვნელობა</title><para>მიუთითეთ გამოტანილი "
+"გამოსახულების სპეციფიკური შავი წერტილი.</para>"
 
 #: core/libs/rawengine/drawdecoderwidget.cpp:448
 #, kde-format
@@ -38416,6 +38488,9 @@ msgid ""
 "RAW pictures. If you set this option to off, the White Point value will be "
 "automatically computed.</para>"
 msgstr ""
+"<title>თეთრი წერტილი</title><para>მითითებული თეთრი წერტილის მნიშვნელობის "
+"გამოყენება RAW სურათების დეკოდირებისთვის. თუ ამ პარამეტრს გამორთავთ, თეთრი "
+"წერტილის გამოთვლა ავტომატურად მოხდება.</para>"
 
 #: core/libs/rawengine/drawdecoderwidget.cpp:456
 #, kde-kuit-format
@@ -39819,6 +39894,8 @@ msgid ""
 "Enter the Subject Name here. English language is used if you selected a "
 "standard XMP/NAA reference code."
 msgstr ""
+"შეიყვანეთ აქ სუბიექტის სახელი. თუ აირჩიეთ სტანდარტული XMP/NAA მიმართვის "
+"კოდი, გამოიყენება ინგლისური."
 
 #: core/libs/template/subjectedit.cpp:70
 #, kde-format
@@ -39826,6 +39903,8 @@ msgid ""
 "Enter the Subject Matter Name here. English language is used if you selected "
 "a standard XMP/NAA reference code."
 msgstr ""
+"შეიყვანეთ აქ შინაარსის სახელი. თუ აირჩიეთ სტანდარტული XMP/NAA მიმართვის "
+"კოდი, გამოიყენება ინგლისური."
 
 #: core/libs/template/subjectedit.cpp:74
 #, kde-format
@@ -39833,6 +39912,8 @@ msgid ""
 "Enter the Subject Detail Name here. English language is used if you selected "
 "a standard XMP/NAA reference code."
 msgstr ""
+"შეიყვანეთ აქ სუბიექტის დეტალის სახელი. თუ აირჩიეთ სტანდარტული XMP/NAA "
+"მიმართვის კოდი, გამოიყენება ინგლისური."
 
 #: core/libs/template/templatelist.cpp:70
 #, kde-format
@@ -42506,6 +42587,7 @@ msgstr "ხარისხის შემოწმების ინჟინ�
 msgid ""
 "Natural Language Search in the Advanced Search tool, powered with a local LLM"
 msgstr ""
+"ბუნებრივი ენით ძებნა გაფართოებული ძებნის ხელსაწყოში. იყენებს ლოკალურ LLM-ს"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:163
 #, kde-format
@@ -48361,6 +48443,8 @@ msgid ""
 "Select the default language here to use with \"x-default\"value for the "
 "alternative language strings."
 msgstr ""
+"აირჩიეთ აქ ნაგულისხმევი ენა \"x-default\"-ის მნიშვნელობასთან ერთად "
+"გამოსაყენებლად ალტერნატიული ენის სტრიქონებისთვის."
 
 #: core/libs/widgets/text/spellcheckconfig.cpp:120
 #, kde-format
@@ -49063,6 +49147,8 @@ msgid ""
 "<qt>Thumbbar and Folder-View Items Tool-Tip Settings<br><i>Customize "
 "information in tool-tips</i></qt>"
 msgstr ""
+"<qt>მინიატურებისა და საქაღალდის ხედის ელემენტების მინიშნების "
+"მორგება<br><i>მოირგეთ მინიშნებებში არსებული ინფორმაცია</i></qt>"
 
 #: core/showfoto/setup/showfotosetup.cpp:125
 #, kde-format
@@ -49075,6 +49161,8 @@ msgid ""
 "<qt>RAW Files Decoding Settings<br><i>Customize default RAW decoding "
 "settings</i></qt>"
 msgstr ""
+"<qt>RAW ფაილების დეკოდირების პარამეტრები<br><i>RAW ფაილების დეკოდირების "
+"ნაგულისხმევი პარამეტრების მორგება</i></qt>"
 
 #: core/showfoto/setup/showfotosetup.cpp:132
 #, kde-format
@@ -49082,6 +49170,8 @@ msgid ""
 "<qt>Settings for Color Management<br><i>Customize color management settings</"
 "i></qt>"
 msgstr ""
+"<qt>ფერთა მართვის პარამეტრები<br><i>ფერის მართვის პარამეტრების მორგება</i></"
+"qt>"
 
 #: core/showfoto/setup/showfotosetup.cpp:137
 #, kde-format
@@ -49094,6 +49184,8 @@ msgid ""
 "<qt>Settings for Saving Image Files<br><i>Set default configuration used to "
 "save images</i></qt>"
 msgstr ""
+"<qt>პარამეტრები გამოსახულების ფაილების შესანახად<br><i>გამოსახულების "
+"შენახვის ნაგულისხმევი პარამეტრების დაყენება</i></qt>"
 
 #: core/showfoto/setup/showfotosetup.cpp:145 core/utilities/setup/setup.cpp:91
 #, kde-format
@@ -49122,6 +49214,8 @@ msgid ""
 "<qt>Main Interface Plug-in Settings<br><i>Set which plugins will be "
 "accessible from application</i></qt>"
 msgstr ""
+"<qt>მთავარი ინტერფეისის დამატების პარამეტრები<br><i>დააყენეთ, რომელი "
+"დამატებები იქნება ხელმისაწვდომი აპლიკაციიდან</i></qt>"
 
 #: core/showfoto/setup/showfotosetup.cpp:158
 #, kde-format
@@ -49135,6 +49229,8 @@ msgid ""
 "<qt>Miscellaneous Settings<br><i>Customize behavior of the other parts of "
 "Showfoto</i></qt>"
 msgstr ""
+"<qt>სხვადასხვა პარამეტრები<br><i>მოირგეთ Showfoto-ის სხვა ნაწილების ქცევა</"
+"i></qt>"
 
 #: core/showfoto/setup/showfotosetupmetadata.cpp:86
 #: core/utilities/setup/metadata/setupmetadata_rotation.cpp:102
@@ -49173,6 +49269,8 @@ msgid ""
 "an older standard used in digital photography to store photographer "
 "information in images."
 msgstr ""
+"ძველი სტანდარტი, რომელიც გამოიყენებოდა ციფრულ ფოტოგრაფიაში გამოსახულებებში "
+"ფოტოგრაფის ინფორმაციის შესანახად."
 
 #: core/showfoto/setup/showfotosetupmetadata.cpp:124
 #: core/utilities/setup/metadata/setupmetadata_behavior.cpp:203
@@ -49349,6 +49447,10 @@ msgid ""
 "This version is more heavy but can help developers to trace dysfunctions in "
 "debugger."
 msgstr ""
+"თუ ეს ჩართულია, განახლებისთვის გამოიყენება გამართვის სიმბოლოების შემცველი "
+"ვერსია.\n"
+"ეს ვერსია უფრო მძიმეა, მაგრამ პროგრამისტებს, შეიძლება, პროგრამის გამართვაში "
+"დაეხმაროს."
 
 #: core/showfoto/setup/showfotosetupmisc.cpp:189
 #: core/utilities/setup/misc/setupmisc_behavior.cpp:142
@@ -49578,6 +49680,8 @@ msgid ""
 "Set this option to display the image information when the mouse hovers over "
 "a thumbbar or folder-view item."
 msgstr ""
+"ჩართეთ ეს პარამეტრი, რომ გაჩვენოთ გამოსახულების ინფორმაცია, როცა თაგუნას "
+"გააჩერებთ ხატულას, ან საქაღალდის ხედის ელემენტზე."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:87
 #, kde-format
@@ -49652,6 +49756,8 @@ msgid ""
 "Set this option to display the make and model of the camera with which the "
 "image has been taken."
 msgstr ""
+"ჩართეთ ეს პარამეტრი, რომ გაჩვენოთ კამერის მწარმოებელი და მოდელი, რომლითაც ეს "
+"გამოსახულება გადაიღეს."
 
 #: core/showfoto/setup/showfotosetuptooltip.cpp:126
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:67
@@ -56719,7 +56825,7 @@ msgstr "გეოლოკაციის არმქონე ელემე�
 
 #: core/utilities/geolocation/mapsearches/gpssearchview.cpp:526
 #: core/utilities/searchwindow/searchmodificationhelper.cpp:111
-#: core/utilities/searchwindow/searchtabheader.cpp:683
+#: core/utilities/searchwindow/searchtabheader.cpp:488
 #, kde-format
 msgid ""
 "Search name already exists.\n"
@@ -56730,7 +56836,7 @@ msgstr ""
 
 #: core/utilities/geolocation/mapsearches/gpssearchview.cpp:530
 #: core/utilities/searchwindow/searchmodificationhelper.cpp:115
-#: core/utilities/searchwindow/searchtabheader.cpp:687
+#: core/utilities/searchwindow/searchtabheader.cpp:492
 #, kde-format
 msgctxt "@title:window"
 msgid "Name Exists"
@@ -58197,6 +58303,9 @@ msgid ""
 "For more information about the \"Mounted Camera\" driver, please read the "
 "\"Supported Digital Still Cameras\" section in the digiKam manual."
 msgstr ""
+"\"მიმაგრებული კამერის\" დრაივერის შესახებ მეტი ინფორმაციის მისაღებად "
+"წაიკითხეთ digiKam-ის სახელმძღვანელოს განყოფილება \"მხარდაჭერილი ციფრული "
+"ფოტოკამერები\"."
 
 #: core/utilities/import/backend/umscamera.cpp:622
 #, kde-format
@@ -60845,6 +60954,8 @@ msgid ""
 "Some Workflows cannot be loaded from your config file due to an incompatible "
 "version of a tool."
 msgstr ""
+"ზოგიერთი სამუშაოს დინების ჩატვირთვა შეუძლებელია თქვენი კონფიგურაციიდან "
+"ხელსაწყოს ვერსიის შეუთავსებლობის გამო."
 
 #: core/utilities/queuemanager/views/workflowlist.cpp:282
 #, kde-format
@@ -60889,82 +61000,72 @@ msgstr "გადარქმევა..."
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:185
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@label: item properties"
-#| msgid "Pick label: "
+#, kde-format
 msgctxt "@item"
 msgid "Pick label: Accepted"
-msgstr "აირჩიეთ ჭდე: "
+msgstr "აირჩიეთ ჭდე: მიღებულია"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:186
 #, kde-format
 msgctxt "@item"
 msgid "Rating 4 or more"
-msgstr ""
+msgstr "რეიტინგი 4 ან მეტი"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "@info: generate album name for exporting"
-#| msgid "Rating: "
+#, kde-format
 msgctxt "@item"
 msgid "Rating 5"
-msgstr "შეფასება: "
+msgstr "რეიტინგი 5"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:197
-#, fuzzy, kde-format
-#| msgid "Fine horizontal angle:"
+#, kde-format
 msgctxt "@item"
 msgid "Oriented horizontally (landscape)"
-msgstr "ზუსტი ჰორიზონტალური კუთხე:"
+msgstr "ორიენტირებულია ჰორიზონტალურად (ლანდშაფტი)"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:198
-#, fuzzy, kde-format
-#| msgid "Subject distance"
+#, kde-format
 msgctxt "@item"
 msgid "Subject tag: landscape"
-msgstr "სუბიექტის დაშორება"
+msgstr "სუბიექტის ჭდე: ლანდშაფტი"
 
 #: core/utilities/searchwindow/nlsearch/searchintentresolver.cpp:86
 #, kde-format
 msgctxt "@info"
 msgid "\"%1\" could mean more than one thing. Which did you mean?"
-msgstr ""
+msgstr "\"%1\" შეიძლება, ერთზე მეტ რამეს ნიშნავდეს. რომელს გულისხმობთ?"
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:268
-#, fuzzy, kde-format
-#| msgid "Failed to load image"
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:269
+#, kde-format
 msgid "Failed to load the language model."
-msgstr "გამოსახულების ჩატვირთვის შეცდომა"
+msgstr "ენის მოდელის ჩატვირთვა ჩავარდა."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:293
-#, fuzzy, kde-format
-#| msgid "Failed to initialize the database."
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:295
+#, kde-format
 msgid "Failed to initialize the model context."
-msgstr "მონაცემთა ბაზის ინიციალიზაცია ჩავარდა."
+msgstr "მოდელის კონტექსტის ინიციალიზაცია ჩავარდა."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:313
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:457
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:315
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:461
 #, kde-format
 msgid "digiKam was built without llama.cpp support."
-msgstr ""
+msgstr "digiKam აგებული იყო llama.cpp-ის მხარდაჭერის გარეშე."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:330
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:332
 #, kde-format
 msgid "Model is not loaded."
-msgstr ""
+msgstr "მოდელი ჩატვირთული არაა."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:351
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:361
-#, fuzzy, kde-format
-#| msgid "Failed to open the database."
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:353
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:363
+#, kde-format
 msgid "Failed to tokenize the prompt."
-msgstr "მონაცემთა ბაზის გახსნა ჩავარდა."
+msgstr "მოთხოვნის ტოკენიზაცია ვერ ჩავარდა."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:396
-#, fuzzy, kde-format
-#| msgid "Connection failed."
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:400
+#, kde-format
 msgid "Model decode failed."
-msgstr "მიერთების შეცდომა."
+msgstr "მოდელის გაშიფვრა ჩავარდა."
 
 #: core/utilities/searchwindow/nlsearch/searchnlmodelmanager.cpp:100
 #, kde-format
@@ -60973,12 +61074,14 @@ msgid ""
 "The natural-language search model is not installed. Please download it from "
 "the digiKam setup downloader."
 msgstr ""
+"ბუნებრივი ენის ძებნის მოდელი დაყენებული არაა. გადმოწერეთ ის digiKam მორგების "
+"გადმომწერიდან."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:149
 #, kde-format
 msgctxt "@info"
 msgid "A query is already being interpreted."
-msgstr ""
+msgstr "მოთხოვნის ინტერპრეტაცია უკვე მიმდინარეობს."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:179
 #, kde-format
@@ -60988,6 +61091,9 @@ msgid ""
 "Enable \"Natural Language Search\" in the model download dialog to install "
 "it, then restart digiKam."
 msgstr ""
+"ბუნებრივი ენით ძებნას სჭირდება ენის მოდელი, რომელიც ჯერ დაყენებული არაა. "
+"დასაყენებლად ჩართეთ \"ბუნებრივი ენით ძებნა\" მოდელის გადმოწერის დიალოგში, "
+"შემდეგ კი გადატვირთეთ digiKam."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:186
 #, kde-format
@@ -60996,12 +61102,14 @@ msgid ""
 "The natural language search model is still loading. Please try your search "
 "again in a few seconds."
 msgstr ""
+"ნაგურალური ენით ძებნის მოდელი ჯერ კიდევ იტვირთება. სცადეთ ძებნა რამდენიმე "
+"წამში."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Interpreting your search..."
-msgstr ""
+msgstr "თქვენი ძებნის ინტერპრეტაცია..."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:225
 #, kde-format
@@ -61010,6 +61118,8 @@ msgid ""
 "Could not interpret the model output. Please refine the description or "
 "create rules manually."
 msgstr ""
+"მოდელის გამოტანის ინტერპრეტაცია შეუძლებელია. დააზუსტეთ აღწერა, ან შექმენით "
+"წესები ხელით."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:247
 #, kde-format
@@ -61018,12 +61128,14 @@ msgid ""
 "Could not map '%1' to tags, album names, captions, location, or date. Please "
 "refine the description or create rules manually."
 msgstr ""
+"\"%1\"-ის ასახვა ჭდეებზე, ალბომის სახელებზე, წარწერებზე, მდებარეობაზე, ან "
+"თარიღზე ასახვა შეუძლებელია. დააზუსტეთ აღწერა, ან შექმენით წესები ხელით."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:258
 #, kde-format
 msgctxt "@info"
 msgid "Some terms could not be mapped and were skipped: %1"
-msgstr ""
+msgstr "ზოგიერთ ელემენტის ასახვა შეუძლებელია და ისინი გამოტოვებულია: %1"
 
 #: core/utilities/searchwindow/ratingsearchutilities.cpp:201
 #, kde-format
@@ -62065,112 +62177,112 @@ msgstr "წავშალო ძებნა?"
 msgid "Are you sure you want to delete the selected search \"%1\"?"
 msgstr "მართლა გნებავთ, წაშალოთ მონიშნული ძებნა \"%1\"?"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:106
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Autostart Search"
-msgstr "ძებნის ავტოგაშვება"
-
-#: core/utilities/searchwindow/searchtabheader.cpp:246
+#: core/utilities/searchwindow/searchtabheader.cpp:50
 #, kde-format
 msgid "New Search"
 msgstr "ახალი ძებნა"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:248
+#: core/utilities/searchwindow/searchtabheader.cpp:52
 #, kde-format
 msgctxt "@label: quick search properties"
 msgid "Search:"
 msgstr "ძებნა:"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:251
+#: core/utilities/searchwindow/searchtabheader.cpp:55
 #, kde-format
 msgid "Enter keywords here..."
 msgstr "შეიყვანეთ აქ საკვანძო სიტყვები..."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:253
+#: core/utilities/searchwindow/searchtabheader.cpp:57
 #, kde-format
 msgid "New Advanced Search..."
 msgstr "ახალი გაფართოებული ძებნა..."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:254
+#: core/utilities/searchwindow/searchtabheader.cpp:58
 #, kde-format
 msgid "Edit Current Search..."
 msgstr "მიმდინარე ძებნის ჩასწორება..."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:260
+#: core/utilities/searchwindow/searchtabheader.cpp:64
 #, kde-format
 msgid ""
 "Interpret the text above as a natural-language search and build the query"
 msgstr ""
+"ზემორე ტექსტის ინტერპრეტაცია ბუნებრივი ენის ძებნის სახით და მოთხოვნის აგება"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:266
-#: core/utilities/searchwindow/searchwindow.cpp:167
-#, fuzzy, kde-format
-#| msgid "Cancel current operation"
+#: core/utilities/searchwindow/searchtabheader.cpp:70
+#: core/utilities/searchwindow/searchwindow.cpp:69
+#, kde-format
 msgid "Cancel the current interpretation"
-msgstr "მიმდინარე ოპერაციის გაუქმება"
+msgstr "მიმდინარე ინტერპრეტაციის გაუქმება"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:291
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Advanced Search"
+#: core/utilities/searchwindow/searchtabheader.cpp:95
+#, kde-format
 msgid "Open Advanced Search"
-msgstr "გაფართოებული ძებნა"
+msgstr "გაფართოებული ძებნის გახსნა"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:292
+#: core/utilities/searchwindow/searchtabheader.cpp:96
 #, kde-format
 msgid "Run Now"
-msgstr ""
+msgstr "ახლა გაშვება"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:336
+#: core/utilities/searchwindow/searchtabheader.cpp:140
 #, kde-format
 msgid "Save Current Search"
 msgstr "მიმდინარე ძებნის შენახვა"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:340
+#: core/utilities/searchwindow/searchtabheader.cpp:144
 #, kde-format
 msgid "Enter a name for the current search to save it in the \"Searches\" view"
 msgstr ""
 "შეიყვანეთ სახელი მიმდინარე ძებნისთვის, რომ მოხდეს მისი შენახვა ხედში "
 "\"ძებნები\""
 
-#: core/utilities/searchwindow/searchtabheader.cpp:345
+#: core/utilities/searchwindow/searchtabheader.cpp:149
 #, kde-format
 msgid "Save current search to a new virtual Album"
 msgstr "მიმდინარე ძებნის შენახვა ახალ ვირტუალურ ალბომში"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:346
+#: core/utilities/searchwindow/searchtabheader.cpp:150
 #, kde-format
 msgid ""
 "If you press this button, the current search will be saved to a new virtual "
 "Search Album using the name set on the left side."
 msgstr ""
+"თუ ამ ღილაკს დააჭერთ, მიმდინარე ძებნა შენახული იქნება ახალ ვირტუალური ძებნის "
+"ალბომში მარცხენა მხარეს დაყენებული სახელის გამოყენებით."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:361
-#: core/utilities/searchwindow/searchtabheader.cpp:388
+#: core/utilities/searchwindow/searchtabheader.cpp:165
+#: core/utilities/searchwindow/searchtabheader.cpp:192
 #, kde-format
 msgid "Edit Stored Search"
 msgstr "შენახული ძებნის ჩასწორება"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:403
+#: core/utilities/searchwindow/searchtabheader.cpp:207
 #, kde-format
 msgid "Edit..."
 msgstr "ჩასწორება…"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:878
-#, fuzzy, kde-format
-#| msgid "Imported %1"
+#: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:89
+#, kde-format
 msgid ""
 "Interpreted as:\n"
 "%1"
-msgstr "შემოტანილია: %1"
+msgstr ""
+"ინტერპრეტირებულია, როგორც: \n"
+"%1"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:912
-#: core/utilities/searchwindow/searchwindow.cpp:734
-#, fuzzy, kde-format
-#| msgid "Printing canceled"
+#: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:123
+#: core/utilities/searchwindow/searchwindow_slots.cpp:180
+#, kde-format
 msgid "Interpretation cancelled."
-msgstr "დაბეჭდვა გაუქმდა"
+msgstr "ინტერპრეტაცია გაუქმდა."
+
+#: core/utilities/searchwindow/searchtabheader_p.cpp:62
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Autostart Search"
+msgstr "ძებნის ავტოგაშვება"
 
 #: core/utilities/searchwindow/searchview.cpp:524
 #, kde-format
@@ -62187,36 +62299,37 @@ msgstr "ყველა ჯგუფის გასუფთავება"
 msgid "Try"
 msgstr "ცდა"
 
-#: core/utilities/searchwindow/searchwindow.cpp:135
-#, fuzzy, kde-format
-#| msgctxt "@info: country code"
-#| msgid "Default Language"
+#: core/utilities/searchwindow/searchwindow.cpp:37
+#, kde-format
 msgid "Natural Language Search"
-msgstr "ნაგულისხმევი ენა"
+msgstr "ნაგულისხმევი ენით ძებნა"
 
-#: core/utilities/searchwindow/searchwindow.cpp:139
+#: core/utilities/searchwindow/searchwindow.cpp:41
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
 msgstr ""
+"მაგ: პარიზთან ახლოს გადაღებული წითელი წარწერების მქონე ლანდშაფტური სურათები"
 
-#: core/utilities/searchwindow/searchwindow.cpp:142
+#: core/utilities/searchwindow/searchwindow.cpp:44
 #, kde-format
 msgid "Translate my query to English first"
-msgstr ""
+msgstr "ჩემი მოთხოვნის, ჯერ, ინგლისურად თარგმნა"
 
-#: core/utilities/searchwindow/searchwindow.cpp:144
+#: core/utilities/searchwindow/searchwindow.cpp:46
 #, kde-format
 msgid ""
 "When enabled, your query is translated to English before being interpreted, "
 "so you can type in your own language. Requires an internet connection."
 msgstr ""
+"როცა ჩართულია, თქვენი თარგმანი ინტერპრეტაციამდე ინგლისურად ითარგმნება, რომ "
+"შეგეძლოთ, მოთხოვნა თქვენს ენაზე აკრიფოთ. სჭირდება ინტერნეტკავშირი."
 
-#: core/utilities/searchwindow/searchwindow.cpp:182
+#: core/utilities/searchwindow/searchwindow.cpp:84
 #, kde-format
 msgid "Open the Natural Language Search handbook"
-msgstr ""
+msgstr "ბუნებრივი ენით ძებნის სახელმძღვანელოს გახსნა"
 
-#: core/utilities/searchwindow/searchwindow.cpp:211
+#: core/utilities/searchwindow/searchwindow.cpp:113
 #, kde-format
 msgid ""
 "Natural Language Search lets you find images by describing them in your own "
@@ -62224,43 +62337,46 @@ msgid ""
 "language model that runs locally on your computer, with no internet "
 "connection required once downloaded."
 msgstr ""
+"ბუნებრივი ენით ძებნა საშუალებას გაძლევთ, ეძებოთ გამოსახულებები მათი თქვენი "
+"ენით აღწერით. მაგალითად \"პარიზთან ახლოს გადაღებული წითელწარწერებიანი "
+"სურათები\". ის იყენებს მოდელს, რომელიც ლოკალურად, თქვენს კომპიუტერზეა "
+"გაშვებული და გადმოწერის შემდეგ ინტერნეტს არ იყენებს."
 
-#: core/utilities/searchwindow/searchwindow.cpp:219
+#: core/utilities/searchwindow/searchwindow.cpp:121
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
-msgstr ""
+msgstr "ბუნებრივი ენის ძებნის მოდელი ჯერ გადმოწერილი არაა."
 
-#: core/utilities/searchwindow/searchwindow.cpp:223
-#, fuzzy, kde-format
-#| msgid "Download Route"
+#: core/utilities/searchwindow/searchwindow.cpp:125
+#, kde-format
 msgid "Download Model..."
-msgstr "გზის გადმოწერა"
+msgstr "მოდელის გადმოწერა..."
 
-#: core/utilities/searchwindow/searchwindow.cpp:267
+#: core/utilities/searchwindow/searchwindow.cpp:169
 #, kde-format
 msgctxt "@title:window"
 msgid "Advanced Search"
 msgstr "გაფართოებული ძებნა"
 
-#: core/utilities/searchwindow/searchwindow.cpp:540
-#, fuzzy, kde-format
-#| msgid "Loading themes..."
+#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:70
+#, kde-format
 msgid "Loading the language model... %1%"
-msgstr "თემების ჩატვირთვა..."
+msgstr "ენის მოდელის ჩატვირთვა... %1%"
 
-#: core/utilities/searchwindow/searchwindow.cpp:579
-#, fuzzy, kde-format
-#| msgid "Edit Current Search..."
+#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:96
+#, kde-format
 msgid "Interpreting the search..."
-msgstr "მიმდინარე ძებნის ჩასწორება..."
+msgstr "ძებნის ინტერპრეტაცია..."
 
-#: core/utilities/searchwindow/searchwindow.cpp:772
+#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:140
 #, kde-format
 msgctxt "@info"
 msgid ""
 "None of that could be turned into a search. Try describing tags, dates, "
 "ratings, labels, people, or places."
 msgstr ""
+"აქედან ძებნად ვერცერთი გადავაქციეთ. სცადეთ, აღწეროთ ჭდეები, თარიღები, "
+"რეიტინგები, ჭდეები, ხალხი, ან ადგილები."
 
 #: core/utilities/setup/album/setupalbumview.cpp:46
 #, kde-format
@@ -62839,6 +62955,8 @@ msgid ""
 "Additional &image file extensions (<a href='image'>Currently-supported "
 "types</a>):"
 msgstr ""
+"გამოსახულების ფაილის დამატებითი გაფართოებებ&ი (<a href='image'>ამჟამად "
+"მხარდაჭერილი ტიპები</a>):"
 
 #: core/utilities/setup/album/setupmime_setup.cpp:51
 #, kde-format
@@ -62864,6 +62982,8 @@ msgid ""
 "Additional &video file extensions (<a href='video'>Currently-supported "
 "types</a>):"
 msgstr ""
+"&ვიდეოს დამატებითი გაფართოებები (<a href='video'>ამჟამად მხარდაჭერილი "
+"ტიპები</a>):"
 
 #: core/utilities/setup/album/setupmime_setup.cpp:84
 #, kde-format
@@ -62890,6 +63010,8 @@ msgid ""
 "Additional &audio file extensions (<a href='audio'>Currently-supported "
 "types</a>):"
 msgstr ""
+"&აუდიოფაილის დამატებითი გაფართოებები (<a href='audio'>ამჟამად მხარდაჭერილი "
+"ტიპები</a>):"
 
 #: core/utilities/setup/album/setupmime_setup.cpp:119
 #, kde-format
@@ -63730,10 +63852,9 @@ msgid "Use AutoTags Assignment feature"
 msgstr "ჭდეების ავტომატური მინიჭების ფუნქციის გამოყენება"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:81
-#, fuzzy, kde-format
-#| msgid "Use Face Management feature"
+#, kde-format
 msgid "Use Natural Language Search feature"
-msgstr "სახის ამოცნობის ფუნქციის გამოყენება"
+msgstr "ბუნებრივი ძებნის ფუნქციის გამოყენება"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:290
 #, kde-format
@@ -63963,6 +64084,8 @@ msgid ""
 "Enable this option to restore the settings of the Image Editor tools from "
 "the last session. Otherwise, the default settings will be used."
 msgstr ""
+"ჩართეთ ეს გამოსახულების რედაქტორის ხელსაწყოების პარამეტრების აღსადგენად ბოლო "
+"სესიიდან. სხვა შემთხვევაში გამოყენებული იქნება ნაგულისხმევი პარამეტრები."
 
 #: core/utilities/setup/editor/setupiofiles.cpp:183
 #, kde-format
@@ -63976,6 +64099,9 @@ msgid ""
 "files</li><li>Unchecked: Default settings are used when saving image files</"
 "li></ul>"
 msgstr ""
+"<ul><li>ჩართული: დიალოგი, სადაც გამოსახულების ფალის შეცვლისას პარამეტრების "
+"შეცვლა შეიძლება</li><li>გამორთული: გამოსახულების ფაილის შენახვისას "
+"გამოყენებული იქნება ნაგულისხმევი პარამეტრები</li></ul>"
 
 #: core/utilities/setup/editor/setupraw.cpp:88
 #, kde-format
@@ -63985,6 +64111,10 @@ msgid ""
 "a digital camera.\n"
 "Opening a raw file requires extensive data interpretation and processing."
 msgstr ""
+"დაუმუშავებელი გამოსახულების ფაილი ციფრული კამერის გამოსახულების სენსორიდან "
+"მიღებულ მინიმალურად დამუშავებულ მონაცემებს შეიცავს.\n"
+"დაუმუშავებელი ფაილის გახსნას საკმაოდ მძიმე მონაცემების ინტერპრეტაცია და "
+"დამუშავება სჭირდება."
 
 #: core/utilities/setup/editor/setupraw.cpp:106
 #, kde-format
@@ -64760,6 +64890,11 @@ msgid ""
 "\"City|Paris\"</li><li>Specify if only keyword or the whole path must be "
 "written.</li></ul></p>"
 msgstr ""
+"<p>ახალი სახელების სივრცის შესაქმნელად საჭიროა პარამეტრების მითითება:</"
+"p><p><ul><li>სახელების სივრცის სახელი წერტილებით.<br>მაგ: <i>\"Xmp.digiKam."
+"TagsList\"</i></li><li>გამყოფი პარამეტრი, რომელიც ჭდის ბილიკების მიერ "
+"გამოიყენება<br>მაგ: \"City/Paris\" or \"City|Paris\"</li><li>მიუთითეთ, თუ "
+"საჭიროა, მხოლოდ, საკვანძო სიტყვის, ან მთლიანი ბილიკის ჩაწერა.</li></ul></p>"
 
 #: core/utilities/setup/metadata/namespaceeditdlg.cpp:241
 #, kde-format
@@ -65974,7 +66109,7 @@ msgstr "სტრიქონების შედარების ტიპ�
 #, kde-format
 msgctxt "method to compare strings"
 msgid "Natural"
-msgstr "ნატურალური"
+msgstr "ბუნებრივი"
 
 #: core/utilities/setup/misc/setupmisc_behavior.cpp:98
 #, kde-format

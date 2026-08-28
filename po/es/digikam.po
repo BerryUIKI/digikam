@@ -17,15 +17,15 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-27 00:42+0000\n"
-"PO-Revision-Date: 2026-08-16 00:39+0100\n"
+"POT-Creation-Date: 2026-08-28 00:43+0000\n"
+"PO-Revision-Date: 2026-08-28 01:06+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.0\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: core/app/date/ddateedit.cpp:489
@@ -2269,7 +2269,7 @@ msgstr "Mostrar la barra de miniaturas"
 #, kde-format
 msgctxt "@action: setup"
 msgid "Zoom to 100%"
-msgstr "Ampliar al 100 %"
+msgstr "Ampliar al 100 %"
 
 #: core/app/main/digikamapp_setup.cpp:845
 #, kde-format
@@ -3890,6 +3890,14 @@ msgid ""
 "frame rate, bitrate), and file formats. For details, see <a href=\"https://"
 "community.kde.org/GSoC/2026/StatusReports/SrirupaDatta\">this report</a>."
 msgstr ""
+"Búsqueda de lenguaje natural que funciona mediante un LLM local y que se "
+"ejecuta completamente en su equipo. Describa lo que quiera en un lenguaje "
+"sencillo para que digiKam construya la correspondiente búsqueda "
+"estructurada. Permite el uso de etiquetas, personas, álbumes, puntuaciones, "
+"emblemas, orientación, lugares, fechas, pies de foto, propiedades de vídeo "
+"(duración, tasa de fotogramas, tasa de bis) y formatos de archivo. Para más "
+"detalles, consulte <a href=\"https://community.kde.org/GSoC/2026/"
+"StatusReports/SrirupaDatta\">este informe</a>."
 
 #: core/app/views/stack/welcomepageview_features.cpp:94
 #, kde-format
@@ -4736,19 +4744,19 @@ msgstr "Uso de Panorama"
 #, kde-format
 msgctxt "@item: component info"
 msgid "Natural-language search support"
-msgstr ""
+msgstr "Compatibilidad con búsqueda de lenguaje natural"
 
 #: core/app/views/utils/componentsinfodlg.cpp:186
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libllama.cpp"
-msgstr ""
+msgstr "Libllama.cpp"
 
 #: core/app/views/utils/componentsinfodlg.cpp:192
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libggml"
-msgstr ""
+msgstr "Libggml"
 
 #: core/app/views/utils/componentsinfodlg.cpp:205
 #: core/app/views/utils/componentsinfodlg.cpp:210
@@ -4795,23 +4803,22 @@ msgid "Database backend version"
 msgstr "Versión del motor de bases de datos"
 
 #: core/app/views/utils/componentsinfodlg.cpp:256
-#, fuzzy, kde-format
-#| msgid "Database Configuration"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Natural Language Configuration"
-msgstr "Configuración de la base de datos"
+msgstr "Configuración del lenguaje natural"
 
 #: core/app/views/utils/componentsinfodlg.cpp:261
 #, kde-format
 msgctxt "@item: component info"
 msgid "LLAMA.CPP"
-msgstr ""
+msgstr "LLAMA.CPP"
 
 #: core/app/views/utils/componentsinfodlg.cpp:270
 #, kde-format
 msgctxt "@item: component info"
 msgid "GGML"
-msgstr ""
+msgstr "GGML"
 
 #: core/app/views/utils/componentsinfodlg.cpp:281
 #, kde-format
@@ -19575,7 +19582,7 @@ msgid ""
 "Selects a JPEG output with 90% compression rate (lossy compression, smaller "
 "size)."
 msgstr ""
-"Selecciona una salida en JPEG con una compresión del 90 % (compresión con "
+"Selecciona una salida en JPEG con una compresión del 90 % (compresión con "
 "pérdidas, menor tamaño)."
 
 #: core/dplugins/generic/tools/panorama/wizard/panointropage.cpp:163
@@ -32777,7 +32784,7 @@ msgstr "Cargando fotograma"
 #, kde-format
 msgctxt "%1 is the percent value, % is the percent sign"
 msgid "%1%"
-msgstr "%1 %"
+msgstr "%1 %"
 
 #: core/libs/dimg/filters/hotpixels/blackframelistviewitem.cpp:161
 #, kde-format
@@ -44426,6 +44433,8 @@ msgstr "Técnico de pruebas de calidad"
 msgid ""
 "Natural Language Search in the Advanced Search tool, powered with a local LLM"
 msgstr ""
+"Búsqueda de lenguaje natural en la herramienta de búsqueda avanzada que "
+"funciona con un LLM local"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:163
 #, kde-format
@@ -44765,7 +44774,7 @@ msgstr "Mostrar la barra de estado"
 #, kde-format
 msgctxt "%1 is the zoom percent value, % is the percent sign"
 msgid "%1%"
-msgstr "%1 %"
+msgstr "%1 %"
 
 #: core/libs/widgets/mainview/dzoombar.cpp:227
 #, kde-format
@@ -59012,7 +59021,7 @@ msgstr "Mostrar elementos no geolocalizados"
 
 #: core/utilities/geolocation/mapsearches/gpssearchview.cpp:526
 #: core/utilities/searchwindow/searchmodificationhelper.cpp:111
-#: core/utilities/searchwindow/searchtabheader.cpp:683
+#: core/utilities/searchwindow/searchtabheader.cpp:488
 #, kde-format
 msgid ""
 "Search name already exists.\n"
@@ -59023,7 +59032,7 @@ msgstr ""
 
 #: core/utilities/geolocation/mapsearches/gpssearchview.cpp:530
 #: core/utilities/searchwindow/searchmodificationhelper.cpp:115
-#: core/utilities/searchwindow/searchtabheader.cpp:687
+#: core/utilities/searchwindow/searchtabheader.cpp:492
 #, kde-format
 msgctxt "@title:window"
 msgid "Name Exists"
@@ -59652,7 +59661,7 @@ msgstr "No seleccionar nada"
 #, kde-format
 msgctxt "@action"
 msgid "Zoom to 100%"
-msgstr "Ampliar al 100 %"
+msgstr "Ampliar al 100 %"
 
 #: core/utilities/imageeditor/editor/editorwindow.cpp:410
 #, kde-format
@@ -60975,7 +60984,7 @@ msgstr "Ajustar a la &ventana"
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Zoom to 100%"
-msgstr "Ampliar al 100 %"
+msgstr "Ampliar al 100 %"
 
 #: core/utilities/import/main/importui.cpp:534
 #, kde-format
@@ -61973,7 +61982,7 @@ msgstr "Eliminar todas las imágenes de la mesa de luz cuando se cierre"
 #: core/utilities/survey/surveywindow_setup.cpp:114
 #, kde-format
 msgid "Zoom to 100%"
-msgstr "Zoom al 100 %"
+msgstr "Zoom al 100 %"
 
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:148
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:188
@@ -63356,82 +63365,72 @@ msgstr "Cambiar nombre…"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:185
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@label: item properties"
-#| msgid "Pick label: "
+#, kde-format
 msgctxt "@item"
 msgid "Pick label: Accepted"
-msgstr "Emblema de elección: "
+msgstr "Emblema de elección: Aceptada"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:186
 #, kde-format
 msgctxt "@item"
 msgid "Rating 4 or more"
-msgstr ""
+msgstr "Puntuación de 4 o más"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "@info: generate album name for exporting"
-#| msgid "Rating: "
+#, kde-format
 msgctxt "@item"
 msgid "Rating 5"
-msgstr "Puntuación: "
+msgstr "Puntuación de 5"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:197
-#, fuzzy, kde-format
-#| msgid "Fine horizontal angle:"
+#, kde-format
 msgctxt "@item"
 msgid "Oriented horizontally (landscape)"
-msgstr "Ángulo fino horizontal:"
+msgstr "Orientada horizontalmente (paisaje)"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:198
-#, fuzzy, kde-format
-#| msgid "Subject distance"
+#, kde-format
 msgctxt "@item"
 msgid "Subject tag: landscape"
-msgstr "Distancia al sujeto"
+msgstr "Etiqueta de sujeto: paisaje"
 
 #: core/utilities/searchwindow/nlsearch/searchintentresolver.cpp:86
 #, kde-format
 msgctxt "@info"
 msgid "\"%1\" could mean more than one thing. Which did you mean?"
-msgstr ""
+msgstr "«%1» puede significar varias cosas. ¿A qué se refiere?"
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:268
-#, fuzzy, kde-format
-#| msgid "Failed to load image"
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:269
+#, kde-format
 msgid "Failed to load the language model."
-msgstr "No se ha podido cargar la imagen"
+msgstr "No se ha podido cargar el modelo de lenguaje."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:293
-#, fuzzy, kde-format
-#| msgid "Failed to initialize the database."
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:295
+#, kde-format
 msgid "Failed to initialize the model context."
-msgstr "No se ha podido inicializar la base de datos."
+msgstr "No se ha podido inicializar el contexto del modelo."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:313
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:457
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:315
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:461
 #, kde-format
 msgid "digiKam was built without llama.cpp support."
-msgstr ""
+msgstr "digiKam se ha compilado sin compatibilidad con llama.cpp."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:330
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:332
 #, kde-format
 msgid "Model is not loaded."
-msgstr ""
+msgstr "El modelo no está cargado."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:351
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:361
-#, fuzzy, kde-format
-#| msgid "Failed to open the database."
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:353
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:363
+#, kde-format
 msgid "Failed to tokenize the prompt."
-msgstr "No se ha podido abrir la base de datos."
+msgstr "No se ha podido dividir la consulta en tókenes."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:396
-#, fuzzy, kde-format
-#| msgid "Connection failed."
+#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:400
+#, kde-format
 msgid "Model decode failed."
-msgstr "Conexión fallida."
+msgstr "La descodificación del modelo ha fallado."
 
 #: core/utilities/searchwindow/nlsearch/searchnlmodelmanager.cpp:100
 #, kde-format
@@ -63440,12 +63439,14 @@ msgid ""
 "The natural-language search model is not installed. Please download it from "
 "the digiKam setup downloader."
 msgstr ""
+"El modelo de búsqueda de lenguaje natural no está instalado. Descárguelo "
+"usando del descargador de la configuración de digiKam."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:149
 #, kde-format
 msgctxt "@info"
 msgid "A query is already being interpreted."
-msgstr ""
+msgstr "Ya se está interpretando una consulta."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:179
 #, kde-format
@@ -63455,6 +63456,9 @@ msgid ""
 "Enable \"Natural Language Search\" in the model download dialog to install "
 "it, then restart digiKam."
 msgstr ""
+"La búsqueda de lenguaje natural necesita un modelo de lenguaje que todavía "
+"no se ha instalado. Active la «Búsqueda de lenguaje natural» en el diálogo "
+"de descarga del modelo para instalarla y reinicie digiKam."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:186
 #, kde-format
@@ -63463,12 +63467,14 @@ msgid ""
 "The natural language search model is still loading. Please try your search "
 "again in a few seconds."
 msgstr ""
+"El modelo de búsqueda de lenguaje natural se está cargando. Vuelva a repetir "
+"la búsqueda dentro de unos segundos."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Interpreting your search..."
-msgstr ""
+msgstr "Interpretando la búsqueda…"
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:225
 #, kde-format
@@ -63477,6 +63483,8 @@ msgid ""
 "Could not interpret the model output. Please refine the description or "
 "create rules manually."
 msgstr ""
+"No se ha podido interpretar la salida del modelo. Refine la descripción o "
+"cree reglas de forma manual."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:247
 #, kde-format
@@ -63485,12 +63493,15 @@ msgid ""
 "Could not map '%1' to tags, album names, captions, location, or date. Please "
 "refine the description or create rules manually."
 msgstr ""
+"No se ha podido mapear «%1» con las etiquetas, nombres de álbumes, pies de "
+"foto, ubicaciones ni fechas. Refine la descripción o cree reglas de forma "
+"manual."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:258
 #, kde-format
 msgctxt "@info"
 msgid "Some terms could not be mapped and were skipped: %1"
-msgstr ""
+msgstr "No se han podido mapear algunos términos y se han omitido: %1"
 
 #: core/utilities/searchwindow/ratingsearchutilities.cpp:201
 #, kde-format
@@ -64532,80 +64543,73 @@ msgstr "¿Borrar la búsqueda?"
 msgid "Are you sure you want to delete the selected search \"%1\"?"
 msgstr "¿Seguro que desea borrar la búsqueda seleccionada «%1»?"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:106
-#, kde-format
-msgctxt "@action:inmenu"
-msgid "Autostart Search"
-msgstr "Iniciar búsqueda automáticamente"
-
-#: core/utilities/searchwindow/searchtabheader.cpp:246
+#: core/utilities/searchwindow/searchtabheader.cpp:50
 #, kde-format
 msgid "New Search"
 msgstr "Nueva búsqueda"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:248
+#: core/utilities/searchwindow/searchtabheader.cpp:52
 #, kde-format
 msgctxt "@label: quick search properties"
 msgid "Search:"
 msgstr "Búsqueda:"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:251
+#: core/utilities/searchwindow/searchtabheader.cpp:55
 #, kde-format
 msgid "Enter keywords here..."
 msgstr "Introduzca las palabras clave…"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:253
+#: core/utilities/searchwindow/searchtabheader.cpp:57
 #, kde-format
 msgid "New Advanced Search..."
 msgstr "Nueva búsqueda avanzada…"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:254
+#: core/utilities/searchwindow/searchtabheader.cpp:58
 #, kde-format
 msgid "Edit Current Search..."
 msgstr "Editar la búsqueda actual…"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:260
+#: core/utilities/searchwindow/searchtabheader.cpp:64
 #, kde-format
 msgid ""
 "Interpret the text above as a natural-language search and build the query"
 msgstr ""
+"Interpretar el texto superior como una búsqueda de lenguaje natural y "
+"construir la consulta"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:266
-#: core/utilities/searchwindow/searchwindow.cpp:167
-#, fuzzy, kde-format
-#| msgid "Cancel current operation"
+#: core/utilities/searchwindow/searchtabheader.cpp:70
+#: core/utilities/searchwindow/searchwindow.cpp:69
+#, kde-format
 msgid "Cancel the current interpretation"
-msgstr "Cancelar la operación actual"
+msgstr "Cancelar la interpretación actual"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:291
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Advanced Search"
+#: core/utilities/searchwindow/searchtabheader.cpp:95
+#, kde-format
 msgid "Open Advanced Search"
-msgstr "Búsqueda avanzada"
+msgstr "Abrir la búsqueda avanzada"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:292
+#: core/utilities/searchwindow/searchtabheader.cpp:96
 #, kde-format
 msgid "Run Now"
-msgstr ""
+msgstr "Ejecutar ahora"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:336
+#: core/utilities/searchwindow/searchtabheader.cpp:140
 #, kde-format
 msgid "Save Current Search"
 msgstr "Guardar la búsqueda actual"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:340
+#: core/utilities/searchwindow/searchtabheader.cpp:144
 #, kde-format
 msgid "Enter a name for the current search to save it in the \"Searches\" view"
 msgstr ""
 "Introduzca el nombre para guardar la búsqueda actual en la vista «Búsquedas»"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:345
+#: core/utilities/searchwindow/searchtabheader.cpp:149
 #, kde-format
 msgid "Save current search to a new virtual Album"
 msgstr "Guardar la búsqueda actual en un nuevo álbum virtual"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:346
+#: core/utilities/searchwindow/searchtabheader.cpp:150
 #, kde-format
 msgid ""
 "If you press this button, the current search will be saved to a new virtual "
@@ -64614,31 +64618,37 @@ msgstr ""
 "Si presiona este botón, la búsqueda actual se guardará en un nuevo álbum "
 "virtual de búsquedas usando el nombre dado a la izquierda."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:361
-#: core/utilities/searchwindow/searchtabheader.cpp:388
+#: core/utilities/searchwindow/searchtabheader.cpp:165
+#: core/utilities/searchwindow/searchtabheader.cpp:192
 #, kde-format
 msgid "Edit Stored Search"
 msgstr "Editar búsqueda guardada"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:403
+#: core/utilities/searchwindow/searchtabheader.cpp:207
 #, kde-format
 msgid "Edit..."
 msgstr "Editar…"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:878
-#, fuzzy, kde-format
-#| msgid "Imported %1"
+#: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:89
+#, kde-format
 msgid ""
 "Interpreted as:\n"
 "%1"
-msgstr "%1 importado"
+msgstr ""
+"Interpretado como:\n"
+"%1"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:912
-#: core/utilities/searchwindow/searchwindow.cpp:734
-#, fuzzy, kde-format
-#| msgid "Printing canceled"
+#: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:123
+#: core/utilities/searchwindow/searchwindow_slots.cpp:180
+#, kde-format
 msgid "Interpretation cancelled."
-msgstr "Impresión cancelada"
+msgstr "Interpretación cancelada."
+
+#: core/utilities/searchwindow/searchtabheader_p.cpp:62
+#, kde-format
+msgctxt "@action:inmenu"
+msgid "Autostart Search"
+msgstr "Iniciar búsqueda automáticamente"
 
 #: core/utilities/searchwindow/searchview.cpp:524
 #, kde-format
@@ -64655,36 +64665,38 @@ msgstr "Borrar todos los grupos"
 msgid "Try"
 msgstr "Intentar"
 
-#: core/utilities/searchwindow/searchwindow.cpp:135
-#, fuzzy, kde-format
-#| msgctxt "@info: country code"
-#| msgid "Default Language"
+#: core/utilities/searchwindow/searchwindow.cpp:37
+#, kde-format
 msgid "Natural Language Search"
-msgstr "Idioma por omisión"
+msgstr "Búsqueda de lenguaje natural"
 
-#: core/utilities/searchwindow/searchwindow.cpp:139
+#: core/utilities/searchwindow/searchwindow.cpp:41
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
 msgstr ""
+"Por ejemplo: fotos en modo paisaje con emblemas rojos tomadas cerca de París"
 
-#: core/utilities/searchwindow/searchwindow.cpp:142
+#: core/utilities/searchwindow/searchwindow.cpp:44
 #, kde-format
 msgid "Translate my query to English first"
-msgstr ""
+msgstr "Traducir antes mi consulta al inglés"
 
-#: core/utilities/searchwindow/searchwindow.cpp:144
+#: core/utilities/searchwindow/searchwindow.cpp:46
 #, kde-format
 msgid ""
 "When enabled, your query is translated to English before being interpreted, "
 "so you can type in your own language. Requires an internet connection."
 msgstr ""
+"Cuando esté activada, la consulta se traducirá al inglés antes de su "
+"interpretación, por lo que la puede escribir en su propio idioma. Requiere "
+"una conexión a internet."
 
-#: core/utilities/searchwindow/searchwindow.cpp:182
+#: core/utilities/searchwindow/searchwindow.cpp:84
 #, kde-format
 msgid "Open the Natural Language Search handbook"
-msgstr ""
+msgstr "Abrir el manual de búsqueda de lenguaje natural"
 
-#: core/utilities/searchwindow/searchwindow.cpp:211
+#: core/utilities/searchwindow/searchwindow.cpp:113
 #, kde-format
 msgid ""
 "Natural Language Search lets you find images by describing them in your own "
@@ -64692,43 +64704,46 @@ msgid ""
 "language model that runs locally on your computer, with no internet "
 "connection required once downloaded."
 msgstr ""
+"La búsqueda de lenguaje natural permite encontrar imágenes describiéndolas "
+"en sus propias palabras. Por ejemplo, «fotos con emblemas rojos tomadas "
+"cerca de París». Usa un modelo de lenguaje que se ejecuta localmente en su "
+"equipo, sin necesitar una conexión a internet una vez descargado."
 
-#: core/utilities/searchwindow/searchwindow.cpp:219
+#: core/utilities/searchwindow/searchwindow.cpp:121
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
-msgstr ""
+msgstr "El modelo de búsqueda de lenguaje natural no se ha descargado todavía."
 
-#: core/utilities/searchwindow/searchwindow.cpp:223
-#, fuzzy, kde-format
-#| msgid "Download Route"
+#: core/utilities/searchwindow/searchwindow.cpp:125
+#, kde-format
 msgid "Download Model..."
-msgstr "Descargar ruta"
+msgstr "Descargar modelo…"
 
-#: core/utilities/searchwindow/searchwindow.cpp:267
+#: core/utilities/searchwindow/searchwindow.cpp:169
 #, kde-format
 msgctxt "@title:window"
 msgid "Advanced Search"
 msgstr "Búsqueda avanzada"
 
-#: core/utilities/searchwindow/searchwindow.cpp:540
-#, fuzzy, kde-format
-#| msgid "Loading themes..."
+#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:70
+#, kde-format
 msgid "Loading the language model... %1%"
-msgstr "Cargando temas…"
+msgstr "Cargando el modelo de lenguaje… %1 %"
 
-#: core/utilities/searchwindow/searchwindow.cpp:579
-#, fuzzy, kde-format
-#| msgid "Edit Current Search..."
+#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:96
+#, kde-format
 msgid "Interpreting the search..."
-msgstr "Editar la búsqueda actual…"
+msgstr "Interpretando la búsqueda…"
 
-#: core/utilities/searchwindow/searchwindow.cpp:772
+#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:140
 #, kde-format
 msgctxt "@info"
 msgid ""
 "None of that could be turned into a search. Try describing tags, dates, "
 "ratings, labels, people, or places."
 msgstr ""
+"Nada de esto se ha podido convertir en una búsqueda. Pruebe a describir "
+"etiquetas, fechas, puntuaciones, emblemas, personas o lugares."
 
 #: core/utilities/setup/album/setupalbumview.cpp:46
 #, kde-format
@@ -66362,10 +66377,9 @@ msgid "Use AutoTags Assignment feature"
 msgstr "Usar la función de asignación automática de etiquetas"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:81
-#, fuzzy, kde-format
-#| msgid "Use Face Management feature"
+#, kde-format
 msgid "Use Natural Language Search feature"
-msgstr "Usar la función de gestión de caras"
+msgstr "Usar la función de búsqueda de lenguaje natural"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:290
 #, kde-format
@@ -66429,13 +66443,7 @@ msgid "File on the server is too large."
 msgstr "El archivo del servidor es demasiado grande."
 
 #: core/utilities/setup/downloader/filesdownloader_slots.cpp:258
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>digiKam relies on large binary model files to power features like face "
-#| "management, image classification based on aesthetics, AI AutoTools such "
-#| "as automatic image rotation, and automatic tag assignment. You have the "
-#| "option to select the specific features you want to enable.</p><p><b>Note:"
-#| "</b> The red-eye removal tool requires face management model files.</p>"
+#, kde-format
 msgid ""
 "<p>digiKam relies on large binary model files to power features like face "
 "management, image classification based on aesthetics, AI AutoTools such as "
@@ -66447,10 +66455,11 @@ msgstr ""
 "<p>digiKam se basa en grandes archivos de modelos binarios para potenciar "
 "funciones como la gestión de caras, la clasificación de imágenes según la "
 "estética y herramientas automáticas de IA, como la rotación automática de "
-"imágenes y la asignación automática de etiquetas. Tiene la opción de "
-"seleccionar las funciones específicas que desea activar.</p><p><b>Nota:</b> "
-"La herramienta de eliminación de ojos rojos necesita archivos de modelos de "
-"gestión de caras.</p>"
+"imágenes, la asignación automática de etiquetas y la herramienta de búsqueda "
+"de lenguaje natural. Tiene la opción de seleccionar las funciones "
+"específicas que desea activar.</p><p><b>Nota:</b> La herramienta de "
+"eliminación de ojos rojos necesita archivos de modelos de gestión de caras.</"
+"p>"
 
 #: core/utilities/setup/downloader/filesdownloader_slots.cpp:264
 #, kde-format
@@ -69883,6 +69892,3 @@ msgstr "Elementos importados"
 #, kde-format
 msgid "Survey"
 msgstr "Sondeo"
-
-#~ msgid "(Advanced Search)"
-#~ msgstr "(Búsqueda avanzada)"
