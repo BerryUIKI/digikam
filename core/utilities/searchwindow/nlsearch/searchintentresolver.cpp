@@ -111,14 +111,14 @@ bool SearchIntentResolver::resolveConstraint(const SearchQueryConstraint& in,
 
     QString canonicalField;
 
-    if (!m_dictionary->resolveFieldAlias(in.field, &canonicalField))
+    if (!m_dictionary->resolveFieldAlias(in.field, canonicalField))
     {
         return false;
     }
 
     QString resolvedValue;
 
-    if (!m_dictionary->resolveValue(canonicalField, in.value, &resolvedValue))
+    if (!m_dictionary->resolveValue(canonicalField, in.value, resolvedValue))
     {
         return false;
     }

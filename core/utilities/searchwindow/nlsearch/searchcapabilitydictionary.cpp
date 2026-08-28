@@ -200,7 +200,7 @@ void SearchCapabilityDictionary::initializeDefaults()
 }
 
 bool SearchCapabilityDictionary::resolveFieldAlias(const QString& alias,
-                                                   QString* canonicalField) const
+                                                   QString& canonicalField) const
 {
     const QString needle = alias.trimmed().toLower();
 
@@ -208,10 +208,7 @@ bool SearchCapabilityDictionary::resolveFieldAlias(const QString& alias,
     {
         if ((it.key() == needle) || it.value().aliases.contains(needle))
         {
-            if (canonicalField)
-            {
-                *canonicalField = it.key();
-            }
+            canonicalField = it.key();
 
             return true;
         }
@@ -222,17 +219,14 @@ bool SearchCapabilityDictionary::resolveFieldAlias(const QString& alias,
 
 bool SearchCapabilityDictionary::resolveValue(const QString& field,
                                               const QString& rawValue,
-                                              QString* resolvedValue) const
+                                              QString& resolvedValue) const
 {
     const QString needle = rawValue.trimmed().toLower();
     const QString key    = field + QLatin1Char('/') + needle;
 
     if (d->valueAliases.contains(key))
     {
-        if (resolvedValue)
-        {
-            *resolvedValue = d->valueAliases.value(key).first();
-        }
+        resolvedValue = d->valueAliases.value(key).first();
 
         return true;
     }
@@ -241,10 +235,7 @@ bool SearchCapabilityDictionary::resolveValue(const QString& field,
 
     if (entry.allowedValues.isEmpty() || entry.allowedValues.contains(needle))
     {
-        if (resolvedValue)
-        {
-            *resolvedValue = needle;
-        }
+        resolvedValue = needle;
 
         return true;
     }

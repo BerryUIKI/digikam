@@ -50,10 +50,10 @@ public:
     void initializeDefaults();
 
     /// @brief "color label" -> "colorlabel". Returns false if unknown.
-    bool resolveFieldAlias(const QString& alias, QString* canonicalField)                       const;
+    bool resolveFieldAlias(const QString& alias, QString& canonicalField)                       const;
 
     /// @brief ("picklabel", "best") -> "accepted". Returns false if unknown.
-    bool resolveValue(const QString& field, const QString& rawValue, QString* resolvedValue)    const;
+    bool resolveValue(const QString& field, const QString& rawValue, QString& resolvedValue)    const;
 
     QStringList supportedFields()                                                               const;
 
