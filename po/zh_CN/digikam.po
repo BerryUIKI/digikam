@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-28 00:43+0000\n"
+"POT-Creation-Date: 2026-08-29 00:42+0000\n"
 "PO-Revision-Date: 2024-04-23 11:20\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -4615,11 +4615,10 @@ msgid "Database backend version"
 msgstr "数据库后端程序版本"
 
 #: core/app/views/utils/componentsinfodlg.cpp:256
-#, fuzzy, kde-format
-#| msgid "Database Configuration"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Natural Language Configuration"
-msgstr "数据库配置"
+msgstr ""
 
 #: core/app/views/utils/componentsinfodlg.cpp:261
 #, kde-format
@@ -56767,7 +56766,7 @@ msgstr "显示不含地理信息的项目"
 
 #: core/utilities/geolocation/mapsearches/gpssearchview.cpp:526
 #: core/utilities/searchwindow/searchmodificationhelper.cpp:111
-#: core/utilities/searchwindow/searchtabheader.cpp:488
+#: core/utilities/searchwindow/searchtabheader_slots.cpp:90
 #, kde-format
 msgid ""
 "Search name already exists.\n"
@@ -56778,7 +56777,7 @@ msgstr ""
 
 #: core/utilities/geolocation/mapsearches/gpssearchview.cpp:530
 #: core/utilities/searchwindow/searchmodificationhelper.cpp:115
-#: core/utilities/searchwindow/searchtabheader.cpp:492
+#: core/utilities/searchwindow/searchtabheader_slots.cpp:94
 #, kde-format
 msgctxt "@title:window"
 msgid "Name Exists"
@@ -60957,12 +60956,10 @@ msgstr "重命名..."
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:185
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@label: item properties"
-#| msgid "Pick label: "
+#, kde-format
 msgctxt "@item"
 msgid "Pick label: Accepted"
-msgstr "挑选标记："
+msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:186
 #, kde-format
@@ -60971,26 +60968,22 @@ msgid "Rating 4 or more"
 msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "@info: generate album name for exporting"
-#| msgid "Rating: "
+#, kde-format
 msgctxt "@item"
 msgid "Rating 5"
-msgstr "评分："
+msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:197
-#, fuzzy, kde-format
-#| msgid "Fine horizontal angle:"
+#, kde-format
 msgctxt "@item"
 msgid "Oriented horizontally (landscape)"
-msgstr "微调水平角度："
+msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:198
-#, fuzzy, kde-format
-#| msgid "Subject distance"
+#, kde-format
 msgctxt "@item"
 msgid "Subject tag: landscape"
-msgstr "主体距离"
+msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchintentresolver.cpp:86
 #, kde-format
@@ -60999,16 +60992,14 @@ msgid "\"%1\" could mean more than one thing. Which did you mean?"
 msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:269
-#, fuzzy, kde-format
-#| msgid "Failed to load image"
+#, kde-format
 msgid "Failed to load the language model."
-msgstr "无法加载图像"
+msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:295
-#, fuzzy, kde-format
-#| msgid "Failed to initialize the database."
+#, kde-format
 msgid "Failed to initialize the model context."
-msgstr "初始化数据库失败。"
+msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:315
 #: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:461
@@ -61023,16 +61014,14 @@ msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:353
 #: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:363
-#, fuzzy, kde-format
-#| msgid "Failed to open the database."
+#, kde-format
 msgid "Failed to tokenize the prompt."
-msgstr "打开数据库失败。"
+msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:400
-#, fuzzy, kde-format
-#| msgid "Connection failed."
+#, kde-format
 msgid "Model decode failed."
-msgstr "连接失败。"
+msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchnlmodelmanager.cpp:100
 #, kde-format
@@ -62165,17 +62154,14 @@ msgstr ""
 
 #: core/utilities/searchwindow/searchtabheader.cpp:70
 #: core/utilities/searchwindow/searchwindow.cpp:69
-#, fuzzy, kde-format
-#| msgid "Cancel current operation"
+#, kde-format
 msgid "Cancel the current interpretation"
-msgstr "取消当前操作"
+msgstr ""
 
 #: core/utilities/searchwindow/searchtabheader.cpp:95
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Advanced Search"
+#, kde-format
 msgid "Open Advanced Search"
-msgstr "高级搜索"
+msgstr ""
 
 #: core/utilities/searchwindow/searchtabheader.cpp:96
 #, kde-format
@@ -62216,19 +62202,17 @@ msgid "Edit..."
 msgstr "编辑..."
 
 #: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:89
-#, fuzzy, kde-format
-#| msgid "Imported %1"
+#, kde-format
 msgid ""
 "Interpreted as:\n"
 "%1"
-msgstr "已导入 %1 个"
+msgstr ""
 
 #: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:123
 #: core/utilities/searchwindow/searchwindow_slots.cpp:180
-#, fuzzy, kde-format
-#| msgid "Printing canceled"
+#, kde-format
 msgid "Interpretation cancelled."
-msgstr "打印已取消"
+msgstr ""
 
 #: core/utilities/searchwindow/searchtabheader_p.cpp:62
 #, kde-format
@@ -62252,11 +62236,9 @@ msgid "Try"
 msgstr "试用"
 
 #: core/utilities/searchwindow/searchwindow.cpp:37
-#, fuzzy, kde-format
-#| msgctxt "@info: country code"
-#| msgid "Default Language"
+#, kde-format
 msgid "Natural Language Search"
-msgstr "默认语言"
+msgstr ""
 
 #: core/utilities/searchwindow/searchwindow.cpp:41
 #, kde-format
@@ -62295,10 +62277,9 @@ msgid "The natural-language search model has not been downloaded yet."
 msgstr ""
 
 #: core/utilities/searchwindow/searchwindow.cpp:125
-#, fuzzy, kde-format
-#| msgid "Download Route"
+#, kde-format
 msgid "Download Model..."
-msgstr "下载路线"
+msgstr ""
 
 #: core/utilities/searchwindow/searchwindow.cpp:169
 #, kde-format
@@ -62307,16 +62288,14 @@ msgid "Advanced Search"
 msgstr "高级搜索"
 
 #: core/utilities/searchwindow/searchwindow_nlsearch.cpp:70
-#, fuzzy, kde-format
-#| msgid "Loading themes..."
+#, kde-format
 msgid "Loading the language model... %1%"
-msgstr "正在加载主题..."
+msgstr ""
 
 #: core/utilities/searchwindow/searchwindow_nlsearch.cpp:96
-#, fuzzy, kde-format
-#| msgid "Edit Current Search..."
+#, kde-format
 msgid "Interpreting the search..."
-msgstr "编辑当前搜索..."
+msgstr ""
 
 #: core/utilities/searchwindow/searchwindow_nlsearch.cpp:140
 #, kde-format
@@ -63808,10 +63787,9 @@ msgid "Use AutoTags Assignment feature"
 msgstr "使用自动标签分配功能"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:81
-#, fuzzy, kde-format
-#| msgid "Use Face Management feature"
+#, kde-format
 msgid "Use Natural Language Search feature"
-msgstr "使用人脸管理功能"
+msgstr ""
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:290
 #, kde-format
@@ -63875,13 +63853,7 @@ msgid "File on the server is too large."
 msgstr "服务器提供的文件体积过大。"
 
 #: core/utilities/setup/downloader/filesdownloader_slots.cpp:258
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>digiKam relies on large binary model files to power features like face "
-#| "management, image classification based on aesthetics, AI AutoTools such "
-#| "as automatic image rotation, and automatic tag assignment. You have the "
-#| "option to select the specific features you want to enable.</p><p><b>Note:"
-#| "</b> The red-eye removal tool requires face management model files.</p>"
+#, kde-format
 msgid ""
 "<p>digiKam relies on large binary model files to power features like face "
 "management, image classification based on aesthetics, AI AutoTools such as "
@@ -63890,9 +63862,6 @@ msgid ""
 "enable.</p><p><b>Note:</b> The red-eye removal tool requires face management "
 "model files.</p>"
 msgstr ""
-"<p>digiKam 依靠大型二进制模型文件来实现诸如人脸管理、基于美感的图像分类、基"
-"于 AI 的自动工具 (如自动图像旋转和自动标签分配) 等功能。您可以选择要启用哪些"
-"功能。</p><p><b>注意：</b> 红眼消除工具需要人脸管理模型文件。</p>"
 
 #: core/utilities/setup/downloader/filesdownloader_slots.cpp:264
 #, kde-format
@@ -67084,6 +67053,3 @@ msgstr "导入视图项目"
 #, kde-format
 msgid "Survey"
 msgstr "单窗预览"
-
-#~ msgid "(Advanced Search)"
-#~ msgstr "(高级搜索)"
