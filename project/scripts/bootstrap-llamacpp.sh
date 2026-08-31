@@ -17,18 +17,18 @@ fi
 
 cd build
 
-export Options='-DLLAMA_BUILD_TESTS=OFF \
+export Options='-DLLAMA_BUILD_TOOLS=ON \
+                -DLLAMA_BUILD_SERVER=ON \
+                -DLLAMA_BUILD_APP=ON \
+                -DLLAMA_BUILD_COMMON=ON \
+                -DGGML_NATIVE=ON \
+                -DBUILD_SHARED_LIBS=ON \
+                -DLLAMA_BUILD_TESTS=OFF \
                 -DLLAMA_BUILD_EXAMPLES=OFF \
-                -DLLAMA_BUILD_TOOLS=OFF \
-                -DLLAMA_BUILD_SERVER=OFF \
-                -DLLAMA_BUILD_APP=OFF \
-                -DLLAMA_BUILD_COMMON=OFF \
                 -DLLAMA_CURL=OFF \
                 -DGGML_CUDA=OFF \
                 -DGGML_METAL=OFF \
-                -DGGML_VULKAN=OFF \
-                -DGGML_NATIVE=OFF \
-                -DBUILD_SHARED_LIBS=ON'
+                -DGGML_VULKAN=OFF'
 
 cmake -G "$MAKEFILES_TYPE" . \
       -DCMAKE_INSTALL_PREFIX=/usr \
