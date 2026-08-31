@@ -6,7 +6,7 @@
 #
 # Arguments : $1 : install path.
 #             $2 : build type : 'debugfull' to hack, 'release' for production, relwithdebinfo for packaging.
-#             $3 : target type  'x86_64' for macOS Lion Intel and later (default), 'arm64' or 'universal" for macOS BigSur Silicon and latter.
+#             $3 : target type  'x86_64' for macOS Lion Intel and later, 'arm64' (default) or 'universal" for macOS BigSur Silicon and latter.
 #             $4 : Cmake extra configure options.
 
 # Halt and catch errors
@@ -17,7 +17,7 @@ trap 'echo "FAILED COMMAND: $PREVIOUS_COMMAND"' ERR
 INSTALL_PREFIX=$1
 
 if [ "$INSTALL_PREFIX" = "" ]; then
-    INSTALL_PREFIX="/opt/digikam.org.x86_64"
+    INSTALL_PREFIX="/opt/digikam.org.arm64"
     BUNDLE_INSTALL_DIR="/Applications/digiKam.org"
     BUNDLE_DATA_INSTALL_DIR="/Library/Application Support"
 else
@@ -34,7 +34,7 @@ fi
 TARGET_TYPE=$3
 
 if [ "$TARGET_TYPE" = "" ]; then
-    TARGET_TYPE=x86_64
+    TARGET_TYPE=arm64
 fi
 
 OPTIONS=$4
@@ -65,7 +65,7 @@ cmake -G "$MAKEFILES_TYPE" . \
       -DCMAKE_OSX_ARCHITECTURES=${TARGET_TYPE} \
       -DBUILD_TESTING=ON \
       -DBUILD_WITH_CCACHE=ON \
-      -DBUILD_WITH_QT6=OFF \
+      -DBUILD_WITH_QT6=ON \
       -DENABLE_GUI_TRANSLATIONS=OFF \
       -DENABLE_DIGIKAM_CORE=ON \
       -DENABLE_KFILEMETADATASUPPORT=OFF \
