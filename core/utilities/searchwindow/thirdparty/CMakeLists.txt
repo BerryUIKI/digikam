@@ -81,6 +81,8 @@ endif()
 
 # Disable compilation warnings from llama.cpp targets. Just to be clear on the console.
 
+REMOVE_CLANG_COMPILER_WARNINGS("-Wcast-align")
+
 foreach(_llama_target llama ggml ggml-base ggml-cpu)
 
     if(TARGET ${_llama_target})
