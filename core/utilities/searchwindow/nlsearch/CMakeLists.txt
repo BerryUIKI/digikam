@@ -24,6 +24,7 @@ if(HAVE_LLAMACPP)
 
     list(APPEND libnlsearch_SRCS
          ${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/searchllamabackend.cpp
+         ${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/searchllamaworker.cpp
     )
 
 endif()

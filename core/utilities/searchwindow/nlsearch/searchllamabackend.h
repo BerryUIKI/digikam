@@ -21,18 +21,16 @@
 // Qt includes
 
 #include <QThread>
-#include <QAtomicInteger>
 
 // Local includes
 
+#include "searchllamaworker.h"
 #include "searchlanguagebackend.h"
 #include "digikam_export.h"
 #include "digikam_config.h"
 
 namespace Digikam
 {
-
-class SearchLlamaWorker;
 
 class DIGIKAM_GUI_EXPORT SearchLlamaBackend : public SearchLanguageBackend
 {
@@ -85,69 +83,6 @@ private:
      * matters more than creative variation. Higher values would add randomness.
      */
     float               m_temperature = 0.0F;
-};
-
-/**
- * @brief Worker object living on the worker thread. Owns the llama.cpp model
- * and context. All llama_* calls happen here, never on the GUI thread.
- */
-class SearchLlamaWorker : public QObject
-{
-    Q_OBJECT
-
-public:
-
-    explicit SearchLlamaWorker(QObject* const parent = nullptr);
-    ~SearchLlamaWorker() override;
-
-    Q_DISABLE_COPY(SearchLlamaWorker)
-
-    void requestCancel();
-
-   /**
-    * @brief Thread-safe check used by the llama.cpp abort callback to stop
-    * an in-progress decode when cancellation has been requested.
-    */
-    bool abortRequested() const
-    {
-        return (m_cancelRequested.loadRelaxed() != 0);
-    }
-
-    /**
-    * @brief Relay model-load progress (0.0-1.0) from the llama.cpp progress
-    * callback to the GUI as a percentage.
-    */
-    void reportLoadProgress(float progress)
-    {
-        Q_EMIT signalLoadProgress(static_cast<int>(progress * 100.0F));
-    }
-
-public Q_SLOTS:
-
-    void slotDoLoad(const QString& modelPath);
-    void slotDoInference(const QString& prompt, int maxTokens, float temperature);
-    void slotDoUnload();
-
-Q_SIGNALS:
-
-    void signalLoaded(bool success);
-    void signalOutputReady(const QString& output);
-    void signalError(const QString& message);
-    void signalProgress(int step);
-    void signalLoadProgress(int percent);
-    void signalCancelled();
-
-private:
-
-#ifdef HAVE_LLAMACPP
-
-    void*                  m_model       = nullptr;
-    void*                  m_context     = nullptr;
-    int32_t                m_singleToken = 0;
-
-#endif
-
-    QAtomicInteger<int>    m_cancelRequested;
 };
 
 } // namespace Digikam
