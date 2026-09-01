@@ -16,7 +16,8 @@ set(LLAMA_CPP_GIT_TAG v0.3.0)
 # portable CPU baseline (GGML_NATIVE OFF) so the distributed binary does not
 # SIGILL on older CPUs.
 
-set(Llama_Conf -DLLAMA_BUILD_TESTS=OFF
+set(Llama_Conf -DLLAMA_BUILD_IS_DEV=OFF
+               -DLLAMA_BUILD_TESTS=OFF
                -DLLAMA_BUILD_EXAMPLES=OFF
                -DLLAMA_BUILD_TOOLS=OFF
                -DLLAMA_BUILD_SERVER=OFF
