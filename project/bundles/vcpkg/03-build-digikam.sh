@@ -88,6 +88,7 @@ cp $DOWNLOAD_DIR/exiv2_manifest.txt $ORIG_WD/data/
 "${CMAKE_BIN}" --build . --config RelWithDebInfo --target ext_lensfun --parallel
 cp $DOWNLOAD_DIR/lensfun_manifest.txt $ORIG_WD/data/
 "${CMAKE_BIN}" --build . --config RelWithDebInfo --target ext_llamacpp --parallel
+cp $DOWNLOAD_DIR/llamacpp_manifest.txt $ORIG_WD/data/
 
 #################################################################################################
 # Build digiKam in temporary directory and installation

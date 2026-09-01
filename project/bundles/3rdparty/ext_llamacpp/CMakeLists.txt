@@ -63,6 +63,10 @@ elseif(MSVC)
         GIT_REPOSITORY https://github.com/ggml-org/llama.cpp.git
         GIT_TAG ${LLAMA_CPP_GIT_TAG}
 
+        PATCH_COMMAND cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../scripts/create_manifest.sh <SOURCE_DIR>/. &&
+                      cd <SOURCE_DIR> &&
+                      bash --noprofile <SOURCE_DIR>/create_manifest.sh ${EXTERNALS_DOWNLOAD_DIR} llamacpp
+
         CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_llamacpp}
                    -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
                    ${Llama_Conf}
@@ -78,6 +82,10 @@ else() # Linux
         DOWNLOAD_DIR ${EXTERNALS_DOWNLOAD_DIR}
         GIT_REPOSITORY https://github.com/ggml-org/llama.cpp.git
         GIT_TAG ${LLAMA_CPP_GIT_TAG}
+
+        PATCH_COMMAND cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../scripts/create_manifest.sh <SOURCE_DIR>/. &&
+                      cd <SOURCE_DIR> &&
+                      <SOURCE_DIR>/create_manifest.sh ${EXTERNALS_DOWNLOAD_DIR} llamacpp
 
         CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_llamacpp}
                    -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
