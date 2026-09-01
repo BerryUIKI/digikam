@@ -132,7 +132,8 @@ optional_packages=("ruby"                               # For i18n extraction
                    "zlib1g-dev"
                    "libfuse-dev"
                    "libc6-dev"
-                   "default-libmysqlclient-dev"         # Rerouted to MariaDB
+                   "libmariadb-dev"
+                   "libmariadb-dev-compat"
                    "libcppunit-dev"
                    "libc++-dev"
                    "libudev-dev"
