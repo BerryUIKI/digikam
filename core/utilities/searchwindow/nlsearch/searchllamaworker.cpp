@@ -371,6 +371,16 @@ void SearchLlamaWorker::slotDoUnload()
 
 }
 
+bool SearchLlamaWorker::abortRequested() const
+{
+    return (m_cancelRequested.loadRelaxed() != 0);
+}
+
+void SearchLlamaWorker::reportLoadProgress(float progress)
+{
+    Q_EMIT signalLoadProgress(static_cast<int>(progress * 100.0F));
+}
+
 } // namespace Digikam
 
 #include "moc_searchllamaworker.cpp"
