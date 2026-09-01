@@ -44,7 +44,7 @@ if(APPLE)
                           cd <SOURCE_DIR> &&
                           <SOURCE_DIR>/create_manifest.sh ${EXTERNALS_DOWNLOAD_DIR} llamacpp &&
                           cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../../bootstrap.${DK_APPLE_PACKAGE_MANAGER} <SOURCE_DIR>/. &&
-                          <SOURCE_DIR>/bootstrap.${DK_APPLE_PACKAGE_MANAGER} ${PREFIX_ext_llamacpp} RelWithDebInfo ${CMAKE_HOST_SYSTEM_PROCESSOR} ${BASH_OPTIONS}
+                          <SOURCE_DIR>/bootstrap.${DK_APPLE_PACKAGE_MANAGER} ${PREFIX_ext_llamacpp} Release ${CMAKE_HOST_SYSTEM_PROCESSOR} ${BASH_OPTIONS}
 
         BUILD_COMMAND cd <SOURCE_DIR>/build && $(MAKE)
 
@@ -68,7 +68,7 @@ elseif(MSVC)
                       bash --noprofile <SOURCE_DIR>/create_manifest.sh ${EXTERNALS_DOWNLOAD_DIR} llamacpp
 
         CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_llamacpp}
-                   -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
+                   -DCMAKE_BUILD_TYPE=Release
                    ${Llama_Conf}
                    ${GLOBAL_PROFILE}
 
@@ -88,7 +88,7 @@ else() # Linux
                       <SOURCE_DIR>/create_manifest.sh ${EXTERNALS_DOWNLOAD_DIR} llamacpp
 
         CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_llamacpp}
-                   -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
+                   -DCMAKE_BUILD_TYPE=Release
                    ${Llama_Conf}
                    ${GLOBAL_PROFILE}
 
