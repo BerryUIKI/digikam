@@ -30,6 +30,8 @@ set(Llama_Conf -DLLAMA_BUILD_TESTS=OFF
                -DBUILD_SHARED_LIBS=ON
 )
 
+JoinListAsString("${Llama_Conf}" " " BASH_OPTIONS)
+
 if(APPLE)
 
     ExternalProject_Add(ext_llamacpp
@@ -37,10 +39,17 @@ if(APPLE)
         GIT_REPOSITORY https://github.com/ggml-org/llama.cpp.git
         GIT_TAG ${LLAMA_CPP_GIT_TAG}
 
-        CMAKE_ARGS -DCMAKE_INSTALL_PREFIX=${PREFIX_ext_llamacpp}
-                   -DCMAKE_BUILD_TYPE=${GLOBAL_BUILD_TYPE}
-                   ${Llama_Conf}
-                   ${GLOBAL_PROFILE}
+        CONFIGURE_COMMAND cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../scripts/create_manifest.sh <SOURCE_DIR>/. &&
+                          cd <SOURCE_DIR> &&
+                          <SOURCE_DIR>/create_manifest.sh ${EXTERNALS_DOWNLOAD_DIR} llamacpp &&
+                          cp -f ${CMAKE_CURRENT_SOURCE_DIR}/../../../../bootstrap.${DK_APPLE_PACKAGE_MANAGER} <SOURCE_DIR>/. &&
+                          <SOURCE_DIR>/bootstrap.${DK_APPLE_PACKAGE_MANAGER} ${PREFIX_ext_llamacpp} RelWithDebInfo ${CMAKE_HOST_SYSTEM_PROCESSOR} ${BASH_OPTIONS}
+
+        BUILD_COMMAND cd <SOURCE_DIR>/build && $(MAKE)
+
+        INSTALL_COMMAND cd <SOURCE_DIR>/build && $(MAKE) install/fast
+
+        BUILD_IN_SOURCE 1
 
         UPDATE_COMMAND ""
         ALWAYS 0
