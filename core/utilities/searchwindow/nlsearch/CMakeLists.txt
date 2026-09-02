@@ -17,6 +17,7 @@ set(libnlsearch_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/searchintentresolver.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/searchqueryengine.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/searchquerycache.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/searchqueryintent.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/searchnlmodelmanager.cpp
 )
 

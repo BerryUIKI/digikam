@@ -43,6 +43,8 @@ public:
 
     Q_DISABLE_COPY(SearchLlamaBackend)
 
+public:
+
     bool loadModel(const QString& modelPath)     override;
     void unloadModel()                           override;
     bool isModelLoaded()                   const override;

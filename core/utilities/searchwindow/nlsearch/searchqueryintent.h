@@ -42,16 +42,17 @@ class SearchQueryConstraint
 {
 public:
 
-    QString field;   ///< Canonical field name (e.g. "tag", "picklabel", "daterange", "place")
-    QString op;      ///< Operator (e.g. "eq", "contains", "gte", "between")
-    QString value;   ///< Raw or resolved value (e.g. "landscape", "2025-06-01..2025-08-31")
+    SearchQueryConstraint() = default;
 
 public:
 
-    bool isValid() const
-    {
-        return (!field.isEmpty() && !op.isEmpty());
-    }
+    bool isValid()      const;
+
+public:
+
+    QString field;   ///< Canonical field name (e.g. "tag", "picklabel", "daterange", "place")
+    QString op;      ///< Operator (e.g. "eq", "contains", "gte", "between")
+    QString value;   ///< Raw or resolved value (e.g. "landscape", "2025-06-01..2025-08-31")
 };
 
 /**
@@ -62,6 +63,15 @@ public:
  */
 class SearchQueryIntent
 {
+public:
+
+    SearchQueryIntent() = default;
+
+public:
+
+    bool isAmbiguous()  const;
+    bool isEmpty()      const;
+
 public:
 
     QList<SearchQueryConstraint> constraints;
@@ -82,18 +92,6 @@ public:
 
     bool                         requiresClarification = false;
     bool                         parseSucceeded        = false;
-
-public:
-
-    bool isAmbiguous() const
-    {
-        return requiresClarification;
-    }
-
-    bool isEmpty() const
-    {
-        return constraints.isEmpty();
-    }
 };
 
 } // namespace Digikam

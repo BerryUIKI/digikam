@@ -35,6 +35,8 @@ public:
 
     SearchIntentParser() = default;
 
+public:
+
     /**
      * @brief Parse raw model output. Tolerates leading/trailing junk by
      * extracting the first balanced top-level JSON object, then

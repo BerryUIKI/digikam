@@ -56,9 +56,9 @@ public:
     bool abortRequested() const;
 
     /**
-    * @brief Relay model-load progress (0.0-1.0) from the llama.cpp progress
-    * callback to the GUI as a percentage.
-    */
+     * @brief Relay model-load progress (0.0-1.0) from the llama.cpp progress
+     * callback to the GUI as a percentage.
+     */
     void reportLoadProgress(float progress);
 
 public Q_SLOTS:

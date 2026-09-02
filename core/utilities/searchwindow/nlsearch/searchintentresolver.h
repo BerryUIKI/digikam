@@ -41,6 +41,8 @@ public:
     bool                         canApplyDirectly = false;
 };
 
+// -----------------------------------------------------------------------------
+
 class DIGIKAM_GUI_EXPORT SearchIntentResolver
 {
 public:
