@@ -146,9 +146,9 @@ sed -e "s/DENABLE_APPSTYLES=OFF/DENABLE_APPSTYLES=ON/g"                         
 sed -e "s/DENABLE_NLSEARCH_LLAMACPP=OFF/DENABLE_NLSEARCH_LLAMACPP=ON/g"               ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
 sed -e "s/DENABLE_NLSEARCH_SYSTEM_LLAMACPP=OFF/DENABLE_NLSEARCH_SYSTEM_LLAMACPP=ON/g" ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
 
-if [[ $DK_QTVERSION = 6 ]] ; then
+if [[ $DK_QTVERSION = 5 ]] ; then
 
-    sed -e "s/DBUILD_WITH_QT6=OFF/DBUILD_WITH_QT6=ON/g"         ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
+    sed -e "s/DBUILD_WITH_QT6=ON/DBUILD_WITH_QT6=OFF/g"         ./bootstrap.macports > ./tmp.macports ; mv -f ./tmp.macports ./bootstrap.macports
 
 fi
 
