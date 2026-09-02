@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-29 00:42+0000\n"
+"POT-Creation-Date: 2026-09-02 00:41+0000\n"
 "PO-Revision-Date: 2026-08-29 18:02+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -63412,34 +63412,34 @@ msgctxt "@info"
 msgid "\"%1\" could mean more than one thing. Which did you mean?"
 msgstr "«%1» potrebbe significare più di una cosa. Che cosa intendi dire?"
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:269
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:155
 #, kde-format
 msgid "Failed to load the language model."
 msgstr "Caricamento del modello linguistico non riuscito."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:295
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:181
 #, kde-format
 msgid "Failed to initialize the model context."
 msgstr "Inizializzazione del contesto del modello non riuscita."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:315
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:461
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:201
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:347
 #, kde-format
 msgid "digiKam was built without llama.cpp support."
 msgstr "digiKam è stato compilato senza il supporto di llama.cpp."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:332
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:218
 #, kde-format
 msgid "Model is not loaded."
 msgstr "Il modello non è caricato."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:353
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:363
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:239
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:249
 #, kde-format
 msgid "Failed to tokenize the prompt."
 msgstr "Impossibile eseguire il token della richiesta."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:400
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:286
 #, kde-format
 msgid "Model decode failed."
 msgstr "Decodifica del modello non riuscita."

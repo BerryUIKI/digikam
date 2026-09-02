@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-29 00:42+0000\n"
+"POT-Creation-Date: 2026-09-02 00:41+0000\n"
 "PO-Revision-Date: 2026-07-13 20:31+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -61165,38 +61165,38 @@ msgctxt "@info"
 msgid "\"%1\" could mean more than one thing. Which did you mean?"
 msgstr ""
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:269
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:155
 #, fuzzy, kde-format
 #| msgid "Failed to load image"
 msgid "Failed to load the language model."
 msgstr "Chyba při načítání obrázku"
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:295
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:181
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Failed to Initialize Thumbnails Database"
 msgid "Failed to initialize the model context."
 msgstr "Selhala inicializace databáze náhledů"
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:315
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:461
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:201
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:347
 #, kde-format
 msgid "digiKam was built without llama.cpp support."
 msgstr ""
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:332
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:218
 #, kde-format
 msgid "Model is not loaded."
 msgstr ""
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:353
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:363
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:239
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:249
 #, fuzzy, kde-format
 #| msgid "Failed to open file."
 msgid "Failed to tokenize the prompt."
 msgstr "Nelze otevřít soubor."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:400
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:286
 #, fuzzy, kde-format
 #| msgid "Connection failed."
 msgid "Model decode failed."

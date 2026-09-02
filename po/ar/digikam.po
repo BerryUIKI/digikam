@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-08-29 00:42+0000\n"
+"POT-Creation-Date: 2026-09-02 00:41+0000\n"
 "PO-Revision-Date: 2026-08-29 17:58+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -62298,34 +62298,34 @@ msgctxt "@info"
 msgid "\"%1\" could mean more than one thing. Which did you mean?"
 msgstr "قد يعني \"%1\" أكثر من شيء. ماذا قصدت؟"
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:269
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:155
 #, kde-format
 msgid "Failed to load the language model."
 msgstr "فشل تحميل النموذج اللغوي."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:295
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:181
 #, kde-format
 msgid "Failed to initialize the model context."
 msgstr "فشل تهيئة سياق النموذج."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:315
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:461
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:201
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:347
 #, kde-format
 msgid "digiKam was built without llama.cpp support."
 msgstr "بُني ديجكام دون دعم llama.cpp."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:332
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:218
 #, kde-format
 msgid "Model is not loaded."
 msgstr "النموذج غير محمّل."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:353
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:363
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:239
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:249
 #, kde-format
 msgid "Failed to tokenize the prompt."
 msgstr "فشل تقسيم المطالبة إلى رموز."
 
-#: core/utilities/searchwindow/nlsearch/searchllamabackend.cpp:400
+#: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:286
 #, kde-format
 msgid "Model decode failed."
 msgstr "فشل فك ترميز النموذج."
