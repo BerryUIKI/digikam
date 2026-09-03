@@ -86,6 +86,7 @@ fi
 
 /opt/clazy/bin/clazy --version
 
+export CLANGXX=/opt/clazy/bin/clang++
 #export PATH=/opt/qt6/bin/:/opt/clazy/bin/:$PATH
 
 $CMAKE_BINARY  \
