@@ -116,6 +116,8 @@ void WallpaperPlugin::slotWallpaper()
     {
         QString wallpaperPath = images[0].toLocalFile();
 
+        // See bug #525230: special case to handle RAW preview to share with the desktop.
+
         if (DRawDecoder::isRawFile(images[0]))
         {
             QImage image;
