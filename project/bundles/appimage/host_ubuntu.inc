@@ -19,7 +19,7 @@ sudo apt-get upgrade -y
 
 # benefit from a higher version of certain software , update the key
 
-sudo apt-key -y adv --refresh-keys --keyserver keyserver.ubuntu.com
+sudo apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com
 sudo add-apt-repository -y "deb http://security.ubuntu.com/ubuntu xenial-security main"
 
 # To fix GPP key error with some repositories

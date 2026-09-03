@@ -69,6 +69,7 @@ mkdir -p build.clazy
 cd build.clazy
 
 export PATH=/opt/clazy/bin:$PATH
+export LD_LIBRARY_PATH=/opt/clazy/lib:$LD_LIBRARY_PATH
 
 if [[ -d /opt/qt6 ]] ; then
 
