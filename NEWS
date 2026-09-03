@@ -88,7 +88,7 @@ BUGFIXES:
 057 --> 503112 - macOS supports universal binaries, this would be preferable to having separate x68_64 and arm64 binaries.
 058 --> 525159 - Automatically refresh when files are moved, added or deleted externally.
 059 --> 525175 - Feature request: allow filtering using tags and view results using Dates view.
-060 --> 
+060 --> 525230 - "Set as Wallpaper" tool silent failure / crashes OS background engine when used on RAW/unsupported image formats.
 061 --> 
 062 --> 
 063 --> 
