@@ -21,7 +21,7 @@ if(APPLE)
                         PATCH_COMMAND ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/breeze-common-rules.patch
 
                         CONFIGURE_COMMAND cp ${CMAKE_CURRENT_SOURCE_DIR}/../../../../bootstrap.${DK_APPLE_PACKAGE_MANAGER} <SOURCE_DIR>/. &&
-                                          <SOURCE_DIR>/bootstrap.${DK_APPLE_PACKAGE_MANAGER} ${EXTPREFIX_breeze} debug ${ARCH_TARGET} "-DWITH_WALLPAPERS=OFF -DWITH_DECORATIONS=OFF -DBUILD_TESTING=OFF -Wno-dev"
+                                          <SOURCE_DIR>/bootstrap.${DK_APPLE_PACKAGE_MANAGER} ${EXTPREFIX_breeze} debug ${ARCH_TARGET} "-DWITH_WALLPAPERS=OFF -DWITH_DECORATIONS=OFF -DBUILD_TESTING=OFF -DQT_MAJOR_VERSION=5 -Wno-dev"
 
                         BUILD_COMMAND cd <SOURCE_DIR>/build && $(MAKE)
 
@@ -52,6 +52,7 @@ else() # Linux and Windows
                                    -DWITH_WALLPAPERS=OFF
                                    -DWITH_DECORATIONS=OFF
                                    -DBUILD_TESTING=OFF
+                                   -DQT_MAJOR_VERSION=5
                                    -Wno-dev
 
                         PATCH_COMMAND ${PATCH_COMMAND} -p1 -i ${CMAKE_CURRENT_SOURCE_DIR}/breeze-common-rules.patch
