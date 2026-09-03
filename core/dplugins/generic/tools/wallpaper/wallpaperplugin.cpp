@@ -19,6 +19,7 @@
 
 #include <QPointer>
 #include <QEventLoop>
+#include <QMessageBox>
 
 // KDE includes
 
@@ -27,6 +28,7 @@
 // Local includes
 
 #include "digikam_debug.h"
+#include "drawdecoder.h"
 #include "wallpaperplugindlg.h"
 
 namespace DigikamGenericWallpaperPlugin
@@ -82,7 +84,7 @@ QList<DPluginAuthor> WallpaperPlugin::authors() const
                              QString::fromUtf8("(C) 2019"))
             << DPluginAuthor(QString::fromUtf8("Gilles Caulier"),
                              QString::fromUtf8("caulier dot gilles at gmail dot com"),
-                             QString::fromUtf8("(C) 2019-2025"),
+                             QString::fromUtf8("(C) 2019-2026"),
                              i18n("Author and Maintainer"));
 }
 
@@ -112,6 +114,35 @@ void WallpaperPlugin::slotWallpaper()
 
     if (!images.isEmpty())
     {
+        QString wallpaperPath = images[0].toLocalFile();
+
+        if (DRawDecoder::isRawFile(images[0]))
+        {
+            QImage image;
+
+            bool ret = DRawDecoder::loadEmbeddedPreview(image, wallpaperPath);
+
+            if (ret)
+            {
+                wallpaperPath = QString::fromUtf8("%1-wallpaper.jpeg").arg(wallpaperPath);
+                ret = image.save(wallpaperPath, "JPG");
+
+                if (!ret)
+                {
+                    QMessageBox::critical(nullptr, qApp->applicationName(),
+                                          i18n("Cannot export RAW image preview as JPEG as WallPaper\n%1",
+                                               images[0].toLocalFile()));
+                    return;
+                }
+            }
+            else
+            {
+                    QMessageBox::critical(nullptr, qApp->applicationName(),
+                                          i18n("Cannot extract RAW image preview for the WallPaper\n%1",
+                                               images[0].toLocalFile()));
+                    return;
+            }
+        }
 
 #ifndef Q_OS_MACOS
 
@@ -121,11 +152,11 @@ void WallpaperPlugin::slotWallpaper()
         QEventLoop loop;
 
         connect(dlg, &QDialog::finished,
-                this, [this, &loop, dlg, images](int result)
+                this, [this, &loop, dlg, wallpaperPath](int result)
             {
                 if (result == QDialog::Accepted)
                 {
-                    setWallpaper(images[0].toString(), dlg->wallpaperLayout());
+                    setWallpaper(wallpaperPath, dlg->wallpaperLayout());
                 }
 
                 loop.quit();
@@ -137,7 +168,7 @@ void WallpaperPlugin::slotWallpaper()
 
 #else
 
-        setWallpaper(images[0].toString());
+        setWallpaper(wallpaperPath);
 
 #endif
 
