@@ -14,18 +14,18 @@ echo -e "---------- Update Linux Ubuntu Host\n"
 
 # for downloading package information from all configured sources.'
 
-sudo apt-get update
-sudo apt-get upgrade
+sudo apt-get update -y
+sudo apt-get upgrade -y
 
 # benefit from a higher version of certain software , update the key
 
-sudo apt-key adv --refresh-keys --keyserver keyserver.ubuntu.com
-sudo add-apt-repository "deb http://security.ubuntu.com/ubuntu xenial-security main"
+sudo apt-key -y adv --refresh-keys --keyserver keyserver.ubuntu.com
+sudo add-apt-repository -y "deb http://security.ubuntu.com/ubuntu xenial-security main"
 
 # To fix GPP key error with some repositories
 # See: https://www.skyminds.net/linux-resoudre-les-erreurs-communes-de-cle-gpg-dans-apt/
 
-sudo apt-get update 2>&1 | \
+sudo apt-get update -y 2>&1 | \
     sed -ne 's?^.*NO_PUBKEY ??p' | \
     xargs -r -- sudo apt-key adv --keyserver keyserver.ubuntu.com --recv-keys
 
@@ -246,7 +246,7 @@ fi
 # https://learnubuntu.com/update-node-js/
 
 curl -sL https://deb.nodesource.com/setup_20.x | sudo -E bash -
-sudo apt-get install nodejs
+sudo apt-get -y install nodejs
 
 echo -e "---------- Clean-up Old Packages\n"
 
