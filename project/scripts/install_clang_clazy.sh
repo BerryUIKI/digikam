@@ -41,6 +41,7 @@ cd $CLANG_BUILD_DIR
 $CMAKE_BINARY -DCMAKE_INSTALL_PREFIX=$CLANG_INSTALL_DIR \
               -DLLVM_INCLUDE_EXAMPLES=OFF \
               -DLLVM_TARGETS_TO_BUILD="$CLANG_LLVM_TARGET" \
+              -DLLVM_DEFAULT_TARGET_TRIPLE="$ARCH-linux-gnu" \
               -DLLVM_EXPORT_SYMBOLS_FOR_PLUGINS=ON \
               -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" \
               -DCMAKE_BUILD_TYPE=Release \
