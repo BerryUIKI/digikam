@@ -68,7 +68,7 @@ rm -fr build.clazy
 mkdir -p build.clazy
 cd build.clazy
 
-export PATH=$PATH:/opt/clazy/bin
+export PATH=/opt/clazy/bin:$PATH
 
 if [[ -d /opt/qt6 ]] ; then
 
@@ -84,7 +84,7 @@ else
 
 fi
 
-#export LLVM_VERSION=19
+/opt/clazy/bin/clazy --version
 
 #export PATH=/opt/qt6/bin/:/opt/clazy/bin/:$PATH
 
@@ -92,6 +92,7 @@ $CMAKE_BINARY  \
       -DCMAKE_CXX_COMPILER=clazy \
       -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
       -DCMAKE_BUILD_TYPE=Debug \
+      -DBUILD_WITH_CCACHE=OFF \
       -DBUILD_WITH_QT6=$BUILD_WITH_QT6 \
       -DBUILD_TESTING=ON \
       -DDIGIKAMSC_CHECKOUT_PO=OFF \
