@@ -45,10 +45,12 @@ public:
 
     bool isFree() const
     {
-        return (readers.isEmpty() &&
+        return (
+                readers.isEmpty() &&
                 !writer           &&
                 !waitingReaders   &&
-                !waitingWriters);
+                !waitingWriters
+               );
     }
 
 public:
