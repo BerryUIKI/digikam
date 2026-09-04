@@ -38,6 +38,8 @@ set(libsearchwindow_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/group/searchgroup.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/group/searchgroup_p.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/group/searchgroup_label.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/group/searchgroup_io.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/group/searchgroup_setup.cpp
 
     ${CMAKE_CURRENT_SOURCE_DIR}/fields/searchfieldgroup.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/fields/searchfieldgrouplabel.cpp
