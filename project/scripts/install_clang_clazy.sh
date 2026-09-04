@@ -29,6 +29,7 @@ cd $CLANG_BUILD_DIR
 
 cmake -DCMAKE_INSTALL_PREFIX=$CLANG_INSTALL_DIR -DLLVM_EXPORT_SYMBOLS_FOR_PLUGINS=ON -DLLVM_INCLUDE_EXAMPLES=OFF -DLLVM_TARGETS_TO_BUILD="X86" -DLLVM_ENABLE_PROJECTS="clang;clang-tools-extra" -DCMAKE_BUILD_TYPE=Release -G "Ninja" ../$CLANG_SRC_DIR/llvm
 cmake --build . --parallel
+sudo cmake --build . --target install
 
 if [ -f $CLANG_SHARED_LIB ] ; then
 
@@ -41,8 +42,6 @@ else
     exit -1
 
 fi
-
-sudo cmake --build . --target install
 
 echo "NOTE: Clang is installed. Add $CLANG_INSTALL_DIR/bin/ to the PATH env. variable..."
 
