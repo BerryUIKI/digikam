@@ -271,10 +271,10 @@ bool FileReadWriteLockStaticPrivate::lockForWrite_locked(Entry* entry, int mode,
 
     // recursive read lock by this thread?
 
-    QHash<Qt::HANDLE, int>::iterator it = entry->readers.find(self);
-    int recursiveReadLockCount          = 0;
+    QHash<Qt::HANDLE, int>::const_iterator it = entry->readers.constFind(self);
+    int recursiveReadLockCount                = 0;
 
-    if (it != entry->readers.end())
+    if (it != entry->readers.cend())
     {
         // We could deadlock, or promote the read locks to write locks
 
