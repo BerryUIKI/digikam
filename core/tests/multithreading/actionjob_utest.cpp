@@ -92,6 +92,13 @@ class NameRecordingJob : public ActionJob
 
 public:
 
+    NameRecordingJob(QObject* const parent = nullptr)
+        : ActionJob(parent)
+    {
+    }
+
+public:
+
     QString appliedName;
 
     void run() override
@@ -109,6 +116,13 @@ public:
 class FallbackTestJob : public NameRecordingJob
 {
     Q_OBJECT
+
+public:
+
+    FallbackTestJob(QObject* const parent = nullptr)
+        : NameRecordingJob(parent)
+    {
+    }
 };
 
 namespace DigikamTests
@@ -117,6 +131,13 @@ namespace DigikamTests
 class ScopedTestJob : public NameRecordingJob
 {
     Q_OBJECT
+
+public:
+
+    ScopedTestJob(QObject* const parent = nullptr)
+        : NameRecordingJob(parent)
+    {
+    }
 };
 
 } // namespace DigikamTests
@@ -126,6 +147,13 @@ class ScopedTestJob : public NameRecordingJob
 class ActionJobTest : public QObject
 {
     Q_OBJECT
+
+public:
+
+    ActionJobTest(QObject* const parent = nullptr)
+        : QObject(parent)
+    {
+    }
 
 private Q_SLOTS:
 
