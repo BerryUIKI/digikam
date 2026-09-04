@@ -36,6 +36,7 @@
 
 #include "digikam_debug.h"
 #include "searchfieldgroup.h"
+#include "searchfieldgrouplabel.h"
 #include "searchfields.h"
 #include "searchutilities.h"
 #include "searchview.h"

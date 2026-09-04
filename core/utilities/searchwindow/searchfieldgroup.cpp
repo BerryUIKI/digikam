@@ -24,6 +24,7 @@
 // Local includes
 
 #include "searchfields.h"
+#include "searchfieldgrouplabel.h"
 #include "searchgroup.h"
 #include "searchutilities.h"
 #include "thememanager.h"
@@ -154,44 +155,6 @@ QList<QRect> SearchFieldGroup::areaOfMarkedFields() const
     }
 
     return rects;
-}
-
-// -------------------------------------------------------------------------
-
-SearchFieldGroupLabel::SearchFieldGroupLabel(QWidget* const parent)
-    : QWidget(parent)
-{
-    QGridLayout* const layout = new QGridLayout;
-
-    m_titleLabel              = new DClickLabel;
-    m_titleLabel->setObjectName(QLatin1String("SearchFieldGroupLabel_Label"));
-    m_expandLabel             = new QLabel;
-    QFrame* const hline       = new QFrame;
-    hline->setFrameStyle(QFrame::HLine | QFrame::Raised);
-
-    layout->addWidget(m_titleLabel,  0, 0);
-    layout->addWidget(m_expandLabel, 0, 1);
-    layout->addWidget(hline,         1, 0, 1, 3);
-    layout->setColumnStretch(2, 1);
-    layout->setSpacing(2);
-    setLayout(layout);
-
-    connect(m_titleLabel, SIGNAL(activated()),
-            this, SIGNAL(clicked()));
-}
-
-void SearchFieldGroupLabel::setTitle(const QString& title)
-{
-    m_title = title;
-    m_titleLabel->setText(title);
-}
-
-void SearchFieldGroupLabel::displayExpanded()
-{
-}
-
-void SearchFieldGroupLabel::displayFolded()
-{
 }
 
 } // namespace Digikam

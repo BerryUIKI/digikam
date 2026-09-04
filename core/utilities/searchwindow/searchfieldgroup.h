@@ -23,12 +23,9 @@
 
 // Local includes
 
-#include "dexpanderbox.h"
 #include "coredbsearchxml.h"
 
 class QGridLayout;
-class QLabel;
-class QVBoxLayout;
 
 namespace Digikam
 {
@@ -80,36 +77,6 @@ private:
 
     /// @note disabled
     SearchFieldGroup(QWidget*) = delete;
-};
-
-// -----------------------------------------------------------------------
-
-class SearchFieldGroupLabel : public QWidget
-{
-    Q_OBJECT
-
-public:
-
-    explicit SearchFieldGroupLabel(QWidget* const parent);
-
-public:
-
-    void setTitle(const QString& title);
-
-public Q_SLOTS:
-
-    void displayExpanded();
-    void displayFolded();
-
-Q_SIGNALS:
-
-    void clicked();
-
-protected:
-
-    QString      m_title;
-    DClickLabel* m_titleLabel   = nullptr;
-    QLabel*      m_expandLabel  = nullptr;
 };
 
 } // namespace Digikam

@@ -26,6 +26,7 @@ set(libsearchwindow_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/searchgroup_p.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/searchgroup_label.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/searchfieldgroup.cpp
+    ${CMAKE_CURRENT_SOURCE_DIR}/searchfieldgrouplabel.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/searchfields.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/searchfields_album.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/searchfields_colordepth.cpp
