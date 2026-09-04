@@ -159,7 +159,8 @@ void CollectionScanner::finishCompleteScan(const QStringList& albumPaths)
 
     QStringList sortedPaths = albumPaths;
     std::sort(sortedPaths.begin(), sortedPaths.end());
-    QStringList::iterator it, it2;
+    QStringList::iterator it;
+    QStringList::iterator it2;
 
     for (it = sortedPaths.begin() ; it != sortedPaths.end() ; )
     {
