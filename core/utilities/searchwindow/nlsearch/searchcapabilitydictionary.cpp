@@ -226,7 +226,7 @@ bool SearchCapabilityDictionary::resolveValue(const QString& field,
 
     if (d->valueAliases.contains(key))
     {
-        resolvedValue = d->valueAliases.value(key).first();
+        resolvedValue = d->valueAliases.value(key).constFirst();
 
         return true;
     }
