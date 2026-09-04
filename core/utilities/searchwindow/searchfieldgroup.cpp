@@ -118,7 +118,7 @@ void SearchFieldGroup::slotLabelClicked()
     m_controller->triggerVisibility();
 }
 
-void SearchFieldGroup::markField(SearchField* const field)
+void SearchFieldGroup::markField(SearchField* const field)  // cppcheck-suppress constParameterPointer
 {
     m_markedFields << field;
 }
