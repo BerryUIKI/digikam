@@ -3714,6 +3714,11 @@ msgid ""
 "frame rate, bitrate), and file formats. For details, see <a href=\"https://"
 "community.kde.org/GSoC/2026/StatusReports/SrirupaDatta\">this report</a>."
 msgstr ""
+"基于本地大语言模型的自然语言搜索功能，完全离线运行。您只需用自然语言描述所需"
+"内容，digiKam 即可生成相应的结构化搜索条件。支持标签、人物、相册、评分、标"
+"记、方向、地点、日期、标题、视频属性 (时长、帧率、比特率) 以及文件格式。详情"
+"请见 <a href=\"https://community.kde.org/GSoC/2026/StatusReports/SrirupaDatta"
+"\">此报告</a>。"
 
 #: core/app/views/stack/welcomepageview_features.cpp:94
 #, kde-format
@@ -4556,19 +4561,19 @@ msgstr "全景支持"
 #, kde-format
 msgctxt "@item: component info"
 msgid "Natural-language search support"
-msgstr ""
+msgstr "自然语言搜索支持"
 
 #: core/app/views/utils/componentsinfodlg.cpp:186
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libllama.cpp"
-msgstr ""
+msgstr "Libllama.cpp"
 
 #: core/app/views/utils/componentsinfodlg.cpp:192
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libggml"
-msgstr ""
+msgstr "Libggml"
 
 #: core/app/views/utils/componentsinfodlg.cpp:205
 #: core/app/views/utils/componentsinfodlg.cpp:210
@@ -4618,19 +4623,19 @@ msgstr "数据库后端程序版本"
 #, kde-format
 msgctxt "@item: component info"
 msgid "Natural Language Configuration"
-msgstr ""
+msgstr "自然语言配置"
 
 #: core/app/views/utils/componentsinfodlg.cpp:261
 #, kde-format
 msgctxt "@item: component info"
 msgid "LLAMA.CPP"
-msgstr ""
+msgstr "LLAMA.CPP"
 
 #: core/app/views/utils/componentsinfodlg.cpp:270
 #, kde-format
 msgctxt "@item: component info"
 msgid "GGML"
-msgstr ""
+msgstr "GGML"
 
 #: core/app/views/utils/componentsinfodlg.cpp:281
 #, kde-format
@@ -42490,7 +42495,7 @@ msgstr "质量测试工程师"
 #, kde-format
 msgid ""
 "Natural Language Search in the Advanced Search tool, powered with a local LLM"
-msgstr ""
+msgstr "高级搜索工具中的自然语言搜索，由本地大语言模型提供支持"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:163
 #, kde-format
@@ -60959,69 +60964,69 @@ msgstr "重命名..."
 #, kde-format
 msgctxt "@item"
 msgid "Pick label: Accepted"
-msgstr ""
+msgstr "挑选标记：接受"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:186
 #, kde-format
 msgctxt "@item"
 msgid "Rating 4 or more"
-msgstr ""
+msgstr "评分 4 分及以上"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:192
 #, kde-format
 msgctxt "@item"
 msgid "Rating 5"
-msgstr ""
+msgstr "评分 5 分"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:197
 #, kde-format
 msgctxt "@item"
 msgid "Oriented horizontally (landscape)"
-msgstr ""
+msgstr "水平方向 (横向)"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:198
 #, kde-format
 msgctxt "@item"
 msgid "Subject tag: landscape"
-msgstr ""
+msgstr "主体标签：横向"
 
 #: core/utilities/searchwindow/nlsearch/searchintentresolver.cpp:86
 #, kde-format
 msgctxt "@info"
 msgid "\"%1\" could mean more than one thing. Which did you mean?"
-msgstr ""
+msgstr "“%1”可能有多种含义，您指的是哪一种？"
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:155
 #, kde-format
 msgid "Failed to load the language model."
-msgstr ""
+msgstr "加载语言模型失败。"
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:181
 #, kde-format
 msgid "Failed to initialize the model context."
-msgstr ""
+msgstr "初始化模型上下文失败。"
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:201
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:347
 #, kde-format
 msgid "digiKam was built without llama.cpp support."
-msgstr ""
+msgstr "digiKam 在构建时没有启用 llama.cpp 支持。"
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:218
 #, kde-format
 msgid "Model is not loaded."
-msgstr ""
+msgstr "没有加载模型。"
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:239
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:249
 #, kde-format
 msgid "Failed to tokenize the prompt."
-msgstr ""
+msgstr "无法对提示词进行词元分词。"
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:286
 #, kde-format
 msgid "Model decode failed."
-msgstr ""
+msgstr "模型解码失败。"
 
 #: core/utilities/searchwindow/nlsearch/searchnlmodelmanager.cpp:100
 #, kde-format
@@ -61029,13 +61034,13 @@ msgctxt "@info"
 msgid ""
 "The natural-language search model is not installed. Please download it from "
 "the digiKam setup downloader."
-msgstr ""
+msgstr "没有安装本地语言搜索模型。请使用 digiKam 安装下载器下载。"
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:149
 #, kde-format
 msgctxt "@info"
 msgid "A query is already being interpreted."
-msgstr ""
+msgstr "当前已有解析中的查询。"
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:179
 #, kde-format
@@ -61045,6 +61050,8 @@ msgid ""
 "Enable \"Natural Language Search\" in the model download dialog to install "
 "it, then restart digiKam."
 msgstr ""
+"自然语言搜索所需的的语言模型没有安装。 请在模型下载对话框中启用\"自然语言搜索"
+"\"以安装它，然后重启 digiKam 。"
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:186
 #, kde-format
@@ -61052,13 +61059,13 @@ msgctxt "@info"
 msgid ""
 "The natural language search model is still loading. Please try your search "
 "again in a few seconds."
-msgstr ""
+msgstr "自然语言搜索模型仍在加载。请等待数秒后重试。"
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Interpreting your search..."
-msgstr ""
+msgstr "正在解析您的搜索..."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:225
 #, kde-format
@@ -61066,7 +61073,7 @@ msgctxt "@info"
 msgid ""
 "Could not interpret the model output. Please refine the description or "
 "create rules manually."
-msgstr ""
+msgstr "无法解析模型输出。请优化描述或手动创建规则。"
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:247
 #, kde-format
@@ -61075,12 +61082,13 @@ msgid ""
 "Could not map '%1' to tags, album names, captions, location, or date. Please "
 "refine the description or create rules manually."
 msgstr ""
+"无法将“%1”映射到标签、相册名称、标题、位置或日期。请优化描述或手动创建规则。"
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:258
 #, kde-format
 msgctxt "@info"
 msgid "Some terms could not be mapped and were skipped: %1"
-msgstr ""
+msgstr "部分术语无法映射而被跳过：%1"
 
 #: core/utilities/searchwindow/ratingsearchutilities.cpp:201
 #, kde-format
@@ -62150,23 +62158,23 @@ msgstr "编辑当前搜索..."
 #, kde-format
 msgid ""
 "Interpret the text above as a natural-language search and build the query"
-msgstr ""
+msgstr "将上述文本作为自然语言搜索进行解析并构建查询"
 
 #: core/utilities/searchwindow/searchtabheader.cpp:70
 #: core/utilities/searchwindow/searchwindow.cpp:69
 #, kde-format
 msgid "Cancel the current interpretation"
-msgstr ""
+msgstr "取消当前的解析"
 
 #: core/utilities/searchwindow/searchtabheader.cpp:95
 #, kde-format
 msgid "Open Advanced Search"
-msgstr ""
+msgstr "打开高级搜索"
 
 #: core/utilities/searchwindow/searchtabheader.cpp:96
 #, kde-format
 msgid "Run Now"
-msgstr ""
+msgstr "立即运行"
 
 #: core/utilities/searchwindow/searchtabheader.cpp:140
 #, kde-format
@@ -62207,12 +62215,14 @@ msgid ""
 "Interpreted as:\n"
 "%1"
 msgstr ""
+"解析为：\n"
+"%1"
 
 #: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:123
 #: core/utilities/searchwindow/searchwindow_slots.cpp:180
 #, kde-format
 msgid "Interpretation cancelled."
-msgstr ""
+msgstr "解析已取消。"
 
 #: core/utilities/searchwindow/searchtabheader_p.cpp:62
 #, kde-format
@@ -62238,17 +62248,17 @@ msgstr "试用"
 #: core/utilities/searchwindow/searchwindow.cpp:37
 #, kde-format
 msgid "Natural Language Search"
-msgstr ""
+msgstr "自然语言搜索"
 
 #: core/utilities/searchwindow/searchwindow.cpp:41
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
-msgstr ""
+msgstr "例如：带有红色标记的在巴黎附近拍摄的照片"
 
 #: core/utilities/searchwindow/searchwindow.cpp:44
 #, kde-format
 msgid "Translate my query to English first"
-msgstr ""
+msgstr "先将查询翻译成英文"
 
 #: core/utilities/searchwindow/searchwindow.cpp:46
 #, kde-format
@@ -62256,11 +62266,13 @@ msgid ""
 "When enabled, your query is translated to English before being interpreted, "
 "so you can type in your own language. Requires an internet connection."
 msgstr ""
+"启用后，您的查询会先被翻译成英文再进行解析，因此您可以使用自己的语言输入。此"
+"功能需要网络连接。"
 
 #: core/utilities/searchwindow/searchwindow.cpp:84
 #, kde-format
 msgid "Open the Natural Language Search handbook"
-msgstr ""
+msgstr "打开自然语言搜索手册"
 
 #: core/utilities/searchwindow/searchwindow.cpp:113
 #, kde-format
@@ -62270,16 +62282,19 @@ msgid ""
 "language model that runs locally on your computer, with no internet "
 "connection required once downloaded."
 msgstr ""
+"自然语言搜索功能允许你用自然语句描述图像来进行搜索，例如“带有红色标记的在巴黎"
+"附近拍摄的照片”。它使用一个在本地计算机上运行的语言模型，下载后无需联网即可使"
+"用。"
 
 #: core/utilities/searchwindow/searchwindow.cpp:121
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
-msgstr ""
+msgstr "尚未下载自然语言搜索模型。"
 
 #: core/utilities/searchwindow/searchwindow.cpp:125
 #, kde-format
 msgid "Download Model..."
-msgstr ""
+msgstr "下载模型..."
 
 #: core/utilities/searchwindow/searchwindow.cpp:169
 #, kde-format
@@ -62290,12 +62305,12 @@ msgstr "高级搜索"
 #: core/utilities/searchwindow/searchwindow_nlsearch.cpp:70
 #, kde-format
 msgid "Loading the language model... %1%"
-msgstr ""
+msgstr "正在加载语言模型... %1%"
 
 #: core/utilities/searchwindow/searchwindow_nlsearch.cpp:96
 #, kde-format
 msgid "Interpreting the search..."
-msgstr ""
+msgstr "正在解释搜索..."
 
 #: core/utilities/searchwindow/searchwindow_nlsearch.cpp:140
 #, kde-format
@@ -62304,6 +62319,7 @@ msgid ""
 "None of that could be turned into a search. Try describing tags, dates, "
 "ratings, labels, people, or places."
 msgstr ""
+"这些内容无法转换为搜索条件。请尝试描述标签、日期、评分、标记、人物或地点。"
 
 #: core/utilities/setup/album/setupalbumview.cpp:46
 #, kde-format
@@ -63789,7 +63805,7 @@ msgstr "使用自动标签分配功能"
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:81
 #, kde-format
 msgid "Use Natural Language Search feature"
-msgstr ""
+msgstr "使用自然语言搜索功能"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:290
 #, kde-format
@@ -63862,6 +63878,10 @@ msgid ""
 "enable.</p><p><b>Note:</b> The red-eye removal tool requires face management "
 "model files.</p>"
 msgstr ""
+"<p>digiKam 依靠大型二进制模型文件来实现诸如人脸管理、基于美感的图像分类、基"
+"于 AI 的自动工具 (如自动图像旋转、自动标签分配和自然语言搜索工具) 等功能。您"
+"可以选择要启用哪些功能。</p><p><b>注意：</b> 红眼消除工具需要人脸管理模型文"
+"件。</p>"
 
 #: core/utilities/setup/downloader/filesdownloader_slots.cpp:264
 #, kde-format
