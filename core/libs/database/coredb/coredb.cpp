@@ -2633,8 +2633,8 @@ QList<QPair<qlonglong, qlonglong> > CoreDB::getRelationCloud(qlonglong imageId, 
 
     while (!todo.isEmpty())
     {
-        qlonglong id = *todo.begin();
-        todo.erase(todo.begin());
+        qlonglong id = *todo.cbegin();
+        todo.erase(todo.cbegin());
         done << id;
 
         if (type == DatabaseRelation::UndefinedType)
