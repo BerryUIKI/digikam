@@ -10,7 +10,7 @@ CLANG_SRC_DIR=./clang_clazy
 CLANG_BUILD_DIR=./clang_clazy_build     # Important that this is outside of the source directory
 CLANG_INSTALL_DIR=/opt/clang
 CLANG_VERSION=llvmorg-19.1.7
-CLANG_SHARED_LIB=$CLANG_INSTALL_DIR/lib/clang.so
+CLANG_SHARED_LIB=$CLANG_INSTALL_DIR/lib/libclang.so
 
 if [ ! -d $CLANG_SRC_DIR ] ; then
 
