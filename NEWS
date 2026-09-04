@@ -91,9 +91,9 @@ BUGFIXES:
 060 --> 525230 - "Set as Wallpaper" tool silent failure / crashes OS background engine when used on RAW/unsupported image formats.
 061 --> 525215 - Misleading naming for ‚Albums‘ vs. ‘Collections’.
 062 --> 524693 - Connection to Google earth.
-063 --> 
-064 --> 
-065 --> 
+063 --> 525294 - Crash (EXC_BREAKPOINT/SIGTRAP) inside QImage::toCGImage().
+064 --> 524477 - Crash viewing image.
+065 --> 524393 - Crash when dragging image in library to re-position it.
 066 --> 
 067 --> 
 068 --> 
