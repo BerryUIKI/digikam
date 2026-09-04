@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-06 00:42+0000\n"
-"PO-Revision-Date: 2026-08-27 22:38+0200\n"
+"PO-Revision-Date: 2026-09-06 18:11+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -4391,7 +4391,7 @@ msgstr "Amplada"
 #: core/utilities/searchwindow/searchfields_createfield.cpp:239
 #, kde-format
 msgid "Height"
-msgstr "Alçada"
+msgstr "Altura"
 
 #: core/app/views/tableview/tableview_column_item.cpp:74
 #: core/app/views/tableview/tableview_column_item.cpp:103
@@ -7012,7 +7012,7 @@ msgstr "Establiu aquí la selecció d'amplada de l'escapçat."
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:320
 #, kde-format
 msgid "Set here the height selection for cropping."
-msgstr "Establiu aquí la selecció d'alçada de l'escapçat."
+msgstr "Establiu aquí la selecció d'altura de l'escapçat."
 
 #: core/dplugins/bqm/transform/crop/cropplugin.cpp:42
 #, kde-format
@@ -10518,12 +10518,12 @@ msgstr "Establiu aquí la nova amplada de la imatge en píxels."
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:167
 #, kde-format
 msgid "Height (px):"
-msgstr "Alçada (px):"
+msgstr "Altura (px):"
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:172
 #, kde-format
 msgid "Set here the new image height in pixels."
-msgstr "Establiu aquí la nova alçada de la imatge en píxels."
+msgstr "Establiu aquí la nova altura de la imatge en píxels."
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:174
 #: core/dplugins/editor/transform/resize/resizetool.cpp:370
@@ -10541,12 +10541,12 @@ msgstr "Nova amplada de la imatge en percentatge (%)."
 #: core/dplugins/editor/transform/resize/resizetool.cpp:378
 #, kde-format
 msgid "Height (%):"
-msgstr "Alçada (%):"
+msgstr "Altura (%):"
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:186
 #, kde-format
 msgid "New image height, as a percentage (%)."
-msgstr "Nova alçada de la imatge en percentatge (%)."
+msgstr "Nova altura de la imatge en percentatge (%)."
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:209
 #, kde-format
@@ -10882,7 +10882,7 @@ msgstr " px"
 #: core/dplugins/editor/transform/shear/sheartool.cpp:108
 #, kde-format
 msgid "New height:"
-msgstr "Alçada nova:"
+msgstr "Altura nova:"
 
 #: core/dplugins/editor/transform/freerotation/freerotationtool.cpp:115
 #, kde-format
@@ -11257,7 +11257,7 @@ msgstr "Establiu la posició d'amplada per a centrar."
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:329
 #, kde-format
 msgid "Set height position to center."
-msgstr "Establiu la posició d'alçada per a centrar."
+msgstr "Establiu la posició d'altura per a centrar."
 
 #: core/dplugins/editor/transform/ratiocrop/ratiocroptool.cpp:355
 #, kde-format
@@ -11567,12 +11567,12 @@ msgstr "px"
 #: core/dplugins/editor/transform/resize/resizetool.cpp:361
 #, kde-format
 msgid "Height:"
-msgstr "Alçada:"
+msgstr "Altura:"
 
 #: core/dplugins/editor/transform/resize/resizetool.cpp:368
 #, kde-format
 msgid "New image height in pixels (px)."
-msgstr "Alçada nova de la imatge en píxels (px)."
+msgstr "Altura nova de la imatge en píxels (px)."
 
 #: core/dplugins/editor/transform/resize/resizetool.cpp:376
 #, kde-format
@@ -11582,7 +11582,7 @@ msgstr "Amplada nova de la imatge en percentatge (%)."
 #: core/dplugins/editor/transform/resize/resizetool.cpp:384
 #, kde-format
 msgid "New image height in percent (%)."
-msgstr "Alçada nova de la imatge en percentatge (%)."
+msgstr "Altura nova de la imatge en percentatge (%)."
 
 #: core/dplugins/editor/transform/resize/resizetool.cpp:390
 #, kde-format
@@ -20500,12 +20500,12 @@ msgstr "Trieu per a tenir un àlbum de fotografies amb mida personalitzada"
 #: core/dplugins/generic/tools/printcreator/wizard/advprintcustomdlg.cpp:43
 #, kde-format
 msgid "Photo height"
-msgstr "Alçada de la fotografia"
+msgstr "Altura de la fotografia"
 
 #: core/dplugins/generic/tools/printcreator/wizard/advprintcustomdlg.cpp:44
 #, kde-format
 msgid "Insert photo height"
-msgstr "Inseriu l'alçada de la fotografia"
+msgstr "Inseriu l'altura de la fotografia"
 
 #: core/dplugins/generic/tools/printcreator/wizard/advprintcustomdlg.cpp:45
 #, kde-format
@@ -21567,6 +21567,9 @@ msgid ""
 "Cannot export RAW image preview as JPEG as WallPaper\n"
 "%1"
 msgstr ""
+"No es pot exportar la vista prèvia d'imatge RAW com a JPEG com a fons de "
+"pantalla\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:143
 #, kde-format
@@ -21574,6 +21577,8 @@ msgid ""
 "Cannot extract RAW image preview for the WallPaper\n"
 "%1"
 msgstr ""
+"No es pot extreure la vista prèvia d'imatge RAW per al fons de pantalla\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_dbus.cpp:92
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_macos.cpp:64
@@ -26316,7 +26321,7 @@ msgstr "Amplada màxima:"
 #: core/dplugins/generic/webservices/piwigo/piwigowindow.cpp:196
 #, kde-format
 msgid "Maximum height:"
-msgstr "Alçada màxima:"
+msgstr "Altura màxima:"
 
 #: core/dplugins/generic/webservices/piwigo/piwigowindow.cpp:202
 #, kde-format
@@ -52848,7 +52853,7 @@ msgstr "Valoració del fitxer multimèdia"
 #: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:63
 #, kde-format
 msgid "Height of the media file"
-msgstr "Alçada del fitxer multimèdia"
+msgstr "Altura del fitxer multimèdia"
 
 #: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:64
 #, kde-format
@@ -63821,7 +63826,7 @@ msgstr "i"
 #: core/utilities/searchwindow/searchfields_createfield.cpp:239
 #, kde-format
 msgid "Find items with a height between"
-msgstr "Cerca els elements amb alçades entre"
+msgstr "Cerca els elements amb altures entre"
 
 #: core/utilities/searchwindow/searchfields_createfield.cpp:240
 #, kde-format
@@ -64286,7 +64291,7 @@ msgstr "Mida del píxel"
 #: core/utilities/searchwindow/searchfields_createfield.cpp:893
 #, kde-format
 msgid "Value of (Width * Height) between"
-msgstr "Valor de (amplada * alçada) entre"
+msgstr "Valor de (amplada * altura) entre"
 
 #: core/utilities/searchwindow/searchfields_createfield.cpp:894
 #, kde-format
