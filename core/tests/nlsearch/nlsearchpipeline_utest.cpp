@@ -45,6 +45,13 @@ class NlSearchPipelineTest : public QObject
 {
     Q_OBJECT
 
+public:
+
+    NlSearchPipelineTest(QObject* const parent = nullptr)
+        : QObject(parent)
+    {
+    }
+
 private:
 
     void buildEngine(SearchQueryEngine& engine,
