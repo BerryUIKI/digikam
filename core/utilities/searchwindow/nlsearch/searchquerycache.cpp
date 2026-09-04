@@ -50,7 +50,7 @@ void SearchQueryCache::store(const QString& query, const SearchQueryIntent& inte
 
     if (m_entries.size() >= s_maxEntries)
     {
-        m_entries.erase(m_entries.begin());
+        m_entries.erase(m_entries.constBegin());
     }
 
     m_entries.insert(normalizeKey(query), intent);
