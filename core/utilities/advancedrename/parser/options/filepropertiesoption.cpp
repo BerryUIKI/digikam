@@ -25,12 +25,29 @@
 
 namespace
 {
+    inline const QString& KEY_FILE()
+    {
+        static const QString key = QLatin1String("[file]");
+        return key;
+    }
 
-static const QString KEY_FILE(QLatin1String("[file]"));
-static const QString KEY_EXT(QLatin1String("[ext]"));
-static const QString KEY_USER(QLatin1String("[user]"));
-static const QString KEY_GROUP(QLatin1String("[group]"));
+    inline const QString& KEY_EXT()
+    {
+        static const QString key = QLatin1String("[ext]");
+        return key;
+    }
 
+    inline const QString& KEY_USER()
+    {
+        static const QString key = QLatin1String("[user]");
+        return key;
+    }
+
+    inline const QString& KEY_GROUP()
+    {
+        static const QString key = QLatin1String("[group]");
+        return key;
+    }
 }
 
 namespace Digikam
@@ -43,24 +60,24 @@ FilePropertiesOption::FilePropertiesOption()
 {
     setUseTokenMenu(true);
 
-    addToken(KEY_FILE, i18n("Filename"),
+    addToken(KEY_FILE(), i18n("Filename"),
              i18nc("File name", "Name"));
 
-    addToken(KEY_EXT, i18n("File extension, prepend with a '.' character, to modify the real file extension"),
+    addToken(KEY_EXT(), i18n("File extension, prepend with a '.' character, to modify the real file extension"),
              i18nc("File extension", "Extension"));
 
-    addToken(KEY_USER, i18n("Owner of the file"),
+    addToken(KEY_USER(), i18n("Owner of the file"),
              i18nc("Owner of the file", "Owner"));
 
-    addToken(KEY_GROUP, i18n("Group of the file"),
+    addToken(KEY_GROUP(), i18n("Group of the file"),
              i18nc("Group of the file", "Group"));
 
     QString regExpStr;
     regExpStr.append(QLatin1Char('('));
-    regExpStr.append(escapeToken(KEY_FILE)).append(QLatin1Char('|'));
-    regExpStr.append(escapeToken(KEY_USER)).append(QLatin1Char('|'));
-    regExpStr.append(escapeToken(KEY_GROUP)).append(QLatin1Char('|'));
-    regExpStr.append(QLatin1String("(\\.?)")).append(escapeToken(KEY_EXT));
+    regExpStr.append(escapeToken(KEY_FILE())).append(QLatin1Char('|'));
+    regExpStr.append(escapeToken(KEY_USER())).append(QLatin1Char('|'));
+    regExpStr.append(escapeToken(KEY_GROUP())).append(QLatin1Char('|'));
+    regExpStr.append(QLatin1String("(\\.?)")).append(escapeToken(KEY_EXT()));
     regExpStr.append(QLatin1Char(')'));
 
     QRegularExpression reg(regExpStr);
@@ -75,26 +92,26 @@ QString FilePropertiesOption::parseOperation(ParseSettings& settings, const QReg
 
     const QString& token = match.captured(1);
 
-    if      (token == KEY_FILE)
+    if      (token == KEY_FILE())
     {
         QString fileName = fi.completeBaseName();
         int index        = settings.cutFileName;
 
         result = fileName.mid(index);
     }
-    else if (token == KEY_USER)
+    else if (token == KEY_USER())
     {
         result = fi.owner();
     }
-    else if (token == KEY_GROUP)
+    else if (token == KEY_GROUP())
     {
         result = fi.group();
     }
-    else if (token == KEY_EXT)
+    else if (token == KEY_EXT())
     {
         result = fi.suffix();
     }
-    else if (token == (QLatin1Char('.') + KEY_EXT))
+    else if (token == (QLatin1Char('.') + KEY_EXT()))
     {
         result                            = QLatin1Char('.') + fi.suffix();
         settings.useOriginalFileExtension = false;
