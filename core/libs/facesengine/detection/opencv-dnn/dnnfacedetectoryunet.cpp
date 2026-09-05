@@ -40,14 +40,19 @@
 namespace Digikam
 {
 
-const std::map<FaceScanSettings::FaceDetectionSize, int> faceenum2size
+inline const std::map<FaceScanSettings::FaceDetectionSize, int>& faceenum2size()
 {
-    { FaceScanSettings::FaceDetectionSize::ExtraLarge, 420  },
-    { FaceScanSettings::FaceDetectionSize::Large,      620  },
-    { FaceScanSettings::FaceDetectionSize::Medium,     800  },
-    { FaceScanSettings::FaceDetectionSize::Small,      1200 },
-    { FaceScanSettings::FaceDetectionSize::ExtraSmall, 2000 }
-};
+    static const std::map<FaceScanSettings::FaceDetectionSize, int> map =
+    {
+        { FaceScanSettings::FaceDetectionSize::ExtraLarge, 420  },
+        { FaceScanSettings::FaceDetectionSize::Large,      620  },
+        { FaceScanSettings::FaceDetectionSize::Medium,     800  },
+        { FaceScanSettings::FaceDetectionSize::Small,      1200 },
+        { FaceScanSettings::FaceDetectionSize::ExtraSmall, 2000 }
+    };
+
+    return map;
+}
 
 DNNFaceDetectorYuNet::DNNFaceDetectorYuNet()
     : DNNFaceDetectorBase(1.0F / 255.0F,
@@ -289,8 +294,8 @@ void DNNFaceDetectorYuNet::setFaceDetectionSize(FaceScanSettings::FaceDetectionS
     try
     {
         inputImageSize = cv::Size(
-                                  faceenum2size.at(faceSize),
-                                  faceenum2size.at(faceSize)
+                                  faceenum2size().at(faceSize),
+                                  faceenum2size().at(faceSize)
                                  );
     }
     catch (const std::exception& e)
