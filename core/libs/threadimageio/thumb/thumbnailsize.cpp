@@ -21,10 +21,14 @@
 namespace Digikam
 {
 
-inline const QString& s_configUseLargeThumbsEntry()
+namespace
 {
-    static const QString entry = QLatin1String("Use Large Thumbs");
-    return entry;
+
+    inline const QString& s_configUseLargeThumbsEntry()
+    {
+        static const QString entry = QLatin1String("Use Large Thumbs");
+        return entry;
+    }
 }
 
 static bool           s_useLargeThumbs = false;
