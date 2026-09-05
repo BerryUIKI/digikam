@@ -204,7 +204,7 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
             }
         }
 
-        for (int id : ids)
+        for (int id : std::as_const(ids))
         {
             writer.writeField(QLatin1String("tagid"), SearchXml::Equal);
             writer.writeValue(id);
@@ -329,7 +329,7 @@ void SearchWindow::writeConstraintToXml(SearchXmlWriter& writer,
             }
         }
 
-        for (int id : ids)
+        for (int id : std::as_const(ids))
         {
             writer.writeField(QLatin1String("tagid"), SearchXml::Equal);
             writer.writeValue(id);

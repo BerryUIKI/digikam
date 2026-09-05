@@ -42,7 +42,7 @@ ResolvedSearchCriteria SearchIntentResolver::resolve(const SearchQueryIntent& in
         return result;
     }
 
-    for (const SearchQueryConstraint& in : intent.constraints)
+    for (const SearchQueryConstraint& in : std::as_const(intent.constraints))
     {
         SearchQueryConstraint out;
 
@@ -76,7 +76,7 @@ void SearchIntentResolver::applyDictionaryAmbiguity(SearchQueryIntent* const int
         return;
     }
 
-    for (const SearchQueryConstraint& c : intent->constraints)
+    for (const SearchQueryConstraint& c : std::as_const(intent->constraints))
     {
         const QList<AmbiguityChoice> choices = m_dictionary->choicesForAmbiguousWord(c.value);
 
