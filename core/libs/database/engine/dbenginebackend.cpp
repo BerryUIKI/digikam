@@ -1314,7 +1314,7 @@ QSqlQuery BdEngineBackend::execQuery(const QString& sql, const QMap<QString, QVa
 /*
         qCDebug(DIGIKAM_DBENGINE_LOG) << "Prepare statement [" << preparedString << "] with binding map [" << bindingMap << "]";
 */
-        QRegularExpression identifierRegExp(QLatin1String(":[A-Za-z0-9]+"));
+        static QRegularExpression identifierRegExp(QLatin1String(":[A-Za-z0-9]+"));
         int pos = 0;
 
         while ((pos = preparedString.indexOf(identifierRegExp, pos)) != -1)

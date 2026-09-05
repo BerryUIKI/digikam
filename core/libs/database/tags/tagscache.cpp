@@ -450,6 +450,9 @@ QString TagsCache::tagPath(int id, LeadingSlashPolicy slashPolicy) const
     QString path;
     QReadLocker locker(&d->lock);
     QList<TagShortInfo>::const_iterator it;
+    static QRegularExpression nameRegEx(QLatin1String("(_Digikam_root_tag_/|"
+                                                      "/_Digikam_root_tag_|"
+                                                      "_Digikam_root_tag_)"));
 
     for (it = d->find(id) ; it != d->infos.constEnd() ; it = d->find(it->pid))
     {
@@ -459,9 +462,7 @@ QString TagsCache::tagPath(int id, LeadingSlashPolicy slashPolicy) const
         }
         else
         {
-            if ((it->name).contains(QRegularExpression(QLatin1String("(_Digikam_root_tag_/|"
-                                                                     "/_Digikam_root_tag_|"
-                                                                     "_Digikam_root_tag_)"))))
+            if ((it->name).contains(nameRegEx))
             {
                 continue;
             }

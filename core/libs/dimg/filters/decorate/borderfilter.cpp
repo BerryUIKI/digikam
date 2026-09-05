@@ -416,7 +416,7 @@ void BorderFilter::bevel2(const DImg& src, DImg& dest, const DColor& topColor,
 
     for (y = 0, wc = (int)dest.width() - 1 ; y < borderWidth ; ++y, --wc)
     {
-        for (x = 0; x < wc; ++x)
+        for (x = 0 ; x < wc ; ++x)
         {
             dest.setPixelColor(x, y, topColor);
         }
@@ -519,7 +519,7 @@ static QString colorToString(const QColor& c)
 
 static QColor stringToColor(const QString& s)
 {
-    QRegularExpression regexp(QRegularExpression::anchoredPattern(QLatin1String("(rgb|rgba)\\s*\\((.+)\\)\\s*")));
+    static QRegularExpression regexp(QRegularExpression::anchoredPattern(QLatin1String("(rgb|rgba)\\s*\\((.+)\\)\\s*")));
     QRegularExpressionMatch match = regexp.match(s);
 
     if (match.hasMatch())
@@ -530,7 +530,7 @@ static QColor stringToColor(const QString& s)
         {
             QColor c(colors.at(0).toInt(), colors.at(1).toInt(), colors.at(2).toInt());
 
-            if (match.captured(0) == QLatin1String("rgba") && colors.size() == 4)
+            if ((match.captured(0) == QLatin1String("rgba")) && (colors.size() == 4))
             {
                 c.setAlpha(colors.at(3).toInt());
             }

@@ -913,6 +913,7 @@ QStringList KeywordSearch::split(const QString& keywords)
 
     QStringList keywordList;
     int quotationMarkCount = (keywords.startsWith(QLatin1Char('"')) ? 1 : 0);
+    static QRegularExpression keywordsSplitRegEx(QLatin1String("\\s+"));
 
     for (const QString& group : std::as_const(quotationMarkList))
     {
@@ -929,7 +930,7 @@ QStringList KeywordSearch::split(const QString& keywords)
         {
             // not in quotation marks: split by whitespace
 
-            keywordList << group.split(QRegularExpression(QLatin1String("\\s+")), Qt::SkipEmptyParts);
+            keywordList << group.split(keywordsSplitRegEx, Qt::SkipEmptyParts);
         }
 
         ++quotationMarkCount;

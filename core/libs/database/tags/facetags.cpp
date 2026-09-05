@@ -66,12 +66,11 @@ QString FaceTagsHelper::tagPath(const QString& name, int parentId)
 {
     QString faceParentTagPath = TagsCache::instance()->tagPath(parentId,
                                                                TagsCache::NoLeadingSlash);
+    static QRegularExpression faceNameRegEx(QLatin1String("(_Digikam_root_tag_/|"
+                                                          "/_Digikam_root_tag_|"
+                                                          "_Digikam_root_tag_)"));
 
-    if (
-        faceParentTagPath.contains(QRegularExpression(QLatin1String("(_Digikam_root_tag_/|"
-                                                                    "/_Digikam_root_tag_|"
-                                                                    "_Digikam_root_tag_)")))
-       )
+    if (faceParentTagPath.contains(faceNameRegEx))
     {
         return  (QLatin1Char('/') + name);
     }

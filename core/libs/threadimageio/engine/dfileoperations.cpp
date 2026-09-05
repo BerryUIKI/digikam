@@ -176,9 +176,9 @@ QUrl DFileOperations::getUniqueFileUrl(const QUrl& orgUrl,
     int counter = 0;
     QUrl destUrl(orgUrl);
     QFileInfo fi(destUrl.toLocalFile());
-    QRegularExpression version(QRegularExpression::anchoredPattern(QLatin1String("(.+)_v(\\d+)")));
+    static QRegularExpression versionUfuRegEx(QRegularExpression::anchoredPattern(QLatin1String("(.+)_v(\\d+)")));
     QString completeBaseName      = fi.completeBaseName();
-    QRegularExpressionMatch match = version.match(completeBaseName);
+    QRegularExpressionMatch match = versionUfuRegEx.match(completeBaseName);
 
     if (match.hasMatch())
     {
@@ -222,9 +222,9 @@ QUrl DFileOperations::getUniqueFolderUrl(const QUrl& orgUrl)
     int counter              = 0;
     QUrl destUrl(orgUrl);
     QFileInfo fi(destUrl.toLocalFile());
-    QRegularExpression version(QRegularExpression::anchoredPattern(QLatin1String("(.+)-(\\d+)")));
+    static QRegularExpression versionUfu2RegEx(QRegularExpression::anchoredPattern(QLatin1String("(.+)-(\\d+)")));
     QString completeFileName      = fi.fileName();
-    QRegularExpressionMatch match = version.match(completeFileName);
+    QRegularExpressionMatch match = versionUfu2RegEx.match(completeFileName);
 
     if (match.hasMatch())
     {
