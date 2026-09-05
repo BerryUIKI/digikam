@@ -173,7 +173,7 @@ int DMetadata::getItemColorLabel(const DMetadataSettingsContainer& settings) con
         // LightRoom use this tag to store color name as string.
         // Values are limited : see bug #358193.
 
-        int colorTextId = ColorLabelAsText.indexOf(value);
+        int colorTextId = s_colorLabelAsText().indexOf(value);
 
         if (colorTextId != -1)
         {
@@ -429,7 +429,7 @@ bool DMetadata::setItemColorLabel(int colorId, const DMetadataSettingsContainer&
                     // LightRoom use this XMP tags to store Color Labels name
                     // Values are limited : see bug #358193.
 
-                    if (!setXmpTagString(nameSpace, ColorLabelAsText.at(colorId)))
+                    if (!setXmpTagString(nameSpace, s_colorLabelAsText().at(colorId)))
                     {
                         return false;
                     }
