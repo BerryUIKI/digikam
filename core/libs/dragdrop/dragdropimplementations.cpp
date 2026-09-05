@@ -280,15 +280,21 @@ void DragDropViewImplementation::dropEvent(QDropEvent* e)
     }
 }
 
+inline const QString& mimeTypeCutSelection()
+{
+
 #ifdef Q_OS_WIN
 
-static const QString mimeTypeCutSelection(QLatin1String("Preferred DropEffect"));
+    static const QString mimeType = QLatin1String("Preferred DropEffect");
 
 #else
 
-static const QString mimeTypeCutSelection(QLatin1String("application/x-kde-cutselection"));
+    static const QString mimeType = QLatin1String("application/x-kde-cutselection");
 
 #endif
+
+    return mimeType;
+}
 
 void DragDropViewImplementation::encodeIsCutSelection(QMimeData* mime, bool cut)
 {
@@ -304,12 +310,12 @@ void DragDropViewImplementation::encodeIsCutSelection(QMimeData* mime, bool cut)
 
 #endif
 
-    mime->setData(mimeTypeCutSelection, cutSelection);
+    mime->setData(mimeTypeCutSelection(), cutSelection);
 }
 
 bool DragDropViewImplementation::decodeIsCutSelection(const QMimeData* mime)
 {
-    QByteArray a = mime->data(mimeTypeCutSelection);
+    QByteArray a = mime->data(mimeTypeCutSelection());
 
     if (a.isEmpty())
     {
