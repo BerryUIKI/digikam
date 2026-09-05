@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:42+0000\n"
+"POT-Creation-Date: 2026-09-10 00:42+0000\n"
 "PO-Revision-Date: 2019-03-17 17:31+0200\n"
 "Last-Translator: Mindaugas Baranauskas <opensuse.lietuviu.kalba@gmail.com>\n"
 "Language-Team: Lithuanian <kde-i18n-lt@kde.org>\n"
@@ -27739,7 +27739,7 @@ msgid "Auto-rotating: %1\n"
 msgstr "Įvertinimas: "
 
 #: core/libs/aitoolspipeline/aitoolspipeline.cpp:515
-#: core/libs/tags/autoassignment/autotagsengine.cpp:233
+#: core/libs/tags/autoassignment/autotagsengine.cpp:232
 #: core/utilities/maintenance/tools/duplicates/duplicatesfinder.cpp:189
 #: core/utilities/maintenance/tools/facesmanagement/facesengine.cpp:490
 #: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:236
@@ -29570,26 +29570,26 @@ msgid ""
 "recent) Please use the more recent version of digikam that you used before. "
 msgstr ""
 
-#: core/libs/database/tags/facetags.cpp:460
+#: core/libs/database/tags/facetags.cpp:459
 #, kde-format
 msgctxt "People on your photos"
 msgid "People"
 msgstr "Žmonės"
 
-#: core/libs/database/tags/facetags.cpp:477
+#: core/libs/database/tags/facetags.cpp:476
 #, kde-format
 msgctxt "The list of detected faces from the collections but not recognized"
 msgid "Unknown"
 msgstr "Nežinoma"
 
-#: core/libs/database/tags/facetags.cpp:499
+#: core/libs/database/tags/facetags.cpp:498
 #, fuzzy, kde-format
 #| msgid "Confirm"
 msgctxt "The list of recognized faces from the collections but not confirmed"
 msgid "Unconfirmed"
 msgstr "Patvirtinti"
 
-#: core/libs/database/tags/facetags.cpp:521
+#: core/libs/database/tags/facetags.cpp:520
 #, fuzzy, kde-format
 #| msgid "Monitor profile:"
 msgctxt "List of detected faces that need not be recognized"
@@ -40782,60 +40782,60 @@ msgctxt "@item: album categories"
 msgid "Miscellaneous"
 msgstr "Įvairūs"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:93
+#: core/libs/tags/autoassignment/autotagsengine.cpp:92
 #, fuzzy, kde-format
 #| msgid "Automatic Adjustment"
 msgid "Autotags Assignment"
 msgstr "Automatinė korekcija"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:102
+#: core/libs/tags/autoassignment/autotagsengine.cpp:101
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Search in:"
 msgid "Scan for objects in album: %1"
 msgstr "Ieškoti:"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:106
+#: core/libs/tags/autoassignment/autotagsengine.cpp:105
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Search in:"
 msgid "Scan for objects in %1 albums"
 msgstr "Ieškoti:"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:185
+#: core/libs/tags/autoassignment/autotagsengine.cpp:184
 #, fuzzy, kde-format
 #| msgctxt "@option:check"
 #| msgid "Benchmark face detection"
 msgid "Error starting object detection."
 msgstr "Veidų nustatymo našumo testas"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:200
+#: core/libs/tags/autoassignment/autotagsengine.cpp:199
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Search in:"
 msgid "Items scanned for objects: %1\n"
 msgstr "Ieškoti:"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:204
+#: core/libs/tags/autoassignment/autotagsengine.cpp:203
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Search in:"
 msgid "Item scanned for objects: %1\n"
 msgstr "Ieškoti:"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:232
+#: core/libs/tags/autoassignment/autotagsengine.cpp:231
 #, fuzzy, kde-format
 #| msgctxt "@label"
 #| msgid "Search in:"
 msgid "Object Scanning: %1\n"
 msgstr "Ieškoti:"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:239
+#: core/libs/tags/autoassignment/autotagsengine.cpp:238
 #, kde-format
 msgid "Found %1 object. Tag: %2"
 msgstr ""
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:243
+#: core/libs/tags/autoassignment/autotagsengine.cpp:242
 #, kde-format
 msgid "Found %1 objects. Tags: %2"
 msgstr ""

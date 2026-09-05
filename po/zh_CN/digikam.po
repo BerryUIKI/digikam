@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:42+0000\n"
+"POT-Creation-Date: 2026-09-10 00:42+0000\n"
 "PO-Revision-Date: 2024-04-23 11:20\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -26249,7 +26249,7 @@ msgid "Auto-rotating: %1\n"
 msgstr "自动旋转：%1\n"
 
 #: core/libs/aitoolspipeline/aitoolspipeline.cpp:515
-#: core/libs/tags/autoassignment/autotagsengine.cpp:233
+#: core/libs/tags/autoassignment/autotagsengine.cpp:232
 #: core/utilities/maintenance/tools/duplicates/duplicatesfinder.cpp:189
 #: core/utilities/maintenance/tools/facesmanagement/facesengine.cpp:490
 #: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:236
@@ -28059,25 +28059,25 @@ msgstr ""
 "该数据库曾经被版本较新的 digiKam 使用过，它的纲目结构已被更新为新版，因此无法"
 "用于此旧版 digiKam。请升级为在此数据库中使用过的新版 digiKam。"
 
-#: core/libs/database/tags/facetags.cpp:460
+#: core/libs/database/tags/facetags.cpp:459
 #, kde-format
 msgctxt "People on your photos"
 msgid "People"
 msgstr "人物"
 
-#: core/libs/database/tags/facetags.cpp:477
+#: core/libs/database/tags/facetags.cpp:476
 #, kde-format
 msgctxt "The list of detected faces from the collections but not recognized"
 msgid "Unknown"
 msgstr "未知"
 
-#: core/libs/database/tags/facetags.cpp:499
+#: core/libs/database/tags/facetags.cpp:498
 #, kde-format
 msgctxt "The list of recognized faces from the collections but not confirmed"
 msgid "Unconfirmed"
 msgstr "未确认"
 
-#: core/libs/database/tags/facetags.cpp:521
+#: core/libs/database/tags/facetags.cpp:520
 #, kde-format
 msgctxt "List of detected faces that need not be recognized"
 msgid "Ignored"
@@ -38894,47 +38894,47 @@ msgctxt "@item: album categories"
 msgid "Miscellaneous"
 msgstr "其他"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:93
+#: core/libs/tags/autoassignment/autotagsengine.cpp:92
 #, kde-format
 msgid "Autotags Assignment"
 msgstr "自动标签分配"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:102
+#: core/libs/tags/autoassignment/autotagsengine.cpp:101
 #, kde-format
 msgid "Scan for objects in album: %1"
 msgstr "扫描相册中的对象：%1"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:106
+#: core/libs/tags/autoassignment/autotagsengine.cpp:105
 #, kde-format
 msgid "Scan for objects in %1 albums"
 msgstr "扫描 %1 个相册中的对象"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:185
+#: core/libs/tags/autoassignment/autotagsengine.cpp:184
 #, kde-format
 msgid "Error starting object detection."
 msgstr "启动对象检测时出错。"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:200
+#: core/libs/tags/autoassignment/autotagsengine.cpp:199
 #, kde-format
 msgid "Items scanned for objects: %1\n"
 msgstr "已扫描对象的项目：%1\n"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:204
+#: core/libs/tags/autoassignment/autotagsengine.cpp:203
 #, kde-format
 msgid "Item scanned for objects: %1\n"
 msgstr "已扫描对象的项目：%1\n"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:232
+#: core/libs/tags/autoassignment/autotagsengine.cpp:231
 #, kde-format
 msgid "Object Scanning: %1\n"
 msgstr "正在扫描对象：%1\n"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:239
+#: core/libs/tags/autoassignment/autotagsengine.cpp:238
 #, kde-format
 msgid "Found %1 object. Tag: %2"
 msgstr "找到 %1 个对象。标签：%2"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:243
+#: core/libs/tags/autoassignment/autotagsengine.cpp:242
 #, kde-format
 msgid "Found %1 objects. Tags: %2"
 msgstr "找到 %1 个对象。标签：%2"
