@@ -88,6 +88,9 @@ static const int AUTOEXPANDDELAY    = 800;
 
 // --------------------------------------------------------
 
+namespace
+{
+
 /**
  * Color label in enum order as text
  */
@@ -109,6 +112,8 @@ inline const QStringList& s_colorLabelAsText()
 
     return list;
 }
+
+} // namespace
 
 // --------------------------------------------------------
 

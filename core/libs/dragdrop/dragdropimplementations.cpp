@@ -280,6 +280,9 @@ void DragDropViewImplementation::dropEvent(QDropEvent* e)
     }
 }
 
+namespace
+{
+
 inline const QString& mimeTypeCutSelection()
 {
 
@@ -295,6 +298,8 @@ inline const QString& mimeTypeCutSelection()
 
     return mimeType;
 }
+
+} // namespace
 
 void DragDropViewImplementation::encodeIsCutSelection(QMimeData* mime, bool cut)
 {
