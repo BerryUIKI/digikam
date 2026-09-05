@@ -519,8 +519,8 @@ static QString colorToString(const QColor& c)
 
 static QColor stringToColor(const QString& s)
 {
-    static QRegularExpression regexp(QRegularExpression::anchoredPattern(QLatin1String("(rgb|rgba)\\s*\\((.+)\\)\\s*")));
-    QRegularExpressionMatch match = regexp.match(s);
+    static QRegularExpression borderRegExp(QRegularExpression::anchoredPattern(QLatin1String("(rgb|rgba)\\s*\\((.+)\\)\\s*")));
+    QRegularExpressionMatch match = borderRegExp.match(s);
 
     if (match.hasMatch())
     {
