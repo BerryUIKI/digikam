@@ -54,14 +54,53 @@ namespace Digikam
 namespace Matrix
 {
 
-static const MetaEngineRotation identity               ( 1,  0,  0,  1);
-static const MetaEngineRotation rotate90               ( 0,  1, -1,  0);
-static const MetaEngineRotation rotate180              (-1,  0,  0, -1);
-static const MetaEngineRotation rotate270              ( 0, -1,  1,  0);
-static const MetaEngineRotation flipHorizontal         (-1,  0,  0,  1);
-static const MetaEngineRotation flipVertical           ( 1,  0,  0, -1);
-static const MetaEngineRotation rotate90flipHorizontal ( 0,  1,  1,  0);    ///< first rotate, then flip
-static const MetaEngineRotation rotate90flipVertical   ( 0, -1, -1,  0);    ///< first rotate, then flip
+inline const MetaEngineRotation& identity()
+{
+    static const MetaEngineRotation instance(1, 0, 0, 1);
+    return instance;
+}
+
+inline const MetaEngineRotation& rotate90()
+{
+    static const MetaEngineRotation instance(0, 1, -1, 0);
+    return instance;
+}
+
+inline const MetaEngineRotation& rotate180()
+{
+    static const MetaEngineRotation instance(-1, 0, 0, -1);
+    return instance;
+}
+
+inline const MetaEngineRotation& rotate270()
+{
+    static const MetaEngineRotation instance(0, -1, 1, 0);
+    return instance;
+}
+
+inline const MetaEngineRotation& flipHorizontal()
+{
+    static const MetaEngineRotation instance(-1, 0, 0, 1);
+    return instance;
+}
+
+inline const MetaEngineRotation& flipVertical()
+{
+    static const MetaEngineRotation instance(1, 0, 0, -1);
+    return instance;
+}
+
+inline const MetaEngineRotation& rotate90flipHorizontal()
+{
+    static const MetaEngineRotation instance(0, 1, 1, 0);   // first rotate, then flip
+    return instance;
+}
+
+inline const MetaEngineRotation& rotate90flipVertical()
+{
+    static const MetaEngineRotation instance(0, -1, -1, 0); // first rotate, then flip
+    return instance;
+}
 
 MetaEngineRotation matrix(MetaEngineRotation::TransformationAction action)
 {
@@ -69,32 +108,32 @@ MetaEngineRotation matrix(MetaEngineRotation::TransformationAction action)
     {
         case MetaEngineRotation::NoTransformation:
         {
-            return identity;
+            return identity();
         }
 
         case MetaEngineRotation::FlipHorizontal:
         {
-            return flipHorizontal;
+            return flipHorizontal();
         }
 
         case MetaEngineRotation::FlipVertical:
         {
-            return flipVertical;
+            return flipVertical();
         }
 
         case MetaEngineRotation::Rotate90:
         {
-            return rotate90;
+            return rotate90();
         }
 
         case MetaEngineRotation::Rotate180:
         {
-            return rotate180;
+            return rotate180();
         }
 
         case MetaEngineRotation::Rotate270:
         {
-            return rotate270;
+            return rotate270();
         }
 
         default:
@@ -103,7 +142,7 @@ MetaEngineRotation matrix(MetaEngineRotation::TransformationAction action)
         }
     }
 
-    return identity;
+    return identity();
 }
 
 MetaEngineRotation matrix(MetaEngine::ImageOrientation exifOrientation)
@@ -112,51 +151,51 @@ MetaEngineRotation matrix(MetaEngine::ImageOrientation exifOrientation)
     {
         case MetaEngine::ORIENTATION_NORMAL:
         {
-            return identity;
+            return identity();
         }
 
         case MetaEngine::ORIENTATION_HFLIP:
         {
-            return flipHorizontal;
+            return flipHorizontal();
         }
 
         case MetaEngine::ORIENTATION_ROT_180:
         {
-            return rotate180;
+            return rotate180();
         }
 
         case MetaEngine::ORIENTATION_VFLIP:
         {
-            return flipVertical;
+            return flipVertical();
         }
 
         case MetaEngine::ORIENTATION_ROT_90_HFLIP:
         {
-            return rotate90flipHorizontal;
+            return rotate90flipHorizontal();
         }
 
         case MetaEngine::ORIENTATION_ROT_90:
         {
-            return rotate90;
+            return rotate90();
         }
 
         case MetaEngine::ORIENTATION_ROT_90_VFLIP:
         {
-            return rotate90flipVertical;
+            return rotate90flipVertical();
         }
 
         case MetaEngine::ORIENTATION_ROT_270:
         {
-            return rotate270;
+            return rotate270();
         }
 
         case MetaEngine::ORIENTATION_UNSPECIFIED:
         {
-            return identity;
+            return identity();
         }
     }
 
-    return identity;
+    return identity();
 }
 
 } // namespace Matrix
@@ -191,7 +230,7 @@ void MetaEngineRotation::set(int m11, int m12, int m21, int m22)
 
 bool MetaEngineRotation::isNoTransform() const
 {
-    return (*this == Matrix::identity);
+    return (*this == Matrix::identity());
 }
 
 MetaEngineRotation& MetaEngineRotation::operator*=(const MetaEngineRotation& ma)
@@ -247,34 +286,34 @@ QList<MetaEngineRotation::TransformationAction> MetaEngineRotation::transformati
 {
     QList<TransformationAction> transforms;
 
-    if      (*this == Matrix::rotate90)
+    if      (*this == Matrix::rotate90())
     {
         transforms << Rotate90;
     }
-    else if (*this == Matrix::rotate180)
+    else if (*this == Matrix::rotate180())
     {
         transforms << Rotate180;
     }
-    else if (*this == Matrix::rotate270)
+    else if (*this == Matrix::rotate270())
     {
         transforms << Rotate270;
     }
-    else if (*this == Matrix::flipHorizontal)
+    else if (*this == Matrix::flipHorizontal())
     {
         transforms << FlipHorizontal;
     }
-    else if (*this == Matrix::flipVertical)
+    else if (*this == Matrix::flipVertical())
     {
         transforms << FlipVertical;
     }
-    else if (*this == Matrix::rotate90flipHorizontal)
+    else if (*this == Matrix::rotate90flipHorizontal())
     {
         // first rotate, then flip!
 
         transforms << Rotate90;
         transforms << FlipHorizontal;
     }
-    else if (*this == Matrix::rotate90flipVertical)
+    else if (*this == Matrix::rotate90flipVertical())
     {
         // first rotate, then flip!
 
@@ -287,36 +326,36 @@ QList<MetaEngineRotation::TransformationAction> MetaEngineRotation::transformati
 
 MetaEngine::ImageOrientation MetaEngineRotation::exifOrientation() const
 {
-    if (*this == Matrix::identity)
+    if (*this == Matrix::identity())
     {
         return MetaEngine::ORIENTATION_NORMAL;
     }
 
-    if      (*this == Matrix::rotate90)
+    if      (*this == Matrix::rotate90())
     {
         return MetaEngine::ORIENTATION_ROT_90;
     }
-    else if (*this == Matrix::rotate180)
+    else if (*this == Matrix::rotate180())
     {
         return MetaEngine::ORIENTATION_ROT_180;
     }
-    else if (*this == Matrix::rotate270)
+    else if (*this == Matrix::rotate270())
     {
         return MetaEngine::ORIENTATION_ROT_270;
     }
-    else if (*this == Matrix::flipHorizontal)
+    else if (*this == Matrix::flipHorizontal())
     {
         return MetaEngine::ORIENTATION_HFLIP;
     }
-    else if (*this == Matrix::flipVertical)
+    else if (*this == Matrix::flipVertical())
     {
         return MetaEngine::ORIENTATION_VFLIP;
     }
-    else if (*this == Matrix::rotate90flipHorizontal)
+    else if (*this == Matrix::rotate90flipHorizontal())
     {
         return MetaEngine::ORIENTATION_ROT_90_HFLIP;
     }
-    else if (*this == Matrix::rotate90flipVertical)
+    else if (*this == Matrix::rotate90flipVertical())
     {
         return MetaEngine::ORIENTATION_ROT_90_VFLIP;
     }
