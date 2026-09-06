@@ -71,14 +71,30 @@ enum
     MAX_EDITED_PLACES      = 5
 };
 
-static const QString xmpNameSpaceURI    = QLatin1String("https://inaturalist.org/ns/1.0/");
-static const QString xmpNameSpacePrefix = QLatin1String("iNaturalist");
+namespace
+{
+
+inline const QString& xmpNameSpaceURI()
+{
+    static const QString uri = QLatin1String("https://inaturalist.org/ns/1.0/");
+    return uri;
+}
+
+inline const QString& xmpNameSpacePrefix()
+{
+    static const QString prefix = QLatin1String("iNaturalist");
+    return prefix;
+}
+
+} // namespace
 
 class Q_DECL_HIDDEN INatWindow::Private
 {
 public:
 
     Private() = default;
+
+public:
 
     QString                 serviceName;
 
@@ -142,8 +158,7 @@ public:
 INatWindow::INatWindow(DInfoInterface* const iface,
                        QWidget* const /*parent*/,
                        const QString& serviceName)
-    : WSToolDialog(nullptr, QString::fromLatin1("%1 Export Dialog").
-                   arg(serviceName)),
+    : WSToolDialog(nullptr, QString::fromLatin1("%1 Export Dialog").arg(serviceName)),
        d          (new Private)
 {
     d->iface       = iface;
@@ -316,7 +331,7 @@ INatWindow::~INatWindow()
 
     if (d->xmpNameSpace)
     {
-        DMetadata::unregisterXmpNameSpace(xmpNameSpaceURI);
+        DMetadata::unregisterXmpNameSpace(xmpNameSpaceURI());
     }
 
     delete d;
@@ -882,7 +897,7 @@ void INatWindow::slotPhotoUploaded(const INatTalker::PhotoUploadResult& result)
         {
             if (!d->xmpNameSpace)
             {
-                meta->registerXmpNameSpace(xmpNameSpaceURI, xmpNameSpacePrefix);
+                meta->registerXmpNameSpace(xmpNameSpaceURI(), xmpNameSpacePrefix());
                 d->xmpNameSpace = true;
             }
 
