@@ -104,7 +104,7 @@ void Parser::reset()
 
 bool Parser::parseStringIsValid(const QString& str)
 {
-    QRegularExpression invalidString(QRegularExpression::anchoredPattern(QLatin1String("^\\s*$")));
+    static QRegularExpression invalidString(QRegularExpression::anchoredPattern(QLatin1String("^\\s*$")));
 
     return (!str.isEmpty() && !invalidString.match(str).hasMatch());
 }
