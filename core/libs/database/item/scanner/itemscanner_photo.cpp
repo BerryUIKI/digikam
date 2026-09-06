@@ -437,14 +437,14 @@ void ItemScanner::scanTags()
 
         if (!keyword.isEmpty())
         {
-
             // _Digikam_root_tag_ is present in some photos tagged with older
             // version of digiKam, must be removed
 
-            if (keyword.contains(QRegularExpression(QLatin1String("(_Digikam_root_tag_/|/_Digikam_root_tag_|_Digikam_root_tag_)"))))
+            static QRegularExpression tagsRegEx(QLatin1String("(_Digikam_root_tag_/|/_Digikam_root_tag_|_Digikam_root_tag_)"));
+
+            if (keyword.contains(tagsRegEx))
             {
-                keyword = keyword.replace(QRegularExpression(QLatin1String("(_Digikam_root_tag_/|/_Digikam_root_tag_|_Digikam_root_tag_)")),
-                                          QLatin1String(""));
+                keyword = keyword.replace(tagsRegEx, QLatin1String(""));
             }
 
             d->commit.filteredKeywords.append(keyword);
