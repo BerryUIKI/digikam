@@ -758,12 +758,13 @@ bool ItemFilterSettings::matches(const ItemInfo& info, bool* const foundText) co
 
         if (m_textFilterSettings.textFields & SearchTextFilterSettings::ImageAspectRatio)
         {
-            QRegularExpression expRatio (QLatin1String("^\\d+:\\d+$"));
-            QRegularExpression expFloat (QLatin1String("^\\d+(.\\d+)?$"));
+            static QRegularExpression expRatio  (QLatin1String("^\\d+:\\d+$"));
+            static QRegularExpression expFloat  (QLatin1String("^\\d+(.\\d+)?$"));
+            static QRegularExpression expAspectR(QLatin1String(":\\d+"));
 
             if      (
                      m_textFilterSettings.text.contains(expRatio) &&
-                     m_textFilterSettings.text.contains(QRegularExpression(QLatin1String(":\\d+")))
+                     m_textFilterSettings.text.contains(expAspectR)
                     )
             {
                 QString trimmedTextFilterSettingsText = m_textFilterSettings.text;
@@ -774,7 +775,7 @@ bool ItemFilterSettings::matches(const ItemInfo& info, bool* const foundText) co
                 {
                     bool canConverseNum   = false;
                     bool canConverseDenom = false;
-                    int num               = numberStringList.at(0).toInt(&canConverseNum, 10);
+                    int num               = numberStringList.at(0).toInt(&canConverseNum,   10);
                     int denom             = numberStringList.at(1).toInt(&canConverseDenom, 10);
 
                     if (canConverseNum && canConverseDenom && num && denom && info.dimensions().isValid())
@@ -811,26 +812,30 @@ bool ItemFilterSettings::matches(const ItemInfo& info, bool* const foundText) co
 
         if (m_textFilterSettings.textFields & SearchTextFilterSettings::ImagePixelSize)
         {
+            static QRegularExpression expPixels(QLatin1String("^>\\d{1,15}$"));
+            static QRegularExpression expSizes (QLatin1String("^<\\d{1,15}$"));
+            static QRegularExpression expPSize (QLatin1String("^\\d+$"));
+
             QSize size    = info.dimensions();
             int pixelSize = size.height()*size.width();
             QString text  = m_textFilterSettings.text;
 
             if      (
-                     text.contains(QRegularExpression(QLatin1String("^>\\d{1,15}$"))) &&
+                     text.contains(expPixels) &&
                      (pixelSize > (text.remove(0, 1)).toInt())
                     )
             {
                 textMatch = !m_textFilterSettings.invert;
             }
             else if (
-                     text.contains(QRegularExpression(QLatin1String("^<\\d{1,15}$"))) &&
+                     text.contains(expSizes) &&
                      (pixelSize < (text.remove(0, 1)).toInt())
                     )
             {
                 textMatch = !m_textFilterSettings.invert;
             }
             else if (
-                     text.contains(QRegularExpression(QLatin1String("^\\d+$"))) &&
+                     text.contains(expPSize) &&
                      (pixelSize == text.toInt())
                     )
             {
