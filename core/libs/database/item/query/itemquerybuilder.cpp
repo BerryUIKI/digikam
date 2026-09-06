@@ -500,12 +500,13 @@ bool ItemQueryBuilder::buildField(QString& sql, SearchXmlCachingReader& reader, 
     {
         QString query;
         QString readerString = (reader.valueToStringOrStringList()).at(0);
+        static QRegularExpression readerRegEx(QLatin1String("^\\d+:\\d+$"));
 
-        if (readerString.contains(QRegularExpression(QLatin1String("^\\d+:\\d+$"))))
+        if (readerString.contains(readerRegEx))
         {
             QStringList ratioNum = readerString.split(QLatin1Char(':'), Qt::SkipEmptyParts);
             int num              = ratioNum.at(0).toInt();
-            int denominator = ratioNum.at(1).toInt();
+            int denominator      = ratioNum.at(1).toInt();
             query                = QString::fromUtf8("ABS((ImageInformation.width/CAST(ImageInformation.height AS DOUBLE)) - ?)  < 0.1");
             sql                 += QString::fromUtf8(" (") + query + QString::fromUtf8(") ");
             *boundValues << (double)num / denominator;

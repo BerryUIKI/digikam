@@ -87,8 +87,7 @@ QString HotPixelProps::toString() const
 
 bool HotPixelProps::fromString(const QString& str)
 {
-    QRegularExpression exp(QRegularExpression::anchoredPattern
-                              (QLatin1String("(\\d+)-(\\d+)x(\\d+)-(\\d+)x(\\d+)")));
+    static QRegularExpression exp(QRegularExpression::anchoredPattern(QLatin1String("(\\d+)-(\\d+)x(\\d+)-(\\d+)x(\\d+)")));
     QRegularExpressionMatch match = exp.match(str);
 
     if (match.hasMatch())
