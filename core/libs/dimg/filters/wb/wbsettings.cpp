@@ -89,14 +89,14 @@ public:
 
         if (preset == None)
         {
-            tempDesc.remove(QRegularExpression(QLatin1String("\\(.*\\)")));
+            static QRegularExpression wbRegEx(QLatin1String("\\(.*\\)"));
+            tempDesc.remove(wbRegEx);
         }
 
         return tempDesc;
     }
 
 public:
-
 
     const QString configDarkInputEntry              = QLatin1String("Dark");
     const QString configBlackInputEntry             = QLatin1String("Black");
