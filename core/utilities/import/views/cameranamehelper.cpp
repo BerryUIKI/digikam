@@ -24,23 +24,36 @@
 
 namespace
 {
-static const KLocalizedString STR_AUTO_DETECTED(ki18nc("in camera model string", "auto-detected"));
+    inline const KLocalizedString& STR_AUTO_DETECTED()
+    {
+        static const KLocalizedString str = ki18nc("in camera model string", "auto-detected");
+        return str;
+    }
 
-/*
- * The constructors used here are written after many experiments.
- * REGEXP_MODES expression was failing to give exact match results if the pattern option
- * InvertedGreedinessOption was set later in extractCameraNameToken function with QRegularExpression::setPatternOption()
- * Maybe a bug in Qt.
- * */
-static QRegularExpression REGEXP_CAMERA_NAME
-(
-    QRegularExpression::anchoredPattern(QLatin1String("(.*)\\s*\\((.*)\\)\\s*")),
-    QRegularExpression::InvertedGreedinessOption | QRegularExpression::CaseInsensitiveOption);
+    /**
+     * The constructors used here are written after many experiments.
+     * REGEXP_MODES expression was failing to give exact match results if the pattern option
+     * InvertedGreedinessOption was set later in extractCameraNameToken function with QRegularExpression::setPatternOption()
+     * Maybe a bug in Qt.
+     */
 
-static QRegularExpression REGEXP_MODES
-(
-    QRegularExpression::anchoredPattern(QLatin1String("(ptp|normal|mtp)(\\s+mode)?")),
-    QRegularExpression::InvertedGreedinessOption | QRegularExpression::CaseInsensitiveOption);
+    inline const QRegularExpression& REGEXP_CAMERA_NAME()
+    {
+        static const QRegularExpression regexp(
+            QRegularExpression::anchoredPattern(QLatin1String("(.*)\\s*\\((.*)\\)\\s*")),
+                                                QRegularExpression::InvertedGreedinessOption | QRegularExpression::CaseInsensitiveOption
+        );
+        return regexp;
+    }
+
+    inline const QRegularExpression& REGEXP_MODES()
+    {
+        static const QRegularExpression regexp(
+            QRegularExpression::anchoredPattern(QLatin1String("(ptp|normal|mtp)(\\s+mode)?")),
+                                                QRegularExpression::InvertedGreedinessOption | QRegularExpression::CaseInsensitiveOption
+        );
+        return regexp;
+    }
 }
 
 namespace Digikam
@@ -60,16 +73,16 @@ QString CameraNameHelper::createCameraName(const QString& vendor, const QString&
     QString _mode    = mode.simplified().remove(QLatin1Char('(')).remove(QLatin1Char(')'));
     tmp              = QString::fromUtf8("%1 %2").arg(_vendor).arg(_product);
 
-    if      (!mode.isEmpty() && mode != STR_AUTO_DETECTED.toString())
+    if      (!mode.isEmpty() && mode != STR_AUTO_DETECTED().toString())
     {
         tmp.append(QLatin1String(" ("));
         tmp.append(_mode);
-        tmp.append(autoDetected ? QString::fromUtf8(", %1)").arg(STR_AUTO_DETECTED.toString())
+        tmp.append(autoDetected ? QString::fromUtf8(", %1)").arg(STR_AUTO_DETECTED().toString())
                                 : QLatin1String(")"));
     }
     else if (autoDetected)
     {
-        tmp.append(QString::fromUtf8(" (%1)").arg(STR_AUTO_DETECTED.toString()));
+        tmp.append(QString::fromUtf8(" (%1)").arg(STR_AUTO_DETECTED().toString()));
     }
 
     return tmp.simplified();
@@ -106,10 +119,10 @@ QString CameraNameHelper::parseAndFormatCameraName(const QString& cameraName,
 
 QString CameraNameHelper::extractCameraNameToken(const QString& cameraName, Token tokenID)
 {
-    static QRegularExpression REGEXP_AUTODETECTED(QString::fromUtf8("(%1|, %1)").arg(STR_AUTO_DETECTED.toString()));
+    static QRegularExpression REGEXP_AUTODETECTED(QString::fromUtf8("(%1|, %1)").arg(STR_AUTO_DETECTED().toString()));
     REGEXP_AUTODETECTED.setPatternOptions(QRegularExpression::InvertedGreedinessOption);
 
-    QRegularExpressionMatch expMatch = REGEXP_CAMERA_NAME.match(cameraName.simplified());
+    QRegularExpressionMatch expMatch = REGEXP_CAMERA_NAME().match(cameraName.simplified());
 
     if (expMatch.hasMatch())
     {
@@ -125,8 +138,8 @@ QString CameraNameHelper::extractCameraNameToken(const QString& cameraName, Toke
         }
         else
         {
-            mode = REGEXP_MODES.match(clearedTmpMode).hasMatch() ? clearedTmpMode
-                                                           : QLatin1String("");
+            mode = REGEXP_MODES().match(clearedTmpMode).hasMatch() ? clearedTmpMode
+                                                                   : QLatin1String("");
         }
 
         if (tokenID == VendorAndProduct)
@@ -174,13 +187,13 @@ bool CameraNameHelper::sameDevices(const QString& deviceA, const QString& device
 
     QString modeA                 = extractCameraNameToken(deviceA, Mode);
     QString modeB                 = extractCameraNameToken(deviceB, Mode);
-    QRegularExpressionMatch match = REGEXP_MODES.match(modeA);
+    QRegularExpressionMatch match = REGEXP_MODES().match(modeA);
     bool isModeAValid             = match.hasMatch();
 
     modeA                         = isModeAValid ? match.captured(1).simplified().toLower()
                                                  : QLatin1String("");
 
-    match                         = REGEXP_MODES.match(modeB);
+    match                         = REGEXP_MODES().match(modeB);
     bool isModeBValid             = match.hasMatch();
 
     modeB                         = isModeBValid ? match.captured(1).simplified().toLower()
