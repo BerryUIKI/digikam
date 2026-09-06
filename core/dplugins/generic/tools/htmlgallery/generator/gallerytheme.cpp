@@ -46,24 +46,84 @@
 namespace DigikamGenericHtmlGalleryPlugin
 {
 
-static const QLatin1String AUTHOR_GROUP           ("X-HTMLGallery Author");
-static const QLatin1String PARAMETER_GROUP_PREFIX ("X-HTMLGallery Parameter ");
-static const QLatin1String PARAMETER_TYPE_KEY     ("Type");
-static const QLatin1String PREVIEW_GROUP          ("X-HTMLGallery Preview");
-static const QLatin1String OPTIONS_GROUP          ("X-HTMLGallery Options");
-static const QLatin1String CAPTION_PARAMETER_TYPE ("caption");
-static const QLatin1String STRING_PARAMETER_TYPE  ("string");
-static const QLatin1String LIST_PARAMETER_TYPE    ("list");
-static const QLatin1String COLOR_PARAMETER_TYPE   ("color");
-static const QLatin1String INT_PARAMETER_TYPE     ("int");
+namespace
+{
 
-static GalleryTheme::List sList;
+    inline const QLatin1String& AUTHOR_GROUP()
+    {
+        static const QLatin1String str("X-HTMLGallery Author");
+        return str;
+    }
+
+    inline const QLatin1String& PARAMETER_GROUP_PREFIX()
+    {
+        static const QLatin1String str("X-HTMLGallery Parameter ");
+        return str;
+    }
+
+    inline const QLatin1String& PARAMETER_TYPE_KEY()
+    {
+        static const QLatin1String str("Type");
+        return str;
+    }
+
+    inline const QLatin1String& PREVIEW_GROUP()
+    {
+        static const QLatin1String str("X-HTMLGallery Preview");
+        return str;
+    }
+
+    inline const QLatin1String& OPTIONS_GROUP()
+    {
+        static const QLatin1String str("X-HTMLGallery Options");
+        return str;
+    }
+
+    inline const QLatin1String& CAPTION_PARAMETER_TYPE()
+    {
+        static const QLatin1String str("caption");
+        return str;
+    }
+
+    inline const QLatin1String& STRING_PARAMETER_TYPE()
+    {
+        static const QLatin1String str("string");
+        return str;
+    }
+
+    inline const QLatin1String& LIST_PARAMETER_TYPE()
+    {
+        static const QLatin1String str("list");
+        return str;
+    }
+
+    inline const QLatin1String& COLOR_PARAMETER_TYPE()
+    {
+        static const QLatin1String str("color");
+        return str;
+    }
+
+    inline const QLatin1String& INT_PARAMETER_TYPE()
+    {
+        static const QLatin1String str("int");
+        return str;
+    }
+
+    inline GalleryTheme::List& THEMES_LIST()
+    {
+        static GalleryTheme::List list;
+        return list;
+    }
+
+} // namespace
 
 class Q_DECL_HIDDEN GalleryTheme::Private
 {
 public:
 
     Private() = default;
+
+public:
 
     KDesktopFile* desktopFile = nullptr;
     QUrl          url;
@@ -97,7 +157,7 @@ public:
 
 #endif
 
-        QString prefix = QLatin1String("[") + QLatin1String(PARAMETER_GROUP_PREFIX);
+        QString prefix = QLatin1String("[") + QLatin1String(PARAMETER_GROUP_PREFIX());
 
         while (!stream.atEnd())
         {
@@ -143,29 +203,29 @@ public:
 
         for ( ; it != end ; ++it)
         {
-            QString groupName                 = QLatin1String(PARAMETER_GROUP_PREFIX) + *it;
+            QString groupName                 = QLatin1String(PARAMETER_GROUP_PREFIX()) + *it;
             QByteArray internalName           = it->toUtf8();
             KConfigGroup group                = desktopFile->group(groupName);
-            QString type                      = group.readEntry(PARAMETER_TYPE_KEY);
+            QString type                      = group.readEntry(PARAMETER_TYPE_KEY());
             AbstractThemeParameter* parameter = nullptr;
 
-            if      (type == QLatin1String(STRING_PARAMETER_TYPE))
+            if      (type == QLatin1String(STRING_PARAMETER_TYPE()))
             {
                 parameter = new StringThemeParameter();
             }
-            else if (type == QLatin1String(CAPTION_PARAMETER_TYPE))
+            else if (type == QLatin1String(CAPTION_PARAMETER_TYPE()))
             {
                 parameter = new CaptionThemeParameter();
             }
-            else if (type == QLatin1String(LIST_PARAMETER_TYPE))
+            else if (type == QLatin1String(LIST_PARAMETER_TYPE()))
             {
                 parameter = new ListThemeParameter();
             }
-            else if (type == QLatin1String(COLOR_PARAMETER_TYPE))
+            else if (type == QLatin1String(COLOR_PARAMETER_TYPE()))
             {
                 parameter = new ColorThemeParameter();
             }
-            else if (type == QLatin1String(INT_PARAMETER_TYPE))
+            else if (type == QLatin1String(INT_PARAMETER_TYPE()))
             {
                 parameter = new IntThemeParameter();
             }
@@ -196,7 +256,7 @@ GalleryTheme::~GalleryTheme()
 
 const GalleryTheme::List& GalleryTheme::getList()
 {
-    if (sList.isEmpty())
+    if (THEMES_LIST().isEmpty())
     {
         QStringList list;
         QStringList internalNameList;
@@ -231,15 +291,15 @@ const GalleryTheme::List& GalleryTheme::getList()
 
             if (!internalNameList.contains(intName))
             {
-                sList << theme;
+                THEMES_LIST() << theme;
                 internalNameList << intName;
             }
         }
     }
 
-    qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "HTML Gallery Themes found:" << sList.size();
+    qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "HTML Gallery Themes found:" << THEMES_LIST().size();
 
-    return sList;
+    return THEMES_LIST();
 }
 
 GalleryTheme::Ptr GalleryTheme::findByInternalName(const QString& internalName)
@@ -283,27 +343,27 @@ QString GalleryTheme::directory() const
 
 QString GalleryTheme::authorName() const
 {
-    return d->desktopFile->group(AUTHOR_GROUP).readEntry("Name");
+    return d->desktopFile->group(AUTHOR_GROUP()).readEntry("Name");
 }
 
 QString GalleryTheme::authorUrl() const
 {
-    return d->desktopFile->group(AUTHOR_GROUP).readEntry("Url");
+    return d->desktopFile->group(AUTHOR_GROUP()).readEntry("Url");
 }
 
 QString GalleryTheme::previewName() const
 {
-    return d->desktopFile->group(PREVIEW_GROUP).readEntry("Name");
+    return d->desktopFile->group(PREVIEW_GROUP()).readEntry("Name");
 }
 
 QString GalleryTheme::previewUrl() const
 {
-    return d->desktopFile->group(PREVIEW_GROUP).readEntry("Url");
+    return d->desktopFile->group(PREVIEW_GROUP()).readEntry("Url");
 }
 
 bool GalleryTheme::allowNonsquareThumbnails() const
 {
-    return d->desktopFile->group(OPTIONS_GROUP).readEntry("Allow-non-square-thumbnails", false);
+    return d->desktopFile->group(OPTIONS_GROUP()).readEntry("Allow-non-square-thumbnails", false);
 }
 
 GalleryTheme::ParameterList GalleryTheme::parameterList() const

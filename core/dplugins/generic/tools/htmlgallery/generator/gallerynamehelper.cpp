@@ -22,7 +22,16 @@
 namespace DigikamGenericHtmlGalleryPlugin
 {
 
-static QMutex s_nameHelperMutex;
+namespace
+{
+
+    inline QMutex& s_nameHelperMutex()
+    {
+        static QMutex mutex;
+        return mutex;
+    }
+
+} // namespace
 
 QString GalleryNameHelper::makeNameUnique(const QString& name)
 {
@@ -30,7 +39,7 @@ QString GalleryNameHelper::makeNameUnique(const QString& name)
     QString nameBase = name;
     int count        = 2;
 
-    QMutexLocker locker(&s_nameHelperMutex);
+    QMutexLocker locker(&s_nameHelperMutex());
 
     while (m_list.indexOf(uname) != -1)
     {
