@@ -134,8 +134,8 @@ CameraController::CameraController(QWidget* const parent,
         if (xport.startsWith(QLatin1String("usb:")))
         {
             qCDebug(DIGIKAM_IMPORTUI_LOG) << "xport " << xport;
-            QRegularExpression x(QLatin1String("(usb:[0-9,]*)"));
-            QRegularExpressionMatch match = x.match(xport);
+            static QRegularExpression usbRegEx(QLatin1String("(usb:[0-9,]*)"));
+            QRegularExpressionMatch match = usbRegEx.match(xport);
 
             if (match.hasMatch())
             {
