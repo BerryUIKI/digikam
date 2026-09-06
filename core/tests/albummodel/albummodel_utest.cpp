@@ -473,8 +473,9 @@ void AlbumModelTest::testDisablePAlbumCount()
     albumModel.setCountHash(palbumCountHash);
     albumModel.setShowCount(true);
 
-    QRegularExpression countRegEx(QRegularExpression::anchoredPattern(QLatin1String(".+ \\(\\d+\\)")));
+    static QRegularExpression countRegEx(QRegularExpression::anchoredPattern(QLatin1String(".+ \\(\\d+\\)")));
     countRegEx.setPatternOptions(QRegularExpression::InvertedGreedinessOption);
+
     QVERIFY(countRegEx.match(QLatin1String("test (10)")).hasMatch());
     QVERIFY(countRegEx.match(QLatin1String("te st (10)")).hasMatch());          // codespell:ignore te
     QVERIFY(countRegEx.match(QLatin1String("te st (0)")).hasMatch());           // codespell:ignore te
@@ -486,18 +487,21 @@ void AlbumModelTest::testDisablePAlbumCount()
 
     QModelIndex rootIndex = albumModel.index(0, 0, QModelIndex());
     QString rootTitle     = albumModel.data(rootIndex, Qt::DisplayRole).toString();
+
     QVERIFY(!countRegEx.match(rootTitle).hasMatch());
 
     for (int collectionRow = 0 ; collectionRow < albumModel.rowCount(rootIndex) ; ++collectionRow)
     {
         QModelIndex collectionIndex = albumModel.index(collectionRow, 0, rootIndex);
         QString collectionTitle = albumModel.data(collectionIndex, Qt::DisplayRole).toString();
+
         QVERIFY2(countRegEx.match(collectionTitle).hasMatch(), QString::fromUtf8("%1 matching error").arg(collectionTitle).toLatin1().constData());
 
         for (int albumRow = 0 ; albumRow < albumModel.rowCount(collectionIndex) ; ++albumRow)
         {
             QModelIndex albumIndex = albumModel.index(albumRow, 0, collectionIndex);
             QString albumTitle     = albumModel.data(albumIndex, Qt::DisplayRole).toString();
+
             QVERIFY2(countRegEx.match(albumTitle).hasMatch(), QString::fromUtf8("%1 matching error").arg(albumTitle).toLatin1().constData());
         }
 
@@ -510,18 +514,21 @@ void AlbumModelTest::testDisablePAlbumCount()
     // ensure that no album has a count attached
 
     rootTitle = albumModel.data(rootIndex, Qt::DisplayRole).toString();
+
     QVERIFY(!countRegEx.match(rootTitle).hasMatch());
 
     for (int collectionRow = 0 ; collectionRow < albumModel.rowCount(rootIndex) ; ++collectionRow)
     {
         QModelIndex collectionIndex = albumModel.index(collectionRow, 0, rootIndex);
         QString collectionTitle     = albumModel.data(collectionIndex, Qt::DisplayRole).toString();
+
         QVERIFY2(!countRegEx.match(collectionTitle).hasMatch(), QString::fromUtf8("%1 matching error").arg(collectionTitle).toLatin1().constData());
 
         for (int albumRow = 0 ; albumRow < albumModel.rowCount(collectionIndex) ; ++albumRow)
         {
             QModelIndex albumIndex = albumModel.index(albumRow, 0, collectionIndex);
             QString albumTitle     = albumModel.data(albumIndex, Qt::DisplayRole).toString();
+
             QVERIFY2(!countRegEx.match(albumTitle).hasMatch(), QString::fromUtf8("%1 matching error").arg(albumTitle).toLatin1().constData());
         }
     }
