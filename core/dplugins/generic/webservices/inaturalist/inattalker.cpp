@@ -78,36 +78,186 @@ enum
 /**
  * Fields in server responses received from iNaturalist.
  */
-static const QString API_TOKEN              = QLatin1String("api_token");
-static const QString TOTAL_RESULTS          = QLatin1String("total_results");
-static const QString PAGE                   = QLatin1String("page");
-static const QString PER_PAGE               = QLatin1String("per_page");
-static const QString LOCALE                 = QLatin1String("locale");
-static const QString RESULTS                = QLatin1String("results");
-static const QString NAME                   = QLatin1String("name");
-static const QString TAXON                  = QLatin1String("taxon");
-static const QString TAXON_ID               = QLatin1String("taxon_id");
-static const QString ID                     = QLatin1String("id");
-static const QString PARENT_ID              = QLatin1String("parent_id");
-static const QString RANK                   = QLatin1String("rank");
-static const QString RANK_LEVEL             = QLatin1String("rank_level");
-static const QString PREFERRED_COMMON_NAME  = QLatin1String("preferred_common_name");
-static const QString ENGLISH_COMMON_NAME    = QLatin1String("english_common_name");
-static const QString MATCHED_TERM           = QLatin1String("matched_term");
-static const QString DEFAULT_PHOTO          = QLatin1String("default_photo");
-static const QString SQUARE_URL             = QLatin1String("square_url");
-static const QString ANCESTORS              = QLatin1String("taxon_photos");
-static const QString OBSCURED               = QLatin1String("obscured");
-static const QString GEOJSON                = QLatin1String("geojson");
-static const QString COORDINATES            = QLatin1String("coordinates");
-static const QString LOGIN                  = QLatin1String("login");
-static const QString ICON                   = QLatin1String("icon");
-static const QString OBSERVATION            = QLatin1String("observation");
-static const QString OBSERVATIONS           = QLatin1String("observations");
-static const QString OBSERVED_ON            = QLatin1String("observed_on");
-static const QString OBSERVED_ON_STRING     = QLatin1String("observed_on_string");
-static const QString OBSERVATION_PHOTOS     = QLatin1String("observation_photos");
-static const QString PHOTO                  = QLatin1String("photo");
+
+inline const QString& API_TOKEN()
+{
+    static const QString token = QLatin1String("api_token");
+    return token;
+}
+
+inline const QString& TOTAL_RESULTS()
+{
+    static const QString totalResults = QLatin1String("total_results");
+    return totalResults;
+}
+
+inline const QString& PAGE()
+{
+    static const QString page = QLatin1String("page");
+    return page;
+}
+
+inline const QString& PER_PAGE()
+{
+    static const QString perPage = QLatin1String("per_page");
+    return perPage;
+}
+
+inline const QString& LOCALE()
+{
+    static const QString locale = QLatin1String("locale");
+    return locale;
+}
+
+inline const QString& RESULTS()
+{
+    static const QString results = QLatin1String("results");
+    return results;
+}
+
+inline const QString& NAME()
+{
+    static const QString name = QLatin1String("name");
+    return name;
+}
+
+inline const QString& TAXON()
+{
+    static const QString taxon = QLatin1String("taxon");
+    return taxon;
+}
+
+inline const QString& TAXON_ID()
+{
+    static const QString taxonId = QLatin1String("taxon_id");
+    return taxonId;
+}
+
+inline const QString& ID()
+{
+    static const QString id = QLatin1String("id");
+    return id;
+}
+
+inline const QString& PARENT_ID()
+{
+    static const QString parentId = QLatin1String("parent_id");
+    return parentId;
+}
+
+inline const QString& RANK()
+{
+    static const QString rank = QLatin1String("rank");
+    return rank;
+}
+
+inline const QString& RANK_LEVEL()
+{
+    static const QString rankLevel = QLatin1String("rank_level");
+    return rankLevel;
+}
+
+inline const QString& PREFERRED_COMMON_NAME()
+{
+    static const QString preferredCommonName = QLatin1String("preferred_common_name");
+    return preferredCommonName;
+}
+
+inline const QString& ENGLISH_COMMON_NAME()
+{
+    static const QString englishCommonName = QLatin1String("english_common_name");
+    return englishCommonName;
+}
+
+inline const QString& MATCHED_TERM()
+{
+    static const QString matchedTerm = QLatin1String("matched_term");
+    return matchedTerm;
+}
+
+inline const QString& DEFAULT_PHOTO()
+{
+    static const QString defaultPhoto = QLatin1String("default_photo");
+    return defaultPhoto;
+}
+
+inline const QString& SQUARE_URL()
+{
+    static const QString squareUrl = QLatin1String("square_url");
+    return squareUrl;
+}
+
+inline const QString& ANCESTORS()
+{
+    static const QString ancestors = QLatin1String("taxon_photos");
+    return ancestors;
+}
+
+inline const QString& OBSCURED()
+{
+    static const QString obscured = QLatin1String("obscured");
+    return obscured;
+}
+
+inline const QString& GEOJSON()
+{
+    static const QString geojson = QLatin1String("geojson");
+    return geojson;
+}
+
+inline const QString& COORDINATES()
+{
+    static const QString coordinates = QLatin1String("coordinates");
+    return coordinates;
+}
+
+inline const QString& LOGIN()
+{
+    static const QString login = QLatin1String("login");
+    return login;
+}
+
+inline const QString& ICON()
+{
+    static const QString icon = QLatin1String("icon");
+    return icon;
+}
+
+inline const QString& OBSERVATION()
+{
+    static const QString observation = QLatin1String("observation");
+    return observation;
+}
+
+inline const QString& OBSERVATIONS()
+{
+    static const QString observations = QLatin1String("observations");
+    return observations;
+}
+
+inline const QString& OBSERVED_ON()
+{
+    static const QString observedOn = QLatin1String("observed_on");
+    return observedOn;
+}
+
+inline const QString& OBSERVED_ON_STRING()
+{
+    static const QString observedOnString = QLatin1String("observed_on_string");
+    return observedOnString;
+}
+
+inline const QString& OBSERVATION_PHOTOS()
+{
+    static const QString observationPhotos = QLatin1String("observation_photos");
+    return observationPhotos;
+}
+
+inline const QString& PHOTO()
+{
+    static const QString photo = QLatin1String("photo");
+    return photo;
+}
 
 static QJsonObject parseJsonResponse(const QByteArray& data)
 {
@@ -144,55 +294,55 @@ static Taxon parseTaxon(const QJsonObject& taxon)
     QUrl squareUrl;
     QList<Taxon> ancestors;
 
-    if (taxon.contains(NAME))
+    if (taxon.contains(NAME()))
     {
-        name = taxon[NAME].toString();
+        name = taxon[NAME()].toString();
     }
 
-    if (taxon.contains(ID))
+    if (taxon.contains(ID()))
     {
-        id = taxon[ID].toInt();
+        id = taxon[ID()].toInt();
     }
 
-    if (taxon.contains(PARENT_ID))
+    if (taxon.contains(PARENT_ID()))
     {
-        parentId = taxon[PARENT_ID].toInt();
+        parentId = taxon[PARENT_ID()].toInt();
     }
 
-    if (taxon.contains(RANK))
+    if (taxon.contains(RANK()))
     {
-        rank = taxon[RANK].toString();
+        rank = taxon[RANK()].toString();
     }
 
-    if (taxon.contains(RANK_LEVEL))
+    if (taxon.contains(RANK_LEVEL()))
     {
-        rankLevel = taxon[RANK_LEVEL].toDouble();
+        rankLevel = taxon[RANK_LEVEL()].toDouble();
     }
 
-    if      (taxon.contains(PREFERRED_COMMON_NAME))
+    if      (taxon.contains(PREFERRED_COMMON_NAME()))
     {
-        commonName = taxon[PREFERRED_COMMON_NAME].toString();
+        commonName = taxon[PREFERRED_COMMON_NAME()].toString();
     }
-    else if (isEnglish && taxon.contains(ENGLISH_COMMON_NAME))
+    else if (isEnglish && taxon.contains(ENGLISH_COMMON_NAME()))
     {
-        commonName = taxon[ENGLISH_COMMON_NAME].toString();
-    }
-
-    if (taxon.contains(MATCHED_TERM))
-    {
-        matchedTerm = taxon[MATCHED_TERM].toString();
+        commonName = taxon[ENGLISH_COMMON_NAME()].toString();
     }
 
-    if (taxon.contains(DEFAULT_PHOTO) &&
-        taxon[DEFAULT_PHOTO].toObject().contains(SQUARE_URL))
+    if (taxon.contains(MATCHED_TERM()))
     {
-        squareUrl = QUrl(taxon[DEFAULT_PHOTO].toObject()
-                         .value(SQUARE_URL).toString());
+        matchedTerm = taxon[MATCHED_TERM()].toString();
     }
 
-    if (taxon.contains(ANCESTORS))
+    if (taxon.contains(DEFAULT_PHOTO()) &&
+        taxon[DEFAULT_PHOTO()].toObject().contains(SQUARE_URL()))
     {
-        const auto array = taxon[ANCESTORS].toArray();
+        squareUrl = QUrl(taxon[DEFAULT_PHOTO()].toObject()
+                         .value(SQUARE_URL()).toString());
+    }
+
+    if (taxon.contains(ANCESTORS()))
+    {
+        const auto array = taxon[ANCESTORS()].toArray();
 
         for (const auto& ancestorTaxon : array)
         {
@@ -288,18 +438,22 @@ public:
     const QString                     apiUrl            = QLatin1String("https://api.inaturalist.org/v1/");
 
     /// keys used in O0SettingsStore
+
     const QString                     keyToken          = QString(QLatin1String(O2_KEY_TOKEN)).arg(cryptId);
     const QString                     keyExpires        = QString(QLatin1String(O2_KEY_EXPIRES)).arg(cryptId);
     const QString                     keyCookies        = QString(QLatin1String("cookies.%1")).arg(cryptId);
 
     /// the api token and its expiration time in seconds since January 1st, 1970
+
     QString                           apiToken;
     uint                              apiTokenExpires   = 0;
 
     /// this hash table allows us to serve multiple requests concurrently
+
     QHash<QNetworkReply*, Request*>   pendingRequests;
 
     /// cached api call results
+
     QHash<QString, AutoCompletions>   cachedAutoCompletions;
     QHash<QUrl, QByteArray>           cachedLoadUrls;
     QHash<QString, ImageScores>       cachedImageScores;
@@ -481,14 +635,14 @@ public:
     {
         QJsonObject json = parseJsonResponse(data);
 
-        if (json.contains(RESULTS) && (json[RESULTS].toArray().count() == 1))
+        if (json.contains(RESULTS()) && (json[RESULTS()].toArray().count() == 1))
         {
-            QJsonObject result = json[RESULTS].toArray()[0].toObject();
-            QString username(result[LOGIN].toString());
+            QJsonObject result = json[RESULTS()].toArray()[0].toObject();
+            QString username(result[LOGIN()].toString());
 
             Q_EMIT talker.signalLinkingSucceeded(username,
-                                               result[NAME].toString(),
-                                               QUrl(result[ICON].toString()));
+                                               result[NAME()].toString(),
+                                               QUrl(result[ICON()].toString()));
 
             talker.d->store->setGroupKey(talker.d->serviceName + username);
 
@@ -694,9 +848,9 @@ public:
     {
         QJsonObject json = parseJsonResponse(data);
 
-        if (json.contains(RESULTS))
+        if (json.contains(RESULTS()))
         {
-            QJsonArray results = json[RESULTS].toArray();
+            QJsonArray results = json[RESULTS()].toArray();
             QList<Taxon> taxa;
 
             for (const auto& result : std::as_const(results))
@@ -739,8 +893,8 @@ void INatTalker::taxonAutoCompletions(const QString& partialName)
     QUrlQuery query;
     query.addQueryItem(QLatin1String("q"),         partialName);
     query.addQueryItem(QLatin1String("is_active"), QLatin1String("true"));
-    query.addQueryItem(PER_PAGE,                   QString::number(12));
-    query.addQueryItem(LOCALE,                     locale.name());
+    query.addQueryItem(PER_PAGE(),                 QString::number(12));
+    query.addQueryItem(LOCALE(),                   locale.name());
     url.setQuery(query.query());
 
     QNetworkRequest netRequest(url);
@@ -775,11 +929,11 @@ public:
     {
         QJsonObject json = parseJsonResponse(data);
 
-        if (json.contains(RESULTS))
+        if (json.contains(RESULTS()))
         {
             static const QString BBOX_AREA    = QLatin1String("bbox_area");
             static const QString DISPLAY_NAME = QLatin1String("display_name");
-            QJsonObject results               = json[RESULTS].toObject();
+            QJsonObject results               = json[RESULTS()].toObject();
             QList<Place> places;
             const auto keys                   = results.keys();
 
@@ -862,7 +1016,7 @@ void INatTalker::nearbyPlaces(double latitude, double longitude)
     query.addQueryItem(QLatin1String("nelng"), lng);
     query.addQueryItem(QLatin1String("swlat"), lat);
     query.addQueryItem(QLatin1String("swlng"), lng);
-    query.addQueryItem(PER_PAGE, QString::number(100));
+    query.addQueryItem(PER_PAGE(), QString::number(100));
     url.setQuery(query.query());
 
     if (d->cachedNearbyPlaces.contains(query.query()))
@@ -911,10 +1065,10 @@ public:
     {
         QJsonObject json = parseJsonResponse(data);
 
-        if (json.contains(TOTAL_RESULTS))
+        if (json.contains(TOTAL_RESULTS()))
         {
             static const double MAX_DISTANGE_KM = (int)EARTH_RADIUS_KM * M_PI;
-            int total_results                   = json[TOTAL_RESULTS].toInt();
+            int total_results                   = json[TOTAL_RESULTS()].toInt();
 
             if (total_results == 0)
             {
@@ -962,23 +1116,23 @@ public:
                     m_longitude
                 );
 
-                const auto results = json[RESULTS].toArray();
+                const auto results = json[RESULTS()].toArray();
 
                 for (const auto& resultValue : results)
                 {
                     QJsonObject result = resultValue.toObject();
 
-                    if (!result.contains(GEOJSON))
+                    if (!result.contains(GEOJSON()))
                     {
                         continue;
                     }
 
-                    int observationId     = result[ID].toInt();
-                    QJsonArray coordinates(result[GEOJSON].toObject()
-                                           .value(COORDINATES).toArray());
+                    int observationId     = result[ID()].toInt();
+                    QJsonArray coordinates(result[GEOJSON()].toObject()
+                                           .value(COORDINATES()).toArray());
                     double latitude       = coordinates[1].toDouble();
                     double longitude      = coordinates[0].toDouble();
-                    bool obscured         = result[OBSCURED].toBool();
+                    bool obscured         = result[OBSCURED()].toBool();
                     double distanceMeters = distanceBetween(m_latitude,
                                                             m_longitude,
                                                             latitude,
@@ -1056,11 +1210,11 @@ void INatTalker::closestObservation(uint taxon, double latitude,
                                      << taxon << "to" << latitude << longitude
                                      << "with radius" << radiusKm << "km.";
 
-    QUrl url(d->apiUrl + OBSERVATIONS);
+    QUrl url(d->apiUrl + OBSERVATIONS());
 
     QUrlQuery query;
     query.addQueryItem(QLatin1String("geo"), QLatin1String("true"));
-    query.addQueryItem(TAXON_ID, QString::number(taxon));
+    query.addQueryItem(TAXON_ID(), QString::number(taxon));
     query.addQueryItem(QLatin1String("lat"), QString::number(latitude, 'f',
                        GEOLOCATION_PRECISION));
     query.addQueryItem(QLatin1String("lng"), QString::number(longitude, 'f',
@@ -1069,8 +1223,8 @@ void INatTalker::closestObservation(uint taxon, double latitude,
                        RADIUS_PRECISION));
     query.addQueryItem(QLatin1String("quality_grade"),
                        QLatin1String("research"));
-    query.addQueryItem(LOCALE, locale.name());
-    query.addQueryItem(PER_PAGE, QString::number(100));
+    query.addQueryItem(LOCALE(), locale.name());
+    query.addQueryItem(PER_PAGE(), QString::number(100));
     url.setQuery(query.query());
 
     if (d->cachedNearbyObservations.contains(query.query()))
@@ -1145,9 +1299,9 @@ public:
             combined_score = json[COMBINED_SCORE].toDouble();
         }
 
-        if (json.contains(TAXON))
+        if (json.contains(TAXON()))
         {
-            taxon = parseTaxon(json[TAXON].toObject());
+            taxon = parseTaxon(json[TAXON()].toObject());
         }
 
         scores << ComputerVisionScore(frequency_score, vision_score,
@@ -1170,9 +1324,9 @@ public:
             parseScore(json[COMMON_ANCESTOR].toObject(), scores);
         }
 
-        if (json.contains(RESULTS))
+        if (json.contains(RESULTS()))
         {
-            const auto array = json[RESULTS].toArray();
+            const auto array = json[RESULTS()].toArray();
 
             for (const auto& result : array)
             {
@@ -1182,6 +1336,7 @@ public:
 
         ImageScores result(m_imagePath, scores);
         talker.d->cachedImageScores.insert(m_imagePath, result);
+
         Q_EMIT talker.signalComputerVisionResults(result);
     }
 
@@ -1261,11 +1416,11 @@ void INatTalker::computerVision(const QUrl& localImage)
 
     if (dateTime.isValid())
     {
-        parameters << Parameter(OBSERVED_ON,
+        parameters << Parameter(OBSERVED_ON(),
                                 dateTime.date().toString(Qt::ISODate));
     }
 
-    parameters << Parameter(LOCALE, locale.name());
+    parameters << Parameter(LOCALE(), locale.name());
 
     QHttpMultiPart* const multiPart = getMultiPart(parameters,
                                                    QLatin1String("image"),
@@ -1309,11 +1464,11 @@ public:
                                    const INatTalker::PhotoUploadRequest& req,
                                    const QString& observed_on,
                                    int taxon_id, int retries)
-      : m_parameters(params),
+      : m_parameters   (params),
         m_uploadRequest(req),
-        m_observed_on(observed_on),
-        m_taxon_id(taxon_id),
-        m_retries(retries)
+        m_observed_on  (observed_on),
+        m_taxon_id     (taxon_id),
+        m_retries      (retries)
     {
     }
 
@@ -1347,15 +1502,15 @@ public:
         int         observationId = -1;
 
         if (
-            json.contains(TOTAL_RESULTS) &&
-            json.contains(PER_PAGE)      &&
-            json.contains(RESULTS)       &&
-            json.contains(PAGE)
+            json.contains(TOTAL_RESULTS()) &&
+            json.contains(PER_PAGE())      &&
+            json.contains(RESULTS())       &&
+            json.contains(PAGE())
            )
         {
-            int        totalResults = json[TOTAL_RESULTS].toInt();
-            int        perPage      = json[PER_PAGE].toInt();
-            QJsonArray results      = json[RESULTS].toArray();
+            int        totalResults = json[TOTAL_RESULTS()].toInt();
+            int        perPage      = json[PER_PAGE()].toInt();
+            QJsonArray results      = json[RESULTS()].toArray();
 
             qCDebug(DIGIKAM_WEBSERVICES_LOG) << "Observation check:" << results.count()
                                              << "results of" << totalResults
@@ -1366,13 +1521,13 @@ public:
                 QJsonObject result = results[i].toObject();
 
                 if (
-                    result.contains(OBSERVED_ON_STRING)                      &&
-                    result.contains(TAXON)                                   &&
-                    (result[OBSERVED_ON_STRING].toString() == m_observed_on) &&
-                    (result[TAXON].toObject().value(ID).toInt()  == m_taxon_id)
+                    result.contains(OBSERVED_ON_STRING())                      &&
+                    result.contains(TAXON())                                   &&
+                    (result[OBSERVED_ON_STRING()].toString() == m_observed_on) &&
+                    (result[TAXON()].toObject().value(ID()).toInt()  == m_taxon_id)
                    )
                 {
-                    observationId = result[ID].toInt();
+                    observationId = result[ID()].toInt();
                     break;
                 }
             }
@@ -1382,7 +1537,7 @@ public:
             if ((observationId < 0) && (results.count() >= perPage))
             {
                 talker.verifyCreateObservation(m_parameters, m_uploadRequest,
-                                               json[PAGE].toInt()+1, m_retries);
+                                               json[PAGE()].toInt()+1, m_retries);
                 return;
             }
         }
@@ -1430,30 +1585,30 @@ void INatTalker::verifyCreateObservation(const QByteArray& parameters,
 {
     QJsonObject json = parseJsonResponse(parameters);
 
-    QUrl url(d->apiUrl + OBSERVATIONS);
+    QUrl url(d->apiUrl + OBSERVATIONS());
     QUrlQuery query;
     query.addQueryItem(QLatin1String("user_login"), photoUpload.m_user);
     query.addQueryItem(QLatin1String("photos"), QLatin1String("false"));
-    query.addQueryItem(PER_PAGE, QString::number(200));
-    query.addQueryItem(PAGE, QString::number(page));
+    query.addQueryItem(PER_PAGE(), QString::number(200));
+    query.addQueryItem(PAGE(), QString::number(page));
 
     int     taxon_id = 0;
     QString observed_on;
 
-    if (json.contains(OBSERVATION))
+    if (json.contains(OBSERVATION()))
     {
-        QJsonObject params = json[OBSERVATION].toObject();
+        QJsonObject params = json[OBSERVATION()].toObject();
 
-        if (params.contains(OBSERVED_ON_STRING))
+        if (params.contains(OBSERVED_ON_STRING()))
         {
-            observed_on = params[OBSERVED_ON_STRING].toString();
-            query.addQueryItem(OBSERVED_ON, observed_on.left(10));
+            observed_on = params[OBSERVED_ON_STRING()].toString();
+            query.addQueryItem(OBSERVED_ON(), observed_on.left(10));
         }
 
-        if (params.contains(TAXON_ID))
+        if (params.contains(TAXON_ID()))
         {
-            taxon_id = params[TAXON_ID].toInt();
-            query.addQueryItem(TAXON_ID, QString::number(taxon_id));
+            taxon_id = params[TAXON_ID()].toInt();
+            query.addQueryItem(TAXON_ID(), QString::number(taxon_id));
         }
     }
 
@@ -1482,7 +1637,7 @@ public:
 
     CreateObservationRequest(const QByteArray& params,
                              const INatTalker::PhotoUploadRequest& req)
-        : m_parameters(params),
+        : m_parameters   (params),
           m_uploadRequest(req)
     {
     }
@@ -1514,10 +1669,10 @@ public:
 
         QJsonObject json = parseJsonResponse(data);
 
-        if (json.contains(ID))
+        if (json.contains(ID()))
         {
             INatTalker::PhotoUploadRequest request(m_uploadRequest);
-            request.m_observationId = json[ID].toInt();
+            request.m_observationId = json[ID()].toInt();
 
             Q_EMIT talker.signalObservationCreated(request);
         }
@@ -1536,7 +1691,7 @@ private:
 void INatTalker::createObservation(const QByteArray& parameters,
                                    const PhotoUploadRequest& photoUpload)
 {
-    QUrl url(d->apiUrl + OBSERVATIONS);
+    QUrl url(d->apiUrl + OBSERVATIONS());
 
     QNetworkRequest netRequest(url);
     netRequest.setHeader(QNetworkRequest::ContentTypeHeader,
@@ -1594,23 +1749,23 @@ public:
         int lastPhotoId            = -1;
 
         if (
-            json.contains(TOTAL_RESULTS)     &&
-            json.contains(RESULTS)           &&
-            (json[TOTAL_RESULTS].toInt() == 1)
+            json.contains(TOTAL_RESULTS())     &&
+            json.contains(RESULTS())           &&
+            (json[TOTAL_RESULTS()].toInt() == 1)
            )
         {
-            QJsonObject result = json[RESULTS].toArray()[0].toObject();
+            QJsonObject result = json[RESULTS()].toArray()[0].toObject();
 
-            if (result.contains(OBSERVATION_PHOTOS))
+            if (result.contains(OBSERVATION_PHOTOS()))
             {
-                noPhotos = result[OBSERVATION_PHOTOS].toArray().count();
+                noPhotos = result[OBSERVATION_PHOTOS()].toArray().count();
 
                 if (noPhotos >= 1)
                 {
-                    QJsonObject obsPhoto   = result[OBSERVATION_PHOTOS].
+                    QJsonObject obsPhoto   = result[OBSERVATION_PHOTOS()].
                                              toArray()[noPhotos-1].toObject();
-                    lastObservationPhotoId = obsPhoto[ID].toInt();
-                    lastPhotoId            = obsPhoto[PHOTO].toObject().value(ID).toInt();
+                    lastObservationPhotoId = obsPhoto[ID()].toInt();
+                    lastPhotoId            = obsPhoto[PHOTO()].toObject().value(ID()).toInt();
                 }
             }
 
@@ -1714,7 +1869,7 @@ public:
 
         if (json.contains(PHOTO_ID))
         {
-            INatTalker::PhotoUploadResult result(m_request, json[ID].toInt(),
+            INatTalker::PhotoUploadResult result(m_request, json[ID()].toInt(),
                                                  json[PHOTO_ID].toInt());
             Q_EMIT talker.signalPhotoUploaded(result);
         }
@@ -1781,7 +1936,7 @@ void INatTalker::uploadNextPhoto(const PhotoUploadRequest& request)
                                                     QFileInfo(path).fileName(),
                                                     tmpImage.isEmpty() ? path
                                                                        : tmpImage);
-    QUrl url(d->apiUrl + OBSERVATION_PHOTOS);
+    QUrl url(d->apiUrl + OBSERVATION_PHOTOS());
     QNetworkRequest netRequest(url);
     netRequest.setRawHeader("Authorization", request.m_apiKey.toLatin1());
     QNetworkReply* const reply = d->netMngr->post(netRequest, multiPart);
@@ -1809,7 +1964,7 @@ public:
                                             "error" << errorString
                                          << "after" << durationMilliSecs() << "msecs.";
 
-        if (networkErrorRetry(code) && m_retries < MAX_RETRIES)
+        if (networkErrorRetry(code) && (m_retries < MAX_RETRIES))
         {
             qCDebug(DIGIKAM_WEBSERVICES_LOG) << "Attempting to delete "
                                                 "observation" << m_observationId
