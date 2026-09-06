@@ -55,7 +55,7 @@ QString DefaultVersionNamingScheme::baseName(const QString& currentPath, const Q
 
     // DSC000636_v5-3.JPG: intermediate
 
-    QRegularExpression versionIntermediate(QRegularExpression::anchoredPattern(QLatin1String("(.+)_v(\\d+)-(\\d+)")));
+    static QRegularExpression versionIntermediate(QRegularExpression::anchoredPattern(QLatin1String("(.+)_v(\\d+)-(\\d+)")));
     QRegularExpressionMatch match = versionIntermediate.match(completeBaseName);
 
     if (match.hasMatch())
@@ -75,8 +75,9 @@ QString DefaultVersionNamingScheme::baseName(const QString& currentPath, const Q
 
     // DSC000636_v5.JPG: version
 
-    QRegularExpression version(QRegularExpression::anchoredPattern(QLatin1String("(.+)_v(\\d+)")));
+    static QRegularExpression version(QRegularExpression::anchoredPattern(QLatin1String("(.+)_v(\\d+)")));
     QRegularExpressionMatch versionMatch = version.match(completeBaseName);
+
     if (versionMatch.hasMatch())
     {
         if (counter)
