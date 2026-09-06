@@ -146,7 +146,7 @@ void QueryInfo::doWorkProcessReply()
         // Replace & in &amp;
 
         QString content = QString::fromUtf8(d->reply->readAll());
-        QRegularExpression regex(QStringLiteral("&(?!\\w+;)"));
+        static QRegularExpression regex(QStringLiteral("&(?!\\w+;)"));
         content.replace(regex, QStringLiteral("&amp;"));
         QXmlStreamReader reader(content);
         QVector<Protection> protect;
