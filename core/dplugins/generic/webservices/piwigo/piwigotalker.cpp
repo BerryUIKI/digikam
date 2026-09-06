@@ -508,7 +508,7 @@ void PiwigoTalker::parseResponseLogin(const QByteArray& data)
 void PiwigoTalker::parseResponseGetVersion(const QByteArray& data)
 {
     QXmlStreamReader ts(data);
-    QRegularExpression verrx(QRegularExpression::anchoredPattern(QLatin1String(".*?(\\d+)\\.(\\d+).*")));
+    static QRegularExpression verrx(QRegularExpression::anchoredPattern(QLatin1String(".*?(\\d+)\\.(\\d+).*")));
     verrx.setPatternOptions(QRegularExpression::DotMatchesEverythingOption);
 
     bool foundResponse = false;
@@ -667,7 +667,7 @@ void PiwigoTalker::parseResponseDoesPhotoExist(const QByteArray& data)
             // Originally, first versions of Piwigo 2.4.x returned an invalid XML as the element started with a digit
             // New versions are corrected (starting with _) : This code works with both versions
 
-            QRegularExpression md5rx(QRegularExpression::anchoredPattern(QLatin1String("_?([a-f0-9]+)>([0-9]+)</.+")));
+            static QRegularExpression md5rx(QRegularExpression::anchoredPattern(QLatin1String("_?([a-f0-9]+)>([0-9]+)</.+")));
             ts.readNext();
             QRegularExpressionMatch match = md5rx.match(QString::fromUtf8(data.mid(ts.characterOffset())));
 
