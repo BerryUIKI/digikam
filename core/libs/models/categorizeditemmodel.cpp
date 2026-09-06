@@ -66,9 +66,10 @@ DCategorizedSortFilterProxyModel* CategorizedItemModel::createFilterModel()
 
 static QString adjustedActionText(const QAction* const action)
 {
+    static QRegularExpression removeRegEx(QString::fromUtf8("[ \u00A0]?(\\.\\.\\.|…)$"));
     QString text = action->text();
     text.remove(QLatin1Char('&'));
-    text.remove(QRegularExpression(QString::fromUtf8("[ \u00A0]?(\\.\\.\\.|…)$")));
+    text.remove(removeRegEx);
     int slashPos = -1;
 
     while ((slashPos = text.indexOf(QLatin1Char('/'), slashPos + 1)) != -1)

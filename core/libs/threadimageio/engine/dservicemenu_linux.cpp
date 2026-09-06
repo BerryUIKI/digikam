@@ -441,7 +441,7 @@ QIcon DServiceMenu::getIconFromService(const DServiceInfo& sinfo)
 
 QStringList DServiceMenu::splitStringAtSpaces(const QString& string)
 {
-    QRegularExpression split(QLatin1String(" +(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"));
+    static QRegularExpression split(QLatin1String(" +(?=(?:[^\"]*\"[^\"]*\")*[^\"]*$)"));
 
     return (string.split(split, Qt::SkipEmptyParts));
 }
