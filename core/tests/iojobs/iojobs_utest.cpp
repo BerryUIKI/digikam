@@ -32,35 +32,79 @@
 
 using namespace Digikam;
 
-const QString testFileName   = QLatin1String("test.png");
-const QString filePath       = DTestDataDir::TestData(QString::fromUtf8("core/tests/iojobs"))
-                                   .root().path() + QLatin1Char('/') + testFileName;
-const QString srcFolderName  = QLatin1String("src");
-const QString dstFolderPath  = QLatin1String("dst");
-const QString testFolderName = QLatin1String("test");
-const QString testFilePath   = (QDir::currentPath() + QLatin1Char('/') + srcFolderName + QLatin1Char('/') + testFileName);
-const QString testFolderPath = (QDir::currentPath() + QLatin1Char('/') + srcFolderName + QLatin1Char('/') + testFolderName + QLatin1Char('/'));
-const QString destPath       = (QDir::currentPath() + QLatin1Char('/') + dstFolderPath + QLatin1Char('/'));
+namespace
+{
+
+    inline const QString& testFileName()
+    {
+        static const QString name = QLatin1String("test.png");
+        return name;
+    }
+
+    inline const QString& filePath()
+    {
+        static const QString path = DTestDataDir::TestData(QString::fromUtf8("core/tests/iojobs"))
+                                                           .root().path() + QLatin1Char('/') + testFileName();
+        return path;
+    }
+
+    inline const QString& srcFolderName()
+    {
+        static const QString name = QLatin1String("src");
+        return name;
+    }
+
+    inline const QString& dstFolderPath()
+    {
+        static const QString path = QLatin1String("dst");
+        return path;
+    }
+
+    inline const QString& testFolderName()
+    {
+        static const QString name = QLatin1String("test");
+        return name;
+    }
+
+    inline const QString& testFilePath()
+    {
+        static const QString path = QDir::currentPath() + QLatin1Char('/') + srcFolderName() + QLatin1Char('/') + testFileName();
+        return path;
+    }
+
+    inline const QString& testFolderPath()
+    {
+        static const QString path = QDir::currentPath() + QLatin1Char('/') + srcFolderName() + QLatin1Char('/') + testFolderName() + QLatin1Char('/');
+        return path;
+    }
+
+    inline const QString& destPath()
+    {
+        static const QString path = QDir::currentPath() + QLatin1Char('/') + dstFolderPath() + QLatin1Char('/');
+        return path;
+    }
+
+} // namespace
 
 void IOJobsTest::init()
 {
-    QFile f(filePath);
+    QFile f(filePath());
 
     QDir d;
-    (void)d.mkpath(QDir::currentPath() + QLatin1Char('/') + srcFolderName + QLatin1Char('/') + testFolderName);
-    (void)d.mkpath(QDir::currentPath() + QLatin1Char('/') + dstFolderPath);
+    (void)d.mkpath(QDir::currentPath() + QLatin1Char('/') + srcFolderName() + QLatin1Char('/') + testFolderName());
+    (void)d.mkpath(QDir::currentPath() + QLatin1Char('/') + dstFolderPath());
 
-    QVERIFY2(f.copy(QDir::currentPath() + QLatin1Char('/') + srcFolderName + QLatin1Char('/') + testFileName),
+    QVERIFY2(f.copy(QDir::currentPath() + QLatin1Char('/') + srcFolderName() + QLatin1Char('/') + testFileName()),
              qPrintable(QLatin1String("Could not copy the test target to src folder")));
 
-    QVERIFY2(f.copy(QDir::currentPath() + QLatin1Char('/') + srcFolderName + QLatin1Char('/') + testFolderName + QLatin1Char('/') + testFileName),
+    QVERIFY2(f.copy(QDir::currentPath() + QLatin1Char('/') + srcFolderName() + QLatin1Char('/') + testFolderName() + QLatin1Char('/') + testFileName()),
              qPrintable(QLatin1String("Could not copy the test target to src folder")));
 }
 
 void IOJobsTest::cleanup()
 {
-    QDir src(QDir::currentPath() + QLatin1Char('/') + srcFolderName);
-    QDir dst(QDir::currentPath() + QLatin1Char('/') + dstFolderPath);
+    QDir src(QDir::currentPath() + QLatin1Char('/') + srcFolderName());
+    QDir dst(QDir::currentPath() + QLatin1Char('/') + dstFolderPath());
 
     QVERIFY2(src.removeRecursively() && dst.removeRecursively(),
              qPrintable(QLatin1String("Could not cleanup")));
@@ -106,32 +150,32 @@ void IOJobsTest::copyAndMove_data()
     QTest::addColumn<QString>("pathToCheckInDst");
 
     QTest::newRow(qPrintable(QLatin1String("Copying file")))
-            << testFilePath
-            << destPath
+            << testFilePath()
+            << destPath()
             << false
             << true
-            << (destPath + testFileName);
+            << (destPath() + testFileName());
 
     QTest::newRow(qPrintable(QLatin1String("Moving file")))
-            << testFilePath
-            << destPath
+            << testFilePath()
+            << destPath()
             << true
             << true
-            << (destPath + testFileName);
+            << (destPath() + testFileName());
 
     QTest::newRow(qPrintable(QLatin1String("Copying Folder")))
-            << testFolderPath
-            << destPath
+            << testFolderPath()
+            << destPath()
             << false
             << true
-            << (destPath + testFolderName + QLatin1Char('/') + testFileName);
+            << (destPath() + testFolderName() + QLatin1Char('/') + testFileName());
 
     QTest::newRow(qPrintable(QLatin1String("Moving Folder")))
-            << testFolderPath
-            << destPath
+            << testFolderPath()
+            << destPath()
             << true
             << true
-            << (destPath + testFolderName + QLatin1Char('/') + testFileName);
+            << (destPath() + testFolderName() + QLatin1Char('/') + testFileName());
 }
 
 void IOJobsTest::permanentDel()
@@ -160,10 +204,10 @@ void IOJobsTest::permanentDel_data()
     QTest::addColumn<QString>("srcToDel");
 
     QTest::newRow(qPrintable(QLatin1String("Deleting File")))
-            << testFilePath;
+            << testFilePath();
 
     QTest::newRow(qPrintable(QLatin1String("Deleting Folder")))
-            << testFolderPath;
+            << testFolderPath();
 }
 
 QTEST_GUILESS_MAIN(IOJobsTest)
