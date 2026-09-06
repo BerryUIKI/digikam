@@ -47,7 +47,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-02 00:41+0000\n"
+"POT-Creation-Date: 2026-09-06 00:42+0000\n"
 "PO-Revision-Date: 2010-06-23 14:54+0700\n"
 "Last-Translator: Khoem Sokhem <khoemsokhem@khmeros.info>\n"
 "Language-Team: Khmer <support@khmeros.info>\n"
@@ -17752,7 +17752,7 @@ msgstr ""
 #: core/dplugins/generic/tools/panorama/panoramaplugin.cpp:94
 #: core/dplugins/generic/tools/sendbymail/sendbymailplugin.cpp:91
 #: core/dplugins/generic/tools/videoslideshow/videoslideshowplugin.cpp:88
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:86
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:88
 #, kde-format
 msgid "Author and Maintainer"
 msgstr ""
@@ -21737,18 +21737,18 @@ msgstr "ការ​កំណត់​របាំង"
 msgid "Generating Video Slideshow"
 msgstr "មិន​អើពើ​ស្លាក​នេះ"
 
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:42
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:44
 #, fuzzy, kde-format
 #| msgid "Export"
 msgid "Export as wallpaper"
 msgstr "នាំចេញ"
 
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:57
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:59
 #, fuzzy, kde-format
 msgid "A tool to set image as wallpaper"
 msgstr "នាំចេញ"
 
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:62
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:64
 #, kde-format
 msgid ""
 "<p>This tool changes background wallpaper to selected image for all desktops."
@@ -21756,12 +21756,26 @@ msgid ""
 "image is selected, the first one from current album will be used.</p>"
 msgstr ""
 
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:93
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:95
 #, fuzzy, kde-format
 #| msgid "Export"
 msgctxt "@action"
 msgid "Set as wallpaper"
 msgstr "នាំចេញ"
+
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:135
+#, kde-format
+msgid ""
+"Cannot export RAW image preview as JPEG as WallPaper\n"
+"%1"
+msgstr ""
+
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:143
+#, kde-format
+msgid ""
+"Cannot extract RAW image preview for the WallPaper\n"
+"%1"
+msgstr ""
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_dbus.cpp:92
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_macos.cpp:64

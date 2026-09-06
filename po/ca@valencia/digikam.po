@@ -2,17 +2,17 @@
 # Copyright (C) 2004-2026 This_file_is_part_of_KDE
 # This file is distributed under the same license as the digikam package.
 #
-# SPDX-FileCopyrightText: 2012, 2013, 2014, 2015, 2016, 2017, 2018, 2019, 2020, 2021, 2022, 2023, 2024, 2026 Antoni Bella Pérez <antonibella5@yahoo.com>
-# SPDX-FileCopyrightText: 2004, 2005, 2006 Albert Astals Cid <aacid@kde.org>
-# SPDX-FileCopyrightText: 2005, 2006 Joan Sanz i Rabadan <joansanzrab@gmail.com>
-# SPDX-FileCopyrightText: 2009, 2010 Joan Maspons <joanmaspons@gmail.com>
+# SPDX-FileCopyrightText: 2012-2024, 2026 Antoni Bella Pérez <antonibella5@yahoo.com>
+# SPDX-FileCopyrightText: 2004-2006 Albert Astals Cid <aacid@kde.org>
+# SPDX-FileCopyrightText: 2005-2006 Joan Sanz i Rabadan <joansanzrab@gmail.com>
+# SPDX-FileCopyrightText: 2009-2010 Joan Maspons <joanmaspons@gmail.com>
 # SPDX-FileCopyrightText: 2014 Orestes Mas <orestes@tsc.upc.edu>
 # SPDX-FileCopyrightText: 2006-2026 Josep M. Ferrer <txemaq@gmail.com>
 msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-02 00:41+0000\n"
+"POT-Creation-Date: 2026-09-06 00:42+0000\n"
 "PO-Revision-Date: 2026-08-27 22:38+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
@@ -17499,7 +17499,7 @@ msgstr ""
 #: core/dplugins/generic/tools/panorama/panoramaplugin.cpp:94
 #: core/dplugins/generic/tools/sendbymail/sendbymailplugin.cpp:91
 #: core/dplugins/generic/tools/videoslideshow/videoslideshowplugin.cpp:88
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:86
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:88
 #, kde-format
 msgid "Author and Maintainer"
 msgstr "Autoria i mantenidor"
@@ -21508,17 +21508,17 @@ msgstr "Configureu el vídeo"
 msgid "Generating Video Slideshow"
 msgstr "S'està generant el vídeo de presentació de diapositives"
 
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:42
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:44
 #, kde-format
 msgid "Export as wallpaper"
 msgstr "Exporta com a fons de pantalla"
 
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:57
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:59
 #, kde-format
 msgid "A tool to set image as wallpaper"
 msgstr "Una eina per a establir una imatge com a fons de pantalla"
 
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:62
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:64
 #, kde-format
 msgid ""
 "<p>This tool changes background wallpaper to selected image for all desktops."
@@ -21530,11 +21530,25 @@ msgstr ""
 "s'utilitzarà la primera.</p><p>Si no s'ha seleccionat cap imatge, "
 "s'utilitzarà la primera de l'àlbum actual.</p>"
 
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:93
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:95
 #, kde-format
 msgctxt "@action"
 msgid "Set as wallpaper"
 msgstr "Establix com a fons de pantalla"
+
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:135
+#, kde-format
+msgid ""
+"Cannot export RAW image preview as JPEG as WallPaper\n"
+"%1"
+msgstr ""
+
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:143
+#, kde-format
+msgid ""
+"Cannot extract RAW image preview for the WallPaper\n"
+"%1"
+msgstr ""
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_dbus.cpp:92
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_macos.cpp:64

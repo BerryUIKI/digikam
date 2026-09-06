@@ -51,7 +51,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-02 00:41+0000\n"
+"POT-Creation-Date: 2026-09-06 00:42+0000\n"
 "PO-Revision-Date: 2026-08-15 20:14+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -17373,7 +17373,7 @@ msgstr ""
 #: core/dplugins/generic/tools/panorama/panoramaplugin.cpp:94
 #: core/dplugins/generic/tools/sendbymail/sendbymailplugin.cpp:91
 #: core/dplugins/generic/tools/videoslideshow/videoslideshowplugin.cpp:88
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:86
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:88
 #, kde-format
 msgid "Author and Maintainer"
 msgstr "Yazar ve Bakımcı"
@@ -21345,17 +21345,17 @@ msgstr "Video Ayarları"
 msgid "Generating Video Slideshow"
 msgstr "Video Slayt Gösterisi üretiliyor"
 
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:42
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:44
 #, kde-format
 msgid "Export as wallpaper"
 msgstr "Duvar kağıdı olarak dışa aktar"
 
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:57
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:59
 #, kde-format
 msgid "A tool to set image as wallpaper"
 msgstr "Görseli duvar kağıdı olarak ayarlamak için bir araç"
 
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:62
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:64
 #, kde-format
 msgid ""
 "<p>This tool changes background wallpaper to selected image for all desktops."
@@ -21366,11 +21366,25 @@ msgstr ""
 "görselle değiştirir.</p><p>Çok sayıda görsel seçilirse ilki kullanılır.</"
 "p><p>Hiçbir görsel seçilmezse, Geçerli albümden ilki kullanılacak.</p>"
 
-#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:93
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:95
 #, kde-format
 msgctxt "@action"
 msgid "Set as wallpaper"
 msgstr "Duvar Kağıdı Olarak Ayarla"
+
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:135
+#, kde-format
+msgid ""
+"Cannot export RAW image preview as JPEG as WallPaper\n"
+"%1"
+msgstr ""
+
+#: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:143
+#, kde-format
+msgid ""
+"Cannot extract RAW image preview for the WallPaper\n"
+"%1"
+msgstr ""
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_dbus.cpp:92
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_macos.cpp:64
