@@ -160,7 +160,7 @@ void TestItemMarkerTiler::testAddMarkers1()
 
     for (int l = 0 ; l <= maxLevel ; ++l)
     {
-        const TileIndex tileIndex           = TileIndex::fromCoordinates(coord_50_60, l);
+        const TileIndex tileIndex           = TileIndex::fromCoordinates(coord_50_60(), l);
         const ItemMarkerTiler::Tile* const myTile = mm.getTile(tileIndex, true);
 
         if (!myTile)
