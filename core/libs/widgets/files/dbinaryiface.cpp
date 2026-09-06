@@ -90,8 +90,8 @@ bool DBinaryIface::versionIsRight() const
         return true;
     }
 
-    QRegularExpression verRegExp(QLatin1String("^(\\d*[.]\\d*)"));
-    float floatVersion = verRegExp.match(version()).captured(0).toFloat();
+    static QRegularExpression verRegExp1(QLatin1String("^(\\d*[.]\\d*)"));
+    float floatVersion = verRegExp1.match(version()).captured(0).toFloat();
 
     return (
             !version().isNull() &&
@@ -107,8 +107,8 @@ bool DBinaryIface::versionIsRight(const float customVersion) const
         return true;
     }
 
-    QRegularExpression verRegExp(QLatin1String("^(\\d*[.]\\d*)"));
-    float floatVersion = verRegExp.match(version()).captured(0).toFloat();
+    static QRegularExpression verRegExp2(QLatin1String("^(\\d*[.]\\d*)"));
+    float floatVersion = verRegExp2.match(version()).captured(0).toFloat();
 
     qCDebug(DIGIKAM_GENERAL_LOG) << "Found (" << isFound()
                                  << ") :: Version : " << version()
@@ -160,8 +160,8 @@ bool DBinaryIface::parseHeader(const QString& output)
 
 void DBinaryIface::setVersion(QString& version)
 {
-    QRegularExpression verRegExp(QLatin1String("\\d*(\\.\\d+)*"));
-    m_version = verRegExp.match(version).captured(0);
+    static QRegularExpression verRegExp3(QLatin1String("\\d*(\\.\\d+)*"));
+    m_version = verRegExp3.match(version).captured(0);
 }
 
 void DBinaryIface::slotNavigateAndCheck()
