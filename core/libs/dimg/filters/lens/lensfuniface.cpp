@@ -484,8 +484,9 @@ LensFunIface::MetadataMatch LensFunIface::findFromMetadata(const DMetadata* cons
                 // Some lens description use something like that :
                 // "10.0 - 20.0 mm". This must be adapted like this : "10-20mm"
 
+                static QRegularExpression lensRegEx(QLatin1String("\\.[0-9]"));
                 lensCutted  = d->lensDescription;
-                lensCutted.replace(QRegularExpression(QLatin1String("\\.[0-9]")), QLatin1String("")); //krazy:exclude=doublequote_chars
+                lensCutted.replace(lensRegEx, QLatin1String("")); //krazy:exclude=doublequote_chars
                 lensCutted.replace(QLatin1String(" - "), QLatin1String("-"));
                 lensCutted.replace(QLatin1String(" mm"), QLatin1String("mn"));
                 lensList    = d->findLenses(d->usedCamera, lensCutted);
