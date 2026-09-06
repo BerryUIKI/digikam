@@ -70,7 +70,8 @@ void FakeServer::dataAvailable()
 
     if (m_clientSocket->canReadLine())
     {
-        QStringList token = QString::fromUtf8(m_clientSocket->readAll()).split(QRegularExpression(QStringLiteral("[ \r\n][ \r\n]*")));
+        static QRegularExpression dataRegEx(QStringLiteral("[ \r\n][ \r\n]*"));
+        QStringList token = QString::fromUtf8(m_clientSocket->readAll()).split(dataRegEx);
 
         if (token.size() > 2)
         {
