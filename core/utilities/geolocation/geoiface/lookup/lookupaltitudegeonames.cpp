@@ -225,7 +225,8 @@ void LookupAltitudeGeonames::slotFinished(QNetworkReply* reply)
     }
 
     QByteArray data                            = reply->readAll();
-    const QStringList altitudes                = QString::fromLatin1(data).split(QRegularExpression(QLatin1String("\\s+")));
+    static QRegularExpression altitudeRegEx(QLatin1String("\\s+"));
+    const QStringList altitudes                = QString::fromLatin1(data).split(altitudeRegEx);
     const MergedRequests& currentMergedRequest = d->mergedRequests.at(d->currentMergedRequestIndex);
     QIntList readyRequests;
 
