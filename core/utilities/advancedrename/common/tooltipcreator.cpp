@@ -142,7 +142,7 @@ QString TooltipCreator::markOption(const QString& str)
 {
     QString result = str;
 
-    QRegularExpression optionsRegExp(QLatin1String("\\|\\|(.*)\\|\\|"));
+    static QRegularExpression optionsRegExp(QLatin1String("\\|\\|(.*)\\|\\|"));
     optionsRegExp.setPatternOptions(QRegularExpression::InvertedGreedinessOption);
 
     result.replace(optionsRegExp, QString::fromUtf8("<i><font color=\"%1\">\\1</font></i>")
