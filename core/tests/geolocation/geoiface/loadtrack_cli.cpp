@@ -28,9 +28,19 @@ using namespace Digikam;
 
 namespace
 {
-    QTextStream qout(stdout);
-    QTextStream qerr(stderr);
-}
+    inline QTextStream& qout()
+    {
+        static QTextStream stream(stdout);
+        return stream;
+    }
+
+    inline QTextStream& qerr()
+    {
+        static QTextStream stream(stderr);
+        return stream;
+    }
+
+} // namespace
 
 /**
  * @brief Test loading of a GPX file directly
@@ -48,21 +58,21 @@ int main(int argc, char* argv[])
 
     if (argc < 2)
     {
-        qerr << QLatin1String("Need a filename as argument to load") << Qt::endl;
+        qerr() << QLatin1String("Need a filename as argument to load") << Qt::endl;
         return 1;
     }
 
     const QString filename = QString::fromLatin1(argv[1]);
-    qerr << "Loading file: " << filename << Qt::endl;
+    qerr() << "Loading file: " << filename << Qt::endl;
     const bool success     = testSaxLoader(filename);
 
     if (!success)
     {
-        qerr << "Loading failed" << Qt::endl;
+        qerr() << "Loading failed" << Qt::endl;
         return 1;
     }
 
-    qerr << "Loaded successfully." << Qt::endl;
+    qerr() << "Loaded successfully." << Qt::endl;
 
     return 0;
 }
