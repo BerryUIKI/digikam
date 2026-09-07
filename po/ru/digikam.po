@@ -57,14 +57,14 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-06 00:42+0000\n"
-"PO-Revision-Date: 2026-06-24 23:47+0200\n"
+"PO-Revision-Date: 2026-09-06 20:35+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.08.0\n"
 "Plural-Forms: nplurals=4; plural=n==1 ? 3 : n%10==1 && n%100!=11 ? 0 : n"
 "%10>=2 && n%10<=4 && (n%100<10 || n%100>=20) ? 1 : 2;\n"
 "X-Environment: kde\n"
@@ -2866,32 +2866,24 @@ msgid "Start digikam with the configuration file \"config\""
 msgstr "Запустить digiKam с конфигурационным файлом «config»"
 
 #: core/app/main/main.cpp:303
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin is not available. please "
-#| "install it.\n"
-#| "There is no database plugin installed on your computer."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin is not available. please "
 "install it.\n"
 "There is no database plugin installed on your computer."
 msgstr ""
-"Программный модуль Qt для баз данных SQLite или MySQL не обнаружен, "
+"Программный модуль Qt для баз данных SQLite или MariaDB не обнаружен, "
 "необходимо его установить.\n"
 "На компьютере не установлено ни одного модуля для работы с базами данных."
 
 #: core/app/main/main.cpp:312
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin are not available. Please "
-#| "install it.\n"
-#| "Database plugins installed on your computer are listed below."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin are not available. Please "
 "install it.\n"
 "Database plugins installed on your computer are listed below."
 msgstr ""
-"Программный модуль Qt для баз данных SQLite или MySQL не обнаружен, "
+"Программный модуль Qt для баз данных SQLite или MariaDB не обнаружен, "
 "необходимо его установить.\n"
 "На компьютере установлены следующие модули баз данных:"
 
@@ -3686,8 +3678,8 @@ msgstr ""
 #, kde-format
 msgid "Add customizable columns to show Grouped and Versioned properties."
 msgstr ""
-"Добавлена поддержка настраиваемых  столбцов для отображения сгруппированных "
-"и версионированных свойств;"
+"Добавлена поддержка настраиваемых столбцов для отображения сгруппированных и "
+"версионированных свойств;"
 
 #: core/app/views/stack/welcomepageview_features.cpp:35
 #, kde-format
@@ -3984,6 +3976,13 @@ msgid ""
 "frame rate, bitrate), and file formats. For details, see <a href=\"https://"
 "community.kde.org/GSoC/2026/StatusReports/SrirupaDatta\">this report</a>."
 msgstr ""
+"Поиск на естественном языке, работающий на локальной языковой модели (LLM), "
+"которая полностью выполняется на вашем компьютере. Опишите, что вы хотите "
+"найти, простым языком, и digiKam создаст соответствующий структурированный "
+"поиск. Поддерживаются метки, люди, альбомы, оценки, ярлыки, ориентация, "
+"места, даты, подписи, свойства видео (длительность, частота кадров, битрейт) "
+"и форматы файлов. Подробнее см. <a href=\"https:// community.kde.org/"
+"GSoC/2026/StatusReports/SrirupaDatta\">этот отчёт</a>."
 
 #: core/app/views/stack/welcomepageview_features.cpp:94
 #, kde-format
@@ -3998,16 +3997,13 @@ msgid "New RAW camera supported:"
 msgstr "Поддержка «цифровых негативов» новых моделей камер:"
 
 #: core/app/views/stack/welcomepageview_features.cpp:97
-#, fuzzy, kde-format
-#| msgid ""
-#| "Canon EOS R1, EOS R5 Mark II, EOS R5 C, EOS R6 Mark II, EOS R8, EOS R50, "
-#| "EOS R100, EOS Ra Canon EOS Kiss M2;"
+#, kde-format
 msgid ""
 "Canon R50 V, Canon EOS R1, EOS R5 Mark II, EOS R5 C, EOS R6 Mark II, EOS R8, "
 "EOS R50, EOS R100, EOS Ra Canon EOS Kiss M2;"
 msgstr ""
-"Canon EOS R1, EOS R5 Mark II, EOS R5 C, EOS R6 Mark II, EOS R8, EOS R50, "
-"EOS  R100, EOS Ra Canon EOS Kiss M2;"
+"Canon R50 V, Canon EOS R1, EOS R5 Mark II, EOS R5 C, EOS R6 Mark II, EOS R8, "
+"EOS R50, EOS R100, EOS Ra Canon EOS Kiss M2;"
 
 #: core/app/views/stack/welcomepageview_features.cpp:98
 #, kde-format
@@ -4049,16 +4045,13 @@ msgid "Pentax KF, K III Monochrome ;"
 msgstr "Pentax KF, K III Monochrome;"
 
 #: core/app/views/stack/welcomepageview_features.cpp:105
-#, fuzzy, kde-format
-#| msgid ""
-#| "Sony ZV-E10M2, UMC-R10C, A9-III, ILX-LR1, A7C-II, A7CR, ILCE-6700,  "
-#| "ZV-1M2, ZV-E1, ILCE-7RM5 (A7R-V), ILME-FX30, A1 ;"
+#, kde-format
 msgid ""
 "Sony Sony ARW6 CRAW HQ, Sony ILCE-7M, VZV-E10M2, UMC-R10C, A9-III, ILX-LR1, "
 "A7C-II, A7CR, ILCE-6700,  ZV-1M2, ZV-E1, ILCE-7RM5 (A7R-V), ILME-FX30, A1 ;"
 msgstr ""
-"Sony ZV-E10M2, UMC-R10C, A9-III, ILX-LR1, A7C-II, A7CR, ILCE-6700,  ZV-1M2, "
-"ZV-E1, ILCE-7RM5 (A7R-V), ILME-FX30, A1;"
+"Sony Sony ARW6 CRAW HQ, Sony ILCE-7M, VZV-E10M2, UMC-R10C, A9-III, ILX-LR1, "
+"A7C-II, A7CR, ILCE-6700, ZV-1M2, ZV-E1, ILCE-7RM5 (A7R-V), ILME-FX30, A1 ;"
 
 #: core/app/views/stack/welcomepageview_features.cpp:106
 #, kde-format
@@ -4837,19 +4830,19 @@ msgstr "Поддержка Panorama"
 #, kde-format
 msgctxt "@item: component info"
 msgid "Natural-language search support"
-msgstr ""
+msgstr "Поддержка поиска на естественном языке"
 
 #: core/app/views/utils/componentsinfodlg.cpp:186
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libllama.cpp"
-msgstr ""
+msgstr "Libllama.cpp"
 
 #: core/app/views/utils/componentsinfodlg.cpp:192
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libggml"
-msgstr ""
+msgstr "Libggml"
 
 #: core/app/views/utils/componentsinfodlg.cpp:205
 #: core/app/views/utils/componentsinfodlg.cpp:210
@@ -4890,31 +4883,28 @@ msgid "Database internal server"
 msgstr "Встроенный сервер баз данных"
 
 #: core/app/views/utils/componentsinfodlg.cpp:252
-#, fuzzy, kde-format
-#| msgctxt "@item: component info"
-#| msgid "Database backend"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Database backend version"
-msgstr "Модуль работы с базой данных"
+msgstr "Версия модуля работы с базой данных"
 
 #: core/app/views/utils/componentsinfodlg.cpp:256
-#, fuzzy, kde-format
-#| msgid "Database Configuration"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Natural Language Configuration"
-msgstr "Параметры базы данных"
+msgstr "Параметры естественного языка"
 
 #: core/app/views/utils/componentsinfodlg.cpp:261
 #, kde-format
 msgctxt "@item: component info"
 msgid "LLAMA.CPP"
-msgstr ""
+msgstr "LLAMA.CPP"
 
 #: core/app/views/utils/componentsinfodlg.cpp:270
 #, kde-format
 msgctxt "@item: component info"
 msgid "GGML"
-msgstr ""
+msgstr "GGML"
 
 #: core/app/views/utils/componentsinfodlg.cpp:281
 #, kde-format
@@ -17550,7 +17540,7 @@ msgid ""
 msgstr ""
 "<p>Этот инструмент позволяет создавать псевдо-HDR-фотографии из нескольких "
 "снимков.</p> <p>Для создания HDR-изображения требуются снимки одного и того "
-"же сюжета, сделанные с использованием штатива и имеющие разные  параметры "
+"же сюжета, сделанные с использованием штатива и имеющие разные параметры "
 "экспозиции.</p> <p>Для получения наилучшего результата рекомендуется "
 "использовать цветовые негативы, а не JPEG (глубина цвета изображений "
 "цифровых негативов больше, они хорошо подходят для попиксельного "
@@ -20269,7 +20259,7 @@ msgid ""
 "Enable \"Do not crop\" to avoid cropping all the photos."
 msgstr ""
 "Переместите рамку таким образом, чтобы указать, как следует кадрировать "
-"изображение.  \n"
+"изображение.\n"
 "Возможно кадрировать каждое изображение по отдельности или нажать кнопку "
 "«Далее», чтобы использовать выбранную рамку кадрирования \n"
 "для всех изображений.\n"
@@ -21602,6 +21592,9 @@ msgid ""
 "Cannot export RAW image preview as JPEG as WallPaper\n"
 "%1"
 msgstr ""
+"Не удалось экспортировать предпросмотр изображения RAW в формате JPEG в "
+"качестве обоев\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:143
 #, kde-format
@@ -21609,6 +21602,8 @@ msgid ""
 "Cannot extract RAW image preview for the WallPaper\n"
 "%1"
 msgstr ""
+"Не удалось извлечь предпросмотр изображения RAW для обоев\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_dbus.cpp:92
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_macos.cpp:64
@@ -27577,16 +27572,14 @@ msgid "Searches"
 msgstr "Поисковые запросы"
 
 #: core/libs/album/manager/albummanager_database.cpp:111
-#, fuzzy, kde-format
-#| msgid "The MySQL database directory was not found."
+#, kde-format
 msgid "The MariaDB database directory was not found."
-msgstr "Не удалось найти каталог базы данных MySQL."
+msgstr "Не удалось найти каталог базы данных MariaDB."
 
 #: core/libs/album/manager/albummanager_database.cpp:128
-#, fuzzy, kde-format
-#| msgid "The MySQL binary tools was not found."
+#, kde-format
 msgid "The MariaDB binary tools was not found."
-msgstr "Двоичные инструменты MySQL не найдены."
+msgstr "Двоичные инструменты MariaDB не найдены."
 
 #: core/libs/album/manager/albummanager_database.cpp:135
 #, kde-format
@@ -29064,15 +29057,12 @@ msgstr ""
 "digiKam необходимы драйверы, предоставляемые модулем Qt::SQL."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, fuzzy, kde-format
-#| msgid ""
-#| "The driver \"MYSQL\" for MySQL databases is not available.\n"
-#| "digiKam depends on the drivers provided by the Qt::SQL module."
+#, kde-format
 msgid ""
 "The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"Драйвер «MYSQL» для баз данных MySQL недоступен.\n"
+"Драйвер Qt::SQL для баз данных MariaDB недоступен.\n"
 "digiKam необходимы драйверы, предоставляемые модулем Qt::SQL."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
@@ -29240,28 +29230,25 @@ msgid "Database type is not supported."
 msgstr "База данных этого типа не поддерживается."
 
 #: core/libs/database/server/databaseserver.cpp:296
-#, fuzzy, kde-format
-#| msgid "No path to mysql upgrade command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB upgrade command set in configuration file."
-msgstr "В параметрах сервера не указан путь к файлу сервера MySQL."
+msgstr "В файле конфигурации не указан путь к команде обновления MariaDB."
 
 #: core/libs/database/server/databaseserver.cpp:305
-#, fuzzy, kde-format
-#| msgid "No path to mysql server command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB server command set in configuration file."
-msgstr "В параметрах сервера не указан путь к файлу сервера MySQL."
+msgstr "В файле конфигурации не указан путь к файлу сервера MariaDB."
 
 #: core/libs/database/server/databaseserver.cpp:314
-#, fuzzy, kde-format
-#| msgid "No path to mysql administration command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB administration command set in configuration file."
-msgstr "В параметрах сервера не указан путь к файлу инициализации MySQL."
+msgstr ""
+"В файле конфигурации не указан путь к команде администрирования MariaDB."
 
 #: core/libs/database/server/databaseserver.cpp:323
-#, fuzzy, kde-format
-#| msgid "No path to mysql initialization command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB initialization command set in configuration file."
-msgstr "В параметрах сервера не указан путь к файлу инициализации MySQL."
+msgstr "В файле конфигурации не указан путь к команде инициализации MariaDB."
 
 #: core/libs/database/server/databaseserver.cpp:333
 #: core/libs/database/server/databaseserver.cpp:343
@@ -29271,33 +29258,27 @@ msgid "Cannot create directory %1"
 msgstr "Не удалось создать каталог «%1»"
 
 #: core/libs/database/server/databaseserver.cpp:436
-#, fuzzy, kde-format
-#| msgid ""
-#| "Unable to create MySQL server configuration file.<p>This means that "
-#| "either the default configuration file</p><p>%1</p><p>was not readable or "
-#| "the target file</p><p>%2</p><p>could not be written.</p>"
+#, kde-format
 msgid ""
 "Unable to create MariaDB server configuration file.<p>This means that either "
 "the default configuration file</p><p>%1</p><p>was not readable or the target "
 "file</p><p>%2</p><p>could not be written.</p>"
 msgstr ""
-"Не удалось создать конфигурационный файл сервера MySQL.<p>Это означает, что "
-"либо конфигурационный файл по умолчанию</p><p>%1</p><p>недоступен для "
+"Не удалось создать конфигурационный файл сервера MariaDB.<p>Это означает, "
+"что либо конфигурационный файл по умолчанию</p><p>%1</p><p>недоступен для "
 "чтения, либо конечный файл</p><p>%2</p><p>недоступен для записи.</p>"
 
 #: core/libs/database/server/databaseserver.cpp:458
-#, fuzzy, kde-format
-#| msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+#, kde-format
 msgid "Cannot find MariaDB server default configuration (mysql-global.conf)."
 msgstr ""
-"Не найден конфигурационный файл по умолчанию для сервера MySQL (mysql-global."
-"conf)."
+"Не найден конфигурационный файл по умолчанию для сервера MariaDB (mysql-"
+"global.conf)."
 
 #: core/libs/database/server/databaseserver.cpp:505
-#, fuzzy, kde-format
-#| msgid "The internal MySQL database is initializing, please wait..."
+#, kde-format
 msgid "The internal MariaDB database is initializing, please wait..."
-msgstr "Ожидание завершения инициализации внутренней базы данных MySQL…"
+msgstr "Ожидание завершения инициализации встроенной базы данных MariaDB…"
 
 #: core/libs/database/server/databaseserver.cpp:553
 #, kde-format
@@ -29335,10 +29316,9 @@ msgstr ""
 "данных: %2</p>"
 
 #: core/libs/database/server/databaseserver.cpp:751
-#, fuzzy, kde-format
-#| msgid "A MySQL database upgrade is in progress, please wait..."
+#, kde-format
 msgid "A MariaDB database upgrade is in progress, please wait..."
-msgstr "Выполняется обновление базы данных MySQL, подождите…"
+msgstr "Выполняется обновление базы данных MariaDB, подождите…"
 
 #: core/libs/database/server/databaseserver.cpp:795
 #, kde-format
@@ -29650,24 +29630,17 @@ msgid "SQLite"
 msgstr "SQLite"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Mysql Internal"
+#, kde-format
 msgid "MariaDB Internal"
-msgstr "Встроенная Mysql"
+msgstr "Встроенная MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:67
-#, fuzzy, kde-format
-#| msgid "%1 Media Server"
+#, kde-format
 msgid "MariaDB Server"
-msgstr "Сервер DLNA %1"
+msgstr "Сервер MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend "
-#| "is for local database storage with a small or medium collection sizes. It "
-#| "is the default and recommended backend for collections with less than "
-#| "100K items.</p>"
+#, kde-format
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small or medium collection sizes. It is "
@@ -29677,38 +29650,30 @@ msgstr ""
 "<p>Выберите тип базы данных.</p><p>Механизм хранения <b>SQlite</b> "
 "предназначен для хранения локальной базы данных коллекций небольшого или "
 "среднего размера. Это значение по умолчанию и рекомендуется для коллекций, "
-"состоящих из менее чем 100 000 изображений.</p>"
+"состоящих из менее чем 500 000 изображений.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Internal</b> backend is for local database storage with huge "
-#| "collection sizes. This backend is recommend for local collections with "
-#| "more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Internal</b> backend is for local database storage with huge "
 "collection sizes. This backend is recommend for local collections with more "
 "than 500K items.</p>"
 msgstr ""
-"<p>Механизм хранения <b>Встроенная MySQL</b> предназначен предназначен для "
-"хранения локальной базы данных коллекций большого размера. Его рекомендуется "
-"использовать для коллекций, состоящих из более чем 100 000 изображений.</p>"
+"<p>Механизм хранения <b>Встроенная MariaDB</b> предназначен для хранения "
+"локальной базы данных коллекций большого размера. Его рекомендуется "
+"использовать для коллекций, состоящих из более чем 500 000 изображений.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:86
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Server</b> backend is a more robust solution especially for "
-#| "remote and shared database storage. It is also more efficient to manage "
-#| "huge collection sizes with more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Server</b> backend is a more robust solution especially for "
 "remote and shared database storage. It is also more efficient to manage huge "
 "collection sizes with more than 500K items.</p>"
 msgstr ""
-"<p>Механизм хранения <b>Сервер MySQL</b> — более надёжное решение, особенно "
-"для внешних хранилищ баз данных и хранилищ баз данных с общим доступом. Этот "
-"вариант также позволяет более эффективно управлять коллекциями огромного "
-"размера (более 100 000 изображений).</p>"
+"<p>Механизм хранения <b>Сервер MariaDB</b> — более надёжное решение, "
+"особенно для внешних хранилищ баз данных и хранилищ баз данных с общим "
+"доступом. Этот вариант также позволяет более эффективно управлять "
+"коллекциями огромного  размера (более 500 000 изображений).</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:93
 #, kde-format
@@ -29794,25 +29759,21 @@ msgstr ""
 "использования."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:169
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Here you can configure locations where MySQL binary tools are located. "
-#| "digiKam will try to find these binaries automatically if they are already "
-#| "installed on your computer.</p>"
+#, kde-format
 msgid ""
 "<p>Here you can configure locations where MariaDB binary tools are located. "
 "digiKam will try to find these binaries automatically if they are already "
 "installed on your computer.</p>"
 msgstr ""
-"<p>Укажите расположение исполняемых файлов инструментов MySQL. digiKam "
+"<p>Укажите расположение исполняемых файлов инструментов MariaDB. digiKam  "
 "попытается найти эти файлы автоматически, если они уже установлены на "
 "компьютере.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:178
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title:group"
 msgid "MariaDB Binaries"
-msgstr "Панорама"
+msgstr "Исполняемые файлы MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:221
 #, kde-format
@@ -29825,17 +29786,13 @@ msgid "Set the host computer name"
 msgstr "Укажите имя хоста"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is the computer name running MySQL server.\n"
-#| "This can be \"localhost\" for a local server, or the network computer\n"
-#| "name (or IP address) in case of remote computer."
+#, kde-format
 msgid ""
 "This is the computer name running MariaDB server.\n"
 "This can be \"localhost\" for a local server, or the network computer\n"
 "name (or IP address) in case of remote computer."
 msgstr ""
-"Это имя компьютера, на котором запущен сервер MySQL.\n"
+"Это имя компьютера, на котором запущен сервер MariaDB.\n"
 "Это может быть «localhost» для локального сервера или сетевое имя\n"
 "(или IP-адрес) в случае удалённого компьютера."
 
@@ -29854,15 +29811,12 @@ msgid "Set the database connection options"
 msgstr "Укажите параметры подключения к базе данных"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:234
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server connection options.\n"
-#| "For advanced users only."
+#, kde-format
 msgid ""
 "Set the MariaDB server connection options.\n"
 "For advanced users only."
 msgstr ""
-"Укажите параметры соединения с сервером MySQL.\n"
+"Укажите параметры соединения с сервером MariaDB.\n"
 "Только для опытных пользователей."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:237
@@ -29876,35 +29830,26 @@ msgid "Set the database account name"
 msgstr "Укажите имя учётной записи для соединения с базой данных"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:240
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account name used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "This account must be available on the remote\n"
-#| "MySQL server when database have been created."
+#, kde-format
 msgid ""
 "Set the MariaDB server account name used\n"
 "by digiKam to be connected to the server.\n"
 "This account must be available on the remote\n"
 "MariaDB server when database have been created."
 msgstr ""
-"Укажите имя учётной записи сервера MySQL,\n"
+"Укажите имя учётной записи сервера MariaDB,\n"
 "используемое digiKam при соединении с сервером.\n"
 "Эта учётная запись должна существовать на удалённом\n"
-"сервере MySQL при создании базы данных."
+"сервере MariaDB при создании базы данных."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:247
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account password used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "You can left this field empty to use an account set without password."
+#, kde-format
 msgid ""
 "Set the MariaDB server account password used\n"
 "by digiKam to be connected to the server.\n"
 "You can left this field empty to use an account set without password."
 msgstr ""
-"Укажите пароль учётной записи сервера MySQL,\n"
+"Укажите пароль учётной записи сервера MariaDB,\n"
 "используемый digiKam при соединении с сервером.\n"
 "Можно оставить это поле пустым, если используется учётная запись без пароля."
 
@@ -29914,16 +29859,13 @@ msgid "Host Port:"
 msgstr "Порт:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:255
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the host computer port.\n"
-#| "Usually, MySQL server use port number 3306 by default"
+#, kde-format
 msgid ""
 "Set the host computer port.\n"
 "Usually, MariaDB server use port number 3306 by default"
 msgstr ""
-"Укажите порт, на котором запущен сервер MySQL.\n"
-"Обычно сервер MySQL использует порт 3306."
+"Укажите порт, на котором запущен сервер MariaDB.\n"
+" Обычно сервер MariaDB использует порт 3306."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:260
 #, kde-format
@@ -29931,16 +29873,13 @@ msgid "Check Connection"
 msgstr "Проверить соединение"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:261
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run a basic database connection to see if current MySQL server settings "
-#| "is suitable."
+#, kde-format
 msgid ""
 "Run a basic database connection to see if current MariaDB server settings is "
 "suitable."
 msgstr ""
 "Выполнить простое соединение с базой данных для проверки введённых "
-"параметров подключения к серверу MySQL."
+"параметров подключения к серверу MariaDB."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:268
 #, kde-format
@@ -30067,18 +30006,7 @@ msgstr ""
 "заменить<b><i>password</i></b> на правильный пароль).</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:341
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Note: with a Linux server, a database can be initialized following the "
-#| "commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql "
-#| "-u root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init "
-#| "digiKam databases with grant privileges (see behind)</p><p>...</"
-#| "p><p>quit</p><p>NOTE: If you have problems with a MySQL server on Ubuntu "
-#| "based Linux system, use the addition command in the mysql prompt to be "
-#| "able to create MySQL triggers.<br>SET GLOBAL "
-#| "log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
-#| "collection, you should start MySQL server with mysql --"
-#| "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
+#, kde-format
 msgid ""
 "<p>Note: with a Linux server, a database can be initialized following the "
 "commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
@@ -30093,15 +30021,16 @@ msgid ""
 msgstr ""
 "<p>Примечание: на сервере под управлением Linux база данных может быть "
 "инициализирована следующими командами:</p> <p># su</p> <p># systemctl "
-"restart mysqld</p> <p># mysql -u root</p> <p>...</p> <p>Введите приведённые "
-"выше команды SQL в командную строку MySQL для инициализации баз данных "
-"digiKam и назначения соответствующих прав доступа.</p> <p>...</p> <p>quit</"
-"p> <p>Примечание: если возникли проблемы с сервером MySQL в системе Linux на "
-"базе Ubuntu, используйте соответствующую команду в командной строке mysql, "
-"чтобы получить возможность создавать переключатели MySQL.<br> SET GLOBAL "
-"log_bin_trust_function_creators=1;</p> <p>Примечание: если у вас огромная "
-"коллекция изображений, запускайте сервер MySQL с ключом --"
-"max_allowed_packet=128M или внесите изменения в файл my.ini или ~/.my.cnf</p>"
+"restart mariadbd</p> <p># mariadb -u root</p> <p>...</p> <p>Введите "
+"приведённые выше команды SQL в командную строку MariaDB для инициализации "
+"баз данных digiKam и назначения соответствующих прав доступа.</p> <p>...</p> "
+"<p>quit</p> <p>Примечание: если возникли проблемы с сервером MariaDB в "
+"системе Linux на базе Ubuntu, используйте соответствующую команду в "
+"командной строке MariaDB, чтобы получить возможность создавать триггеры "
+"MariaDB.<br> SET GLOBAL log_bin_trust_function_creators=1;</p> "
+"<p>Примечание: если у вас огромная коллекция изображений, запускайте сервер "
+"MariaDB с ключом -- max_allowed_packet=128M или внесите изменения в файл my."
+"ini или ~/.my.cnf</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:365
 #, kde-format
@@ -30114,25 +30043,7 @@ msgid "Database Server Technical Details"
 msgstr "Технические сведения о сервере баз данных"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:371
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Use this configuration view to set all information to be connected to "
-#| "a remote <a href=\"https://en.wikipedia.org/wiki/MySQL\">Mysql database "
-#| "server</a> (or <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</"
-#| "a>) through a network. As with Sqlite or MySQL internal server, 3 "
-#| "databases will be stored on the remote server: one for all collections "
-#| "properties, one to store compressed thumbnails, and one to store faces "
-#| "recognition metadata.</p><p>Unlike Sqlite or MySQL internal server, you "
-#| "can customize the database names to simplify your backups.</"
-#| "p><p>Databases are digiKam core engines. To prevent performance issues, "
-#| "take a care to use a fast network link between the client and the server "
-#| "computers. It is also recommended to host database files on fast hardware "
-#| "(as <a href=\"https://en.wikipedia.org/wiki/Solid-state_drive\">SSD</a>) "
-#| "with enough free space, especially for thumbnails database, even if data "
-#| "are compressed using wavelets image format <a href=\"https://en.wikipedia."
-#| "org/wiki/Progressive_Graphics_File\">PGF</a>.</p><p>The databases must be "
-#| "created previously on the remote server by the administrator. Look in "
-#| "<b>Requirements</b> tab for details.</p>"
+#, kde-format
 msgid ""
 "<p>Use this configuration view to set all information to be connected to a "
 "remote <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</a> through "
@@ -30151,24 +30062,24 @@ msgid ""
 "administrator. Look in <b>Requirements</b> tab for details.</p>"
 msgstr ""
 "<p>Используйте этот раздел для установки параметров подключения к "
-"размещённому на другом компьютере <a href=\"https://ru.wikipedia.org/wiki/"
-"MySQL\">серверу баз данных MySQL </a> (или <a href=\"https://ru.wikipedia."
-"org/wiki/MariaDB\">MariaDB</a>) через компьютерную сеть. Как и в случае "
-"SQLite или встроенного сервера MySQL, на удалённом сервере будут храниться "
-"три базы данных: одна для свойств коллекций, одна для хранения сжатых "
-"миниатюр и одна для хранения метаданных распознавания лиц.</p> <p>В отличие "
-"от SQLite или встроенного сервера MySQL, при использовании внешнего сервера "
-"возможно назначать базам данных произвольные имена, что упрощает резервное "
-"копирование.</p> <p>Базы данных — это основа работы digiKam. Чтобы избежать "
-"проблем с производительностью, позаботьтесь о наличии быстрого сетевого "
-"подключения между клиентским компьютером и сервером. Также рекомендуется "
-"размещать файлы баз данных на быстром носителе информации (таком как <a href="
-"\"https://ru.wikipedia.org/wiki/Твердотельный_накопитель\">SSD</a>) с "
-"достаточным количеством свободного места, особенно для базы данных миниатюр, "
-"даже если данные будут сжаты при помощи формата <a href=\"https://en."
-"wikipedia.org/wiki/Progressive_Graphics_File\">PGF</a>.</p> <p>Базы данных "
-"на внешнем сервере должны быть заранее созданы администратором. Более "
-"подробное описание приведено на вкладке <b>Требования</b>.</p>"
+"размещённому на другом компьютере <a href=\"https://en.wikipedia.org/wiki/"
+"MariaDB\">серверу баз данных MariaDB</a> через компьютерную сеть. Как и в "
+"случае SQLite или встроенного сервера MariaDB, на удалённом сервере будут "
+"храниться три базы данных: одна для свойств коллекций, одна для хранения "
+"сжатых миниатюр и одна для хранения метаданных распознавания лиц.</p><p>В "
+"отличие от SQLite или встроенного сервера MariaDB, при использовании "
+"внешнего сервера возможно назначать базам данных произвольные имена, что "
+"упрощает резервное копирование.</p><p>Базы данных — это основа работы "
+"digiKam. Чтобы избежать проблем с производительностью, позаботьтесь о "
+"наличии быстрого сетевого подключения между клиентским компьютером и "
+"сервером. Также рекомендуется размещать файлы баз данных на быстром носителе "
+"информации (таком как <a href=\"https://en.wikipedia.org/wiki/Solid-"
+"state_drive\">SSD</a>) с достаточным количеством свободного места, особенно "
+"для базы данных миниатюр, даже если данные будут сжаты при помощи вейвлет-"
+"формата изображений <a href=\"https://en.wikipedia.org/wiki/"
+"Progressive_Graphics_File\">PGF</a>.</p><p>Базы данных на внешнем сервере "
+"должны быть заранее созданы администратором. Более подробное описание "
+"приведено на вкладке <b>Требования</b>.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:396
 #, kde-format
@@ -44516,6 +44427,8 @@ msgstr "Механизм оценки качества:"
 msgid ""
 "Natural Language Search in the Advanced Search tool, powered with a local LLM"
 msgstr ""
+"Поиск на естественном языке в инструменте «Дополнительный поиск», работающий "
+"на локальной языковой модели (LLM)."
 
 #: core/libs/widgets/mainview/daboutdata.cpp:163
 #, kde-format
@@ -44687,9 +44600,9 @@ msgid "Color Management"
 msgstr "Управление цветом"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:356
-#, fuzzy, kde-format
+#, kde-format
 msgid "MariaDB interface"
-msgstr "Панорама"
+msgstr "Интерфейс MariaDB"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:361
 #, kde-format
@@ -62232,16 +62145,13 @@ msgid "Extended clean up and shrink all databases."
 msgstr "Расширенная очистка и сжатие всех баз данных."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:100
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option leads to the vacuuming (shrinking) of the databases. "
-#| "Vacuuming is supported both for SQLite and MySQL."
+#, kde-format
 msgid ""
 "This option leads to the vacuuming (shrinking) of the databases. Vacuuming "
 "is supported both for SQLite and MariaDB."
 msgstr ""
-"Использование этого параметра приводит к очистке (уменьшению) баз данных. "
-"Уменьшение поддерживается для обоих типов баз данных: SQLite и MySQL."
+"Использование этого параметра приводит к очистке (уменьшению) баз данных.  "
+"Уменьшение поддерживается для обоих типов баз данных: SQLite и MariaDB."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:107
 #, kde-format
@@ -63484,84 +63394,72 @@ msgstr "Переименовать..."
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:185
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@label: item properties"
-#| msgid "Pick label: "
+#, kde-format
 msgctxt "@item"
 msgid "Pick label: Accepted"
-msgstr "Ярлык отбора: "
+msgstr "Ярлык отбора: Принято"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:186
 #, kde-format
 msgctxt "@item"
 msgid "Rating 4 or more"
-msgstr ""
+msgstr "Оценка 4 или выше"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "@info: generate album name for exporting"
-#| msgid "Rating: "
+#, kde-format
 msgctxt "@item"
 msgid "Rating 5"
-msgstr "Оценка:"
+msgstr "Оценка 5"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:197
-#, fuzzy, kde-format
-#| msgid "Fine horizontal angle:"
+#, kde-format
 msgctxt "@item"
 msgid "Oriented horizontally (landscape)"
-msgstr "Горизонтальный угол (точно):"
+msgstr "Горизонтальная (альбомная) ориентация"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:198
-#, fuzzy, kde-format
-#| msgid "Subject distance"
+#, kde-format
 msgctxt "@item"
 msgid "Subject tag: landscape"
-msgstr "Расстояние до объекта"
+msgstr "Тег темы: альбомная"
 
 #: core/utilities/searchwindow/nlsearch/searchintentresolver.cpp:86
 #, kde-format
 msgctxt "@info"
 msgid "\"%1\" could mean more than one thing. Which did you mean?"
-msgstr ""
+msgstr "«%1» может означать несколько понятий. Что именно имелось в виду?"
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:155
-#, fuzzy, kde-format
-#| msgid "Failed to load image"
+#, kde-format
 msgid "Failed to load the language model."
-msgstr "Не удалось загрузить изображение"
+msgstr "Не удалось загрузить языковую модель."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:181
-#, fuzzy, kde-format
-#| msgid "Failed to initialize the database."
+#, kde-format
 msgid "Failed to initialize the model context."
-msgstr "Не удалось инициализировать базу данных."
+msgstr "Не удалось инициализировать контекст модели."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:201
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:347
 #, kde-format
 msgid "digiKam was built without llama.cpp support."
-msgstr ""
+msgstr "digiKam собран без поддержки llama.cpp."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:218
-#, fuzzy, kde-format
-#| msgctxt "@info:tooltip"
-#| msgid "This item is not locked."
+#, kde-format
 msgid "Model is not loaded."
-msgstr "Эти объекты не заблокированы"
+msgstr "Модель не загружена."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:239
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:249
-#, fuzzy, kde-format
-#| msgid "Failed to open the database."
+#, kde-format
 msgid "Failed to tokenize the prompt."
-msgstr "Не удалось открыть базу данных."
+msgstr "Не удалось разбить запрос на токены."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:286
-#, fuzzy, kde-format
-#| msgid "Connection failed."
+#, kde-format
 msgid "Model decode failed."
-msgstr "Соединение разорвано."
+msgstr "Не удалось декодировать модель."
 
 #: core/utilities/searchwindow/nlsearch/searchnlmodelmanager.cpp:100
 #, kde-format
@@ -63570,12 +63468,14 @@ msgid ""
 "The natural-language search model is not installed. Please download it from "
 "the digiKam setup downloader."
 msgstr ""
+"Модель поиска на естественном языке не установлена. Получите её с помощью "
+"загрузчика digiKam."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:149
 #, kde-format
 msgctxt "@info"
 msgid "A query is already being interpreted."
-msgstr ""
+msgstr "Запрос уже интерпретирован."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:179
 #, kde-format
@@ -63585,6 +63485,9 @@ msgid ""
 "Enable \"Natural Language Search\" in the model download dialog to install "
 "it, then restart digiKam."
 msgstr ""
+"Для поиска на естественном языке требуется языковая модель, которая ещё не "
+"установлена. Включите «Поиск на естественном языке» в диалоге получения "
+"моделей, чтобы установить её, затем перезапустите digiKam."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:186
 #, kde-format
@@ -63593,12 +63496,14 @@ msgid ""
 "The natural language search model is still loading. Please try your search "
 "again in a few seconds."
 msgstr ""
+"Модель поиска на естественном языке всё ещё загружается. Повторите поиск "
+"через несколько секунд."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Interpreting your search..."
-msgstr ""
+msgstr "Обработка поискового запроса…"
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:225
 #, kde-format
@@ -63607,6 +63512,8 @@ msgid ""
 "Could not interpret the model output. Please refine the description or "
 "create rules manually."
 msgstr ""
+"Не удалось интерпретировать выходной файл модели. Уточните описание или  "
+"создайте правила вручную."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:247
 #, kde-format
@@ -63615,12 +63522,14 @@ msgid ""
 "Could not map '%1' to tags, album names, captions, location, or date. Please "
 "refine the description or create rules manually."
 msgstr ""
+"Не удалось сопоставить «%1» с метками, названиями альбомов, подписями, "
+"местоположением или датой. Уточните описание или создайте правила вручную."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:258
 #, kde-format
 msgctxt "@info"
 msgid "Some terms could not be mapped and were skipped: %1"
-msgstr ""
+msgstr "Не удалось сопоставить некоторые термины, пропущены: %1"
 
 #: core/utilities/searchwindow/ratingsearchutilities.cpp:201
 #, kde-format
@@ -64695,24 +64604,24 @@ msgstr "Изменить текущий поисковый запрос..."
 msgid ""
 "Interpret the text above as a natural-language search and build the query"
 msgstr ""
+"Интерпретировать текст выше как поиск на естественном языке и сформировать "
+"поисковый запрос"
 
 #: core/utilities/searchwindow/searchtabheader.cpp:70
 #: core/utilities/searchwindow/searchwindow.cpp:69
-#, fuzzy, kde-format
-#| msgid "Cancel current operation"
+#, kde-format
 msgid "Cancel the current interpretation"
 msgstr "Отменить текущую операцию"
 
 #: core/utilities/searchwindow/searchtabheader.cpp:95
-#, fuzzy, kde-format
-#| msgid "Advanced Search"
+#, kde-format
 msgid "Open Advanced Search"
-msgstr "Расширенный поиск"
+msgstr "Открыть расширенный поиск"
 
 #: core/utilities/searchwindow/searchtabheader.cpp:96
 #, kde-format
 msgid "Run Now"
-msgstr ""
+msgstr "Запустить сейчас"
 
 #: core/utilities/searchwindow/searchtabheader.cpp:140
 #, kde-format
@@ -64752,19 +64661,19 @@ msgid "Edit..."
 msgstr "Изменить..."
 
 #: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:89
-#, fuzzy, kde-format
-#| msgid "Imported %1"
+#, kde-format
 msgid ""
 "Interpreted as:\n"
 "%1"
-msgstr "Импортировано %1"
+msgstr ""
+"Интерпретировано как:\n"
+"%1"
 
 #: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:123
 #: core/utilities/searchwindow/searchwindow_slots.cpp:180
-#, fuzzy, kde-format
-#| msgid "Printing canceled"
+#, kde-format
 msgid "Interpretation cancelled."
-msgstr "Печать отменена"
+msgstr "Интерпретация отменена"
 
 #: core/utilities/searchwindow/searchtabheader_p.cpp:62
 #, kde-format
@@ -64788,19 +64697,20 @@ msgid "Try"
 msgstr "Применить"
 
 #: core/utilities/searchwindow/searchwindow.cpp:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "Natural Language Search"
-msgstr "Язык по умолчанию"
+msgstr "Поиск на естественном языке"
 
 #: core/utilities/searchwindow/searchwindow.cpp:41
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
 msgstr ""
+"например, альбомные фотографии с красными ярлыками, снятые возле Парижа"
 
 #: core/utilities/searchwindow/searchwindow.cpp:44
 #, kde-format
 msgid "Translate my query to English first"
-msgstr ""
+msgstr "Сначала перевести мой запрос на английский"
 
 #: core/utilities/searchwindow/searchwindow.cpp:46
 #, kde-format
@@ -64808,11 +64718,13 @@ msgid ""
 "When enabled, your query is translated to English before being interpreted, "
 "so you can type in your own language. Requires an internet connection."
 msgstr ""
+"При включении ваш запрос переводится на английский до интерпретации, поэтому "
+"вы можете набирать текст на своём языке. Требуется подключение к Интернету."
 
 #: core/utilities/searchwindow/searchwindow.cpp:84
 #, kde-format
 msgid "Open the Natural Language Search handbook"
-msgstr ""
+msgstr "Открыть руководство по поиску на естественном языке"
 
 #: core/utilities/searchwindow/searchwindow.cpp:113
 #, kde-format
@@ -64822,17 +64734,20 @@ msgid ""
 "language model that runs locally on your computer, with no internet "
 "connection required once downloaded."
 msgstr ""
+"Поиск на естественном языке позволяет находить изображения, описывая их "
+"своими словами, например, «фотографии с красными ярлыками, сделанные рядом с "
+"Парижем». Используется языковая модель, работающая локально на вашем "
+"компьютере; после загрузки подключение к Интернету не требуется."
 
 #: core/utilities/searchwindow/searchwindow.cpp:121
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
-msgstr ""
+msgstr "Модель поиска на естественном языке ещё не загружена."
 
 #: core/utilities/searchwindow/searchwindow.cpp:125
-#, fuzzy, kde-format
-#| msgid "Download Route"
+#, kde-format
 msgid "Download Model..."
-msgstr "Скачать маршрут"
+msgstr "Загрузить модель..."
 
 #: core/utilities/searchwindow/searchwindow.cpp:169
 #, kde-format
@@ -64841,16 +64756,14 @@ msgid "Advanced Search"
 msgstr "Расширенный поиск"
 
 #: core/utilities/searchwindow/searchwindow_nlsearch.cpp:70
-#, fuzzy, kde-format
-#| msgid "Loading themes..."
+#, kde-format
 msgid "Loading the language model... %1%"
-msgstr "Загрузка стилей оформления..."
+msgstr "Загрузка языковой модели… %1%"
 
 #: core/utilities/searchwindow/searchwindow_nlsearch.cpp:96
-#, fuzzy, kde-format
-#| msgid "Edit Current Search..."
+#, kde-format
 msgid "Interpreting the search..."
-msgstr "Изменить текущий поисковый запрос..."
+msgstr "Интерпретация поискового запроса…"
 
 #: core/utilities/searchwindow/searchwindow_nlsearch.cpp:140
 #, kde-format
@@ -64859,6 +64772,8 @@ msgid ""
 "None of that could be turned into a search. Try describing tags, dates, "
 "ratings, labels, people, or places."
 msgstr ""
+"Не удалось преобразовать это в поисковый запрос. Опишите метки, даты, "
+"оценки, ярлыки, людей или места."
 
 #: core/utilities/setup/album/setupalbumview.cpp:46
 #, kde-format
@@ -66452,10 +66367,9 @@ msgid "Use AutoTags Assignment feature"
 msgstr "Использовать функцию автоматического присваивания меток"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:81
-#, fuzzy, kde-format
-#| msgid "Use Face Management feature"
+#, kde-format
 msgid "Use Natural Language Search feature"
-msgstr "Использовать функцию управления лицами"
+msgstr "Использовать функцию поиска на естественном языке"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:290
 #, kde-format
@@ -66519,13 +66433,7 @@ msgid "File on the server is too large."
 msgstr "Файл на сервере слишком большой"
 
 #: core/utilities/setup/downloader/filesdownloader_slots.cpp:258
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>digiKam relies on large binary model files to power features like face "
-#| "management, image classification based on aesthetics, AI AutoTools such "
-#| "as automatic image rotation, and automatic tag assignment. You have the "
-#| "option to select the specific features you want to enable.</p><p><b>Note:"
-#| "</b> The red-eye removal tool requires face management model files.</p>"
+#, kde-format
 msgid ""
 "<p>digiKam relies on large binary model files to power features like face "
 "management, image classification based on aesthetics, AI AutoTools such as "
@@ -66536,11 +66444,11 @@ msgid ""
 msgstr ""
 "<p>Для работы таких функций как управление лицами, классификация изображений "
 "на основе эстетической ценности, а также для автоматических инструментов "
-"искусственного интеллекта, таких как автоматическое вращение изображения и "
-"автоматическое присваивание меток, digiKam требуются большие двоичные файлы "
-"моделей. Вы можете выбрать те функции, которые вам необходимы.</"
-"p><p><b>Примечание:</b> Для инструмента удаления эффекта «красных глаз» "
-"требуются файлы моделей управления лицами.</p>"
+"искусственного интеллекта, таких как автоматическое вращение изображения, "
+"автоматическое присваивание меток и инструмент поиска на естественном языке, "
+"digiKam требуются большие двоичные файлы моделей. Вы можете выбрать те "
+"функции, которые вам необходимы.</p><p><b>Примечание:</b> Для инструмента "
+"удаления эффекта  «красных глаз» требуются файлы моделей работы с лицами.</p>"
 
 #: core/utilities/setup/downloader/filesdownloader_slots.cpp:264
 #, kde-format

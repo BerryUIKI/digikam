@@ -38,7 +38,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-06 00:42+0000\n"
-"PO-Revision-Date: 2026-08-27 07:36+0200\n"
+"PO-Revision-Date: 2026-09-06 07:51+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -21385,6 +21385,8 @@ msgid ""
 "Cannot export RAW image preview as JPEG as WallPaper\n"
 "%1"
 msgstr ""
+"Predogleda surove slike RAW ni mogoče izvoziti kot JPEG ozadje\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:143
 #, kde-format
@@ -21392,6 +21394,8 @@ msgid ""
 "Cannot extract RAW image preview for the WallPaper\n"
 "%1"
 msgstr ""
+"Ni mogoče izvleči predogleda surove slike RAW za ozadja\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_dbus.cpp:92
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_macos.cpp:64

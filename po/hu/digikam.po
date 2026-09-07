@@ -41,7 +41,7 @@ msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-06 00:42+0000\n"
-"PO-Revision-Date: 2026-08-15 15:29+0200\n"
+"PO-Revision-Date: 2026-09-06 13:54+0200\n"
 "Last-Translator: Benedek Péter <benedekppeter@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
 "Language: hu\n"
@@ -2790,34 +2790,26 @@ msgid "Start digikam with the configuration file \"config\""
 msgstr "A digiKam indítása a \"config\" konfigurációs fájl használatával"
 
 #: core/app/main/main.cpp:303
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin is not available. please "
-#| "install it.\n"
-#| "There is no database plugin installed on your computer."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin is not available. please "
 "install it.\n"
 "There is no database plugin installed on your computer."
 msgstr ""
-"A futásidejű Qt SQLite vagy MySQL adatbázis bővítmény nem elérhető. Kérjük, "
-"telepítse.\n"
-"Nincs adatbázis bővítmény telepítve a számítógépén."
+"A futásidejű Qt SQLite vagy MariaDB adatbázis-bővítmény nem érhető el. "
+"Kérjük, telepítse.\n"
+"Nincs adatbázis-bővítmény telepítve a számítógépre."
 
 #: core/app/main/main.cpp:312
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run-time Qt SQLite or MySQL database plugin are not available. Please "
-#| "install it.\n"
-#| "Database plugins installed on your computer are listed below."
+#, kde-format
 msgid ""
 "Run-time Qt SQLite or MariaDB database plugin are not available. Please "
 "install it.\n"
 "Database plugins installed on your computer are listed below."
 msgstr ""
-"A futásidejű Qt SQLite vagy MySQL adatbázis bővítmények nem érhetők el. "
+"A futásidejű Qt SQLite vagy MariaDB adatbázis-bővítmény nem érhető el. "
 "Kérjük, telepítse.\n"
-"A számítógépén található adatbázis bővítmények listája lentebb található."
+"A számítógépre telepített adatbázis-bővítmények lent láthatók."
 
 #: core/app/main/main.cpp:356
 #, kde-format
@@ -3885,6 +3877,13 @@ msgid ""
 "frame rate, bitrate), and file formats. For details, see <a href=\"https://"
 "community.kde.org/GSoC/2026/StatusReports/SrirupaDatta\">this report</a>."
 msgstr ""
+"Szabad szavas keresés helyi LLM segítségével, mely teljes egészében a saját "
+"számítógépén fut. Írja le egyszerű nyelvezettel, amit keres, és a digiKam "
+"elkészíti a megfelelő strukturált keresést. Támogatja a címkéket, "
+"személyeket, albumokat, értékeléseket, jelölőket, tájolást, helyeket, "
+"dátumokat, feliratokat, videótulajdonságokat (hossz, képkockasebesség, "
+"bitráta) és fájlformátumokat. A részletekért lásd <a href=\"https://"
+"community.kde.org/GSoC/2026/StatusReports/SrirupaDatta\">ezt a jelentést</a>."
 
 #: core/app/views/stack/welcomepageview_features.cpp:94
 #, kde-format
@@ -4729,19 +4728,19 @@ msgstr "Panoráma támogatás"
 #, kde-format
 msgctxt "@item: component info"
 msgid "Natural-language search support"
-msgstr ""
+msgstr "Szabad szavas keresési támogatás"
 
 #: core/app/views/utils/componentsinfodlg.cpp:186
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libllama.cpp"
-msgstr ""
+msgstr "Libllama.cpp"
 
 #: core/app/views/utils/componentsinfodlg.cpp:192
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libggml"
-msgstr ""
+msgstr "Libggml"
 
 #: core/app/views/utils/componentsinfodlg.cpp:205
 #: core/app/views/utils/componentsinfodlg.cpp:210
@@ -4782,31 +4781,28 @@ msgid "Database internal server"
 msgstr "Adatbázis belső szerver"
 
 #: core/app/views/utils/componentsinfodlg.cpp:252
-#, fuzzy, kde-format
-#| msgctxt "@item: component info"
-#| msgid "Database backend"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Database backend version"
-msgstr "Adatbázis alrendszer"
+msgstr "Adatbázis-alrendszer verziója"
 
 #: core/app/views/utils/componentsinfodlg.cpp:256
-#, fuzzy, kde-format
-#| msgid "Database Configuration"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Natural Language Configuration"
-msgstr "Adatbázis konfiguráció"
+msgstr "Szabad szavas konfiguráció"
 
 #: core/app/views/utils/componentsinfodlg.cpp:261
 #, kde-format
 msgctxt "@item: component info"
 msgid "LLAMA.CPP"
-msgstr ""
+msgstr "LLAMA.CPP"
 
 #: core/app/views/utils/componentsinfodlg.cpp:270
 #, kde-format
 msgctxt "@item: component info"
 msgid "GGML"
-msgstr ""
+msgstr "GGML"
 
 #: core/app/views/utils/componentsinfodlg.cpp:281
 #, kde-format
@@ -21397,6 +21393,9 @@ msgid ""
 "Cannot export RAW image preview as JPEG as WallPaper\n"
 "%1"
 msgstr ""
+"Nem sikerült a RAW-kép előnézetét JPEG formátumban kiexportálni "
+"háttérképként:\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:143
 #, kde-format
@@ -21404,6 +21403,8 @@ msgid ""
 "Cannot extract RAW image preview for the WallPaper\n"
 "%1"
 msgstr ""
+"Nem sikerült kinyerni a RAW-kép előnézetét a háttérképhez:\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_dbus.cpp:92
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_macos.cpp:64
@@ -27324,16 +27325,14 @@ msgid "Searches"
 msgstr "Keresések"
 
 #: core/libs/album/manager/albummanager_database.cpp:111
-#, fuzzy, kde-format
-#| msgid "The MySQL database directory was not found."
+#, kde-format
 msgid "The MariaDB database directory was not found."
-msgstr "A MySQL adatbázis könyvtár nem található."
+msgstr "A MariaDB adatbázis-könyvtára nem található."
 
 #: core/libs/album/manager/albummanager_database.cpp:128
-#, fuzzy, kde-format
-#| msgid "The MySQL binary tools was not found."
+#, kde-format
 msgid "The MariaDB binary tools was not found."
-msgstr "A MySQL bináris eszközök nem találhatók."
+msgstr "A MariaDB bináris eszközei nem találhatók."
 
 #: core/libs/album/manager/albummanager_database.cpp:135
 #, kde-format
@@ -28810,15 +28809,12 @@ msgstr ""
 "A digiKam a Qt::SQL modul által biztosított illesztőprogramoktól függ."
 
 #: core/libs/database/engine/dbengineaccess.cpp:70
-#, fuzzy, kde-format
-#| msgid ""
-#| "The driver \"MYSQL\" for MySQL databases is not available.\n"
-#| "digiKam depends on the drivers provided by the Qt::SQL module."
+#, kde-format
 msgid ""
 "The Qt::SQL driver for MariaDB databases is not available.\n"
 "digiKam depends on the drivers provided by the Qt::SQL module."
 msgstr ""
-"A MySQL adatbázisokhoz szükséges \"MySQL\" illesztőprogram nem érhető el.\n"
+"A MariaDB adatbázisokhoz tartozó Qt::SQL illesztőprogram nem érhető el.\n"
 "A digiKam a Qt::SQL modul által biztosított illesztőprogramoktól függ."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:170
@@ -28985,35 +28981,31 @@ msgid "Database type is not supported."
 msgstr "Az adatbázis típusa nem támogatott."
 
 #: core/libs/database/server/databaseserver.cpp:296
-#, fuzzy, kde-format
-#| msgid "No path to mysql upgrade command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB upgrade command set in configuration file."
 msgstr ""
-"A konfigurációs fájlban nincs megadva elérési út a mysql upgrade parancshoz."
+"Nincs megadva a MariaDB frissítési parancsának útvonala a konfigurációs "
+"fájlban."
 
 #: core/libs/database/server/databaseserver.cpp:305
-#, fuzzy, kde-format
-#| msgid "No path to mysql server command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB server command set in configuration file."
 msgstr ""
-"A konfigurációs fájlban nincs beállítva elérési út a mysql szerver "
-"parancshoz."
+"Nincs megadva a MariaDB szerver parancsának útvonala a konfigurációs fájlban."
 
 #: core/libs/database/server/databaseserver.cpp:314
-#, fuzzy, kde-format
-#| msgid "No path to mysql administration command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB administration command set in configuration file."
 msgstr ""
-"A konfigurációs fájlban nincs megadva elérési út a mysql adminisztrációs "
-"parancshoz."
+"Nincs megadva a MariaDB adminisztrációs parancsának útvonala a konfigurációs "
+"fájlban."
 
 #: core/libs/database/server/databaseserver.cpp:323
-#, fuzzy, kde-format
-#| msgid "No path to mysql initialization command set in configuration file."
+#, kde-format
 msgid "No path to MariaDB initialization command set in configuration file."
 msgstr ""
-"A konfigurációs fájlban nincs megadva elérési út a mysql inicializálási "
-"parancshoz."
+"Nincs megadva a MariaDB inicializálási parancsának útvonala a konfigurációs "
+"fájlban."
 
 #: core/libs/database/server/databaseserver.cpp:333
 #: core/libs/database/server/databaseserver.cpp:343
@@ -29023,33 +29015,28 @@ msgid "Cannot create directory %1"
 msgstr "Nem lehet létrehozni a(z) %1 mappát"
 
 #: core/libs/database/server/databaseserver.cpp:436
-#, fuzzy, kde-format
-#| msgid ""
-#| "Unable to create MySQL server configuration file.<p>This means that "
-#| "either the default configuration file</p><p>%1</p><p>was not readable or "
-#| "the target file</p><p>%2</p><p>could not be written.</p>"
+#, kde-format
 msgid ""
 "Unable to create MariaDB server configuration file.<p>This means that either "
 "the default configuration file</p><p>%1</p><p>was not readable or the target "
 "file</p><p>%2</p><p>could not be written.</p>"
 msgstr ""
-"A MySQL kiszolgáló konfigurációs fájljának létrehozása sikertelen.<p>Ez azt "
-"jelenti, hogy vagy az alapértelmezett konfigurációs fájl</p><p>%1</p><p>nem "
-"volt olvasható, vagy a célfájl</p><p>%2</p><p>nem írható.</p>"
+"A MariaDB szerver konfigurációs fájljának létrehozása nem sikerült.<p>Ez azt "
+"jelenti, hogy az alapértelmezett konfigurációs fájl</p><p>%1</p><p>nem volt "
+"olvasható, vagy a célfájl</p><p>%2</p><p>nem volt írható.</p>"
 
 #: core/libs/database/server/databaseserver.cpp:458
-#, fuzzy, kde-format
-#| msgid "Cannot find MySQL server default configuration (mysql-global.conf)."
+#, kde-format
 msgid "Cannot find MariaDB server default configuration (mysql-global.conf)."
 msgstr ""
-"Nem található a MySQL szerver alapértelmezett konfigurációja (mysql-global."
-"conf)."
+"A MariaDB szerver alapértelmezett konfigurációja (mysql-global.conf) nem "
+"található."
 
 #: core/libs/database/server/databaseserver.cpp:505
-#, fuzzy, kde-format
-#| msgid "The internal MySQL database is initializing, please wait..."
+#, kde-format
 msgid "The internal MariaDB database is initializing, please wait..."
-msgstr "A belső MySQL adatbázis inicializálása folyamatban, kérjük várjon..."
+msgstr ""
+"A belső MariaDB adatbázis inicializálása folyamatban van, kérjük, várjon..."
 
 #: core/libs/database/server/databaseserver.cpp:553
 #, kde-format
@@ -29087,10 +29074,9 @@ msgstr ""
 "%2</p>"
 
 #: core/libs/database/server/databaseserver.cpp:751
-#, fuzzy, kde-format
-#| msgid "A MySQL database upgrade is in progress, please wait..."
+#, kde-format
 msgid "A MariaDB database upgrade is in progress, please wait..."
-msgstr "MySQL adatbázis frissítés zajlik, kérjük várjon..."
+msgstr "A MariaDB adatbázis frissítése folyamatban van, kérjük, várjon..."
 
 #: core/libs/database/server/databaseserver.cpp:795
 #, kde-format
@@ -29397,64 +29383,50 @@ msgid "SQLite"
 msgstr "SQLite"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:62
-#, fuzzy, kde-format
-#| msgid "Mysql Internal"
+#, kde-format
 msgid "MariaDB Internal"
-msgstr "MySQL belső"
+msgstr "Belső MariaDB"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:67
-#, fuzzy, kde-format
-#| msgid "%1 Media Server"
+#, kde-format
 msgid "MariaDB Server"
-msgstr "%1 médiaszerver"
+msgstr "MariaDB szerver"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:72
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend "
-#| "is for local database storage with a small or medium collection sizes. It "
-#| "is the default and recommended backend for collections with less than "
-#| "100K items.</p>"
+#, kde-format
 msgid ""
 "<p>Select here the type of database backend.</p><p><b>SQlite</b> backend is "
 "for local database storage with a small or medium collection sizes. It is "
 "the default and recommended backend for collections with less than 500K "
 "items.</p>"
 msgstr ""
-"<p>Válassza ki az adatbázis alrendszer típusát.</p><p><b>SQlite</b> "
-"alrendszer kis és közepes méretű gyűjtemények helyi adatbázis tárolására "
-"szolgál. Ez az alapértelmezett és ajánlott adatbázismotor a százezernél "
-"kevesebb elemet tartalmazó gyűjteményekhez.</p>"
+"<p>Itt választhatja ki az adatbázis-alrendszer típusát.</p><p>Az <b>SQLite</"
+"b> alrendszer kis és közepes méretű helyi adatbázisok tárolására szolgál. Ez "
+"az alapértelmezett és ajánlott alrendszer az 500 ezer elemnél kisebb "
+"gyűjteményekhez.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:81
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Internal</b> backend is for local database storage with huge "
-#| "collection sizes. This backend is recommend for local collections with "
-#| "more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Internal</b> backend is for local database storage with huge "
 "collection sizes. This backend is recommend for local collections with more "
 "than 500K items.</p>"
 msgstr ""
-"<p><b>MySQL belső</b> alrendszer helyi adatbázis tárolására szolgál, nagy "
-"méretű gyűjtemény esetén. Ez a tároló a százezernél több elemet tartalmazó "
-"helyi gyűjteményekhez ajánlott.</p>"
+"<p>A <b>belső MariaDB</b> alrendszer a nagy méretű helyi adatbázisok "
+"tárolására szolgál. Ez az alrendszer a több mint 500 ezer elemből álló helyi "
+"gyűjteményekhez ajánlott.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:86
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p><b>MySQL Server</b> backend is a more robust solution especially for "
-#| "remote and shared database storage. It is also more efficient to manage "
-#| "huge collection sizes with more than 100K items.</p>"
+#, kde-format
 msgid ""
 "<p><b>MariaDB Server</b> backend is a more robust solution especially for "
 "remote and shared database storage. It is also more efficient to manage huge "
 "collection sizes with more than 500K items.</p>"
 msgstr ""
-"<p><b>MySQL szerver</b> alrendszer egy robusztus megoldás, különösen távoli "
-"és megosztott adatbázis-tárolás esetén. Hatékony a több százezer elemet "
-"tartalmazó, nagy méretű gyűjtemények esetén.</p>"
+"<p>A <b>MariaDB szerver</b> alrendszer robusztusabb megoldást nyújt, "
+"különösen távoli és megosztott adatbázis-tárolás esetén. Hatékonyabbá teszi "
+"a hatalmas, több mint 500 ezer elemet tartalmazó gyűjtemények kezelését is.</"
+"p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:93
 #, kde-format
@@ -29536,27 +29508,21 @@ msgstr ""
 "kéréseket atomivá és robusztussá kiterjedt és kritikus használat esetén."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:169
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Here you can configure locations where MySQL binary tools are located. "
-#| "digiKam will try to find these binaries automatically if they are already "
-#| "installed on your computer.</p>"
+#, kde-format
 msgid ""
 "<p>Here you can configure locations where MariaDB binary tools are located. "
 "digiKam will try to find these binaries automatically if they are already "
 "installed on your computer.</p>"
 msgstr ""
-"<p>Itt konfigurálhatja a MySQL bináris eszközök helyét. A digiKam "
-"megpróbálja automatikusan megkeresni ezeket a bináris fájlokat, ha már "
-"telepítve vannak a számítógépen.</p>"
+"<p>Itt állíthatja be azokat a helyeket, ahol a MariaDB bináris eszközei "
+"találhatók. A digiKam megpróbálja automatikusan megtalálni ezeket a "
+"binárisokat, ha már telepítve vannak a számítógépén.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:178
-#, fuzzy, kde-format
-#| msgctxt "@title: group"
-#| msgid "Panorama Binaries"
+#, kde-format
 msgctxt "@title:group"
 msgid "MariaDB Binaries"
-msgstr "Panoráma binárisok"
+msgstr "MariaDB binárisok"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:221
 #, kde-format
@@ -29569,19 +29535,15 @@ msgid "Set the host computer name"
 msgstr "Állítsa be a gazdagép számítógép nevét"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:224
-#, fuzzy, kde-format
-#| msgid ""
-#| "This is the computer name running MySQL server.\n"
-#| "This can be \"localhost\" for a local server, or the network computer\n"
-#| "name (or IP address) in case of remote computer."
+#, kde-format
 msgid ""
 "This is the computer name running MariaDB server.\n"
 "This can be \"localhost\" for a local server, or the network computer\n"
 "name (or IP address) in case of remote computer."
 msgstr ""
-"A MySQL szervert futtató számítógép neve.\n"
-"Ez lehet \"localhost\" egy helyi szerverhez, vagy\n"
-"távoli számítógép esetén a gép neve (vagy IP címe)."
+"Ez a MariaDB szervert futtató számítógép neve.\n"
+"Ez lehet \"localhost\" egy helyi szerver esetén, vagy a\n"
+"hálózati számítógépnév (vagy IP-cím) távoli számítógép esetén."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:229
 #, kde-format
@@ -29598,16 +29560,13 @@ msgid "Set the database connection options"
 msgstr "Adja meg az adatbázis-kapcsolat beállításait"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:234
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server connection options.\n"
-#| "For advanced users only."
+#, kde-format
 msgid ""
 "Set the MariaDB server connection options.\n"
 "For advanced users only."
 msgstr ""
-"Adja meg a MySQL szerver csatlakozási beállításait.\n"
-"Csak haladó felhasználóknak."
+"Állítsa be a MariaDB szerver csatlakozási opcióit.\n"
+"Kizárólag haladó felhasználóknak."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:237
 #, kde-format
@@ -29620,37 +29579,28 @@ msgid "Set the database account name"
 msgstr "Állítsa be az adatbázis-fiók nevét"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:240
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account name used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "This account must be available on the remote\n"
-#| "MySQL server when database have been created."
+#, kde-format
 msgid ""
 "Set the MariaDB server account name used\n"
 "by digiKam to be connected to the server.\n"
 "This account must be available on the remote\n"
 "MariaDB server when database have been created."
 msgstr ""
-"Állítsa be a digiKam által használt MySQL szerver fiók nevét\n"
-"a szerverhez történő csatlakozáshoz.\n"
+"Állítsa be a digiKam által a szerver eléréséhez használt\n"
+"MariaDB szerverfiók nevét.\n"
 "Ennek a fióknak elérhetőnek kell lennie a távoli\n"
-"MySQL szerveren, miután az adatbázis létrejött."
+"MariaDB szerveren az adatbázisok létrehozása után."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:247
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the MySQL server account password used\n"
-#| "by digiKam to be connected to the server.\n"
-#| "You can left this field empty to use an account set without password."
+#, kde-format
 msgid ""
 "Set the MariaDB server account password used\n"
 "by digiKam to be connected to the server.\n"
 "You can left this field empty to use an account set without password."
 msgstr ""
-"Állítsa be a digiKam által használt MySQL szerver fiók jelszavát\n"
-"a szerverhez történő csatlakozáshoz. \n"
-"Ezt a mezőt üresen hagyhatja, ha jelszó nélküli fiókot szeretne használni."
+"Állítsa be a digiKam által a szerver eléréséhez használt\n"
+"MariaDB szerverfiók jelszavát.\n"
+"A mezőt üresen is hagyhatja, ha jelszó nélküli fiókot használ."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:253
 #, kde-format
@@ -29658,17 +29608,13 @@ msgid "Host Port:"
 msgstr "Gazdagép portja:"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:255
-#, fuzzy, kde-format
-#| msgid ""
-#| "Set the host computer port.\n"
-#| "Usually, MySQL server use port number 3306 by default"
+#, kde-format
 msgid ""
 "Set the host computer port.\n"
 "Usually, MariaDB server use port number 3306 by default"
 msgstr ""
-"Állítsa be a gazdagép portját.\n"
-"A MySQL szerver alapértelmezés szerint általában a 3306-os portszámot "
-"használja"
+"Állítsa be a gazdaszámítógép portját.\n"
+"A MariaDB szerverek alapértelmezetten általában a 3306-os portot használják"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:260
 #, kde-format
@@ -29676,16 +29622,13 @@ msgid "Check Connection"
 msgstr "Kapcsolat ellenőrzése"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:261
-#, fuzzy, kde-format
-#| msgid ""
-#| "Run a basic database connection to see if current MySQL server settings "
-#| "is suitable."
+#, kde-format
 msgid ""
 "Run a basic database connection to see if current MariaDB server settings is "
 "suitable."
 msgstr ""
-"Futtasson egy alap adatbázis kapcsolatot az aktuális MySQL szerver "
-"beállításainak ellenőrzéséhez."
+"Futtasson egy alapvető adatbázis-csatlakozási tesztet, hogy ellenőrizze, "
+"megfelelőek-e a MariaDB szerver jelenlegi beállításai."
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:268
 #, kde-format
@@ -29810,18 +29753,7 @@ msgstr ""
 "i></b> a helyesre cserélte).</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:341
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Note: with a Linux server, a database can be initialized following the "
-#| "commands below:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql "
-#| "-u root</p><p>...</p><p>Enter SQL code to Mysql prompt in order to init "
-#| "digiKam databases with grant privileges (see behind)</p><p>...</"
-#| "p><p>quit</p><p>NOTE: If you have problems with a MySQL server on Ubuntu "
-#| "based Linux system, use the addition command in the mysql prompt to be "
-#| "able to create MySQL triggers.<br>SET GLOBAL "
-#| "log_bin_trust_function_creators=1;</p><p>NOTE: If you have an enormous "
-#| "collection, you should start MySQL server with mysql --"
-#| "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
+#, kde-format
 msgid ""
 "<p>Note: with a Linux server, a database can be initialized following the "
 "commands below:</p><p># su</p><p># systemctl restart mariadbd</p><p># "
@@ -29834,17 +29766,18 @@ msgid ""
 "collection, you should start MariaDB server with mariadb --"
 "max_allowed_packet=128M OR in my.ini or ~/.my.cnf, change the settings</p>"
 msgstr ""
-"<p>Megjegyzés: Linux szerver esetén az adatbázis az alábbi parancsokkal "
-"inicializálható:</p><p># su</p><p># systemctl restart mysqld</p><p># mysql -"
-"u root</p><p>...</p><p>Adja meg az SQL kódot a MySQL parancssorba a digiKam "
-"adatbázisok inicializálásához, a megfelelő jogosultságokkal (lásd lentebb)</"
-"p><p>...</p><p>quit</p><p>MEGJEGYZÉS: Ha problémái vannak a MySQL szerverrel "
-"Ubuntu alapú Linux rendszeren, használja a következő kiegészítő parancsot a "
-"MySQL parancssorban, hogy képes legyen MySQL triggereket létrehozni:<br>SET "
-"GLOBAL log_bin_trust_function_creators=1;</p><p>MEGJEGYZÉS: Ha hatalmas "
-"gyűjteménye van, indítsa el a MySQL szervert a mysql --"
-"max_allowed_packet=128M paranccsal, VAGY a my.ini vagy ~/.my.cnf fájlban "
-"módosítsa a beállításokat.</p>"
+"<p>Megjegyzés: Linux-szerver esetén az adatbázis az alábbi parancsok "
+"követésével inicializálható:</p><p># su</p><p># systemctl restart mariadbd</"
+"p><p># mariadb -u root</p><p>...</p><p>Írja be az SQL-kódot a MariaDB "
+"parancssorba a digiKam adatbázisok inicializálásához a megfelelő "
+"jogosultságok megadásával (lásd lentebb)</p><p>...</p><p>quit</"
+"p><p>MEGJEGYZÉS: Ha probléma merül fel a MariaDB szerverrel Ubuntu-alapú "
+"Linux rendszeren, használja a kiegészítő parancsot a MariaDB parancssorban a "
+"MariaDB triggerek (eseményindítók) létrehozásához.<br>SET GLOBAL "
+"log_bin_trust_function_creators=1;</p><p>MEGJEGYZÉS: Ha rendkívül nagy "
+"gyűjteménnyel rendelkezik, a MariaDB szervert a mariadb --"
+"max_allowed_packet=128M paranccsal indítsa el, VAGY a my.ini vagy a ~/.my."
+"cnf fájlban módosítsa a beállításokat</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:365
 #, kde-format
@@ -29857,25 +29790,7 @@ msgid "Database Server Technical Details"
 msgstr "Adatbázis szerver technikai részletei"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:371
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>Use this configuration view to set all information to be connected to "
-#| "a remote <a href=\"https://en.wikipedia.org/wiki/MySQL\">Mysql database "
-#| "server</a> (or <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</"
-#| "a>) through a network. As with Sqlite or MySQL internal server, 3 "
-#| "databases will be stored on the remote server: one for all collections "
-#| "properties, one to store compressed thumbnails, and one to store faces "
-#| "recognition metadata.</p><p>Unlike Sqlite or MySQL internal server, you "
-#| "can customize the database names to simplify your backups.</"
-#| "p><p>Databases are digiKam core engines. To prevent performance issues, "
-#| "take a care to use a fast network link between the client and the server "
-#| "computers. It is also recommended to host database files on fast hardware "
-#| "(as <a href=\"https://en.wikipedia.org/wiki/Solid-state_drive\">SSD</a>) "
-#| "with enough free space, especially for thumbnails database, even if data "
-#| "are compressed using wavelets image format <a href=\"https://en.wikipedia."
-#| "org/wiki/Progressive_Graphics_File\">PGF</a>.</p><p>The databases must be "
-#| "created previously on the remote server by the administrator. Look in "
-#| "<b>Requirements</b> tab for details.</p>"
+#, kde-format
 msgid ""
 "<p>Use this configuration view to set all information to be connected to a "
 "remote <a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</a> through "
@@ -29893,25 +29808,24 @@ msgid ""
 "</p><p>The databases must be created previously on the remote server by the "
 "administrator. Look in <b>Requirements</b> tab for details.</p>"
 msgstr ""
-"<p>A távoli <a href=\"https://en.wikipedia.org/wiki/MySQL\">MySQL</a> (vagy "
-"<a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</a>) adatbázis "
-"szerverhez történő csatlakozáshoz szükséges információk beállításához "
-"használja ezt a konfigurációs nézetet. Az SQLite vagy a MySQL belső "
-"szerveréhez hasonlóan három adatbázis lesz tárolva a távoli szerveren: egy "
-"az összes gyűjtemény tulajdonságához, egy a tömörített miniatűrök "
-"tárolásához és egy az arcfelismerési metaadatok tárolásához.</p><p>Az SQLite "
-"vagy a MySQL belső szerverével ellentétben testre szabhatja az "
-"adatbázisneveket a biztonsági mentések egyszerűsítése érdekében.</p><p>Az "
-"adatbázisok a digiKam központi motorjai. A teljesítményproblémák elkerülése "
-"érdekében ügyeljen arra, hogy gyors hálózati kapcsolatot használjon az "
-"ügyfél és a szerver számítógépek között. Azt is javasoljuk, hogy az "
-"adatbázisfájlokat gyors hardveren (például <a href=\"https://en.wikipedia."
-"org/wiki/Solid-state_drive\">SSD-n</a>) tárolja, melyen elegendő szabad hely "
-"található -- különösen a miniatűrök adatbázisa számára --, még akkor is, ha "
-"az adatok wavelet képfájlformátumban (<a href=\"https://en.wikipedia.org/"
-"wiki/Progressive_Graphics_File\">PGF</a>) vannak tömörítve.</p><p>Az "
-"adatbázisokat a rendszergazdának előzetesen létre kell hoznia a távoli "
-"szerveren. Részletekért lásd a <b>Követelmények</b> fület.</p>"
+"<p>Ezzel a beállítási nézettel adhatja meg a hálózaton keresztül egy távoli "
+"<a href=\"https://en.wikipedia.org/wiki/MariaDB\">MariaDB</a> adatbázishoz "
+"való csatlakozáshoz szükséges adatokat. Az SQLite-hoz vagy a belső MariaDB "
+"szerverhez hasonlóan 3 adatbázis kerül tárolásra a távoli szerveren: egy a "
+"gyűjtemények tulajdonságaihoz, egy a tömörített bélyegképek tárolásához és "
+"egy az arcfelismerési metaadatokhoz.</p><p>Az SQLite-tal vagy a belső "
+"MariaDB szerverrel ellentétben itt testre szabhatja az adatbázisok neveit a "
+"biztonsági mentések egyszerűsítése érdekében.</p><p>Az adatbázisok a digiKam "
+"alapvető motorjai. A teljesítményproblémák elkerülése érdekében ügyeljen "
+"arra, hogy gyors hálózati kapcsolatot használjon a kliens és a szerver "
+"számítógép között. Javasolt továbbá az adatbázisfájlokat (különösen a "
+"bélyegkép-adatbázis esetében) gyors hardveren (például <a href=\"https://en."
+"wikipedia.org/wiki/Solid-state_drive\">SSD</a>-n) tárolni, amely elegendő "
+"szabad hellyel rendelkezik, még akkor is, ha az adatok a <a href=\"https://"
+"en.wikipedia.org/wiki/Progressive_Graphics_File\">PGF</a> képformátum "
+"használatával tömörítve vannak.</p><p>Az adatbázisokat a rendszergazdának "
+"előre létre kell hoznia a távoli szerveren. A részletekért lásd a "
+"<b>Követelmények</b> lapot.</p>"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:396
 #, kde-format
@@ -44146,6 +44060,7 @@ msgstr "Minőségbiztosítási tesztmérnök"
 msgid ""
 "Natural Language Search in the Advanced Search tool, powered with a local LLM"
 msgstr ""
+"Szabad szavas keresés a Részletes keresés eszközben, helyi LLM segítségével"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:163
 #, kde-format
@@ -44308,10 +44223,9 @@ msgid "Color Management"
 msgstr "Színkezelés"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:356
-#, fuzzy, kde-format
-#| msgid "MySQL interface"
+#, kde-format
 msgid "MariaDB interface"
-msgstr "MySQL interfész"
+msgstr "MariaDB felület"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:361
 #, kde-format
@@ -61761,16 +61675,13 @@ msgid "Extended clean up and shrink all databases."
 msgstr "Minden adatbázis megtisztítása és tömörítése."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:100
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option leads to the vacuuming (shrinking) of the databases. "
-#| "Vacuuming is supported both for SQLite and MySQL."
+#, kde-format
 msgid ""
 "This option leads to the vacuuming (shrinking) of the databases. Vacuuming "
 "is supported both for SQLite and MariaDB."
 msgstr ""
-"Ez a beállítás az adatbázisok vákuumozásához (méretcsökkentéséhez) vezet. A "
-"vákuumozás mind az SQLite, mind a MySQL adatbázisok esetében támogatott."
+"Ez a beállítás az adatbázisok vákuumozásához (zsugorításához) vezet. A "
+"zsugorítás az SQLite és a MariaDB esetében is támogatott."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:107
 #, kde-format
@@ -62997,82 +62908,72 @@ msgstr "Átnevezés..."
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:185
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@label: item properties"
-#| msgid "Pick label: "
+#, kde-format
 msgctxt "@item"
 msgid "Pick label: Accepted"
-msgstr "Minőségjelölő: "
+msgstr "Minőségjelölő: Elfogadva"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:186
 #, kde-format
 msgctxt "@item"
 msgid "Rating 4 or more"
-msgstr ""
+msgstr "Értékelés: legalább 4"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "@info: generate album name for exporting"
-#| msgid "Rating: "
+#, kde-format
 msgctxt "@item"
 msgid "Rating 5"
-msgstr "Értékelés: "
+msgstr "Értékelés: 5"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:197
-#, fuzzy, kde-format
-#| msgid "Fine horizontal angle:"
+#, kde-format
 msgctxt "@item"
 msgid "Oriented horizontally (landscape)"
-msgstr "Pontos vízszintes szög:"
+msgstr "Vízszintes tájolású (fekvő)"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:198
-#, fuzzy, kde-format
-#| msgid "Subject distance"
+#, kde-format
 msgctxt "@item"
 msgid "Subject tag: landscape"
-msgstr "A tárgy távolsága"
+msgstr "Témacímke: tájkép"
 
 #: core/utilities/searchwindow/nlsearch/searchintentresolver.cpp:86
 #, kde-format
 msgctxt "@info"
 msgid "\"%1\" could mean more than one thing. Which did you mean?"
-msgstr ""
+msgstr "A(z) \"%1\" több dolgot is jelenthet. Melyikre gondolt?"
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:155
-#, fuzzy, kde-format
-#| msgid "Failed to load image"
+#, kde-format
 msgid "Failed to load the language model."
-msgstr "A kép betöltése sikertelen"
+msgstr "A nyelvi modell betöltése sikertelen."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:181
-#, fuzzy, kde-format
-#| msgid "Failed to initialize the database."
+#, kde-format
 msgid "Failed to initialize the model context."
-msgstr "Nem sikerült inicializálni az adatbázist."
+msgstr "A modellkontextus inicializálása sikertelen."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:201
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:347
 #, kde-format
 msgid "digiKam was built without llama.cpp support."
-msgstr ""
+msgstr "A digiKam llama.cpp támogatás nélkül lett lefordítva."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:218
 #, kde-format
 msgid "Model is not loaded."
-msgstr ""
+msgstr "A modell nincs betöltve."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:239
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:249
-#, fuzzy, kde-format
-#| msgid "Failed to open the database."
+#, kde-format
 msgid "Failed to tokenize the prompt."
-msgstr "Nem sikerült megnyitni az adatbázist."
+msgstr "A prompt tokenizálása sikertelen."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:286
-#, fuzzy, kde-format
-#| msgid "Connection failed."
+#, kde-format
 msgid "Model decode failed."
-msgstr "Kapcsolódás sikertelen."
+msgstr "A modell dekódolása sikertelen."
 
 #: core/utilities/searchwindow/nlsearch/searchnlmodelmanager.cpp:100
 #, kde-format
@@ -63081,12 +62982,14 @@ msgid ""
 "The natural-language search model is not installed. Please download it from "
 "the digiKam setup downloader."
 msgstr ""
+"A szabad szavas keresési modell nincs telepítve. Kérjük, töltse le a digiKam "
+"telepítő letöltőjéből."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:149
 #, kde-format
 msgctxt "@info"
 msgid "A query is already being interpreted."
-msgstr ""
+msgstr "Egy keresés értelmezése már folyamatban van."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:179
 #, kde-format
@@ -63096,6 +62999,9 @@ msgid ""
 "Enable \"Natural Language Search\" in the model download dialog to install "
 "it, then restart digiKam."
 msgstr ""
+"A szabad szavas kereséshez egy olyan nyelvi modellre van szükség, amely még "
+"nincs telepítve. A telepítéshez engedélyezze a \"Szabad szavas keresés\" "
+"opciót a modell letöltési párbeszédablakban, majd indítsa újra a digiKamot."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:186
 #, kde-format
@@ -63104,12 +63010,14 @@ msgid ""
 "The natural language search model is still loading. Please try your search "
 "again in a few seconds."
 msgstr ""
+"A szabad szavas keresési modell betöltése még folyamatban van. Kérjük, "
+"próbálja újra a keresést néhány másodperc múlva."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Interpreting your search..."
-msgstr ""
+msgstr "Keresés értelmezése…"
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:225
 #, kde-format
@@ -63118,6 +63026,8 @@ msgid ""
 "Could not interpret the model output. Please refine the description or "
 "create rules manually."
 msgstr ""
+"Nem sikerült értelmezni a modell kimenetét. Kérjük, pontosítsa a leírást, "
+"vagy hozzon létre szabályokat manuálisan."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:247
 #, kde-format
@@ -63126,12 +63036,17 @@ msgid ""
 "Could not map '%1' to tags, album names, captions, location, or date. Please "
 "refine the description or create rules manually."
 msgstr ""
+"A(z) \"%1\" kifejezést nem sikerült címkékhez, albumnevekhez, "
+"képaláírásokhoz, helyszínhez vagy dátumhoz rendelni. Kérjük, pontosítsa a "
+"leírást, vagy hozzon létre szabályokat manuálisan."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:258
 #, kde-format
 msgctxt "@info"
 msgid "Some terms could not be mapped and were skipped: %1"
 msgstr ""
+"Néhány kifejezést nem sikerült megfeleltetni, ezért ezek kihagyásra "
+"kerültek: %1"
 
 #: core/utilities/searchwindow/ratingsearchutilities.cpp:201
 #, kde-format
@@ -64204,25 +64119,24 @@ msgstr "Aktuális keresés szerkesztése..."
 msgid ""
 "Interpret the text above as a natural-language search and build the query"
 msgstr ""
+"Fenti szöveg értelmezése szabad szavas keresésként és a lekérdezés "
+"összeállítása"
 
 #: core/utilities/searchwindow/searchtabheader.cpp:70
 #: core/utilities/searchwindow/searchwindow.cpp:69
-#, fuzzy, kde-format
-#| msgid "Cancel current operation"
+#, kde-format
 msgid "Cancel the current interpretation"
-msgstr "Aktuális művelet megszakítása"
+msgstr "Jelenlegi értelmezés megszakítása"
 
 #: core/utilities/searchwindow/searchtabheader.cpp:95
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Advanced Search"
+#, kde-format
 msgid "Open Advanced Search"
-msgstr "Részletes keresés"
+msgstr "Részletes keresés megnyitása"
 
 #: core/utilities/searchwindow/searchtabheader.cpp:96
 #, kde-format
 msgid "Run Now"
-msgstr ""
+msgstr "Futtatás most"
 
 #: core/utilities/searchwindow/searchtabheader.cpp:140
 #, kde-format
@@ -64262,19 +64176,19 @@ msgid "Edit..."
 msgstr "Szerkesztés..."
 
 #: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:89
-#, fuzzy, kde-format
-#| msgid "Imported %1"
+#, kde-format
 msgid ""
 "Interpreted as:\n"
 "%1"
-msgstr "Importált %1"
+msgstr ""
+"Értelmezve mint:\n"
+"%1"
 
 #: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:123
 #: core/utilities/searchwindow/searchwindow_slots.cpp:180
-#, fuzzy, kde-format
-#| msgid "Printing canceled"
+#, kde-format
 msgid "Interpretation cancelled."
-msgstr "Nyomtatás megszakítva"
+msgstr "Értelmezés megszakítva."
 
 #: core/utilities/searchwindow/searchtabheader_p.cpp:62
 #, kde-format
@@ -64298,21 +64212,19 @@ msgid "Try"
 msgstr "Próba"
 
 #: core/utilities/searchwindow/searchwindow.cpp:37
-#, fuzzy, kde-format
-#| msgctxt "@info: country code"
-#| msgid "Default Language"
+#, kde-format
 msgid "Natural Language Search"
-msgstr "Alapértelmezett nyelv"
+msgstr "Szabad szavas keresés"
 
 #: core/utilities/searchwindow/searchwindow.cpp:41
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
-msgstr ""
+msgstr "pl.: tájképfotók piros címkével Párizs közeléből"
 
 #: core/utilities/searchwindow/searchwindow.cpp:44
 #, kde-format
 msgid "Translate my query to English first"
-msgstr ""
+msgstr "Először fordítsd le angolra a lekérdezést"
 
 #: core/utilities/searchwindow/searchwindow.cpp:46
 #, kde-format
@@ -64320,11 +64232,13 @@ msgid ""
 "When enabled, your query is translated to English before being interpreted, "
 "so you can type in your own language. Requires an internet connection."
 msgstr ""
+"Ha engedélyezve van, a rendszer a lekérdezést az értelmezés előtt angolra "
+"fordítja, így a saját nyelvén gépelhet. Internetkapcsolat szükséges hozzá."
 
 #: core/utilities/searchwindow/searchwindow.cpp:84
 #, kde-format
 msgid "Open the Natural Language Search handbook"
-msgstr ""
+msgstr "Szabad szavas keresés funkció kézikönyvének megnyitása"
 
 #: core/utilities/searchwindow/searchwindow.cpp:113
 #, kde-format
@@ -64334,17 +64248,20 @@ msgid ""
 "language model that runs locally on your computer, with no internet "
 "connection required once downloaded."
 msgstr ""
+"A szabad szavas keresés lehetővé teszi, hogy a saját szavaival leírt "
+"jellemzők alapján keressen fotót, például: \"photos with red labels taken "
+"near Paris\". A funkció egy lokálisan futó nyelvi modellt használ, melyhez a "
+"letöltést követően már nincs szükség internetkapcsolatra."
 
 #: core/utilities/searchwindow/searchwindow.cpp:121
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
-msgstr ""
+msgstr "A szabad szavas keresés modell még nem lett letöltve."
 
 #: core/utilities/searchwindow/searchwindow.cpp:125
-#, fuzzy, kde-format
-#| msgid "Download Route"
+#, kde-format
 msgid "Download Model..."
-msgstr "Letöltési útvonal"
+msgstr "Modell letöltése..."
 
 #: core/utilities/searchwindow/searchwindow.cpp:169
 #, kde-format
@@ -64353,16 +64270,14 @@ msgid "Advanced Search"
 msgstr "Részletes keresés"
 
 #: core/utilities/searchwindow/searchwindow_nlsearch.cpp:70
-#, fuzzy, kde-format
-#| msgid "Loading themes..."
+#, kde-format
 msgid "Loading the language model... %1%"
-msgstr "Témák betöltése..."
+msgstr "Nyelvi modell betöltése… %1%"
 
 #: core/utilities/searchwindow/searchwindow_nlsearch.cpp:96
-#, fuzzy, kde-format
-#| msgid "Edit Current Search..."
+#, kde-format
 msgid "Interpreting the search..."
-msgstr "Aktuális keresés szerkesztése..."
+msgstr "Keresés értelmezése…"
 
 #: core/utilities/searchwindow/searchwindow_nlsearch.cpp:140
 #, kde-format
@@ -64371,6 +64286,8 @@ msgid ""
 "None of that could be turned into a search. Try describing tags, dates, "
 "ratings, labels, people, or places."
 msgstr ""
+"Ezek közül egyikből sem lehetett keresést létrehozni. Próbálja meg címkék, "
+"dátumok, értékelések, jelölők, személyek vagy helyek leírását."
 
 #: core/utilities/setup/album/setupalbumview.cpp:46
 #, kde-format
@@ -64571,7 +64488,7 @@ msgstr ""
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:83
 #, kde-format
 msgid "Show fullscreen overlay button"
-msgstr "Teljes képernyő lebegő gomb megjelenítése"
+msgstr "Teljes képernyő megjelenítése lebegő gombként"
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:84
 #, kde-format
@@ -65996,10 +65913,9 @@ msgid "Use AutoTags Assignment feature"
 msgstr "Automatikus címkék hozzárendelés funkció használata"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:81
-#, fuzzy, kde-format
-#| msgid "Use Face Management feature"
+#, kde-format
 msgid "Use Natural Language Search feature"
-msgstr "Arckezelő funkció használata"
+msgstr "Szabad szavas keresés funkció használata"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:290
 #, kde-format
@@ -66063,13 +65979,7 @@ msgid "File on the server is too large."
 msgstr "A szerveren lévő fájl túl nagy."
 
 #: core/utilities/setup/downloader/filesdownloader_slots.cpp:258
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>digiKam relies on large binary model files to power features like face "
-#| "management, image classification based on aesthetics, AI AutoTools such "
-#| "as automatic image rotation, and automatic tag assignment. You have the "
-#| "option to select the specific features you want to enable.</p><p><b>Note:"
-#| "</b> The red-eye removal tool requires face management model files.</p>"
+#, kde-format
 msgid ""
 "<p>digiKam relies on large binary model files to power features like face "
 "management, image classification based on aesthetics, AI AutoTools such as "
@@ -66078,12 +65988,13 @@ msgid ""
 "enable.</p><p><b>Note:</b> The red-eye removal tool requires face management "
 "model files.</p>"
 msgstr ""
-"<p>A digiKam nagy méretű bináris modellfájlokat használ olyan funkciók "
-"működtetéséhez, mint az arckezelés, az esztétikai alapú képbesorolás, az AI "
-"AutoTools eszközök (például automatikus képforgatás) és az automatikus "
-"címkelétrehozás. Kiválaszthatja, hogy mely funkciókat szeretné engedélyezni."
-"</p><p><b>Megjegyzés:</b> A vörösszem-eltávolító eszköz arckezelési "
-"modellfájlokat igényel.</p>"
+"<p>A digiKam nagyméretű bináris modellfájlokra támaszkodik az olyan funkciók "
+"működtetéséhez, mint az arc-kezelés, az esztétika alapú képosztályozás, az "
+"AI AutoTools funkciók, mint például az automatikus képforgatás, az "
+"automatikus címkekiosztás valamint a szabad szavas keresés eszköz. "
+"Lehetősége van kiválasztani azokat a konkrét funkciókat, melyeket "
+"engedélyezni szeretne.</p><p><b>Megjegyzés: </b>A vörösszem-eltávolító "
+"eszközhöz az arc-kezelési modellfájlok szükségesek.</p>"
 
 #: core/utilities/setup/downloader/filesdownloader_slots.cpp:264
 #, kde-format
@@ -69490,13 +69401,3 @@ msgstr "Elemek importálása"
 #, kde-format
 msgid "Survey"
 msgstr "Szemléző"
-
-#~ msgid "(Advanced Search)"
-#~ msgstr "(Speciális keresés)"
-
-#~ msgid "MySQL Server"
-#~ msgstr "MySQL szerver"
-
-#~ msgctxt "@title:group"
-#~ msgid "MySQL Binaries"
-#~ msgstr "MySQL binárisok"
