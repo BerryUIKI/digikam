@@ -500,7 +500,8 @@ bool ItemQueryBuilder::buildField(QString& sql, SearchXmlCachingReader& reader, 
     {
         QString query;
         QString readerString = (reader.valueToStringOrStringList()).at(0);
-        static QRegularExpression readerRegEx(QLatin1String("^\\d+:\\d+$"));
+        static QRegularExpression readerRegEx   (QLatin1String("^\\d+:\\d+$"));
+        static QRegularExpression readerExtRegEx(QLatin1String("^\\d+(.\\d+)?$"));
 
         if (readerString.contains(readerRegEx))
         {
@@ -511,7 +512,7 @@ bool ItemQueryBuilder::buildField(QString& sql, SearchXmlCachingReader& reader, 
             sql                 += QString::fromUtf8(" (") + query + QString::fromUtf8(") ");
             *boundValues << (double)num / denominator;
         }
-        else if (readerString.contains(QRegularExpression(QLatin1String("^\\d+(.\\d+)?$"))))
+        else if (readerString.contains(readerExtRegEx))
         {
             query = QString::fromUtf8("ABS((ImageInformation.width/CAST(ImageInformation.height AS DOUBLE)) - ?)  < 0.1");
             sql  += QString::fromUtf8(" (") + query + QString::fromUtf8(") ");
