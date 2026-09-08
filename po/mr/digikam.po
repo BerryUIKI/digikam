@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: \n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:42+0000\n"
+"POT-Creation-Date: 2026-09-08 00:42+0000\n"
 "PO-Revision-Date: 2013-03-28 14:37+0530\n"
 "Last-Translator: Chetan Khona <chetan@kompkin.com>\n"
 "Language-Team: American English <kde-i18n-doc@kde.org>\n"
@@ -446,13 +446,13 @@ msgid "Tags Matching Condition"
 msgstr ""
 
 #: core/app/filters/filtersidebarwidget_tags.cpp:50
-#: core/utilities/searchwindow/searchgroup_label.cpp:284
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:284
 #, fuzzy, kde-format
 msgid "OR"
 msgstr "किंवा"
 
 #: core/app/filters/filtersidebarwidget_tags.cpp:53
-#: core/utilities/searchwindow/searchgroup_label.cpp:280
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:280
 #, kde-format
 msgid "AND"
 msgstr "AND"
@@ -1232,7 +1232,7 @@ msgid "White Balance:"
 msgstr ""
 
 #: core/app/items/utils/tooltipfiller.cpp:325
-#: core/utilities/searchwindow/searchgroup.cpp:115
+#: core/utilities/searchwindow/group/searchgroup_setup.cpp:109
 #, fuzzy, kde-format
 msgid "Audio/Video Properties"
 msgstr "गुणधर्म"
@@ -3115,7 +3115,7 @@ msgstr "मदत (&H)"
 #: core/libs/album/widgets/albumselecttabs.cpp:182
 #: core/utilities/geolocation/engine/plugins/render/graticule/GraticuleConfigWidget.ui:1392
 #: core/utilities/geolocation/engine/plugins/render/measure/MeasureConfigDialog.ui:133
-#: core/utilities/searchwindow/searchfields_createfield.cpp:153
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:153
 #, kde-format
 msgid "Labels"
 msgstr "लेबले"
@@ -3207,9 +3207,9 @@ msgstr ""
 #: core/libs/properties/itempropertiestab.cpp:525
 #: core/libs/tags/widgets/tagfolderview.cpp:102
 #: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:689
-#: core/utilities/searchwindow/searchfields_createfield.cpp:75
-#: core/utilities/searchwindow/searchfields_createfield.cpp:83
-#: core/utilities/searchwindow/searchfields_createfield.cpp:96
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:75
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:83
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:96
 #, fuzzy, kde-format
 msgid "Tags"
 msgstr "टॅग्स"
@@ -3967,7 +3967,7 @@ msgstr ""
 
 #: core/app/views/tableview/tableview_column_audiovideo.cpp:68
 #: core/app/views/tableview/tableview_column_audiovideo.cpp:92
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1066
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1066
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:147
 #, fuzzy, kde-format
 #| msgid "Audio Files"
@@ -3976,7 +3976,7 @@ msgstr "ऑडिओ फाईल्स"
 
 #: core/app/views/tableview/tableview_column_audiovideo.cpp:69
 #: core/app/views/tableview/tableview_column_audiovideo.cpp:97
-#: core/utilities/searchwindow/searchfields_createfield.cpp:922
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:922
 #, fuzzy, kde-format
 msgid "Duration"
 msgstr "कालावधी :"
@@ -4347,14 +4347,14 @@ msgstr "गुणधर्म"
 
 #: core/app/views/tableview/tableview_column_item.cpp:72
 #: core/app/views/tableview/tableview_column_item.cpp:93
-#: core/utilities/searchwindow/searchfields_createfield.cpp:221
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:221
 #, fuzzy, kde-format
 msgid "Width"
 msgstr "रुंदी"
 
 #: core/app/views/tableview/tableview_column_item.cpp:73
 #: core/app/views/tableview/tableview_column_item.cpp:98
-#: core/utilities/searchwindow/searchfields_createfield.cpp:239
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:239
 #, kde-format
 msgid "Height"
 msgstr "उंची"
@@ -8322,7 +8322,7 @@ msgstr "रंग पद्धत"
 #: core/dplugins/editor/colors/whitebalance/whitebalancetool.cpp:77
 #: core/dplugins/editor/colors/whitebalance/whitebalancetool.cpp:241
 #: core/libs/properties/itempropertiestab.cpp:513
-#: core/utilities/searchwindow/searchfields_createfield.cpp:605
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:605
 #, kde-format
 msgid "White Balance"
 msgstr ""
@@ -10967,8 +10967,8 @@ msgid ""
 msgstr ""
 
 #: core/dplugins/editor/transform/resize/resizetool.cpp:635
-#: core/utilities/searchwindow/searchfields_createfield.cpp:223
-#: core/utilities/searchwindow/searchfields_createfield.cpp:241
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:223
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:241
 #, kde-format
 msgctxt "Pixels"
 msgid "px"
@@ -11316,7 +11316,7 @@ msgstr "आडवे पलटी करा"
 #: core/utilities/facemanagement/dialogs/facetrainingupgradedlg.cpp:81
 #: core/utilities/imageeditor/editor/editortoolsettings.cpp:181
 #: core/utilities/maintenance/tools/facesmanagement/facesengine_p.cpp:31
-#: core/utilities/searchwindow/searchutilities.cpp:651
+#: core/utilities/searchwindow/utils/searchutilities.cpp:651
 #, kde-format
 msgid "OK"
 msgstr "ठीक आहे"
@@ -16269,9 +16269,9 @@ msgstr "संचयीका"
 
 #: core/dplugins/generic/tools/dngconverter/dngconverterlist.cpp:39
 #: core/utilities/advancedrename/parser/options/cameranameoption.cpp:35
-#: core/utilities/searchwindow/searchfields_createfield.cpp:363
-#: core/utilities/searchwindow/searchfields_createfield.cpp:399
-#: core/utilities/searchwindow/searchfields_createfield.cpp:449
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:363
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:399
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:449
 #, kde-format
 msgid "Camera"
 msgstr "कॅमेरा"
@@ -19214,7 +19214,7 @@ msgid ""
 msgstr ""
 
 #: core/dplugins/generic/tools/printcreator/printcreatorplugin.cpp:85
-#: core/utilities/searchwindow/searchfields_createfield.cpp:831
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:831
 #, kde-format
 msgid "Author"
 msgstr "लेखक"
@@ -20922,7 +20922,7 @@ msgstr "पूर्वावलोकन"
 #: core/utilities/advancedrename/advancedrenamewidget.cpp:377
 #: core/utilities/advancedrename/common/tooltipcreator.cpp:109
 #: core/utilities/advancedrename/parser/modifiers/replacemodifierdialogwidget.ui:49
-#: core/utilities/searchwindow/searchgroup_label.cpp:197
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:197
 #, kde-format
 msgid "Options"
 msgstr "पर्याय"
@@ -24144,7 +24144,7 @@ msgid "This is the list of images to upload to an iNaturalist observation."
 msgstr "पानावर प्रतिमा बसवा (&F)"
 
 #: core/dplugins/generic/webservices/inaturalist/inatwidget.cpp:66
-#: core/utilities/searchwindow/searchfields_createfield.cpp:170
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:170
 #, fuzzy, kde-format
 msgid "Date"
 msgstr "दिनांक"
@@ -25244,10 +25244,10 @@ msgstr ""
 #: core/dplugins/generic/webservices/smugmug/smugwidget.cpp:112
 #: core/libs/dplugins/webservices/wssettingswidget.cpp:115
 #: core/libs/models/abstractalbummodel.cpp:478
-#: core/utilities/searchwindow/searchfields_createfield.cpp:28
-#: core/utilities/searchwindow/searchfields_createfield.cpp:36
-#: core/utilities/searchwindow/searchfields_createfield.cpp:44
-#: core/utilities/searchwindow/searchfields_createfield.cpp:52
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:28
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:36
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:44
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:52
 #, kde-format
 msgid "Album"
 msgstr "अल्बम"
@@ -26169,7 +26169,7 @@ msgstr ""
 #: core/dplugins/rawimport/native/rawsettingsbox.cpp:228
 #: core/dplugins/rawimport/native/rawsettingsbox.cpp:280
 #: core/libs/tags/widgets/tageditdlg.cpp:185
-#: core/utilities/searchwindow/searchview.cpp:532
+#: core/utilities/searchwindow/view/searchview.cpp:532
 #, fuzzy, kde-format
 msgid "Reset"
 msgstr "पुन्हस्थापित करा"
@@ -26180,9 +26180,9 @@ msgid "Reset curve to linear"
 msgstr ""
 
 #: core/dplugins/rawimport/native/rawsettingsbox.cpp:251
-#: core/utilities/searchwindow/searchfields_createfield.cpp:524
-#: core/utilities/searchwindow/searchfields_createfield.cpp:545
-#: core/utilities/searchwindow/searchfields_createfield.cpp:557
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:524
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:545
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:557
 #, kde-format
 msgid "Exposure"
 msgstr ""
@@ -26337,7 +26337,7 @@ msgid ""
 msgstr "%1: %2 हे डाउनलोड करण्यास अपयश"
 
 #: core/libs/album/engine/albummodificationhelper.cpp:285
-#: core/utilities/searchwindow/searchmodificationhelper.cpp:143
+#: core/utilities/searchwindow/utils/searchmodificationhelper.cpp:143
 #, fuzzy, kde-format
 #| msgid "Albums"
 msgctxt "@title:window"
@@ -26352,7 +26352,7 @@ msgid "Rename Album Root (%1)"
 msgstr "अल्बम्स"
 
 #: core/libs/album/engine/albummodificationhelper.cpp:292
-#: core/utilities/searchwindow/searchmodificationhelper.cpp:144
+#: core/utilities/searchwindow/utils/searchmodificationhelper.cpp:144
 #, kde-format
 msgid "Enter new album name:"
 msgstr ""
@@ -26365,7 +26365,7 @@ msgstr "यामध्ये शोधा '%1'..."
 #: core/libs/album/manager/albummanager.cpp:184
 #: core/libs/album/widgets/albumselecttabs.cpp:181
 #: core/libs/models/albummodel_search.cpp:25
-#: core/utilities/searchwindow/editablesearchtreeview.cpp:74
+#: core/utilities/searchwindow/utils/editablesearchtreeview.cpp:74
 #, fuzzy, kde-format
 msgid "Searches"
 msgstr "शोधा"
@@ -28122,7 +28122,7 @@ msgid "Move Files"
 msgstr "बदल साठवा"
 
 #: core/libs/database/utils/ifaces/dio.cpp:955
-#: core/utilities/searchwindow/editablesearchtreeview.cpp:60
+#: core/utilities/searchwindow/utils/editablesearchtreeview.cpp:60
 #: core/utilities/setup/metadata/advancedmetadatatab.cpp:435
 #, fuzzy, kde-format
 msgid "Delete"
@@ -37572,15 +37572,15 @@ msgid "Date Time"
 msgstr "दिनांक व वेळ"
 
 #: core/libs/properties/itempropertiestab.cpp:506
-#: core/utilities/searchwindow/searchfields_createfield.cpp:435
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:435
 #, kde-format
 msgid "Lens"
 msgstr ""
 
 #: core/libs/properties/itempropertiestab.cpp:507
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:65
-#: core/utilities/searchwindow/searchfields_createfield.cpp:466
-#: core/utilities/searchwindow/searchfields_createfield.cpp:669
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:466
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:669
 #, fuzzy, kde-format
 msgid "Aperture"
 msgstr "एपेर्चर :"
@@ -37597,7 +37597,7 @@ msgstr "एक्सपोजर वेळ :"
 
 #: core/libs/properties/itempropertiestab.cpp:510
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:71
-#: core/utilities/searchwindow/searchfields_createfield.cpp:569
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:569
 #, kde-format
 msgid "Sensitivity"
 msgstr ""
@@ -37689,7 +37689,7 @@ msgstr "रंग"
 
 #: core/libs/properties/itempropertiestab.cpp:531
 #: core/libs/widgets/metadata/labels/ratingwidget_menu.cpp:24
-#: core/utilities/searchwindow/searchfields_createfield.cpp:161
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:161
 #, fuzzy, kde-format
 msgid "Rating"
 msgstr "गुणवत्ताश्रेणी"
@@ -43530,7 +43530,7 @@ msgstr "प्रतिमेची माहिती"
 
 #: core/libs/widgets/metadata/exiv2/mdkeylistviewitem.cpp:55
 #: core/showfoto/setup/showfotosetuptooltip.cpp:119
-#: core/utilities/searchwindow/searchgroup.cpp:154
+#: core/utilities/searchwindow/group/searchgroup_setup.cpp:148
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:60
 #, kde-format
 msgid "Photograph Information"
@@ -51514,9 +51514,9 @@ msgid "Lens of the camera"
 msgstr ""
 
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:66
-#: core/utilities/searchwindow/searchfields_createfield.cpp:486
-#: core/utilities/searchwindow/searchfields_createfield.cpp:505
-#: core/utilities/searchwindow/searchfields_createfield.cpp:670
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:486
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:505
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:670
 #, fuzzy, kde-format
 msgid "Focal length"
 msgstr "फोकल लांबी :"
@@ -51527,8 +51527,8 @@ msgid "Focal length (35mm equivalent)"
 msgstr ""
 
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:68
-#: core/utilities/searchwindow/searchfields_createfield.cpp:524
-#: core/utilities/searchwindow/searchfields_createfield.cpp:672
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:524
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:672
 #, fuzzy, kde-format
 msgid "Exposure time"
 msgstr "एक्सपोजर वेळ :"
@@ -51549,8 +51549,8 @@ msgid "Flash mode"
 msgstr ""
 
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:73
-#: core/utilities/searchwindow/searchfields_createfield.cpp:617
-#: core/utilities/searchwindow/searchfields_createfield.cpp:678
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:617
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:678
 #, kde-format
 msgid "White balance"
 msgstr ""
@@ -51561,7 +51561,7 @@ msgid "White balance (color temperature)"
 msgstr ""
 
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:75
-#: core/utilities/searchwindow/searchfields_createfield.cpp:676
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:676
 #, kde-format
 msgid "Metering mode"
 msgstr ""
@@ -51582,14 +51582,14 @@ msgid "Display Aspect Ratio"
 msgstr ""
 
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:80
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1028
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1028
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:141
 #, kde-format
 msgid "Audio Bit Rate"
 msgstr ""
 
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:81
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1046
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1046
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:144
 #, kde-format
 msgid "Audio Channel Type"
@@ -51662,7 +51662,7 @@ msgid "Altitude in a human readable form"
 msgstr ""
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:60
-#: core/utilities/searchwindow/searchfields_createfield.cpp:257
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:257
 #, kde-format
 msgid "Orientation"
 msgstr "कल"
@@ -52991,8 +52991,8 @@ msgstr ""
 #: core/utilities/geolocation/engine/geodata/data/GeoDataPlacemark.cpp:437
 #: core/utilities/geolocation/engine/geodata/data/GeoDataPlacemark.cpp:449
 #: core/utilities/geolocation/engine/geodata/data/GeoDataPlacemark.cpp:504
-#: core/utilities/searchwindow/searchfields_createfield.cpp:763
-#: core/utilities/searchwindow/searchfields_createfield.cpp:799
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:763
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:799
 #, fuzzy, kde-format
 #| msgid "City:"
 msgid "City"
@@ -57572,8 +57572,8 @@ msgid "Show Non-Geolocated Items"
 msgstr "जिओलोकेशन"
 
 #: core/utilities/geolocation/mapsearches/gpssearchview.cpp:526
-#: core/utilities/searchwindow/searchmodificationhelper.cpp:111
-#: core/utilities/searchwindow/searchtabheader_slots.cpp:90
+#: core/utilities/searchwindow/utils/searchmodificationhelper.cpp:111
+#: core/utilities/searchwindow/view/searchtabheader_slots.cpp:90
 #, kde-format
 msgid ""
 "Search name already exists.\n"
@@ -57581,8 +57581,8 @@ msgid ""
 msgstr ""
 
 #: core/utilities/geolocation/mapsearches/gpssearchview.cpp:530
-#: core/utilities/searchwindow/searchmodificationhelper.cpp:115
-#: core/utilities/searchwindow/searchtabheader_slots.cpp:94
+#: core/utilities/searchwindow/utils/searchmodificationhelper.cpp:115
+#: core/utilities/searchwindow/view/searchtabheader_slots.cpp:94
 #, kde-format
 msgctxt "@title:window"
 msgid "Name Exists"
@@ -61716,10 +61716,1045 @@ msgctxt "@info"
 msgid "Are you sure you want to delete the selected workflow \"%1\"?"
 msgstr ""
 
-#: core/utilities/searchwindow/editablesearchtreeview.cpp:59
+#: core/utilities/searchwindow/fields/searchfields.cpp:74
+#, kde-format
+msgid "Reset contents"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_album.cpp:36
 #, fuzzy, kde-format
-msgid "Rename..."
-msgstr "नाव बदला..."
+#| msgid "&Copy Here"
+msgctxt "@item"
+msgid "Any Album"
+msgstr "येथे प्रत करा (&C)"
+
+#: core/utilities/searchwindow/fields/searchfields_album.cpp:48
+#, kde-format
+msgctxt "@label:listbox"
+msgid "In All"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_album.cpp:49
+#, kde-format
+msgctxt "@label:listbox"
+msgid "In One of"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_album.cpp:50
+#, kde-format
+msgctxt "@label:listbox"
+msgid "In Tree"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_album.cpp:54
+#, fuzzy, kde-format
+#| msgid "Labels"
+msgctxt "@item"
+msgid "Any Tag"
+msgstr "लेबले"
+
+#: core/utilities/searchwindow/fields/searchfields_choice.cpp:25
+#, fuzzy, kde-format
+#| msgid "Any"
+msgctxt "@option: default kind of search options combined"
+msgid "Any"
+msgstr "कोणतेही"
+
+#: core/utilities/searchwindow/fields/searchfields_choice.cpp:110
+#, kde-format
+msgctxt "@label: search field choice combo-box description"
+msgid "Any of: %1"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_colordepth.cpp:30
+#, kde-format
+msgid "any color depth"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_colordepth.cpp:31
+#, kde-format
+msgid "8 bits per channel"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_colordepth.cpp:32
+#, kde-format
+msgid "16 bits per channel"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:28
+#, kde-format
+msgid "Search items located in"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:36
+#, kde-format
+msgid "The album name contains"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:44
+#, kde-format
+msgid "The album caption contains"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:52
+#, kde-format
+msgid "The album category is"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:75
+#, kde-format
+msgid "Return items with tag"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:83
+#, kde-format
+msgid "A tag of the item contains"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:96
+#, fuzzy, kde-format
+msgid "Return items without tags"
+msgstr "ऑडिओ फाईल्स"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:97
+#, kde-format
+msgid "Not Tagged"
+msgstr "टॅग न केलेले"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:105
+#, kde-format
+msgid "File Name"
+msgstr "फाईल नाव"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:105
+#, kde-format
+msgid "Return items whose file name contains"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:113
+#, kde-format
+msgid "Modification"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:113
+#, kde-format
+msgid "Return items modified between"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:114
+#, fuzzy, kde-format
+#| msgctxt "'Return pictures modified between...and..."
+#| msgid "and"
+msgctxt "'Return items modified between...and..."
+msgid "and"
+msgstr "व"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:122
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:134
+#, kde-format
+msgid "File Size"
+msgstr "फाईलचा आकार"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:122
+#, kde-format
+msgid "Size of the file in megabytes"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:123
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:135
+#, kde-format
+msgctxt "Size of the file ...-..."
+msgid "-"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:134
+#, kde-format
+msgid "Size of the file in bytes"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:145
+#, fuzzy, kde-format
+#| msgid "Month"
+msgid "Month/Day"
+msgstr "महीना"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:145
+#, kde-format
+msgid "Return items from a month or a day of the month"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:153
+#, kde-format
+msgid "Return items with labels"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:161
+#, kde-format
+msgid "Return items rated at least"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:162
+#, fuzzy, kde-format
+msgctxt "Return items rated at least...at most..."
+msgid "at most"
+msgstr "कमाल"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:170
+#, kde-format
+msgid "Return items created between"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:171
+#, fuzzy, kde-format
+#| msgctxt "'Return pictures modified between...and..."
+#| msgid "and"
+msgctxt "'Return items created between...and..."
+msgid "and"
+msgstr "व"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:179
+#, kde-format
+msgid "Digitization"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:179
+#, kde-format
+msgid "Return items digitized between"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:180
+#, fuzzy, kde-format
+#| msgctxt "'Return pictures modified between...and..."
+#| msgid "and"
+msgctxt "'Return items digitized between...and..."
+msgid "and"
+msgstr "व"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:188
+#, fuzzy, kde-format
+#| msgid "Modified"
+msgid "Modified last"
+msgstr "सुधारले"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:189
+#, fuzzy, kde-format
+msgid "Return items modified within the last"
+msgstr "ऑडिओ फाईल्स"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:196
+#, fuzzy, kde-format
+#| msgid "Time:"
+msgid "Time"
+msgstr "वेळ :"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:196
+#, fuzzy, kde-format
+msgid "Return items with created time between"
+msgstr "ऑडिओ फाईल्स"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:197
+#, fuzzy, kde-format
+#| msgctxt "'Return pictures modified between...and..."
+#| msgid "and"
+msgctxt "'Return items with created time between...and..."
+msgid "and"
+msgstr "व"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:207
+#, kde-format
+msgid "Exif Orientation"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:207
+#, kde-format
+msgid "Find items with orientation flag"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:221
+#, kde-format
+msgid "Find items with a width between"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:222
+#, fuzzy, kde-format
+#| msgctxt "'Return pictures modified between...and..."
+#| msgid "and"
+msgctxt "Find items with a width between...and..."
+msgid "and"
+msgstr "व"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:239
+#, kde-format
+msgid "Find items with a height between"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:240
+#, fuzzy, kde-format
+#| msgctxt "'Return pictures modified between...and..."
+#| msgid "and"
+msgctxt "Find items with a height between...and..."
+msgid "and"
+msgstr "व"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:258
+#, kde-format
+msgctxt "Find items with any orientation / landscape / portrait orientation..."
+msgid "Find items with"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:267
+#, kde-format
+msgid "File Format"
+msgstr "फाईल स्वरूप"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:267
+#, kde-format
+msgid "Return items with the file format"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:275
+#, fuzzy, kde-format
+msgctxt "@label: file format"
+msgid "%1 [Image]"
+msgstr "प्रतिमा"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:284
+#, fuzzy, kde-format
+#| msgid "Videos"
+msgctxt "@label: file format"
+msgid "%1 [Video]"
+msgstr "व्हिडीओ"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:293
+#, fuzzy, kde-format
+msgctxt "@label: file format"
+msgid "%1 [Audio]"
+msgstr "ऑडिओ"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:322
+#, fuzzy, kde-format
+msgid "Color Depth"
+msgstr "रंग खोली"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:322
+#, kde-format
+msgctxt "Find items with any color depth / 8 bits per channel..."
+msgid "Find items with"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:332
+#, kde-format
+msgid "Color Model"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:332
+#, kde-format
+msgid "Find items with the color model"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:337
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:338
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:339
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:340
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:341
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:342
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:343
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:344
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:345
+#, fuzzy, kde-format
+msgctxt "@label: color model"
+msgid "%1 [Image]"
+msgstr "प्रतिमा"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:349
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:350
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:351
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:352
+#, fuzzy, kde-format
+#| msgid "Videos"
+msgctxt "@label: color model"
+msgid "%1 [Video]"
+msgstr "व्हिडीओ"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:363
+#, kde-format
+msgid "The make of the camera"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:399
+#, kde-format
+msgid "The model of the camera"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:435
+#, kde-format
+msgid "The type of the lens"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:449
+#, fuzzy, kde-format
+msgid "Return items without a camera ..."
+msgstr "ऑडिओ फाईल्स"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:452
+#, kde-format
+msgctxt "Camera"
+msgid "Make"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:453
+#, fuzzy, kde-format
+#| msgid "Model"
+msgctxt "Camera"
+msgid "Model"
+msgstr "मॉडेल"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:454
+#, fuzzy, kde-format
+#| msgid "Select Mime Types"
+msgctxt "Camera"
+msgid "Lens Type"
+msgstr "माइम प्रकार निवडा"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:466
+#, kde-format
+msgid "Lens aperture as f-number"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:467
+#, kde-format
+msgctxt "Lens aperture as f-number ...-..."
+msgid "-"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:486
+#, kde-format
+msgid "Focal length of the lens"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:487
+#, kde-format
+msgctxt "Focal length of the lens ...-..."
+msgid "-"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:505
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:671
+#, kde-format
+msgid "35mm equivalent focal length"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:506
+#, kde-format
+msgctxt "35mm equivalent focal length ...-..."
+msgid "-"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:525
+#, kde-format
+msgctxt "Exposure time ...-..."
+msgid "-"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:545
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:673
+#, kde-format
+msgid "Automatic exposure program"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:557
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:674
+#, kde-format
+msgid "Automatic or manual exposure"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:569
+#, kde-format
+msgid "ISO film speed (linear scale, ASA)"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:570
+#, kde-format
+msgctxt "ISO film speed (linear scale, ASA) ...-..."
+msgid "-"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:593
+#, kde-format
+msgctxt "@label: flash is on or off"
+msgid "Flash"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:593
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:677
+#, fuzzy, kde-format
+msgctxt "@label: flash mode used"
+msgid "Flash mode"
+msgstr "सुधारले"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:605
+#, kde-format
+msgid "Automatic or manual white balance"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:617
+#, kde-format
+msgid "Color temperature used for white balance"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:618
+#, kde-format
+msgctxt "Color temperature used for white balance ...-..."
+msgid "-"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:630
+#, kde-format
+msgid "Metering Mode"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:630
+#, kde-format
+msgid "Method to determine the exposure"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:642
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:655
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:680
+#, kde-format
+msgid "Subject Distance"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:642
+#, kde-format
+msgid "Distance of the subject from the lens"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:643
+#, kde-format
+msgctxt "Distance of the subject from the lens ...-..."
+msgid "-"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:655
+#, kde-format
+msgid "Macro, close or distant view"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:665
+#, fuzzy, kde-format
+#| msgid "Image Settings"
+msgid "Capture Settings"
+msgstr "प्रतिमा संयोजना"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:665
+#, fuzzy, kde-format
+msgid "Return items without selected capture settings ..."
+msgstr "ऑडिओ फाईल्स"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:675
+#, kde-format
+msgid "ISO film speed"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:679
+#, fuzzy, kde-format
+msgid "White balance color temperature"
+msgstr "रंग खोली"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:681
+#, fuzzy, kde-format
+msgid "Subject Distance Category"
+msgstr "माइम प्रकार निवडा"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:697
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:720
+#, kde-format
+msgid "GPS"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:697
+#, kde-format
+msgid "Altitude range"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:698
+#, kde-format
+msgctxt "Altitude range ...-..."
+msgid "-"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:720
+#, kde-format
+msgid "Item has no GPS info"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:721
+#, fuzzy, kde-format
+msgid "Not Geo-located"
+msgstr "जिओलोकेशन"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:731
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:797
+#, fuzzy, kde-format
+#| msgid "Country:"
+msgid "Country"
+msgstr "देश :"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:731
+#, kde-format
+msgid "Country shown in the item"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:747
+#, kde-format
+msgid "Province"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:747
+#, fuzzy, kde-format
+msgid "Province shown in the item"
+msgstr "पूर्वावलोकन"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:763
+#, kde-format
+msgid "City shown in the item"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:779
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:800
+#, fuzzy, kde-format
+msgid "Sublocation"
+msgstr "स्थान"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:779
+#, kde-format
+msgid "Sublocation shown in the item"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:793
+#, fuzzy, kde-format
+#| msgctxt "Replace string"
+#| msgid "Replace:"
+msgid "Place"
+msgstr "बदला :"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:793
+#, fuzzy, kde-format
+msgid "Return items without selected place information ..."
+msgstr "ऑडिओ फाईल्स"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:798
+#, kde-format
+msgid "State/Province"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:810
+#, fuzzy, kde-format
+#| msgid "Calendar"
+msgctxt "@label: item creator"
+msgid "Creator"
+msgstr "दिनदर्शिका"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:810
+#, fuzzy, kde-format
+msgid "Return items created by"
+msgstr "ऑडिओ फाईल्स"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:823
+#, fuzzy, kde-format
+#| msgid "Caption"
+msgctxt "@label: item comment"
+msgid "Caption"
+msgstr "कॅप्शन"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:823
+#, kde-format
+msgid "Return items whose comment contains"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:831
+#, kde-format
+msgid "Return items commented by"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:844
+#, kde-format
+msgid "Headline"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:844
+#, kde-format
+msgid "Return items with the IPTC headline"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:852
+#, fuzzy, kde-format
+#| msgid "Title"
+msgctxt "@label: item title"
+msgid "Title"
+msgstr "शिर्षक"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:852
+#, kde-format
+msgid "Return items with the IPTC title"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:860
+#, kde-format
+msgid "Find items that have associated all these words:"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:868
+#, kde-format
+msgid "Empty Text"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:868
+#, fuzzy, kde-format
+msgid "Return items without text in"
+msgstr "ऑडिओ फाईल्स"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:871
+#, fuzzy, kde-format
+#| msgid "Calendar"
+msgctxt "@label: search items without creator property"
+msgid "Creator"
+msgstr "दिनदर्शिका"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:872
+#, fuzzy, kde-format
+#| msgid "Caption"
+msgctxt "@label: search items without caption property"
+msgid "Caption"
+msgstr "कॅप्शन"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:873
+#, fuzzy, kde-format
+#| msgid "Author"
+msgctxt "@label: search items without author property"
+msgid "Author"
+msgstr "लेखक"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:874
+#, kde-format
+msgctxt "@label: search items without headline property"
+msgid "Headline"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:875
+#, fuzzy, kde-format
+#| msgid "Title"
+msgctxt "@label: search items without title property"
+msgid "Title"
+msgstr "शिर्षक"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:885
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:904
+#, fuzzy, kde-format
+msgid "Aspect Ratio"
+msgstr "क्रियाप्राप्तीचे गुणोत्तर (&R)"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:885
+#, kde-format
+msgid "Return items with the aspect ratio"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:893
+#, fuzzy, kde-format
+msgid "Pixel Size"
+msgstr "फाईलचा आकार"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:893
+#, kde-format
+msgid "Value of (Width * Height) between"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:894
+#, fuzzy, kde-format
+msgctxt "Value of (Width * Height) between...and..."
+msgid "and"
+msgstr "व"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:904
+#, kde-format
+msgid "Return video with the frame aspect ratio"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:922
+#, kde-format
+msgid "Length of the video"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:923
+#, fuzzy, kde-format
+msgctxt "Find video with a length between...and..."
+msgid "and"
+msgstr "व"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:924
+#, fuzzy, kde-format
+msgctxt "Seconds"
+msgid "s"
+msgstr "s"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:940
+#, kde-format
+msgid "Frame Rate"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:940
+#, kde-format
+msgid "Return video with the frame rate"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:941
+#, fuzzy, kde-format
+msgctxt "Find video with frame rate between...and..."
+msgid "and"
+msgstr "व"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:942
+#, kde-format
+msgctxt "Frames per Second"
+msgid "fps"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:958
+#, kde-format
+msgid "Codec"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:958
+#, kde-format
+msgid "Return video codec"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1028
+#, fuzzy, kde-format
+msgid "Return Audio Bits Rate"
+msgstr "ऑडिओ फाईल्स"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1029
+#, fuzzy, kde-format
+#| msgctxt "'Return pictures modified between...and..."
+#| msgid "and"
+msgctxt "Find files with audio bit rate between...and..."
+msgid "and"
+msgstr "व"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1030
+#, kde-format
+msgctxt "Bits per Second"
+msgid "bps"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1046
+#, kde-format
+msgid "Return Audio Channel Type"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1049
+#, kde-format
+msgctxt "@label: audio channel type"
+msgid "Mono"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1050
+#, kde-format
+msgctxt "@label: audio channel type"
+msgid "Stereo"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1051
+#, kde-format
+msgctxt "@label: audio channel type"
+msgid "5.1 Surround Sound"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1052
+#, kde-format
+msgctxt "@label: audio channel type"
+msgid "7.1 Surround Sound"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1053
+#, kde-format
+msgctxt "@label: audio channel type"
+msgid "16 Channels Sequence"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1054
+#, kde-format
+msgctxt "@label: audio channel type"
+msgid "Other Channel Type"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1066
+#, kde-format
+msgid "Return Audio Codec"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1165
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1175
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1184
+#, fuzzy, kde-format
+#| msgid "Select images"
+msgid "Faces"
+msgstr "प्रतिमा निवडा"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1165
+#, kde-format
+msgid "Return items by number of face regions"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1166
+#, fuzzy, kde-format
+#| msgctxt "'Return pictures modified between...and..."
+#| msgid "and"
+msgctxt "Return items by number of face regions between...and..."
+msgid "and"
+msgstr "व"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1175
+#, fuzzy, kde-format
+msgid "Return items with confirmed face regions"
+msgstr "ऑडिओ फाईल्स"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1176
+#, fuzzy, kde-format
+msgid "Confirmed Face Regions"
+msgstr "प्रतिमेचे स्थान"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1184
+#, fuzzy, kde-format
+msgid "Return items without face regions"
+msgstr "ऑडिओ फाईल्स"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1185
+#, fuzzy, kde-format
+msgid "No Face Regions"
+msgstr "प्रतिमेचे स्थान"
+
+#: core/utilities/searchwindow/fields/searchfields_monthday.cpp:31
+#, kde-format
+msgid "Day:"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_monthday.cpp:35
+#, fuzzy, kde-format
+#| msgid "Month"
+msgid "Every Month"
+msgstr "महीना"
+
+#: core/utilities/searchwindow/fields/searchfields_monthday.cpp:42
+#, kde-format
+msgid "Every Day"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_pageorientation.cpp:29
+#, kde-format
+msgid "Any Orientation"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_pageorientation.cpp:30
+#, kde-format
+msgid "Landscape Orientation"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_pageorientation.cpp:31
+#, kde-format
+msgid "Portrait orientation"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_recentmodified.cpp:47
+#, fuzzy, kde-format
+msgid "seconds"
+msgstr " सेकंद"
+
+#: core/utilities/searchwindow/fields/searchfields_recentmodified.cpp:48
+#, kde-format
+msgid "minutes"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_recentmodified.cpp:49
+#, kde-format
+msgid "hours"
+msgstr ""
+
+#: core/utilities/searchwindow/fields/searchfields_recentmodified.cpp:50
+#, fuzzy, kde-format
+#| msgid "Holidays"
+msgid "days"
+msgstr "सुट्टया"
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:56
+#, fuzzy, kde-format
+#| msgid "Items"
+msgid "Find Items"
+msgstr "घटक"
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:62
+#, kde-format
+msgid "Meet All of the following conditions"
+msgstr ""
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:66
+#, kde-format
+msgid "Meet Any of the following conditions"
+msgstr ""
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:70
+#, kde-format
+msgid "None of these conditions are met"
+msgstr ""
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:74
+#, kde-format
+msgid "At least one of these conditions is not met"
+msgstr ""
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:103
+#, kde-format
+msgid ""
+"<qt><p>Search your collection<br>for Items meeting the following conditions</"
+"p></qt>"
+msgstr ""
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:141
+#, kde-format
+msgid "Remove Group"
+msgstr "समूह काढून टाका"
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:185
+#, fuzzy, kde-format
+msgid "Hide Options"
+msgstr "जादा पर्याय"
+
+#: core/utilities/searchwindow/group/searchgroup_setup.cpp:57
+#, kde-format
+msgid "File, Album, Tags"
+msgstr ""
+
+#: core/utilities/searchwindow/group/searchgroup_setup.cpp:77
+#, fuzzy, kde-format
+msgid "Item Properties"
+msgstr "गुणधर्म"
+
+#: core/utilities/searchwindow/group/searchgroup_setup.cpp:129
+#, kde-format
+msgid "Caption, Comment, Title"
+msgstr ""
+
+#: core/utilities/searchwindow/group/searchgroup_setup.cpp:180
+#, kde-format
+msgid "Geographic position"
+msgstr ""
+
+#: core/utilities/searchwindow/group/searchgroup_setup.cpp:204
+#, fuzzy, kde-format
+msgid "Face regions"
+msgstr "प्रतिमेचे स्थान"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:185
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:191
@@ -61851,1234 +62886,199 @@ msgctxt "@info"
 msgid "Some terms could not be mapped and were skipped: %1"
 msgstr ""
 
-#: core/utilities/searchwindow/ratingsearchutilities.cpp:201
+#: core/utilities/searchwindow/utils/editablesearchtreeview.cpp:59
+#, fuzzy, kde-format
+msgid "Rename..."
+msgstr "नाव बदला..."
+
+#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:201
 #, kde-format
 msgid "(No Value Selected)"
 msgstr ""
 
-#: core/utilities/searchwindow/ratingsearchutilities.cpp:206
+#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:206
 #, kde-format
 msgid "No Rating assigned"
 msgstr ""
 
-#: core/utilities/searchwindow/searchfields.cpp:74
-#, kde-format
-msgid "Reset contents"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_album.cpp:36
+#: core/utilities/searchwindow/utils/searchmodificationhelper.cpp:73
 #, fuzzy, kde-format
-#| msgid "&Copy Here"
-msgctxt "@item"
-msgid "Any Album"
-msgstr "येथे प्रत करा (&C)"
+msgctxt "@title:window"
+msgid "Delete Search?"
+msgstr "सर्व काढून टाका"
 
-#: core/utilities/searchwindow/searchfields_album.cpp:48
+#: core/utilities/searchwindow/utils/searchmodificationhelper.cpp:74
 #, kde-format
-msgctxt "@label:listbox"
-msgid "In All"
+msgid "Are you sure you want to delete the selected search \"%1\"?"
 msgstr ""
 
-#: core/utilities/searchwindow/searchfields_album.cpp:49
-#, kde-format
-msgctxt "@label:listbox"
-msgid "In One of"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_album.cpp:50
-#, kde-format
-msgctxt "@label:listbox"
-msgid "In Tree"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_album.cpp:54
-#, fuzzy, kde-format
-#| msgid "Labels"
-msgctxt "@item"
-msgid "Any Tag"
-msgstr "लेबले"
-
-#: core/utilities/searchwindow/searchfields_choice.cpp:25
-#, fuzzy, kde-format
-#| msgid "Any"
-msgctxt "@option: default kind of search options combined"
-msgid "Any"
-msgstr "कोणतेही"
-
-#: core/utilities/searchwindow/searchfields_choice.cpp:110
-#, kde-format
-msgctxt "@label: search field choice combo-box description"
-msgid "Any of: %1"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_colordepth.cpp:30
-#, kde-format
-msgid "any color depth"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_colordepth.cpp:31
-#, kde-format
-msgid "8 bits per channel"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_colordepth.cpp:32
-#, kde-format
-msgid "16 bits per channel"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:28
-#, kde-format
-msgid "Search items located in"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:36
-#, kde-format
-msgid "The album name contains"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:44
-#, kde-format
-msgid "The album caption contains"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:52
-#, kde-format
-msgid "The album category is"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:75
-#, kde-format
-msgid "Return items with tag"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:83
-#, kde-format
-msgid "A tag of the item contains"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:96
-#, fuzzy, kde-format
-msgid "Return items without tags"
-msgstr "ऑडिओ फाईल्स"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:97
-#, kde-format
-msgid "Not Tagged"
-msgstr "टॅग न केलेले"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:105
-#, kde-format
-msgid "File Name"
-msgstr "फाईल नाव"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:105
-#, kde-format
-msgid "Return items whose file name contains"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:113
-#, kde-format
-msgid "Modification"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:113
-#, kde-format
-msgid "Return items modified between"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:114
-#, fuzzy, kde-format
-#| msgctxt "'Return pictures modified between...and..."
-#| msgid "and"
-msgctxt "'Return items modified between...and..."
-msgid "and"
-msgstr "व"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:122
-#: core/utilities/searchwindow/searchfields_createfield.cpp:134
-#, kde-format
-msgid "File Size"
-msgstr "फाईलचा आकार"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:122
-#, kde-format
-msgid "Size of the file in megabytes"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:123
-#: core/utilities/searchwindow/searchfields_createfield.cpp:135
-#, kde-format
-msgctxt "Size of the file ...-..."
-msgid "-"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:134
-#, kde-format
-msgid "Size of the file in bytes"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:145
-#, fuzzy, kde-format
-#| msgid "Month"
-msgid "Month/Day"
-msgstr "महीना"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:145
-#, kde-format
-msgid "Return items from a month or a day of the month"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:153
-#, kde-format
-msgid "Return items with labels"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:161
-#, kde-format
-msgid "Return items rated at least"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:162
-#, fuzzy, kde-format
-msgctxt "Return items rated at least...at most..."
-msgid "at most"
-msgstr "कमाल"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:170
-#, kde-format
-msgid "Return items created between"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:171
-#, fuzzy, kde-format
-#| msgctxt "'Return pictures modified between...and..."
-#| msgid "and"
-msgctxt "'Return items created between...and..."
-msgid "and"
-msgstr "व"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:179
-#, kde-format
-msgid "Digitization"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:179
-#, kde-format
-msgid "Return items digitized between"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:180
-#, fuzzy, kde-format
-#| msgctxt "'Return pictures modified between...and..."
-#| msgid "and"
-msgctxt "'Return items digitized between...and..."
-msgid "and"
-msgstr "व"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:188
-#, fuzzy, kde-format
-#| msgid "Modified"
-msgid "Modified last"
-msgstr "सुधारले"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:189
-#, fuzzy, kde-format
-msgid "Return items modified within the last"
-msgstr "ऑडिओ फाईल्स"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:196
-#, fuzzy, kde-format
-#| msgid "Time:"
-msgid "Time"
-msgstr "वेळ :"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:196
-#, fuzzy, kde-format
-msgid "Return items with created time between"
-msgstr "ऑडिओ फाईल्स"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:197
-#, fuzzy, kde-format
-#| msgctxt "'Return pictures modified between...and..."
-#| msgid "and"
-msgctxt "'Return items with created time between...and..."
-msgid "and"
-msgstr "व"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:207
-#, kde-format
-msgid "Exif Orientation"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:207
-#, kde-format
-msgid "Find items with orientation flag"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:221
-#, kde-format
-msgid "Find items with a width between"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:222
-#, fuzzy, kde-format
-#| msgctxt "'Return pictures modified between...and..."
-#| msgid "and"
-msgctxt "Find items with a width between...and..."
-msgid "and"
-msgstr "व"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:239
-#, kde-format
-msgid "Find items with a height between"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:240
-#, fuzzy, kde-format
-#| msgctxt "'Return pictures modified between...and..."
-#| msgid "and"
-msgctxt "Find items with a height between...and..."
-msgid "and"
-msgstr "व"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:258
-#, kde-format
-msgctxt "Find items with any orientation / landscape / portrait orientation..."
-msgid "Find items with"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:267
-#, kde-format
-msgid "File Format"
-msgstr "फाईल स्वरूप"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:267
-#, kde-format
-msgid "Return items with the file format"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:275
-#, fuzzy, kde-format
-msgctxt "@label: file format"
-msgid "%1 [Image]"
-msgstr "प्रतिमा"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:284
-#, fuzzy, kde-format
-#| msgid "Videos"
-msgctxt "@label: file format"
-msgid "%1 [Video]"
-msgstr "व्हिडीओ"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:293
-#, fuzzy, kde-format
-msgctxt "@label: file format"
-msgid "%1 [Audio]"
-msgstr "ऑडिओ"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:322
-#, fuzzy, kde-format
-msgid "Color Depth"
-msgstr "रंग खोली"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:322
-#, kde-format
-msgctxt "Find items with any color depth / 8 bits per channel..."
-msgid "Find items with"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:332
-#, kde-format
-msgid "Color Model"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:332
-#, kde-format
-msgid "Find items with the color model"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:337
-#: core/utilities/searchwindow/searchfields_createfield.cpp:338
-#: core/utilities/searchwindow/searchfields_createfield.cpp:339
-#: core/utilities/searchwindow/searchfields_createfield.cpp:340
-#: core/utilities/searchwindow/searchfields_createfield.cpp:341
-#: core/utilities/searchwindow/searchfields_createfield.cpp:342
-#: core/utilities/searchwindow/searchfields_createfield.cpp:343
-#: core/utilities/searchwindow/searchfields_createfield.cpp:344
-#: core/utilities/searchwindow/searchfields_createfield.cpp:345
-#, fuzzy, kde-format
-msgctxt "@label: color model"
-msgid "%1 [Image]"
-msgstr "प्रतिमा"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:349
-#: core/utilities/searchwindow/searchfields_createfield.cpp:350
-#: core/utilities/searchwindow/searchfields_createfield.cpp:351
-#: core/utilities/searchwindow/searchfields_createfield.cpp:352
-#, fuzzy, kde-format
-#| msgid "Videos"
-msgctxt "@label: color model"
-msgid "%1 [Video]"
-msgstr "व्हिडीओ"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:363
-#, kde-format
-msgid "The make of the camera"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:399
-#, kde-format
-msgid "The model of the camera"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:435
-#, kde-format
-msgid "The type of the lens"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:449
-#, fuzzy, kde-format
-msgid "Return items without a camera ..."
-msgstr "ऑडिओ फाईल्स"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:452
-#, kde-format
-msgctxt "Camera"
-msgid "Make"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:453
-#, fuzzy, kde-format
-#| msgid "Model"
-msgctxt "Camera"
-msgid "Model"
-msgstr "मॉडेल"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:454
-#, fuzzy, kde-format
-#| msgid "Select Mime Types"
-msgctxt "Camera"
-msgid "Lens Type"
-msgstr "माइम प्रकार निवडा"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:466
-#, kde-format
-msgid "Lens aperture as f-number"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:467
-#, kde-format
-msgctxt "Lens aperture as f-number ...-..."
-msgid "-"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:486
-#, kde-format
-msgid "Focal length of the lens"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:487
-#, kde-format
-msgctxt "Focal length of the lens ...-..."
-msgid "-"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:505
-#: core/utilities/searchwindow/searchfields_createfield.cpp:671
-#, kde-format
-msgid "35mm equivalent focal length"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:506
-#, kde-format
-msgctxt "35mm equivalent focal length ...-..."
-msgid "-"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:525
-#, kde-format
-msgctxt "Exposure time ...-..."
-msgid "-"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:545
-#: core/utilities/searchwindow/searchfields_createfield.cpp:673
-#, kde-format
-msgid "Automatic exposure program"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:557
-#: core/utilities/searchwindow/searchfields_createfield.cpp:674
-#, kde-format
-msgid "Automatic or manual exposure"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:569
-#, kde-format
-msgid "ISO film speed (linear scale, ASA)"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:570
-#, kde-format
-msgctxt "ISO film speed (linear scale, ASA) ...-..."
-msgid "-"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:593
-#, kde-format
-msgctxt "@label: flash is on or off"
-msgid "Flash"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:593
-#: core/utilities/searchwindow/searchfields_createfield.cpp:677
-#, fuzzy, kde-format
-msgctxt "@label: flash mode used"
-msgid "Flash mode"
-msgstr "सुधारले"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:605
-#, kde-format
-msgid "Automatic or manual white balance"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:617
-#, kde-format
-msgid "Color temperature used for white balance"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:618
-#, kde-format
-msgctxt "Color temperature used for white balance ...-..."
-msgid "-"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:630
-#, kde-format
-msgid "Metering Mode"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:630
-#, kde-format
-msgid "Method to determine the exposure"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:642
-#: core/utilities/searchwindow/searchfields_createfield.cpp:655
-#: core/utilities/searchwindow/searchfields_createfield.cpp:680
-#, kde-format
-msgid "Subject Distance"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:642
-#, kde-format
-msgid "Distance of the subject from the lens"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:643
-#, kde-format
-msgctxt "Distance of the subject from the lens ...-..."
-msgid "-"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:655
-#, kde-format
-msgid "Macro, close or distant view"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:665
-#, fuzzy, kde-format
-#| msgid "Image Settings"
-msgid "Capture Settings"
-msgstr "प्रतिमा संयोजना"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:665
-#, fuzzy, kde-format
-msgid "Return items without selected capture settings ..."
-msgstr "ऑडिओ फाईल्स"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:675
-#, kde-format
-msgid "ISO film speed"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:679
-#, fuzzy, kde-format
-msgid "White balance color temperature"
-msgstr "रंग खोली"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:681
-#, fuzzy, kde-format
-msgid "Subject Distance Category"
-msgstr "माइम प्रकार निवडा"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:697
-#: core/utilities/searchwindow/searchfields_createfield.cpp:720
-#, kde-format
-msgid "GPS"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:697
-#, kde-format
-msgid "Altitude range"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:698
-#, kde-format
-msgctxt "Altitude range ...-..."
-msgid "-"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:720
-#, kde-format
-msgid "Item has no GPS info"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:721
-#, fuzzy, kde-format
-msgid "Not Geo-located"
-msgstr "जिओलोकेशन"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:731
-#: core/utilities/searchwindow/searchfields_createfield.cpp:797
-#, fuzzy, kde-format
-#| msgid "Country:"
-msgid "Country"
-msgstr "देश :"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:731
-#, kde-format
-msgid "Country shown in the item"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:747
-#, kde-format
-msgid "Province"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:747
-#, fuzzy, kde-format
-msgid "Province shown in the item"
-msgstr "पूर्वावलोकन"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:763
-#, kde-format
-msgid "City shown in the item"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:779
-#: core/utilities/searchwindow/searchfields_createfield.cpp:800
-#, fuzzy, kde-format
-msgid "Sublocation"
-msgstr "स्थान"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:779
-#, kde-format
-msgid "Sublocation shown in the item"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:793
-#, fuzzy, kde-format
-#| msgctxt "Replace string"
-#| msgid "Replace:"
-msgid "Place"
-msgstr "बदला :"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:793
-#, fuzzy, kde-format
-msgid "Return items without selected place information ..."
-msgstr "ऑडिओ फाईल्स"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:798
-#, kde-format
-msgid "State/Province"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:810
-#, fuzzy, kde-format
-#| msgid "Calendar"
-msgctxt "@label: item creator"
-msgid "Creator"
-msgstr "दिनदर्शिका"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:810
-#, fuzzy, kde-format
-msgid "Return items created by"
-msgstr "ऑडिओ फाईल्स"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:823
-#, fuzzy, kde-format
-#| msgid "Caption"
-msgctxt "@label: item comment"
-msgid "Caption"
-msgstr "कॅप्शन"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:823
-#, kde-format
-msgid "Return items whose comment contains"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:831
-#, kde-format
-msgid "Return items commented by"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:844
-#, kde-format
-msgid "Headline"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:844
-#, kde-format
-msgid "Return items with the IPTC headline"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:852
-#, fuzzy, kde-format
-#| msgid "Title"
-msgctxt "@label: item title"
-msgid "Title"
-msgstr "शिर्षक"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:852
-#, kde-format
-msgid "Return items with the IPTC title"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:860
-#, kde-format
-msgid "Find items that have associated all these words:"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:868
-#, kde-format
-msgid "Empty Text"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:868
-#, fuzzy, kde-format
-msgid "Return items without text in"
-msgstr "ऑडिओ फाईल्स"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:871
-#, fuzzy, kde-format
-#| msgid "Calendar"
-msgctxt "@label: search items without creator property"
-msgid "Creator"
-msgstr "दिनदर्शिका"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:872
-#, fuzzy, kde-format
-#| msgid "Caption"
-msgctxt "@label: search items without caption property"
-msgid "Caption"
-msgstr "कॅप्शन"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:873
-#, fuzzy, kde-format
-#| msgid "Author"
-msgctxt "@label: search items without author property"
-msgid "Author"
-msgstr "लेखक"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:874
-#, kde-format
-msgctxt "@label: search items without headline property"
-msgid "Headline"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:875
-#, fuzzy, kde-format
-#| msgid "Title"
-msgctxt "@label: search items without title property"
-msgid "Title"
-msgstr "शिर्षक"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:885
-#: core/utilities/searchwindow/searchfields_createfield.cpp:904
-#, fuzzy, kde-format
-msgid "Aspect Ratio"
-msgstr "क्रियाप्राप्तीचे गुणोत्तर (&R)"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:885
-#, kde-format
-msgid "Return items with the aspect ratio"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:893
-#, fuzzy, kde-format
-msgid "Pixel Size"
-msgstr "फाईलचा आकार"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:893
-#, kde-format
-msgid "Value of (Width * Height) between"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:894
-#, fuzzy, kde-format
-msgctxt "Value of (Width * Height) between...and..."
-msgid "and"
-msgstr "व"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:904
-#, kde-format
-msgid "Return video with the frame aspect ratio"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:922
-#, kde-format
-msgid "Length of the video"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:923
-#, fuzzy, kde-format
-msgctxt "Find video with a length between...and..."
-msgid "and"
-msgstr "व"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:924
-#, fuzzy, kde-format
-msgctxt "Seconds"
-msgid "s"
-msgstr "s"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:940
-#, kde-format
-msgid "Frame Rate"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:940
-#, kde-format
-msgid "Return video with the frame rate"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:941
-#, fuzzy, kde-format
-msgctxt "Find video with frame rate between...and..."
-msgid "and"
-msgstr "व"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:942
-#, kde-format
-msgctxt "Frames per Second"
-msgid "fps"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:958
-#, kde-format
-msgid "Codec"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:958
-#, kde-format
-msgid "Return video codec"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1028
-#, fuzzy, kde-format
-msgid "Return Audio Bits Rate"
-msgstr "ऑडिओ फाईल्स"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1029
-#, fuzzy, kde-format
-#| msgctxt "'Return pictures modified between...and..."
-#| msgid "and"
-msgctxt "Find files with audio bit rate between...and..."
-msgid "and"
-msgstr "व"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1030
-#, kde-format
-msgctxt "Bits per Second"
-msgid "bps"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1046
-#, kde-format
-msgid "Return Audio Channel Type"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1049
-#, kde-format
-msgctxt "@label: audio channel type"
-msgid "Mono"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1050
-#, kde-format
-msgctxt "@label: audio channel type"
-msgid "Stereo"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1051
-#, kde-format
-msgctxt "@label: audio channel type"
-msgid "5.1 Surround Sound"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1052
-#, kde-format
-msgctxt "@label: audio channel type"
-msgid "7.1 Surround Sound"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1053
-#, kde-format
-msgctxt "@label: audio channel type"
-msgid "16 Channels Sequence"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1054
-#, kde-format
-msgctxt "@label: audio channel type"
-msgid "Other Channel Type"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1066
-#, kde-format
-msgid "Return Audio Codec"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1165
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1175
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1184
-#, fuzzy, kde-format
-#| msgid "Select images"
-msgid "Faces"
-msgstr "प्रतिमा निवडा"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1165
-#, kde-format
-msgid "Return items by number of face regions"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1166
-#, fuzzy, kde-format
-#| msgctxt "'Return pictures modified between...and..."
-#| msgid "and"
-msgctxt "Return items by number of face regions between...and..."
-msgid "and"
-msgstr "व"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1175
-#, fuzzy, kde-format
-msgid "Return items with confirmed face regions"
-msgstr "ऑडिओ फाईल्स"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1176
-#, fuzzy, kde-format
-msgid "Confirmed Face Regions"
-msgstr "प्रतिमेचे स्थान"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1184
-#, fuzzy, kde-format
-msgid "Return items without face regions"
-msgstr "ऑडिओ फाईल्स"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1185
-#, fuzzy, kde-format
-msgid "No Face Regions"
-msgstr "प्रतिमेचे स्थान"
-
-#: core/utilities/searchwindow/searchfields_monthday.cpp:31
-#, kde-format
-msgid "Day:"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_monthday.cpp:35
-#, fuzzy, kde-format
-#| msgid "Month"
-msgid "Every Month"
-msgstr "महीना"
-
-#: core/utilities/searchwindow/searchfields_monthday.cpp:42
-#, kde-format
-msgid "Every Day"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_pageorientation.cpp:29
-#, kde-format
-msgid "Any Orientation"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_pageorientation.cpp:30
-#, kde-format
-msgid "Landscape Orientation"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_pageorientation.cpp:31
-#, kde-format
-msgid "Portrait orientation"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_recentmodified.cpp:47
-#, fuzzy, kde-format
-msgid "seconds"
-msgstr " सेकंद"
-
-#: core/utilities/searchwindow/searchfields_recentmodified.cpp:48
-#, kde-format
-msgid "minutes"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_recentmodified.cpp:49
-#, kde-format
-msgid "hours"
-msgstr ""
-
-#: core/utilities/searchwindow/searchfields_recentmodified.cpp:50
-#, fuzzy, kde-format
-#| msgid "Holidays"
-msgid "days"
-msgstr "सुट्टया"
-
-#: core/utilities/searchwindow/searchfolderview.cpp:57
+#: core/utilities/searchwindow/view/searchfolderview.cpp:57
 #, kde-format
 msgctxt "Create new search"
 msgid "New..."
 msgstr "नवीन..."
 
-#: core/utilities/searchwindow/searchfolderview.cpp:58
+#: core/utilities/searchwindow/view/searchfolderview.cpp:58
 #, fuzzy, kde-format
 #| msgid "Copyright"
 msgctxt "Copy as new search"
 msgid "Copy..."
 msgstr "कॉपीराईट"
 
-#: core/utilities/searchwindow/searchfolderview.cpp:59
+#: core/utilities/searchwindow/view/searchfolderview.cpp:59
 #, fuzzy, kde-format
 msgctxt "Edit selected search"
 msgid "Edit..."
 msgstr "संपादित करा..."
 
-#: core/utilities/searchwindow/searchgroup.cpp:63
-#, kde-format
-msgid "File, Album, Tags"
-msgstr ""
-
-#: core/utilities/searchwindow/searchgroup.cpp:83
-#, fuzzy, kde-format
-msgid "Item Properties"
-msgstr "गुणधर्म"
-
-#: core/utilities/searchwindow/searchgroup.cpp:135
-#, kde-format
-msgid "Caption, Comment, Title"
-msgstr ""
-
-#: core/utilities/searchwindow/searchgroup.cpp:186
-#, kde-format
-msgid "Geographic position"
-msgstr ""
-
-#: core/utilities/searchwindow/searchgroup.cpp:210
-#, fuzzy, kde-format
-msgid "Face regions"
-msgstr "प्रतिमेचे स्थान"
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:56
-#, fuzzy, kde-format
-#| msgid "Items"
-msgid "Find Items"
-msgstr "घटक"
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:62
-#, kde-format
-msgid "Meet All of the following conditions"
-msgstr ""
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:66
-#, kde-format
-msgid "Meet Any of the following conditions"
-msgstr ""
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:70
-#, kde-format
-msgid "None of these conditions are met"
-msgstr ""
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:74
-#, kde-format
-msgid "At least one of these conditions is not met"
-msgstr ""
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:103
-#, kde-format
-msgid ""
-"<qt><p>Search your collection<br>for Items meeting the following conditions</"
-"p></qt>"
-msgstr ""
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:141
-#, kde-format
-msgid "Remove Group"
-msgstr "समूह काढून टाका"
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:185
-#, fuzzy, kde-format
-msgid "Hide Options"
-msgstr "जादा पर्याय"
-
-#: core/utilities/searchwindow/searchmodificationhelper.cpp:73
-#, fuzzy, kde-format
-msgctxt "@title:window"
-msgid "Delete Search?"
-msgstr "सर्व काढून टाका"
-
-#: core/utilities/searchwindow/searchmodificationhelper.cpp:74
-#, kde-format
-msgid "Are you sure you want to delete the selected search \"%1\"?"
-msgstr ""
-
-#: core/utilities/searchwindow/searchtabheader.cpp:50
+#: core/utilities/searchwindow/view/searchtabheader.cpp:50
 #, kde-format
 msgid "New Search"
 msgstr ""
 
-#: core/utilities/searchwindow/searchtabheader.cpp:52
+#: core/utilities/searchwindow/view/searchtabheader.cpp:52
 #, fuzzy, kde-format
 msgctxt "@label: quick search properties"
 msgid "Search:"
 msgstr "शोधा :"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:55
+#: core/utilities/searchwindow/view/searchtabheader.cpp:55
 #, kde-format
 msgid "Enter keywords here..."
 msgstr ""
 
-#: core/utilities/searchwindow/searchtabheader.cpp:57
+#: core/utilities/searchwindow/view/searchtabheader.cpp:57
 #, fuzzy, kde-format
 #| msgid "Search..."
 msgid "New Advanced Search..."
 msgstr "शोधा..."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:58
+#: core/utilities/searchwindow/view/searchtabheader.cpp:58
 #, kde-format
 msgid "Edit Current Search..."
 msgstr ""
 
-#: core/utilities/searchwindow/searchtabheader.cpp:64
+#: core/utilities/searchwindow/view/searchtabheader.cpp:64
 #, kde-format
 msgid ""
 "Interpret the text above as a natural-language search and build the query"
 msgstr ""
 
-#: core/utilities/searchwindow/searchtabheader.cpp:70
-#: core/utilities/searchwindow/searchwindow.cpp:69
+#: core/utilities/searchwindow/view/searchtabheader.cpp:70
+#: core/utilities/searchwindow/view/searchwindow.cpp:69
 #, fuzzy, kde-format
 #| msgid "More options"
 msgid "Cancel the current interpretation"
 msgstr "जादा पर्याय"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:95
+#: core/utilities/searchwindow/view/searchtabheader.cpp:95
 #, fuzzy, kde-format
 #| msgid "Search..."
 msgid "Open Advanced Search"
 msgstr "शोधा..."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:96
+#: core/utilities/searchwindow/view/searchtabheader.cpp:96
 #, kde-format
 msgid "Run Now"
 msgstr ""
 
-#: core/utilities/searchwindow/searchtabheader.cpp:140
+#: core/utilities/searchwindow/view/searchtabheader.cpp:140
 #, kde-format
 msgid "Save Current Search"
 msgstr ""
 
-#: core/utilities/searchwindow/searchtabheader.cpp:144
+#: core/utilities/searchwindow/view/searchtabheader.cpp:144
 #, kde-format
 msgid "Enter a name for the current search to save it in the \"Searches\" view"
 msgstr ""
 
-#: core/utilities/searchwindow/searchtabheader.cpp:149
+#: core/utilities/searchwindow/view/searchtabheader.cpp:149
 #, kde-format
 msgid "Save current search to a new virtual Album"
 msgstr ""
 
-#: core/utilities/searchwindow/searchtabheader.cpp:150
+#: core/utilities/searchwindow/view/searchtabheader.cpp:150
 #, kde-format
 msgid ""
 "If you press this button, the current search will be saved to a new virtual "
 "Search Album using the name set on the left side."
 msgstr ""
 
-#: core/utilities/searchwindow/searchtabheader.cpp:165
-#: core/utilities/searchwindow/searchtabheader.cpp:192
+#: core/utilities/searchwindow/view/searchtabheader.cpp:165
+#: core/utilities/searchwindow/view/searchtabheader.cpp:192
 #, kde-format
 msgid "Edit Stored Search"
 msgstr ""
 
-#: core/utilities/searchwindow/searchtabheader.cpp:207
+#: core/utilities/searchwindow/view/searchtabheader.cpp:207
 #, fuzzy, kde-format
 msgid "Edit..."
 msgstr "संपादित करा..."
 
-#: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:89
+#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:89
 #, fuzzy, kde-format
 msgid ""
 "Interpreted as:\n"
 "%1"
 msgstr "आयात"
 
-#: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:123
-#: core/utilities/searchwindow/searchwindow_slots.cpp:180
+#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:123
+#: core/utilities/searchwindow/view/searchwindow_slots.cpp:180
 #, fuzzy, kde-format
 #| msgid "Print Image"
 msgid "Interpretation cancelled."
 msgstr "प्रतिमा छापा"
 
-#: core/utilities/searchwindow/searchtabheader_p.cpp:62
+#: core/utilities/searchwindow/view/searchtabheader_p.cpp:62
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Autostart Search"
 msgstr ""
 
-#: core/utilities/searchwindow/searchview.cpp:524
+#: core/utilities/searchwindow/view/searchview.cpp:524
 #, kde-format
 msgid "Add Search Group"
 msgstr ""
 
-#: core/utilities/searchwindow/searchview.cpp:540
+#: core/utilities/searchwindow/view/searchview.cpp:540
 #, fuzzy, kde-format
 msgid "Clear All Groups"
 msgstr "सर्व साफ करा"
 
-#: core/utilities/searchwindow/searchview.cpp:562
+#: core/utilities/searchwindow/view/searchview.cpp:562
 #, fuzzy, kde-format
 msgid "Try"
 msgstr "प्रयत्न करा (&T)"
 
-#: core/utilities/searchwindow/searchwindow.cpp:37
+#: core/utilities/searchwindow/view/searchwindow.cpp:37
 #, fuzzy, kde-format
 #| msgid "Default Language"
 msgid "Natural Language Search"
 msgstr "मूलभूत भाषा"
 
-#: core/utilities/searchwindow/searchwindow.cpp:41
+#: core/utilities/searchwindow/view/searchwindow.cpp:41
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
 msgstr ""
 
-#: core/utilities/searchwindow/searchwindow.cpp:44
+#: core/utilities/searchwindow/view/searchwindow.cpp:44
 #, kde-format
 msgid "Translate my query to English first"
 msgstr ""
 
-#: core/utilities/searchwindow/searchwindow.cpp:46
+#: core/utilities/searchwindow/view/searchwindow.cpp:46
 #, kde-format
 msgid ""
 "When enabled, your query is translated to English before being interpreted, "
 "so you can type in your own language. Requires an internet connection."
 msgstr ""
 
-#: core/utilities/searchwindow/searchwindow.cpp:84
+#: core/utilities/searchwindow/view/searchwindow.cpp:84
 #, kde-format
 msgid "Open the Natural Language Search handbook"
 msgstr ""
 
-#: core/utilities/searchwindow/searchwindow.cpp:113
+#: core/utilities/searchwindow/view/searchwindow.cpp:113
 #, kde-format
 msgid ""
 "Natural Language Search lets you find images by describing them in your own "
@@ -63087,34 +63087,34 @@ msgid ""
 "connection required once downloaded."
 msgstr ""
 
-#: core/utilities/searchwindow/searchwindow.cpp:121
+#: core/utilities/searchwindow/view/searchwindow.cpp:121
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
 msgstr ""
 
-#: core/utilities/searchwindow/searchwindow.cpp:125
+#: core/utilities/searchwindow/view/searchwindow.cpp:125
 #, fuzzy, kde-format
 msgid "Download Model..."
 msgstr "डाउनलोड"
 
-#: core/utilities/searchwindow/searchwindow.cpp:169
+#: core/utilities/searchwindow/view/searchwindow.cpp:169
 #, fuzzy, kde-format
 #| msgid "Search..."
 msgctxt "@title:window"
 msgid "Advanced Search"
 msgstr "शोधा..."
 
-#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:70
+#: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:70
 #, fuzzy, kde-format
 msgid "Loading the language model... %1%"
 msgstr "दाखल करत आहे..."
 
-#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:96
+#: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:96
 #, kde-format
 msgid "Interpreting the search..."
 msgstr ""
 
-#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:140
+#: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:140
 #, kde-format
 msgctxt "@info"
 msgid ""

@@ -40,7 +40,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-06 00:42+0000\n"
+"POT-Creation-Date: 2026-09-08 00:42+0000\n"
 "PO-Revision-Date: 2026-09-06 13:54+0200\n"
 "Last-Translator: Benedek Péter <benedekppeter@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -433,13 +433,13 @@ msgid "Tags Matching Condition"
 msgstr "Címkék egyezési feltétele"
 
 #: core/app/filters/filtersidebarwidget_tags.cpp:50
-#: core/utilities/searchwindow/searchgroup_label.cpp:284
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:284
 #, kde-format
 msgid "OR"
 msgstr "VAGY"
 
 #: core/app/filters/filtersidebarwidget_tags.cpp:53
-#: core/utilities/searchwindow/searchgroup_label.cpp:280
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:280
 #, kde-format
 msgid "AND"
 msgstr "ÉS"
@@ -1193,7 +1193,7 @@ msgid "White Balance:"
 msgstr "Fehéregyensúly:"
 
 #: core/app/items/utils/tooltipfiller.cpp:325
-#: core/utilities/searchwindow/searchgroup.cpp:115
+#: core/utilities/searchwindow/group/searchgroup_setup.cpp:109
 #, kde-format
 msgid "Audio/Video Properties"
 msgstr "Audio/Videó tulajdonságok"
@@ -3050,7 +3050,7 @@ msgstr "Súgó"
 #: core/libs/album/widgets/albumselecttabs.cpp:182
 #: core/utilities/geolocation/engine/plugins/render/graticule/GraticuleConfigWidget.ui:1392
 #: core/utilities/geolocation/engine/plugins/render/measure/MeasureConfigDialog.ui:133
-#: core/utilities/searchwindow/searchfields_createfield.cpp:153
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:153
 #, kde-format
 msgid "Labels"
 msgstr "Jelölők"
@@ -3147,9 +3147,9 @@ msgstr "Címkék nélküli album"
 #: core/libs/properties/itempropertiestab.cpp:525
 #: core/libs/tags/widgets/tagfolderview.cpp:102
 #: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:689
-#: core/utilities/searchwindow/searchfields_createfield.cpp:75
-#: core/utilities/searchwindow/searchfields_createfield.cpp:83
-#: core/utilities/searchwindow/searchfields_createfield.cpp:96
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:75
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:83
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:96
 #, kde-format
 msgid "Tags"
 msgstr "Címkék"
@@ -4015,7 +4015,7 @@ msgstr "Audio csatorna típusa"
 
 #: core/app/views/tableview/tableview_column_audiovideo.cpp:68
 #: core/app/views/tableview/tableview_column_audiovideo.cpp:92
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1066
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1066
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:147
 #, kde-format
 msgid "Audio Codec"
@@ -4023,7 +4023,7 @@ msgstr "Audiokodek"
 
 #: core/app/views/tableview/tableview_column_audiovideo.cpp:69
 #: core/app/views/tableview/tableview_column_audiovideo.cpp:97
-#: core/utilities/searchwindow/searchfields_createfield.cpp:922
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:922
 #, kde-format
 msgid "Duration"
 msgstr "Időtartam"
@@ -4376,14 +4376,14 @@ msgstr "Elemtulajdonságok"
 
 #: core/app/views/tableview/tableview_column_item.cpp:72
 #: core/app/views/tableview/tableview_column_item.cpp:93
-#: core/utilities/searchwindow/searchfields_createfield.cpp:221
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:221
 #, kde-format
 msgid "Width"
 msgstr "Szélesség"
 
 #: core/app/views/tableview/tableview_column_item.cpp:73
 #: core/app/views/tableview/tableview_column_item.cpp:98
-#: core/utilities/searchwindow/searchfields_createfield.cpp:239
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:239
 #, kde-format
 msgid "Height"
 msgstr "Magasság"
@@ -8668,7 +8668,7 @@ msgstr "Színkezelés le van tiltva..."
 #: core/dplugins/editor/colors/whitebalance/whitebalancetool.cpp:77
 #: core/dplugins/editor/colors/whitebalance/whitebalancetool.cpp:241
 #: core/libs/properties/itempropertiestab.cpp:513
-#: core/utilities/searchwindow/searchfields_createfield.cpp:605
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:605
 #, kde-format
 msgid "White Balance"
 msgstr "Fehéregyensúly"
@@ -11492,8 +11492,8 @@ msgstr ""
 "történő növelésére. Ez a folyamat eltarthat egy ideig."
 
 #: core/dplugins/editor/transform/resize/resizetool.cpp:635
-#: core/utilities/searchwindow/searchfields_createfield.cpp:223
-#: core/utilities/searchwindow/searchfields_createfield.cpp:241
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:223
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:241
 #, kde-format
 msgctxt "Pixels"
 msgid "px"
@@ -11858,7 +11858,7 @@ msgstr "Két térkép - fent és lent"
 #: core/utilities/facemanagement/dialogs/facetrainingupgradedlg.cpp:81
 #: core/utilities/imageeditor/editor/editortoolsettings.cpp:181
 #: core/utilities/maintenance/tools/facesmanagement/facesengine_p.cpp:31
-#: core/utilities/searchwindow/searchutilities.cpp:651
+#: core/utilities/searchwindow/utils/searchutilities.cpp:651
 #, kde-format
 msgid "OK"
 msgstr "OK"
@@ -16897,9 +16897,9 @@ msgstr "Célfájl"
 
 #: core/dplugins/generic/tools/dngconverter/dngconverterlist.cpp:39
 #: core/utilities/advancedrename/parser/options/cameranameoption.cpp:35
-#: core/utilities/searchwindow/searchfields_createfield.cpp:363
-#: core/utilities/searchwindow/searchfields_createfield.cpp:399
-#: core/utilities/searchwindow/searchfields_createfield.cpp:449
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:363
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:399
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:449
 #, kde-format
 msgid "Camera"
 msgstr "Kamera"
@@ -19949,7 +19949,7 @@ msgstr ""
 "papírméretek és elrendezések használhatók.</p>"
 
 #: core/dplugins/generic/tools/printcreator/printcreatorplugin.cpp:85
-#: core/utilities/searchwindow/searchfields_createfield.cpp:831
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:831
 #, kde-format
 msgid "Author"
 msgstr "Szerző"
@@ -21755,7 +21755,7 @@ msgstr "Előnézet..."
 #: core/utilities/advancedrename/advancedrenamewidget.cpp:377
 #: core/utilities/advancedrename/common/tooltipcreator.cpp:109
 #: core/utilities/advancedrename/parser/modifiers/replacemodifierdialogwidget.ui:49
-#: core/utilities/searchwindow/searchgroup_label.cpp:197
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:197
 #, kde-format
 msgid "Options"
 msgstr "Opciók"
@@ -25042,7 +25042,7 @@ msgid "This is the list of images to upload to an iNaturalist observation."
 msgstr "Az iNaturalist megfigyeléshez feltöltendő képek listája."
 
 #: core/dplugins/generic/webservices/inaturalist/inatwidget.cpp:66
-#: core/utilities/searchwindow/searchfields_createfield.cpp:170
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:170
 #, kde-format
 msgid "Date"
 msgstr "Dátum"
@@ -26152,10 +26152,10 @@ msgstr ""
 #: core/dplugins/generic/webservices/smugmug/smugwidget.cpp:112
 #: core/libs/dplugins/webservices/wssettingswidget.cpp:115
 #: core/libs/models/abstractalbummodel.cpp:478
-#: core/utilities/searchwindow/searchfields_createfield.cpp:28
-#: core/utilities/searchwindow/searchfields_createfield.cpp:36
-#: core/utilities/searchwindow/searchfields_createfield.cpp:44
-#: core/utilities/searchwindow/searchfields_createfield.cpp:52
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:28
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:36
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:44
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:52
 #, kde-format
 msgid "Album"
 msgstr "Album"
@@ -27119,7 +27119,7 @@ msgstr "Ez a kép világosság görbéjének beállítása"
 #: core/dplugins/rawimport/native/rawsettingsbox.cpp:228
 #: core/dplugins/rawimport/native/rawsettingsbox.cpp:280
 #: core/libs/tags/widgets/tageditdlg.cpp:185
-#: core/utilities/searchwindow/searchview.cpp:532
+#: core/utilities/searchwindow/view/searchview.cpp:532
 #, kde-format
 msgid "Reset"
 msgstr "Alaphelyzet"
@@ -27130,9 +27130,9 @@ msgid "Reset curve to linear"
 msgstr "Görbe alaphelyzetbe állítása"
 
 #: core/dplugins/rawimport/native/rawsettingsbox.cpp:251
-#: core/utilities/searchwindow/searchfields_createfield.cpp:524
-#: core/utilities/searchwindow/searchfields_createfield.cpp:545
-#: core/utilities/searchwindow/searchfields_createfield.cpp:557
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:524
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:545
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:557
 #, kde-format
 msgid "Exposure"
 msgstr "Expozíció"
@@ -27293,7 +27293,7 @@ msgid ""
 msgstr "<p>A törölni kívánt album nem üres.</p><p>Szeretné folytatni?</p>"
 
 #: core/libs/album/engine/albummodificationhelper.cpp:285
-#: core/utilities/searchwindow/searchmodificationhelper.cpp:143
+#: core/utilities/searchwindow/utils/searchmodificationhelper.cpp:143
 #, kde-format
 msgctxt "@title:window"
 msgid "Rename Album (%1)"
@@ -27306,7 +27306,7 @@ msgid "Rename Album Root (%1)"
 msgstr "A(z) %1 album gyökér átnevezése"
 
 #: core/libs/album/engine/albummodificationhelper.cpp:292
-#: core/utilities/searchwindow/searchmodificationhelper.cpp:144
+#: core/utilities/searchwindow/utils/searchmodificationhelper.cpp:144
 #, kde-format
 msgid "Enter new album name:"
 msgstr "Adja meg az új album nevét:"
@@ -27319,7 +27319,7 @@ msgstr "Albumok szkennelése"
 #: core/libs/album/manager/albummanager.cpp:184
 #: core/libs/album/widgets/albumselecttabs.cpp:181
 #: core/libs/models/albummodel_search.cpp:25
-#: core/utilities/searchwindow/editablesearchtreeview.cpp:74
+#: core/utilities/searchwindow/utils/editablesearchtreeview.cpp:74
 #, kde-format
 msgid "Searches"
 msgstr "Keresések"
@@ -29234,7 +29234,7 @@ msgid "Move Files"
 msgstr "Fájlok áthelyezése"
 
 #: core/libs/database/utils/ifaces/dio.cpp:955
-#: core/utilities/searchwindow/editablesearchtreeview.cpp:60
+#: core/utilities/searchwindow/utils/editablesearchtreeview.cpp:60
 #: core/utilities/setup/metadata/advancedmetadatatab.cpp:435
 #, kde-format
 msgid "Delete"
@@ -39051,15 +39051,15 @@ msgid "Date Time"
 msgstr "Dátum és idő"
 
 #: core/libs/properties/itempropertiestab.cpp:506
-#: core/utilities/searchwindow/searchfields_createfield.cpp:435
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:435
 #, kde-format
 msgid "Lens"
 msgstr "Objektív"
 
 #: core/libs/properties/itempropertiestab.cpp:507
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:65
-#: core/utilities/searchwindow/searchfields_createfield.cpp:466
-#: core/utilities/searchwindow/searchfields_createfield.cpp:669
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:466
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:669
 #, kde-format
 msgid "Aperture"
 msgstr "Rekesz"
@@ -39076,7 +39076,7 @@ msgstr "Expozíciós idő"
 
 #: core/libs/properties/itempropertiestab.cpp:510
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:71
-#: core/utilities/searchwindow/searchfields_createfield.cpp:569
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:569
 #, kde-format
 msgid "Sensitivity"
 msgstr "Érzékenység"
@@ -39163,7 +39163,7 @@ msgstr "Szín"
 
 #: core/libs/properties/itempropertiestab.cpp:531
 #: core/libs/widgets/metadata/labels/ratingwidget_menu.cpp:24
-#: core/utilities/searchwindow/searchfields_createfield.cpp:161
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:161
 #, kde-format
 msgid "Rating"
 msgstr "Értékelés"
@@ -45283,7 +45283,7 @@ msgstr "Képinformáció"
 
 #: core/libs/widgets/metadata/exiv2/mdkeylistviewitem.cpp:55
 #: core/showfoto/setup/showfotosetuptooltip.cpp:119
-#: core/utilities/searchwindow/searchgroup.cpp:154
+#: core/utilities/searchwindow/group/searchgroup_setup.cpp:148
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:60
 #, kde-format
 msgid "Photograph Information"
@@ -52458,9 +52458,9 @@ msgid "Lens of the camera"
 msgstr "Kamera objektív"
 
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:66
-#: core/utilities/searchwindow/searchfields_createfield.cpp:486
-#: core/utilities/searchwindow/searchfields_createfield.cpp:505
-#: core/utilities/searchwindow/searchfields_createfield.cpp:670
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:486
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:505
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:670
 #, kde-format
 msgid "Focal length"
 msgstr "Fókusztávolság"
@@ -52471,8 +52471,8 @@ msgid "Focal length (35mm equivalent)"
 msgstr "Fókusztávolság (35 mm-rel egyenértékű)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:68
-#: core/utilities/searchwindow/searchfields_createfield.cpp:524
-#: core/utilities/searchwindow/searchfields_createfield.cpp:672
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:524
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:672
 #, kde-format
 msgid "Exposure time"
 msgstr "Expozíciós idő"
@@ -52493,8 +52493,8 @@ msgid "Flash mode"
 msgstr "Vaku mód"
 
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:73
-#: core/utilities/searchwindow/searchfields_createfield.cpp:617
-#: core/utilities/searchwindow/searchfields_createfield.cpp:678
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:617
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:678
 #, kde-format
 msgid "White balance"
 msgstr "Fehéregyensúly"
@@ -52505,7 +52505,7 @@ msgid "White balance (color temperature)"
 msgstr "Fehéregyensúly (színhőmérséklet)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:75
-#: core/utilities/searchwindow/searchfields_createfield.cpp:676
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:676
 #, kde-format
 msgid "Metering mode"
 msgstr "Mérési mód"
@@ -52526,14 +52526,14 @@ msgid "Display Aspect Ratio"
 msgstr "Képarány megjelenítése"
 
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:80
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1028
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1028
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:141
 #, kde-format
 msgid "Audio Bit Rate"
 msgstr "Audio bitsebesség"
 
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:81
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1046
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1046
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:144
 #, kde-format
 msgid "Audio Channel Type"
@@ -52606,7 +52606,7 @@ msgid "Altitude in a human readable form"
 msgstr "Földrajzi magasság ember által értelmezhető formában"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:60
-#: core/utilities/searchwindow/searchfields_createfield.cpp:257
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:257
 #, kde-format
 msgid "Orientation"
 msgstr "Tájolás"
@@ -54033,8 +54033,8 @@ msgstr "Főváros"
 #: core/utilities/geolocation/engine/geodata/data/GeoDataPlacemark.cpp:437
 #: core/utilities/geolocation/engine/geodata/data/GeoDataPlacemark.cpp:449
 #: core/utilities/geolocation/engine/geodata/data/GeoDataPlacemark.cpp:504
-#: core/utilities/searchwindow/searchfields_createfield.cpp:763
-#: core/utilities/searchwindow/searchfields_createfield.cpp:799
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:763
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:799
 #, kde-format
 msgid "City"
 msgstr "Város"
@@ -58577,8 +58577,8 @@ msgid "Show Non-Geolocated Items"
 msgstr "Helyinformációk nélküli elemek megjelenítése"
 
 #: core/utilities/geolocation/mapsearches/gpssearchview.cpp:526
-#: core/utilities/searchwindow/searchmodificationhelper.cpp:111
-#: core/utilities/searchwindow/searchtabheader_slots.cpp:90
+#: core/utilities/searchwindow/utils/searchmodificationhelper.cpp:111
+#: core/utilities/searchwindow/view/searchtabheader_slots.cpp:90
 #, kde-format
 msgid ""
 "Search name already exists.\n"
@@ -58588,8 +58588,8 @@ msgstr ""
 "Adjon meg új nevet:"
 
 #: core/utilities/geolocation/mapsearches/gpssearchview.cpp:530
-#: core/utilities/searchwindow/searchmodificationhelper.cpp:115
-#: core/utilities/searchwindow/searchtabheader_slots.cpp:94
+#: core/utilities/searchwindow/utils/searchmodificationhelper.cpp:115
+#: core/utilities/searchwindow/view/searchtabheader_slots.cpp:94
 #, kde-format
 msgctxt "@title:window"
 msgid "Name Exists"
@@ -62901,10 +62901,1006 @@ msgctxt "@info"
 msgid "Are you sure you want to delete the selected workflow \"%1\"?"
 msgstr "Biztosan törölni szeretné a kiválasztott \"%1\" munkafolyamatot?"
 
-#: core/utilities/searchwindow/editablesearchtreeview.cpp:59
+#: core/utilities/searchwindow/fields/searchfields.cpp:74
 #, kde-format
-msgid "Rename..."
-msgstr "Átnevezés..."
+msgid "Reset contents"
+msgstr "Tartalom alaphelyzetbe állítása"
+
+#: core/utilities/searchwindow/fields/searchfields_album.cpp:36
+#, kde-format
+msgctxt "@item"
+msgid "Any Album"
+msgstr "Bármelyik album"
+
+#: core/utilities/searchwindow/fields/searchfields_album.cpp:48
+#, kde-format
+msgctxt "@label:listbox"
+msgid "In All"
+msgstr "Mindben"
+
+#: core/utilities/searchwindow/fields/searchfields_album.cpp:49
+#, kde-format
+msgctxt "@label:listbox"
+msgid "In One of"
+msgstr "Egyikben"
+
+#: core/utilities/searchwindow/fields/searchfields_album.cpp:50
+#, kde-format
+msgctxt "@label:listbox"
+msgid "In Tree"
+msgstr "Fában"
+
+#: core/utilities/searchwindow/fields/searchfields_album.cpp:54
+#, kde-format
+msgctxt "@item"
+msgid "Any Tag"
+msgstr "Bármely címke"
+
+#: core/utilities/searchwindow/fields/searchfields_choice.cpp:25
+#, kde-format
+msgctxt "@option: default kind of search options combined"
+msgid "Any"
+msgstr "Bármi"
+
+#: core/utilities/searchwindow/fields/searchfields_choice.cpp:110
+#, kde-format
+msgctxt "@label: search field choice combo-box description"
+msgid "Any of: %1"
+msgstr "Bármelyik: %1"
+
+#: core/utilities/searchwindow/fields/searchfields_colordepth.cpp:30
+#, kde-format
+msgid "any color depth"
+msgstr "bármilyen színmélység"
+
+#: core/utilities/searchwindow/fields/searchfields_colordepth.cpp:31
+#, kde-format
+msgid "8 bits per channel"
+msgstr "8 bit csatornánként"
+
+#: core/utilities/searchwindow/fields/searchfields_colordepth.cpp:32
+#, kde-format
+msgid "16 bits per channel"
+msgstr "16 bit csatornánként"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:28
+#, kde-format
+msgid "Search items located in"
+msgstr "Elemek keresése itt"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:36
+#, kde-format
+msgid "The album name contains"
+msgstr "Az album neve tartalmazza"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:44
+#, kde-format
+msgid "The album caption contains"
+msgstr "Az album felirata tartalmazza"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:52
+#, kde-format
+msgid "The album category is"
+msgstr "Az album kategóriája"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:75
+#, kde-format
+msgid "Return items with tag"
+msgstr "Találat elemekre ezen címkével"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:83
+#, kde-format
+msgid "A tag of the item contains"
+msgstr "Címke melyet tartalmaz az elem"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:96
+#, kde-format
+msgid "Return items without tags"
+msgstr "Találat címke nélküli elemekre"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:97
+#, kde-format
+msgid "Not Tagged"
+msgstr "Nincs címkézve"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:105
+#, kde-format
+msgid "File Name"
+msgstr "Fájlnév"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:105
+#, kde-format
+msgid "Return items whose file name contains"
+msgstr "Találat elemekre ahol a fájlnév tartalmazza"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:113
+#, kde-format
+msgid "Modification"
+msgstr "Módosítás"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:113
+#, kde-format
+msgid "Return items modified between"
+msgstr "Találat a következő időpontok között módosított elemekre"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:114
+#, kde-format
+msgctxt "'Return items modified between...and..."
+msgid "and"
+msgstr "és"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:122
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:134
+#, kde-format
+msgid "File Size"
+msgstr "Fájlméret"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:122
+#, kde-format
+msgid "Size of the file in megabytes"
+msgstr "Fájlméret megabájtban"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:123
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:135
+#, kde-format
+msgctxt "Size of the file ...-..."
+msgid "-"
+msgstr "-"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:134
+#, kde-format
+msgid "Size of the file in bytes"
+msgstr "Fájlméret bájtban"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:145
+#, kde-format
+msgid "Month/Day"
+msgstr "Hónap/nap"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:145
+#, kde-format
+msgid "Return items from a month or a day of the month"
+msgstr "Találat elemekre hónap vagy a hónap egy napja alapján"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:153
+#, kde-format
+msgid "Return items with labels"
+msgstr "Találat jelölőkkel rendelkező elemekre"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:161
+#, kde-format
+msgid "Return items rated at least"
+msgstr "Találat elemekre legalább ekkora értékeléssel"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:162
+#, kde-format
+msgctxt "Return items rated at least...at most..."
+msgid "at most"
+msgstr "legfeljebb"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:170
+#, kde-format
+msgid "Return items created between"
+msgstr "Találat ezen időintervallumban létrehozott elemekre"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:171
+#, kde-format
+msgctxt "'Return items created between...and..."
+msgid "and"
+msgstr "és"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:179
+#, kde-format
+msgid "Digitization"
+msgstr "Digitalizálás"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:179
+#, kde-format
+msgid "Return items digitized between"
+msgstr "Találat ezen időpontok között digitalizált elemekre"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:180
+#, kde-format
+msgctxt "'Return items digitized between...and..."
+msgid "and"
+msgstr "és"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:188
+#, kde-format
+msgid "Modified last"
+msgstr "Utolsó módosítás"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:189
+#, kde-format
+msgid "Return items modified within the last"
+msgstr "Találat az elmúlt időszakban módosított elemekre"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:196
+#, kde-format
+msgid "Time"
+msgstr "Idő"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:196
+#, kde-format
+msgid "Return items with created time between"
+msgstr "Találat ezen időpontok között létrehozott elemekre"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:197
+#, kde-format
+msgctxt "'Return items with created time between...and..."
+msgid "and"
+msgstr "és"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:207
+#, kde-format
+msgid "Exif Orientation"
+msgstr "Exif tájolás"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:207
+#, kde-format
+msgid "Find items with orientation flag"
+msgstr "Elemek keresése ezzel a tájolási jelzővel"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:221
+#, kde-format
+msgid "Find items with a width between"
+msgstr "Elemek keresése a következő szélességi értékek között"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:222
+#, kde-format
+msgctxt "Find items with a width between...and..."
+msgid "and"
+msgstr "és"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:239
+#, kde-format
+msgid "Find items with a height between"
+msgstr "Elemek keresése a következő magassági értékek között"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:240
+#, kde-format
+msgctxt "Find items with a height between...and..."
+msgid "and"
+msgstr "és"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:258
+#, kde-format
+msgctxt "Find items with any orientation / landscape / portrait orientation..."
+msgid "Find items with"
+msgstr "Elemek keresése a következővel"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:267
+#, kde-format
+msgid "File Format"
+msgstr "Fájlformátum"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:267
+#, kde-format
+msgid "Return items with the file format"
+msgstr "Találat elemekre ezen fájlformátummal"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:275
+#, kde-format
+msgctxt "@label: file format"
+msgid "%1 [Image]"
+msgstr "%1 [Kép]"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:284
+#, kde-format
+msgctxt "@label: file format"
+msgid "%1 [Video]"
+msgstr "%1 [Videó]"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:293
+#, kde-format
+msgctxt "@label: file format"
+msgid "%1 [Audio]"
+msgstr "%1 [Audio]"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:322
+#, kde-format
+msgid "Color Depth"
+msgstr "Színmélység"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:322
+#, kde-format
+msgctxt "Find items with any color depth / 8 bits per channel..."
+msgid "Find items with"
+msgstr "Elemek keresése a következővel"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:332
+#, kde-format
+msgid "Color Model"
+msgstr "Színmodell"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:332
+#, kde-format
+msgid "Find items with the color model"
+msgstr "Elemek keresése ezzel a színmodellel"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:337
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:338
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:339
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:340
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:341
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:342
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:343
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:344
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:345
+#, kde-format
+msgctxt "@label: color model"
+msgid "%1 [Image]"
+msgstr "%1 [Kép]"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:349
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:350
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:351
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:352
+#, kde-format
+msgctxt "@label: color model"
+msgid "%1 [Video]"
+msgstr "%1 [Videó]"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:363
+#, kde-format
+msgid "The make of the camera"
+msgstr "Kamera gyártója"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:399
+#, kde-format
+msgid "The model of the camera"
+msgstr "Kamera típusa"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:435
+#, kde-format
+msgid "The type of the lens"
+msgstr "Objektív típusa"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:449
+#, kde-format
+msgid "Return items without a camera ..."
+msgstr "Találat ezen kameraadatot nem tartalmazó elemekre..."
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:452
+#, kde-format
+msgctxt "Camera"
+msgid "Make"
+msgstr "Gyártó"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:453
+#, kde-format
+msgctxt "Camera"
+msgid "Model"
+msgstr "Modell"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:454
+#, kde-format
+msgctxt "Camera"
+msgid "Lens Type"
+msgstr "Objektív"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:466
+#, kde-format
+msgid "Lens aperture as f-number"
+msgstr "Objektív rekesznyílás f-értékkel kifejezve"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:467
+#, kde-format
+msgctxt "Lens aperture as f-number ...-..."
+msgid "-"
+msgstr "-"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:486
+#, kde-format
+msgid "Focal length of the lens"
+msgstr "Objektív fókusztávolsága"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:487
+#, kde-format
+msgctxt "Focal length of the lens ...-..."
+msgid "-"
+msgstr "-"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:505
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:671
+#, kde-format
+msgid "35mm equivalent focal length"
+msgstr "35mm-rel egyenértékű fókusztávolság"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:506
+#, kde-format
+msgctxt "35mm equivalent focal length ...-..."
+msgid "-"
+msgstr "-"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:525
+#, kde-format
+msgctxt "Exposure time ...-..."
+msgid "-"
+msgstr "-"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:545
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:673
+#, kde-format
+msgid "Automatic exposure program"
+msgstr "Auto expozíciós program"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:557
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:674
+#, kde-format
+msgid "Automatic or manual exposure"
+msgstr "Automatikus vagy manuális expozíció"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:569
+#, kde-format
+msgid "ISO film speed (linear scale, ASA)"
+msgstr "ISO film sebesség (lineáris skála, ASA)"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:570
+#, kde-format
+msgctxt "ISO film speed (linear scale, ASA) ...-..."
+msgid "-"
+msgstr "-"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:593
+#, kde-format
+msgctxt "@label: flash is on or off"
+msgid "Flash"
+msgstr "Vaku"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:593
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:677
+#, kde-format
+msgctxt "@label: flash mode used"
+msgid "Flash mode"
+msgstr "Vaku mód"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:605
+#, kde-format
+msgid "Automatic or manual white balance"
+msgstr "Automatikus vagy manuális fehéregyensúly"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:617
+#, kde-format
+msgid "Color temperature used for white balance"
+msgstr "Fehéregyensúlyhoz használt színhőmérséklet"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:618
+#, kde-format
+msgctxt "Color temperature used for white balance ...-..."
+msgid "-"
+msgstr "-"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:630
+#, kde-format
+msgid "Metering Mode"
+msgstr "Mérési mód"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:630
+#, kde-format
+msgid "Method to determine the exposure"
+msgstr "Expozíciómérési eljárás"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:642
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:655
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:680
+#, kde-format
+msgid "Subject Distance"
+msgstr "Tárgytávolság"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:642
+#, kde-format
+msgid "Distance of the subject from the lens"
+msgstr "Tárgy és a lencse közötti távolság"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:643
+#, kde-format
+msgctxt "Distance of the subject from the lens ...-..."
+msgid "-"
+msgstr "-"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:655
+#, kde-format
+msgid "Macro, close or distant view"
+msgstr "Makró, közeli vagy távoli nézet"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:665
+#, kde-format
+msgid "Capture Settings"
+msgstr "Rögzítési beállítások"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:665
+#, kde-format
+msgid "Return items without selected capture settings ..."
+msgstr "Találat ezen rögzítési beállítások nélküli elemekre..."
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:675
+#, kde-format
+msgid "ISO film speed"
+msgstr "ISO filmérzékenység"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:679
+#, kde-format
+msgid "White balance color temperature"
+msgstr "Fehéregyensúly színhőmérséklet"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:681
+#, kde-format
+msgid "Subject Distance Category"
+msgstr "Tárgytávolság kategória"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:697
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:720
+#, kde-format
+msgid "GPS"
+msgstr "GPS"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:697
+#, kde-format
+msgid "Altitude range"
+msgstr "Magassági tartomány"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:698
+#, kde-format
+msgctxt "Altitude range ...-..."
+msgid "-"
+msgstr "-"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:720
+#, kde-format
+msgid "Item has no GPS info"
+msgstr "Az elem nem rendelkezik GPS információval"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:721
+#, kde-format
+msgid "Not Geo-located"
+msgstr "Nincs geolokációs adat"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:731
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:797
+#, kde-format
+msgid "Country"
+msgstr "Ország"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:731
+#, kde-format
+msgid "Country shown in the item"
+msgstr "Elemben található országnév"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:747
+#, kde-format
+msgid "Province"
+msgstr "Tartomány"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:747
+#, kde-format
+msgid "Province shown in the item"
+msgstr "Elemben szereplő tartomány"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:763
+#, kde-format
+msgid "City shown in the item"
+msgstr "Elem által tartalmazott városnév"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:779
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:800
+#, kde-format
+msgid "Sublocation"
+msgstr "Városrész"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:779
+#, kde-format
+msgid "Sublocation shown in the item"
+msgstr "Elem által tartalmazott városrész adat"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:793
+#, kde-format
+msgid "Place"
+msgstr "Hely"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:793
+#, kde-format
+msgid "Return items without selected place information ..."
+msgstr "Találat a kiválasztott helyinformációt nem tartalmazó elemekre ..."
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:798
+#, kde-format
+msgid "State/Province"
+msgstr "Állam/Tartomány"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:810
+#, kde-format
+msgctxt "@label: item creator"
+msgid "Creator"
+msgstr "Létrehozó"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:810
+#, kde-format
+msgid "Return items created by"
+msgstr "Találat ezen szerzői névre"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:823
+#, kde-format
+msgctxt "@label: item comment"
+msgid "Caption"
+msgstr "Felirat"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:823
+#, kde-format
+msgid "Return items whose comment contains"
+msgstr "Találat ezen megjegyzéseket tartalmazó elemekre"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:831
+#, kde-format
+msgid "Return items commented by"
+msgstr "Találat elemekre megjegyzéssel tőle"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:844
+#, kde-format
+msgid "Headline"
+msgstr "Főcím"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:844
+#, kde-format
+msgid "Return items with the IPTC headline"
+msgstr "Találat elemekre melyek rendelkeznek IPTC főcímmel"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:852
+#, kde-format
+msgctxt "@label: item title"
+msgid "Title"
+msgstr "Cím"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:852
+#, kde-format
+msgid "Return items with the IPTC title"
+msgstr "Találat IPTC címmel rendelkező elemekre"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:860
+#, kde-format
+msgid "Find items that have associated all these words:"
+msgstr "Megadott szavakat tartalmazó elemek keresése:"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:868
+#, kde-format
+msgid "Empty Text"
+msgstr "Szöveg nélkül"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:868
+#, kde-format
+msgid "Return items without text in"
+msgstr "Találat elemekre ha nincs szöveget itt"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:871
+#, kde-format
+msgctxt "@label: search items without creator property"
+msgid "Creator"
+msgstr "Létrehozó"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:872
+#, kde-format
+msgctxt "@label: search items without caption property"
+msgid "Caption"
+msgstr "Felirat"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:873
+#, kde-format
+msgctxt "@label: search items without author property"
+msgid "Author"
+msgstr "Szerző"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:874
+#, kde-format
+msgctxt "@label: search items without headline property"
+msgid "Headline"
+msgstr "Főcím"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:875
+#, kde-format
+msgctxt "@label: search items without title property"
+msgid "Title"
+msgstr "Cím"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:885
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:904
+#, kde-format
+msgid "Aspect Ratio"
+msgstr "Képarány"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:885
+#, kde-format
+msgid "Return items with the aspect ratio"
+msgstr "Találat elemekre ezzel a képaránnyal"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:893
+#, kde-format
+msgid "Pixel Size"
+msgstr "Pixelméret"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:893
+#, kde-format
+msgid "Value of (Width * Height) between"
+msgstr "Értékek (szélesség × magasság) között"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:894
+#, kde-format
+msgctxt "Value of (Width * Height) between...and..."
+msgid "and"
+msgstr "és"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:904
+#, kde-format
+msgid "Return video with the frame aspect ratio"
+msgstr "Találat videókra ezzel a képkocka-képaránnyal"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:922
+#, kde-format
+msgid "Length of the video"
+msgstr "Videó hossza"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:923
+#, kde-format
+msgctxt "Find video with a length between...and..."
+msgid "and"
+msgstr "és"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:924
+#, kde-format
+msgctxt "Seconds"
+msgid "s"
+msgstr "mp"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:940
+#, kde-format
+msgid "Frame Rate"
+msgstr "Képkockasebesség"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:940
+#, kde-format
+msgid "Return video with the frame rate"
+msgstr "Találat videó képkockasebességre"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:941
+#, kde-format
+msgctxt "Find video with frame rate between...and..."
+msgid "and"
+msgstr "és"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:942
+#, kde-format
+msgctxt "Frames per Second"
+msgid "fps"
+msgstr "bizonyta fps"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:958
+#, kde-format
+msgid "Codec"
+msgstr "Kodek"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:958
+#, kde-format
+msgid "Return video codec"
+msgstr "Találat videókra ezzel a videókodekkel"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1028
+#, kde-format
+msgid "Return Audio Bits Rate"
+msgstr "Találat audio bitrátára"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1029
+#, kde-format
+msgctxt "Find files with audio bit rate between...and..."
+msgid "and"
+msgstr "és"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1030
+#, kde-format
+msgctxt "Bits per Second"
+msgid "bps"
+msgstr "bps"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1046
+#, kde-format
+msgid "Return Audio Channel Type"
+msgstr "Találat audio csatornatípusra"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1049
+#, kde-format
+msgctxt "@label: audio channel type"
+msgid "Mono"
+msgstr "Mono"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1050
+#, kde-format
+msgctxt "@label: audio channel type"
+msgid "Stereo"
+msgstr "Sztereó"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1051
+#, kde-format
+msgctxt "@label: audio channel type"
+msgid "5.1 Surround Sound"
+msgstr "5.1 térhatású hang"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1052
+#, kde-format
+msgctxt "@label: audio channel type"
+msgid "7.1 Surround Sound"
+msgstr "7.1 térhatású hang"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1053
+#, kde-format
+msgctxt "@label: audio channel type"
+msgid "16 Channels Sequence"
+msgstr "16 csatornás szekvencia"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1054
+#, kde-format
+msgctxt "@label: audio channel type"
+msgid "Other Channel Type"
+msgstr "Egyéb csatornatípus"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1066
+#, kde-format
+msgid "Return Audio Codec"
+msgstr "Találat audiokodekre"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1165
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1175
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1184
+#, kde-format
+msgid "Faces"
+msgstr "Arcok"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1165
+#, kde-format
+msgid "Return items by number of face regions"
+msgstr "Találat elemekre az arcrégiók száma szerint"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1166
+#, kde-format
+msgctxt "Return items by number of face regions between...and..."
+msgid "and"
+msgstr "és"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1175
+#, kde-format
+msgid "Return items with confirmed face regions"
+msgstr "Találat megerősített arcrégiókkal rendelkező elemekre"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1176
+#, kde-format
+msgid "Confirmed Face Regions"
+msgstr "Megerősített arcrégiók"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1184
+#, kde-format
+msgid "Return items without face regions"
+msgstr "Találat arcrégió nélküli elemekre"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1185
+#, kde-format
+msgid "No Face Regions"
+msgstr "Nincs arcrégió"
+
+#: core/utilities/searchwindow/fields/searchfields_monthday.cpp:31
+#, kde-format
+msgid "Day:"
+msgstr "Nap:"
+
+#: core/utilities/searchwindow/fields/searchfields_monthday.cpp:35
+#, kde-format
+msgid "Every Month"
+msgstr "Minden hónap"
+
+#: core/utilities/searchwindow/fields/searchfields_monthday.cpp:42
+#, kde-format
+msgid "Every Day"
+msgstr "Minden nap"
+
+#: core/utilities/searchwindow/fields/searchfields_pageorientation.cpp:29
+#, kde-format
+msgid "Any Orientation"
+msgstr "Bármilyen tájolás"
+
+#: core/utilities/searchwindow/fields/searchfields_pageorientation.cpp:30
+#, kde-format
+msgid "Landscape Orientation"
+msgstr "Fekvő tájolás"
+
+#: core/utilities/searchwindow/fields/searchfields_pageorientation.cpp:31
+#, kde-format
+msgid "Portrait orientation"
+msgstr "Álló tájolás"
+
+#: core/utilities/searchwindow/fields/searchfields_recentmodified.cpp:47
+#, kde-format
+msgid "seconds"
+msgstr "másodperc"
+
+#: core/utilities/searchwindow/fields/searchfields_recentmodified.cpp:48
+#, kde-format
+msgid "minutes"
+msgstr "perc"
+
+#: core/utilities/searchwindow/fields/searchfields_recentmodified.cpp:49
+#, kde-format
+msgid "hours"
+msgstr "óra"
+
+#: core/utilities/searchwindow/fields/searchfields_recentmodified.cpp:50
+#, kde-format
+msgid "days"
+msgstr "nap"
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:56
+#, kde-format
+msgid "Find Items"
+msgstr "Elemek keresése"
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:62
+#, kde-format
+msgid "Meet All of the following conditions"
+msgstr "Teljesüljön minden lent megadott feltétel"
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:66
+#, kde-format
+msgid "Meet Any of the following conditions"
+msgstr "Teljesüljön bármely lent megadott feltétel"
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:70
+#, kde-format
+msgid "None of these conditions are met"
+msgstr "Egyik feltétel se teljesüljön"
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:74
+#, kde-format
+msgid "At least one of these conditions is not met"
+msgstr "A feltételek közül legalább az egyik nem teljesül"
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:103
+#, kde-format
+msgid ""
+"<qt><p>Search your collection<br>for Items meeting the following conditions</"
+"p></qt>"
+msgstr ""
+"<qt><p>Keresse gyűjteményében<br>az alábbi feltételeknek megfelelő elemeket."
+"</p></qt>"
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:141
+#, kde-format
+msgid "Remove Group"
+msgstr "Csoport eltávolítása"
+
+#: core/utilities/searchwindow/group/searchgroup_label.cpp:185
+#, kde-format
+msgid "Hide Options"
+msgstr "Lehetőségek elrejtése"
+
+#: core/utilities/searchwindow/group/searchgroup_setup.cpp:57
+#, kde-format
+msgid "File, Album, Tags"
+msgstr "Fájl, album, címkék"
+
+#: core/utilities/searchwindow/group/searchgroup_setup.cpp:77
+#, kde-format
+msgid "Item Properties"
+msgstr "Elemtulajdonságok"
+
+#: core/utilities/searchwindow/group/searchgroup_setup.cpp:129
+#, kde-format
+msgid "Caption, Comment, Title"
+msgstr "Felirat, megjegyzés, cím"
+
+#: core/utilities/searchwindow/group/searchgroup_setup.cpp:180
+#, kde-format
+msgid "Geographic position"
+msgstr "Földrajzi elhelyezkedés"
+
+#: core/utilities/searchwindow/group/searchgroup_setup.cpp:204
+#, kde-format
+msgid "Face regions"
+msgstr "Arcrégiók"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:185
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:191
@@ -63048,1073 +64044,77 @@ msgstr ""
 "Néhány kifejezést nem sikerült megfeleltetni, ezért ezek kihagyásra "
 "kerültek: %1"
 
-#: core/utilities/searchwindow/ratingsearchutilities.cpp:201
+#: core/utilities/searchwindow/utils/editablesearchtreeview.cpp:59
+#, kde-format
+msgid "Rename..."
+msgstr "Átnevezés..."
+
+#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:201
 #, kde-format
 msgid "(No Value Selected)"
 msgstr "(Nincs érték kijelölve)"
 
-#: core/utilities/searchwindow/ratingsearchutilities.cpp:206
+#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:206
 #, kde-format
 msgid "No Rating assigned"
 msgstr "Nincs hozzárendelt értékelés"
 
-#: core/utilities/searchwindow/searchfields.cpp:74
-#, kde-format
-msgid "Reset contents"
-msgstr "Tartalom alaphelyzetbe állítása"
-
-#: core/utilities/searchwindow/searchfields_album.cpp:36
-#, kde-format
-msgctxt "@item"
-msgid "Any Album"
-msgstr "Bármelyik album"
-
-#: core/utilities/searchwindow/searchfields_album.cpp:48
-#, kde-format
-msgctxt "@label:listbox"
-msgid "In All"
-msgstr "Mindben"
-
-#: core/utilities/searchwindow/searchfields_album.cpp:49
-#, kde-format
-msgctxt "@label:listbox"
-msgid "In One of"
-msgstr "Egyikben"
-
-#: core/utilities/searchwindow/searchfields_album.cpp:50
-#, kde-format
-msgctxt "@label:listbox"
-msgid "In Tree"
-msgstr "Fában"
-
-#: core/utilities/searchwindow/searchfields_album.cpp:54
-#, kde-format
-msgctxt "@item"
-msgid "Any Tag"
-msgstr "Bármely címke"
-
-#: core/utilities/searchwindow/searchfields_choice.cpp:25
-#, kde-format
-msgctxt "@option: default kind of search options combined"
-msgid "Any"
-msgstr "Bármi"
-
-#: core/utilities/searchwindow/searchfields_choice.cpp:110
-#, kde-format
-msgctxt "@label: search field choice combo-box description"
-msgid "Any of: %1"
-msgstr "Bármelyik: %1"
-
-#: core/utilities/searchwindow/searchfields_colordepth.cpp:30
-#, kde-format
-msgid "any color depth"
-msgstr "bármilyen színmélység"
-
-#: core/utilities/searchwindow/searchfields_colordepth.cpp:31
-#, kde-format
-msgid "8 bits per channel"
-msgstr "8 bit csatornánként"
-
-#: core/utilities/searchwindow/searchfields_colordepth.cpp:32
-#, kde-format
-msgid "16 bits per channel"
-msgstr "16 bit csatornánként"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:28
-#, kde-format
-msgid "Search items located in"
-msgstr "Elemek keresése itt"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:36
-#, kde-format
-msgid "The album name contains"
-msgstr "Az album neve tartalmazza"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:44
-#, kde-format
-msgid "The album caption contains"
-msgstr "Az album felirata tartalmazza"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:52
-#, kde-format
-msgid "The album category is"
-msgstr "Az album kategóriája"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:75
-#, kde-format
-msgid "Return items with tag"
-msgstr "Találat elemekre ezen címkével"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:83
-#, kde-format
-msgid "A tag of the item contains"
-msgstr "Címke melyet tartalmaz az elem"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:96
-#, kde-format
-msgid "Return items without tags"
-msgstr "Találat címke nélküli elemekre"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:97
-#, kde-format
-msgid "Not Tagged"
-msgstr "Nincs címkézve"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:105
-#, kde-format
-msgid "File Name"
-msgstr "Fájlnév"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:105
-#, kde-format
-msgid "Return items whose file name contains"
-msgstr "Találat elemekre ahol a fájlnév tartalmazza"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:113
-#, kde-format
-msgid "Modification"
-msgstr "Módosítás"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:113
-#, kde-format
-msgid "Return items modified between"
-msgstr "Találat a következő időpontok között módosított elemekre"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:114
-#, kde-format
-msgctxt "'Return items modified between...and..."
-msgid "and"
-msgstr "és"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:122
-#: core/utilities/searchwindow/searchfields_createfield.cpp:134
-#, kde-format
-msgid "File Size"
-msgstr "Fájlméret"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:122
-#, kde-format
-msgid "Size of the file in megabytes"
-msgstr "Fájlméret megabájtban"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:123
-#: core/utilities/searchwindow/searchfields_createfield.cpp:135
-#, kde-format
-msgctxt "Size of the file ...-..."
-msgid "-"
-msgstr "-"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:134
-#, kde-format
-msgid "Size of the file in bytes"
-msgstr "Fájlméret bájtban"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:145
-#, kde-format
-msgid "Month/Day"
-msgstr "Hónap/nap"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:145
-#, kde-format
-msgid "Return items from a month or a day of the month"
-msgstr "Találat elemekre hónap vagy a hónap egy napja alapján"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:153
-#, kde-format
-msgid "Return items with labels"
-msgstr "Találat jelölőkkel rendelkező elemekre"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:161
-#, kde-format
-msgid "Return items rated at least"
-msgstr "Találat elemekre legalább ekkora értékeléssel"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:162
-#, kde-format
-msgctxt "Return items rated at least...at most..."
-msgid "at most"
-msgstr "legfeljebb"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:170
-#, kde-format
-msgid "Return items created between"
-msgstr "Találat ezen időintervallumban létrehozott elemekre"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:171
-#, kde-format
-msgctxt "'Return items created between...and..."
-msgid "and"
-msgstr "és"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:179
-#, kde-format
-msgid "Digitization"
-msgstr "Digitalizálás"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:179
-#, kde-format
-msgid "Return items digitized between"
-msgstr "Találat ezen időpontok között digitalizált elemekre"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:180
-#, kde-format
-msgctxt "'Return items digitized between...and..."
-msgid "and"
-msgstr "és"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:188
-#, kde-format
-msgid "Modified last"
-msgstr "Utolsó módosítás"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:189
-#, kde-format
-msgid "Return items modified within the last"
-msgstr "Találat az elmúlt időszakban módosított elemekre"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:196
-#, kde-format
-msgid "Time"
-msgstr "Idő"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:196
-#, kde-format
-msgid "Return items with created time between"
-msgstr "Találat ezen időpontok között létrehozott elemekre"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:197
-#, kde-format
-msgctxt "'Return items with created time between...and..."
-msgid "and"
-msgstr "és"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:207
-#, kde-format
-msgid "Exif Orientation"
-msgstr "Exif tájolás"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:207
-#, kde-format
-msgid "Find items with orientation flag"
-msgstr "Elemek keresése ezzel a tájolási jelzővel"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:221
-#, kde-format
-msgid "Find items with a width between"
-msgstr "Elemek keresése a következő szélességi értékek között"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:222
-#, kde-format
-msgctxt "Find items with a width between...and..."
-msgid "and"
-msgstr "és"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:239
-#, kde-format
-msgid "Find items with a height between"
-msgstr "Elemek keresése a következő magassági értékek között"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:240
-#, kde-format
-msgctxt "Find items with a height between...and..."
-msgid "and"
-msgstr "és"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:258
-#, kde-format
-msgctxt "Find items with any orientation / landscape / portrait orientation..."
-msgid "Find items with"
-msgstr "Elemek keresése a következővel"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:267
-#, kde-format
-msgid "File Format"
-msgstr "Fájlformátum"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:267
-#, kde-format
-msgid "Return items with the file format"
-msgstr "Találat elemekre ezen fájlformátummal"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:275
-#, kde-format
-msgctxt "@label: file format"
-msgid "%1 [Image]"
-msgstr "%1 [Kép]"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:284
-#, kde-format
-msgctxt "@label: file format"
-msgid "%1 [Video]"
-msgstr "%1 [Videó]"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:293
-#, kde-format
-msgctxt "@label: file format"
-msgid "%1 [Audio]"
-msgstr "%1 [Audio]"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:322
-#, kde-format
-msgid "Color Depth"
-msgstr "Színmélység"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:322
-#, kde-format
-msgctxt "Find items with any color depth / 8 bits per channel..."
-msgid "Find items with"
-msgstr "Elemek keresése a következővel"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:332
-#, kde-format
-msgid "Color Model"
-msgstr "Színmodell"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:332
-#, kde-format
-msgid "Find items with the color model"
-msgstr "Elemek keresése ezzel a színmodellel"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:337
-#: core/utilities/searchwindow/searchfields_createfield.cpp:338
-#: core/utilities/searchwindow/searchfields_createfield.cpp:339
-#: core/utilities/searchwindow/searchfields_createfield.cpp:340
-#: core/utilities/searchwindow/searchfields_createfield.cpp:341
-#: core/utilities/searchwindow/searchfields_createfield.cpp:342
-#: core/utilities/searchwindow/searchfields_createfield.cpp:343
-#: core/utilities/searchwindow/searchfields_createfield.cpp:344
-#: core/utilities/searchwindow/searchfields_createfield.cpp:345
-#, kde-format
-msgctxt "@label: color model"
-msgid "%1 [Image]"
-msgstr "%1 [Kép]"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:349
-#: core/utilities/searchwindow/searchfields_createfield.cpp:350
-#: core/utilities/searchwindow/searchfields_createfield.cpp:351
-#: core/utilities/searchwindow/searchfields_createfield.cpp:352
-#, kde-format
-msgctxt "@label: color model"
-msgid "%1 [Video]"
-msgstr "%1 [Videó]"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:363
-#, kde-format
-msgid "The make of the camera"
-msgstr "Kamera gyártója"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:399
-#, kde-format
-msgid "The model of the camera"
-msgstr "Kamera típusa"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:435
-#, kde-format
-msgid "The type of the lens"
-msgstr "Objektív típusa"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:449
-#, kde-format
-msgid "Return items without a camera ..."
-msgstr "Találat ezen kameraadatot nem tartalmazó elemekre..."
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:452
-#, kde-format
-msgctxt "Camera"
-msgid "Make"
-msgstr "Gyártó"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:453
-#, kde-format
-msgctxt "Camera"
-msgid "Model"
-msgstr "Modell"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:454
-#, kde-format
-msgctxt "Camera"
-msgid "Lens Type"
-msgstr "Objektív"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:466
-#, kde-format
-msgid "Lens aperture as f-number"
-msgstr "Objektív rekesznyílás f-értékkel kifejezve"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:467
-#, kde-format
-msgctxt "Lens aperture as f-number ...-..."
-msgid "-"
-msgstr "-"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:486
-#, kde-format
-msgid "Focal length of the lens"
-msgstr "Objektív fókusztávolsága"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:487
-#, kde-format
-msgctxt "Focal length of the lens ...-..."
-msgid "-"
-msgstr "-"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:505
-#: core/utilities/searchwindow/searchfields_createfield.cpp:671
-#, kde-format
-msgid "35mm equivalent focal length"
-msgstr "35mm-rel egyenértékű fókusztávolság"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:506
-#, kde-format
-msgctxt "35mm equivalent focal length ...-..."
-msgid "-"
-msgstr "-"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:525
-#, kde-format
-msgctxt "Exposure time ...-..."
-msgid "-"
-msgstr "-"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:545
-#: core/utilities/searchwindow/searchfields_createfield.cpp:673
-#, kde-format
-msgid "Automatic exposure program"
-msgstr "Auto expozíciós program"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:557
-#: core/utilities/searchwindow/searchfields_createfield.cpp:674
-#, kde-format
-msgid "Automatic or manual exposure"
-msgstr "Automatikus vagy manuális expozíció"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:569
-#, kde-format
-msgid "ISO film speed (linear scale, ASA)"
-msgstr "ISO film sebesség (lineáris skála, ASA)"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:570
-#, kde-format
-msgctxt "ISO film speed (linear scale, ASA) ...-..."
-msgid "-"
-msgstr "-"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:593
-#, kde-format
-msgctxt "@label: flash is on or off"
-msgid "Flash"
-msgstr "Vaku"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:593
-#: core/utilities/searchwindow/searchfields_createfield.cpp:677
-#, kde-format
-msgctxt "@label: flash mode used"
-msgid "Flash mode"
-msgstr "Vaku mód"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:605
-#, kde-format
-msgid "Automatic or manual white balance"
-msgstr "Automatikus vagy manuális fehéregyensúly"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:617
-#, kde-format
-msgid "Color temperature used for white balance"
-msgstr "Fehéregyensúlyhoz használt színhőmérséklet"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:618
-#, kde-format
-msgctxt "Color temperature used for white balance ...-..."
-msgid "-"
-msgstr "-"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:630
-#, kde-format
-msgid "Metering Mode"
-msgstr "Mérési mód"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:630
-#, kde-format
-msgid "Method to determine the exposure"
-msgstr "Expozíciómérési eljárás"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:642
-#: core/utilities/searchwindow/searchfields_createfield.cpp:655
-#: core/utilities/searchwindow/searchfields_createfield.cpp:680
-#, kde-format
-msgid "Subject Distance"
-msgstr "Tárgytávolság"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:642
-#, kde-format
-msgid "Distance of the subject from the lens"
-msgstr "Tárgy és a lencse közötti távolság"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:643
-#, kde-format
-msgctxt "Distance of the subject from the lens ...-..."
-msgid "-"
-msgstr "-"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:655
-#, kde-format
-msgid "Macro, close or distant view"
-msgstr "Makró, közeli vagy távoli nézet"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:665
-#, kde-format
-msgid "Capture Settings"
-msgstr "Rögzítési beállítások"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:665
-#, kde-format
-msgid "Return items without selected capture settings ..."
-msgstr "Találat ezen rögzítési beállítások nélküli elemekre..."
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:675
-#, kde-format
-msgid "ISO film speed"
-msgstr "ISO filmérzékenység"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:679
-#, kde-format
-msgid "White balance color temperature"
-msgstr "Fehéregyensúly színhőmérséklet"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:681
-#, kde-format
-msgid "Subject Distance Category"
-msgstr "Tárgytávolság kategória"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:697
-#: core/utilities/searchwindow/searchfields_createfield.cpp:720
-#, kde-format
-msgid "GPS"
-msgstr "GPS"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:697
-#, kde-format
-msgid "Altitude range"
-msgstr "Magassági tartomány"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:698
-#, kde-format
-msgctxt "Altitude range ...-..."
-msgid "-"
-msgstr "-"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:720
-#, kde-format
-msgid "Item has no GPS info"
-msgstr "Az elem nem rendelkezik GPS információval"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:721
-#, kde-format
-msgid "Not Geo-located"
-msgstr "Nincs geolokációs adat"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:731
-#: core/utilities/searchwindow/searchfields_createfield.cpp:797
-#, kde-format
-msgid "Country"
-msgstr "Ország"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:731
-#, kde-format
-msgid "Country shown in the item"
-msgstr "Elemben található országnév"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:747
-#, kde-format
-msgid "Province"
-msgstr "Tartomány"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:747
-#, kde-format
-msgid "Province shown in the item"
-msgstr "Elemben szereplő tartomány"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:763
-#, kde-format
-msgid "City shown in the item"
-msgstr "Elem által tartalmazott városnév"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:779
-#: core/utilities/searchwindow/searchfields_createfield.cpp:800
-#, kde-format
-msgid "Sublocation"
-msgstr "Városrész"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:779
-#, kde-format
-msgid "Sublocation shown in the item"
-msgstr "Elem által tartalmazott városrész adat"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:793
-#, kde-format
-msgid "Place"
-msgstr "Hely"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:793
-#, kde-format
-msgid "Return items without selected place information ..."
-msgstr "Találat a kiválasztott helyinformációt nem tartalmazó elemekre ..."
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:798
-#, kde-format
-msgid "State/Province"
-msgstr "Állam/Tartomány"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:810
-#, kde-format
-msgctxt "@label: item creator"
-msgid "Creator"
-msgstr "Létrehozó"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:810
-#, kde-format
-msgid "Return items created by"
-msgstr "Találat ezen szerzői névre"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:823
-#, kde-format
-msgctxt "@label: item comment"
-msgid "Caption"
-msgstr "Felirat"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:823
-#, kde-format
-msgid "Return items whose comment contains"
-msgstr "Találat ezen megjegyzéseket tartalmazó elemekre"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:831
-#, kde-format
-msgid "Return items commented by"
-msgstr "Találat elemekre megjegyzéssel tőle"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:844
-#, kde-format
-msgid "Headline"
-msgstr "Főcím"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:844
-#, kde-format
-msgid "Return items with the IPTC headline"
-msgstr "Találat elemekre melyek rendelkeznek IPTC főcímmel"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:852
-#, kde-format
-msgctxt "@label: item title"
-msgid "Title"
-msgstr "Cím"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:852
-#, kde-format
-msgid "Return items with the IPTC title"
-msgstr "Találat IPTC címmel rendelkező elemekre"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:860
-#, kde-format
-msgid "Find items that have associated all these words:"
-msgstr "Megadott szavakat tartalmazó elemek keresése:"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:868
-#, kde-format
-msgid "Empty Text"
-msgstr "Szöveg nélkül"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:868
-#, kde-format
-msgid "Return items without text in"
-msgstr "Találat elemekre ha nincs szöveget itt"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:871
-#, kde-format
-msgctxt "@label: search items without creator property"
-msgid "Creator"
-msgstr "Létrehozó"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:872
-#, kde-format
-msgctxt "@label: search items without caption property"
-msgid "Caption"
-msgstr "Felirat"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:873
-#, kde-format
-msgctxt "@label: search items without author property"
-msgid "Author"
-msgstr "Szerző"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:874
-#, kde-format
-msgctxt "@label: search items without headline property"
-msgid "Headline"
-msgstr "Főcím"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:875
-#, kde-format
-msgctxt "@label: search items without title property"
-msgid "Title"
-msgstr "Cím"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:885
-#: core/utilities/searchwindow/searchfields_createfield.cpp:904
-#, kde-format
-msgid "Aspect Ratio"
-msgstr "Képarány"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:885
-#, kde-format
-msgid "Return items with the aspect ratio"
-msgstr "Találat elemekre ezzel a képaránnyal"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:893
-#, kde-format
-msgid "Pixel Size"
-msgstr "Pixelméret"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:893
-#, kde-format
-msgid "Value of (Width * Height) between"
-msgstr "Értékek (szélesség × magasság) között"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:894
-#, kde-format
-msgctxt "Value of (Width * Height) between...and..."
-msgid "and"
-msgstr "és"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:904
-#, kde-format
-msgid "Return video with the frame aspect ratio"
-msgstr "Találat videókra ezzel a képkocka-képaránnyal"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:922
-#, kde-format
-msgid "Length of the video"
-msgstr "Videó hossza"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:923
-#, kde-format
-msgctxt "Find video with a length between...and..."
-msgid "and"
-msgstr "és"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:924
-#, kde-format
-msgctxt "Seconds"
-msgid "s"
-msgstr "mp"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:940
-#, kde-format
-msgid "Frame Rate"
-msgstr "Képkockasebesség"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:940
-#, kde-format
-msgid "Return video with the frame rate"
-msgstr "Találat videó képkockasebességre"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:941
-#, kde-format
-msgctxt "Find video with frame rate between...and..."
-msgid "and"
-msgstr "és"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:942
-#, kde-format
-msgctxt "Frames per Second"
-msgid "fps"
-msgstr "bizonyta fps"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:958
-#, kde-format
-msgid "Codec"
-msgstr "Kodek"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:958
-#, kde-format
-msgid "Return video codec"
-msgstr "Találat videókra ezzel a videókodekkel"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1028
-#, kde-format
-msgid "Return Audio Bits Rate"
-msgstr "Találat audio bitrátára"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1029
-#, kde-format
-msgctxt "Find files with audio bit rate between...and..."
-msgid "and"
-msgstr "és"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1030
-#, kde-format
-msgctxt "Bits per Second"
-msgid "bps"
-msgstr "bps"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1046
-#, kde-format
-msgid "Return Audio Channel Type"
-msgstr "Találat audio csatornatípusra"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1049
-#, kde-format
-msgctxt "@label: audio channel type"
-msgid "Mono"
-msgstr "Mono"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1050
-#, kde-format
-msgctxt "@label: audio channel type"
-msgid "Stereo"
-msgstr "Sztereó"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1051
-#, kde-format
-msgctxt "@label: audio channel type"
-msgid "5.1 Surround Sound"
-msgstr "5.1 térhatású hang"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1052
-#, kde-format
-msgctxt "@label: audio channel type"
-msgid "7.1 Surround Sound"
-msgstr "7.1 térhatású hang"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1053
-#, kde-format
-msgctxt "@label: audio channel type"
-msgid "16 Channels Sequence"
-msgstr "16 csatornás szekvencia"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1054
-#, kde-format
-msgctxt "@label: audio channel type"
-msgid "Other Channel Type"
-msgstr "Egyéb csatornatípus"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1066
-#, kde-format
-msgid "Return Audio Codec"
-msgstr "Találat audiokodekre"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1165
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1175
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1184
-#, kde-format
-msgid "Faces"
-msgstr "Arcok"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1165
-#, kde-format
-msgid "Return items by number of face regions"
-msgstr "Találat elemekre az arcrégiók száma szerint"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1166
-#, kde-format
-msgctxt "Return items by number of face regions between...and..."
-msgid "and"
-msgstr "és"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1175
-#, kde-format
-msgid "Return items with confirmed face regions"
-msgstr "Találat megerősített arcrégiókkal rendelkező elemekre"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1176
-#, kde-format
-msgid "Confirmed Face Regions"
-msgstr "Megerősített arcrégiók"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1184
-#, kde-format
-msgid "Return items without face regions"
-msgstr "Találat arcrégió nélküli elemekre"
-
-#: core/utilities/searchwindow/searchfields_createfield.cpp:1185
-#, kde-format
-msgid "No Face Regions"
-msgstr "Nincs arcrégió"
-
-#: core/utilities/searchwindow/searchfields_monthday.cpp:31
-#, kde-format
-msgid "Day:"
-msgstr "Nap:"
-
-#: core/utilities/searchwindow/searchfields_monthday.cpp:35
-#, kde-format
-msgid "Every Month"
-msgstr "Minden hónap"
-
-#: core/utilities/searchwindow/searchfields_monthday.cpp:42
-#, kde-format
-msgid "Every Day"
-msgstr "Minden nap"
-
-#: core/utilities/searchwindow/searchfields_pageorientation.cpp:29
-#, kde-format
-msgid "Any Orientation"
-msgstr "Bármilyen tájolás"
-
-#: core/utilities/searchwindow/searchfields_pageorientation.cpp:30
-#, kde-format
-msgid "Landscape Orientation"
-msgstr "Fekvő tájolás"
-
-#: core/utilities/searchwindow/searchfields_pageorientation.cpp:31
-#, kde-format
-msgid "Portrait orientation"
-msgstr "Álló tájolás"
-
-#: core/utilities/searchwindow/searchfields_recentmodified.cpp:47
-#, kde-format
-msgid "seconds"
-msgstr "másodperc"
-
-#: core/utilities/searchwindow/searchfields_recentmodified.cpp:48
-#, kde-format
-msgid "minutes"
-msgstr "perc"
-
-#: core/utilities/searchwindow/searchfields_recentmodified.cpp:49
-#, kde-format
-msgid "hours"
-msgstr "óra"
-
-#: core/utilities/searchwindow/searchfields_recentmodified.cpp:50
-#, kde-format
-msgid "days"
-msgstr "nap"
-
-#: core/utilities/searchwindow/searchfolderview.cpp:57
-#, kde-format
-msgctxt "Create new search"
-msgid "New..."
-msgstr "Új..."
-
-#: core/utilities/searchwindow/searchfolderview.cpp:58
-#, kde-format
-msgctxt "Copy as new search"
-msgid "Copy..."
-msgstr "Másolás ide..."
-
-#: core/utilities/searchwindow/searchfolderview.cpp:59
-#, kde-format
-msgctxt "Edit selected search"
-msgid "Edit..."
-msgstr "Szerkesztés..."
-
-#: core/utilities/searchwindow/searchgroup.cpp:63
-#, kde-format
-msgid "File, Album, Tags"
-msgstr "Fájl, album, címkék"
-
-#: core/utilities/searchwindow/searchgroup.cpp:83
-#, kde-format
-msgid "Item Properties"
-msgstr "Elemtulajdonságok"
-
-#: core/utilities/searchwindow/searchgroup.cpp:135
-#, kde-format
-msgid "Caption, Comment, Title"
-msgstr "Felirat, megjegyzés, cím"
-
-#: core/utilities/searchwindow/searchgroup.cpp:186
-#, kde-format
-msgid "Geographic position"
-msgstr "Földrajzi elhelyezkedés"
-
-#: core/utilities/searchwindow/searchgroup.cpp:210
-#, kde-format
-msgid "Face regions"
-msgstr "Arcrégiók"
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:56
-#, kde-format
-msgid "Find Items"
-msgstr "Elemek keresése"
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:62
-#, kde-format
-msgid "Meet All of the following conditions"
-msgstr "Teljesüljön minden lent megadott feltétel"
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:66
-#, kde-format
-msgid "Meet Any of the following conditions"
-msgstr "Teljesüljön bármely lent megadott feltétel"
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:70
-#, kde-format
-msgid "None of these conditions are met"
-msgstr "Egyik feltétel se teljesüljön"
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:74
-#, kde-format
-msgid "At least one of these conditions is not met"
-msgstr "A feltételek közül legalább az egyik nem teljesül"
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:103
-#, kde-format
-msgid ""
-"<qt><p>Search your collection<br>for Items meeting the following conditions</"
-"p></qt>"
-msgstr ""
-"<qt><p>Keresse gyűjteményében<br>az alábbi feltételeknek megfelelő elemeket."
-"</p></qt>"
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:141
-#, kde-format
-msgid "Remove Group"
-msgstr "Csoport eltávolítása"
-
-#: core/utilities/searchwindow/searchgroup_label.cpp:185
-#, kde-format
-msgid "Hide Options"
-msgstr "Lehetőségek elrejtése"
-
-#: core/utilities/searchwindow/searchmodificationhelper.cpp:73
+#: core/utilities/searchwindow/utils/searchmodificationhelper.cpp:73
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Search?"
 msgstr "Keresés törlése?"
 
-#: core/utilities/searchwindow/searchmodificationhelper.cpp:74
+#: core/utilities/searchwindow/utils/searchmodificationhelper.cpp:74
 #, kde-format
 msgid "Are you sure you want to delete the selected search \"%1\"?"
 msgstr "Biztosan törölni szeretné a kiválasztott \"%1\" keresést?"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:50
+#: core/utilities/searchwindow/view/searchfolderview.cpp:57
+#, kde-format
+msgctxt "Create new search"
+msgid "New..."
+msgstr "Új..."
+
+#: core/utilities/searchwindow/view/searchfolderview.cpp:58
+#, kde-format
+msgctxt "Copy as new search"
+msgid "Copy..."
+msgstr "Másolás ide..."
+
+#: core/utilities/searchwindow/view/searchfolderview.cpp:59
+#, kde-format
+msgctxt "Edit selected search"
+msgid "Edit..."
+msgstr "Szerkesztés..."
+
+#: core/utilities/searchwindow/view/searchtabheader.cpp:50
 #, kde-format
 msgid "New Search"
 msgstr "Új keresés"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:52
+#: core/utilities/searchwindow/view/searchtabheader.cpp:52
 #, kde-format
 msgctxt "@label: quick search properties"
 msgid "Search:"
 msgstr "Keresés:"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:55
+#: core/utilities/searchwindow/view/searchtabheader.cpp:55
 #, kde-format
 msgid "Enter keywords here..."
 msgstr "Keresési kulcsszavak megadása..."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:57
+#: core/utilities/searchwindow/view/searchtabheader.cpp:57
 #, kde-format
 msgid "New Advanced Search..."
 msgstr "Új részletes keresés..."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:58
+#: core/utilities/searchwindow/view/searchtabheader.cpp:58
 #, kde-format
 msgid "Edit Current Search..."
 msgstr "Aktuális keresés szerkesztése..."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:64
+#: core/utilities/searchwindow/view/searchtabheader.cpp:64
 #, kde-format
 msgid ""
 "Interpret the text above as a natural-language search and build the query"
@@ -64122,40 +64122,40 @@ msgstr ""
 "Fenti szöveg értelmezése szabad szavas keresésként és a lekérdezés "
 "összeállítása"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:70
-#: core/utilities/searchwindow/searchwindow.cpp:69
+#: core/utilities/searchwindow/view/searchtabheader.cpp:70
+#: core/utilities/searchwindow/view/searchwindow.cpp:69
 #, kde-format
 msgid "Cancel the current interpretation"
 msgstr "Jelenlegi értelmezés megszakítása"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:95
+#: core/utilities/searchwindow/view/searchtabheader.cpp:95
 #, kde-format
 msgid "Open Advanced Search"
 msgstr "Részletes keresés megnyitása"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:96
+#: core/utilities/searchwindow/view/searchtabheader.cpp:96
 #, kde-format
 msgid "Run Now"
 msgstr "Futtatás most"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:140
+#: core/utilities/searchwindow/view/searchtabheader.cpp:140
 #, kde-format
 msgid "Save Current Search"
 msgstr "Aktív keresés mentése"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:144
+#: core/utilities/searchwindow/view/searchtabheader.cpp:144
 #, kde-format
 msgid "Enter a name for the current search to save it in the \"Searches\" view"
 msgstr ""
 "Adjon egy nevet az aktuális keresésnek, hogy elmenthesse a \"Keresések\" "
 "listába"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:149
+#: core/utilities/searchwindow/view/searchtabheader.cpp:149
 #, kde-format
 msgid "Save current search to a new virtual Album"
 msgstr "Aktív keresés mentése egy új virtuális albumba"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:150
+#: core/utilities/searchwindow/view/searchtabheader.cpp:150
 #, kde-format
 msgid ""
 "If you press this button, the current search will be saved to a new virtual "
@@ -64164,18 +64164,18 @@ msgstr ""
 "Ezzel a gombbal az aktuális keresés egy új virtuális keresési albumba kerül, "
 "a bal oldalon beállított névvel."
 
-#: core/utilities/searchwindow/searchtabheader.cpp:165
-#: core/utilities/searchwindow/searchtabheader.cpp:192
+#: core/utilities/searchwindow/view/searchtabheader.cpp:165
+#: core/utilities/searchwindow/view/searchtabheader.cpp:192
 #, kde-format
 msgid "Edit Stored Search"
 msgstr "Mentett keresés szerkesztése"
 
-#: core/utilities/searchwindow/searchtabheader.cpp:207
+#: core/utilities/searchwindow/view/searchtabheader.cpp:207
 #, kde-format
 msgid "Edit..."
 msgstr "Szerkesztés..."
 
-#: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:89
+#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:89
 #, kde-format
 msgid ""
 "Interpreted as:\n"
@@ -64184,49 +64184,49 @@ msgstr ""
 "Értelmezve mint:\n"
 "%1"
 
-#: core/utilities/searchwindow/searchtabheader_nlsearch.cpp:123
-#: core/utilities/searchwindow/searchwindow_slots.cpp:180
+#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:123
+#: core/utilities/searchwindow/view/searchwindow_slots.cpp:180
 #, kde-format
 msgid "Interpretation cancelled."
 msgstr "Értelmezés megszakítva."
 
-#: core/utilities/searchwindow/searchtabheader_p.cpp:62
+#: core/utilities/searchwindow/view/searchtabheader_p.cpp:62
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "Autostart Search"
 msgstr "Keresés automatikus indítása"
 
-#: core/utilities/searchwindow/searchview.cpp:524
+#: core/utilities/searchwindow/view/searchview.cpp:524
 #, kde-format
 msgid "Add Search Group"
 msgstr "Keresési csoport hozzáadása"
 
-#: core/utilities/searchwindow/searchview.cpp:540
+#: core/utilities/searchwindow/view/searchview.cpp:540
 #, kde-format
 msgid "Clear All Groups"
 msgstr "Minden csoport törlése"
 
-#: core/utilities/searchwindow/searchview.cpp:562
+#: core/utilities/searchwindow/view/searchview.cpp:562
 #, kde-format
 msgid "Try"
 msgstr "Próba"
 
-#: core/utilities/searchwindow/searchwindow.cpp:37
+#: core/utilities/searchwindow/view/searchwindow.cpp:37
 #, kde-format
 msgid "Natural Language Search"
 msgstr "Szabad szavas keresés"
 
-#: core/utilities/searchwindow/searchwindow.cpp:41
+#: core/utilities/searchwindow/view/searchwindow.cpp:41
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
 msgstr "pl.: tájképfotók piros címkével Párizs közeléből"
 
-#: core/utilities/searchwindow/searchwindow.cpp:44
+#: core/utilities/searchwindow/view/searchwindow.cpp:44
 #, kde-format
 msgid "Translate my query to English first"
 msgstr "Először fordítsd le angolra a lekérdezést"
 
-#: core/utilities/searchwindow/searchwindow.cpp:46
+#: core/utilities/searchwindow/view/searchwindow.cpp:46
 #, kde-format
 msgid ""
 "When enabled, your query is translated to English before being interpreted, "
@@ -64235,12 +64235,12 @@ msgstr ""
 "Ha engedélyezve van, a rendszer a lekérdezést az értelmezés előtt angolra "
 "fordítja, így a saját nyelvén gépelhet. Internetkapcsolat szükséges hozzá."
 
-#: core/utilities/searchwindow/searchwindow.cpp:84
+#: core/utilities/searchwindow/view/searchwindow.cpp:84
 #, kde-format
 msgid "Open the Natural Language Search handbook"
 msgstr "Szabad szavas keresés funkció kézikönyvének megnyitása"
 
-#: core/utilities/searchwindow/searchwindow.cpp:113
+#: core/utilities/searchwindow/view/searchwindow.cpp:113
 #, kde-format
 msgid ""
 "Natural Language Search lets you find images by describing them in your own "
@@ -64253,33 +64253,33 @@ msgstr ""
 "near Paris\". A funkció egy lokálisan futó nyelvi modellt használ, melyhez a "
 "letöltést követően már nincs szükség internetkapcsolatra."
 
-#: core/utilities/searchwindow/searchwindow.cpp:121
+#: core/utilities/searchwindow/view/searchwindow.cpp:121
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
 msgstr "A szabad szavas keresés modell még nem lett letöltve."
 
-#: core/utilities/searchwindow/searchwindow.cpp:125
+#: core/utilities/searchwindow/view/searchwindow.cpp:125
 #, kde-format
 msgid "Download Model..."
 msgstr "Modell letöltése..."
 
-#: core/utilities/searchwindow/searchwindow.cpp:169
+#: core/utilities/searchwindow/view/searchwindow.cpp:169
 #, kde-format
 msgctxt "@title:window"
 msgid "Advanced Search"
 msgstr "Részletes keresés"
 
-#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:70
+#: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:70
 #, kde-format
 msgid "Loading the language model... %1%"
 msgstr "Nyelvi modell betöltése… %1%"
 
-#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:96
+#: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:96
 #, kde-format
 msgid "Interpreting the search..."
 msgstr "Keresés értelmezése…"
 
-#: core/utilities/searchwindow/searchwindow_nlsearch.cpp:140
+#: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:140
 #, kde-format
 msgctxt "@info"
 msgid ""
