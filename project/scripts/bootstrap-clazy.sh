@@ -15,21 +15,16 @@ fi
 cd build
 
 CLANG_INSTALL_DIR=/opt/clazy
-CLANG_SHARED_LIB=$CLANG_INSTALL_DIR/lib/libclang.so
 
 #export Options='-DCLAZY_AST_MATCHERS_CRASH_WORKAROUND=ON \
+#                -DLINK_CLAZY_TO_LLVM=ON \
 
 export PATH=$CLANG_INSTALL_DIR/bin/:$PATH
 
-/opt/qt6/bin/cmake -G "Ninja" \
+/opt/qt6/bin/cmake -G "Unix Makefiles" \
       -DCMAKE_INSTALL_PREFIX=$CLANG_INSTALL_DIR \
-      -DCLANG_LIBRARY_IMPORT=$CLANG_SHARED_LIB \
-      -DCMAKE_BUILD_TYPE=Release \
-      -DLINK_CLAZY_TO_LLVM=ON \
       -DAPPIMAGE_HACK=OFF \
       -DCLAZY_MAN_PAGE=OFF \
+      -DCMAKE_BUILD_TYPE=Release \
       -Wno-dev \
       ..
-
-/opt/qt6/bin/cmake --build . --parallel
-sudo /opt/qt6/bin/cmake --build . --target install

@@ -38,7 +38,6 @@ if [ ! -f /opt/clazy/bin/clazy ] ; then
     echo "Aborted..."
     exit -1
 
-
 else
 
     echo "Check Clazy static analyzer passed..."
@@ -68,8 +67,7 @@ rm -fr build.clazy
 mkdir -p build.clazy
 cd build.clazy
 
-export PATH=/opt/clazy/bin:$PATH
-export LD_LIBRARY_PATH=/opt/clazy/lib:$LD_LIBRARY_PATH
+#export PATH=/opt/clazy/bin:/opt/clazy/lib:$PATH
 
 if [[ -d /opt/qt6 ]] ; then
 
@@ -85,16 +83,14 @@ else
 
 fi
 
-/opt/clazy/bin/clazy --version
+#export LLVM_VERSION=19
 
-export CLANGXX=/opt/clazy/bin/clang++
-#export PATH=/opt/qt6/bin/:/opt/clazy/bin/:$PATH
+export PATH=/opt/qt6/bin/:/opt/clazy/bin/:$PATH
 
 $CMAKE_BINARY  \
       -DCMAKE_CXX_COMPILER=clazy \
       -DCMAKE_EXPORT_COMPILE_COMMANDS=ON \
       -DCMAKE_BUILD_TYPE=Debug \
-      -DBUILD_WITH_CCACHE=OFF \
       -DBUILD_WITH_QT6=$BUILD_WITH_QT6 \
       -DBUILD_TESTING=ON \
       -DDIGIKAMSC_CHECKOUT_PO=OFF \
