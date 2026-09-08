@@ -261,6 +261,7 @@ optional_packages=("ruby"                               # For i18n extraction
                    "libyaml-perl"                       # For static analysis
                    "libjson-perl"                       # For static analysis
                    "llvm"                               # For static analysis
+                   "llvm-dev"                           # For static analysis
                    "libomp-dev"                         # For static analysis
                    "libclang-dev"                       # For static analysis
                    "codespell"                          # For static analysis
@@ -319,8 +320,6 @@ optional_packages=("ruby"                               # For i18n extraction
                    "libinih-dev"                        # For Exiv2
                    "libbrotli-dev"                      # For Exiv2
                     #TODO add new optional packages
-
-                   #"clazy"                              # For static analysis : disabled as it depend of older clang/llvm
                     )
 
 for pkg in ${optional_packages[@]}; do
@@ -333,5 +332,5 @@ done
 sudo ln -sf /usr/share/java              /opt/saxon
 sudo ln -sf /usr/share/java/Saxon-HE.jar /usr/share/java/saxon9he.jar
 
-
+sudo apt remove -y gcc-16 libgcc-16-dev gcc-16-X86-64-linux-gnu clazy
 
