@@ -75,7 +75,6 @@ AutotagsEngine::AutotagsEngine(const AutotagsScanSettings& _settings, ProgressIt
     connect(d->newPipeline, SIGNAL(skipped(MLPipelinePackageNotify::Ptr)),
             this, SLOT(slotImagesSkipped(MLPipelinePackageNotify::Ptr)));
 
-
     connect(d->newPipeline, SIGNAL(signalUpdateItemCount(qlonglong)),
             this, SLOT(slotUpdateItemCount(qlonglong)));
 }
