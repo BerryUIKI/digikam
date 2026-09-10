@@ -12,8 +12,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:42+0000\n"
-"PO-Revision-Date: 2026-08-29 17:58+0400\n"
+"POT-Creation-Date: 2026-09-10 00:42+0000\n"
+"PO-Revision-Date: 2026-09-09 17:49+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -21070,6 +21070,8 @@ msgid ""
 "Cannot export RAW image preview as JPEG as WallPaper\n"
 "%1"
 msgstr ""
+"يتعذر تصدير مصغرة الصورة بتنسيق RAW كصورة JPEG لتستخدم كخلفية\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:143
 #, kde-format
@@ -21077,6 +21079,8 @@ msgid ""
 "Cannot extract RAW image preview for the WallPaper\n"
 "%1"
 msgstr ""
+"يتعذر استخراج مصغرة الصورة بتنسيق RAW لخلفية الشاشة\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_dbus.cpp:92
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_macos.cpp:64
@@ -26830,7 +26834,7 @@ msgid "Auto-rotating: %1\n"
 msgstr "تدوير آليّ: %1\n"
 
 #: core/libs/aitoolspipeline/aitoolspipeline.cpp:515
-#: core/libs/tags/autoassignment/autotagsengine.cpp:233
+#: core/libs/tags/autoassignment/autotagsengine.cpp:232
 #: core/utilities/maintenance/tools/duplicates/duplicatesfinder.cpp:189
 #: core/utilities/maintenance/tools/facesmanagement/facesengine.cpp:490
 #: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:236
@@ -28690,25 +28694,25 @@ msgstr ""
 "أن تنسيق قاعدة البيانات حديث جدًا) رجاء استخدم الإصدار الأحدث من دجيكام الذي "
 "استخدمته من قبل. "
 
-#: core/libs/database/tags/facetags.cpp:460
+#: core/libs/database/tags/facetags.cpp:459
 #, kde-format
 msgctxt "People on your photos"
 msgid "People"
 msgstr "الأشخاص"
 
-#: core/libs/database/tags/facetags.cpp:477
+#: core/libs/database/tags/facetags.cpp:476
 #, kde-format
 msgctxt "The list of detected faces from the collections but not recognized"
 msgid "Unknown"
 msgstr "مجهول"
 
-#: core/libs/database/tags/facetags.cpp:499
+#: core/libs/database/tags/facetags.cpp:498
 #, kde-format
 msgctxt "The list of recognized faces from the collections but not confirmed"
 msgid "Unconfirmed"
 msgstr "غير مؤكد"
 
-#: core/libs/database/tags/facetags.cpp:521
+#: core/libs/database/tags/facetags.cpp:520
 #, kde-format
 msgctxt "List of detected faces that need not be recognized"
 msgid "Ignored"
@@ -39789,47 +39793,47 @@ msgctxt "@item: album categories"
 msgid "Miscellaneous"
 msgstr "متنوّع"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:93
+#: core/libs/tags/autoassignment/autotagsengine.cpp:92
 #, kde-format
 msgid "Autotags Assignment"
 msgstr "تعيين الوسوم الآلية"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:102
+#: core/libs/tags/autoassignment/autotagsengine.cpp:101
 #, kde-format
 msgid "Scan for objects in album: %1"
 msgstr "امسح الألبوم بحثا عن الكائنات: %1"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:106
+#: core/libs/tags/autoassignment/autotagsengine.cpp:105
 #, kde-format
 msgid "Scan for objects in %1 albums"
 msgstr "امسح %1 ألبوم بحثا عن الكائنات"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:185
+#: core/libs/tags/autoassignment/autotagsengine.cpp:184
 #, kde-format
 msgid "Error starting object detection."
 msgstr "حدث خطأ أثناء بدء اكتشاف الكائن."
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:200
+#: core/libs/tags/autoassignment/autotagsengine.cpp:199
 #, kde-format
 msgid "Items scanned for objects: %1\n"
 msgstr "العناصر الممسوحة ضوئيا بحثا عن الكائنات: %1\n"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:204
+#: core/libs/tags/autoassignment/autotagsengine.cpp:203
 #, kde-format
 msgid "Item scanned for objects: %1\n"
 msgstr "العنصر الممسوح ضوئيا بحثا عن الكائنات: %1\n"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:232
+#: core/libs/tags/autoassignment/autotagsengine.cpp:231
 #, kde-format
 msgid "Object Scanning: %1\n"
 msgstr "مسح الكائن ضوئيا: %1\n"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:239
+#: core/libs/tags/autoassignment/autotagsengine.cpp:238
 #, kde-format
 msgid "Found %1 object. Tag: %2"
 msgstr "عثر على %1 كائن. الوسم: %2"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:243
+#: core/libs/tags/autoassignment/autotagsengine.cpp:242
 #, kde-format
 msgid "Found %1 objects. Tags: %2"
 msgstr "عثر على %1 كائن. الوسوم: %2"

@@ -33,8 +33,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-08 00:42+0000\n"
-"PO-Revision-Date: 2026-08-17 11:03+0200\n"
+"POT-Creation-Date: 2026-09-10 00:42+0000\n"
+"PO-Revision-Date: 2026-09-09 14:38+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -42,7 +42,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.04.3\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: core/app/date/ddateedit.cpp:489
 #, kde-format
@@ -3891,6 +3891,13 @@ msgid ""
 "frame rate, bitrate), and file formats. For details, see <a href=\"https://"
 "community.kde.org/GSoC/2026/StatusReports/SrirupaDatta\">this report</a>."
 msgstr ""
+"Търсене с естествен език, задвижвано от локален LLM, който работи изцяло на "
+"компютър. Описание на желаното съдържание с обикновен език и digiKam "
+"изграждане на съответното структурирано търсене. Поддържа тагове, хора, "
+"албуми, оценки, етикети, ориентация, места, дати, подписи, видео свойства "
+"(траене, кадрова скорост, битрейт) и формати на файлове. За подробности, "
+"вижте <a href=\"https://community.kde.org/GSoC/2026/StatusReports/"
+"SrirupaDatta\">този доклад</a>."
 
 #: core/app/views/stack/welcomepageview_features.cpp:94
 #, kde-format
@@ -4737,19 +4744,19 @@ msgstr "Поддръжка на Panorama"
 #, kde-format
 msgctxt "@item: component info"
 msgid "Natural-language search support"
-msgstr ""
+msgstr "Поддръжка за търсене с естествен език"
 
 #: core/app/views/utils/componentsinfodlg.cpp:186
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libllama.cpp"
-msgstr ""
+msgstr "Libllama.cpp"
 
 #: core/app/views/utils/componentsinfodlg.cpp:192
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libggml"
-msgstr ""
+msgstr "Libggml"
 
 #: core/app/views/utils/componentsinfodlg.cpp:205
 #: core/app/views/utils/componentsinfodlg.cpp:210
@@ -4796,23 +4803,22 @@ msgid "Database backend version"
 msgstr "Версия на бекенда на базата данни"
 
 #: core/app/views/utils/componentsinfodlg.cpp:256
-#, fuzzy, kde-format
-#| msgid "Database Configuration"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Natural Language Configuration"
-msgstr "Конфигурация на базата данни"
+msgstr "Конфигурация на естествен език"
 
 #: core/app/views/utils/componentsinfodlg.cpp:261
 #, kde-format
 msgctxt "@item: component info"
 msgid "LLAMA.CPP"
-msgstr ""
+msgstr "LLAMA.CPP"
 
 #: core/app/views/utils/componentsinfodlg.cpp:270
 #, kde-format
 msgctxt "@item: component info"
 msgid "GGML"
-msgstr ""
+msgstr "GGML"
 
 #: core/app/views/utils/componentsinfodlg.cpp:281
 #, kde-format
@@ -27452,7 +27458,7 @@ msgid "Auto-rotating: %1\n"
 msgstr "Автоматично завъртане: %1\n"
 
 #: core/libs/aitoolspipeline/aitoolspipeline.cpp:515
-#: core/libs/tags/autoassignment/autotagsengine.cpp:233
+#: core/libs/tags/autoassignment/autotagsengine.cpp:232
 #: core/utilities/maintenance/tools/duplicates/duplicatesfinder.cpp:189
 #: core/utilities/maintenance/tools/facesmanagement/facesengine.cpp:490
 #: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:236
@@ -29369,25 +29375,25 @@ msgstr ""
 "форматът на базата данни е твърде нов) Моля, използвайте по-новата версия на "
 "digikam, която сте използвали преди. "
 
-#: core/libs/database/tags/facetags.cpp:460
+#: core/libs/database/tags/facetags.cpp:459
 #, kde-format
 msgctxt "People on your photos"
 msgid "People"
 msgstr "Хора"
 
-#: core/libs/database/tags/facetags.cpp:477
+#: core/libs/database/tags/facetags.cpp:476
 #, kde-format
 msgctxt "The list of detected faces from the collections but not recognized"
 msgid "Unknown"
 msgstr "Неизвестно"
 
-#: core/libs/database/tags/facetags.cpp:499
+#: core/libs/database/tags/facetags.cpp:498
 #, kde-format
 msgctxt "The list of recognized faces from the collections but not confirmed"
 msgid "Unconfirmed"
 msgstr "Непотвърдено"
 
-#: core/libs/database/tags/facetags.cpp:521
+#: core/libs/database/tags/facetags.cpp:520
 #, kde-format
 msgctxt "List of detected faces that need not be recognized"
 msgid "Ignored"
@@ -40617,47 +40623,47 @@ msgctxt "@item: album categories"
 msgid "Miscellaneous"
 msgstr "Разни"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:93
+#: core/libs/tags/autoassignment/autotagsengine.cpp:92
 #, kde-format
 msgid "Autotags Assignment"
 msgstr "Задаване на автоматични етикети"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:102
+#: core/libs/tags/autoassignment/autotagsengine.cpp:101
 #, kde-format
 msgid "Scan for objects in album: %1"
 msgstr "Сканиране за обекти в албум: %1"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:106
+#: core/libs/tags/autoassignment/autotagsengine.cpp:105
 #, kde-format
 msgid "Scan for objects in %1 albums"
 msgstr "Сканиране за обекти в %1 албума"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:185
+#: core/libs/tags/autoassignment/autotagsengine.cpp:184
 #, kde-format
 msgid "Error starting object detection."
 msgstr "Грешка при стартиране на откриване на обект."
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:200
+#: core/libs/tags/autoassignment/autotagsengine.cpp:199
 #, kde-format
 msgid "Items scanned for objects: %1\n"
 msgstr "Елементи, сканирани за обекти: %1\n"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:204
+#: core/libs/tags/autoassignment/autotagsengine.cpp:203
 #, kde-format
 msgid "Item scanned for objects: %1\n"
 msgstr "Елементът е сканиран за обекти: %1\n"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:232
+#: core/libs/tags/autoassignment/autotagsengine.cpp:231
 #, kde-format
 msgid "Object Scanning: %1\n"
 msgstr "Сканиране на обект: %1\n"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:239
+#: core/libs/tags/autoassignment/autotagsengine.cpp:238
 #, kde-format
 msgid "Found %1 object. Tag: %2"
 msgstr "Намерен %1 обект. Етикет: %2"
 
-#: core/libs/tags/autoassignment/autotagsengine.cpp:243
+#: core/libs/tags/autoassignment/autotagsengine.cpp:242
 #, kde-format
 msgid "Found %1 objects. Tags: %2"
 msgstr "Намерени са %1 обекта. Етикети: %2"
@@ -44425,6 +44431,8 @@ msgstr "Инженер по качеството на тестовете"
 msgid ""
 "Natural Language Search in the Advanced Search tool, powered with a local LLM"
 msgstr ""
+"Търсене с естествен език в инструмента за разширена търсачка, задвижвано от "
+"локален LLM"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:163
 #, kde-format
@@ -64352,82 +64360,72 @@ msgstr "Области с лица"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:185
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@label: item properties"
-#| msgid "Pick label: "
+#, kde-format
 msgctxt "@item"
 msgid "Pick label: Accepted"
-msgstr "Категория: "
+msgstr "Избор на етикет: Прието"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:186
 #, kde-format
 msgctxt "@item"
 msgid "Rating 4 or more"
-msgstr ""
+msgstr "Оценка 4 или по-висока"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "@info: generate album name for exporting"
-#| msgid "Rating: "
+#, kde-format
 msgctxt "@item"
 msgid "Rating 5"
-msgstr "Оценка: "
+msgstr "Оценка 5"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:197
-#, fuzzy, kde-format
-#| msgid "Fine horizontal angle:"
+#, kde-format
 msgctxt "@item"
 msgid "Oriented horizontally (landscape)"
-msgstr "Фин хоризонтален ъгъл:"
+msgstr "Хоризонтално ориентиране (пейзаж)"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:198
-#, fuzzy, kde-format
-#| msgid "Subject distance"
+#, kde-format
 msgctxt "@item"
 msgid "Subject tag: landscape"
-msgstr "Разстояние до обекта"
+msgstr "Еτικет към обекта: пейзаж"
 
 #: core/utilities/searchwindow/nlsearch/searchintentresolver.cpp:86
 #, kde-format
 msgctxt "@info"
 msgid "\"%1\" could mean more than one thing. Which did you mean?"
-msgstr ""
+msgstr "\"%1\" може да означава повече от едно нещо. Кое е желаното?"
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:155
-#, fuzzy, kde-format
-#| msgid "Failed to load image"
+#, kde-format
 msgid "Failed to load the language model."
-msgstr "Грешка при зареждане на изображение"
+msgstr "Неуспешно зареждане на езиковия модел."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:181
-#, fuzzy, kde-format
-#| msgid "Failed to initialize the database."
+#, kde-format
 msgid "Failed to initialize the model context."
-msgstr "Не успя да се инициализира базата данни."
+msgstr "Неуспешно инициализиране на контекста на модела."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:201
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:347
 #, kde-format
 msgid "digiKam was built without llama.cpp support."
-msgstr ""
+msgstr "digiKam е изграден без поддръжка на llama.cpp."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:218
 #, kde-format
 msgid "Model is not loaded."
-msgstr ""
+msgstr "Моделът не е зареден."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:239
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:249
-#, fuzzy, kde-format
-#| msgid "Failed to open the database."
+#, kde-format
 msgid "Failed to tokenize the prompt."
-msgstr "Неуспешно отваряне на базата от данни"
+msgstr "Неуспешно токенизиране на заявката."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:286
-#, fuzzy, kde-format
-#| msgid "Connection failed."
+#, kde-format
 msgid "Model decode failed."
-msgstr "Свързването е неуспешно."
+msgstr "Декодирането на модела е неуспешно."
 
 #: core/utilities/searchwindow/nlsearch/searchnlmodelmanager.cpp:100
 #, kde-format
@@ -64436,12 +64434,14 @@ msgid ""
 "The natural-language search model is not installed. Please download it from "
 "the digiKam setup downloader."
 msgstr ""
+"Моделът за търсене с естествен език не е инсталиран. Моля, изтеглете го от "
+"модула за инсталиране на digiKam."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:149
 #, kde-format
 msgctxt "@info"
 msgid "A query is already being interpreted."
-msgstr ""
+msgstr "Вече се обработва заявка."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:179
 #, kde-format
@@ -64451,6 +64451,9 @@ msgid ""
 "Enable \"Natural Language Search\" in the model download dialog to install "
 "it, then restart digiKam."
 msgstr ""
+"Търсенето с естествен език изисква езиков модел, който все още не е "
+"инсталиран. Активирайте \"Търсене с естествен език\" в диалоговия прозорец "
+"за изтегляне на модели за инсталиране, след което рестартирайте digiKam."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:186
 #, kde-format
@@ -64459,12 +64462,14 @@ msgid ""
 "The natural language search model is still loading. Please try your search "
 "again in a few seconds."
 msgstr ""
+"Моделът за търсене на естествен език все още се зарежда. Опитайте отново "
+"след няколко секунди."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Interpreting your search..."
-msgstr ""
+msgstr "Интерпретация на търсенето..."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:225
 #, kde-format
@@ -64473,6 +64478,8 @@ msgid ""
 "Could not interpret the model output. Please refine the description or "
 "create rules manually."
 msgstr ""
+"Резултатът от модела не можа да бъде разпознат. Моля, прецизирайте "
+"описанието или създайте правила ръчно."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:247
 #, kde-format
@@ -64481,12 +64488,15 @@ msgid ""
 "Could not map '%1' to tags, album names, captions, location, or date. Please "
 "refine the description or create rules manually."
 msgstr ""
+"Не е възможно свързване на „%1“ към етикети, имена на албуми, подписи, "
+"местоположение или дата. Моля, прецизирайте описанието или ръчно задайте "
+"правила."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:258
 #, kde-format
 msgctxt "@info"
 msgid "Some terms could not be mapped and were skipped: %1"
-msgstr ""
+msgstr "Някои термини не можаха да бъдат свързани и са пропуснати: %1"
 
 #: core/utilities/searchwindow/utils/editablesearchtreeview.cpp:59
 #, kde-format
@@ -64563,25 +64573,24 @@ msgstr "Редактиране на текущото търсене..."
 msgid ""
 "Interpret the text above as a natural-language search and build the query"
 msgstr ""
+"Интерпретиране на текста по-горе като търсене в естествен език и изграждане "
+"на заявката"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:70
 #: core/utilities/searchwindow/view/searchwindow.cpp:69
-#, fuzzy, kde-format
-#| msgid "Cancel current operation"
+#, kde-format
 msgid "Cancel the current interpretation"
-msgstr "Отмяна на текущата операция"
+msgstr "Отмяна на текущото тълкуване"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:95
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Advanced Search"
+#, kde-format
 msgid "Open Advanced Search"
 msgstr "Разширено търсене"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:96
 #, kde-format
 msgid "Run Now"
-msgstr ""
+msgstr "Изпълнение сега"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:140
 #, kde-format
@@ -64620,19 +64629,19 @@ msgid "Edit..."
 msgstr "Редактиране..."
 
 #: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:89
-#, fuzzy, kde-format
-#| msgid "Imported %1"
+#, kde-format
 msgid ""
 "Interpreted as:\n"
 "%1"
-msgstr "Импортирано %1"
+msgstr ""
+"Интерпретирано като:\n"
+"%1"
 
 #: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:123
 #: core/utilities/searchwindow/view/searchwindow_slots.cpp:180
-#, fuzzy, kde-format
-#| msgid "Printing canceled"
+#, kde-format
 msgid "Interpretation cancelled."
-msgstr "Отмяна на отпечатването"
+msgstr "Интерпретацията е прекъсната."
 
 #: core/utilities/searchwindow/view/searchtabheader_p.cpp:62
 #, kde-format
@@ -64656,21 +64665,19 @@ msgid "Try"
 msgstr "Опитване"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:37
-#, fuzzy, kde-format
-#| msgctxt "@info: country code"
-#| msgid "Default Language"
+#, kde-format
 msgid "Natural Language Search"
-msgstr "Език по подразбиране"
+msgstr "Търсене с естествен език"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:41
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
-msgstr ""
+msgstr "напр. пейзажни снимки с червени етикети, направени близо до Париж"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:44
 #, kde-format
 msgid "Translate my query to English first"
-msgstr ""
+msgstr "Първо преведи заявката ми на английски"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:46
 #, kde-format
@@ -64678,11 +64685,14 @@ msgid ""
 "When enabled, your query is translated to English before being interpreted, "
 "so you can type in your own language. Requires an internet connection."
 msgstr ""
+"При активиране, запитването се превежда на английски, преди да бъде "
+"интерпретирано, така че имате възможност за въвеждане на собствения си език. "
+"Изисква интернет връзка."
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:84
 #, kde-format
 msgid "Open the Natural Language Search handbook"
-msgstr ""
+msgstr "Отваряне на ръководство по търсене с естествен език"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:113
 #, kde-format
@@ -64692,17 +64702,20 @@ msgid ""
 "language model that runs locally on your computer, with no internet "
 "connection required once downloaded."
 msgstr ""
+"Търсене с естествен език позволява да намирате на изображения чрез описание "
+"със собствени думи, например \"снимки с червени етикети, направени близо до "
+"Париж\". Използва се езиков модел, който работи локално на вашия компютър, "
+"без нужда от интернет връзка след изтегляне."
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:121
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
-msgstr ""
+msgstr "Моделът за търсене с естествен език не е изтеглен."
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:125
-#, fuzzy, kde-format
-#| msgid "Download Route"
+#, kde-format
 msgid "Download Model..."
-msgstr "Изтегляне на маршрут"
+msgstr "Изтегляне на модел..."
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:169
 #, kde-format
@@ -64711,16 +64724,14 @@ msgid "Advanced Search"
 msgstr "Разширено търсене"
 
 #: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:70
-#, fuzzy, kde-format
-#| msgid "Loading themes..."
+#, kde-format
 msgid "Loading the language model... %1%"
-msgstr "Зареждане на изгледи..."
+msgstr "Зареждане на езиковия модел... %1%"
 
 #: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:96
-#, fuzzy, kde-format
-#| msgid "Edit Current Search..."
+#, kde-format
 msgid "Interpreting the search..."
-msgstr "Редактиране на текущото търсене..."
+msgstr "Интерпретиране на търсенето..."
 
 #: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:140
 #, kde-format
@@ -64729,6 +64740,8 @@ msgid ""
 "None of that could be turned into a search. Try describing tags, dates, "
 "ratings, labels, people, or places."
 msgstr ""
+"Нищо от това не може да бъде превърнато в търсене. Опитайте с описание на "
+"етикети, дати, оценки, бележки, хора или места."
 
 #: core/utilities/setup/album/setupalbumview.cpp:46
 #, kde-format
@@ -66375,10 +66388,9 @@ msgid "Use AutoTags Assignment feature"
 msgstr "Използване на функцията за автоматично присвояване на етикети"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:81
-#, fuzzy, kde-format
-#| msgid "Use Face Management feature"
+#, kde-format
 msgid "Use Natural Language Search feature"
-msgstr "Използване на функцията за откриване на лица"
+msgstr "Използване на търсене с естествен език"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:290
 #, kde-format
@@ -66443,13 +66455,7 @@ msgid "File on the server is too large."
 msgstr "Файлът на сървъра е твърде голям."
 
 #: core/utilities/setup/downloader/filesdownloader_slots.cpp:258
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>digiKam relies on large binary model files to power features like face "
-#| "management, image classification based on aesthetics, AI AutoTools such "
-#| "as automatic image rotation, and automatic tag assignment. You have the "
-#| "option to select the specific features you want to enable.</p><p><b>Note:"
-#| "</b> The red-eye removal tool requires face management model files.</p>"
+#, kde-format
 msgid ""
 "<p>digiKam relies on large binary model files to power features like face "
 "management, image classification based on aesthetics, AI AutoTools such as "
@@ -66458,12 +66464,13 @@ msgid ""
 "enable.</p><p><b>Note:</b> The red-eye removal tool requires face management "
 "model files.</p>"
 msgstr ""
-"<p>digiKam разчита на големи двоични файлове с модели, за да захранва "
-"функции като управление на лица, класификация на изображения въз основа на "
-"естетика, AI AutoTools, като например автоматично завъртане на изображения и "
-"автоматично присвояване на етикети. Имате възможност да изберете конкретните "
-"функции, които искате да активирате.</p><p><b>Забележка:</b> Инструментът за "
-"премахване на червени очи изисква файлове с модели за управление на лица.</p>"
+"<p>digiKam се основава на големи бинарни модели за работа на функции като "
+"управление на лица, класификация на изображения въз основа на естетиката, "
+"инструменти с автоматично обработване с ИИ като автоматично въртене на "
+"изображения, автоматично присвояване на етикети и инструмент за търсене с "
+"естествен език. Имате възможност  да изберете желаните функции за активиране."
+"</p><p><b>Забележка:</b> Инструментът за премахване на червено око изисква "
+"модели за управление на лица.</p>"
 
 #: core/utilities/setup/downloader/filesdownloader_slots.cpp:264
 #, kde-format
@@ -69910,6 +69917,3 @@ msgstr "Импортиране на елементи"
 #, kde-format
 msgid "Survey"
 msgstr "Анкета"
-
-#~ msgid "(Advanced Search)"
-#~ msgstr "(Разширено търсене)"
