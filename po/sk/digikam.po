@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:42+0000\n"
+"POT-Creation-Date: 2026-09-11 00:43+0000\n"
 "PO-Revision-Date: 2026-01-04 22:32+0100\n"
 "Last-Translator: Jose Riha <jose1711@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -4258,7 +4258,7 @@ msgstr "Vlastnosti súboru"
 #. i18n: ectx: property (text), widget (QTableWidget, m_tableWidget)
 #: core/app/views/tableview/tableview_column_file.cpp:56
 #: core/app/views/tableview/tableview_column_file.cpp:81
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:46
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:63
 #: core/utilities/geolocation/engine/plugins/render/overviewmap/OverviewMapConfigWidget.ui:183
 #: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:678
 #, kde-format
@@ -37105,42 +37105,42 @@ msgctxt "info"
 msgid "Binary data %1 bytes"
 msgstr "Binárne dáta %1 bajtov"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:401
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:440
 #, kde-format
 msgid "No Transformation"
 msgstr "Vynulovať transformácie"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:406
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:445
 #, kde-format
 msgid "Flip Horizontal"
 msgstr "Prevrátiť horizontálne"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:411
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:450
 #, kde-format
 msgid "Flip Vertical"
 msgstr "Prevrátiť vertikálne"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:416
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:455
 #, kde-format
 msgid "Rotate 90°"
 msgstr "Otočiť o 90°"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:421
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:460
 #, kde-format
 msgid "Rotate 180°"
 msgstr "Otočené o 180 stupňov"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:426
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:465
 #, kde-format
 msgid "Rotate 270°"
 msgstr "Otočiť o 270°"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:431
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:470
 #, kde-format
 msgid "Auto Rotation"
 msgstr "Automatické otáčanie"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:436
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:475
 #, kde-format
 msgid "Unknown Transformation"
 msgstr "Neznámy formát"
@@ -38727,7 +38727,7 @@ msgid "Rights"
 msgstr "Práva"
 
 #: core/libs/properties/itempropertiestab.cpp:485
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:40
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:57
 #, kde-format
 msgid "File"
 msgstr "Súbor"
@@ -52086,87 +52086,87 @@ msgstr "Kľúč"
 msgid "Description"
 msgstr "Popis"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:54
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:130
 #, kde-format
 msgid "Common File Information"
 msgstr "Common File Information"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:56
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:132
 #, kde-format
 msgid "Default comment of the image"
 msgstr "Predvolený komentár obrázka"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:57
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:133
 #, kde-format
 msgid "Default author of the image"
 msgstr "Predvolený autor obrázka"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:58
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:134
 #, kde-format
 msgid "Image dimension"
 msgstr "MUNIT(rozmer)"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:59
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:135
 #, kde-format
 msgid "Image file size"
 msgstr "Zobraziť &veľkosť súboru obrázku"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:60
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:136
 #, kde-format
 msgid "Format of the media file"
 msgstr "Neznámy formát súboru"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:61
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:137
 #, kde-format
 msgid "Type of the media file"
 msgstr "Neznámy typ súboru"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:62
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:138
 #, kde-format
 msgid "Rating of the media file"
 msgstr "Hodnotenie mediálneho súboru"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:63
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:139
 #, kde-format
 msgid "Height of the media file"
 msgstr "súbor návršia"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:64
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:140
 #, kde-format
 msgid "Width of the media file"
 msgstr "Šírka mediálneho súboru"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:65
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:141
 #, kde-format
 msgid "Image orientation"
 msgstr "Orientácia obrázku"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:66
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:142
 #, kde-format
 msgid "Color depth (bits per channel)"
 msgstr "Farebná hĺbka (bitov na kanál)"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:67
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:143
 #, kde-format
 msgid "Color model of the image"
 msgstr "Farebný model obrázka"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:68
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:144
 #, kde-format
 msgid "A comma separated list of all authors"
 msgstr "Čiarkou oddelený zoznam autorov"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:69
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:145
 #, kde-format
 msgid "Title of the image"
 msgstr "Názov obrázka"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:70
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:146
 #, kde-format
 msgid "A comma separated list of all tags"
 msgstr "Čiarkou oddelený zoznam všetkých značiek"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:71
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:147
 #, kde-format
 msgid "A comma separated list of all tags with path"
 msgstr "Čiarkou oddelený zoznam všetkých značiek s cestou"
@@ -52482,18 +52482,18 @@ msgstr ""
 "Názov rodičovského adresára, dodatočný znak '.' posúva smerom vyššie v "
 "adresárovej štruktúre."
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:41
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:58
 #, kde-format
 msgid "Add file properties"
 msgstr "Pridať vlastnosti súboru"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:47
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:64
 #, kde-format
 msgctxt "File name"
 msgid "Name"
 msgstr "Názov"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:49
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:66
 #, kde-format
 msgid ""
 "File extension, prepend with a '.' character, to modify the real file "
@@ -52502,29 +52502,29 @@ msgstr ""
 "Prípona súboru. Ak sa pred ňou nachádza znak '.', zmení sa prípona "
 "skutočného súboru."
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:50
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:67
 #, kde-format
 msgctxt "File extension"
 msgid "Extension"
 msgstr "Prípona"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:52
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:69
 #, kde-format
 msgid "Owner of the file"
 msgstr "Unixový vlastník súboru"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:53
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:70
 #, kde-format
 msgctxt "Owner of the file"
 msgid "Owner"
 msgstr "Vlastník"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:55
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:72
 #, kde-format
 msgid "Group of the file"
 msgstr "Súbor skupín:"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:56
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:73
 #, kde-format
 msgctxt "Group of the file"
 msgid "Group"

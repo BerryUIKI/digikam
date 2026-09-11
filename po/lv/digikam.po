@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:42+0000\n"
+"POT-Creation-Date: 2026-09-11 00:43+0000\n"
 "PO-Revision-Date: 2026-08-12 09:51+0300\n"
 "Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -4255,7 +4255,7 @@ msgstr "Datnes īpašības"
 #. i18n: ectx: property (text), widget (QTableWidget, m_tableWidget)
 #: core/app/views/tableview/tableview_column_file.cpp:56
 #: core/app/views/tableview/tableview_column_file.cpp:81
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:46
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:63
 #: core/utilities/geolocation/engine/plugins/render/overviewmap/OverviewMapConfigWidget.ui:183
 #: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:678
 #, kde-format
@@ -37342,42 +37342,42 @@ msgctxt "info"
 msgid "Binary data %1 bytes"
 msgstr "Binārie dati %1 baiti"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:401
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:440
 #, kde-format
 msgid "No Transformation"
 msgstr "Bez transformācijas"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:406
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:445
 #, kde-format
 msgid "Flip Horizontal"
 msgstr "Apmest horizontāli"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:411
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:450
 #, kde-format
 msgid "Flip Vertical"
 msgstr "Apmest vertikāli"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:416
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:455
 #, kde-format
 msgid "Rotate 90°"
 msgstr "Pagriezt par 90°"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:421
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:460
 #, kde-format
 msgid "Rotate 180°"
 msgstr "Pagriezt par 180°"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:426
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:465
 #, kde-format
 msgid "Rotate 270°"
 msgstr "Pagriezt par 270°"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:431
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:470
 #, kde-format
 msgid "Auto Rotation"
 msgstr "Automātiska pagriešana"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:436
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:475
 #, kde-format
 msgid "Unknown Transformation"
 msgstr "Nezināmā transformācija"
@@ -38972,7 +38972,7 @@ msgid "Rights"
 msgstr "Atļaujas"
 
 #: core/libs/properties/itempropertiestab.cpp:485
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:40
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:57
 #, kde-format
 msgid "File"
 msgstr "Datne"
@@ -52441,87 +52441,87 @@ msgstr "Atslēga"
 msgid "Description"
 msgstr "Apraksts"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:54
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:130
 #, kde-format
 msgid "Common File Information"
 msgstr "Kopējā datnes informācija"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:56
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:132
 #, kde-format
 msgid "Default comment of the image"
 msgstr "Noklusējuma attēla komentārs"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:57
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:133
 #, kde-format
 msgid "Default author of the image"
 msgstr "Noklusējuma attēla autors"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:58
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:134
 #, kde-format
 msgid "Image dimension"
 msgstr "Attēla izmēri"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:59
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:135
 #, kde-format
 msgid "Image file size"
 msgstr "Attēla datnes izmērs"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:60
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:136
 #, kde-format
 msgid "Format of the media file"
 msgstr "Multivides datnes formāts"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:61
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:137
 #, kde-format
 msgid "Type of the media file"
 msgstr "Multivides datnes tips"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:62
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:138
 #, kde-format
 msgid "Rating of the media file"
 msgstr "Multivides datnes vērtējums"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:63
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:139
 #, kde-format
 msgid "Height of the media file"
 msgstr "Multivides datnes augstums"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:64
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:140
 #, kde-format
 msgid "Width of the media file"
 msgstr "Multivides datnes platums"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:65
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:141
 #, kde-format
 msgid "Image orientation"
 msgstr "Attēla orientācija"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:66
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:142
 #, kde-format
 msgid "Color depth (bits per channel)"
 msgstr "Krāsu dziļums (biti kanālā)"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:67
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:143
 #, kde-format
 msgid "Color model of the image"
 msgstr "Attēla krāsu modelis"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:68
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:144
 #, kde-format
 msgid "A comma separated list of all authors"
 msgstr "Visu autoru saraksts, atdalīts ar komatiem"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:69
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:145
 #, kde-format
 msgid "Title of the image"
 msgstr "Attēla nosaukums"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:70
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:146
 #, kde-format
 msgid "A comma separated list of all tags"
 msgstr "Visu birku saraksts, atdalīts ar komatiem"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:71
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:147
 #, kde-format
 msgid "A comma separated list of all tags with path"
 msgstr "Visu birku ar ceļu saraksts, atdalīts ar komatiem"
@@ -52837,18 +52837,18 @@ msgstr ""
 "Hierarhiski augstākās mapes nosaukums, papildu '.' rakstzīmes liek "
 "pārvietoties augšu mapju hierarhijā"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:41
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:58
 #, kde-format
 msgid "Add file properties"
 msgstr "Pievienot datnes īpašības"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:47
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:64
 #, kde-format
 msgctxt "File name"
 msgid "Name"
 msgstr "Nosaukums"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:49
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:66
 #, kde-format
 msgid ""
 "File extension, prepend with a '.' character, to modify the real file "
@@ -52857,29 +52857,29 @@ msgstr ""
 "Datnes paplašinājums, pievienojiet sākumā punktu ('.'), lai mainītu īsto "
 "datnes paplašinājumu"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:50
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:67
 #, kde-format
 msgctxt "File extension"
 msgid "Extension"
 msgstr "Paplašinājums"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:52
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:69
 #, kde-format
 msgid "Owner of the file"
 msgstr "Datnes īpašnieks"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:53
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:70
 #, kde-format
 msgctxt "Owner of the file"
 msgid "Owner"
 msgstr "Īpašnieks"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:55
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:72
 #, kde-format
 msgid "Group of the file"
 msgstr "Datnes grupa"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:56
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:73
 #, kde-format
 msgctxt "Group of the file"
 msgid "Group"

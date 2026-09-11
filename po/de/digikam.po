@@ -16,7 +16,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:42+0000\n"
+"POT-Creation-Date: 2026-09-11 00:43+0000\n"
 "PO-Revision-Date: 2026-05-08 18:37+0200\n"
 "Last-Translator: Philipp Kiemle <l10n.daphipz@fastmail.de>\n"
 "Language-Team: German <kde-i18n-de@kde.org>\n"
@@ -4239,7 +4239,7 @@ msgstr "Dateieigenschaften"
 #. i18n: ectx: property (text), widget (QTableWidget, m_tableWidget)
 #: core/app/views/tableview/tableview_column_file.cpp:56
 #: core/app/views/tableview/tableview_column_file.cpp:81
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:46
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:63
 #: core/utilities/geolocation/engine/plugins/render/overviewmap/OverviewMapConfigWidget.ui:183
 #: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:678
 #, kde-format
@@ -38426,42 +38426,42 @@ msgctxt "info"
 msgid "Binary data %1 bytes"
 msgstr "Binärdaten %1 Byte"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:401
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:440
 #, kde-format
 msgid "No Transformation"
 msgstr "Keine Transformation"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:406
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:445
 #, kde-format
 msgid "Flip Horizontal"
 msgstr "Horizontal spiegeln"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:411
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:450
 #, kde-format
 msgid "Flip Vertical"
 msgstr "Vertikal spiegeln"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:416
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:455
 #, kde-format
 msgid "Rotate 90°"
 msgstr "Um 90 Grad drehen"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:421
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:460
 #, kde-format
 msgid "Rotate 180°"
 msgstr "Um 180 Grad drehen"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:426
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:465
 #, kde-format
 msgid "Rotate 270°"
 msgstr "Um 270 Grad drehen"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:431
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:470
 #, kde-format
 msgid "Auto Rotation"
 msgstr "Automatische Drehung"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:436
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:475
 #, kde-format
 msgid "Unknown Transformation"
 msgstr "Unbekannte Transformation"
@@ -40074,7 +40074,7 @@ msgid "Rights"
 msgstr "Rechte"
 
 #: core/libs/properties/itempropertiestab.cpp:485
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:40
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:57
 #, kde-format
 msgid "File"
 msgstr "Datei"
@@ -53687,89 +53687,89 @@ msgstr "Schlüssel"
 msgid "Description"
 msgstr "Beschreibung"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:54
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:130
 #, kde-format
 msgid "Common File Information"
 msgstr "Allgemeine Dateiinformationen"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:56
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:132
 #, kde-format
 msgid "Default comment of the image"
 msgstr "Standard-Bildkommentar"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:57
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:133
 #, kde-format
 msgid "Default author of the image"
 msgstr "Standard-Autor"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:58
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:134
 #, kde-format
 msgid "Image dimension"
 msgstr "Bildabmessungen"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:59
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:135
 #, kde-format
 msgid "Image file size"
 msgstr "Bilddateigröße"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:60
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:136
 #, kde-format
 msgid "Format of the media file"
 msgstr "Dateiformat der Mediendatei"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:61
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:137
 #, kde-format
 msgid "Type of the media file"
 msgstr "Art der Mediendatei"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:62
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:138
 #, kde-format
 msgid "Rating of the media file"
 msgstr "Bewertung der Mediendatei"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:63
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:139
 #, kde-format
 msgid "Height of the media file"
 msgstr "Höhe der Mediendatei"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:64
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:140
 #, kde-format
 msgid "Width of the media file"
 msgstr "Breite der Mediendatei"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:65
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:141
 #, kde-format
 msgid "Image orientation"
 msgstr "Bildausrichtung"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:66
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:142
 #, kde-format
 msgid "Color depth (bits per channel)"
 msgstr "Farbtiefe (in Bits pro Kanal)"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:67
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:143
 #, kde-format
 msgid "Color model of the image"
 msgstr "Farbmodell des Bildes"
 
 # Authors=Autoren?
 # bin mir nicht sicher
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:68
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:144
 #, kde-format
 msgid "A comma separated list of all authors"
 msgstr "Durch Komma getrennte Liste aller Autoren"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:69
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:145
 #, kde-format
 msgid "Title of the image"
 msgstr "Titel des Bildes"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:70
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:146
 #, kde-format
 msgid "A comma separated list of all tags"
 msgstr "Durch Komma getrennte Liste aller Stichwörter"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:71
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:147
 #, kde-format
 msgid "A comma separated list of all tags with path"
 msgstr "Durch Komma getrennte Liste aller Stichwörter mit Hierarchie"
@@ -54085,18 +54085,18 @@ msgstr ""
 "Name des übergeordneten Ordners; zusätzliche Punkte ermöglichen das "
 "Hochbewegen in der Ordnerhierarchie"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:41
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:58
 #, kde-format
 msgid "Add file properties"
 msgstr "Dateieigenschaften hinzufügen"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:47
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:64
 #, kde-format
 msgctxt "File name"
 msgid "Name"
 msgstr "Name"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:49
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:66
 #, kde-format
 msgid ""
 "File extension, prepend with a '.' character, to modify the real file "
@@ -54105,29 +54105,29 @@ msgstr ""
 "Dateierweiterung; Stellen Sie einen Punkt („.“) voran, um die echte "
 "Dateierweiterung zu verändern"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:50
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:67
 #, kde-format
 msgctxt "File extension"
 msgid "Extension"
 msgstr "Dateierweiterung"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:52
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:69
 #, kde-format
 msgid "Owner of the file"
 msgstr "Eigentümer der Datei"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:53
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:70
 #, kde-format
 msgctxt "Owner of the file"
 msgid "Owner"
 msgstr "Eigentümer"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:55
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:72
 #, kde-format
 msgid "Group of the file"
 msgstr "Gruppe der Datei"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:56
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:73
 #, kde-format
 msgctxt "Group of the file"
 msgid "Group"

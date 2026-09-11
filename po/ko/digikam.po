@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:42+0000\n"
+"POT-Creation-Date: 2026-09-11 00:43+0000\n"
 "PO-Revision-Date: 2023-08-27 22:16+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -4204,7 +4204,7 @@ msgstr "파일 속성"
 #. i18n: ectx: property (text), widget (QTableWidget, m_tableWidget)
 #: core/app/views/tableview/tableview_column_file.cpp:56
 #: core/app/views/tableview/tableview_column_file.cpp:81
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:46
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:63
 #: core/utilities/geolocation/engine/plugins/render/overviewmap/OverviewMapConfigWidget.ui:183
 #: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:678
 #, kde-format
@@ -37981,52 +37981,52 @@ msgctxt "info"
 msgid "Binary data %1 bytes"
 msgstr ""
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:401
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:440
 #, fuzzy, kde-format
 #| msgid "Crop Information"
 msgid "No Transformation"
 msgstr "자르기 정보"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:406
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:445
 #, fuzzy, kde-format
 #| msgid "Flip Horizontally"
 msgid "Flip Horizontal"
 msgstr "상하 반전"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:411
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:450
 #, fuzzy, kde-format
 #| msgid "Flip Vertically"
 msgid "Flip Vertical"
 msgstr "좌우 반전"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:416
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:455
 #, fuzzy, kde-format
 #| msgctxt "@action: setup"
 #| msgid "Rotate"
 msgid "Rotate 90°"
 msgstr "회전"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:421
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:460
 #, fuzzy, kde-format
 #| msgid "Rotate 180 degrees"
 msgid "Rotate 180°"
 msgstr "180도 회전"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:426
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:465
 #, fuzzy, kde-format
 #| msgctxt "@action: setup"
 #| msgid "Rotate"
 msgid "Rotate 270°"
 msgstr "회전"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:431
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:470
 #, fuzzy, kde-format
 #| msgctxt "@title:tab"
 #| msgid "Rotation"
 msgid "Auto Rotation"
 msgstr "회전"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:436
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:475
 #, fuzzy, kde-format
 #| msgid "Unknown Format"
 msgid "Unknown Transformation"
@@ -39653,7 +39653,7 @@ msgid "Rights"
 msgstr "권한"
 
 #: core/libs/properties/itempropertiestab.cpp:485
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:40
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:57
 #, kde-format
 msgid "File"
 msgstr "파일"
@@ -53941,89 +53941,89 @@ msgstr "키"
 msgid "Description"
 msgstr "설명"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:54
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:130
 #, kde-format
 msgid "Common File Information"
 msgstr "공통 파일 정보"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:56
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:132
 #, kde-format
 msgid "Default comment of the image"
 msgstr "이미지의 기본 주석"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:57
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:133
 #, kde-format
 msgid "Default author of the image"
 msgstr "이미지의 기본 작성자"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:58
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:134
 #, kde-format
 msgid "Image dimension"
 msgstr "이미지 크기"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:59
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:135
 #, kde-format
 msgid "Image file size"
 msgstr "이미지 파일 크기"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:60
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:136
 #, kde-format
 msgid "Format of the media file"
 msgstr "미디어 파일 형식"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:61
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:137
 #, kde-format
 msgid "Type of the media file"
 msgstr "미디어 파일 종류"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:62
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:138
 #, kde-format
 msgid "Rating of the media file"
 msgstr "미디어 파일 별점"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:63
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:139
 #, kde-format
 msgid "Height of the media file"
 msgstr "미디어 파일 높이"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:64
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:140
 #, kde-format
 msgid "Width of the media file"
 msgstr "미디어 파일 너비"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:65
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:141
 #, kde-format
 msgid "Image orientation"
 msgstr "이미지 방향"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:66
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:142
 #, kde-format
 msgid "Color depth (bits per channel)"
 msgstr "색 농도(채널당 비트)"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:67
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:143
 #, kde-format
 msgid "Color model of the image"
 msgstr "이미지의 색상 모델"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:68
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:144
 #, kde-format
 msgid "A comma separated list of all authors"
 msgstr "쉼표로 구분된 모든 작성자 목록"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:69
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:145
 #, fuzzy, kde-format
 #| msgid "Color model of the image"
 msgid "Title of the image"
 msgstr "이미지의 색상 모델"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:70
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:146
 #, fuzzy, kde-format
 #| msgid "A comma separated list of all authors"
 msgid "A comma separated list of all tags"
 msgstr "쉼표로 구분된 모든 작성자 목록"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:71
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:147
 #, fuzzy, kde-format
 #| msgid "A comma separated list of all authors"
 msgid "A comma separated list of all tags with path"
@@ -54344,18 +54344,18 @@ msgstr ""
 "상위 디렉터리의 이름입니다. '.' 문자를 추가하면 디렉터리 계층 구조에서 위로 "
 "이동합니다"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:41
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:58
 #, kde-format
 msgid "Add file properties"
 msgstr "파일 속성 추가"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:47
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:64
 #, kde-format
 msgctxt "File name"
 msgid "Name"
 msgstr "이름"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:49
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:66
 #, kde-format
 msgid ""
 "File extension, prepend with a '.' character, to modify the real file "
@@ -54363,29 +54363,29 @@ msgid ""
 msgstr ""
 "파일 확장자, 실제 파일 확장자를 수정하려면 앞에 '.' 문자를 덧붙이십시오"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:50
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:67
 #, kde-format
 msgctxt "File extension"
 msgid "Extension"
 msgstr "확장자"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:52
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:69
 #, kde-format
 msgid "Owner of the file"
 msgstr "파일 소유자"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:53
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:70
 #, kde-format
 msgctxt "Owner of the file"
 msgid "Owner"
 msgstr "소유자"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:55
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:72
 #, kde-format
 msgid "Group of the file"
 msgstr "파일 그룹"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:56
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:73
 #, kde-format
 msgctxt "Group of the file"
 msgid "Group"

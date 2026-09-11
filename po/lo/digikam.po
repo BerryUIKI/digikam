@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-10 00:42+0000\n"
+"POT-Creation-Date: 2026-09-11 00:43+0000\n"
 "PO-Revision-Date: 2025-12-05 10:48+0700\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
@@ -4127,7 +4127,7 @@ msgstr "ຄຸນສົມບັດໄຟລ໌"
 #. i18n: ectx: property (text), widget (QTableWidget, m_tableWidget)
 #: core/app/views/tableview/tableview_column_file.cpp:56
 #: core/app/views/tableview/tableview_column_file.cpp:81
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:46
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:63
 #: core/utilities/geolocation/engine/plugins/render/overviewmap/OverviewMapConfigWidget.ui:183
 #: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:678
 #, kde-format
@@ -36053,42 +36053,42 @@ msgctxt "info"
 msgid "Binary data %1 bytes"
 msgstr "ຂໍ້ມູນໄບນາຣີ %1 ໄບຕ໌"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:401
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:440
 #, kde-format
 msgid "No Transformation"
 msgstr "ບໍ່ມີການປ່ຽນຮູບຮ່າງ"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:406
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:445
 #, kde-format
 msgid "Flip Horizontal"
 msgstr "ພິກແນວນອນ"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:411
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:450
 #, kde-format
 msgid "Flip Vertical"
 msgstr "ພິກແນວຕັ້ງ"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:416
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:455
 #, kde-format
 msgid "Rotate 90°"
 msgstr "ໝຸນ 90°"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:421
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:460
 #, kde-format
 msgid "Rotate 180°"
 msgstr "ໝຸນ 180°"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:426
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:465
 #, kde-format
 msgid "Rotate 270°"
 msgstr "ໝຸນ 270°"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:431
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:470
 #, kde-format
 msgid "Auto Rotation"
 msgstr "ໝຸນອັດຕະໂນມັດ"
 
-#: core/libs/metadataengine/engine/metaengine_rotation.cpp:436
+#: core/libs/metadataengine/engine/metaengine_rotation.cpp:475
 #, kde-format
 msgid "Unknown Transformation"
 msgstr "ການປ່ຽນຮູບຮ່າງທີ່ບໍ່ຮູ້ຈັກ"
@@ -37654,7 +37654,7 @@ msgid "Rights"
 msgstr "ສິດທິ"
 
 #: core/libs/properties/itempropertiestab.cpp:485
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:40
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:57
 #, kde-format
 msgid "File"
 msgstr "ໄຟລ໌"
@@ -50804,87 +50804,87 @@ msgstr "ຄີ"
 msgid "Description"
 msgstr "ຄຳອະທິບາຍ"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:54
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:130
 #, kde-format
 msgid "Common File Information"
 msgstr "ຂໍ້ມູນໄຟລ໌ທົ່ວໄປ"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:56
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:132
 #, kde-format
 msgid "Default comment of the image"
 msgstr "ຄຳເຫັນເລີ່ມຕົ້ນຂອງຮູບພາບ"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:57
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:133
 #, kde-format
 msgid "Default author of the image"
 msgstr "ຜູ້ຂຽນເລີ່ມຕົ້ນຂອງຮູບພາບ"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:58
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:134
 #, kde-format
 msgid "Image dimension"
 msgstr "ຂະໜາດຮູບພາບ"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:59
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:135
 #, kde-format
 msgid "Image file size"
 msgstr "ຂະໜາດໄຟລ໌ຮູບພາບ"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:60
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:136
 #, kde-format
 msgid "Format of the media file"
 msgstr "ຮູບແບບຂອງໄຟລ໌ສື່"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:61
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:137
 #, kde-format
 msgid "Type of the media file"
 msgstr "ປະເພດຂອງໄຟລ໌ສື່"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:62
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:138
 #, kde-format
 msgid "Rating of the media file"
 msgstr "ການໃຫ້ຄະແນນໄຟລ໌ສື່"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:63
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:139
 #, kde-format
 msgid "Height of the media file"
 msgstr "ຄວາມສູງຂອງໄຟລ໌ສື່"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:64
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:140
 #, kde-format
 msgid "Width of the media file"
 msgstr "ຄວາມກວ້າງຂອງໄຟລ໌ສື່"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:65
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:141
 #, kde-format
 msgid "Image orientation"
 msgstr "ທິດທາງຮູບພາບ"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:66
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:142
 #, kde-format
 msgid "Color depth (bits per channel)"
 msgstr "ຄວາມເລິກສີ (ບິດຕໍ່ຊ່ອງ)"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:67
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:143
 #, kde-format
 msgid "Color model of the image"
 msgstr "ແບບຈຳລອງສີຂອງຮູບພາບ"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:68
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:144
 #, kde-format
 msgid "A comma separated list of all authors"
 msgstr "ລາຍຊື່ຜູ້ຂຽນທັງໝົດຂັ້ນດ້ວຍຈຸດ"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:69
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:145
 #, kde-format
 msgid "Title of the image"
 msgstr "ຫົວຂໍ້ຂອງຮູບພາບ"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:70
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:146
 #, kde-format
 msgid "A comma separated list of all tags"
 msgstr "ລາຍການແທັກທັງໝົດຂັ້ນດ້ວຍຈຸດ"
 
-#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:71
+#: core/utilities/advancedrename/parser/options/database/keys/commonkeys.cpp:147
 #, kde-format
 msgid "A comma separated list of all tags with path"
 msgstr "ລາຍການແທັກທັງໝົດພ້ອມເສັ້ນທາງຂັ້ນດ້ວຍຈຸດ"
@@ -51198,47 +51198,47 @@ msgid ""
 "directory hierarchy"
 msgstr "ຊື່ຂອງໄດເຣັກທໍຣີແມ່, ຕົວອັກສອນ '.' ເພີ່ມເຕີມຈະຍ້າຍຂຶ້ນໄປໃນລຳດັບຊັ້ນໄດເຣັກທໍຣີ"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:41
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:58
 #, kde-format
 msgid "Add file properties"
 msgstr "ເພີ່ມຄຸນສົມບັດໄຟລ໌"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:47
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:64
 #, kde-format
 msgctxt "File name"
 msgid "Name"
 msgstr "ຊື່"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:49
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:66
 #, kde-format
 msgid ""
 "File extension, prepend with a '.' character, to modify the real file "
 "extension"
 msgstr "ນາມສະກຸນໄຟລ໌, ນຳໜ້າດ້ວຍຕົວອັກສອນ '.', ເພື່ອແກ້ໄຂນາມສະກຸນໄຟລ໌ແທ້ຈິງ"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:50
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:67
 #, kde-format
 msgctxt "File extension"
 msgid "Extension"
 msgstr "ນາມສະກຸນ"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:52
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:69
 #, kde-format
 msgid "Owner of the file"
 msgstr "ເຈົ້າຂອງໄຟລ໌"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:53
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:70
 #, kde-format
 msgctxt "Owner of the file"
 msgid "Owner"
 msgstr "ເຈົ້າຂອງ"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:55
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:72
 #, kde-format
 msgid "Group of the file"
 msgstr "ກຸ່ມຂອງໄຟລ໌"
 
-#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:56
+#: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:73
 #, kde-format
 msgctxt "Group of the file"
 msgid "Group"
