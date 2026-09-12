@@ -983,7 +983,7 @@ Action=Popup
 
 [Event/MetadataRemover]
 Name=Removal of all tags from items complete
-Name[ar]=اكتملت إزالة كل اللصائق من العناصر
+Name[ar]=اكتملت إزالة كل الوسوم من العناصر
 Name[be]=Выдаленне ўсіх тэгаў з элементаў завершана
 Name[bg]=Премахването на всички етикети от елементите завърши.
 Name[ca]=S'ha completat l'eliminació de totes les etiquetes dels elements
@@ -1018,7 +1018,7 @@ Name[uk]=Вилучення усіх міток із записів заверш
 Name[zh_CN]=移除项目的所有标签已完成
 Name[zh_TW]=從項目移除所有標籤已完成
 Comment=The removal of all tags from items has been completed.
-Comment[ar]=اكتملت إزالة كل اللصائق من العناصر.
+Comment[ar]=اكتملت إزالة كل الوسوم من العناصر.
 Comment[be]=Выдаленне ўсіх тэгаў з элементаў завершана.
 Comment[bg]=Премахването на всички тагове от елементите е завършено.
 Comment[ca]=S'ha completat l'eliminació de totes les etiquetes dels elements.
@@ -1057,6 +1057,7 @@ Action=Popup
 
 [Event/AutotagsEngine]
 Name=Object detection and image auto-tagging complete
+Name[ar]=اكتمل اكتشاف الكائنات ووضع الوسوم آليًا على الصور
 Name[ca]=Compleció de la detecció d'objectes i l'etiquetatge automàtic d'imatges
 Name[ca@valencia]=Compleció de la detecció d'objectes i l'etiquetatge automàtic d'imatges
 Name[es]=Detección de objetos y etiquetado automático de imágenes completados
@@ -1067,6 +1068,7 @@ Name[sl]=Zaznavanje predmetov in samodejno dodajanje značk zaključeno
 Name[sv]=Objektdetektering och automatisk bildetikettering klar
 Name[uk]=Виявлення об'єктів та автоматичне визначення міток зображень завершено
 Comment=The Object detection and image auto-tagging has been completed.
+Comment[ar]=انتهت عملية الكشف عن الكائنات ووضع الوسوم آليًا على الصور.
 Comment[ca]=S'ha completat la detecció d'objectes i l'etiquetatge automàtic de les imatges.
 Comment[ca@valencia]=S'ha completat la detecció d'objectes i l'etiquetatge automàtic de les imatges.
 Comment[es]=La detección de objetos y el etiquetado automático de imágenes se han completado.
