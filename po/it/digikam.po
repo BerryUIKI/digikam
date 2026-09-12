@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-11 00:43+0000\n"
+"POT-Creation-Date: 2026-09-12 00:42+0000\n"
 "PO-Revision-Date: 2026-08-29 18:02+0200\n"
 "Last-Translator: Valter Mura <valtermura@gmail.com>\n"
 "Language-Team: Italian <kde-i18n-it@kde.org>\n"
@@ -12134,7 +12134,7 @@ msgstr "Salvataggio delle modifiche -"
 #: core/dplugins/generic/webservices/google/gswindow.cpp:357
 #: core/dplugins/generic/webservices/google/gswindow.cpp:398
 #: core/dplugins/generic/webservices/google/gswindow.cpp:429
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:576
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:591
 #: core/dplugins/generic/webservices/mediawiki/mediawikitalker.cpp:175
 #: core/dplugins/generic/webservices/onedrive/odtalker.cpp:393
 #: core/dplugins/generic/webservices/pinterest/ptalker.cpp:401
@@ -12261,96 +12261,96 @@ msgctxt "@action"
 msgid "Edit Geolocation..."
 msgstr "Modifica la geolocalizzazione..."
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:133
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:150
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:134
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:151
 #: core/dplugins/generic/tools/htmlgallery/generator/galleryelementfunctor.cpp:71
 #, kde-format
 msgid "Could not read image '%1'"
 msgstr "Impossibile leggere l'immagine «%1»"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:142
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:143
 #, kde-format
 msgid "Format of image '%1' is unknown"
 msgstr "Il formato dell'immagine «%1» è sconosciuto"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:160
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:161
 #: core/dplugins/generic/tools/htmlgallery/generator/galleryelementfunctor.cpp:81
 #, kde-format
 msgid "Error loading image '%1'"
 msgstr "Errore nel caricamento dell'immagine «%1»"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:203
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:204
 #: core/dplugins/generic/tools/htmlgallery/generator/galleryelementfunctor.cpp:137
 #, kde-format
 msgid "Could not save image '%1' to '%2'"
 msgstr "Impossibile salvare l'immagine «%1» in «%2»"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:207
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:208
 #, kde-format
 msgid "Creation of picture '%1'"
 msgstr "Creazione dell'immagine «%1»"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:223
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:224
 #, kde-format
 msgid "Cannot get GPS Information from %1 file."
 msgstr "Impossibile ottenere le informazioni GPS dal file %1."
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:312
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:313
 #, kde-format
 msgid "Creation of placemark '%1'"
 msgstr "Creazione del segnaposto «%1»"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:321
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:322
 #, kde-format
 msgid "Could not save icon for image '%1' to '%2'"
 msgstr "Impossibile salvare l'icona per l'immagine «%1» in «%2»"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:325
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:326
 #, kde-format
 msgid "Creation of icon '%1'"
 msgstr "Creazione dell'icona «%1»"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:352
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:353
 #, kde-format
 msgid "No GPX file chosen."
 msgstr "Non è stato scelto alcun file GPX."
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:361
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:362
 #, kde-format
 msgid "Cannot parse %1 GPX file."
 msgstr "Impossibile analizzare il file GPX %1."
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:367
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:368
 #, kde-format
 msgid "The %1 GPX file do not have a date-time track to use."
 msgstr "Il file GPX %1 non possiede una traccia data-ora da usare."
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:375
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:376
 #, kde-format
 msgid "Tracks"
 msgstr "Tracce"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:479
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:480
 #, kde-format
 msgid "No position data for '%1'"
 msgstr "Nessun dato di posizione per «%1»"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:494
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:495
 #, kde-format
 msgid "Cannot open file for writing"
 msgstr "Impossibile aprire il file per la scrittura"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:507
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:508
 #, kde-format
 msgid "Move %1 to final directory %2"
 msgstr "Sposta %1 alla cartella finale %2"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:511
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:512
 #, kde-format
 msgid "Cannot move data to destination directory"
 msgstr "Impossibile spostare i dati nella cartella temporanea"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:521
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:522
 #, kde-format
 msgid "Report below have been generated while KML file processing:"
 msgstr ""
@@ -23064,7 +23064,7 @@ msgstr "Esportazione in Box"
 #: core/dplugins/generic/webservices/box/boxwindow.cpp:320
 #: core/dplugins/generic/webservices/dropbox/dbwindow.cpp:310
 #: core/dplugins/generic/webservices/facebook/fbwindow.cpp:619
-#: core/dplugins/generic/webservices/imageshack/imageshackwindow.cpp:416
+#: core/dplugins/generic/webservices/imageshack/imageshackwindow.cpp:417
 #: core/dplugins/generic/webservices/imgur/imgurwindow.cpp:273
 #: core/dplugins/generic/webservices/imgur/imgurwindow.cpp:280
 #: core/dplugins/generic/webservices/ipfs/ipfswindow.cpp:225
@@ -24165,7 +24165,7 @@ msgid "Export to %1 Web Service"
 msgstr "Esporta nel servizio web %1"
 
 #: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:158
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:205
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:220
 #, kde-format
 msgctxt "@action:button"
 msgid "Start Uploading"
@@ -24812,7 +24812,7 @@ msgstr "Accesso non riuscito: %1\n"
 msgid "Failed to get galleries list: %1\n"
 msgstr "Recupero dell'elenco delle gallerie non riuscito: %1\n"
 
-#: core/dplugins/generic/webservices/imageshack/imageshackwindow.cpp:417
+#: core/dplugins/generic/webservices/imageshack/imageshackwindow.cpp:418
 #, kde-format
 msgid ""
 "Failed to upload photo into ImageShack: %1\n"
@@ -25009,37 +25009,37 @@ msgstr "Vista nelle vicinanze"
 msgid "invalid name"
 msgstr "nome non valido"
 
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:558
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:712
 #, kde-format
 msgid "iNaturalist"
 msgstr "iNaturalist"
 
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:560
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:714
 #, kde-format
 msgid "Login"
 msgstr "Accedi"
 
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1338
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1504
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1493
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1659
 #, kde-format
 msgctxt "@title:window"
 msgid "ERROR While Creating Observation"
 msgstr "ERRORE durante la creazione dell'osservazione"
 
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1582
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1700
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1737
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1855
 #, kde-format
 msgctxt "@title:window"
 msgid "ERROR While Uploading Photo"
 msgstr "ERRORE durante il caricamento della foto"
 
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1824
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1979
 #, kde-format
 msgctxt "@title:window"
 msgid "ERROR While Deleting Observation"
 msgstr "ERRORE durante l'eliminazione dell'osservazione"
 
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1929
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:2084
 #, kde-format
 msgid "Timeout after exceeding %1 seconds"
 msgstr "Timeout dopo aver superato %1 secondi"
@@ -25328,7 +25328,7 @@ msgid "Place:"
 msgstr "Luogo:"
 
 #: core/dplugins/generic/webservices/inaturalist/inatwidget.cpp:114
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:504
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:519
 #: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:439
 #, kde-format
 msgid "More options"
@@ -25365,43 +25365,43 @@ msgstr ""
 "<b><h2><a href=\"%1\"><font color=\"#74ac00\">iNaturalist</font></a> "
 "Esporta</h2></b>"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:151
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:166
 #, kde-format
 msgctxt "@title:window"
 msgid "Export as %1 Observation"
 msgstr "Esporta come osservazione %1"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:498
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:513
 #, kde-format
 msgid "Fewer options"
 msgstr "Meno opzioni"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:563
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:578
 #, kde-format
 msgid "<i>login <b>failed</b></i>"
 msgstr "<i>accesso <b>non riuscito</b></i>"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:626
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:641
 #, kde-format
 msgid "<i>login <b>canceled</b></i>"
 msgstr "<i>accesso <b>annullato</b></i>"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:683
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:698
 #, kde-format
 msgid "<i>no valid identification</i>"
 msgstr "<i>nessuna identificazione valida</i>"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:730
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:745
 #, kde-format
 msgid "iNaturalist Export"
 msgstr "Esportazione iNaturalist"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:986
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1001
 #, kde-format
 msgid "observation"
 msgstr "osservazione"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:992
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1007
 #, kde-format
 msgctxt "location"
 msgid "obscured"
@@ -25411,31 +25411,31 @@ msgstr "oscurata"
 # %2 il collegamento all'osservazione su inaturalist.org, con testo la
 # traduzione di "observation"; %3 la distanza.
 # Documentazione su https://www.inaturalist.org/pages/help
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:996
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1011
 #, kde-format
 msgid "Closest %1research-grade %2 reported in %3."
 msgstr "La più vicina %2 %1a livello di ricerca segnalata in %3."
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1043
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1058
 #, kde-format
 msgid "observation time"
 msgstr "tempo di osservazione"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1052
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1079
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1067
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1094
 #, kde-format
 msgid "from observation"
 msgstr "dall'osservazione"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1059
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1099
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1074
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1114
 #: core/utilities/geolocation/engine/core/MarbleInputHandler.cpp:773
 #: core/utilities/geolocation/engine/core/MarbleWidget.cpp:703
 #, kde-format
 msgid "not available"
 msgstr "non disponibile"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1091
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1106
 #, kde-format
 msgid "observation location"
 msgstr "posizione dell'osservazione"
@@ -39429,7 +39429,7 @@ msgid "Lens"
 msgstr "Obiettivo"
 
 #: core/libs/properties/itempropertiestab.cpp:507
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:65
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:176
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:466
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:669
 #, kde-format
@@ -39447,7 +39447,7 @@ msgid "Exposure Time"
 msgstr "Tempo di esposizione"
 
 #: core/libs/properties/itempropertiestab.cpp:510
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:71
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:182
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:569
 #, kde-format
 msgid "Sensitivity"
@@ -52796,7 +52796,6 @@ msgid "Key"
 msgstr "Chiave"
 
 #: core/utilities/advancedrename/parser/options/database/dbkeyselector.cpp:90
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:64
 #, kde-format
 msgid "Description"
 msgstr "Descrizione"
@@ -52886,27 +52885,27 @@ msgstr "Un elenco di tutti i tag separati da virgola"
 msgid "A comma separated list of all tags with path"
 msgstr "Un elenco di tutti i tag con percorso separati da virgola"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:60
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:171
 #, kde-format
 msgid "Metadata Information"
 msgstr "Informazioni sui metadati"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:62
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:173
 #, kde-format
 msgid "Make of the camera"
 msgstr "Produttore della fotocamera"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:63
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:174
 #, kde-format
 msgid "Model of the camera"
 msgstr "Modello della fotocamera"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:64
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:175
 #, kde-format
 msgid "Lens of the camera"
 msgstr "Obiettivi della fotocamera"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:66
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:177
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:486
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:505
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:670
@@ -52914,167 +52913,172 @@ msgstr "Obiettivi della fotocamera"
 msgid "Focal length"
 msgstr "Lunghezza focale"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:67
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:178
 #, kde-format
 msgid "Focal length (35mm equivalent)"
 msgstr "Lunghezza focale (equivalente a 35mm)"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:68
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:179
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:524
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:672
 #, kde-format
 msgid "Exposure time"
 msgstr "Tempo di esposizione"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:69
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:180
 #, kde-format
 msgid "Exposure program"
 msgstr "Programma di esposizione"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:70
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:181
 #, kde-format
 msgid "Exposure mode"
 msgstr "Modalità di esposizione"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:72
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:183
 #, kde-format
 msgid "Flash mode"
 msgstr "Modalità del flash"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:73
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:184
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:617
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:678
 #, kde-format
 msgid "White balance"
 msgstr "Bilanciamento del bianco"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:74
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:185
 #, kde-format
 msgid "White balance (color temperature)"
 msgstr "Bilanciamento del bianco (temperatura del colore)"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:75
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:186
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:676
 #, kde-format
 msgid "Metering mode"
 msgstr "Modalità di misurazione"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:76
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:187
 #, kde-format
 msgid "Subject distance"
 msgstr "Distanza del soggetto"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:77
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:188
 #, kde-format
 msgid "Subject distance (category)"
 msgstr "Distanza del soggetto (categoria)"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:79
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:189
 #, kde-format
 msgid "Display Aspect Ratio"
 msgstr "Visualizza le proporzioni"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:80
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:190
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1028
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:141
 #, kde-format
 msgid "Audio Bit Rate"
 msgstr "Bit rate audio"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:81
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:191
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1046
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:144
 #, kde-format
 msgid "Audio Channel Type"
 msgstr "Tipo di canale audio"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:82
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:192
 #, kde-format
 msgid "Audio Codec (Audio Codec)"
 msgstr "Codificatore audio (codec audio)"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:83
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:193
 #, kde-format
 msgid "Duration of File"
 msgstr "Durata del file"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:84
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:194
 #, kde-format
 msgid "Frame Rate of Video"
 msgstr "Velocità fotogrammi del video"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:85
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:195
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:156
 #, kde-format
 msgid "Video Codec"
 msgstr "Codec video"
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:50
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:113
 #, kde-format
 msgid "Position Information (GPS)"
 msgstr "Informazioni di posizione (GPS)"
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:52
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:115
 #, kde-format
 msgid "Latitude in the format as described by the XMP specification"
 msgstr "La latitudine nel formato descritto nella specifica XMP"
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:53
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:116
 #, kde-format
 msgid "Longitude in the format as described by the XMP specification"
 msgstr "La longitudine nel formato descritto nella specifica XMP"
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:54
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:117
 #, kde-format
 msgid "Latitude as double value"
 msgstr "La latitudine come doppio valore"
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:55
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:118
 #, kde-format
 msgid "Longitude as double value"
 msgstr "La longitudine come doppio valore"
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:56
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:119
 #, kde-format
 msgid "Latitude in a human readable form"
 msgstr "La latitudine in una forma leggibile"
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:57
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:120
 #, kde-format
 msgid "Longitude in a human readable form"
 msgstr "La longitudine in una forma leggibile"
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:58
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:121
 #, kde-format
 msgid "Altitude in meters"
 msgstr "L'altitudine in metri"
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:59
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:122
 #, kde-format
 msgid "Altitude in a human readable form"
 msgstr "L'altitudine in una forma leggibile"
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:60
-#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:257
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:123
 #, kde-format
-msgid "Orientation"
-msgstr "Orientazione"
+msgid ""
+"GPS direction of the camera in degrees (0-360°, where 0°=North, 90°=East, "
+"180°=South, 270°=West)"
+msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:61
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:124
 #, kde-format
-msgid "Roll"
-msgstr "Scorrimento"
+msgid "Camera roll angle in degrees (rotation around the X-axis)"
+msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:62
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:125
 #, kde-format
-msgid "Tilt"
-msgstr "Inclinazione"
+msgid "Camera tilt angle in degrees (rotation around the Y-axis)"
+msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:63
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:683
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:126
 #, kde-format
-msgid "Accuracy"
-msgstr "Accuratezza"
+msgid "GPS accuracy in meters (estimated horizontal position error)"
+msgstr ""
+
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:127
+#, kde-format
+msgid "User-provided description of the GPS location or landmark"
+msgstr ""
 
 #: core/utilities/advancedrename/parser/options/dateoption.cpp:41
 #, kde-format
@@ -58468,6 +58472,11 @@ msgstr "Modificato"
 msgid "Date and time"
 msgstr "Giorno e ora"
 
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:683
+#, kde-format
+msgid "Accuracy"
+msgstr "Accuratezza"
+
 #: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:932
 #, kde-format
 msgid "Failed to open file."
@@ -61331,7 +61340,7 @@ msgstr "&Dispositivo"
 msgid "Camera Folders"
 msgstr "Cartelle della fotocamera"
 
-#: core/utilities/import/views/cameranamehelper.cpp:27
+#: core/utilities/import/views/cameranamehelper.cpp:29
 #, kde-format
 msgctxt "in camera model string"
 msgid "auto-detected"
@@ -63645,6 +63654,11 @@ msgstr "Trova elementi con altezza compresa tra"
 msgctxt "Find items with a height between...and..."
 msgid "and"
 msgstr "e"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:257
+#, kde-format
+msgid "Orientation"
+msgstr "Orientazione"
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:258
 #, kde-format
@@ -69940,6 +69954,12 @@ msgstr "Elementi importati"
 #, kde-format
 msgid "Survey"
 msgstr "Procedura di configurazione"
+
+#~ msgid "Roll"
+#~ msgstr "Scorrimento"
+
+#~ msgid "Tilt"
+#~ msgstr "Inclinazione"
 
 #~ msgid "(Advanced Search)"
 #~ msgstr "(Ricerca avanzata)"

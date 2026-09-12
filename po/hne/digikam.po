@@ -28,7 +28,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-11 00:43+0000\n"
+"POT-Creation-Date: 2026-09-12 00:42+0000\n"
 "PO-Revision-Date: 2009-02-15 18:51+0530\n"
 "Last-Translator: Ravishankar Shrivastava <raviratlami@aol.in>\n"
 "Language-Team: Hindi <kde-i18n-doc@lists.kde.org>\n"
@@ -11559,7 +11559,7 @@ msgstr "फोटू सहेजव"
 #: core/dplugins/generic/webservices/google/gswindow.cpp:357
 #: core/dplugins/generic/webservices/google/gswindow.cpp:398
 #: core/dplugins/generic/webservices/google/gswindow.cpp:429
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:576
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:591
 #: core/dplugins/generic/webservices/mediawiki/mediawikitalker.cpp:175
 #: core/dplugins/generic/webservices/onedrive/odtalker.cpp:393
 #: core/dplugins/generic/webservices/pinterest/ptalker.cpp:401
@@ -11678,99 +11678,99 @@ msgctxt "@action"
 msgid "Edit Geolocation..."
 msgstr "सीर्सक संपादित करव..."
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:133
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:150
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:134
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:151
 #: core/dplugins/generic/tools/htmlgallery/generator/galleryelementfunctor.cpp:71
 #, fuzzy, kde-format
 msgid "Could not read image '%1'"
 msgstr "'%1' नइ बना सकिस"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:142
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:143
 #, kde-format
 msgid "Format of image '%1' is unknown"
 msgstr ""
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:160
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:161
 #: core/dplugins/generic/tools/htmlgallery/generator/galleryelementfunctor.cpp:81
 #, fuzzy, kde-format
 #| msgid "Error Saving File"
 msgid "Error loading image '%1'"
 msgstr "फाइल सहेजे मं गलती होइस"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:203
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:204
 #: core/dplugins/generic/tools/htmlgallery/generator/galleryelementfunctor.cpp:137
 #, fuzzy, kde-format
 msgid "Could not save image '%1' to '%2'"
 msgstr "फोटू '%1' ल '%2' मं सहेज नइ सकिस"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:207
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:208
 #, fuzzy, kde-format
 msgid "Creation of picture '%1'"
 msgstr "अवधिः %1"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:223
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:224
 #, fuzzy, kde-format
 #| msgid "Failed to revise Exif orientation for file %1."
 msgid "Cannot get GPS Information from %1 file."
 msgstr "फाइल %1 बर एक्जइफ ओरिएन्टेसन सुधारने मं फेल."
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:312
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:313
 #, kde-format
 msgid "Creation of placemark '%1'"
 msgstr ""
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:321
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:322
 #, fuzzy, kde-format
 msgid "Could not save icon for image '%1' to '%2'"
 msgstr "फोटू '%1' ल '%2' मं सहेज नइ सकिस"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:325
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:326
 #, fuzzy, kde-format
 msgid "Creation of icon '%1'"
 msgstr "उप-दुसरा तैयार करना"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:352
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:353
 #, fuzzy, kde-format
 msgid "No GPX file chosen."
 msgstr "जीपीएक्स फाइल लोड करव..."
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:361
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:362
 #, fuzzy, kde-format
 msgid "Cannot parse %1 GPX file."
 msgstr "जीपीएक्स फाइल %1 ल समझ नइ सकिस!"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:367
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:368
 #, kde-format
 msgid "The %1 GPX file do not have a date-time track to use."
 msgstr ""
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:375
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:376
 #, kde-format
 msgid "Tracks"
 msgstr ""
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:479
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:480
 #, fuzzy, kde-format
 msgid "No position data for '%1'"
 msgstr "फोटू '%1' ल '%2' मं सहेज नइ सकिस"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:494
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:495
 #, fuzzy, kde-format
 #| msgid "Failed to open file for writing"
 msgid "Cannot open file for writing"
 msgstr "फाइल ल लिखे बर खोले मं फेल"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:507
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:508
 #, fuzzy, kde-format
 msgid "Move %1 to final directory %2"
 msgstr "डिरेक्टरी बनाय मं फेल,"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:511
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:512
 #, fuzzy, kde-format
 msgid "Cannot move data to destination directory"
 msgstr "डिरेक्टरी बनाय मं फेल,"
 
-#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:521
+#: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlexport.cpp:522
 #, kde-format
 msgid "Report below have been generated while KML file processing:"
 msgstr ""
@@ -22142,7 +22142,7 @@ msgstr "सुरु रंगः"
 #: core/dplugins/generic/webservices/box/boxwindow.cpp:320
 #: core/dplugins/generic/webservices/dropbox/dbwindow.cpp:310
 #: core/dplugins/generic/webservices/facebook/fbwindow.cpp:619
-#: core/dplugins/generic/webservices/imageshack/imageshackwindow.cpp:416
+#: core/dplugins/generic/webservices/imageshack/imageshackwindow.cpp:417
 #: core/dplugins/generic/webservices/imgur/imgurwindow.cpp:273
 #: core/dplugins/generic/webservices/imgur/imgurwindow.cpp:280
 #: core/dplugins/generic/webservices/ipfs/ipfswindow.cpp:225
@@ -23210,7 +23210,7 @@ msgid "Export to %1 Web Service"
 msgstr "दरजा आयातित"
 
 #: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:158
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:205
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:220
 #, fuzzy, kde-format
 msgctxt "@action:button"
 msgid "Start Uploading"
@@ -23856,7 +23856,7 @@ msgstr ""
 msgid "Failed to get galleries list: %1\n"
 msgstr "%1 मं फाइल सूची बनाना फेल"
 
-#: core/dplugins/generic/webservices/imageshack/imageshackwindow.cpp:417
+#: core/dplugins/generic/webservices/imageshack/imageshackwindow.cpp:418
 #, fuzzy, kde-format
 msgid ""
 "Failed to upload photo into ImageShack: %1\n"
@@ -24048,38 +24048,38 @@ msgstr ""
 msgid "invalid name"
 msgstr "अवैध प्रोफाइल"
 
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:558
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:712
 #, fuzzy, kde-format
 msgid "iNaturalist"
 msgstr "प्रकृति"
 
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:560
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:714
 #, fuzzy, kde-format
 #| msgid "Profile Error"
 msgid "Login"
 msgstr "प्रोफाइल गलती"
 
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1338
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1504
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1493
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1659
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "ERROR While Creating Observation"
 msgstr "%1 मं फाइल सूची बनाना फेल"
 
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1582
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1700
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1737
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1855
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "ERROR While Uploading Photo"
 msgstr "%1 मं फाइल सूची बनाना फेल"
 
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1824
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1979
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "ERROR While Deleting Observation"
 msgstr "%1 मं फाइल सूची बनाना फेल"
 
-#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:1929
+#: core/dplugins/generic/webservices/inaturalist/inattalker.cpp:2084
 #, kde-format
 msgid "Timeout after exceeding %1 seconds"
 msgstr ""
@@ -24382,7 +24382,7 @@ msgid "Place:"
 msgstr "बदलव (&R)"
 
 #: core/dplugins/generic/webservices/inaturalist/inatwidget.cpp:114
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:504
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:519
 #: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:439
 #, kde-format
 msgid "More options"
@@ -24417,72 +24417,72 @@ msgid ""
 "h2></b>"
 msgstr ""
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:151
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:166
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Export as %1 Observation"
 msgstr "दरजा आयातित"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:498
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:513
 #, fuzzy, kde-format
 #| msgid "Free Rotation"
 msgid "Fewer options"
 msgstr "मुक्त परिक्रमन"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:563
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:578
 #, kde-format
 msgid "<i>login <b>failed</b></i>"
 msgstr ""
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:626
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:641
 #, fuzzy, kde-format
 #| msgid "<b>Downloaded</b>:"
 msgid "<i>login <b>canceled</b></i>"
 msgstr "<b>डाउनलोड करिस</b>:"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:683
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:698
 #, kde-format
 msgid "<i>no valid identification</i>"
 msgstr ""
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:730
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:745
 #, fuzzy, kde-format
 #| msgid "Start Color: "
 msgid "iNaturalist Export"
 msgstr "सुरु रंगः"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:986
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1001
 #, fuzzy, kde-format
 #| msgid "Iteration:"
 msgid "observation"
 msgstr "इटेरेसन:"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:992
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1007
 #, kde-format
 msgctxt "location"
 msgid "obscured"
 msgstr ""
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:996
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1011
 #, kde-format
 msgid "Closest %1research-grade %2 reported in %3."
 msgstr ""
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1043
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1058
 #, fuzzy, kde-format
 #| msgid "Creation time"
 msgid "observation time"
 msgstr "निर्मान समय"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1052
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1079
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1067
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1094
 #, fuzzy, kde-format
 #| msgid "Chromatic Aberration"
 msgid "from observation"
 msgstr "क्रोमेटिक एबेरेसन"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1059
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1099
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1074
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1114
 #: core/utilities/geolocation/engine/core/MarbleInputHandler.cpp:773
 #: core/utilities/geolocation/engine/core/MarbleWidget.cpp:703
 #, fuzzy, kde-format
@@ -24490,7 +24490,7 @@ msgstr "क्रोमेटिक एबेरेसन"
 msgid "not available"
 msgstr "नइ मिलत"
 
-#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1091
+#: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1106
 #, fuzzy, kde-format
 msgid "observation location"
 msgstr "चयन लहुटाव"
@@ -38019,7 +38019,7 @@ msgid "Lens"
 msgstr "लेंस (&L)"
 
 #: core/libs/properties/itempropertiestab.cpp:507
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:65
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:176
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:466
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:669
 #, kde-format
@@ -38038,7 +38038,7 @@ msgid "Exposure Time"
 msgstr "एक्सपोजर समय"
 
 #: core/libs/properties/itempropertiestab.cpp:510
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:71
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:182
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:569
 #, kde-format
 msgid "Sensitivity"
@@ -51904,7 +51904,6 @@ msgid "Key"
 msgstr "कीवर्ड"
 
 #: core/utilities/advancedrename/parser/options/database/dbkeyselector.cpp:90
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:64
 #, kde-format
 msgid "Description"
 msgstr "वर्नन"
@@ -51994,27 +51993,27 @@ msgstr ""
 msgid "A comma separated list of all tags with path"
 msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:60
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:171
 #, fuzzy, kde-format
 msgid "Metadata Information"
 msgstr "फोटू जानकारी आयातित"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:62
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:173
 #, fuzzy, kde-format
 msgid "Make of the camera"
 msgstr "माउन्टेड कैमरा"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:63
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:174
 #, fuzzy, kde-format
 msgid "Model of the camera"
 msgstr "कैमरा नाम जोड़व"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:64
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:175
 #, fuzzy, kde-format
 msgid "Lens of the camera"
 msgstr "समर्तित रा कैमरा के सूची"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:66
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:177
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:486
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:505
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:670
@@ -52022,166 +52021,171 @@ msgstr "समर्तित रा कैमरा के सूची"
 msgid "Focal length"
 msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:67
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:178
 #, kde-format
 msgid "Focal length (35mm equivalent)"
 msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:68
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:179
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:524
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:672
 #, kde-format
 msgid "Exposure time"
 msgstr "एक्सपोजर समय"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:69
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:180
 #, fuzzy, kde-format
 msgid "Exposure program"
 msgstr "अपने अपन चालू एक्सपोजर प्रोग्राम"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:70
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:181
 #, fuzzy, kde-format
 msgid "Exposure mode"
 msgstr "एक्सपोजर समय"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:72
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:183
 #, kde-format
 msgid "Flash mode"
 msgstr "फ्लैस मोड"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:73
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:184
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:617
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:678
 #, kde-format
 msgid "White balance"
 msgstr "सफेद संतुलन"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:74
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:185
 #, fuzzy, kde-format
 msgid "White balance (color temperature)"
 msgstr "केल्विन मं सफेद संतुलन रंग तापक्रम इहां सेट करव."
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:75
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:186
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:676
 #, fuzzy, kde-format
 msgid "Metering mode"
 msgstr "मीटरिंग मोड"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:76
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:187
 #, fuzzy, kde-format
 msgid "Subject distance"
 msgstr "विसय दूरी"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:77
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:188
 #, fuzzy, kde-format
 msgid "Subject distance (category)"
 msgstr "विसय दूरी"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:79
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:189
 #, fuzzy, kde-format
 msgid "Display Aspect Ratio"
 msgstr "आस्पेक्ट रेसो बनाए रखव"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:80
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:190
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1028
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:141
 #, fuzzy, kde-format
 msgid "Audio Bit Rate"
 msgstr "आडियो फाइल मन ल"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:81
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:191
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1046
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:144
 #, fuzzy, kde-format
 msgid "Audio Channel Type"
 msgstr "अल्फा चैनल:"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:82
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:192
 #, kde-format
 msgid "Audio Codec (Audio Codec)"
 msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:83
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:193
 #, fuzzy, kde-format
 msgid "Duration of File"
 msgstr "अवधिः %1"
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:84
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:194
 #, kde-format
 msgid "Frame Rate of Video"
 msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:85
+#: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:195
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:156
 #, fuzzy, kde-format
 msgid "Video Codec"
 msgstr "आडियो फाइल मन ल"
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:50
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:113
 #, fuzzy, kde-format
 msgid "Position Information (GPS)"
 msgstr "फोटोग्राफ जानकारी"
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:52
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:115
 #, kde-format
 msgid "Latitude in the format as described by the XMP specification"
 msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:53
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:116
 #, kde-format
 msgid "Longitude in the format as described by the XMP specification"
 msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:54
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:117
 #, kde-format
 msgid "Latitude as double value"
 msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:55
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:118
 #, kde-format
 msgid "Longitude as double value"
 msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:56
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:119
 #, kde-format
 msgid "Latitude in a human readable form"
 msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:57
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:120
 #, kde-format
 msgid "Longitude in a human readable form"
 msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:58
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:121
 #, kde-format
 msgid "Altitude in meters"
 msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:59
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:122
 #, kde-format
 msgid "Altitude in a human readable form"
 msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:60
-#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:257
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:123
 #, kde-format
-msgid "Orientation"
-msgstr "दिसा निर्धारन"
-
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:61
-#, kde-format
-msgid "Roll"
+msgid ""
+"GPS direction of the camera in degrees (0-360°, where 0°=North, 90°=East, "
+"180°=South, 270°=West)"
 msgstr ""
 
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:62
-#, fuzzy, kde-format
-msgid "Tilt"
-msgstr "टाइल"
-
-#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:63
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:683
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:124
 #, kde-format
-msgid "Accuracy"
+msgid "Camera roll angle in degrees (rotation around the X-axis)"
+msgstr ""
+
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:125
+#, kde-format
+msgid "Camera tilt angle in degrees (rotation around the Y-axis)"
+msgstr ""
+
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:126
+#, kde-format
+msgid "GPS accuracy in meters (estimated horizontal position error)"
+msgstr ""
+
+#: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:127
+#, kde-format
+msgid "User-provided description of the GPS location or landmark"
 msgstr ""
 
 #: core/utilities/advancedrename/parser/options/dateoption.cpp:41
@@ -57441,6 +57445,11 @@ msgstr ""
 msgid "Date and time"
 msgstr "कैमरा नाम जोड़व"
 
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:683
+#, kde-format
+msgid "Accuracy"
+msgstr ""
+
 #: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:932
 #, kde-format
 msgid "Failed to open file."
@@ -60259,7 +60268,7 @@ msgstr "उपकरन (&D)"
 msgid "Camera Folders"
 msgstr "कैमरा फोल्डर"
 
-#: core/utilities/import/views/cameranamehelper.cpp:27
+#: core/utilities/import/views/cameranamehelper.cpp:29
 #, fuzzy, kde-format
 #| msgid "Cameras (Auto-detected)"
 msgctxt "in camera model string"
@@ -62502,6 +62511,11 @@ msgstr "लाइट टेबल मं जोड़व"
 msgctxt "Find items with a height between...and..."
 msgid "and"
 msgstr "और"
+
+#: core/utilities/searchwindow/fields/searchfields_createfield.cpp:257
+#, kde-format
+msgid "Orientation"
+msgstr "दिसा निर्धारन"
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:258
 #, fuzzy, kde-format
@@ -68132,6 +68146,10 @@ msgstr "फोटू छांटव (&S)"
 #, kde-format
 msgid "Survey"
 msgstr ""
+
+#, fuzzy
+#~ msgid "Tilt"
+#~ msgstr "टाइल"
 
 #~ msgid "(Advanced Search)"
 #~ msgstr "(विस्तृत खोज)"
