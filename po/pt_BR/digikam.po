@@ -19,7 +19,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-12 00:42+0000\n"
-"PO-Revision-Date: 2026-09-06 10:27-0300\n"
+"PO-Revision-Date: 2026-09-12 06:59-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -27,7 +27,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: core/app/date/ddateedit.cpp:489
 #, kde-format
@@ -52846,26 +52846,29 @@ msgid ""
 "GPS direction of the camera in degrees (0-360°, where 0°=North, 90°=East, "
 "180°=South, 270°=West)"
 msgstr ""
+"Direção GPS da câmera em graus (0-360°, onde 0° = Norte, 90° = Leste, 180° = "
+"Sul, 270° = Oeste)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:124
 #, kde-format
 msgid "Camera roll angle in degrees (rotation around the X-axis)"
-msgstr ""
+msgstr "Ângulo de rolagem da câmera em graus (rotação em torno do eixo X)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:125
 #, kde-format
 msgid "Camera tilt angle in degrees (rotation around the Y-axis)"
-msgstr ""
+msgstr "Ângulo de inclinação da câmera em graus (rotação em torno do eixo Y)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:126
 #, kde-format
 msgid "GPS accuracy in meters (estimated horizontal position error)"
-msgstr ""
+msgstr "Precisão do GPS em metros (erro estimado de posição horizontal)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:127
 #, kde-format
 msgid "User-provided description of the GPS location or landmark"
 msgstr ""
+"Descrição fornecida pelo usuário da localização GPS ou do ponto de referência"
 
 #: core/utilities/advancedrename/parser/options/dateoption.cpp:41
 #, kde-format

@@ -18,7 +18,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-12 00:42+0000\n"
-"PO-Revision-Date: 2026-09-08 01:39+0100\n"
+"PO-Revision-Date: 2026-09-13 00:12+0100\n"
 "Last-Translator: Eloy Cuadra <ecuadra@eloihr.net>\n"
 "Language-Team: Spanish <kde-l10n-es@kde.org>\n"
 "Language: es\n"
@@ -53049,26 +53049,32 @@ msgid ""
 "GPS direction of the camera in degrees (0-360°, where 0°=North, 90°=East, "
 "180°=South, 270°=West)"
 msgstr ""
+"Dirección GPS de la cámara en grados (0-360°, donde 0°=Norte, 90°=Este, "
+"180°=Sur, 270°=Oeste)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:124
 #, kde-format
 msgid "Camera roll angle in degrees (rotation around the X-axis)"
 msgstr ""
+"Ángulo de rotación de la cámara en grados (rotación alrededor del eje X)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:125
 #, kde-format
 msgid "Camera tilt angle in degrees (rotation around the Y-axis)"
 msgstr ""
+"Ángulo de inclinación de la cámara en grados (rotación alrededor del eje Y)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:126
 #, kde-format
 msgid "GPS accuracy in meters (estimated horizontal position error)"
-msgstr ""
+msgstr "Precisión GPS en metros (error estimado de posición horizontal)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:127
 #, kde-format
 msgid "User-provided description of the GPS location or landmark"
 msgstr ""
+"Descripción proporcionada por el usuario de la ubicación GPS o del punto de "
+"referencia"
 
 #: core/utilities/advancedrename/parser/options/dateoption.cpp:41
 #, kde-format
@@ -69926,9 +69932,3 @@ msgstr "Elementos importados"
 #, kde-format
 msgid "Survey"
 msgstr "Sondeo"
-
-#~ msgid "Roll"
-#~ msgstr "Enrollar"
-
-#~ msgid "Tilt"
-#~ msgstr "Desvío"

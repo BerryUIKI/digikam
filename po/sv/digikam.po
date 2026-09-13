@@ -44,7 +44,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-12 00:42+0000\n"
-"PO-Revision-Date: 2026-09-06 07:33+0200\n"
+"PO-Revision-Date: 2026-09-12 08:50+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
@@ -52467,26 +52467,29 @@ msgid ""
 "GPS direction of the camera in degrees (0-360°, where 0°=North, 90°=East, "
 "180°=South, 270°=West)"
 msgstr ""
+"Kamerans GPS-riktning i grader (0-360°, där 0°= norr, 90°= öst, 180°= syd, "
+"270°= väst)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:124
 #, kde-format
 msgid "Camera roll angle in degrees (rotation around the X-axis)"
-msgstr ""
+msgstr "Kamerans rullvinkel i grader (rotation kring x-axeln)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:125
 #, kde-format
 msgid "Camera tilt angle in degrees (rotation around the Y-axis)"
-msgstr ""
+msgstr "Kamerans lutningsvinkel i grader (rotation kring y-axeln)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:126
 #, kde-format
 msgid "GPS accuracy in meters (estimated horizontal position error)"
-msgstr ""
+msgstr "GPS-noggrannhet i meter (uppskattad horisontellt positionsfel)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:127
 #, kde-format
 msgid "User-provided description of the GPS location or landmark"
 msgstr ""
+"Beskrivning av GPS-platsen eller landmärket tillhandahållen av användaren"
 
 #: core/utilities/advancedrename/parser/options/dateoption.cpp:41
 #, kde-format

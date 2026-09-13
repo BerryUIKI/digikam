@@ -63,7 +63,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-12 00:42+0000\n"
-"PO-Revision-Date: 2026-09-07 13:53+0200\n"
+"PO-Revision-Date: 2026-09-12 12:03+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
 "Language: nl\n"
@@ -52957,26 +52957,30 @@ msgid ""
 "GPS direction of the camera in degrees (0-360°, where 0°=North, 90°=East, "
 "180°=South, 270°=West)"
 msgstr ""
+"GPS-richting van de camera in graden (0-360°, waarbij 0° = noorden, 90° = "
+"oosten, 180° = zuiden, 270° = westen)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:124
 #, kde-format
 msgid "Camera roll angle in degrees (rotation around the X-axis)"
-msgstr ""
+msgstr "Rolhoek van de camera in graden (rotatie rond de X-as)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:125
 #, kde-format
 msgid "Camera tilt angle in degrees (rotation around the Y-axis)"
-msgstr ""
+msgstr "Kantelhoek van de camera in graden (rotatie rond de Y-as)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:126
 #, kde-format
 msgid "GPS accuracy in meters (estimated horizontal position error)"
-msgstr ""
+msgstr "GPS-nauwkeurigheid in meters (geschatte horizontale positiefout)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:127
 #, kde-format
 msgid "User-provided description of the GPS location or landmark"
 msgstr ""
+"Door de gebruiker opgegeven beschrijving van de GPS-locatie of het "
+"herkenningspunt"
 
 #: core/utilities/advancedrename/parser/options/dateoption.cpp:41
 #, kde-format
