@@ -29,7 +29,7 @@ checksCPUCores
 
 if ! which scan-build ; then
 
-    if ! which scan-build-19 ; then
+    if ! which scan-build-21 ; then
 
         echo "SCAN-BUILD tool from LLVM is not installed!"
         echo "See https://clang-analyzer.llvm.org/scan-build.html for details."
@@ -37,7 +37,7 @@ if ! which scan-build ; then
 
     else
 
-        SCAN_BUILD_BIN=scan-build-19
+        SCAN_BUILD_BIN=scan-build-21
 
     fi
 
