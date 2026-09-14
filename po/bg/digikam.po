@@ -34,7 +34,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-12 00:42+0000\n"
-"PO-Revision-Date: 2026-09-09 14:38+0200\n"
+"PO-Revision-Date: 2026-09-13 18:52+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
 "Language: bg\n"
@@ -42,7 +42,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: core/app/date/ddateedit.cpp:489
 #, kde-format
@@ -21601,6 +21601,9 @@ msgid ""
 "Cannot export RAW image preview as JPEG as WallPaper\n"
 "%1"
 msgstr ""
+"Невъзможно е експортирането на предварителна визуализация на RAW изображение "
+"като JPEG за тапет\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:143
 #, kde-format
@@ -21608,6 +21611,9 @@ msgid ""
 "Cannot extract RAW image preview for the WallPaper\n"
 "%1"
 msgstr ""
+"Не може да бъде извлечен предварителен преглед на RAW изображението за "
+"тапета\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_dbus.cpp:92
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_macos.cpp:64
@@ -53022,26 +53028,29 @@ msgid ""
 "GPS direction of the camera in degrees (0-360°, where 0°=North, 90°=East, "
 "180°=South, 270°=West)"
 msgstr ""
+"GPS посока на камерата в градуси (0-360°, където 0°=Север, 90°=Изток, "
+"180°=Юг, 270°=Запад)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:124
 #, kde-format
 msgid "Camera roll angle in degrees (rotation around the X-axis)"
-msgstr ""
+msgstr "Ъгъл на наклон на камерата в градуси (ротация около X-оста)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:125
 #, kde-format
 msgid "Camera tilt angle in degrees (rotation around the Y-axis)"
-msgstr ""
+msgstr "Ъгъл на наклон на камерата в градуси (ротация около Y-оста)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:126
 #, kde-format
 msgid "GPS accuracy in meters (estimated horizontal position error)"
 msgstr ""
+"GPS точност в метри (приблизителна грешка при хоризонталното позициониране)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:127
 #, kde-format
 msgid "User-provided description of the GPS location or landmark"
-msgstr ""
+msgstr "Потребителско описание на GPS локацията или забележителността"
 
 #: core/utilities/advancedrename/parser/options/dateoption.cpp:41
 #, kde-format
@@ -69931,9 +69940,3 @@ msgstr "Импортиране на елементи"
 #, kde-format
 msgid "Survey"
 msgstr "Анкета"
-
-#~ msgid "Roll"
-#~ msgstr "Roll"
-
-#~ msgid "Tilt"
-#~ msgstr "Наклон"

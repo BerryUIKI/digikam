@@ -12,7 +12,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-12 00:42+0000\n"
-"PO-Revision-Date: 2026-09-07 09:00+0300\n"
+"PO-Revision-Date: 2026-09-13 21:48+0300\n"
 "Last-Translator: Yaron Shahrabani <sh.yaron@gmail.com>\n"
 "Language-Team: צוות התרגום של KDE ישראל\n"
 "Language: he\n"
@@ -4438,16 +4438,16 @@ msgid "%1 ISO"
 msgstr "%1 ISO"
 
 #: core/app/views/tableview/tableview_column_photo.cpp:437
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info: tableview"
 msgid "Fraction"
-msgstr "מיקום-גאוגרפי"
+msgstr "שבר"
 
 #: core/app/views/tableview/tableview_column_photo.cpp:438
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info: tableview"
 msgid "Rational"
-msgstr "סיבוב:"
+msgstr "יחסי"
 
 #: core/app/views/tableview/tableview_column_photo.cpp:439
 #, kde-format
@@ -4665,19 +4665,16 @@ msgid "Database internal server"
 msgstr "שרת מסד נתונים פנימי"
 
 #: core/app/views/utils/componentsinfodlg.cpp:252
-#, fuzzy, kde-format
-#| msgctxt "@item: component info"
-#| msgid "Database backend"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Database backend version"
-msgstr "מנגנון מסד נתונים"
+msgstr "גרסת מנגנון מסד נתונים"
 
 #: core/app/views/utils/componentsinfodlg.cpp:256
-#, fuzzy, kde-format
-#| msgid "Database Configuration"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Natural Language Configuration"
-msgstr "הגדרות מסד נתונים"
+msgstr "הגדרות שפה טבעית"
 
 #: core/app/views/utils/componentsinfodlg.cpp:261
 #, kde-format
@@ -6754,9 +6751,9 @@ msgid ""
 msgstr "זוהי רשימת הפריטים שאמורים להימחק."
 
 #: core/dplugins/bqm/transform/resize/resize.cpp:162
-#, fuzzy, kde-format
+#, kde-format
 msgid "Preset Length:"
-msgstr "הגדרות קדומות:"
+msgstr "אורך ערכה:"
 
 #: core/dplugins/bqm/transform/resize/resize.cpp:164
 #, fuzzy, kde-format
@@ -8668,10 +8665,10 @@ msgid "healingClone"
 msgstr ""
 
 #: core/dplugins/editor/enhance/healingclone/healingclonetoolplugin.cpp:41
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@title"
 msgid "Healing Clone Tool"
-msgstr "מכין מצגת תמונות. אנא המתינו..."
+msgstr "כלי שכפול איחוי"
 
 #: core/dplugins/editor/enhance/healingclone/healingclonetoolplugin.cpp:56
 #, kde-format
@@ -8686,10 +8683,10 @@ msgid "This Image Editor tool can fix image artifacts by cloning area."
 msgstr ", תציג את התמונה המעובדת.<p>בחירה באפשרות זו "
 
 #: core/dplugins/editor/enhance/healingclone/healingclonetoolplugin.cpp:95
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action"
 msgid "Healing Clone..."
-msgstr "מכין מצגת תמונות. אנא המתינו..."
+msgstr "שכפול איחוי…"
 
 #: core/dplugins/editor/enhance/healingclone/healingclonetoolplugin.cpp:97
 #, kde-format
@@ -8726,16 +8723,16 @@ msgid "Show grid"
 msgstr "הצגת רשת"
 
 #: core/dplugins/editor/enhance/lensautofix/lensautofixtool.cpp:88
-#, fuzzy, kde-format
+#, kde-format
 msgid "Set this option to visualize the correction grid to be applied."
-msgstr "הפעילו אפשרות זו כדי לאפשר למצלמה להוסיף תאריך ושעה."
+msgstr "יש להגדיר את האפשרות הזאת כדי להמחיש את רשת התיקון שתחול."
 
 #: core/dplugins/editor/enhance/lensautofix/lensautofixtoolplugin.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid ""
 "This Image Editor tool can fix automatically lens artifacts over an image."
-msgstr ", תציג את התמונה המעובדת.<p>בחירה באפשרות זו "
+msgstr "כלי עריכת התמונות הזה יכול לתקן עיוותי עדשה של תמונה אוטומטית."
 
 #: core/dplugins/editor/enhance/lensautofix/lensautofixtoolplugin.cpp:94
 #, kde-format
@@ -8744,11 +8741,11 @@ msgid "Lens Auto-Correction..."
 msgstr "תיקון עדשה אוטומטי…"
 
 #: core/dplugins/editor/enhance/lensdistortion/lensdistortiontool.cpp:96
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "You can see here a thumbnail preview of the distortion correction applied to "
 "a cross pattern."
-msgstr "<p>האחוז הנוכחי של השלמת המשימה."
+msgstr "אפשר לראות כאן תצוגה מקדימה של תיקון העיוות שחל על תבנית צלבים."
 
 #: core/dplugins/editor/enhance/lensdistortion/lensdistortiontool.cpp:101
 #, kde-format
@@ -8889,12 +8886,14 @@ msgid "Red Eye..."
 msgstr "עיניים אדומות…"
 
 #: core/dplugins/editor/enhance/redeye/redeyetoolplugin.cpp:100
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid ""
 "This filter can be used to correct red eyes in a photo. Select a region "
 "including the eyes to use this option."
-msgstr ", תציג את התמונה המעובדת.<p>בחירה באפשרות זו "
+msgstr ""
+"המסנן הזה יכול לשמש לתיקון עיניים אדומות בתמונות. יש לבחור אזור כולל העיניים "
+"כדי להשתמש באפשרות הזאת."
 
 #: core/dplugins/editor/enhance/restoration/restorationtool.cpp:117
 #, kde-format
@@ -9008,10 +9007,10 @@ msgid "A tool to sharpen an image"
 msgstr "כלי לחידוד תמונות"
 
 #: core/dplugins/editor/enhance/sharpen/sharpentoolplugin.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "This Image Editor tool can sharpen an image."
-msgstr "זוהי רשימת הפריטים שאמורים להימחק."
+msgstr "כלי עריכת התמונות הזה יכול לחדד תמונה."
 
 #: core/dplugins/editor/enhance/sharpen/sharpentoolplugin.cpp:91
 #, kde-format
@@ -9087,15 +9086,15 @@ msgstr "התאמת קנה מידה"
 
 #. i18n: ectx: property (text), widget (QRadioButton, mNoScale)
 #: core/dplugins/editor/file/print/printoptionspage.ui:90
-#, fuzzy, kde-format
+#, kde-format
 msgid "&No scaling"
-msgstr "אין תוויות כזו"
+msgstr "&ללא התאמת קנה מידה"
 
 #. i18n: ectx: property (text), widget (QRadioButton, mScaleToPage)
 #: core/dplugins/editor/file/print/printoptionspage.ui:100
-#, fuzzy, kde-format
+#, kde-format
 msgid "&Fit image to page"
-msgstr "הדפסת תאריך יצירת התמונה"
+msgstr "הת&אמת תמונה לעמוד"
 
 #. i18n: ectx: property (text), widget (QCheckBox, kcfg_PrintEnlargeSmallerImages)
 #: core/dplugins/editor/file/print/printoptionspage.ui:137
@@ -9285,10 +9284,10 @@ msgid "A tool to apply blur effects to an image"
 msgstr "כלי להחלת אפקטי טשטוש על תמונה"
 
 #: core/dplugins/editor/filters/blurfx/blurfxtoolplugin.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "This Image Editor tool can apply blur effects to an image."
-msgstr "זוהי רשימת הפריטים שאמורים להימחק."
+msgstr "כלי עריכת התמונות הזה יכול להחיל אפקטים של טשטוש על תמונה."
 
 #: core/dplugins/editor/filters/blurfx/blurfxtoolplugin.cpp:94
 #, kde-format
@@ -9337,10 +9336,10 @@ msgid "A tool to emulate charcoal drawing"
 msgstr "כלי להדמיית ציור בפחם"
 
 #: core/dplugins/editor/filters/charcoal/charcoaltoolplugin.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "This Image Editor tool can emulate charcoal drawing to an image."
-msgstr "זוהי רשימת הפריטים שאמורים להימחק."
+msgstr "כלי עריכת התמונות הזה יכול לדמות ציור פחם על תמונה."
 
 #: core/dplugins/editor/filters/charcoal/charcoaltoolplugin.cpp:91
 #, kde-format
@@ -9391,10 +9390,10 @@ msgid "A tool to apply color effects to an image"
 msgstr "כלי להחלת אפקטי צבע על תמונות"
 
 #: core/dplugins/editor/filters/colorfx/colorfxtoolplugin.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "This Image Editor tool can apply color effects to an image."
-msgstr "צבע אפקטים"
+msgstr "כלי עריכת התמונות הזה יכול להחיל אפקטים של צבע על תמונה."
 
 #: core/dplugins/editor/filters/colorfx/colorfxtoolplugin.cpp:94
 #, kde-format
@@ -9553,10 +9552,10 @@ msgid "A tool to apply distortion effects to an image"
 msgstr "כלי להחלת אפקטי עיוות על תמונות"
 
 #: core/dplugins/editor/filters/distortionfx/distortionfxtoolplugin.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "This Image Editor tool can apply distortion effects to an image."
-msgstr ", תציג את התמונה המעובדת.<p>בחירה באפשרות זו "
+msgstr "כלי עריכת התמונות הזה יכול להחיל אפקטים של עיוות על תמונה."
 
 #: core/dplugins/editor/filters/distortionfx/distortionfxtoolplugin.cpp:94
 #, kde-format
@@ -9615,10 +9614,10 @@ msgid "A tool to add film grain over an image"
 msgstr "כלי להוספת גרגרים של סרטים על תמונה"
 
 #: core/dplugins/editor/filters/filmgrain/filmgraintoolplugin.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "This Image Editor tool can add film grain over an image."
-msgstr "זוהי רשימת הפריטים שאמורים להימחק."
+msgstr "כלי עריכת התמונות הזה יכול להוסיף גרגרי סרט על תמונות."
 
 #: core/dplugins/editor/filters/filmgrain/filmgraintoolplugin.cpp:94
 #, kde-format
@@ -9844,9 +9843,9 @@ msgid "Add weight masks"
 msgstr "הוספת מסכות משקל"
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:222
-#, fuzzy, kde-format
+#, kde-format
 msgid "Enable this option to add suppression and preservation masks."
-msgstr ", תציג את התמונה המעובדת.<p>בחירה באפשרות זו "
+msgstr ""
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:229
 #, kde-format
@@ -9946,10 +9945,10 @@ msgid "Preserve Skin Tones"
 msgstr "שימור גוון עור"
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:300
-#, fuzzy, kde-format
+#, kde-format
 msgid ""
 "Enable this option to preserve pixels whose color is close to a skin tone."
-msgstr ", תציג את התמונה המעובדת.<p>בחירה באפשרות זו "
+msgstr "הפעלת האפשרות הזאת תשמר פיקסלים שהצבע שלהם קרוב לגוון עור."
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:314
 #, kde-format
@@ -10006,9 +10005,9 @@ msgid ""
 msgstr ""
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:357
-#, fuzzy, kde-format
+#, kde-format
 msgid "Resize Order:"
-msgstr "מסגרת האריח:"
+msgstr "סדר שינוי גודל:"
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:359
 #, kde-format
@@ -10064,16 +10063,16 @@ msgid "Liquid Rescale"
 msgstr ""
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetoolplugin.cpp:55
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "A tool to resize an image with content analysis"
-msgstr "הצגת תוויות התמונה"
+msgstr "כלי לשינוי גודל תמונה עם ניתוח תוכן"
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetoolplugin.cpp:60
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@info"
 msgid "This Image Editor tool can resize an image with content analysis."
-msgstr "זוהי רשימת הפריטים שאמורים להימחק."
+msgstr "כלי עריכת התמונות הזה יכול לשנות גודל תמונה עם ניתוח תוכן."
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetoolplugin.cpp:97
 #, kde-format
@@ -30221,9 +30220,9 @@ msgid "Built-in transformation not supported"
 msgstr "אין תמיכה בהתמרה מובנית"
 
 #: core/libs/dimg/filters/filteractionfilter.cpp:216
-#, fuzzy, kde-format
+#, kde-format
 msgid "Filter identifier or version is not supported"
-msgstr "המצלמה \"%1\" אינה נתמכת."
+msgstr "מזהה המסנן או הגרסה לא נתמכים"
 
 #: core/libs/dimg/filters/fx/blurfilter.cpp:88
 #, kde-format
@@ -30410,9 +30409,9 @@ msgid "Emboss Effect"
 msgstr "אפקט הבלטה"
 
 #: core/libs/dimg/filters/fx/filmgrainfilter.cpp:107
-#, fuzzy, kde-format
+#, kde-format
 msgid "Film Grain Effect"
-msgstr "גרעיניות תמונה"
+msgstr "מסנן גרגריות סרט"
 
 #: core/libs/dimg/filters/fx/filmgrainsettings.cpp:116
 #, kde-format
@@ -30420,9 +30419,9 @@ msgid "Grain Size:"
 msgstr "גודל גרגר:"
 
 #: core/libs/dimg/filters/fx/filmgrainsettings.cpp:120
-#, fuzzy, kde-format
+#, kde-format
 msgid "Set here the graininess size of film."
-msgstr "<p>קבעו כאן את רוחב קו ההנחייה בנקודות."
+msgstr "כאן ניתן להגדיר את גודל הגרגרים בסרט."
 
 #: core/libs/dimg/filters/fx/filmgrainsettings.cpp:122
 #, kde-format

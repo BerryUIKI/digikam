@@ -52,7 +52,7 @@ msgstr ""
 "Project-Id-Version: Digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-12 00:42+0000\n"
-"PO-Revision-Date: 2026-08-15 20:14+0300\n"
+"PO-Revision-Date: 2026-09-13 19:40+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -60,7 +60,7 @@ msgstr ""
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=(n > 1);\n"
-"X-Generator: Lokalize 26.04.2\n"
+"X-Generator: Lokalize 26.08.0\n"
 
 #: core/app/date/ddateedit.cpp:489
 #, kde-format
@@ -3869,6 +3869,14 @@ msgid ""
 "frame rate, bitrate), and file formats. For details, see <a href=\"https://"
 "community.kde.org/GSoC/2026/StatusReports/SrirupaDatta\">this report</a>."
 msgstr ""
+"Yerel bir yapay zekâ modeli tarafından desteklenen ve tümüyle "
+"bilgisayarınızda çalışan doğal dil kullanarak arama yapma özelliği. "
+"İstediğinizi sade bir dille tanımlayın; digiKam buna karşılık gelen "
+"yapılandırılmış aramayı oluştursun. Künyeleri, kişileri, albümleri, "
+"derecelendirmeleri, etiketleri, yönelimi, yerleri, tarihleri, altyazıları, "
+"video özelliklerini (süre, kare hızı, bit hızı) ve dosya biçimlerini "
+"destekler. Ayrıntılar için <a href=\"https://community.kde.org/GSoC/2026/"
+"StatusReports/SrirupaDatta\">bu rapora</a> bakın."
 
 #: core/app/views/stack/welcomepageview_features.cpp:94
 #, kde-format
@@ -4713,26 +4721,26 @@ msgstr "Panorama desteği"
 #, kde-format
 msgctxt "@item: component info"
 msgid "Natural-language search support"
-msgstr ""
+msgstr "Doğal dil kullanarak arama yapma desteği"
 
 #: core/app/views/utils/componentsinfodlg.cpp:186
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libllama.cpp"
-msgstr ""
+msgstr "Libllama.cpp"
 
 #: core/app/views/utils/componentsinfodlg.cpp:192
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libggml"
-msgstr ""
+msgstr "Libggml"
 
 #: core/app/views/utils/componentsinfodlg.cpp:205
 #: core/app/views/utils/componentsinfodlg.cpp:210
 #, kde-format
 msgctxt "@item: component info"
 msgid "HTML Gallery support"
-msgstr "HTML Galerisi desteği"
+msgstr "HTML galerisi desteği"
 
 #: core/app/views/utils/componentsinfodlg.cpp:217
 #: core/app/views/utils/componentsinfodlg.cpp:222
@@ -4772,23 +4780,22 @@ msgid "Database backend version"
 msgstr "Veri tabanı arka ucu sürümü"
 
 #: core/app/views/utils/componentsinfodlg.cpp:256
-#, fuzzy, kde-format
-#| msgid "Database Configuration"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Natural Language Configuration"
-msgstr "Veri Tabanı Yapılandırması"
+msgstr "Doğal dil yapılandırması"
 
 #: core/app/views/utils/componentsinfodlg.cpp:261
 #, kde-format
 msgctxt "@item: component info"
 msgid "LLAMA.CPP"
-msgstr ""
+msgstr "LLAMA.CPP"
 
 #: core/app/views/utils/componentsinfodlg.cpp:270
 #, kde-format
 msgctxt "@item: component info"
 msgid "GGML"
-msgstr ""
+msgstr "GGML"
 
 #: core/app/views/utils/componentsinfodlg.cpp:281
 #, kde-format
@@ -6348,11 +6355,11 @@ msgid ""
 "such as paper texture, or Moire patterns on scanned images.</p>"
 msgstr ""
 "<p>Burada fotoğraf iyileştirmesi için kullanılacak süzgeç önayarını seçin:</"
-"p><p><b>Hiçbiri</b>: En yaygın değerler. Ayarları öntanımlı hale getirir."
+"p><p><b>Yok</b>: En yaygın değerler. Ayarları öntanımlı hale getirir."
 "<br><b>Düzgün Gürültüyü Azalt</b>: Algılayıcı gürültüsü gibi küçük görsel "
 "yapaylığını azaltın.<br><b>JPEG Yapaylığını Azalt</b>: JPEG sıkıştırma "
-"mozayiğindeki gibi büyük görsel yapaylıklarını azaltın.<br><b>Dokulamayı "
-"Azalt</b>: Kağıt deseni ya da taranmış görsellerdeki Moire deseni gibi "
+"mozaiğindeki gibi büyük görsel yapaylıklarını azaltın.<br><b>Dokulamayı "
+"Azalt</b>: Kâğıt deseni ya da taranmış görsellerdeki Moire deseni gibi "
 "görsel yapaylığını azaltın.</p>"
 
 #: core/dplugins/bqm/enhance/restoration/restorationplugin.cpp:42
@@ -9474,10 +9481,10 @@ msgid ""
 "p>"
 msgstr ""
 "<p>Fotoğraf restorasyonu için kullanılacak süzgeç önayarını buradan seçin:</"
-"p><p><b>Tekdüzen Gürültüyü Azalt</b>: Algılayıcı gürültüsü gibi küçük görsel "
+"p><p><b>Tekdüze Gürültüyü Azalt</b>: Algılayıcı gürültüsü gibi küçük görsel "
 "bozulmalarını azaltın.<br><b>JPEG Bozulmalarını Azalt</b>: JPEG sıkıştırma "
 "mozaiği gibi büyük görsel bozulmalarını azaltın.<br><b>Dokulamayı Azalt</b>: "
-"Taranan görsellerdeki kağıt dokusu veya Moire desenleri gibi görsel "
+"Taranan görsellerdeki kâğıt dokusu veya Moire desenleri gibi görsel "
 "bozulmalarını azaltın.<br><b>Özel</b>: Ayarları tümüyle özelleştirilebilir "
 "şekilde en yaygın değerlere getirir.</p>"
 
@@ -11072,7 +11079,7 @@ msgid ""
 "photographic paper.</p><p>The <b>Current Aspect Ratio</b> takes aspect ratio "
 "from the currently opened image.</p>"
 msgstr ""
-"<p>Kırpma için kısıtlanmış en–boy oranınızı seçin. En–Boy Oranıyla Kırp "
+"<p>Kırpma için kısıtlanmış en–boy oranınızı seçin. En–Boy Oranıyla Kırp, "
 "aracı göreceli bir oran kullanır. Bu, santimetre veya inç kullanırsanız aynı "
 "olacağı ve fiziksel boyutu belirtmediği anlamına gelir.</p><p>Aşağıda "
 "geleneksel fotoğraf kağıdı boyutları ve en–boy oranı kırpmasının bir "
@@ -11084,7 +11091,7 @@ msgstr ""
 "cm, 42 × 60 cm, 3,5 × 5”</p><p><b>8:5</b>: Yaygın geniş ekran monitör (1680 "
 "× 1050 olarak)</p><p><b>2:1</b>, <b>3:1</b>, <b>4:1</b>: Yaygın panoramik "
 "boyutlar</p><p><b>16:9</b>: Yaygın TV ekranı (HDTV veya Tam YB)</p><p><b>DIN "
-"A Biçimi</b> kağıt, 1:1,414 oranını kullanır</p><p><b>Altın Oran</b> ise "
+"A Biçimi</b> kâğıt, 1:1,414 oranını kullanır</p><p><b>Altın Oran</b> ise "
 "1:1,618’dir. Bu kurala uyan bir kompozisyon görsel olarak uyumlu kabul "
 "edilir; ancak standart fotoğraf kağıdına baskı için uygun olmayabilir.</"
 "p><p><b>Geçerli En–Boy Oranı</b>, en–boy oranını şu anda açık olan görselden "
@@ -16597,7 +16604,7 @@ msgstr "Önizleme"
 #: core/dplugins/generic/tools/calendar/ui/caltemplate.ui:57
 #, kde-format
 msgid "Paper Size:"
-msgstr "Kağıt boyutu:"
+msgstr "Kâğıt boyutu:"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, paperSizeCombo)
 #: core/dplugins/generic/tools/calendar/ui/caltemplate.ui:65
@@ -19821,7 +19828,7 @@ msgstr "Panorama Oluşturma Sihirbazı"
 #: core/dplugins/generic/tools/printcreator/manager/advprintphoto.cpp:38
 #, kde-format
 msgid "Unsupported Paper Size"
-msgstr "Desteklenmeyen Kağıt Boyutu"
+msgstr "Desteklenmeyen Kâğıt Boyutu"
 
 #: core/dplugins/generic/tools/printcreator/manager/advprintsettings.cpp:107
 #, kde-format
@@ -19933,7 +19940,7 @@ msgstr ""
 "<p>Bu araç, kullanıcıların baskıdan önce ögeleri (birleştirme olarak) geri "
 "işlemesine olanak tanır.</p><p>İşlenecek ögeler, çeşitli albümler "
 "aracılığıyla tek tek veya grup halinde seçilebilir.</p><p>Dosyaları işlemek "
-"için önceden tanımlanmış farklı kağıt boyutları ve yerleşimleri "
+"için önceden tanımlanmış farklı kâğıt boyutları ve yerleşimleri "
 "kullanılabilir.</p>"
 
 #: core/dplugins/generic/tools/printcreator/printcreatorplugin.cpp:85
@@ -20501,7 +20508,7 @@ msgstr "Özel Yerleşim"
 #: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1126
 #, kde-format
 msgid "The selected custom photo size can not be applied to the paper size."
-msgstr "Seçili özel fotoğraf boyutu kağıt boyutuna uygulanamaz."
+msgstr "Seçili özel fotoğraf boyutu kâğıt boyutuna uygulanamaz."
 
 #: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1358
 #, kde-format
@@ -21348,12 +21355,12 @@ msgstr "Video Slayt Gösterisi üretiliyor"
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:44
 #, kde-format
 msgid "Export as wallpaper"
-msgstr "Duvar kağıdı olarak dışa aktar"
+msgstr "Duvar kâğıdı olarak dışa aktar"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:59
 #, kde-format
 msgid "A tool to set image as wallpaper"
-msgstr "Görseli duvar kağıdı olarak ayarlamak için bir araç"
+msgstr "Görseli duvar kâğıdı olarak ayarlamak için bir araç"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:64
 #, kde-format
@@ -21362,15 +21369,15 @@ msgid ""
 "</p><p>If many images are selected, the first one will be used.</p><p>If no "
 "image is selected, the first one from current album will be used.</p>"
 msgstr ""
-"<p>Bu araç, tüm masaüstü bilgisayarlar için arka plan duvar kağıdını seçili "
+"<p>Bu araç, tüm masaüstü bilgisayarlar için arka plan duvar kâğıdını seçili "
 "görselle değiştirir.</p><p>Çok sayıda görsel seçilirse ilki kullanılır.</"
-"p><p>Hiçbir görsel seçilmezse, Geçerli albümden ilki kullanılacak.</p>"
+"p><p>Hiçbir görsel seçilmezse, Geçerli albümden ilki kullanılır.</p>"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:95
 #, kde-format
 msgctxt "@action"
 msgid "Set as wallpaper"
-msgstr "Duvar Kağıdı Olarak Ayarla"
+msgstr "Duvar Kâğıdı Olarak Ayarla"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:135
 #, kde-format
@@ -21378,6 +21385,8 @@ msgid ""
 "Cannot export RAW image preview as JPEG as WallPaper\n"
 "%1"
 msgstr ""
+"RAW görsel önizlemesi, duvar kâğıdı için JPEG olarak dışa aktarılamıyor.\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:143
 #, kde-format
@@ -21385,6 +21394,8 @@ msgid ""
 "Cannot extract RAW image preview for the WallPaper\n"
 "%1"
 msgstr ""
+"RAW görsel önizlemesi duvar kâğıdı için çıkarılamıyor.\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_dbus.cpp:92
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_macos.cpp:64
@@ -21392,7 +21403,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Error While to Set Image as Wallpaper"
-msgstr "Görseli Duvar Kağıdı Yaparken Hata"
+msgstr "Görseli Duvar Kâğıdı Yaparken Hata"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_dbus.cpp:93
 #, kde-format
@@ -21403,7 +21414,7 @@ msgid ""
 "\n"
 "Error: %2"
 msgstr ""
-"Aşağıdaki görsel, geçerli masaüstüne duvar kağıdı yapılamadı:\n"
+"Aşağıdaki görsel, geçerli masaüstüne duvar kâğıdı yapılamadı:\n"
 "%1\n"
 "\n"
 "Hata: %2"
@@ -21415,7 +21426,7 @@ msgid ""
 "Cannot change wallpaper image from current desktop with\n"
 "%1"
 msgstr ""
-"Aşağıdaki görsel, geçerli masaüstüne duvar kağıdı yapılamadı:\n"
+"Aşağıdaki görsel, geçerli masaüstüne duvar kâğıdı yapılamadı:\n"
 "%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_windows.cpp:63
@@ -21433,7 +21444,7 @@ msgid ""
 "\n"
 "Error: %3"
 msgstr ""
-"Aşağıdaki görsel, geçerli masaüstüne duvar kağıdı yapılamadı:\n"
+"Aşağıdaki görsel, geçerli masaüstüne duvar kâğıdı yapılamadı:\n"
 "%1\n"
 "\n"
 "Bağlam: %2\n"
@@ -21448,28 +21459,28 @@ msgstr "Masaüstü bağlamı oluşturulamıyor."
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_windows.cpp:129
 #, kde-format
 msgid "Cannot set wall paper image path."
-msgstr "Duvar kağıdı görseli yolu ayarlanamıyor."
+msgstr "Duvar kâğıdı görseli yolu ayarlanamıyor."
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_windows.cpp:139
 #, kde-format
 msgid "Cannot set wallpaper properties."
-msgstr "Duvar kağıdı özellikleri ayarlanamıyor."
+msgstr "Duvar kâğıdı özellikleri ayarlanamıyor."
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_windows.cpp:149
 #, kde-format
 msgid "Cannot apply changes to desktop wallpaper."
-msgstr "Masaüstü duvar kağıdı değişiklikleri uygulanamıyor."
+msgstr "Masaüstü duvar kâğıdı değişiklikleri uygulanamıyor."
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugindlg.cpp:59
 #, kde-format
 msgctxt "@title:window"
 msgid "WallPaper Settings"
-msgstr "Duvar Kağıdı Ayarları"
+msgstr "Duvar Kâğıdı Ayarları"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugindlg.cpp:71
 #, kde-format
 msgid "Wallpaper Layout:"
-msgstr "Duvar kağıdı yerleşimi:"
+msgstr "Duvar kâğıdı yerleşimi:"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugindlg.cpp:73
 #, kde-format
@@ -30967,7 +30978,7 @@ msgid ""
 "exposure using a green filter. This is useful for all scenic shoots, "
 "especially portraits photographed against the sky.</p>"
 msgstr ""
-"<b>Yeşil Süzgeçli Siyah Beyaz</b>:<p>Yeşil süzgeç kullanarak siyah beyaz "
+"<b>Yeşil Süzgeçli Siyah–Beyaz</b>:<p>Yeşil süzgeç kullanarak siyah–beyaz "
 "film pozlamasına öykünün. Bu, tüm manzara çekimleri, özellikle de gökyüzüne "
 "karşı çekilen portreler için kullanışlıdır.</p>"
 
@@ -30983,7 +30994,7 @@ msgid ""
 "exposure using an orange filter. This will enhance landscapes, marine scenes "
 "and aerial photography.</p>"
 msgstr ""
-"<b>Turuncu Süzgeçli Siyah Beyaz</b>:<p>Turuncu süzgeç kullanarak siyah beyaz "
+"<b>Turuncu Süzgeçli Siyah–Beyaz</b>:<p>Turuncu süzgeç kullanarak siyah–beyaz "
 "film pozlamasına öykünün. Bu; kara ve deniz manzaralarını ve hava "
 "fotoğraflarını geliştirecektir.</p>"
 
@@ -30999,7 +31010,7 @@ msgid ""
 "exposure using a red filter. This creates dramatic sky effects, and "
 "simulates moonlight scenes in the daytime.</p>"
 msgstr ""
-"<b>Kırmızı Süzgeçli Siyah Beyaz</b>:<p>Kırmızı süzgeç kullanarak siyah beyaz "
+"<b>Kırmızı Süzgeçli Siyah–Beyaz</b>:<p>Kırmızı süzgeç kullanarak siyah–beyaz "
 "film pozlamasına öykünün. Bu, dramatik gökyüzü efektleri yaratır ve gündüz "
 "ay ışığı sahnelerine öykünür.</p>"
 
@@ -31015,7 +31026,7 @@ msgid ""
 "exposure using a yellow filter. This has the most natural tonal correction, "
 "and improves contrast. Ideal for landscapes.</p>"
 msgstr ""
-"<b>Sarı Süzgeçli Siyah Beyaz</b>:<p>Sarı süzgeç kullanarak siyah beyaz film "
+"<b>Sarı Süzgeçli Siyah–Beyaz</b>:<p>Sarı süzgeç kullanarak siyah–beyaz film "
 "pozlamasına öykünün. Bu, en doğal ton düzeltmesine sahiptir ve karşıtlığı "
 "artırır. Manzaralar için idealdir.</p>"
 
@@ -31034,12 +31045,12 @@ msgid ""
 "expressions in close-ups and emphasizing the feeling of liveliness. This "
 "filter is highly effective for indoor portraits under tungsten lighting.</p>"
 msgstr ""
-"<b>Sarı–Yeşil Süzgeçli Siyah Beyaz</b>:<p>Sarı–yeşil süzgeç kullanarak siyah "
-"beyaz film pozlamasına öykünün. Sarı–yeşil süzgeç, dış mekan portreleri için "
+"<b>Sarı–Yeşil Süzgeçli Siyah–Beyaz</b>:<p>Sarı–yeşil süzgeç kullanarak siyah–"
+"beyaz film pozlamasına öykünün. Sarı–yeşil süzgeç, dış mekân portreleri için "
 "oldukça etkilidir; çünkü kırmızı koyu, yeşil ise daha açık görünür. Cilt "
 "tonlarını düzeltmek, yakın çekimlerde yüz ifadelerini öne çıkarmak ve "
 "canlılık hissini vurgulamak için idealdir. Bu süzgeç, tungsten aydınlatma "
-"altında iç mekan portreleri için oldukça etkilidir.</p>"
+"altında iç mekân portreleri için oldukça etkilidir.</p>"
 
 #: core/libs/dimg/filters/bw/bwsepiasettings.cpp:255
 #, kde-format
@@ -31053,7 +31064,7 @@ msgid ""
 "exposure using a blue filter. This accentuates haze and fog. Used for dye "
 "transfer and contrast effects.</p>"
 msgstr ""
-"<b>Mavi Süzgeçli Siyah Beyaz</b>:<p>Mavi süzgeç kullanarak siyah beyaz film "
+"<b>Mavi Süzgeçli Siyah–Beyaz</b>:<p>Mavi süzgeç kullanarak siyah–beyaz film "
 "pozlamasına öykünün. Bu, pus ve sisi vurgular. Boya transferi ve karşıtlık "
 "efektleri için kullanılır.</p>"
 
@@ -31089,7 +31100,7 @@ msgid ""
 "while adding a bit of coolness to the shadows - very similar to the process "
 "of bleaching a print and re-developing in a sepia toner.</p>"
 msgstr ""
-"<b>Sepya Tonlu Siyah Beyaz</b>:<p>Gölgelere biraz soğukluk katarken sıcak "
+"<b>Sepya Tonlu Siyah–Beyaz</b>:<p>Gölgelere biraz soğukluk katarken sıcak "
 "bir vurgu ve orta ton verir; bir baskıyı ağartmak ve bir sepya tonerinde "
 "yeniden banyo sürecine çok benzer.</p>"
 
@@ -31104,7 +31115,7 @@ msgid ""
 "<b>Black & White with Brown Tone</b>:<p>This filter is more neutral than the "
 "Sepia Tone filter.</p>"
 msgstr ""
-"<b>Kahverengi Tonlu Siyah Beyaz</b>:<p>Bu süzgeç, Sepya Tonu süzgecinden "
+"<b>Kahverengi Tonlu Siyah–Beyaz</b>:<p>Bu süzgeç, Sepya Tonu süzgecinden "
 "daha nötrdür.</p>"
 
 #: core/libs/dimg/filters/bw/bwsepiasettings.cpp:293
@@ -31118,8 +31129,8 @@ msgid ""
 "<b>Black & White with Cold Tone</b>:<p>Start subtly and replicate printing "
 "on a cold tone black and white paper such as a bromide enlarging paper.</p>"
 msgstr ""
-"<b>Soğuk Tonlu Siyah Beyaz</b>:<p>İnce bir şekilde başlayın ve bromür "
-"büyütücü kağıt gibi soğuk tonlu siyah beyaz bir kağıt üzerine baskıyı "
+"<b>Soğuk Tonlu Siyah–Beyaz</b>:<p>İnce bir şekilde başlayın ve bromür "
+"büyütücü kâğıt gibi soğuk tonlu siyah–beyaz bir kâğıt üzerine baskıyı "
 "çoğaltın.</p>"
 
 #: core/libs/dimg/filters/bw/bwsepiasettings.cpp:299
@@ -31133,7 +31144,7 @@ msgid ""
 "<b>Black & White with Selenium Tone</b>:<p>This effect replicates "
 "traditional selenium chemical toning done in the darkroom.</p>"
 msgstr ""
-"<b>Selenyum Tonlu Siyah Beyaz</b>:<p>Bu efekt, karanlık odada yapılan "
+"<b>Selenyum Tonlu Siyah–Beyaz</b>:<p>Bu efekt, karanlık odada yapılan "
 "geleneksel selenyum kimyasal tonlamanın aynısıdır.</p>"
 
 #: core/libs/dimg/filters/bw/bwsepiasettings.cpp:304
@@ -31147,7 +31158,7 @@ msgid ""
 "<b>Black & White with Platinum Tone</b>:<p>This effect replicates "
 "traditional platinum chemical toning done in the darkroom.</p>"
 msgstr ""
-"<b>Platin Tonlu Siyah Beyaz</b>:<p>Bu efekt, karanlık odada yapılan "
+"<b>Platin Tonlu Siyah–Beyaz</b>:<p>Bu efekt, karanlık odada yapılan "
 "geleneksel platin kimyasal tonlamanın aynısıdır.</p>"
 
 #: core/libs/dimg/filters/bw/bwsepiasettings.cpp:310
@@ -31156,8 +31167,8 @@ msgid ""
 "<b>Black & White with greenish tint</b>:<p>This effect is also known as "
 "Verdante.</p>"
 msgstr ""
-"<b>Yeşilimsi renk tonuyla Siyah Beyaz</b>:<p>Bu efekt aynı zamanda Verdante "
-"olarak da bilinir.</p>"
+"<b>Yeşilimsi Tonla Siyah–Beyaz</b>:<p>Bu efekt aynı zamanda Verdante olarak "
+"da bilinir.</p>"
 
 #: core/libs/dimg/filters/bw/bwsepiasettings.cpp:362
 #, kde-format
@@ -31582,7 +31593,7 @@ msgstr "Dekoratif Tahta"
 #: core/libs/dimg/filters/decorate/bordersettings.cpp:109
 #, kde-format
 msgid "Decorative Paper"
-msgstr "Dekoratif Kağıt"
+msgstr "Dekoratif Kâğıt"
 
 #: core/libs/dimg/filters/decorate/bordersettings.cpp:110
 #, kde-format
@@ -31748,7 +31759,7 @@ msgstr "Doku Süzgeci"
 #, kde-format
 msgctxt "@item: texture type"
 msgid "Paper"
-msgstr "Kağıt"
+msgstr "Kâğıt"
 
 #: core/libs/dimg/filters/decorate/texturesettings.cpp:76
 #, kde-format
@@ -42677,7 +42688,7 @@ msgstr "MPG — MPEG-2"
 #, kde-format
 msgctxt "Video Effect NOPLAYER"
 msgid "None"
-msgstr "Hiçbiri"
+msgstr "Yok"
 
 #: core/libs/video/manager/vidslidesettings.cpp:812
 #, kde-format
@@ -43279,7 +43290,7 @@ msgid ""
 "paper size)."
 msgstr ""
 "Burada sabit yazıtipi puntosu ile devingen olarak hesaplanacak ve değişen "
-"ortama (ör. araç takımı boyutları, kağıt boyutu) göre ayarlanacak yazıtipi "
+"ortama (ör. araç takımı boyutları, kâğıt boyutu) göre ayarlanacak yazıtipi "
 "puntosu arasında geçiş yapabilirsiniz."
 
 #: core/libs/widgets/fonts/dfontproperties.cpp:431

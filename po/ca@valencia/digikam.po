@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-12 00:42+0000\n"
-"PO-Revision-Date: 2026-09-06 18:11+0200\n"
+"PO-Revision-Date: 2026-09-12 10:42+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -7962,7 +7962,7 @@ msgstr ""
 "escàners d'imatges. Els fitxers RAW encara no s'han processat i, per tant, "
 "no estan preparats per a imprimir o editar amb un editor de gràfics de mapa "
 "de bits. Els RAW es processen amb un convertidor RAW a un espai de color "
-"intern de gamma àmplia a on es poden fer els ajustos precisos abans de "
+"intern de gamut àmplia a on es poden fer els ajustos precisos abans de "
 "convertir a un TIFF o JPEG per a l'emmagatzematge, impressió, o una "
 "manipulació posterior. Amb freqüència, este codifica la imatge en un espai "
 "de color depenent del dispositiu.</para><para>Per als detalls, vegeu la <a "
@@ -10684,9 +10684,9 @@ msgstr ""
 "siguen rectes. En algunes situacions pot ser útil per a previndre "
 "distorsions o per a evitar defectes deguts a l'omissió dels píxels (en estos "
 "casos és millor utilitzar valors baixos). Si no s'utilitza cap màscara de "
-"rigidesa, esta opció s'aplicarà a tota la capa seleccionada. Nota: La "
-"ponderació és proporcional a la diferència en la coordenada transversal "
-"entre cada dos punts successius, elevat a 1,5 i sumat per a tota la línia."
+"rigidesa, esta opció s'aplicarà a tota la capa triada. Nota: La ponderació "
+"és proporcional a la diferència en la coordenada transversal entre cada dos "
+"punts successius, elevat a 1,5 i sumat per a tota la línia."
 
 #: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:327
 #, kde-format
@@ -12737,7 +12737,7 @@ msgstr[1] "S'han mogut %1 imatges a «%2»"
 #, kde-format
 msgctxt "@title:window"
 msgid "Metadata Editor"
-msgstr "Editor de metadades"
+msgstr "Editor de les metadades"
 
 #: core/dplugins/generic/metadata/metadataedit/dialog/metadataeditdialog.cpp:120
 #, kde-format
@@ -13618,8 +13618,8 @@ msgid ""
 "Set here the exposure bias value (in APEX units) used by camera to take the "
 "picture."
 msgstr ""
-"Establiu ací el valor de compensació de l'exposició (en unitats APEX) emprat "
-"per la càmera quan es va prendre la imatge."
+"Establiu ací el valor del biaix de l'exposició (en unitats APEX) emprat per "
+"la càmera quan es va prendre la imatge."
 
 #: core/dplugins/generic/metadata/metadataedit/exif/exifdevice.cpp:196
 #, kde-format
@@ -27297,8 +27297,8 @@ msgid ""
 "This value in E.V will be used to perform an exposure compensation of the "
 "image."
 msgstr ""
-"Este valor en E.V s'utilitzarà per a calcular una compensació de l'exposició "
-"de la imatge."
+"Este valor en E.V s'utilitzarà per a calcular un biaix de l'exposició de la "
+"imatge."
 
 #: core/dplugins/rawimport/native/rawsettingsbox.cpp:226
 #: core/libs/dimg/filters/bw/bwsepiasettings.cpp:335
@@ -34150,7 +34150,7 @@ msgstr "Eina per al balanç de blancs"
 #, kde-format
 msgctxt "@title: WB"
 msgid "Color Temperature"
-msgstr "Temperatura de color"
+msgstr "Temperatura del color"
 
 #: core/libs/dimg/filters/wb/wbsettings.cpp:151
 #, kde-format
@@ -34163,7 +34163,8 @@ msgstr "Ajust:"
 msgctxt "@info: WB settings"
 msgid "Set here the white balance color temperature in Kelvin."
 msgstr ""
-"Establiu ací la temperatura de color en graus Kelvin per al balanç de blancs."
+"Establiu ací la temperatura del color en graus Kelvin per al balanç de "
+"blancs."
 
 #: core/libs/dimg/filters/wb/wbsettings.cpp:158
 #, kde-format
@@ -34260,7 +34261,7 @@ msgstr "Cap"
 msgctxt "@info: WB settings"
 msgid "Select the white balance color temperature preset to use."
 msgstr ""
-"Trieu la temperatura de color predefinida per al balanç de blancs que "
+"Trieu la temperatura del color predefinida per al balanç de blancs que "
 "s'utilitzarà."
 
 #: core/libs/dimg/filters/wb/wbsettings.cpp:177
@@ -34311,7 +34312,7 @@ msgstr "Llum de lluna"
 #, kde-format
 msgctxt "@item: WB settings"
 msgid "neutral color temperature"
-msgstr "Temperatura de color neutre"
+msgstr "Temperatura del color neutre"
 
 #: core/libs/dimg/filters/wb/wbsettings.cpp:186
 #, kde-format
@@ -34432,7 +34433,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label: WB settings"
 msgid "Exposure Compensation"
-msgstr "Compensació de l'exposició"
+msgstr "Biaix de l'exposició"
 
 #: core/libs/dimg/filters/wb/wbsettings.cpp:250
 #, kde-format
@@ -34460,7 +34461,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info: WB settings"
 msgid "Set here the main exposure compensation value in E.V."
-msgstr "Establiu ací el valor de compensació de l'exposició principal en E.V."
+msgstr "Establiu ací el valor del biaix de l'exposició principal en E.V."
 
 #: core/libs/dimg/filters/wb/wbsettings.cpp:262
 #, kde-format
@@ -34475,8 +34476,8 @@ msgid ""
 "This value in E.V will be added to main exposure compensation value to set "
 "fine exposure adjustment."
 msgstr ""
-"Este valor en E.V s'afegirà al valor principal de compensació de l'exposició "
-"per a establir l'ajust fi de l'exposició."
+"Este valor en E.V s'afegirà al valor principal del biaix de l'exposició per "
+"a establir l'ajust fi de l'exposició."
 
 #: core/libs/dimg/filters/wb/wbsettings.cpp:487
 #, kde-format
@@ -39166,7 +39167,7 @@ msgstr "Bits de profunditat: "
 #, kde-format
 msgctxt "@label: item properties"
 msgid "Color mode: "
-msgstr "Mode de color: "
+msgstr "Mode «Color»: "
 
 #: core/libs/properties/itempropertiestab.cpp:93
 #, kde-format
@@ -39325,7 +39326,7 @@ msgstr "Profunditat de bits"
 #: core/libs/properties/itempropertiestab.cpp:497
 #, kde-format
 msgid "Color Mode"
-msgstr "Mode de color"
+msgstr "Mode «Color»"
 
 #: core/libs/properties/itempropertiestab.cpp:498
 #, kde-format
@@ -39856,7 +39857,7 @@ msgid ""
 "<title>Temperature</title><para>Set here the color temperature in Kelvin.</"
 "para>"
 msgstr ""
-"<title>Temperatura</title><para>Establiu ací la temperatura de color en "
+"<title>Temperatura</title><para>Establiu ací la temperatura del color en "
 "graus Kelvin.</para>"
 
 #: core/libs/rawengine/drawdecoderwidget.cpp:362
@@ -40239,7 +40240,7 @@ msgstr "Adobe RGB"
 #, kde-format
 msgctxt "@item:inlistbox Workspace"
 msgid "Wide Gamut"
-msgstr "Gamma àmplia"
+msgstr "Gamut àmplia"
 
 #: core/libs/rawengine/drawdecoderwidget.cpp:568
 #, kde-format
@@ -40284,10 +40285,10 @@ msgstr ""
 "retrat fotogràfic.</item><item><emphasis strong='true'>Adobe RGB</emphasis>: "
 "este espai de color és un espai de color RGB ampliat, desenvolupat per "
 "Adobe. S'utilitza en aplicacions fotogràfiques com la publicitat i l'art.</"
-"item><item><emphasis strong='true'>Gamma àmplia</emphasis>: este espai de "
+"item><item><emphasis strong='true'>Gamut àmplia</emphasis>: este espai de "
 "color és una versió expandida de l'espai de color Adobe RGB.</"
 "item><item><emphasis strong='true'>Pro-Photo</emphasis>: este espai de color "
-"és un espai de color RGB, desenvolupat per Kodak, el qual oferix una gamma "
+"és un espai de color RGB, desenvolupat per Kodak, el qual oferix una gamut "
 "gran i es va dissenyar en la seua concepció per a utilitzar-se en les "
 "eixides fotogràfiques.</item><item><emphasis strong='true'>A mida</"
 "emphasis>: utilitza un perfil d'espai de color personalitzat per a l'eixida."
@@ -52955,7 +52956,7 @@ msgstr "Balanç de blancs"
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:185
 #, kde-format
 msgid "White balance (color temperature)"
-msgstr "Balanç de blancs (temperatura de color)"
+msgstr "Balanç de blancs (temperatura del color)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:186
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:676
@@ -53064,26 +53065,28 @@ msgid ""
 "GPS direction of the camera in degrees (0-360°, where 0°=North, 90°=East, "
 "180°=South, 270°=West)"
 msgstr ""
+"Direcció GPS de la càmera en graus (0-360°, a on 0°=Nord, 90°=Est, 180°=Sud, "
+"270°=Oest)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:124
 #, kde-format
 msgid "Camera roll angle in degrees (rotation around the X-axis)"
-msgstr ""
+msgstr "Angle de balanceig de la càmera en graus (gir al voltant de l'eix X)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:125
 #, kde-format
 msgid "Camera tilt angle in degrees (rotation around the Y-axis)"
-msgstr ""
+msgstr "Angle d'inclinació de la càmera en graus (gir al voltant de l'eix Y)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:126
 #, kde-format
 msgid "GPS accuracy in meters (estimated horizontal position error)"
-msgstr ""
+msgstr "Precisió del GPS en metres (error estimat de posició horitzontal)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:127
 #, kde-format
 msgid "User-provided description of the GPS location or landmark"
-msgstr ""
+msgstr "Descripció proporcionada per l'usuari de la ubicació o fita de GPS"
 
 #: core/utilities/advancedrename/parser/options/dateoption.cpp:41
 #, kde-format
@@ -56806,7 +56809,7 @@ msgstr "&Relació d'escala"
 #: core/utilities/geolocation/engine/plugins/render/measure/MeasureConfigDialog.ui:14
 #, kde-format
 msgid "Measure Tool Configuration"
-msgstr "Configureu l'eina de mesura"
+msgstr "Configureu l'eina «Mesura»"
 
 #. i18n: ectx: property (text), widget (QLabel, modeLabel)
 #: core/utilities/geolocation/engine/plugins/render/measure/MeasureConfigDialog.ui:20
@@ -63886,7 +63889,7 @@ msgstr "Balanç de blancs automàtic o manual"
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:617
 #, kde-format
 msgid "Color temperature used for white balance"
-msgstr "Temperatura de color emprada pel balanç de blancs"
+msgstr "Temperatura del color emprada pel balanç de blancs"
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:618
 #, kde-format
@@ -63945,7 +63948,7 @@ msgstr "Velocitat ISO de la pel·lícula"
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:679
 #, kde-format
 msgid "White balance color temperature"
-msgstr "Temperatura de color del balanç de blancs"
+msgstr "Temperatura del color del balanç de blancs"
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:681
 #, kde-format
@@ -69955,9 +69958,3 @@ msgstr "Importa els elements"
 #, kde-format
 msgid "Survey"
 msgstr "Estudi"
-
-#~ msgid "Roll"
-#~ msgstr "Rotlle"
-
-#~ msgid "Tilt"
-#~ msgstr "Inclinació"
