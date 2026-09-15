@@ -25,8 +25,8 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-12 00:42+0000\n"
-"PO-Revision-Date: 2026-01-04 22:32+0100\n"
-"Last-Translator: Jose Riha <jose1711@gmail.com>\n"
+"PO-Revision-Date: 2026-09-14 20:10+0200\n"
+"Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
 "Language: sk\n"
 "MIME-Version: 1.0\n"
@@ -3868,6 +3868,13 @@ msgid ""
 "frame rate, bitrate), and file formats. For details, see <a href=\"https://"
 "community.kde.org/GSoC/2026/StatusReports/SrirupaDatta\">this report</a>."
 msgstr ""
+"Vyhľadávanie v prirodzenom jazyku pomocou lokálneho LLM, ktorý beží celý na "
+"vašom počítači. Opíšte bežnou rečou, čo hľadáte, a digiKam z toho zostaví "
+"zodpovedajúce štruktúrované hľadanie. Podporuje značky, osoby, albumy, "
+"hodnotenia, menovky, orientáciu, miesta, dátumy, popisy, vlastnosti videa "
+"(dĺžka, snímková frekvencia, dátový tok) a formáty súborov. Podrobnosti "
+"nájdete v <a href=\"https://community.kde.org/GSoC/2026/StatusReports/"
+"SrirupaDatta\">tejto správe</a>."
 
 #: core/app/views/stack/welcomepageview_features.cpp:94
 #, kde-format
@@ -4712,19 +4719,19 @@ msgstr "Podpora pre panorámu"
 #, kde-format
 msgctxt "@item: component info"
 msgid "Natural-language search support"
-msgstr ""
+msgstr "Podpora vyhľadávania v prirodzenom jazyku"
 
 #: core/app/views/utils/componentsinfodlg.cpp:186
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libllama.cpp"
-msgstr ""
+msgstr "Libllama.cpp"
 
 #: core/app/views/utils/componentsinfodlg.cpp:192
 #, kde-format
 msgctxt "@item: component info"
 msgid "Libggml"
-msgstr ""
+msgstr "Libggml"
 
 #: core/app/views/utils/componentsinfodlg.cpp:205
 #: core/app/views/utils/componentsinfodlg.cpp:210
@@ -4771,23 +4778,22 @@ msgid "Database backend version"
 msgstr "Verzia backendu databázy"
 
 #: core/app/views/utils/componentsinfodlg.cpp:256
-#, fuzzy, kde-format
-#| msgid "Database Configuration"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Natural Language Configuration"
-msgstr "Nastavenie databázy"
+msgstr "Nastavenie prirodzeného jazyka"
 
 #: core/app/views/utils/componentsinfodlg.cpp:261
 #, kde-format
 msgctxt "@item: component info"
 msgid "LLAMA.CPP"
-msgstr ""
+msgstr "LLAMA.CPP"
 
 #: core/app/views/utils/componentsinfodlg.cpp:270
 #, kde-format
 msgctxt "@item: component info"
 msgid "GGML"
-msgstr ""
+msgstr "GGML"
 
 #: core/app/views/utils/componentsinfodlg.cpp:281
 #, kde-format
@@ -21236,6 +21242,8 @@ msgid ""
 "Cannot export RAW image preview as JPEG as WallPaper\n"
 "%1"
 msgstr ""
+"Nedá sa exportovať náhľad obrázka RAW ako JPEG na tapetu\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin.cpp:143
 #, kde-format
@@ -21243,6 +21251,8 @@ msgid ""
 "Cannot extract RAW image preview for the WallPaper\n"
 "%1"
 msgstr ""
+"Nedá sa extrahovať náhľad obrázka RAW pre tapetu\n"
+"%1"
 
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_dbus.cpp:92
 #: core/dplugins/generic/tools/wallpaper/wallpaperplugin_macos.cpp:64
@@ -43814,6 +43824,8 @@ msgstr "Kvalita:"
 msgid ""
 "Natural Language Search in the Advanced Search tool, powered with a local LLM"
 msgstr ""
+"Vyhľadávanie v prirodzenom jazyku v nástroji Rozšírené hľadanie pomocou "
+"lokálneho LLM"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:163
 #, kde-format
@@ -52344,26 +52356,28 @@ msgid ""
 "GPS direction of the camera in degrees (0-360°, where 0°=North, 90°=East, "
 "180°=South, 270°=West)"
 msgstr ""
+"Smer fotoaparátu GPS v stupňoch (0 – 360°, kde 0° = sever, 90° = východ, "
+"180° = juh, 270° = západ)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:124
 #, kde-format
 msgid "Camera roll angle in degrees (rotation around the X-axis)"
-msgstr ""
+msgstr "Uhol náklonu fotoaparátu v stupňoch (otočenie okolo osi X)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:125
 #, kde-format
 msgid "Camera tilt angle in degrees (rotation around the Y-axis)"
-msgstr ""
+msgstr "Uhol sklonu fotoaparátu v stupňoch (otočenie okolo osi Y)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:126
 #, kde-format
 msgid "GPS accuracy in meters (estimated horizontal position error)"
-msgstr ""
+msgstr "Presnosť GPS v metroch (odhadovaná chyba vodorovnej polohy)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:127
 #, kde-format
 msgid "User-provided description of the GPS location or landmark"
-msgstr ""
+msgstr "Používateľom zadaný popis polohy GPS alebo orientačného bodu"
 
 #: core/utilities/advancedrename/parser/options/dateoption.cpp:41
 #, kde-format
@@ -63624,82 +63638,72 @@ msgstr "Oblasti tvárí"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:185
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@label: item properties"
-#| msgid "Pick label: "
+#, kde-format
 msgctxt "@item"
 msgid "Pick label: Accepted"
-msgstr "Menovka výberu:"
+msgstr "Menovka výberu: prijaté"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:186
 #, kde-format
 msgctxt "@item"
 msgid "Rating 4 or more"
-msgstr ""
+msgstr "Hodnotenie 4 a viac"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "@info: generate album name for exporting"
-#| msgid "Rating: "
+#, kde-format
 msgctxt "@item"
 msgid "Rating 5"
-msgstr "Hodnotenie: "
+msgstr "Hodnotenie 5"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:197
-#, fuzzy, kde-format
-#| msgid "Fine horizontal angle:"
+#, kde-format
 msgctxt "@item"
 msgid "Oriented horizontally (landscape)"
-msgstr "Jemný vodorovný uhol:"
+msgstr "Orientované vodorovne (na šírku)"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:198
-#, fuzzy, kde-format
-#| msgid "Subject distance"
+#, kde-format
 msgctxt "@item"
 msgid "Subject tag: landscape"
-msgstr "Vzdialenosť subjektu"
+msgstr "Značka subjektu: krajina"
 
 #: core/utilities/searchwindow/nlsearch/searchintentresolver.cpp:86
 #, kde-format
 msgctxt "@info"
 msgid "\"%1\" could mean more than one thing. Which did you mean?"
-msgstr ""
+msgstr "„%1“ môže znamenať viac vecí. Ktorú ste mali na mysli?"
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:155
-#, fuzzy, kde-format
-#| msgid "Failed to load image"
+#, kde-format
 msgid "Failed to load the language model."
-msgstr "Nepodarilo sa načítať obrázok"
+msgstr "Nepodarilo sa načítať jazykový model."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:181
-#, fuzzy, kde-format
-#| msgid "Failed to initialize the database."
+#, kde-format
 msgid "Failed to initialize the model context."
-msgstr "Inicializácia databázy zlyhala."
+msgstr "Nepodarilo sa inicializovať kontext modelu."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:201
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:347
 #, kde-format
 msgid "digiKam was built without llama.cpp support."
-msgstr ""
+msgstr "digiKam bol zostavený bez podpory llama.cpp."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:218
 #, kde-format
 msgid "Model is not loaded."
-msgstr ""
+msgstr "Model nie je načítaný."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:239
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:249
-#, fuzzy, kde-format
-#| msgid "Failed to open the database."
+#, kde-format
 msgid "Failed to tokenize the prompt."
-msgstr "Nepodarilo sa otvoriť databázu."
+msgstr "Nepodarilo sa tokenizovať prompt."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:286
-#, fuzzy, kde-format
-#| msgid "Connection failed."
+#, kde-format
 msgid "Model decode failed."
-msgstr "Pripojenie zlyhalo."
+msgstr "Dekódovanie modelu zlyhalo."
 
 #: core/utilities/searchwindow/nlsearch/searchnlmodelmanager.cpp:100
 #, kde-format
@@ -63708,12 +63712,14 @@ msgid ""
 "The natural-language search model is not installed. Please download it from "
 "the digiKam setup downloader."
 msgstr ""
+"Model vyhľadávania v prirodzenom jazyku nie je nainštalovaný. Stiahnite ho, "
+"prosím, cez sťahovanie v nastavení digiKamu."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:149
 #, kde-format
 msgctxt "@info"
 msgid "A query is already being interpreted."
-msgstr ""
+msgstr "Dotaz sa už interpretuje."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:179
 #, kde-format
@@ -63723,6 +63729,9 @@ msgid ""
 "Enable \"Natural Language Search\" in the model download dialog to install "
 "it, then restart digiKam."
 msgstr ""
+"Vyhľadávanie v prirodzenom jazyku potrebuje jazykový model, ktorý ešte nie "
+"je nainštalovaný. Zapnite „Vyhľadávanie v prirodzenom jazyku“ v dialógu na "
+"sťahovanie modelov, nainštalujte ho a potom digiKam reštartujte."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:186
 #, kde-format
@@ -63731,12 +63740,14 @@ msgid ""
 "The natural language search model is still loading. Please try your search "
 "again in a few seconds."
 msgstr ""
+"Model vyhľadávania v prirodzenom jazyku sa ešte načítava. Skúste hľadanie "
+"znova o pár sekúnd."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Interpreting your search..."
-msgstr ""
+msgstr "Interpretujem vaše hľadanie..."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:225
 #, kde-format
@@ -63745,6 +63756,8 @@ msgid ""
 "Could not interpret the model output. Please refine the description or "
 "create rules manually."
 msgstr ""
+"Nepodarilo sa interpretovať výstup modelu. Spresnite, prosím, popis alebo "
+"vytvorte pravidlá ručne."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:247
 #, kde-format
@@ -63753,12 +63766,14 @@ msgid ""
 "Could not map '%1' to tags, album names, captions, location, or date. Please "
 "refine the description or create rules manually."
 msgstr ""
+"Nepodarilo sa priradiť „%1“ k značkám, názvom albumov, popisom, polohe ani "
+"dátumu. Spresnite, prosím, popis alebo vytvorte pravidlá ručne."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:258
 #, kde-format
 msgctxt "@info"
 msgid "Some terms could not be mapped and were skipped: %1"
-msgstr ""
+msgstr "Niektoré výrazy sa nepodarilo priradiť a boli preskočené: %1"
 
 #: core/utilities/searchwindow/utils/editablesearchtreeview.cpp:59
 #, kde-format
@@ -63835,25 +63850,23 @@ msgstr "Upraviť aktuálne hľadanie..."
 msgid ""
 "Interpret the text above as a natural-language search and build the query"
 msgstr ""
+"Interpretovať text vyššie ako hľadanie v prirodzenom jazyku a zostaviť dotaz"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:70
 #: core/utilities/searchwindow/view/searchwindow.cpp:69
-#, fuzzy, kde-format
-#| msgid "Cancel current operation"
+#, kde-format
 msgid "Cancel the current interpretation"
-msgstr "Zruší túto operáciu."
+msgstr "Zrušiť aktuálnu interpretáciu"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:95
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Advanced Search"
+#, kde-format
 msgid "Open Advanced Search"
-msgstr "Rozšírené hľadanie"
+msgstr "Otvoriť rozšírené hľadanie"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:96
 #, kde-format
 msgid "Run Now"
-msgstr ""
+msgstr "Spustiť teraz"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:140
 #, kde-format
@@ -63893,19 +63906,19 @@ msgid "Edit..."
 msgstr "Upraviť..."
 
 #: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:89
-#, fuzzy, kde-format
-#| msgid "Imported %1"
+#, kde-format
 msgid ""
 "Interpreted as:\n"
 "%1"
-msgstr "%1 importované"
+msgstr ""
+"Interpretované ako:\n"
+"%1"
 
 #: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:123
 #: core/utilities/searchwindow/view/searchwindow_slots.cpp:180
-#, fuzzy, kde-format
-#| msgid "Printing canceled"
+#, kde-format
 msgid "Interpretation cancelled."
-msgstr "Tlač zrušená"
+msgstr "Interpretácia zrušená."
 
 #: core/utilities/searchwindow/view/searchtabheader_p.cpp:62
 #, kde-format
@@ -63929,19 +63942,19 @@ msgid "Try"
 msgstr "Vyskúšať"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:37
-#, fuzzy, kde-format
+#, kde-format
 msgid "Natural Language Search"
-msgstr "Predvolený jazyk"
+msgstr "Vyhľadávanie v prirodzenom jazyku"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:41
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
-msgstr ""
+msgstr "napr. fotografie krajiny s červenými menovkami nasnímané pri Paríži"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:44
 #, kde-format
 msgid "Translate my query to English first"
-msgstr ""
+msgstr "Najprv preložiť môj dotaz do angličtiny"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:46
 #, kde-format
@@ -63949,11 +63962,13 @@ msgid ""
 "When enabled, your query is translated to English before being interpreted, "
 "so you can type in your own language. Requires an internet connection."
 msgstr ""
+"Keď je zapnuté, váš dotaz sa pred interpretáciou preloží do angličtiny, "
+"takže môžete písať vo svojom jazyku. Vyžaduje pripojenie na internet."
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:84
 #, kde-format
 msgid "Open the Natural Language Search handbook"
-msgstr ""
+msgstr "Otvoriť príručku k vyhľadávaniu v prirodzenom jazyku"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:113
 #, kde-format
@@ -63963,17 +63978,20 @@ msgid ""
 "language model that runs locally on your computer, with no internet "
 "connection required once downloaded."
 msgstr ""
+"Vyhľadávanie v prirodzenom jazyku umožňuje nájsť obrázky tak, že ich opíšete "
+"vlastnými slovami, napríklad „fotografie s červenými menovkami nasnímané pri "
+"Paríži“. Používa jazykový model, ktorý beží lokálne na vašom počítači a po "
+"stiahnutí už nepotrebuje pripojenie na internet."
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:121
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
-msgstr ""
+msgstr "Model vyhľadávania v prirodzenom jazyku ešte nebol stiahnutý."
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:125
-#, fuzzy, kde-format
-#| msgid "Download Route"
+#, kde-format
 msgid "Download Model..."
-msgstr "Stiahnuť trasu"
+msgstr "Stiahnuť model..."
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:169
 #, kde-format
@@ -63982,16 +64000,14 @@ msgid "Advanced Search"
 msgstr "Rozšírené hľadanie"
 
 #: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:70
-#, fuzzy, kde-format
-#| msgid "Loading themes..."
+#, kde-format
 msgid "Loading the language model... %1%"
-msgstr "Načítam motívy..."
+msgstr "Načítava sa jazykový model... %1%"
 
 #: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:96
-#, fuzzy, kde-format
-#| msgid "Edit Current Search..."
+#, kde-format
 msgid "Interpreting the search..."
-msgstr "Upraviť aktuálne hľadanie..."
+msgstr "Interpretuje sa hľadanie..."
 
 #: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:140
 #, kde-format
@@ -64000,6 +64016,8 @@ msgid ""
 "None of that could be turned into a search. Try describing tags, dates, "
 "ratings, labels, people, or places."
 msgstr ""
+"Nič z toho sa nedalo previesť na hľadanie. Skúste opísať značky, dátumy, "
+"hodnotenia, menovky, osoby alebo miesta."
 
 #: core/utilities/setup/album/setupalbumview.cpp:46
 #, kde-format
@@ -65583,10 +65601,9 @@ msgid "Use AutoTags Assignment feature"
 msgstr "Automatická oprava"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:81
-#, fuzzy, kde-format
-#| msgid "Use Face Management feature"
+#, kde-format
 msgid "Use Natural Language Search feature"
-msgstr "Použiť funkciu správy tvárí"
+msgstr "Použiť funkciu vyhľadávania v prirodzenom jazyku"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:290
 #, kde-format
@@ -65650,13 +65667,7 @@ msgid "File on the server is too large."
 msgstr "Súbor na serveri je príliš veľký."
 
 #: core/utilities/setup/downloader/filesdownloader_slots.cpp:258
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>digiKam relies on large binary model files to power features like face "
-#| "management, image classification based on aesthetics, AI AutoTools such "
-#| "as automatic image rotation, and automatic tag assignment. You have the "
-#| "option to select the specific features you want to enable.</p><p><b>Note:"
-#| "</b> The red-eye removal tool requires face management model files.</p>"
+#, kde-format
 msgid ""
 "<p>digiKam relies on large binary model files to power features like face "
 "management, image classification based on aesthetics, AI AutoTools such as "
@@ -65665,11 +65676,12 @@ msgid ""
 "enable.</p><p><b>Note:</b> The red-eye removal tool requires face management "
 "model files.</p>"
 msgstr ""
-"<p>digiKam relies on large binary model files to power features like face "
-"management, image classification based on aesthetics, AI AutoTools such as "
-"automatic image rotation, and automatic tag assignment. You have the option "
-"to select the specific features you want to enable.</p><p><b>Note:</b> The "
-"red-eye removal tool requires face management model files.</p>"
+"<p>digiKam sa pri funkciách ako správa tvárí, klasifikácia obrázkov podľa "
+"estetiky, nástroje AI AutoTools (napríklad automatické otáčanie obrázkov a "
+"automatické priraďovanie značiek) a nástroj na vyhľadávanie v prirodzenom "
+"jazyku opiera o veľké binárne súbory modelov. Môžete si vybrať, ktoré "
+"funkcie chcete zapnúť.</p><p><b>Poznámka:</b> Nástroj na odstránenie "
+"červených očí vyžaduje súbory modelov na správu tvárí.</p>"
 
 #: core/utilities/setup/downloader/filesdownloader_slots.cpp:264
 #, kde-format

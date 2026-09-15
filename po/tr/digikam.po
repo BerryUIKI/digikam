@@ -52,7 +52,7 @@ msgstr ""
 "Project-Id-Version: Digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-12 00:42+0000\n"
-"PO-Revision-Date: 2026-09-13 19:40+0300\n"
+"PO-Revision-Date: 2026-09-14 19:02+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -43985,6 +43985,8 @@ msgstr "Kalite kontrol mühendisi"
 msgid ""
 "Natural Language Search in the Advanced Search tool, powered with a local LLM"
 msgstr ""
+"Gelişmiş Arama aracında, yerel bir büyük dil modeli ile gerçekleştirilen "
+"doğal dil ile arama"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:163
 #, kde-format
@@ -52537,26 +52539,29 @@ msgid ""
 "GPS direction of the camera in degrees (0-360°, where 0°=North, 90°=East, "
 "180°=South, 270°=West)"
 msgstr ""
+"Derece türünden kameranın GPS yönü (0–360°; 0°=Kuzey, 90°=Doğu, 180°=Güney, "
+"270°=Batı)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:124
 #, kde-format
 msgid "Camera roll angle in degrees (rotation around the X-axis)"
-msgstr ""
+msgstr "Derece türünden kamerayı yuvarlama açısı (X ekseni etrafında dönüş)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:125
 #, kde-format
 msgid "Camera tilt angle in degrees (rotation around the Y-axis)"
-msgstr ""
+msgstr "Derece türünden kamerayı çevirme açısı (Y ekseni etrafında dönüş)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:126
 #, kde-format
 msgid "GPS accuracy in meters (estimated horizontal position error)"
-msgstr ""
+msgstr "Metre türünden GPS kesinliği (tahminî yatay konum hatası)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:127
 #, kde-format
 msgid "User-provided description of the GPS location or landmark"
 msgstr ""
+"GPS konumunun veya bilinen yerin kullanıcı tarafından sağlanan açıklaması"
 
 #: core/utilities/advancedrename/parser/options/dateoption.cpp:41
 #, kde-format
@@ -63813,82 +63818,72 @@ msgstr "Yüz Bölgeleri"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:185
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:191
-#, fuzzy, kde-format
-#| msgctxt "@label: item properties"
-#| msgid "Pick label: "
+#, kde-format
 msgctxt "@item"
 msgid "Pick label: Accepted"
-msgstr "Seçim etiketi: "
+msgstr "Seçim etiketi: Kabul edildi"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:186
 #, kde-format
 msgctxt "@item"
 msgid "Rating 4 or more"
-msgstr ""
+msgstr "4 veya üzeri derecelendirme"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "@info: generate album name for exporting"
-#| msgid "Rating: "
+#, kde-format
 msgctxt "@item"
 msgid "Rating 5"
-msgstr "Derecelendirme: "
+msgstr "Derecelendirme 5"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:197
-#, fuzzy, kde-format
-#| msgid "Fine horizontal angle:"
+#, kde-format
 msgctxt "@item"
 msgid "Oriented horizontally (landscape)"
-msgstr "İnce yatay açı:"
+msgstr "Yatay yönlü"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:198
-#, fuzzy, kde-format
-#| msgid "Subject distance"
+#, kde-format
 msgctxt "@item"
 msgid "Subject tag: landscape"
-msgstr "Özne uzaklığı"
+msgstr "Özne künyesi: Yatay"
 
 #: core/utilities/searchwindow/nlsearch/searchintentresolver.cpp:86
 #, kde-format
 msgctxt "@info"
 msgid "\"%1\" could mean more than one thing. Which did you mean?"
-msgstr ""
+msgstr "“%1”, birden çok şeyi ifade edebilir. Ne demek istediniz?"
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:155
-#, fuzzy, kde-format
-#| msgid "Failed to load image"
+#, kde-format
 msgid "Failed to load the language model."
-msgstr "Görsel yüklenemedi"
+msgstr "Dil modeli yüklenemedi."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:181
-#, fuzzy, kde-format
-#| msgid "Failed to initialize the database."
+#, kde-format
 msgid "Failed to initialize the model context."
-msgstr "Veri tabanı ilklendirilemedi."
+msgstr "Model bağlamı ilklendirilemedi."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:201
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:347
 #, kde-format
 msgid "digiKam was built without llama.cpp support."
-msgstr ""
+msgstr "digiKam, llama.cpp desteği olmadan yapılmış."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:218
 #, kde-format
 msgid "Model is not loaded."
-msgstr ""
+msgstr "Model yüklü değil."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:239
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:249
-#, fuzzy, kde-format
-#| msgid "Failed to open the database."
+#, kde-format
 msgid "Failed to tokenize the prompt."
-msgstr "Veri tabanı açılamadı."
+msgstr "İstem, jetonlarla ifade edilemedi."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:286
-#, fuzzy, kde-format
-#| msgid "Connection failed."
+#, kde-format
 msgid "Model decode failed."
-msgstr "Bağlantı kurulamadı."
+msgstr "Model kod çözümü yapılamadı."
 
 #: core/utilities/searchwindow/nlsearch/searchnlmodelmanager.cpp:100
 #, kde-format
@@ -63897,12 +63892,14 @@ msgid ""
 "The natural-language search model is not installed. Please download it from "
 "the digiKam setup downloader."
 msgstr ""
+"Doğal dil arama modeli kurulu değil. Lütfen onu, digiKam Kur indiricisi ile "
+"indirin."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:149
 #, kde-format
 msgctxt "@info"
 msgid "A query is already being interpreted."
-msgstr ""
+msgstr "Hâlihazırda yorumlanan bir sorgu var."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:179
 #, kde-format
@@ -63912,6 +63909,9 @@ msgid ""
 "Enable \"Natural Language Search\" in the model download dialog to install "
 "it, then restart digiKam."
 msgstr ""
+"Doğal dil ile arama, henüz kurulu olmayan bir dil modelini gerektiriyor. Onu "
+"kurmak için model indirme iletişim kutusunda “Doğal dil ile arama”yı "
+"etkinleştirin ve digiKam’i yeniden başlatın."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:186
 #, kde-format
@@ -63920,12 +63920,14 @@ msgid ""
 "The natural language search model is still loading. Please try your search "
 "again in a few seconds."
 msgstr ""
+"Doğal dil ile arama modeli hâlen yükleniyor. Lütfen aramanızı birkaç saniye "
+"içinde yineleyin."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:200
 #, kde-format
 msgctxt "@info"
 msgid "Interpreting your search..."
-msgstr ""
+msgstr "Aramanız yorumlanıyor…"
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:225
 #, kde-format
@@ -63934,6 +63936,8 @@ msgid ""
 "Could not interpret the model output. Please refine the description or "
 "create rules manually."
 msgstr ""
+"Model çıktısı yorumlanamadı. Lütfen yeniden açıklayın veya elle kurallar "
+"oluşturun."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:247
 #, kde-format
@@ -63942,12 +63946,14 @@ msgid ""
 "Could not map '%1' to tags, album names, captions, location, or date. Please "
 "refine the description or create rules manually."
 msgstr ""
+"“%1”; künyelere, albüm adlarına, alt yazılara, konumlara ve tarihlere "
+"eşlemlenemedi. Lütfen yeniden açıklayın veya elle kurallar oluşturun."
 
 #: core/utilities/searchwindow/nlsearch/searchqueryengine.cpp:258
 #, kde-format
 msgctxt "@info"
 msgid "Some terms could not be mapped and were skipped: %1"
-msgstr ""
+msgstr "Bâzı terimler eşlemlenemediğinden atlandı: %1"
 
 #: core/utilities/searchwindow/utils/editablesearchtreeview.cpp:59
 #, kde-format
@@ -64023,26 +64029,23 @@ msgstr "Geçerli Aramayı Düzenle…"
 #, kde-format
 msgid ""
 "Interpret the text above as a natural-language search and build the query"
-msgstr ""
+msgstr "Yukarıdaki metni doğal dil ile arama olarak yorumla ve sorguyu yap"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:70
 #: core/utilities/searchwindow/view/searchwindow.cpp:69
-#, fuzzy, kde-format
-#| msgid "Cancel current operation"
+#, kde-format
 msgid "Cancel the current interpretation"
-msgstr "Geçerli işlemi iptal et"
+msgstr "Geçerli yorumu iptal et"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:95
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Advanced Search"
+#, kde-format
 msgid "Open Advanced Search"
-msgstr "Gelişmiş Arama"
+msgstr "Gelişmiş Aramayı Aç"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:96
 #, kde-format
 msgid "Run Now"
-msgstr ""
+msgstr "Şimdi Çalıştır"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:140
 #, kde-format
@@ -64080,19 +64083,19 @@ msgid "Edit..."
 msgstr "Düzenle…"
 
 #: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:89
-#, fuzzy, kde-format
-#| msgid "Imported %1"
+#, kde-format
 msgid ""
 "Interpreted as:\n"
 "%1"
-msgstr "İçe aktarıldı: %1"
+msgstr ""
+"Şöyle yorumlandı:\n"
+"%1"
 
 #: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:123
 #: core/utilities/searchwindow/view/searchwindow_slots.cpp:180
-#, fuzzy, kde-format
-#| msgid "Printing canceled"
+#, kde-format
 msgid "Interpretation cancelled."
-msgstr "Baskı iptal edildi"
+msgstr "Yorumlama iptal edildi."
 
 #: core/utilities/searchwindow/view/searchtabheader_p.cpp:62
 #, kde-format
@@ -64116,21 +64119,19 @@ msgid "Try"
 msgstr "Dene"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:37
-#, fuzzy, kde-format
-#| msgctxt "@info: country code"
-#| msgid "Default Language"
+#, kde-format
 msgid "Natural Language Search"
-msgstr "Öntanımlı Dil"
+msgstr "Doğal dil ile arama"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:41
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
-msgstr ""
+msgstr "örneğin, Bartın’da çekilmiş keçi fotoğrafları"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:44
 #, kde-format
 msgid "Translate my query to English first"
-msgstr ""
+msgstr "Sorgumu önce İngilizceye çevir"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:46
 #, kde-format
@@ -64138,11 +64139,13 @@ msgid ""
 "When enabled, your query is translated to English before being interpreted, "
 "so you can type in your own language. Requires an internet connection."
 msgstr ""
+"Etkinleştirildiğinde, sorgunuz yorumlanmadan önce İngilizceye çevirilir; "
+"böylece kendi dilinizde yazabilirsiniz. Bir internet bağlantısı gerektirir."
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:84
 #, kde-format
 msgid "Open the Natural Language Search handbook"
-msgstr ""
+msgstr "Doğal dil ile arama el kitabını açın"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:113
 #, kde-format
@@ -64152,17 +64155,20 @@ msgid ""
 "language model that runs locally on your computer, with no internet "
 "connection required once downloaded."
 msgstr ""
+"Doğal dil ile arama, görselleri kendi sözcükleriniz ile söze dökerek "
+"bulmanızı sağlar; örneğin, “Bartın’da çekilmiş keçi fotoğrafları” gibi. Bir "
+"kez indirildikten sonra herhangi bir internet bağlantısı gerektirmeyen, "
+"tümüyle bilgisayarınızda çalışan bir dil modeli kullanır."
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:121
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
-msgstr ""
+msgstr "Doğal dil ile arama modeli henüz indirilmedi."
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:125
-#, fuzzy, kde-format
-#| msgid "Download Route"
+#, kde-format
 msgid "Download Model..."
-msgstr "Rota indir"
+msgstr "Model İndir…"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:169
 #, kde-format
@@ -64171,16 +64177,14 @@ msgid "Advanced Search"
 msgstr "Gelişmiş Arama"
 
 #: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:70
-#, fuzzy, kde-format
-#| msgid "Loading themes..."
+#, kde-format
 msgid "Loading the language model... %1%"
-msgstr "Temalar yükleniyor…"
+msgstr "Dil modeli yükleniyor… %​%1"
 
 #: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:96
-#, fuzzy, kde-format
-#| msgid "Edit Current Search..."
+#, kde-format
 msgid "Interpreting the search..."
-msgstr "Geçerli Aramayı Düzenle…"
+msgstr "Arama yorumlanıyor…"
 
 #: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:140
 #, kde-format
@@ -64189,6 +64193,8 @@ msgid ""
 "None of that could be turned into a search. Try describing tags, dates, "
 "ratings, labels, people, or places."
 msgstr ""
+"Bunların hiçbiri bir arama ifadesine dönüştürülemedi. Künyeleri, tarihleri, "
+"derecelendirmeyi, etiketleri, kişileri veya yerleri belirtmeyi deneyin."
 
 #: core/utilities/setup/album/setupalbumview.cpp:46
 #, kde-format
@@ -65810,10 +65816,9 @@ msgid "Use AutoTags Assignment feature"
 msgstr "Kendiliğinden künye atama özelliğini kullan"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:81
-#, fuzzy, kde-format
-#| msgid "Use Face Management feature"
+#, kde-format
 msgid "Use Natural Language Search feature"
-msgstr "Yüz yönetimi özelliğini kullan"
+msgstr "Doğal dil ile arama özelliğini kullan"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:290
 #, kde-format
@@ -65878,13 +65883,7 @@ msgid "File on the server is too large."
 msgstr "Sunucudaki dosya pek büyük."
 
 #: core/utilities/setup/downloader/filesdownloader_slots.cpp:258
-#, fuzzy, kde-format
-#| msgid ""
-#| "<p>digiKam relies on large binary model files to power features like face "
-#| "management, image classification based on aesthetics, AI AutoTools such "
-#| "as automatic image rotation, and automatic tag assignment. You have the "
-#| "option to select the specific features you want to enable.</p><p><b>Note:"
-#| "</b> The red-eye removal tool requires face management model files.</p>"
+#, kde-format
 msgid ""
 "<p>digiKam relies on large binary model files to power features like face "
 "management, image classification based on aesthetics, AI AutoTools such as "
@@ -65893,8 +65892,8 @@ msgid ""
 "enable.</p><p><b>Note:</b> The red-eye removal tool requires face management "
 "model files.</p>"
 msgstr ""
-"<p>digiKam; yüz yönetimi, estetiğe dayalı görüntü sınıflandırması, "
-"kendiliğinden görsel döndürme gibi yapay zekâ destekli araçlar ve "
+"<p>digiKam; yüz yönetimi, estetiğe dayalı görüntü sınıflandırması, doğal dil "
+"ile arama, kendiliğinden görsel döndürme gibi yapay zekâ destekli araçlar ve "
 "kendiliğinden künye atama gibi özellikler için büyük ikili model dosyalarına "
 "dayanır. Etkinleştirmek istediğiniz belirli özellikleri seçme seçeneğiniz "
 "vardır.</p><p><b>Not:</b> Kırmızı göz giderme aracı, yüz yönetimi modeli "
