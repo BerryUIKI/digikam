@@ -158,6 +158,14 @@ void SurveyWindow::setupActions()
     ac->setDefaultShortcut(altBackwardAction, Qt::SHIFT | Qt::Key_Space);
     connect(altBackwardAction, SIGNAL(triggered()), this, SLOT(slotBackward()));
 
+    QAction* const playPauseVideoAction = new QAction(QIcon::fromTheme(QLatin1String("media-playback-start")), i18n("Play/Pause Video"), this);
+    ac->addAction(QLatin1String("survey_playpause"), playPauseVideoAction);
+
+    // No default shortcut on purpose, so the action shows up as "None"
+    // in the keyboard shortcuts dialog, ready to be customized by the user.
+
+    connect(playPauseVideoAction, SIGNAL(triggered()), this, SLOT(slotPlayPauseVideo()));
+
     // Labels shortcuts must be registered here to be saved in XML GUI files if user customize it.
 
     TagsActionMngr::defaultManager()->registerLabelsActions(ac);

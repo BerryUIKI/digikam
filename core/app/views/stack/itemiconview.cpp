@@ -289,6 +289,9 @@ void ItemIconView::setupConnections()
     connect(d->parent, SIGNAL(signalLastItem()),
             this, SLOT(slotLastItem()));
 
+    connect(d->parent, SIGNAL(signalPlayPauseVideo()),
+            this, SLOT(slotPlayPauseVideo()));
+
     connect(d->parent, SIGNAL(signalCutAlbumItemsSelection()),
             d->iconView, SLOT(cut()));
 

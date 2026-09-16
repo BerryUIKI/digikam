@@ -74,6 +74,7 @@ Q_SIGNALS:
     void signalPrevItem();
     void signalFirstItem();
     void signalLastItem();
+    void signalPlayPauseVideo();
     void signalCutAlbumItemsSelection();
     void signalCopyAlbumItemsSelection();
     void signalPasteAlbumItemsSelection();

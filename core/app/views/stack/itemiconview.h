@@ -387,6 +387,7 @@ private Q_SLOTS:
     void slotPrevItem();
     void slotNextItem();
     void slotLastItem();
+    void slotPlayPauseVideo();
     void slotSelectItemByUrl(const QUrl&);
     void slotAwayFromSelection();
     void slotImageSelected();

@@ -1001,6 +1001,15 @@ void DigikamApp::setupAccelerators()
     ac->setDefaultShortcut(lastImageAction, Qt::CTRL | Qt::Key_End);
     connect(lastImageAction, SIGNAL(triggered()), this, SIGNAL(signalLastItem()));
 
+    QAction* const playPauseVideoAction = new QAction(QIcon::fromTheme(QLatin1String("media-playback-start")),
+                                                     i18nc("@action: setup", "Play/Pause Video"), this);
+    ac->addAction(QLatin1String("preview_playpause"), playPauseVideoAction);
+
+    // NOTE: no default shortcut on purpose, so the action shows up as "None"
+    // in the keyboard shortcuts dialog, ready to be customized by the user.
+
+    connect(playPauseVideoAction, SIGNAL(triggered()), this, SIGNAL(signalPlayPauseVideo()));
+
     d->cutItemsAction = new QAction(i18nc("@action: setup", "Cu&t"), this);
     d->cutItemsAction->setIcon(QIcon::fromTheme(QLatin1String("edit-cut")));
     d->cutItemsAction->setWhatsThis(i18nc("@action: setup", "Cut selection to clipboard"));

@@ -277,6 +277,29 @@ void SurveyWindow::slotForward()
     d->stack->thumbBar()->toNextIndex();
 }
 
+void SurveyWindow::slotPlayPauseVideo()
+{
+#ifdef HAVE_MEDIAPLAYER
+
+    if (d->stack->viewMode() == SurveyStack::MediaPlayerMode)
+    {
+        // Use the public play action instead of reaching into the player internals.
+
+        const QList<QAction*> actions = d->stack->mediaPlayerView()->actionsList();
+
+        for (QAction* const action : actions)
+        {
+            if (action->objectName() == QLatin1String("play"))
+            {
+                action->trigger();
+                break;
+            }
+        }
+    }
+
+#endif // HAVE_MEDIAPLAYER
+}
+
 void SurveyWindow::slotFirst()
 {
     d->stack->thumbBar()->toFirstIndex();

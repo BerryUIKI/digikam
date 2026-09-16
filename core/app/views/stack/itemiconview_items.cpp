@@ -120,6 +120,29 @@ void ItemIconView::slotLastItem()
     }
 }
 
+void ItemIconView::slotPlayPauseVideo()
+{
+#ifdef HAVE_MEDIAPLAYER
+
+    if (viewMode() == StackedView::MediaPlayerMode)
+    {
+        // Use the public play action instead of reaching into the player internals.
+
+        const QList<QAction*> actions = d->stackedView->mediaPlayerView()->actionsList();
+
+        for (QAction* const action : actions)
+        {
+            if (action->objectName() == QLatin1String("play"))
+            {
+                action->trigger();
+                break;
+            }
+        }
+    }
+
+#endif // HAVE_MEDIAPLAYER
+}
+
 void ItemIconView::slotSelectItemByUrl(const QUrl& url)
 {
     /// @todo This functions seems not to be used anywhere right now

@@ -91,6 +91,7 @@ private Q_SLOTS:
     void slotForward();
     void slotFirst();
     void slotLast();
+    void slotPlayPauseVideo();
 
     void slotZoomFactorChanged(double);
 
