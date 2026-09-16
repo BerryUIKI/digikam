@@ -310,7 +310,7 @@ bool CoreDbUrl::isSearchUrl() const
 
 QUrl CoreDbUrl::albumRoot() const
 {
-    QString albumRoot = QUrlQuery(*this).queryItemValue(QLatin1String("albumRoot"));
+    QString albumRoot = QUrlQuery(*this).queryItemValue(QLatin1String("albumRoot"), QUrl::FullyDecoded);
 
     if (!albumRoot.isNull())
     {
@@ -322,7 +322,7 @@ QUrl CoreDbUrl::albumRoot() const
 
 QString CoreDbUrl::albumRootPath() const
 {
-    return (QUrlQuery(*this).queryItemValue(QLatin1String("albumRoot")));
+    return (QUrlQuery(*this).queryItemValue(QLatin1String("albumRoot"), QUrl::FullyDecoded));
 }
 
 int CoreDbUrl::albumRootId() const

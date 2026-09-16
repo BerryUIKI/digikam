@@ -414,12 +414,9 @@ PAlbum* AlbumManager::createPAlbum(PAlbum*        parent,
         child = static_cast<PAlbum*>(child->next());
     }
 
-    CoreDbUrl url   = parent->databaseUrl();
-    url             = url.adjusted(QUrl::StripTrailingSlash);
-    url.setPath(url.path() + QLatin1Char('/') + name);
-    QUrl fileUrl    = url.fileUrl();
-
-    bool ret        = QDir().mkpath(fileUrl.toLocalFile());
+    QUrl fileUrl = parent->databaseUrl().fileUrl().adjusted(QUrl::StripTrailingSlash);
+    fileUrl.setPath(fileUrl.path() + QLatin1Char('/') + name);
+    bool ret     = QDir().mkpath(fileUrl.toLocalFile());
 
     if (!ret)
     {
