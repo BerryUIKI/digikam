@@ -414,7 +414,7 @@ PAlbum* AlbumManager::createPAlbum(PAlbum*        parent,
         child = static_cast<PAlbum*>(child->next());
     }
 
-    QUrl fileUrl = parent->databaseUrl().fileUrl().adjusted(QUrl::StripTrailingSlash);
+    QUrl fileUrl = parent->fileUrl().adjusted(QUrl::StripTrailingSlash);
     fileUrl.setPath(fileUrl.path() + QLatin1Char('/') + name);
     bool ret     = QDir().mkpath(fileUrl.toLocalFile());
 
