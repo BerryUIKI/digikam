@@ -92,7 +92,7 @@ class NameRecordingJob : public ActionJob
 
 public:
 
-    NameRecordingJob(QObject* const parent = nullptr)
+    explicit NameRecordingJob(QObject* const parent = nullptr)
         : ActionJob(parent)
     {
     }
@@ -119,7 +119,7 @@ class FallbackTestJob : public NameRecordingJob
 
 public:
 
-    FallbackTestJob(QObject* const parent = nullptr)
+    explicit FallbackTestJob(QObject* const parent = nullptr)
         : NameRecordingJob(parent)
     {
     }
@@ -134,7 +134,7 @@ class ScopedTestJob : public NameRecordingJob
 
 public:
 
-    ScopedTestJob(QObject* const parent = nullptr)
+    explicit ScopedTestJob(QObject* const parent = nullptr)
         : NameRecordingJob(parent)
     {
     }
@@ -150,7 +150,7 @@ class ActionJobTest : public QObject
 
 public:
 
-    ActionJobTest(QObject* const parent = nullptr)
+    explicit ActionJobTest(QObject* const parent = nullptr)
         : QObject(parent)
     {
     }

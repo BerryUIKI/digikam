@@ -47,7 +47,7 @@ class NlSearchPipelineTest : public QObject
 
 public:
 
-    NlSearchPipelineTest(QObject* const parent = nullptr)
+    explicit NlSearchPipelineTest(QObject* const parent = nullptr)
         : QObject(parent)
     {
     }
@@ -106,7 +106,7 @@ private Q_SLOTS:
 
         const auto intent = readySpy.takeFirst().at(0).value<SearchQueryIntent>();
 
-        QCOMPARE(intent.constraints.size(), 2);
+        QCOMPARE(intent.constraints.size(),      2);
         QCOMPARE(intent.constraints.at(0).field, QLatin1String("tag"));
         QCOMPARE(intent.constraints.at(1).field, QLatin1String("colorlabel"));
         QCOMPARE(intent.constraints.at(1).value, QLatin1String("red"));
@@ -129,7 +129,7 @@ private Q_SLOTS:
         QSignalSpy readySpy(&engine, &SearchQueryEngine::signalIntentReady);
 
         engine.slotInterpretQuery(QLatin1String("best photos from last summer"),
-                              QString());
+                                  QString());
 
         QVERIFY(clarSpy.wait(2000));
         QCOMPARE(readySpy.count(), 0);
@@ -194,16 +194,18 @@ private Q_SLOTS:
     {
         SearchIntentParser parser;
 
-        const auto intent = parser.parse("not json at all { broken",
-                                         QLatin1String("q"), QLatin1String("q")
-        );
+        const auto intent = parser.parse(
+                                         "not json at all { broken",
+                                         QLatin1String("q"),
+                                         QLatin1String("q")
+                                        );
 
         QVERIFY(!intent.parseSucceeded);
 
         const auto intent2 = parser.parse(
-            R"({ "constraints": [ { "field": "droptable", "op": "eq", "value": "x" } ] })",
-            QLatin1String("q"), QLatin1String("q")
-        );
+                                          R"({ "constraints": [ { "field": "droptable", "op": "eq", "value": "x" } ] })",
+                                          QLatin1String("q"), QLatin1String("q")
+                                         );
 
         QVERIFY(!intent2.parseSucceeded);
     }
@@ -215,16 +217,17 @@ private Q_SLOTS:
 
         SearchIntentParser parser;
 
-        const QByteArray json =
-            QByteArrayLiteral("{\"constraints\":[{\"field\":\"rating\","
-                              "\"op\":\"eq\",\"value\":5}]}");
+        const QByteArray json = QByteArrayLiteral("{\"constraints\":[{\"field\":\"rating\","
+                                                  "\"op\":\"eq\",\"value\":5}]}");
 
-        const SearchQueryIntent intent = parser.parse(json,
+        const SearchQueryIntent intent = parser.parse(
+                                                      json,
                                                       QLatin1String("five star photos"),
-                                                      QLatin1String("five star photos"));
+                                                      QLatin1String("five star photos")
+                                                     );
 
         QVERIFY(intent.parseSucceeded);
-        QCOMPARE(intent.constraints.size(), 1);
+        QCOMPARE(intent.constraints.size(),        1);
         QCOMPARE(intent.constraints.first().field, QLatin1String("rating"));
         QCOMPARE(intent.constraints.first().op,    QLatin1String("eq"));
         QCOMPARE(intent.constraints.first().value, QLatin1String("5"));
@@ -237,20 +240,20 @@ private Q_SLOTS:
 
         SearchIntentParser parser;
 
-        const QByteArray json =
-            QByteArrayLiteral("{\"constraints\":[{\"field\":\"daterange\","
-                              "\"op\":\"between\","
-                              "\"value\":\"2023-01-01..2023-12-31\"}]}");
+        const QByteArray json = QByteArrayLiteral("{\"constraints\":[{\"field\":\"daterange\","
+                                                  "\"op\":\"between\","
+                                                  "\"value\":\"2023-01-01..2023-12-31\"}]}");
 
-        const SearchQueryIntent intent = parser.parse(json,
+        const SearchQueryIntent intent = parser.parse(
+                                                      json,
                                                       QLatin1String("photos from 2023"),
-                                                      QLatin1String("photos from 2023"));
+                                                      QLatin1String("photos from 2023")
+                                                     );
 
         QVERIFY(intent.parseSucceeded);
-        QCOMPARE(intent.constraints.size(), 1);
+        QCOMPARE(intent.constraints.size(),        1);
         QCOMPARE(intent.constraints.first().op,    QLatin1String("between"));
-        QCOMPARE(intent.constraints.first().value,
-                 QLatin1String("2023-01-01..2023-12-31"));
+        QCOMPARE(intent.constraints.first().value, QLatin1String("2023-01-01..2023-12-31"));
     }
 
         void testVideoDurationParses()
@@ -261,17 +264,18 @@ private Q_SLOTS:
 
         SearchIntentParser parser;
 
-        const QByteArray json =
-            QByteArrayLiteral("{\"constraints\":[{\"field\":\"videoduration\","
-                              "\"op\":\"between\","
-                              "\"value\":\"300..99999\"}]}");
+        const QByteArray json = QByteArrayLiteral("{\"constraints\":[{\"field\":\"videoduration\","
+                                                  "\"op\":\"between\","
+                                                  "\"value\":\"300..99999\"}]}");
 
-        const SearchQueryIntent intent = parser.parse(json,
+        const SearchQueryIntent intent = parser.parse(
+                                                      json,
                                                       QLatin1String("videos longer than 5 minutes"),
-                                                      QLatin1String("videos longer than 5 minutes"));
+                                                      QLatin1String("videos longer than 5 minutes")
+                                                     );
 
         QVERIFY(intent.parseSucceeded);
-        QCOMPARE(intent.constraints.size(), 1);
+        QCOMPARE(intent.constraints.size(),        1);
         QCOMPARE(intent.constraints.first().field, QLatin1String("videoduration"));
         QCOMPARE(intent.constraints.first().op,    QLatin1String("between"));
         QCOMPARE(intent.constraints.first().value, QLatin1String("300..99999"));
@@ -283,17 +287,18 @@ private Q_SLOTS:
 
         SearchIntentParser parser;
 
-        const QByteArray json =
-            QByteArrayLiteral("{\"constraints\":[{\"field\":\"format\","
-                              "\"op\":\"eq\","
-                              "\"value\":\"raw\"}]}");
+        const QByteArray json = QByteArrayLiteral("{\"constraints\":[{\"field\":\"format\","
+                                                  "\"op\":\"eq\","
+                                                  "\"value\":\"raw\"}]}");
 
-        const SearchQueryIntent intent = parser.parse(json,
+        const SearchQueryIntent intent = parser.parse(
+                                                      json,
                                                       QLatin1String("raw files"),
-                                                      QLatin1String("raw files"));
+                                                      QLatin1String("raw files")
+                                                     );
 
         QVERIFY(intent.parseSucceeded);
-        QCOMPARE(intent.constraints.size(), 1);
+        QCOMPARE(intent.constraints.size(),        1);
         QCOMPARE(intent.constraints.first().field, QLatin1String("format"));
         QCOMPARE(intent.constraints.first().value, QLatin1String("raw"));
     }
@@ -363,8 +368,15 @@ private Q_SLOTS:
 
         for (const SearchQueryConstraint& c : intent.constraints)
         {
-            if (c.field == QLatin1String("daterange")) { hasDate   = true; }
-            if (c.field == QLatin1String("rating"))    { hasRating = true; }
+            if (c.field == QLatin1String("daterange"))
+            {
+                hasDate   = true;
+            }
+
+            if (c.field == QLatin1String("rating"))
+            {
+                hasRating = true;
+            }
         }
 
         QVERIFY(hasDate);
