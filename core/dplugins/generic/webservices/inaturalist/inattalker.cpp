@@ -105,8 +105,8 @@ inline const QString& PER_PAGE()
 
 inline const QString& LOCALE()
 {
-    static const QString locale = QLatin1String("locale");
-    return locale;
+    static const QString _locale = QLatin1String("locale");
+    return _locale;
 }
 
 inline const QString& RESULTS()
