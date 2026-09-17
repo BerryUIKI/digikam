@@ -137,10 +137,12 @@ SystemSettingsWidget::SystemSettingsWidget(QWidget* const parent)
 
     d->enableOpenCLCheck      = new QCheckBox(i18n("Use OpenCL hardware acceleration"), this);
     d->enableOpenCLCheck->setToolTip(i18n("This option is still experimental and "
-                                          "requires that certain environment variables are set manually."));
+                                          "requires that certain environment variables are set manually. "
+                                          "See the online documentation for details."));
     d->enableOpenCLDNNCheck   = new QCheckBox(i18n("Use OpenCL acceleration for AI models"), this);
     d->enableOpenCLDNNCheck->setToolTip(i18n("This option is still experimental and "
-                                             "may lead to crashes if the proper drivers are not installed."));
+                                             "may lead to crashes if the proper drivers are not installed. "
+                                             "See the online documentation for details."));
 
     d->openCLDNNTest          = new QPushButton(i18n("Test GPU AI compatibility"), this);
     d->openCLDNNTest->setIcon(QIcon::fromTheme(QLatin1String("show-gpu-effects")));
@@ -258,9 +260,14 @@ SystemSettingsWidget::SystemSettingsWidget(QWidget* const parent)
             this, &SystemSettingsWidget::slotOpenLocalStorage);
 
     connect(d->enableOpenCLCheck, &QCheckBox::toggled,
-            d->enableOpenCLDNNCheck, &QCheckBox::setEnabled);
+            this, [this](bool b)
+        {
+            d->enableOpenCLDNNCheck->setEnabled(b);
+            d->openCLDNNTest->setEnabled(d->enableOpenCLDNNCheck->isChecked() && b);
+        }
+    );
 
-    connect(d->enableOpenCLCheck, &QCheckBox::toggled,
+    connect(d->enableOpenCLDNNCheck, &QCheckBox::toggled,
             d->openCLDNNTest, &QPushButton::setEnabled);
 
     connect(d->openCLDNNTest, &QPushButton::pressed,
