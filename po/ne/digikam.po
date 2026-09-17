@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:42+0000\n"
+"POT-Creation-Date: 2026-09-17 00:41+0000\n"
 "PO-Revision-Date: 2007-08-19 14:42+0545\n"
 "Last-Translator: Nabin Gautam <nabin@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -26616,18 +26616,18 @@ msgstr ""
 msgid "An existing album has the same name."
 msgstr "सोहि नामको अर्को एल्बम अवस्थित छ ।"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:426
+#: core/libs/album/manager/albummanager_palbum.cpp:423
 #, fuzzy, kde-format
 msgid "Failed to create directory '%1'"
 msgstr "एल्बम पुन: नामकरण गर्न असफल"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:435
+#: core/libs/album/manager/albummanager_palbum.cpp:432
 #, kde-format
 msgid "Failed to add album to database"
 msgstr "डाटाबेसमा एल्बम थप्न असफल"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:462
-#: core/libs/album/manager/albummanager_palbum.cpp:549
+#: core/libs/album/manager/albummanager_palbum.cpp:459
+#: core/libs/album/manager/albummanager_palbum.cpp:546
 #: core/libs/album/manager/albummanager_talbum.cpp:366
 #: core/libs/album/manager/albummanager_talbum.cpp:464
 #: core/libs/album/manager/albummanager_talbum.cpp:504
@@ -26636,22 +26636,22 @@ msgstr "डाटाबेसमा एल्बम थप्न असफल"
 msgid "No such album"
 msgstr "त्यस्तो एल्बम छैन"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:468
+#: core/libs/album/manager/albummanager_palbum.cpp:465
 #, kde-format
 msgid "Cannot rename root album"
 msgstr "रूट एल्बम पुन: नामकरण गर्न सकिदैन"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:474
+#: core/libs/album/manager/albummanager_palbum.cpp:471
 #, fuzzy, kde-format
 msgid "Cannot rename album root album"
 msgstr "रूट एल्बम पुन: नामकरण गर्न सकिदैन"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:480
+#: core/libs/album/manager/albummanager_palbum.cpp:477
 #, kde-format
 msgid "Album name cannot contain '/'"
 msgstr "एल्बम नाममा '/' हुनु हुँदैन"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:488
+#: core/libs/album/manager/albummanager_palbum.cpp:485
 #, fuzzy, kde-format
 msgid ""
 "Another album with the same name already exists.\n"
@@ -26660,12 +26660,12 @@ msgstr ""
 "सोहि नामको अर्को एल्बम अवस्थित छ \n"
 "कृपया अर्को नाम छनोट गर्नुहोस्"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:507
+#: core/libs/album/manager/albummanager_palbum.cpp:504
 #, kde-format
 msgid "Failed to rename Album"
 msgstr "एल्बम पुन: नामकरण गर्न असफल"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:555
+#: core/libs/album/manager/albummanager_palbum.cpp:552
 #, kde-format
 msgid "Cannot edit root album"
 msgstr "रूट एल्बम सम्पादन गर्न सकिदैन"

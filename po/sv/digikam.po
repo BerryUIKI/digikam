@@ -43,7 +43,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:42+0000\n"
+"POT-Creation-Date: 2026-09-17 00:41+0000\n"
 "PO-Revision-Date: 2026-09-12 08:50+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -27576,18 +27576,18 @@ msgstr "createPAlbum accepterar inte rotalbumet som överliggande album."
 msgid "An existing album has the same name."
 msgstr "Ett befintligt album har samma namn."
 
-#: core/libs/album/manager/albummanager_palbum.cpp:426
+#: core/libs/album/manager/albummanager_palbum.cpp:423
 #, kde-format
 msgid "Failed to create directory '%1'"
 msgstr "Misslyckades skapa katalog '%1'"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:435
+#: core/libs/album/manager/albummanager_palbum.cpp:432
 #, kde-format
 msgid "Failed to add album to database"
 msgstr "Misslyckades med att lägga till album i databasen"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:462
-#: core/libs/album/manager/albummanager_palbum.cpp:549
+#: core/libs/album/manager/albummanager_palbum.cpp:459
+#: core/libs/album/manager/albummanager_palbum.cpp:546
 #: core/libs/album/manager/albummanager_talbum.cpp:366
 #: core/libs/album/manager/albummanager_talbum.cpp:464
 #: core/libs/album/manager/albummanager_talbum.cpp:504
@@ -27596,22 +27596,22 @@ msgstr "Misslyckades med att lägga till album i databasen"
 msgid "No such album"
 msgstr "Album finns inte"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:468
+#: core/libs/album/manager/albummanager_palbum.cpp:465
 #, kde-format
 msgid "Cannot rename root album"
 msgstr "Kan inte byta namn på rotalbum"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:474
+#: core/libs/album/manager/albummanager_palbum.cpp:471
 #, kde-format
 msgid "Cannot rename album root album"
 msgstr "Kan inte byta namn på rotalbum"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:480
+#: core/libs/album/manager/albummanager_palbum.cpp:477
 #, kde-format
 msgid "Album name cannot contain '/'"
 msgstr "Albumnamn kan inte innehålla '/'"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:488
+#: core/libs/album/manager/albummanager_palbum.cpp:485
 #, kde-format
 msgid ""
 "Another album with the same name already exists.\n"
@@ -27620,12 +27620,12 @@ msgstr ""
 "Ett annat album med samma namn finns redan.\n"
 "Välj ett annat namn."
 
-#: core/libs/album/manager/albummanager_palbum.cpp:507
+#: core/libs/album/manager/albummanager_palbum.cpp:504
 #, kde-format
 msgid "Failed to rename Album"
 msgstr "Misslyckades byta namn på album"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:555
+#: core/libs/album/manager/albummanager_palbum.cpp:552
 #, kde-format
 msgid "Cannot edit root album"
 msgstr "Kan inte redigera rotalbum"

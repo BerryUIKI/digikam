@@ -40,7 +40,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: KDE 4.3\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:42+0000\n"
+"POT-Creation-Date: 2026-09-17 00:41+0000\n"
 "PO-Revision-Date: 2026-09-15 08:34+0200\n"
 "Last-Translator: Benedek Péter <benedekppeter@gmail.com>\n"
 "Language-Team: Hungarian <kde-l10n-hu@kde.org>\n"
@@ -27657,18 +27657,18 @@ msgstr "createPAlbum nem fogadja el a gyökéralbumot szülőként."
 msgid "An existing album has the same name."
 msgstr "Egy már létező albumnak ugyanez a neve."
 
-#: core/libs/album/manager/albummanager_palbum.cpp:426
+#: core/libs/album/manager/albummanager_palbum.cpp:423
 #, kde-format
 msgid "Failed to create directory '%1'"
 msgstr "Nem sikerült létrehozni a(z) '%1' könyvtárat"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:435
+#: core/libs/album/manager/albummanager_palbum.cpp:432
 #, kde-format
 msgid "Failed to add album to database"
 msgstr "Album hozzáadása az adatbázishoz sikertelen"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:462
-#: core/libs/album/manager/albummanager_palbum.cpp:549
+#: core/libs/album/manager/albummanager_palbum.cpp:459
+#: core/libs/album/manager/albummanager_palbum.cpp:546
 #: core/libs/album/manager/albummanager_talbum.cpp:366
 #: core/libs/album/manager/albummanager_talbum.cpp:464
 #: core/libs/album/manager/albummanager_talbum.cpp:504
@@ -27677,22 +27677,22 @@ msgstr "Album hozzáadása az adatbázishoz sikertelen"
 msgid "No such album"
 msgstr "Nincs ilyen album"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:468
+#: core/libs/album/manager/albummanager_palbum.cpp:465
 #, kde-format
 msgid "Cannot rename root album"
 msgstr "Nem nevezhető át a gyökéralbum"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:474
+#: core/libs/album/manager/albummanager_palbum.cpp:471
 #, kde-format
 msgid "Cannot rename album root album"
 msgstr "Az album gyökéralbuma nem nevezhető át"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:480
+#: core/libs/album/manager/albummanager_palbum.cpp:477
 #, kde-format
 msgid "Album name cannot contain '/'"
 msgstr "Az album neve nem tartalmazhat ’/’ karaktert"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:488
+#: core/libs/album/manager/albummanager_palbum.cpp:485
 #, kde-format
 msgid ""
 "Another album with the same name already exists.\n"
@@ -27701,12 +27701,12 @@ msgstr ""
 "Már létezik egy másik album ugyanezzel a névvel.\n"
 "Kérjük, válasszon másik nevet."
 
-#: core/libs/album/manager/albummanager_palbum.cpp:507
+#: core/libs/album/manager/albummanager_palbum.cpp:504
 #, kde-format
 msgid "Failed to rename Album"
 msgstr "Album átnevezése sikertelen"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:555
+#: core/libs/album/manager/albummanager_palbum.cpp:552
 #, kde-format
 msgid "Cannot edit root album"
 msgstr "A gyökéralbum nem szerkeszthető"

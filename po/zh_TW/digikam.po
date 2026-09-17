@@ -33,7 +33,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-12 00:42+0000\n"
+"POT-Creation-Date: 2026-09-17 00:41+0000\n"
 "PO-Revision-Date: 2026-06-11 17:01+0900\n"
 "Last-Translator: Kisaragi Hiu <mail@kisaragi-hiu.com>\n"
 "Language-Team: Traditional Chinese <zh-l10n@lists.slat.org>\n"
@@ -27625,18 +27625,18 @@ msgstr "createPAlbum 不接受根相簿作為母層。"
 msgid "An existing album has the same name."
 msgstr "已經存在一個相同名稱的相簿。"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:426
+#: core/libs/album/manager/albummanager_palbum.cpp:423
 #, kde-format
 msgid "Failed to create directory '%1'"
 msgstr "建立目錄 '%1' 失敗。"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:435
+#: core/libs/album/manager/albummanager_palbum.cpp:432
 #, kde-format
 msgid "Failed to add album to database"
 msgstr "加入相簿到資料庫時失敗"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:462
-#: core/libs/album/manager/albummanager_palbum.cpp:549
+#: core/libs/album/manager/albummanager_palbum.cpp:459
+#: core/libs/album/manager/albummanager_palbum.cpp:546
 #: core/libs/album/manager/albummanager_talbum.cpp:366
 #: core/libs/album/manager/albummanager_talbum.cpp:464
 #: core/libs/album/manager/albummanager_talbum.cpp:504
@@ -27645,22 +27645,22 @@ msgstr "加入相簿到資料庫時失敗"
 msgid "No such album"
 msgstr "無此相簿"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:468
+#: core/libs/album/manager/albummanager_palbum.cpp:465
 #, kde-format
 msgid "Cannot rename root album"
 msgstr "無法重新命名根相簿"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:474
+#: core/libs/album/manager/albummanager_palbum.cpp:471
 #, kde-format
 msgid "Cannot rename album root album"
 msgstr "無法重新命名根相簿"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:480
+#: core/libs/album/manager/albummanager_palbum.cpp:477
 #, kde-format
 msgid "Album name cannot contain '/'"
 msgstr "相簿名稱不能包含「/」"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:488
+#: core/libs/album/manager/albummanager_palbum.cpp:485
 #, kde-format
 msgid ""
 "Another album with the same name already exists.\n"
@@ -27669,12 +27669,12 @@ msgstr ""
 "另一個相同名稱的相簿已經存在。\n"
 "請另選一個名稱。"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:507
+#: core/libs/album/manager/albummanager_palbum.cpp:504
 #, kde-format
 msgid "Failed to rename Album"
 msgstr "重新命名相簿時失敗"
 
-#: core/libs/album/manager/albummanager_palbum.cpp:555
+#: core/libs/album/manager/albummanager_palbum.cpp:552
 #, kde-format
 msgid "Cannot edit root album"
 msgstr "無法編輯根相簿"
