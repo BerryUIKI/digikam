@@ -72,17 +72,22 @@ double FacePipelineBase::detectNoise1(const cv::Mat& cvGrayImage) const
 
 double FacePipelineBase::detectNoise2(const cv::Mat& cvGrayImage) const
 {
-    int H        = cvGrayImage.rows;
-    int W        = cvGrayImage.cols;
-    cv::Mat M    = (cv::Mat_<double>(3, 3) <<  1, -2,  1,
-                                              -2,  4, -2,
-                                               1, -2,  1);
+    int H               = cvGrayImage.rows;
+    int W               = cvGrayImage.cols;
+
+    double kernelData[] = {
+                             1, -2,  1,
+                            -2,  4, -2,
+                             1, -2,  1
+                          };
+
+    cv::Mat M(3, 3, CV_64F, kernelData);
 
     cv::Mat convolved;
     cv::filter2D(cvGrayImage, convolved, CV_64F, M);
 
-    double sigma = cv::sum(cv::abs(convolved))[0];
-    sigma        = sigma * std::sqrt(0.5 * M_PI) / (6 * (W - 2) * (H - 2));
+    double sigma        = cv::sum(cv::abs(convolved))[0];
+    sigma               = sigma * std::sqrt(0.5 * M_PI) / (6 * (W - 2) * (H - 2));
 
     return sigma;
 }
