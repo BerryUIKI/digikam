@@ -134,7 +134,7 @@ protected:
 
 protected:
 
-    int m[2][2] = { 0 };
+    int m[2][2] = {{ 0 }};
 };
 
 } // namespace Digikam
