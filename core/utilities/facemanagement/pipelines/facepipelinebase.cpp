@@ -65,7 +65,7 @@ double FacePipelineBase::detectNoise1(const cv::Mat& cvGrayImage) const
     cv::Mat mean, stddev;
     cv::meanStdDev(noise, mean, stddev);
 
-    double noiseLevel = stddev.at<double>(0, 0);
+    double noiseLevel = stddev.at<double>(0.0, 0.0);
 
     return noiseLevel;
 }
@@ -76,9 +76,9 @@ double FacePipelineBase::detectNoise2(const cv::Mat& cvGrayImage) const
     int W               = cvGrayImage.cols;
 
     double kernelData[] = {
-                             1, -2,  1,
-                            -2,  4, -2,
-                             1, -2,  1
+                             1.0, -2.0,  1.0,
+                            -2.0,  4.0, -2.0,
+                             1.0, -2.0,  1.0
                           };
 
     cv::Mat M(3, 3, CV_64F, kernelData);

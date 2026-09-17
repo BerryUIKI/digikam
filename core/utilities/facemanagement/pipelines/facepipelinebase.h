@@ -82,7 +82,7 @@ public:
 protected:
 
     DNNModelBase*               detectorModel       = nullptr;
-    double                      blurThreshold       = 4.87F;
+    double                      blurThreshold       = 4.87;
     double                      noiseThreshold1     = 3.7;
     double                      noiseThreshold2     = 1.89;
     const float                 minThumbnailSize    = 0.4F;
@@ -93,7 +93,8 @@ protected:
 
     double detectNoise1(const cv::Mat& cvGrayImage) const;
     double detectNoise2(const cv::Mat& cvGrayImage) const;
-    double detectBlur(const cv::Mat& cvGrayImage) const;
+    double detectBlur(const cv::Mat& cvGrayImage)   const;
+
     bool useForTraining(const QSize& faceSize, const cv::Mat& image);
 
     bool commonFaceThumbnailLoader(const QString& pipelineName,
