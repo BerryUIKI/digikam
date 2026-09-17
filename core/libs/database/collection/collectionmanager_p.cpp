@@ -270,7 +270,7 @@ QString CollectionManager::Private::pathFromIdentifier(const AlbumRootLocation* 
         return QString();
     }
 
-    return QUrlQuery(url).queryItemValue(QLatin1String("path"));
+    return QUrlQuery(url).queryItemValue(QLatin1String("path"), QUrl::FullyDecoded);
 }
 
 QStringList CollectionManager::Private::networkShareMountPathsFromIdentifier(const AlbumRootLocation* location)
@@ -446,7 +446,7 @@ SolidVolumeInfo CollectionManager::Private::findVolumeForLocation(const AlbumRoo
 
         return SolidVolumeInfo();
     }
-    else if (!(queryItem = QUrlQuery(url).queryItemValue(QLatin1String("mountpath"))).isNull())
+    else if (!(queryItem = QUrlQuery(url).queryItemValue(QLatin1String("mountpath"), QUrl::FullyDecoded)).isNull())
     {
         for (const SolidVolumeInfo& volume : std::as_const(volumes))
         {
@@ -485,14 +485,14 @@ QString CollectionManager::Private::technicalDescription(const AlbumRootLocation
                          QDir::toNativeSeparators(albumLoc->specificPath),
                          queryItem);
         }
-        else if (!(queryItem = QUrlQuery(url).queryItemValue(QLatin1String("mountpath"))).isNull())
+        else if (!(queryItem = QUrlQuery(url).queryItemValue(QLatin1String("mountpath"), QUrl::FullyDecoded)).isNull())
         {
             return QString::fromUtf8("\"%1\"").arg(queryItem);
         }
     }
     else if (url.scheme() == QLatin1String("networkshareid"))
     {
-        if (!(queryItem =  QUrlQuery(url).queryItemValue(QLatin1String("mountpath"))).isNull())
+        if (!(queryItem =  QUrlQuery(url).queryItemValue(QLatin1String("mountpath"), QUrl::FullyDecoded)).isNull())
         {
             return i18nc("@info", "Shared directory mounted at \"%1\"", QDir::toNativeSeparators(queryItem));
         }
