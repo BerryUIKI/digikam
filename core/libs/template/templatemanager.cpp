@@ -122,9 +122,11 @@ bool TemplateManager::load()
             continue;
         }
 
-        Template             t;
-        IptcCoreLocationInfo locationInf;
-        IptcCoreContactInfo  contactInf;
+        Template               t;
+        IptcCoreLocationInfo   locationInf;
+        IptcCoreContactInfo    contactInf;
+        QStringList            list;
+        MetaEngine::AltLangMap altLang;
 
         for (QDomNode n2 = e.firstChild() ; !n2.isNull() ; n2 = n2.nextSibling())
         {
@@ -164,7 +166,7 @@ bool TemplateManager::load()
             }
             else if (name2 == QLatin1String("authors"))
             {
-                QStringList list;
+                list.clear();
 
                 for (QDomNode n3 = e2.firstChild() ; !n3.isNull() ; n3 = n3.nextSibling())
                 {
@@ -187,31 +189,31 @@ bool TemplateManager::load()
             }
             else if (name2 == QLatin1String("copyright"))
             {
-                MetaEngine::AltLangMap copyrights;
+                altLang.clear();
 
                 for (QDomNode n3 = e2.firstChild() ; !n3.isNull() ; n3 = n3.nextSibling())
                 {
                     QDomElement e3 = n3.toElement();
                     QString key    = e3.tagName();
                     QString val    = e3.attribute(QLatin1String("value"));
-                    copyrights.insert(key, val);
+                    altLang.insert(key, val);
                 }
 
-                t.setCopyright(copyrights);
+                t.setCopyright(altLang);
             }
             else if (name2 == QLatin1String("rightusageterms"))
             {
-                MetaEngine::AltLangMap usages;
+                altLang.clear();
 
                 for (QDomNode n3 = e2.firstChild() ; !n3.isNull() ; n3 = n3.nextSibling())
                 {
                     QDomElement e3 = n3.toElement();
                     QString key    = e3.tagName();
                     QString val    = e3.attribute(QLatin1String("value"));
-                    usages.insert(key, val);
+                    altLang.insert(key, val);
                 }
 
-                t.setRightUsageTerms(usages);
+                t.setRightUsageTerms(altLang);
             }
             else if (name2 == QLatin1String("locationcountry"))
             {
@@ -267,7 +269,7 @@ bool TemplateManager::load()
             }
             else if (name2 == QLatin1String("subjects"))
             {
-                QStringList list;
+                list.clear();
 
                 for (QDomNode n3 = e2.firstChild() ; !n3.isNull() ; n3 = n3.nextSibling())
                 {
