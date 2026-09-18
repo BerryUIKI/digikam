@@ -806,9 +806,10 @@ void ImportItemModel::removeRowPairs(const QList<QPair<int, int> >& toRemove)
     // Keep in mind that when calling beginRemoveRows all structures announced to be removed
     // must still be valid, and this includes our hashes as well, which limits what we can optimize
 
-    int              removedRows = 0;
-    int              offset      = 0;
-    QList<qlonglong> removeFileUrls;
+    int                removedRows = 0;
+    int                offset      = 0;
+    QList<qlonglong>   removeFileUrls;
+    QList<CamItemInfo> removedInfos;
 
     for (const IntPair& pair : std::as_const(toRemove))
     {
@@ -820,12 +821,13 @@ void ImportItemModel::removeRowPairs(const QList<QPair<int, int> >& toRemove)
 
         offset += removedRows;
 
-        QList<CamItemInfo> removedInfos;
+        removedInfos.clear();
 
         if (d->sendRemovalSignals)
         {
             // cppcheck-suppress knownEmptyContainer
             std::copy(d->infos.begin() + begin, d->infos.begin() + end, removedInfos.begin());
+
             Q_EMIT itemInfosAboutToBeRemoved(removedInfos);
         }
 

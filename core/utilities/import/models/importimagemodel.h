@@ -38,23 +38,23 @@ public:
     enum ImportItemModelRoles
     {
         /**
-         * An ImportItemModel* pointer to this model
+         * @brief An ImportItemModel pointer to this model
          */
-        ImportItemModelPointerRole = Qt::UserRole,
-        ImportItemModelInternalId  = Qt::UserRole + 1,
+        ImportItemModelPointerRole  = Qt::UserRole,
+        ImportItemModelInternalId   = Qt::UserRole + 1,
 
         /**
-         * Returns a thumbnail pixmap. May be implemented by subclasses.
-         * Returns either a valid pixmap or a null QVariant.
+         * @returns a thumbnail pixmap. May be implemented by subclasses.
+         * @returns either a valid pixmap or a null QVariant.
          */
         ThumbnailRole               = Qt::UserRole + 2,
         /**
-         * Return (optional) extraData field
+         * @return (optional) extraData field
          */
         ExtraDataRole               = Qt::UserRole + 3,
 
         /**
-         * Returns the number of duplicate indexes for the same image id
+         * @returns the number of duplicate indexes for the same image id
          */
         ExtraDataDuplicateCount     = Qt::UserRole + 6,
 
@@ -67,19 +67,19 @@ public:
     ~ImportItemModel()                                                     override;
 
     /**
-     * Used to set the camera controller, and connect with it.
+     * @brief Used to set the camera controller, and connect with it.
      */
     virtual void setCameraThumbsController(CameraThumbsCtrl* const controller);
 
     /**
-     * If a cache is kept, lookup by file path is fast,
+     * @brief If a cache is kept, lookup by file path is fast,
      * without a cache it is O(n). Default is false.
      */
     void setKeepsFileUrlCache(bool keepCache);
     bool keepsFileUrlCache() const;
 
     /**
-     * Returns the CamItemInfo object, reference from the underlying data pointed to by the index.
+     * @returns the CamItemInfo object, reference from the underlying data pointed to by the index.
      * For camItemInfo and camItemInfoId If the index is not valid they will return a null CamItemInfo, and 0
      * respectively, camItemInfoRef must not be called with an invalid index as it will crash.
      */
@@ -90,7 +90,7 @@ public:
     QList<qlonglong> camItemIds(const QList<QModelIndex>& indexes)   const;
 
     /**
-     * Returns the CamItemInfo object, reference from the underlying data of
+     * @returns the CamItemInfo object, reference from the underlying data of
      * the given row (parent is the invalid QModelIndex, column is 0).
      * Note that camItemInfoRef must not be called with an invalid index as it will crash.
      */
@@ -99,7 +99,7 @@ public:
     qlonglong    camItemId(int row)                                  const;
 
     /**
-     * Return the index of a given CamItemInfo, if it exists in the model.
+     * @return the index of a given CamItemInfo, if it exists in the model.
      */
     QModelIndex        indexForCamItemInfo(const CamItemInfo& info)   const;
     QList<QModelIndex> indexesForCamItemInfo(const CamItemInfo& info) const;
@@ -107,7 +107,7 @@ public:
     QList<QModelIndex> indexesForCamItemId(qlonglong id)              const;
 
     /**
-     * Returns the index or CamItemInfo object from the underlying data for
+     * @returns the index or CamItemInfo object from the underlying data for
      * the given file url. In case of multiple occurrences of the same file, the simpler
      * overrides returns any one found first, use the QList methods to retrieve all occurrences.
      */
@@ -117,12 +117,12 @@ public:
     QList<CamItemInfo> camItemInfos(const QUrl& fileUrl)              const;
 
     /**
-     * Clears the CamItemInfos and resets the model.
+     * @brief Clears the CamItemInfos and resets the model.
      */
     void clearCamItemInfos();
 
     /**
-     * addCamItemInfo() is asynchronous if a prepocessor is set.
+     * @brief addCamItemInfo() is asynchronous if a prepocessor is set.
      * This method first adds the info, synchronously.
      * Only afterwards, the preprocessor will have the opportunity to process it.
      * This method also bypasses any incremental updates.
@@ -131,7 +131,7 @@ public:
     void addCamItemInfosSynchronously(const Digikam::CamItemInfoList& infos);
 
     /**
-     * Clears and adds infos.
+     * @brief Clears and adds infos.
      */
     void setCamItemInfos(const CamItemInfoList& infos);
 
@@ -145,7 +145,7 @@ public:
     bool isEmpty()                          const;
 
     /**
-     * Remove the given infos or indexes directly from the model.
+     * @brief Remove the given infos or indexes directly from the model.
      */
     void removeIndex(const QModelIndex& index);
     void removeIndexs(const QList<QModelIndex>& indexes);
@@ -156,30 +156,30 @@ public:
     int numberOfIndexesForCamItemId(qlonglong id)              const;
 
     /**
-     * Retrieve the CamItemInfo object from the data() function of the given index
+     * @brief Retrieve the CamItemInfo object from the data() function of the given index
      * The index may be from a QSortFilterProxyModel as long as an ImportItemModel is at the end.
      */
     static CamItemInfo retrieveCamItemInfo(const QModelIndex& index);
     static qlonglong   retrieveCamItemId(const QModelIndex& index);
 
-    /// QAbstractListModel implementation
+    /// @brief QAbstractListModel implementation
     int           rowCount(const QModelIndex& parent)                            const override;
     QVariant      data(const QModelIndex& index, int role)                       const override;
     QVariant      headerData(int section, Qt::Orientation orientation, int role) const override;
     Qt::ItemFlags flags(const QModelIndex& index)                                const override;
     QModelIndex   index(int row, int column, const QModelIndex& parent)          const override;
 
-    /// DragDrop methods
+    /// @brief DragDrop methods
     DECLARE_MODEL_DRAG_DROP_METHODS
 
     /**
-     * Enable sending of itemInfosAboutToBeRemoved and itemsInfosRemoved signals.
+     * @brief Enable sending of itemInfosAboutToBeRemoved and itemsInfosRemoved signals.
      * Default: false
      */
     void setSendRemovalSignals(bool send);
 
     /**
-     * Returns true if this model is currently refreshing.
+     * @returns true if this model is currently refreshing.
      * For a preprocessor this means that, although the preprocessor may currently have
      * processed all it got, more batches are to be expected.
      */
@@ -188,19 +188,19 @@ public:
 Q_SIGNALS:
 
     /**
-     * Informs that ItemInfos will be added to the model.
+     * @brief Informs that ItemInfos will be added to the model.
      * This signal is sent before the model data is changed and views are informed.
      */
     void itemInfosAboutToBeAdded(const QList<CamItemInfo>& infos);
 
     /**
-     * Informs that ItemInfos have been added to the model.
+     * @brief Informs that ItemInfos have been added to the model.
      * This signal is sent after the model data is changed and views are informed.
      */
     void itemInfosAdded(const QList<CamItemInfo>& infos);
 
     /**
-     * Informs that CamItemInfos will be removed from the model.
+     * @brief Informs that CamItemInfos will be removed from the model.
      * This signal is sent before the model data is changed and views are informed.
      * Note: You need to explicitly enable sending of this signal. It is not sent
      * in clearCamItemInfos().
@@ -208,7 +208,7 @@ Q_SIGNALS:
     void itemInfosAboutToBeRemoved(const QList<CamItemInfo>& infos);
 
     /**
-     * Informs that CamItemInfos have been removed from the model.
+     * @brief Informs that CamItemInfos have been removed from the model.
      * This signal is sent after the model data is changed and views are informed.
      * Note: You need to explicitly enable sending of this signal. It is not sent
      * in clearCamItemInfos().
@@ -216,19 +216,19 @@ Q_SIGNALS:
     void itemInfosRemoved(const QList<CamItemInfo>& infos);
 
     /**
-     * Connect to this signal only if you are the current preprocessor.
+     * @brief Connect to this signal only if you are the current preprocessor.
      */
     void preprocess(const QList<CamItemInfo>& infos);
     void processAdded(const QList<CamItemInfo>& infos);
 
     /**
-     * Signals that the model is right now ready to start an incremental refresh.
+     * @brief Signals that the model is right now ready to start an incremental refresh.
      * This is guaranteed only for the scope of emitting this signal.
      */
     void readyForIncrementalRefresh();
 
     /**
-     * Signals that the model has finished currently with all scheduled
+     * @brief Signals that the model has finished currently with all scheduled
      * refreshing, full or incremental, and all preprocessing.
      * The model is in polished, clean situation right now.
      */
@@ -246,7 +246,7 @@ public Q_SLOTS:
 protected:
 
     /**
-     * Subclasses that add CamItemInfos in batches shall call startRefresh()
+     * @brief Subclasses that add CamItemInfos in batches shall call startRefresh()
      * when they start sending batches and finishRefresh() when they have finished.
      * No incremental refreshes will be started while listing.
      * A clearCamItemInfos() always stops listing, calling finishRefresh() is then not necessary.
@@ -255,7 +255,7 @@ protected:
     void finishRefresh();
 
     /**
-     * As soon as the model is ready to start an incremental refresh, the signal
+     * @brief As soon as the model is ready to start an incremental refresh, the signal
      * readyForIncrementalRefresh() will be emitted. The signal will be emitted inline
      * if the model is ready right now.
      */
@@ -263,7 +263,7 @@ protected:
     bool hasIncrementalRefreshPending() const;
 
     /**
-     * Starts an incremental refresh operation. You shall only call this method from a slot
+     * @brief Starts an incremental refresh operation. You shall only call this method from a slot
      * connected to readyForIncrementalRefresh(). To initiate an incremental refresh,
      * call requestIncrementalRefresh().
      */
@@ -274,12 +274,12 @@ protected:
     void emitDataChangedForSelections(const QItemSelection& selection);
 
     /**
-     * Called when the internal storage is cleared.
+     * @brief Called when the internal storage is cleared.
      */
     virtual void camItemInfosCleared() {};
 
     /**
-     * Called before rowsAboutToBeRemoved
+     * @brief Called before rowsAboutToBeRemoved
      */
     virtual void prepareItemInfosAboutToBeRemoved(int /*begin*/, int /*end*/) {};
 
@@ -293,7 +293,7 @@ private:
 
 public:
 
-    // NOTE: Declared public because it's used in ItemModelIncrementalUpdater class
+    /// @note Declared public because it's used in ItemModelIncrementalUpdater class
     class Private;
 
 private:
