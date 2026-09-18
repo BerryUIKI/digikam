@@ -377,6 +377,7 @@ bool AIToolsPipeline::writer()
 
     MLPIPELINE_STAGE_START(QThread::LowPriority, MLPipelineStage::Writer, MLPipelineStage::None);
     AIToolsPipelinePackage* package = nullptr;
+    QList<ItemInfo> infos;
 
     /* =========================================================================================
      * Pipeline stage specific initialization code
@@ -405,7 +406,7 @@ bool AIToolsPipeline::writer()
 
                 if (MetaEngineRotation::NoTransformation != package->rotationTransformation)
                 {
-                    QList<ItemInfo> infos;
+                    infos.clear();
                     infos << package->info;
 
                     Q_EMIT signalTransform(infos, package->rotationTransformation);
