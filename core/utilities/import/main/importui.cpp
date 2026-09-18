@@ -2279,7 +2279,7 @@ void ImportUI::slotMetadata(const QString& folder, const QString& file, const Me
     if (!info.isNull())
     {
         QScopedPointer<DMetadata> meta(new DMetadata);
-        meta.data()->setData(data);
+        meta->setData(data);
         d->rightSideBar->itemChanged(info, *meta);
     }
 }

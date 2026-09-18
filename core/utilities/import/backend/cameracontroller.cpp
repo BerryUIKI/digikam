@@ -591,7 +591,7 @@ void CameraController::executeCommand(CameraCommand* const cmd)
                            DHistoryView::ErrorEntry, folder, file);
             }
 
-            Q_EMIT signalMetadata(folder, file, meta.data()->data());
+            Q_EMIT signalMetadata(folder, file, meta->data());
 
             break;
         }
