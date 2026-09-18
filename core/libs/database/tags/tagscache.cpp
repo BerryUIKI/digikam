@@ -1087,7 +1087,10 @@ int TagsCache::tagForColorLabel(int label)
     d->checkLabelTags();
     QReadLocker locker(&d->lock);
 
-    return d->colorLabelsTags[label];
+    /*
+     * We return a copy of int, not a reference.
+     */
+    return d->colorLabelsTags[label];   // clazy:exclude=readlock-detaching
 }
 
 QVector<int> TagsCache::colorLabelTags()
@@ -1115,7 +1118,7 @@ int TagsCache::colorLabelFromTags(const QList<int>& tagIds)
     {
         for (int i = FirstColorLabel ; i <= LastColorLabel ; ++i)
         {
-            if (d->colorLabelsTags[i] == tagId)
+            if (d->colorLabelsTags[i] == tagId)     // clazy:exclude=readlock-detaching
             {
                 return i;
             }
@@ -1135,7 +1138,7 @@ int TagsCache::tagForPickLabel(int label)
     d->checkLabelTags();
     QReadLocker locker(&d->lock);
 
-    return d->pickLabelsTags[label];
+    return d->pickLabelsTags[label];    // clazy:exclude=readlock-detaching
 }
 
 QVector<int> TagsCache::pickLabelTags()
@@ -1163,7 +1166,7 @@ int TagsCache::pickLabelFromTags(const QList<int>& tagIds)
     {
         for (int i = FirstPickLabel ; i <= LastPickLabel ; ++i)
         {
-            if (d->pickLabelsTags[i] == tagId)
+            if (d->pickLabelsTags[i] == tagId)      // clazy:exclude=readlock-detaching
             {
                 return i;
             }
