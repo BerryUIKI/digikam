@@ -37,7 +37,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: extragear-graphics/digikam.po\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-17 00:41+0000\n"
+"POT-Creation-Date: 2026-09-18 00:42+0000\n"
 "PO-Revision-Date: 2026-02-20 19:31+0000\n"
 "Last-Translator: Aindriú Mac Giolla Eoin <aindriu80@yahoo.com>\n"
 "Language-Team: Irish Gaelic <kde-i18n-doc@kde.org>\n"
@@ -67343,7 +67343,7 @@ msgid "Download Required Model Files"
 msgstr "Íoslódáil Comhaid Mhúnla Riachtanacha"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:60
-#: core/utilities/setup/misc/systemsettingswidget.cpp:154
+#: core/utilities/setup/misc/systemsettingswidget.cpp:156
 #, kde-format
 msgid "Open local directory used for the data files storage."
 msgstr ""
@@ -70046,84 +70046,90 @@ msgid "Use OpenCL hardware acceleration"
 msgstr "Úsáid luasghéarú crua-earraí OpenCL"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This option is still experimental and requires that certain environment "
+#| "variables are set manually."
 msgid ""
 "This option is still experimental and requires that certain environment "
-"variables are set manually."
+"variables are set manually. See the online documentation for details."
 msgstr ""
 "Tá an rogha seo fós turgnamhach agus éilíonn sé go socrófar athróga "
 "comhshaoil áirithe de láimh."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:141
+#: core/utilities/setup/misc/systemsettingswidget.cpp:142
 #, kde-format
 msgid "Use OpenCL acceleration for AI models"
 msgstr "Úsáid luasghéarú OpenCL le haghaidh samhlacha AI"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:142
-#, kde-format
+#: core/utilities/setup/misc/systemsettingswidget.cpp:143
+#, fuzzy, kde-format
+#| msgid ""
+#| "This option is still experimental and may lead to crashes if the proper "
+#| "drivers are not installed."
 msgid ""
 "This option is still experimental and may lead to crashes if the proper "
-"drivers are not installed."
+"drivers are not installed. See the online documentation for details."
 msgstr ""
 "Tá an rogha seo fós turgnamhach agus d’fhéadfadh tuairteanna a bheith mar "
 "thoradh air mura bhfuil na tiománaithe cearta suiteáilte."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:145
+#: core/utilities/setup/misc/systemsettingswidget.cpp:147
 #, kde-format
 msgid "Test GPU AI compatibility"
 msgstr "Tástáil comhoiriúnacht GPU AI"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:148
+#: core/utilities/setup/misc/systemsettingswidget.cpp:150
 #, kde-format
 msgid "Download required binary data:"
 msgstr "Íoslódáil sonraí dénártha riachtanacha:"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:149
+#: core/utilities/setup/misc/systemsettingswidget.cpp:151
 #, kde-format
 msgid "Open Download Dialog..."
 msgstr "Oscail Dialóg Íoslódála..."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:152
+#: core/utilities/setup/misc/systemsettingswidget.cpp:154
 #, kde-format
 msgid "Open Local Storage..."
 msgstr "Oscail Stóráil Áitiúil..."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:160
+#: core/utilities/setup/misc/systemsettingswidget.cpp:162
 #, kde-format
 msgid "Use video hardware acceleration"
 msgstr "Úsáid luasghéarú crua-earraí físe"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:161
+#: core/utilities/setup/misc/systemsettingswidget.cpp:163
 #, kde-format
 msgid "Use video textures conversion"
 msgstr "Úsáid tiontú uigeachtaí físe"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:163
+#: core/utilities/setup/misc/systemsettingswidget.cpp:165
 #, kde-format
 msgid "Decoding backend to render media:"
 msgstr "Díchódú an chúltaca chun meáin a rindreáil:"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:166
+#: core/utilities/setup/misc/systemsettingswidget.cpp:168
 #, kde-format
 msgid "FFmpeg (Default)"
 msgstr "FFmpeg (Réamhshocrú)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:170
+#: core/utilities/setup/misc/systemsettingswidget.cpp:172
 #, kde-format
 msgid "GStreamer (System)"
 msgstr "GStreamer (Córas)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:174
+#: core/utilities/setup/misc/systemsettingswidget.cpp:176
 #, kde-format
 msgid "WMF (System)"
 msgstr "WMF (Córas)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:178
+#: core/utilities/setup/misc/systemsettingswidget.cpp:180
 #, kde-format
 msgid "AVFoundation (System)"
 msgstr "AVFoundation (Córas)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:186
+#: core/utilities/setup/misc/systemsettingswidget.cpp:188
 #, kde-format
 msgid "Enable internal debug logging"
 msgstr "Cumasaigh logáil dífhabhtaithe inmheánach"

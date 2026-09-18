@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-17 00:41+0000\n"
+"POT-Creation-Date: 2026-09-18 00:42+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -65558,7 +65558,7 @@ msgid "Download Required Model Files"
 msgstr "Stiahnuť potrebné súbory"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:60
-#: core/utilities/setup/misc/systemsettingswidget.cpp:154
+#: core/utilities/setup/misc/systemsettingswidget.cpp:156
 #, kde-format
 msgid "Open local directory used for the data files storage."
 msgstr "Otvoriť lokálny priečinok používaný na ukladanie dátových súborov."
@@ -68204,84 +68204,90 @@ msgid "Use OpenCL hardware acceleration"
 msgstr "Použiť hardvérovú akceleráciu OpenCL"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This option is still experimental and requires that certain environment "
+#| "variables are set manually."
 msgid ""
 "This option is still experimental and requires that certain environment "
-"variables are set manually."
+"variables are set manually. See the online documentation for details."
 msgstr ""
 "Táto voľba je stále experimentálna a vyžaduje manuálne nastavenie určitých "
 "premenných prostredia."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:141
+#: core/utilities/setup/misc/systemsettingswidget.cpp:142
 #, kde-format
 msgid "Use OpenCL acceleration for AI models"
 msgstr "Použiť akceleráciu OpenCL pre modely umelej inteligencie"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:142
-#, kde-format
+#: core/utilities/setup/misc/systemsettingswidget.cpp:143
+#, fuzzy, kde-format
+#| msgid ""
+#| "This option is still experimental and may lead to crashes if the proper "
+#| "drivers are not installed."
 msgid ""
 "This option is still experimental and may lead to crashes if the proper "
-"drivers are not installed."
+"drivers are not installed. See the online documentation for details."
 msgstr ""
 "Táto voľba je stále experimentálna a môže viesť k pádom, ak nie sú "
 "nainštalované správne ovládače."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:145
+#: core/utilities/setup/misc/systemsettingswidget.cpp:147
 #, kde-format
 msgid "Test GPU AI compatibility"
 msgstr "Testovať kompatibilitu GPU AI"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:148
+#: core/utilities/setup/misc/systemsettingswidget.cpp:150
 #, kde-format
 msgid "Download required binary data:"
 msgstr "Stiahnuť potrebné binárne dáta:"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:149
+#: core/utilities/setup/misc/systemsettingswidget.cpp:151
 #, kde-format
 msgid "Open Download Dialog..."
 msgstr "Otvára sa dialógové okno sťahovania..."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:152
+#: core/utilities/setup/misc/systemsettingswidget.cpp:154
 #, kde-format
 msgid "Open Local Storage..."
 msgstr "Otvoriť miestne úložisko..."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:160
+#: core/utilities/setup/misc/systemsettingswidget.cpp:162
 #, kde-format
 msgid "Use video hardware acceleration"
 msgstr "Použiť hardvérovú akceleráciu videa"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:161
+#: core/utilities/setup/misc/systemsettingswidget.cpp:163
 #, kde-format
 msgid "Use video textures conversion"
 msgstr "Použiť konverziu video textúr"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:163
+#: core/utilities/setup/misc/systemsettingswidget.cpp:165
 #, kde-format
 msgid "Decoding backend to render media:"
 msgstr "Dekódovací backend na vykreslenie médií:"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:166
+#: core/utilities/setup/misc/systemsettingswidget.cpp:168
 #, kde-format
 msgid "FFmpeg (Default)"
 msgstr "FFmpeg (predvolený)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:170
+#: core/utilities/setup/misc/systemsettingswidget.cpp:172
 #, kde-format
 msgid "GStreamer (System)"
 msgstr "Rovnaká ako popredie"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:174
+#: core/utilities/setup/misc/systemsettingswidget.cpp:176
 #, kde-format
 msgid "WMF (System)"
 msgstr "WMF (systém)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:178
+#: core/utilities/setup/misc/systemsettingswidget.cpp:180
 #, kde-format
 msgid "AVFoundation (System)"
 msgstr "AVFoundation (systém)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:186
+#: core/utilities/setup/misc/systemsettingswidget.cpp:188
 #, kde-format
 msgid "Enable internal debug logging"
 msgstr "Povoliť interné ladenie protokolovania"

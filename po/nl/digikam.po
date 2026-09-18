@@ -62,7 +62,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-17 00:41+0000\n"
+"POT-Creation-Date: 2026-09-18 00:42+0000\n"
 "PO-Revision-Date: 2026-09-12 12:03+0200\n"
 "Last-Translator: Freek de Kruijf <freekdekruijf@kde.nl>\n"
 "Language-Team: \n"
@@ -66269,7 +66269,7 @@ msgid "Download Required Model Files"
 msgstr "Vereiste modelbestanden downloaden"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:60
-#: core/utilities/setup/misc/systemsettingswidget.cpp:154
+#: core/utilities/setup/misc/systemsettingswidget.cpp:156
 #, kde-format
 msgid "Open local directory used for the data files storage."
 msgstr "Lokale map openen gebruikt voor de opslag van gegevensbestanden."
@@ -68963,84 +68963,90 @@ msgid "Use OpenCL hardware acceleration"
 msgstr "OpenCL-hardware gebruiken voor versnelling"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This option is still experimental and requires that certain environment "
+#| "variables are set manually."
 msgid ""
 "This option is still experimental and requires that certain environment "
-"variables are set manually."
+"variables are set manually. See the online documentation for details."
 msgstr ""
 "Deze optie is nog steeds experimenteel en vereist dat bepaalde "
 "omgevingsvariabelen handmatig zijn ingesteld."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:141
+#: core/utilities/setup/misc/systemsettingswidget.cpp:142
 #, kde-format
 msgid "Use OpenCL acceleration for AI models"
 msgstr "Gebruik OpenCL-versnelling voor AI-modellen"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:142
-#, kde-format
+#: core/utilities/setup/misc/systemsettingswidget.cpp:143
+#, fuzzy, kde-format
+#| msgid ""
+#| "This option is still experimental and may lead to crashes if the proper "
+#| "drivers are not installed."
 msgid ""
 "This option is still experimental and may lead to crashes if the proper "
-"drivers are not installed."
+"drivers are not installed. See the online documentation for details."
 msgstr ""
 "Deze optie is nog steeds experimenteel en kan leiden tot crashes als de "
 "juiste stuurprogramma's niet zijn geïnstalleerd."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:145
+#: core/utilities/setup/misc/systemsettingswidget.cpp:147
 #, kde-format
 msgid "Test GPU AI compatibility"
 msgstr "GPU AI-compatibiliteit testen"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:148
+#: core/utilities/setup/misc/systemsettingswidget.cpp:150
 #, kde-format
 msgid "Download required binary data:"
 msgstr "Vereiste binaire gegevens downloaden:"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:149
+#: core/utilities/setup/misc/systemsettingswidget.cpp:151
 #, kde-format
 msgid "Open Download Dialog..."
 msgstr "Downloaddialoog openen..."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:152
+#: core/utilities/setup/misc/systemsettingswidget.cpp:154
 #, kde-format
 msgid "Open Local Storage..."
 msgstr "Lokale opslag openen..."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:160
+#: core/utilities/setup/misc/systemsettingswidget.cpp:162
 #, kde-format
 msgid "Use video hardware acceleration"
 msgstr "Video-hardwareversnelling gebruiken"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:161
+#: core/utilities/setup/misc/systemsettingswidget.cpp:163
 #, kde-format
 msgid "Use video textures conversion"
 msgstr "Conversie van video-texturen gebruiken"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:163
+#: core/utilities/setup/misc/systemsettingswidget.cpp:165
 #, kde-format
 msgid "Decoding backend to render media:"
 msgstr "Decoderingsbackend voor renderen van media:"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:166
+#: core/utilities/setup/misc/systemsettingswidget.cpp:168
 #, kde-format
 msgid "FFmpeg (Default)"
 msgstr "FFmpeg (standaard)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:170
+#: core/utilities/setup/misc/systemsettingswidget.cpp:172
 #, kde-format
 msgid "GStreamer (System)"
 msgstr "GStreamer (systeem)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:174
+#: core/utilities/setup/misc/systemsettingswidget.cpp:176
 #, kde-format
 msgid "WMF (System)"
 msgstr "WMF (systeem)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:178
+#: core/utilities/setup/misc/systemsettingswidget.cpp:180
 #, kde-format
 msgid "AVFoundation (System)"
 msgstr "AVFoundation (systeem)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:186
+#: core/utilities/setup/misc/systemsettingswidget.cpp:188
 #, kde-format
 msgid "Enable internal debug logging"
 msgstr "Interne debug-loggen inschakelen"

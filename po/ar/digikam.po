@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-17 00:41+0000\n"
+"POT-Creation-Date: 2026-09-18 00:42+0000\n"
 "PO-Revision-Date: 2026-09-15 17:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -65138,7 +65138,7 @@ msgid "Download Required Model Files"
 msgstr "نزل ملفات النموذج المطلوبة"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:60
-#: core/utilities/setup/misc/systemsettingswidget.cpp:154
+#: core/utilities/setup/misc/systemsettingswidget.cpp:156
 #, kde-format
 msgid "Open local directory used for the data files storage."
 msgstr "افتح المجلد المحلي المستخدم لتخزين ملفات البيانات."
@@ -67715,82 +67715,88 @@ msgid "Use OpenCL hardware acceleration"
 msgstr "استخدم تسريع الأجهزة «أوبن سي‌إل»"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:139
-#, kde-format
+#, fuzzy, kde-format
+#| msgid ""
+#| "This option is still experimental and requires that certain environment "
+#| "variables are set manually."
 msgid ""
 "This option is still experimental and requires that certain environment "
-"variables are set manually."
+"variables are set manually. See the online documentation for details."
 msgstr "هذا الخيار لا يزال تجريبيًا ويتطلب ضبط بعض المتغيرات البيئية يدويًا."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:141
+#: core/utilities/setup/misc/systemsettingswidget.cpp:142
 #, kde-format
 msgid "Use OpenCL acceleration for AI models"
 msgstr "استخدم تسريع «أوبن سي‌إل» لنماذج الذكاء الاصطناعي"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:142
-#, kde-format
+#: core/utilities/setup/misc/systemsettingswidget.cpp:143
+#, fuzzy, kde-format
+#| msgid ""
+#| "This option is still experimental and may lead to crashes if the proper "
+#| "drivers are not installed."
 msgid ""
 "This option is still experimental and may lead to crashes if the proper "
-"drivers are not installed."
+"drivers are not installed. See the online documentation for details."
 msgstr ""
 "هذا الخيار لا يزال تجريبيًا وقد يؤدي إلى انهيارات إذا لم تكن برامج التشغيل "
 "المناسبة مثبتة."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:145
+#: core/utilities/setup/misc/systemsettingswidget.cpp:147
 #, kde-format
 msgid "Test GPU AI compatibility"
 msgstr "اختبر توافق GPU للذكاء الاصطناعي"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:148
+#: core/utilities/setup/misc/systemsettingswidget.cpp:150
 #, kde-format
 msgid "Download required binary data:"
 msgstr "نزّل البيانات الثنائية المطلوبة:"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:149
+#: core/utilities/setup/misc/systemsettingswidget.cpp:151
 #, kde-format
 msgid "Open Download Dialog..."
 msgstr "افتح حوار التنزيل..."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:152
+#: core/utilities/setup/misc/systemsettingswidget.cpp:154
 #, kde-format
 msgid "Open Local Storage..."
 msgstr "افتح التخزين المحلي..."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:160
+#: core/utilities/setup/misc/systemsettingswidget.cpp:162
 #, kde-format
 msgid "Use video hardware acceleration"
 msgstr "استخدم تسريع الفيديو بالعتاد"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:161
+#: core/utilities/setup/misc/systemsettingswidget.cpp:163
 #, kde-format
 msgid "Use video textures conversion"
 msgstr "استخدم تحويل نسيج الفيديو"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:163
+#: core/utilities/setup/misc/systemsettingswidget.cpp:165
 #, kde-format
 msgid "Decoding backend to render media:"
 msgstr "الواجهة الخلفية لفك ترميز لعرض الوسائط:"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:166
+#: core/utilities/setup/misc/systemsettingswidget.cpp:168
 #, kde-format
 msgid "FFmpeg (Default)"
 msgstr "FFmpeg (مبدئي)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:170
+#: core/utilities/setup/misc/systemsettingswidget.cpp:172
 #, kde-format
 msgid "GStreamer (System)"
 msgstr "GStreamer (النظام)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:174
+#: core/utilities/setup/misc/systemsettingswidget.cpp:176
 #, kde-format
 msgid "WMF (System)"
 msgstr "WMF (النظام)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:178
+#: core/utilities/setup/misc/systemsettingswidget.cpp:180
 #, kde-format
 msgid "AVFoundation (System)"
 msgstr "AVFoundation (النظام)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:186
+#: core/utilities/setup/misc/systemsettingswidget.cpp:188
 #, kde-format
 msgid "Enable internal debug logging"
 msgstr "فعّل تسجيل تصحيح الأخطاء الداخلي"
