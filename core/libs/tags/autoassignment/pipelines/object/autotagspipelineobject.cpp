@@ -529,6 +529,9 @@ bool AutotagsPipelineObject::writer()
     TagsCache* const tagsCache           = TagsCache::instance();
     const QString    rootTag             = QLatin1String("auto/");
     const int        rootTagId           = tagsCache->getOrCreateTag(rootTag);
+    QStringList      tagsPath;
+    QStringList      displayTags;
+    QSet<int>        newIds;
 
     MLPIPELINE_LOOP_START(MLPipelineStage::Writer, thisQueue);
     package                              = static_cast<AutotagsPipelinePackageBase*>(mlpackage);
@@ -542,9 +545,9 @@ bool AutotagsPipelineObject::writer()
 
     {
         bool        tagsChanged = false;
-        QStringList tagsPath;
-        QStringList displayTags;
-        QSet<int>   newIds;
+        tagsPath.clear();
+        displayTags.clear();
+        newIds.clear();
 
         // in BQM mode we don't want to touch the source image tags
 
