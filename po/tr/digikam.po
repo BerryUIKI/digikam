@@ -52,7 +52,7 @@ msgstr ""
 "Project-Id-Version: Digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-18 00:42+0000\n"
-"PO-Revision-Date: 2026-09-14 19:02+0300\n"
+"PO-Revision-Date: 2026-09-18 18:58+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -68430,16 +68430,13 @@ msgid "Use OpenCL hardware acceleration"
 msgstr "OpenCL donanım ivmelendirmesini kullan"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:139
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and requires that certain environment "
-#| "variables are set manually."
+#, kde-format
 msgid ""
 "This option is still experimental and requires that certain environment "
 "variables are set manually. See the online documentation for details."
 msgstr ""
 "Bu seçenek hâlâ deneyseldir ve çeşitli çevre değişkenlerinin elle "
-"ayarlanmasını gerektirir."
+"ayarlanmasını gerektirir. Ayrıntılar için çevrim içi belgelendirmeye bakın."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:142
 #, kde-format
@@ -68447,16 +68444,13 @@ msgid "Use OpenCL acceleration for AI models"
 msgstr "Yapay zekâ modelleri için OpenCL ivmelendirmesini kullan"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and may lead to crashes if the proper "
-#| "drivers are not installed."
+#, kde-format
 msgid ""
 "This option is still experimental and may lead to crashes if the proper "
 "drivers are not installed. See the online documentation for details."
 msgstr ""
 "Bu seçenek hâlâ deneyseldir ve gerekli sürücüler kurulu değilse çökmelere "
-"neden olabilir."
+"neden olabilir. Ayrıntılar için çevrim içi belgelendirmeye bakın."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:147
 #, kde-format
