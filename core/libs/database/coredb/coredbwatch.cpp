@@ -21,7 +21,8 @@
 #include <QApplication>
 
 #ifdef HAVE_DBUS
-#   include <QtDBus>
+#   include <QDBusConnection>
+#   include <QDBusMetaType>
 #   include "coredbwatchadaptor.h"
 #endif
 
