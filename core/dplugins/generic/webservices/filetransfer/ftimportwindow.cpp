@@ -139,7 +139,6 @@ void FTImportWindow::slotCopyingDone(KIO::Job* job,
                                      bool renamed)
 {
     Q_UNUSED(job);
-    Q_UNUSED(to);
     Q_UNUSED(mtime);
     Q_UNUSED(directory);
     Q_UNUSED(renamed);

@@ -110,9 +110,6 @@ void TagCheckView::slotResetCheckState()
 
 void TagCheckView::slotCheckStateChange(Album* album, Qt::CheckState state)
 {
-    Q_UNUSED(album);
-    Q_UNUSED(state);
-
     // handle custom toggle modes
 
     disconnect(albumModel(), SIGNAL(checkStateChanged(Album*,Qt::CheckState)),

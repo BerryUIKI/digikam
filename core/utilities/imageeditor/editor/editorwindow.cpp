@@ -1645,8 +1645,6 @@ void EditorWindow::slotSavingStarted(const QString& /*filename*/)
 
 void EditorWindow::slotSavingFinished(const QString& filename, bool success)
 {
-    Q_UNUSED(filename);
-
     qCDebug(DIGIKAM_GENERAL_LOG) << filename << success
                                  << (m_savingContext.savingState != SavingContext::SavingStateNone);
 
@@ -1655,7 +1653,7 @@ void EditorWindow::slotSavingFinished(const QString& filename, bool success)
     if (m_savingContext.savingState != SavingContext::SavingStateNone)
     {
         m_savingContext.executedOperation = m_savingContext.savingState;
-        m_savingContext.savingState = SavingContext::SavingStateNone;
+        m_savingContext.savingState       = SavingContext::SavingStateNone;
 
         if (!success)
         {
@@ -1672,7 +1670,6 @@ void EditorWindow::slotSavingFinished(const QString& filename, bool success)
         }
 
         moveFile();
-
     }
     else
     {
