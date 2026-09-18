@@ -71,9 +71,13 @@ static QList<A*> selectedAlbums(const QItemSelectionModel* const selModel,
 
 // -------------------------------------------------------------------------------
 
-struct Q_DECL_HIDDEN State
+class Q_DECL_HIDDEN State
 {
+public:
+
     State() = default;
+
+public:
 
     bool selected       = false;
     bool expanded       = false;
