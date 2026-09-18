@@ -221,6 +221,8 @@ bool DMetadata::setItemTagsPath(const QStringList& tagsPath, const DMetadataSett
         toWrite = settings.getWriteMapping(NamespaceEntry::DM_TAG_CONTAINER());
     }
 
+    QStringList newList;
+
     for (const NamespaceEntry& entry : EXIV2_AS_CONST(toWrite))
     {
         if (entry.isDisabled)
@@ -231,7 +233,7 @@ bool DMetadata::setItemTagsPath(const QStringList& tagsPath, const DMetadataSett
         const std::string myStr = entry.namespaceName.toStdString();
         const char* nameSpace   = myStr.data();
 
-        QStringList newList;
+        newList.resize(0);;
 
         // Get keywords from tags path, for type tag
 
