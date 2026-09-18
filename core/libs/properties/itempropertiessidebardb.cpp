@@ -749,6 +749,10 @@ void ItemPropertiesSideBarDB::slotColorLabelNamesUpdated()
 
 void ItemPropertiesSideBarDB::setImagePropertiesInformation(const QUrl& url)
 {
+    QList<int> allTagIds;
+    QList<int> regularTagIds;
+    QList<int> peopleTagIds;
+
     for (const ItemInfo& info : std::as_const(d->currentInfos))
     {
         if (info.fileUrl() == url)
@@ -891,9 +895,9 @@ void ItemPropertiesSideBarDB::setImagePropertiesInformation(const QUrl& url)
             m_propertiesTab->setPickLabel(info.pickLabel());
             m_propertiesTab->setColorLabel(info.colorLabel());
             m_propertiesTab->setRating(info.rating());
-            QList<int> allTagIds = info.tagIds();
-            QList<int> regularTagIds;
-            QList<int> peopleTagIds;
+            allTagIds = info.tagIds();
+            regularTagIds.clear();
+            peopleTagIds.clear();
 
             for (int t : std::as_const(allTagIds))
             {
