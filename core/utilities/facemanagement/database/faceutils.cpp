@@ -188,10 +188,12 @@ QList<FaceTagsIface> FaceUtils::writeUnconfirmedResults(qlonglong imageid,
 
     // Merge new with existing entries.
 
+    QList<FaceTagsIface> overlappingEntries;
+
     for (int i = 0 ; i < newFaces.size() ; ++i)
     {
         FaceTagsIface& newFace = newFaces[i];
-        QList<FaceTagsIface> overlappingEntries;
+        overlappingEntries.clear();
 
         for (const FaceTagsIface& oldFace : std::as_const(currentFaces))
         {
