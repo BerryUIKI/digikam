@@ -126,6 +126,7 @@ void DOnlineTranslator::slotParseGoogleTranslate()
     if (d->translationOptionsEnabled)
     {
         const auto sdata = jsonData.at(1).toArray();
+        QStringList translations;
 
         for (const QJsonValue& typeOfSpeechData : sdata)
         {
@@ -139,7 +140,7 @@ void DOnlineTranslator::slotParseGoogleTranslate()
                 const QString word                 = wordDataArray.at(0).toString();
                 const QString gender               = wordDataArray.at(4).toString();
                 const QJsonArray translationsArray = wordDataArray.at(1).toArray();
-                QStringList translations;
+                translations.clear();
                 translations.reserve(translationsArray.size());
 
                 for (const QJsonValue& wordTranslation : translationsArray)

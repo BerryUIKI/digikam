@@ -256,6 +256,7 @@ void DOnlineTranslator::slotParseYandexDictionary()
     }
 
     const auto sdata = jsonData.toArray();
+    QStringList translations;
 
     for (const QJsonValue& typeOfSpeechData : sdata)
     {
@@ -271,7 +272,7 @@ void DOnlineTranslator::slotParseYandexDictionary()
             const QString word                 = wordObject.value(QStringLiteral("text")).toString();
             const QString gender               = wordObject.value(QStringLiteral("gen")).toObject().value(QStringLiteral("text")).toString();
             const QJsonArray translationsArray = wordObject.value(QStringLiteral("mean")).toArray();
-            QStringList translations;
+            translations.clear();
             translations.reserve(translationsArray.size());
 
             for (const QJsonValue& wordTranslation : std::as_const(translationsArray))

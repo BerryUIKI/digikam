@@ -201,6 +201,7 @@ void DOnlineTranslator::slotParseBingDictionary()
     const QJsonDocument jsonResponse = QJsonDocument::fromJson(d->currentReply->readAll());
     const QJsonObject responseObject = jsonResponse.array().first().toObject();
     const auto ddata                 = responseObject.value(QStringLiteral("translations")).toArray();
+    QStringList translations;
 
     for (const QJsonValue& dictionaryData : ddata)
     {
@@ -208,7 +209,7 @@ void DOnlineTranslator::slotParseBingDictionary()
         const QString typeOfSpeech         = dictionaryObject.value(QStringLiteral("posTag")).toString().toLower();
         const QString word                 = dictionaryObject.value(QStringLiteral("displayTarget")).toString().toLower();
         const QJsonArray translationsArray = dictionaryObject.value(QStringLiteral("backTranslations")).toArray();
-        QStringList translations;
+        translations.clear();
         translations.reserve(translationsArray.size());
 
         for (const QJsonValue& wordTranslation : std::as_const(translationsArray))
