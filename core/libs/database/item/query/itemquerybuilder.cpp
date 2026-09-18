@@ -1890,6 +1890,7 @@ QString ItemQueryBuilder::buildQueryFromUrl(const QUrl& url, QList<QVariant>* bo
     QString         sqlQuery;
     SubQueryBuilder subQuery;
     QStringList     strList = url.path().split(QLatin1Char(' '), Qt::SkipEmptyParts);
+    QList<SKey>     todo;
 
     for (QStringList::const_iterator it = strList.constBegin() ; it != strList.constEnd() ; ++it)
     {
@@ -1923,7 +1924,7 @@ QString ItemQueryBuilder::buildQueryFromUrl(const QUrl& url, QList<QVariant>* bo
                 }
                 else
                 {
-                    QList<SKey> todo;
+                    todo.clear();
                     todo.append( ALBUMNAME );
                     todo.append( IMAGENAME );
                     todo.append( TAGNAME );
