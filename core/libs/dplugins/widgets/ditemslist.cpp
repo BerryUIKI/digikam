@@ -574,6 +574,7 @@ void DItemsList::slotLoadItems()
 
     QXmlStreamReader xmlReader;
     xmlReader.setDevice(&file);
+    QList<QUrl> urls;
 
     while (!xmlReader.atEnd())
     {
@@ -585,7 +586,7 @@ void DItemsList::slotLoadItems()
 
             // get value of each attribute from QXmlStreamAttributes
 
-            QStringView url             = attrs.value(QLatin1String("url"));
+            QStringView url            = attrs.value(QLatin1String("url"));
 
             if (url.isEmpty())
             {
@@ -593,7 +594,7 @@ void DItemsList::slotLoadItems()
                 continue;
             }
 
-            QList<QUrl> urls;
+            urls.clear();
             urls.append(QUrl(url.toString()));
 
             //allow tools to append a new file
