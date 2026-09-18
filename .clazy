@@ -9,6 +9,7 @@
 # --- Directories to exclude from Clazy static analysis.
 
 IGNORE_DIRS=".*include.*|"
+IGNORE_DIRS+=".moc_*.*|"
 IGNORE_DIRS+=".*/opt/qt6/include/.*|"
 IGNORE_DIRS+=".*/opt/qt6/include/QtCore/.*|"
 IGNORE_DIRS+=".*/opt/qt6/include/QtWidgets/.*|"
