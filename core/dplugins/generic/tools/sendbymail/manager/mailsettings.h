@@ -51,13 +51,7 @@ public:
         KMAIL,
         NETSCAPE,       ///< Messenger (https://en.wikipedia.org/wiki/Netscape_Messenger_9)
         OUTLOOK,
-
-#ifdef Q_OS_MACOS
-
         APPLEMAIL,
-
-#endif
-
         SYLPHEED,
         THUNDERBIRD
     };

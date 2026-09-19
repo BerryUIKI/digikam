@@ -219,7 +219,17 @@ bool MailIntroPage::isComplete() const
     QString val     = vals.join(QString());
     qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << val;
 
+#ifdef Q_OS_MACOS
+
+    // Under macOS, Apple Mail is at least always present.
+    return true;
+
+#else
+
     return (!val.isEmpty());
+
+#endif
+
 }
 
 } // namespace DigikamGenericSendByMailPlugin

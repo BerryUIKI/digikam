@@ -253,9 +253,20 @@ void MailSettingsPage::initializePage()
 
     while (it != map.constEnd())
     {
-        if (d->settings->binPaths[it.key()].isEmpty())
+        if      (d->settings->binPaths[it.key()].isEmpty())
         {
-            d->mailAgentName->setItemData((int)it.key(), false, Qt::UserRole-1);
+
+#ifdef Q_OS_MACOS
+
+            // Under macOS Apple Mail is always available.
+
+            if ((int)it.key() != APPLEMAIL)
+
+#endif
+
+            {
+                d->mailAgentName->setItemData((int)it.key(), false, Qt::UserRole-1);
+            }
         }
         else if (it.key() == d->settings->mailProgram)
         {

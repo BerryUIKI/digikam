@@ -641,9 +641,6 @@ bool MailProcess::invokeMailAgent()
 
                     break;
                 }
-
-#ifdef Q_OS_MACOS
-
                 case MailSettings::APPLEMAIL:
                 {
                     args.clear();
@@ -709,8 +706,6 @@ bool MailProcess::invokeMailAgent()
                         return false;
                     }
                 }
-#endif
-
             }
         }
     }
