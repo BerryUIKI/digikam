@@ -106,7 +106,7 @@ void LoadingCache::Private::cleanUpImageFilePathHash()
     QList<QString> keys = imageCache.keys();
     QMultiHash<QString, QString>::iterator it;
 
-    for (it = imageFilePathHash.begin() ; it != imageFilePathHash.end() ; )
+    for (it = imageFilePathHash.begin() ; it != imageFilePathHash.end() ; )     // clazy:exclude=compare-member-check
     {
         if (!keys.contains(it.value()))
         {
@@ -129,7 +129,7 @@ void LoadingCache::Private::cleanUpThumbnailFilePathHash()
 
     QMultiHash<QString, QString>::iterator it;
 
-    for (it = thumbnailFilePathHash.begin() ; it != thumbnailFilePathHash.end() ; )
+    for (it = thumbnailFilePathHash.begin() ; it != thumbnailFilePathHash.end() ; )     // clazy:exclude=compare-member-check
     {
         if (!keys.contains(it.value()))
         {
