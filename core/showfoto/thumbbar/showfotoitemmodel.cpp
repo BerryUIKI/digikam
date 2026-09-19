@@ -503,7 +503,7 @@ void ShowfotoItemModel::removeRowPairs(const QList<QPair<int, int> >& toRemove)
 
         QMultiHash<qlonglong, int>::iterator it;
 
-        for (it = d->idHash.begin() ; it != d->idHash.end() ; )
+        for (it = d->idHash.begin() ; it != d->idHash.end() ; )     // clazy:exclude=compare-member-check
         {
             if (it.value() >= begin)
             {

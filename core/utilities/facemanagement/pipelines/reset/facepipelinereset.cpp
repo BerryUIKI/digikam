@@ -113,7 +113,7 @@ bool FacePipelineReset::finder()
 
                 if (!filter.contains(imageId))
                 {
-                    ++totalItemCount;
+                    ++totalItemCount;           // clazy:exclude=compare-member-check
                     enqueue(nextQueue, new FacePipelinePackageBase(imageId, ++serialNumber));
                 }
             }
