@@ -100,6 +100,13 @@ QMap<MailSettings::MailClient, QString> MailSettings::mailClientNames()
     clients[KMAIL]         = i18nc("Mail client: KMAIL",         "Kmail");
     clients[NETSCAPE]      = i18nc("Mail client: NETSCAPE",      "Netscape Messenger");
     clients[OUTLOOK]       = i18nc("Mail client: OUTLOOK",       "Outlook");
+
+#ifdef Q_OS_MACOS
+
+    clients[APPLEMAIL]     = i18nc("Mail client: APPLEMAIL",     "Apple Mail");
+
+#endif
+
     clients[SYLPHEED]      = i18nc("Mail client: SYLPHEED",      "Sylpheed");
     clients[THUNDERBIRD]   = i18nc("Mail client: THUNDERBIRD",   "Thunderbird");
 

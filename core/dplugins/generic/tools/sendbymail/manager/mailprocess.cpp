@@ -453,7 +453,7 @@ bool MailProcess::invokeMailAgent()
             if (prog.isEmpty())
             {
                 qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Mail binary path is empty."
-                                             << "Cannot start Mail client program!";
+                                                     << "Cannot start Mail client program!";
                 return false;
             }
 
@@ -636,6 +636,76 @@ bool MailProcess::invokeMailAgent()
 
                     break;
                 }
+
+#ifdef Q_OS_MACOS
+
+                case MailSettings::APPLEMAIL:
+                {
+                    args.clear();
+
+                    args << QLatin1String("-e");
+                    args << QLatin1String("tell application \"Mail\"");
+
+                        args << QLatin1String("-e");
+                        args << QLatin1String("activate");
+                        args << QLatin1String("-e");
+                        args << QLatin1String("set newMessage to make new outgoing message");
+                        args << QLatin1String("-e");
+                        args << QLatin1String("tell newMessage");
+
+                            args << QLatin1String("-e");
+                            args << QString::fromUtf8("set subject to \"%1\"").arg(i18n("Send items by mail from digiKam"));
+                            args << QLatin1String("-e");
+                            args << QString::fromUtf8("set content to \"%1\"").arg(i18n("List of attached items"));
+
+                            QString paths;
+
+                            for (QList<QUrl>::ConstIterator it = fileList.constBegin() ;
+                                 it != fileList.constEnd() ; ++it)
+                            {
+                                paths.append(QLatin1String("\""));
+                                paths.append(QDir::toNativeSeparators((*it).toLocalFile()));
+                                paths.append(QLatin1String("\", "));
+                            }
+
+                            // Remove the last ' "'.
+
+                            paths.remove(paths.size() - 2, 2);
+
+                            args << QLatin1String("-e");
+                            args << QString::fromUtf8("repeat with filePath in {%1}").arg(paths);
+
+                                args << QLatin1String("-e");
+                                args << QLatin1String("tell content make new attachment with properties {file name:POSIX file filePath}");
+                                args << QLatin1String("-e");
+                                args << QLatin1String("end tell");
+
+                            args << QLatin1String("-e");
+                            args << QLatin1String("end repeat");
+
+                        args << QLatin1String("-e");
+                        args << QLatin1String("end tell");
+
+                    args << QLatin1String("-e");
+                    args << QLatin1String("end tell");
+
+                    args << QLatin1String("-e");
+                    args << QLatin1String("return");
+
+                    int ret = QProcess::execute(QLatin1String("/usr/bin/osascript"), args);
+
+                    if ((ret == -1) || (ret == 2))
+                    {
+                        QMessageBox::warning(nullptr,
+                                             i18nc("@title:window",
+                                                   "Error While to Send Items by mail"),
+                                             i18nc("@info", "Cannot send items using native Apple MAil application"));
+
+                        return false;
+                    }
+                }
+#endif
+
             }
         }
     }
