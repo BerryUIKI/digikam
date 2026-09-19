@@ -570,6 +570,8 @@ void SetupCollectionModel::apply()
 
     // Update collections
 
+    QStringList pathList;
+
     for (int i : std::as_const(updatedItems))
     {
         Item& item  = m_collections[i];
@@ -586,7 +588,7 @@ void SetupCollectionModel::apply()
             newType = CollectionLocation::Network;
         }
 
-        QStringList pathList;
+        pathList.clear();
         pathList << item.path << item.childs;
         location    = CollectionManager::instance()->refreshLocation(item.location, newType,
                                                                      pathList, item.label);

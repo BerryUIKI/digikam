@@ -41,7 +41,7 @@ class DIGIKAM_GUI_EXPORT SetupCollectionModel : public QAbstractItemModel
 public:
 
     /**
-     * SetupCollectionModel is a model specialized for use in
+     * @brief SetupCollectionModel is a model specialized for use in
      * SetupCollectionTreeView. It provides a reads the current collections
      * from CollectionManager, displays them in three categories,
      * and supports adding and removing collections
@@ -49,31 +49,31 @@ public:
 
     enum SetupCollectionDataRole
     {
-        /// Returns true if the model index is the index of a category
+        /// @returns true if the model index is the index of a category
         IsCategoryRole             = Qt::UserRole,
 
-        /// The text for the category button
+        /// @brief The text for the category button
         CategoryButtonDisplayRole  = Qt::UserRole + 1,
         CategoryButtonMapId        = Qt::UserRole + 2,
 
-        /// Returns true if the model index is the index of a button
+        /// @returns true if the model index is the index of a button
         IsAppendRole               = Qt::UserRole + 3,
 
-        /// The pixmap of the button
+        /// @brief The pixmap of the button
         AppendDecorationRole       = Qt::UserRole + 4,
         AppendMapId                = Qt::UserRole + 5,
 
-        /// Returns true if the model index is the index of a button
+        /// @returns true if the model index is the index of a button
         IsUpdateRole               = Qt::UserRole + 6,
 
-        /// The pixmap of the button
+        /// @brief The pixmap of the button
         UpdateDecorationRole       = Qt::UserRole + 7,
         UpdateMapId                = Qt::UserRole + 8,
 
-        /// Returns true if the model index is the index of a button
+        /// @returns true if the model index is the index of a button
         IsDeleteRole               = Qt::UserRole + 9,
 
-        /// The pixmap of the button
+        /// @brief The pixmap of the button
         DeleteDecorationRole       = Qt::UserRole + 10,
         DeleteMapId                = Qt::UserRole + 11
     };
@@ -104,19 +104,19 @@ public:
 
 public:
 
-    /// Read collections from CollectionManager
+    /// @brief Read collections from CollectionManager
     void loadCollections();
 
-    /// Set a widget used as parent for dialogs and message boxes
+    /// @brief Set a widget used as parent for dialogs and message boxes
     void setParentWidgetForDialogs(QWidget* const widget);
 
-    /// Apply the changed settings to CollectionManager
+    /// @brief Apply the changed settings to CollectionManager
     void apply();
 
     QModelIndex indexForCategory(Category category)                                           const;
     QList<QModelIndex> categoryIndexes()                                                      const;
 
-    /// QAbstractItemModel implementation
+    /// @brief QAbstractItemModel implementation
 
     QVariant data(const QModelIndex& index, int role = Qt::DisplayRole)                       const override;
     QVariant headerData(int section, Qt::Orientation orientation, int role = Qt::DisplayRole) const override;
@@ -129,21 +129,21 @@ public:
 
 Q_SIGNALS:
 
-    /// Emitted when all collections were loaded and the model reset in loadCollections
+    /// @brief Emitted when all collections were loaded and the model reset in loadCollections
 
     void collectionsLoaded();
 
 public Q_SLOTS:
 
     /**
-     * Forward category button clicked signals to this slot.
+     * @brief Forward category button clicked signals to this slot.
      * mappedId is retrieved with the CategoryButtonMapId role
      * for the model index of the button
      */
     void slotCategoryButtonPressed(int mappedId);
 
     /**
-     * Forward button clicked signals to this slot.
+     * @brief Forward button clicked signals to this slot.
      * mappedId is retrieved with the ButtonMapId role
      * for the model index of the button
      */
