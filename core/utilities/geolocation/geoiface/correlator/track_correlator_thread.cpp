@@ -71,10 +71,11 @@ void TrackCorrelatorThread::run()
 
         // find the last point before our item:
 
-        QDateTime       lastSmallerTime;
-        QPair<int, int> lastIndexPair;
-        QDateTime       firstBiggerTime;
-        QPair<int, int> firstIndexPair;
+        QDateTime                          lastSmallerTime;
+        QPair<int, int>                    lastIndexPair;
+        QDateTime                          firstBiggerTime;
+        QPair<int, int>                    firstIndexPair;
+        TrackCorrelator::Correlation::List readyItems;
 
         for (int f = 0 ; f < nFiles ; ++f)
         {
@@ -265,7 +266,7 @@ void TrackCorrelatorThread::run()
 
         if (correlatedData.flags&TrackCorrelator::CorrelationFlagCoordinates)
         {
-            TrackCorrelator::Correlation::List readyItems;
+            readyItems.clear();
             readyItems << correlatedData;
 
             Q_EMIT signalItemsCorrelated(readyItems);

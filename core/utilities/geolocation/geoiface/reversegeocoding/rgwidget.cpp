@@ -661,6 +661,9 @@ void RGWidget::saveSettingsToGroup(KConfigGroup* const group)
     const int spacerCount                    = currentSpacerList.count();
     group->writeEntry("Spacers count", spacerCount);
 
+    QStringList spacerTagNames;
+    QStringList spacerTypes;
+
     for (int i = 0 ; i < currentSpacerList.count() ; ++i)
     {
         QString spacerName;
@@ -668,8 +671,8 @@ void RGWidget::saveSettingsToGroup(KConfigGroup* const group)
         QString spacerType;
         spacerType.append(QString::fromLatin1("Spacerlisttype %1").arg(i));
 
-        QStringList spacerTagNames;
-        QStringList spacerTypes;
+        spacerTagNames.clear();
+        spacerTypes.clear();
 
         for (int j = 0 ; j < currentSpacerList[i].count() ; ++j)
         {
@@ -700,14 +703,15 @@ void RGWidget::saveSettingsToGroup(KConfigGroup* const group)
  */
 void RGWidget::readSettingsFromGroup(const KConfigGroup* const group)
 {
-    const int spacerCount = group->readEntry("Spacers count", 0);
+    const int              spacerCount = group->readEntry("Spacers count", 0);
     QList<QList<TagData> > spacersList;
+    QList<TagData>         currentSpacerAddress;
 
     for (int i = 0 ; i < spacerCount ; ++i)
     {
         QStringList spacerTagNames = group->readEntry(QString::fromLatin1("Spacerlistname %1").arg(i), QStringList());
         QStringList spacerTypes    = group->readEntry(QString::fromLatin1("Spacerlisttype %1").arg(i), QStringList());
-        QList<TagData> currentSpacerAddress;
+        currentSpacerAddress.clear();
 
         for (int j = 0 ; j < spacerTagNames.count() ; ++j)
         {

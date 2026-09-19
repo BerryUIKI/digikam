@@ -73,7 +73,7 @@ private Q_SLOTS:
 Q_SIGNALS:
 
     /**
-     * This signal emits when containing widgets need to be enabled or disabled.
+     * @brief This signal emits when containing widgets need to be enabled or disabled.
      * @param enabledState If true, the containing widgets will be enabled. Else, they will be disabled.
      */
     void signalSetUIEnabled(const bool enabledState);
@@ -82,18 +82,18 @@ Q_SIGNALS:
                                       const QString& cancelSlot);
 
     /**
-     * Update the progress bar.
+     * @brief Update the progress bar.
      */
     void signalProgressSetup(const int maxProgress, const QString& progressText);
 
     /**
-     * Counts how many images were processed.
+     * @brief Counts how many images were processed.
      * @param currentProgress The number of processed images.
      */
     void signalProgressChanged(const int currentProgress);
 
     /**
-     * Sends the needed data to Undo/Redo Widget.
+     * @brief Sends the needed data to Undo/Redo Widget.
      * @param undoCommand Holds the data that will be used for undo or redo actions
      */
     void signalUndoCommand(GPSUndoCommand* undoCommand);

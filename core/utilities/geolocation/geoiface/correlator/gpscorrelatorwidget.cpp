@@ -583,11 +583,12 @@ void GPSCorrelatorWidget::slotCorrelationCanceled()
 QList<GeoCoordinates::List> GPSCorrelatorWidget::getTrackCoordinates() const
 {
     QList<GeoCoordinates::List> trackList;
+    GeoCoordinates::List        track;
 
     for (int i = 0 ; i < d->trackManager->trackCount() ; ++i)
     {
         const TrackManager::Track& gpxData = d->trackManager->getTrack(i);
-        GeoCoordinates::List track;
+        track.clear();
 
         for (int coordIdx = 0 ; coordIdx < gpxData.points.count() ; ++coordIdx)
         {

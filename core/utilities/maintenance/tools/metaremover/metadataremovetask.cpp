@@ -73,6 +73,8 @@ void MetadataRemoveTask::run()
 
     // While we have data (using this as check for non-null).
 
+    QList<int> confirmedFaceTags;
+
     while (d->data)
     {
         if (m_cancel)
@@ -103,7 +105,7 @@ void MetadataRemoveTask::run()
             if (!tagIds.isEmpty())
             {
                 bool tagRemoved  = false;
-                QList<int> confirmedFaceTags;
+                confirmedFaceTags.clear();
                 const auto faces = FaceTagsEditor().confirmedFaceTagsIfaces(item.id());
 
                 for (const FaceTagsIface& face : faces)
