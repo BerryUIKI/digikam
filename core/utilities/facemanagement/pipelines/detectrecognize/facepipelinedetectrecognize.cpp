@@ -352,7 +352,8 @@ bool FacePipelineDetectRecognize::extractor()
      * is at least 1. More instances are created by addMoreWorkers if needed.
      */
 
-    FaceUtils utils;
+    FaceUtils     utils;
+    QList<QRectF> faceFRects;
 
     MLPIPELINE_LOOP_START(MLPipelineStage::Extractor, thisQueue);
     package = static_cast<FacePipelinePackageBase*>(mlpackage);
@@ -421,7 +422,7 @@ bool FacePipelineDetectRecognize::extractor()
 
             QList<FaceTagsIface> faces = utils.databaseFaces(package->info.id());
 
-            QList<QRectF> faceFRects;
+            faceFRects.clear();
 
             // Loop through the faces found.
 
@@ -626,6 +627,7 @@ bool FacePipelineDetectRecognize::classifier()
 
     FaceClassifier* const classifier = FaceClassifier::instance();
     classifier->setParameters(settings);
+    QList<int> exclusionIdentityIds;
 
     MLPIPELINE_LOOP_START(MLPipelineStage::Classifier, thisQueue);
     package = static_cast<FacePipelinePackageBase*>(mlpackage);
@@ -644,7 +646,7 @@ bool FacePipelineDetectRecognize::classifier()
 
             if (0 < package->featuresList[i].rows)
             {
-                QList<int> exclusionIdentityIds;
+                exclusionIdentityIds.clear();
 
                 for (const auto tagId : package->faceList[i].rejectedFaceTagList())
                 {
@@ -710,6 +712,11 @@ bool FacePipelineDetectRecognize::writer()
     const QList<AlbumRootInfo>    roots               = CoreDbAccess().db()->getAlbumRoots();
     Q_UNUSED(roots);
 
+    QStringList                   names;
+    QList<FaceTagsIface>          databaseFaces;
+    QList<Identity>               identities;
+    QList<QRectF>                 paddedRectList;
+
     MLPIPELINE_LOOP_START(MLPipelineStage::Writer, thisQueue);
     package                                           = static_cast<FacePipelinePackageBase*>(mlpackage);
 
@@ -757,13 +764,13 @@ bool FacePipelineDetectRecognize::writer()
 
         // create thumbnails and write the new face rects to the database
 
-        QStringList names;
+        names.clear();
 
         if (package->faceRects.size())
         {
-            QList<FaceTagsIface>    databaseFaces;
-            QList<Identity>         identities;
-            QList<QRectF>           paddedRectList;
+            databaseFaces.clear();
+            identities.clear();
+            paddedRectList.clear();
 
             for (int i = 0 ; i < package->faceRects.size() ; ++i)
             {
