@@ -196,7 +196,7 @@ void AlbumManager::invalidateGuardedPointers(Album* album)
 
     QMultiHash<Album*, Album**>::iterator it = d->guardedPointers.find(album);
 
-    for ( ; (it != d->guardedPointers.end()) && (it.key() == album) ; ++it)
+    for ( ; (it != d->guardedPointers.end()) && (it.key() == album) ; ++it)     // clazy:exclude=compare-member-check
     {
         if (it.value())
         {
