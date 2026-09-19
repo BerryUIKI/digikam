@@ -190,7 +190,7 @@ bool FacePipelineDetectRecognize::finder()
                         moreCpu = checkMoreWorkers(totalItemCount, imageIds.size(), settings.useFullCpu);
                     }
 
-                    ++totalItemCount;
+                    ++totalItemCount;       // clazy:exclude=compare-member-check
                     filter << imageId;
 
                     // add the image ID to the queue for processing
@@ -216,7 +216,7 @@ bool FacePipelineDetectRecognize::finder()
                 moreCpu = checkMoreWorkers(totalItemCount, settings.infos.size(), settings.useFullCpu);
             }
 
-            ++totalItemCount;
+            ++totalItemCount;       // clazy:exclude=compare-member-check
             filter << imageId;
 
             // add the image ID to the queue for processing
