@@ -988,6 +988,7 @@ void SmugTalker::parseResponseListAlbums(const QByteArray& data)
     qCDebug(DIGIKAM_WEBSERVICES_LOG) << "parseResponseListAlbum : " << jsonObject;
 
     QList<SmugAlbum> albumList;
+    QStringList albumParams;
 
     for (const QJsonValue& value : std::as_const(jsonArray))
     {
@@ -1007,7 +1008,7 @@ void SmugTalker::parseResponseListAlbums(const QByteArray& data)
 
         albumList.append(album);
 
-        QStringList albumParams;
+        albumParams.clear();
         albumParams << album.nodeID
                     << album.name
                     << album.key

@@ -599,6 +599,7 @@ bool ShowfotoStackViewFavorites::readSettings()
     d->topFavorites = new ShowfotoStackViewFavoriteItem(d->favoritesList);;
 
     QFile file(d->file);
+    QList<QUrl> urls;
 
     if (!file.open(QIODevice::ReadOnly))
     {
@@ -653,7 +654,7 @@ bool ShowfotoStackViewFavorites::readSettings()
                     QString name;
                     QString desc;
                     QString hierarchy;
-                    QList<QUrl> urls;
+                    urls.clear();
                     QString curr;
 
                     for (QDomNode n3 = e2.firstChild() ; !n3.isNull() ; n3 = n3.nextSibling())

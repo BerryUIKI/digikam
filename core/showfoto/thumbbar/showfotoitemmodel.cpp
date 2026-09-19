@@ -474,6 +474,7 @@ void ShowfotoItemModel::removeRowPairs(const QList<QPair<int, int> >& toRemove)
     int                     offset      = 0;
     QList<qlonglong>        removeFilePaths;
     typedef QPair<int, int> IntPair;
+    QList<ShowfotoItemInfo> removedInfos;
 
     for (const IntPair& pair : std::as_const(toRemove))
     {
@@ -485,7 +486,7 @@ void ShowfotoItemModel::removeRowPairs(const QList<QPair<int, int> >& toRemove)
 
         offset += removedRows;
 
-        QList<ShowfotoItemInfo> removedInfos;
+        removedInfos.clear();
 
         if (d->sendRemovalSignals)
         {

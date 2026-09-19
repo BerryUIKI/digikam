@@ -75,9 +75,11 @@ void TestTileIndex::testResizing()
 void TestTileIndex::testIntListInteraction()
 {
     {
+        QIntList myList;
+
         for (int l = 0; l <= TileIndex::MaxLevel; ++l)
         {
-            QIntList myList;
+            myList.clear();
             TileIndex i1;
 
             for (int i = 0; i <= l; ++i)

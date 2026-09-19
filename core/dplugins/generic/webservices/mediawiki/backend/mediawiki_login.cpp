@@ -137,6 +137,7 @@ void Login::doWorkProcessReply()
     }
 
     QXmlStreamReader reader(d->reply);
+    QList<QNetworkCookie> cookies;
 
     while (!reader.atEnd() && !reader.hasError())
     {
@@ -156,7 +157,7 @@ void Login::doWorkProcessReply()
 
                     if (d->manager->cookieJar()->cookiesForUrl(d->MediaWiki.url()).isEmpty())
                     {
-                        QList<QNetworkCookie> cookies;
+                        cookies.clear();
                         QString prefix = attrs.value(QStringLiteral("cookieprefix")).toString();
 
                         QString prefixSession = prefix;
@@ -184,7 +185,9 @@ void Login::doWorkProcessReply()
 
                     d->reply->close();
                     d->reply->deleteLater();
+
                     emitResult();
+
                     return;
                 }
                 else if (attrs.value(QStringLiteral("result")).toString() == QLatin1String("NeedToken"))
@@ -198,7 +201,7 @@ void Login::doWorkProcessReply()
                         QString prefix = attrs.value(QStringLiteral("cookieprefix")).toString();
                         prefix.append(QStringLiteral("_session"));
                         QNetworkCookie cookie(prefix.toUtf8(),QString(d->lgsessionid).toUtf8());
-                        QList<QNetworkCookie> cookies;
+                        cookies.clear();
                         cookies.append(cookie);
                         d->manager->cookieJar()->setCookiesFromUrl(cookies, d->MediaWiki.url());
                     }
@@ -208,7 +211,9 @@ void Login::doWorkProcessReply()
                     this->setError(LoginPrivate::error(attrs.value(QStringLiteral("result")).toString()));
                     d->reply->close();
                     d->reply->deleteLater();
+
                     emitResult();
+
                     return;
                 }
                 else if (attrs.value(QStringLiteral("result")).toString() == QLatin1String("Failed"))
@@ -216,7 +221,9 @@ void Login::doWorkProcessReply()
                     this->setError(LoginPrivate::error(attrs.value(QStringLiteral("result")).toString()));
                     d->reply->close();
                     d->reply->deleteLater();
+
                     emitResult();
+
                     return;
                 }
             }
@@ -225,16 +232,20 @@ void Login::doWorkProcessReply()
                 this->setError(LoginPrivate::error(attrs.value(QStringLiteral("code")).toString()));
                 d->reply->close();
                 d->reply->deleteLater();
+
                 emitResult();
+
                 return;
             }
         }
-        else if (token == QXmlStreamReader::Invalid && reader.error() != QXmlStreamReader::PrematureEndOfDocumentError)
+        else if ((token == QXmlStreamReader::Invalid) && (reader.error() != QXmlStreamReader::PrematureEndOfDocumentError))
         {
             this->setError(XmlError);
             d->reply->close();
             d->reply->deleteLater();
+
             emitResult();
+
             return;
         }
     }

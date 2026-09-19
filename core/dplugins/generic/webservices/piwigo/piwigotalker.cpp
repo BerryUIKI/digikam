@@ -648,6 +648,7 @@ void PiwigoTalker::parseResponseDoesPhotoExist(const QByteArray& data)
     QXmlStreamReader ts(data);
     bool foundResponse = false;
     bool success       = false;
+    QStringList qsl2;
 
     qCDebug(DIGIKAM_WEBSERVICES_LOG) << "parseResponseDoesPhotoExist: " << QString::fromUtf8(data);
 
@@ -685,7 +686,7 @@ void PiwigoTalker::parseResponseDoesPhotoExist(const QByteArray& data)
                     d->state   = PG_GETINFO;
                     d->talker_buffer.resize(0);
 
-                    QStringList qsl2;
+                    qsl2.clear();
                     qsl2.append(QLatin1String("method=pwg.images.getInfo"));
                     qsl2.append(QLatin1String("image_id=") + QString::number(d->photoId));
                     QString dataParameters = qsl2.join(QLatin1Char('&'));

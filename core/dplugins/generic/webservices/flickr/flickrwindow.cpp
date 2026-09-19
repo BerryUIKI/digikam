@@ -626,6 +626,7 @@ void FlickrWindow::slotUser1()
     }
 
     typedef QPair<QUrl, FPhotoInfo> Pair;
+    QStringList                     allTags;
 
     d->uploadQueue.clear();
 
@@ -650,7 +651,7 @@ void FlickrWindow::slotUser1()
             QStringList tagsFromDialog = d->tagsLineEdit->text().split(QLatin1Char(','), Qt::SkipEmptyParts);
             QStringList tagsFromList   = lvItem->extraTags();
 
-            QStringList           allTags;
+            allTags.clear();
             QStringList::Iterator itTags;
 
             // Tags from the dialog
@@ -667,10 +668,8 @@ void FlickrWindow::slotUser1()
 
             if (d->exportHostTagsCheckBox->isChecked())
             {
-                QStringList tagsFromDatabase;
-
-                tagsFromDatabase = info.keywords();
-                itTags           = tagsFromDatabase.begin();
+                QStringList tagsFromDatabase = info.keywords();
+                itTags                       = tagsFromDatabase.begin();
 
                 while (itTags != tagsFromDatabase.end())
                 {
