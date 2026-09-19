@@ -210,7 +210,7 @@ FaceTagsIface FacePipelineEdit::editTag(const ItemInfo& info,
                                                                          FacePipelinePackageBase::EditPipelineAction::EditTag,
                                                                          face.isConfirmedName());
 
-    ++totalItemCount;
+    ++totalItemCount;               // clazy:exclude=compare-member-check
 
     Q_EMIT scheduled();
     Q_EMIT started(i18n("Editing face tag"));
@@ -254,7 +254,7 @@ FaceTagsIface FacePipelineEdit::editRegion(const ItemInfo& info,
                                                                          FacePipelinePackageBase::EditPipelineAction::EditRegion,
                                                                          retrain);
 
-    ++totalItemCount;
+    ++totalItemCount;                   // clazy:exclude=compare-member-check
 
     Q_EMIT scheduled();
     Q_EMIT started(i18n("Editing face region"));
@@ -304,7 +304,7 @@ FaceTagsIface FacePipelineEdit::addManually(const ItemInfo& info,
                                                                          FacePipelinePackageBase::EditPipelineAction::AddManually,
                                                                          retrain);
 
-    ++totalItemCount;
+    ++totalItemCount;                   // clazy:exclude=compare-member-check
 
     Q_EMIT scheduled();
     Q_EMIT started(i18n("Manually adding face"));
@@ -355,7 +355,7 @@ FaceTagsIface FacePipelineEdit::deleteRejectedFaceTagList(const FaceTagsIface& f
                                                                          FacePipelinePackageBase::EditPipelineAction::DeleteRejectedFaceTagList,
                                                                          false);
 
-    ++totalItemCount;
+    ++totalItemCount;                   // clazy:exclude=compare-member-check
 
     Q_EMIT scheduled();
     Q_EMIT started(i18n("Clearing rejected face tag list."));
@@ -594,7 +594,7 @@ bool FacePipelineEdit::writer()
         }
         else
         {
-            ++itemsProcessed;
+            ++itemsProcessed;           // clazy:exclude=compare-member-check
 
             Q_EMIT progressValueChanged((float)itemsProcessed/(float)totalItemCount);
         }

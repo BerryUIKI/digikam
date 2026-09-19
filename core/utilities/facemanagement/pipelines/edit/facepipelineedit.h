@@ -70,12 +70,12 @@ public:
                               bool retrain = true);
 
     /**
-     * Delete all saved rejected face tag lists for faces in the given image.
+     * @brief Delete all saved rejected face tag lists for faces in the given image.
      */
     QList<FaceTagsIface> deleteRejectedFaceTagLists(const ItemInfo& info);
 
     /**
-     * Delete all saved rejected face tags for the given face.
+     * @brief Delete all saved rejected face tags for the given face.
      */
     FaceTagsIface deleteRejectedFaceTagList(const FaceTagsIface& face);
 
@@ -104,7 +104,7 @@ protected:
     void addMoreWorkers()                                       override;
 
     /**
-     * returns a copy of FaceTagsIface object with the face tags that were rejected
+     * @returns a copy of FaceTagsIface object with the face tags that were rejected
      */
     FaceTagsIface getRejectedFaceTagList(const FaceTagsIface& face) const;
 
@@ -112,7 +112,7 @@ private:
 
     bool            isStarted = false;
 
-    // TODO: Remove DEBUG timer
+    /// @todo Remove DEBUG timer
     QElapsedTimer   debugConfirmTimer;
 
 private:
