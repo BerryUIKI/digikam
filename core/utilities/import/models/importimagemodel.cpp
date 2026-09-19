@@ -240,7 +240,7 @@ QList<QModelIndex> ImportItemModel::indexesForCamItemId(qlonglong id) const
 
     QMultiHash<qlonglong, int>::const_iterator it;
 
-    for (it = d->idHash.constFind(id) ; it != d->idHash.constEnd() && it.key() == id ; ++it)
+    for (it = d->idHash.constFind(id) ; (it != d->idHash.constEnd()) && (it.key() == id) ; ++it)    // clazy:exclude=compare-member-check
     {
        indexes << createIndex(it.value(), 0);
     }
@@ -258,7 +258,7 @@ int ImportItemModel::numberOfIndexesForCamItemId(qlonglong id) const
     int count = 0;
     QMultiHash<qlonglong,int>::const_iterator it;
 
-    for (it = d->idHash.constFind(id) ; it != d->idHash.constEnd() && it.key() == id ; ++it)
+    for (it = d->idHash.constFind(id) ; (it != d->idHash.constEnd()) && (it.key() == id) ; ++it)    // clazy:exclude=compare-member-check
     {
         ++count;
     }
@@ -701,38 +701,7 @@ void ImportItemModel::finishIncrementalRefresh()
     delete d->incrementalUpdater;
     d->incrementalUpdater = nullptr;
 }
-/*
-template <class List, typename T>
-static bool pairsContain(const List& list, T value)
-{
-    typename List::const_iterator middle;
-    typename List::const_iterator begin = list.begin();
-    typename List::const_iterator end   = list.end();
-    int n                               = int(end - begin);
 
-    while (n > 0)
-    {
-        int half   = (n >> 1);
-        middle = begin + half;
-
-        if      ((middle->first <= value) && (middle->second >= value))
-        {
-            return true;
-        }
-        else if (middle->second < value)
-        {
-            begin = middle + 1;
-            n    -= half   + 1;
-        }
-        else
-        {
-            n = half;
-        }
-    }
-
-    return false;
-}
-*/
 void ImportItemModel::removeIndex(const QModelIndex& index)
 {
     removeIndexs(QList<QModelIndex>() << index);
@@ -838,7 +807,7 @@ void ImportItemModel::removeRowPairs(const QList<QPair<int, int> >& toRemove)
 
         QMultiHash<qlonglong, int>::iterator it;
 
-        for (it = d->idHash.begin() ; it != d->idHash.end() ; )
+        for (it = d->idHash.begin() ; it != d->idHash.end() ; )     // // clazy:exclude=compare-member-check
         {
             if (it.value() >= begin)
             {
@@ -913,7 +882,7 @@ void ImportItemModelIncrementalUpdater::appendInfos(const QList<CamItemInfo>& in
         bool found              = false;
         QMultiHash<qlonglong, int>::iterator it;
 
-        for (it = oldIds.find(info.id) ; it != oldIds.end() ; ++it)
+        for (it = oldIds.find(info.id) ; it != oldIds.end() ; ++it)     // clazy:exclude=compare-member-check
         {
             if (it.key() == info.id)
             {
@@ -993,7 +962,7 @@ QList<QPair<int, int> > ImportItemModelIncrementalUpdater::oldIndexes()
 
             QMultiHash<qlonglong, int>::iterator it;
 
-            for (it = oldIds.begin() ; it != oldIds.end() ; )
+            for (it = oldIds.begin() ; it != oldIds.end() ; )       // clazy:exclude=compare-member-check
             {
                 if (it.value() >= begin)
                 {
