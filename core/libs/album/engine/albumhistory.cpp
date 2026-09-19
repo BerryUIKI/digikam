@@ -548,7 +548,7 @@ void AlbumHistory::slotAlbumCurrentChanged()
 
     if (!(albumList.isEmpty()) && d->historyPos.contains(albumList))
     {
-        if (d->historyPos[albumList].select.size())
+        if (!d->historyPos[albumList].select.isEmpty())
         {
             Q_EMIT signalSetSelectedInfos(d->historyPos[albumList].select);
         }

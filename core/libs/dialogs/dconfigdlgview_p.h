@@ -236,7 +236,7 @@ private:
 // ---------------------------
 
 /**
- * We need this proxy model to map the leaves of a tree-like model
+ * @note We need this proxy model to map the leaves of a tree-like model
  * to a one-level list model.
  */
 class Q_DECL_HIDDEN DConfigDlgListViewProxy : public QAbstractProxyModel

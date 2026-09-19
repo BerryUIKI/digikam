@@ -35,7 +35,7 @@ class HistoryItem;
 class HistoryPosition;
 
 /**
- * Manages the history of the last visited albums.
+ * @brief Manages the history of the last visited albums.
  *
  * The user is able to navigate through the albums, he has
  * opened during a session.
