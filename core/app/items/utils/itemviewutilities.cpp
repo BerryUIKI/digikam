@@ -426,11 +426,12 @@ void ItemViewUtilities::createGroupByTimeFromInfoList(const ItemInfoList& itemIn
     std::stable_sort(groupingList.begin(), groupingList.end(), lessThanByTimeForItemInfo);
 
     QList<ItemInfo>::iterator it, it2;
+    QList<ItemInfo> group;
 
     for (it = groupingList.begin() ; it != groupingList.end() ; )
     {
         const ItemInfo& leader = *it;
-        QList<ItemInfo> group;
+        group.clear();
         QDateTime time         = it->dateTime();
 
         if (time.isValid())
@@ -473,10 +474,11 @@ void ItemViewUtilities::createGroupByFilenameFromInfoList(const ItemInfoList& it
     std::stable_sort(groupingList.begin(), groupingList.end(), lowerThanByNameForItemInfo);
 
     QList<ItemInfo>::iterator it, it2;
+    QList<ItemInfo> group;
 
     for (it = groupingList.begin() ; it != groupingList.end() ; )
     {
-        QList<ItemInfo> group;
+        group.clear();
         QString fname = it->name().left(it->name().indexOf(QLatin1Char('.')));
 
         // don't know the leader yet so put first element also in group
