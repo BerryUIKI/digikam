@@ -279,7 +279,7 @@ bool FacePipelineBase::commonFaceThumbnailLoader(const QString& pipelineName,
         catcher->enqueue();
         QList<QImage> images = catcher->waitForThumbnails();
 
-        if (images.size() && !images[0].isNull())
+        if (!images.isEmpty() && !images[0].isNull())
         {
             // store the thumbnail image in the package
 

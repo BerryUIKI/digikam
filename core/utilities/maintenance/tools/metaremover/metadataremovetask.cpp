@@ -93,7 +93,7 @@ void MetadataRemoveTask::run()
 
         if      (d->removeAction == MetadataRemover::Faces)
         {
-            if (FaceTagsEditor().databaseFaces(item.id()).size() > 0)
+            if (!FaceTagsEditor().databaseFaces(item.id()).isEmpty())
             {
                 FaceUtils().removeAllFaces(item.id());
             }

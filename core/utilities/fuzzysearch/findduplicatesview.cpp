@@ -683,8 +683,8 @@ void FindDuplicatesView::slotDuplicatesAlbumActived()
 void FindDuplicatesView::slotCheckForValidSettings()
 {
     bool valid = (
-                  d->albumSelectors->selectedAlbums().count() ||
-                  d->albumSelectors->selectedTags().count()
+                  !d->albumSelectors->selectedAlbums().isEmpty() ||
+                  !d->albumSelectors->selectedTags().isEmpty()
                  );
 
     d->findDuplicatesBtn->setEnabled(valid);
