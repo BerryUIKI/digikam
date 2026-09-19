@@ -129,7 +129,7 @@ QExplicitlySharedDataPointer<ItemInfoData> ItemInfoCache::infoForPath(int albumR
 
     QMultiHash<QString, QExplicitlySharedDataPointer<ItemInfoData> >::const_iterator it;
 
-    for (it = m_nameHash.constFind(name) ; (it != m_nameHash.constEnd()) && (it.key() == name) ; ++it)
+    for (it = m_nameHash.constFind(name) ; (it != m_nameHash.constEnd()) && (it.key() == name) ; ++it)      // clazy:exclude=compare-member-check
     {
         // first check that album root matches
 
