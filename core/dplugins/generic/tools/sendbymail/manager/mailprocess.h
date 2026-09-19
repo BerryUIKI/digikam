@@ -66,23 +66,23 @@ private:
     void invokeMailAgentDone(const QString& prog, const QStringList& args);
 
     /**
-     * Creates a text file with all images Comments, Tags, and Rating.
+     * @brief Creates a text file with all images Comments, Tags, and Rating.
      */
     void buildPropertiesFile();
 
     /**
-     * Invokes mail agent. Depending on which mail agent to be used, we have different
+     * @brief Invokes mail agent. Depending on which mail agent to be used, we have different
      * proceedings. Easy for every agent except of mozilla derivates
      */
     bool invokeMailAgent();
 
     /**
-     * Shows up an error dialog about the problematic resized images.
+     * @brief Shows up an error dialog about the problematic resized images.
      */
     bool showFailedResizedImages() const;
 
     /**
-     * Returns a list of image urls, whose sum file-size is smaller than the quota set in dialog.
+     * @returns a list of image urls, whose sum file-size is smaller than the quota set in dialog.
      * The returned list are images than we can send immediately, and are removed from
      * d->attachementFiles list.
      * Files which still in d->attachementFiles need to be send by another pass.

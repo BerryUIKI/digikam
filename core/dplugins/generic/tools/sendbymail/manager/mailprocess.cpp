@@ -440,6 +440,7 @@ bool MailProcess::invokeMailAgent()
 
     bool        agentInvoked = false;
     QList<QUrl> fileList;
+    QStringList args;
 
     do
     {
@@ -460,7 +461,7 @@ bool MailProcess::invokeMailAgent()
             {
                 case MailSettings::BALSA:
                 {
-                    QStringList args;
+                    args.clear();
 
                     args.append(QLatin1String("-m"));
                     args.append(QLatin1String("mailto:"));
@@ -490,7 +491,7 @@ bool MailProcess::invokeMailAgent()
                 case MailSettings::CLAWSMAIL:
                 case MailSettings::SYLPHEED:
                 {
-                    QStringList args;
+                    args.clear();
 
                     args.append(QLatin1String("--compose"));
                     args.append(QLatin1String("--attach"));
@@ -519,7 +520,7 @@ bool MailProcess::invokeMailAgent()
 
                 case MailSettings::EVOLUTION:
                 {
-                    QStringList args;
+                    args.clear();
 
                     QString tmp = QLatin1String("mailto:?subject=");
 
@@ -549,7 +550,7 @@ bool MailProcess::invokeMailAgent()
 
                 case MailSettings::KMAIL:
                 {
-                    QStringList args;
+                    args.clear();
 
                     for (QList<QUrl>::ConstIterator it = fileList.constBegin() ;
                          it != fileList.constEnd() ; ++it)
@@ -580,7 +581,7 @@ bool MailProcess::invokeMailAgent()
                 case MailSettings::NETSCAPE:
                 case MailSettings::THUNDERBIRD:
                 {
-                    QStringList args;
+                    args.clear();
 
                     args.append(QLatin1String("-compose"));
                     QString tmp = QLatin1String("attachment='");
@@ -615,7 +616,7 @@ bool MailProcess::invokeMailAgent()
                 }
                 case MailSettings::OUTLOOK:
                 {
-                    QStringList args;
+                    args.clear();
 
                     args.append(QLatin1String("/a"));
                     args.append(QDir::toNativeSeparators(fileList.first().toLocalFile()));
