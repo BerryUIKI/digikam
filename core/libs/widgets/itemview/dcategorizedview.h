@@ -32,7 +32,7 @@ class DCategoryDrawer;
 /**
  * @short Item view for listing items
  *
- * DCategorizedView allows you to use it as it were a QListView.
+ * @brief DCategorizedView allows you to use it as it were a QListView.
  * Subclass DCategorizedSortFilterProxyModel to provide category information for items.
  */
 class DIGIKAM_EXPORT DCategorizedView : public QListView
@@ -50,7 +50,7 @@ public:
     DCategoryDrawer* categoryDrawer()                                                   const;
 
     /**
-     * Switch on drawing of dragged items. Default: on.
+     * @brief Switch on drawing of dragged items. Default: on.
      * While dragging over the view, dragged items will be drawn transparently
      * following the mouse cursor.
      *
@@ -64,28 +64,28 @@ public:
     QModelIndex indexAt(const QPoint& point)                                    const  override;
 
     /**
-     * This method will return all indexes whose visual rect intersects @p rect.
+     * @brief This method will return all indexes whose visual rect intersects @p rect.
      * @param rect rectangle to test intersection with
      * @note Returns an empty list if the view is not categorized.
      */
     virtual QModelIndexList categorizedIndexesIn(const QRect& rect)                     const;
 
     /**
-     * This method will return the visual rect of the header of the category
+     * @brief This method will return the visual rect of the header of the category
      * in which @p index is sorted.
      * @note Returns QRect() if the view is not categorized.
      */
     virtual QRect categoryVisualRect(const QModelIndex& index)                          const;
 
     /**
-     * This method will return the first index of the category
+     * @brief This method will return the first index of the category
      * in the region of which @p point is found.
      * @note Returns QModelIndex() if the view is not categorized.
      */
     virtual QModelIndex categoryAt(const QPoint& point)                                 const;
 
     /**
-     * This method returns the range of indexes contained
+     * @brief This method returns the range of indexes contained
      * in the category in which @p index is sorted.
      * @note Returns an empty range if the view is no categorized.
      */

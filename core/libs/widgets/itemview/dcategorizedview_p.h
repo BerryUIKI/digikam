@@ -99,61 +99,61 @@ public:
     // Methods
 
     /**
-     * Returns the list of items that intersects with @p rect
+     * @returns the list of items that intersects with @p rect
      */
     const QModelIndexList& intersectionSet(const QRect& rect);
 
     /**
-     * Gets the item rect in the viewport for @p index
+     * @brief Gets the item rect in the viewport for @p index
      */
     QRect visualRectInViewport(const QModelIndex& index) const;
 
     /**
-     * Returns the category rect in the viewport for @p category
+     * @returns the category rect in the viewport for @p category
      */
     QRect visualCategoryRectInViewport(const QString& category) const;
 
     /**
-     * Caches and returns the rect that corresponds to @p index
+     * @brief Caches and returns the rect that corresponds to @p index
      */
     const QRect& cacheIndex(const QModelIndex& index);
 
     /**
-     * Caches and returns the rect that corresponds to @p category
+     * @brief Caches and returns the rect that corresponds to @p category
      */
     const QRect& cacheCategory(const QString& category);
 
     /**
-     * Returns the rect that corresponds to @p index
+     * @returns the rect that corresponds to @p index
      * @note If the rect is not cached, it becomes cached
      */
     const QRect& cachedRectIndex(const QModelIndex& index);
 
     /**
-     * Returns the rect that corresponds to @p category
+     * @returns the rect that corresponds to @p category
      * @note If the rect is not cached, it becomes cached
      */
     const QRect& cachedRectCategory(const QString& category);
 
     /**
-     * Returns the visual rect (taking in count x and y offsets) for @p index
+     * @returns the visual rect (taking in count x and y offsets) for @p index
      * @note If the rect is not cached, it becomes cached
      */
     QRect visualRect(const QModelIndex& index);
 
     /**
-     * Returns the visual rect (taking in count x and y offsets) for @p category
+     * @returns the visual rect (taking in count x and y offsets) for @p category
      * @note If the rect is not cached, it becomes cached
      */
     QRect categoryVisualRect(const QString& category);
 
     /**
-     * Returns the contents size of this view (topmost category to bottommost index + spacing)
+     * @returns the contents size of this view (topmost category to bottommost index + spacing)
      */
     QSize contentsSize();
 
     /**
-     * This method will draw a new category represented by index
+     * @brief This method will draw a new category represented by index
      * @p index on the rect specified by @p option.rect, with
      * painter @p painter
      */
@@ -163,36 +163,36 @@ public:
                          QPainter* painter);
 
     /**
-     * This method will update scrollbars ranges. Called when our model changes
+     * @brief This method will update scrollbars ranges. Called when our model changes
      * or when the view is resized
      */
     void updateScrollbars();
 
     /**
-     * This method will draw dragged items in the painting operation
+     * @brief This method will draw dragged items in the painting operation
      */
     void drawDraggedItems(QPainter* painter);
 
     /**
-     * This method will determine which rect needs to be updated because of a
+     * @brief This method will determine which rect needs to be updated because of a
      * dragging operation
      */
     void drawDraggedItems();
 
     /**
-     * This method will, starting from the index at begin in the given (sorted) modelIndex List,
+     * @brief This method will, starting from the index at begin in the given (sorted) modelIndex List,
      * find the last index having the same category as the index to begin with.
      */
     int categoryUpperBound(SparseModelIndexVector& modelIndexList, int begin, int averageSize = 0);
 
     /**
-     * Returns a QItemSelection for all items intersection rect.
+     * @returns a QItemSelection for all items intersection rect.
      */
     QItemSelection selectionForRect(const QRect& rect);
 
 public:
 
-    /// Attributes
+    /// @note Attributes
 
     class Q_DECL_HIDDEN ElementInfo
     {
@@ -206,13 +206,14 @@ public:
 
 public:
 
-    /// Basic data
+    /// @note Basic data
 
     DCategorizedView*                 listView                  = nullptr;
     DCategoryDrawer*                  categoryDrawer            = nullptr;
     QSize                             biggestItemSize           = QSize(0, 0);
 
-    /// Behavior data
+    /// @note Behavior data
+
     bool                              mouseButtonPressed        = false;
     bool                              rightMouseButtonPressed   = false;
     bool                              dragLeftViewport          = false;
@@ -224,7 +225,7 @@ public:
     int                               forcedSelectionPosition   = 0;
 
     /**
-     * Cache data
+     * @note Cache data
      * We cannot merge some of them into structs because it would affect
      * performance
      */
@@ -239,7 +240,7 @@ public:
     QItemSelection                    lastCategorySelection;
     QItemSelection                    lastSelection;
 
-    /// Attributes for speed reasons
+    /// @note Attributes for speed reasons
 
     DCategorizedSortFilterProxyModel* proxyModel                = nullptr;
 };

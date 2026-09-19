@@ -297,7 +297,7 @@ void DCategorizedView::paintEvent(QPaintEvent* event)
     QModelIndexList dirtyIndexes = d->intersectionSet(area);
     bool alternate               = false;
 
-    if (dirtyIndexes.count())
+    if (!dirtyIndexes.isEmpty())
     {
         alternate = (dirtyIndexes[0].row() % 2);
     }
