@@ -302,7 +302,7 @@ QModelIndex ItemModel::indexForImageId(qlonglong id, const QVariant& extraValue)
 
     QMultiHash<qlonglong, int>::const_iterator it;
 
-    for (it = d->idHash.constFind(id) ; it != d->idHash.constEnd() && it.key() == id ; ++it)
+    for (it = d->idHash.constFind(id) ; it != d->idHash.constEnd() && it.key() == id ; ++it)    // clazy:exclude=compare-member-check
     {
         if (d->extraValues.at(it.value()) == extraValue)
         {
@@ -318,7 +318,7 @@ QList<QModelIndex> ItemModel::indexesForImageId(qlonglong id) const
     QList<QModelIndex> indexes;
     QMultiHash<qlonglong, int>::const_iterator it;
 
-    for (it = d->idHash.constFind(id) ; it != d->idHash.constEnd() && it.key() == id ; ++it)
+    for (it = d->idHash.constFind(id) ; it != d->idHash.constEnd() && it.key() == id ; ++it)    // clazy:exclude=compare-member-check
     {
         indexes << createIndex(it.value(), 0);
     }
@@ -341,7 +341,7 @@ int ItemModel::numberOfIndexesForImageId(qlonglong id) const
     int count = 0;
     QMultiHash<qlonglong, int>::const_iterator it;
 
-    for (it = d->idHash.constFind(id) ; (it != d->idHash.constEnd()) && (it.key() == id) ; ++it)
+    for (it = d->idHash.constFind(id) ; (it != d->idHash.constEnd()) && (it.key() == id) ; ++it)    // clazy:exclude=compare-member-check
     {
         ++count;
     }
@@ -641,7 +641,7 @@ bool ItemModel::hasImage(qlonglong id, const QVariant& extraValue) const
 
     QMultiHash<qlonglong, int>::const_iterator it;
 
-    for (it = d->idHash.constFind(id) ; (it != d->idHash.constEnd()) && (it.key() == id) ; ++it)
+    for (it = d->idHash.constFind(id) ; (it != d->idHash.constEnd()) && (it.key() == id) ; ++it)    // clazy:exclude=compare-member-check
     {
         if (d->extraValues.at(it.value()) == extraValue)
         {
@@ -1088,7 +1088,7 @@ void ItemModel::removeRowPairs(const QList<QPair<int, int> >& toRemove)
 
         QMultiHash<qlonglong, int>::iterator it;
 
-        for (it = d->idHash.begin() ; it != d->idHash.end() ; )
+        for (it = d->idHash.begin() ; it != d->idHash.end() ; )     // clazy:exclude=compare-member-check
         {
             if (it.value() >= begin)
             {
@@ -1165,7 +1165,7 @@ void ItemModelIncrementalUpdater::appendInfos(const QList<ItemInfo>& infos, cons
         {
             QMultiHash<qlonglong, int>::iterator it = oldIds.find(info.id());
 
-            if (it != oldIds.end())
+            if (it != oldIds.end())     // clazy:exclude=compare-member-check
             {
                 oldIds.erase(it);
             }
@@ -1183,7 +1183,7 @@ void ItemModelIncrementalUpdater::appendInfos(const QList<ItemInfo>& infos, cons
             bool found           = false;
             QMultiHash<qlonglong, int>::iterator it;
 
-            for (it = oldIds.find(info.id()) ; (it != oldIds.end()) && (it.key() == info.id()) ; ++it)
+            for (it = oldIds.find(info.id()) ; (it != oldIds.end()) && (it.key() == info.id()) ; ++it)  // clazy:exclude=compare-member-check
             {
                 // first check is for bug #262596. Not sure if needed.
 
@@ -1241,7 +1241,7 @@ QList<QPair<int, int> > ItemModelIncrementalUpdater::oldIndexes()
 
             QMultiHash<qlonglong, int>::iterator it;
 
-            for (it = oldIds.begin() ; it != oldIds.end() ; )
+            for (it = oldIds.begin() ; it != oldIds.end() ; )   // clazy:exclude=compare-member-check
             {
                 if (it.value() >= begin)
                 {
