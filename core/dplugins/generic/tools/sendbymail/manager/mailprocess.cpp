@@ -619,7 +619,12 @@ bool MailProcess::invokeMailAgent()
                     args.clear();
 
                     args.append(QLatin1String("/a"));
-                    args.append(QDir::toNativeSeparators(fileList.first().toLocalFile()));
+
+                    for (QList<QUrl>::ConstIterator it = fileList.constBegin() ;
+                         it != fileList.constEnd() ; ++it)
+                    {
+                        args.append(QDir::toNativeSeparators((*it).toLocalFile()));
+                    }
 
                     QProcess process;
                     process.setProcessEnvironment(adjustedEnvironmentForAppImage());
