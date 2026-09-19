@@ -220,7 +220,7 @@ bool AutotagsPipelineObject::finder()
 
                 if (!filter.contains(imageId))
                 {
-                    ++totalItemCount;
+                    ++totalItemCount;       // clazy:exclude=compare-member-check
                     filter << imageId;
                     enqueue(nextQueue, new AutotagsPipelinePackageBase(imageId));
                 }
