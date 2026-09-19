@@ -288,7 +288,7 @@ public:
 
         QReadLocker locker(&lock);
 
-        for (it = nameHash.constBegin() ; it != nameHash.constEnd() ; ++it)
+        for (it = nameHash.constBegin() ; it != nameHash.constEnd() ; ++it)     // clazy:exclude=compare-member-check
         {
             if (
                 (!excludeHiddenTags || !internalTags.contains(it.value())) &&
@@ -511,7 +511,7 @@ QList<int> TagsCache::tagsForName(const QString& tagName, HiddenTagsPolicy hidde
         QReadLocker locker(&d->lock);
         QMultiHash<QString, int>::const_iterator it;
 
-        for (it = d->nameHash.constFind(tagName) ; (it != d->nameHash.constEnd()) && (it.key() == tagName) ; ++it)
+        for (it = d->nameHash.constFind(tagName) ; (it != d->nameHash.constEnd()) && (it.key() == tagName) ; ++it)  // clazy:exclude=compare-member-check
         {
             if (!d->internalTags.contains(it.value()))
             {
