@@ -38,7 +38,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-18 00:42+0000\n"
-"PO-Revision-Date: 2026-09-12 07:29+0200\n"
+"PO-Revision-Date: 2026-09-18 09:31+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -68523,16 +68523,13 @@ msgid "Use OpenCL hardware acceleration"
 msgstr "Uporabi s strojno pospeševanje OpenCL"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:139
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and requires that certain environment "
-#| "variables are set manually."
+#, kde-format
 msgid ""
 "This option is still experimental and requires that certain environment "
 "variables are set manually. See the online documentation for details."
 msgstr ""
-"Ta možnost je še poskusna in zahteva ročno nastavitev nekaterih spremenljivk "
-"okolja."
+"Ta možnost je še vedno eksperimentalna in zahteva ročno nastavitev določenih "
+"okoljskih spremenljivk. Za podrobnosti glejte spletno dokumentacijo."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:142
 #, kde-format
@@ -68540,16 +68537,13 @@ msgid "Use OpenCL acceleration for AI models"
 msgstr "Uporabi pospeševanje OpenCL za modele umetne inteligence"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and may lead to crashes if the proper "
-#| "drivers are not installed."
+#, kde-format
 msgid ""
 "This option is still experimental and may lead to crashes if the proper "
 "drivers are not installed. See the online documentation for details."
 msgstr ""
-"Ta možnost je še vedno eksperimentalna in lahko povzroči sesutja, če niso "
-"nameščeni ustrezni gonilniki."
+"Ta možnost je še vedno eksperimentalna in lahko povzroči sesutje, če niso "
+"nameščeni ustrezni gonilniki. Za podrobnosti glejte spletno dokumentacijo."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:147
 #, kde-format

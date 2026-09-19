@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-18 00:42+0000\n"
-"PO-Revision-Date: 2026-09-12 10:42+0200\n"
+"PO-Revision-Date: 2026-09-18 11:19+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: core/app/date/ddateedit.cpp:489
 #, kde-format
@@ -69119,16 +69119,14 @@ msgid "Use OpenCL hardware acceleration"
 msgstr "Usa l'acceleració de maquinari OpenCL"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:139
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and requires that certain environment "
-#| "variables are set manually."
+#, kde-format
 msgid ""
 "This option is still experimental and requires that certain environment "
 "variables are set manually. See the online documentation for details."
 msgstr ""
 "Aquesta opció encara és experimental i necessita que determinades variables "
-"d'entorn es defineixin manualment."
+"d'entorn es defineixin manualment. Vegeu els detalls a la documentació en "
+"línia."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:142
 #, kde-format
@@ -69136,16 +69134,14 @@ msgid "Use OpenCL acceleration for AI models"
 msgstr "Usa l'acceleració OpenCL per als models d'IA"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and may lead to crashes if the proper "
-#| "drivers are not installed."
+#, kde-format
 msgid ""
 "This option is still experimental and may lead to crashes if the proper "
 "drivers are not installed. See the online documentation for details."
 msgstr ""
 "Aquesta opció encara és experimental i pot provocar fallades si no estan "
-"instal·lats els controladors adequats."
+"instal·lats els controladors adequats. Vegeu els detalls a la documentació "
+"en línia."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:147
 #, kde-format

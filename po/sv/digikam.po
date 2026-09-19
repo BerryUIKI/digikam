@@ -44,14 +44,14 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-18 00:42+0000\n"
-"PO-Revision-Date: 2026-09-12 08:50+0200\n"
+"PO-Revision-Date: 2026-09-18 20:14+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
 "Language: sv\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"X-Generator: Lokalize 26.08.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 
 #: core/app/date/ddateedit.cpp:489
@@ -68337,16 +68337,14 @@ msgid "Use OpenCL hardware acceleration"
 msgstr "Använd OpenCL maskinvaruacceleration"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:139
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and requires that certain environment "
-#| "variables are set manually."
+#, kde-format
 msgid ""
 "This option is still experimental and requires that certain environment "
 "variables are set manually. See the online documentation for details."
 msgstr ""
 "Alternativet är fortfarande experimentellt och kräver att vissa "
-"miljövariabler ställs in manuellt."
+"miljövariabler ställs in manuellt. Se dokumentationen på nätet för "
+"detaljerad information."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:142
 #, kde-format
@@ -68354,16 +68352,14 @@ msgid "Use OpenCL acceleration for AI models"
 msgstr "Använd OpenCL-acceleration för AI-modeller"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and may lead to crashes if the proper "
-#| "drivers are not installed."
+#, kde-format
 msgid ""
 "This option is still experimental and may lead to crashes if the proper "
 "drivers are not installed. See the online documentation for details."
 msgstr ""
 "Alternativet är fortfarande experimentellt och kan leda till krascher om "
-"lämpliga drivrutiner inte är installerade."
+"lämpliga drivrutiner inte är installerade. Se dokumentationen på nätet för "
+"detaljerad information."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:147
 #, kde-format
