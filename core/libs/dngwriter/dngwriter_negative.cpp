@@ -138,8 +138,10 @@ int DNGWriter::Private::createNegative(AutoPtr<dng_negative>& negative,
 
     const dng_mosaic_info* const mosaicinfo = negative->GetMosaicInfo();
 
-    if ((mosaicinfo                  != nullptr) &&
-        (mosaicinfo->fCFAPatternSize == dng_point(2, 2)))
+    if (
+        (mosaicinfo                  != nullptr) &&
+        (mosaicinfo->fCFAPatternSize == dng_point(2, 2))       // clazy:exclude=compare-member-check
+       )
     {
         negative->SetQuadBlacks(identify->blackPoint + identify->blackPointCh[0],
                                 identify->blackPoint + identify->blackPointCh[1],
