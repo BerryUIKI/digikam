@@ -402,7 +402,7 @@ void AssignedListView::dropEvent(QDropEvent* e)
     {
         QByteArray ba = e->mimeData()->data(QLatin1String("digikam/batchtoolslist"));
 
-        if (ba.size())
+        if (!ba.isEmpty())
         {
             QDataStream ds(ba);
             QMultiMap<int, QString> map;
@@ -427,7 +427,7 @@ void AssignedListView::dropEvent(QDropEvent* e)
     {
         QByteArray ba = e->mimeData()->data(QLatin1String("digikam/assignedbatchtool"));
 
-        if (ba.size())
+        if (!ba.isEmpty())
         {
             qint32 count;
             QDataStream ds(ba);

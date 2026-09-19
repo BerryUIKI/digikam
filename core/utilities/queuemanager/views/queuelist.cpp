@@ -590,7 +590,7 @@ void QueueListView::dropEvent(QDropEvent* e)
     {
         QByteArray ba = e->mimeData()->data(QLatin1String("digikam/workflow"));
 
-        if (ba.size())
+        if (!ba.isEmpty())
         {
             QDataStream ds(ba);
             QString     title;
