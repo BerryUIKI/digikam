@@ -108,7 +108,7 @@ FaceTagsIface FacePipelineEdit::confirmFace(const ItemInfo& info,
                                                                          FacePipelinePackageBase::EditPipelineAction::Confirm,
                                                                          retrain);
 
-    ++totalItemCount;
+    ++totalItemCount;               // clazy:exclude=compare-member-check
     Q_EMIT scheduled();
     Q_EMIT started(i18n("Confirming face"));
 
@@ -145,7 +145,7 @@ void FacePipelineEdit::removeFace(const ItemInfo& info,
                                                                          FacePipelinePackageBase::EditPipelineAction::Remove,
                                                                          newFace.isConfirmedName());
 
-    ++totalItemCount;
+    ++totalItemCount;               // clazy:exclude=compare-member-check
 
     Q_EMIT scheduled();
     Q_EMIT started(i18n("Removing face"));
@@ -173,7 +173,7 @@ void FacePipelineEdit::removeAllFaces(const ItemInfo& info)
     FacePipelinePackageBase* const package = new FacePipelinePackageBase(info,
                                                                          FacePipelinePackageBase::EditPipelineAction::RemoveAll);
 
-    ++totalItemCount;
+    ++totalItemCount;               // clazy:exclude=compare-member-check
 
     Q_EMIT scheduled();
     Q_EMIT started(i18n("Remove all faces"));

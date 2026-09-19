@@ -146,7 +146,7 @@ bool FacePipelineRecognize::finder()
 
                     for (const FaceTagsIface& face : std::as_const(faces))
                     {
-                        ++totalItemCount;
+                        ++totalItemCount;       // clazy:exclude=compare-member-check
                         filter << imageId;
                         enqueue(nextQueue, new FacePipelinePackageBase(imageId, face, ++serialNumber));
                     }
@@ -167,7 +167,7 @@ bool FacePipelineRecognize::finder()
 
             for (const FaceTagsIface& face : std::as_const(faces))
             {
-                ++totalItemCount;
+                ++totalItemCount;               // clazy:exclude=compare-member-check
                 filter << imageId;
                 enqueue(nextQueue, new FacePipelinePackageBase(imageId, face, ++serialNumber));
             }
