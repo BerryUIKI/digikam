@@ -43,7 +43,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-18 00:42+0000\n"
+"POT-Creation-Date: 2026-09-20 00:42+0000\n"
 "PO-Revision-Date: 2026-09-18 20:14+0200\n"
 "Last-Translator: Stefan Asserhäll <stefan.asserhall@gmail.com>\n"
 "Language-Team: Swedish <kde-i18n-doc@kde.org>\n"
@@ -2603,21 +2603,21 @@ msgid "Main Tools"
 msgstr "Huvudverktyg"
 
 #: core/app/main/digikamapp_tools.cpp:39
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2669
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2666
 #, kde-format
 msgctxt "@title Post Processing Tools"
 msgid "Post-Processing"
 msgstr "Efterbehandling"
 
 #: core/app/main/digikamapp_tools.cpp:59
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2698
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2695
 #, kde-format
 msgctxt "@title Export Tools"
 msgid "Export"
 msgstr "Export"
 
 #: core/app/main/digikamapp_tools.cpp:70
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2709
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2706
 #, kde-format
 msgctxt "@title Import Tools"
 msgid "Import"
@@ -11720,7 +11720,7 @@ msgstr "Läs in bilder"
 
 #: core/dplugins/generic/import/dscanner/scandialog.cpp:172
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:100
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1848
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1845
 #, kde-format
 msgctxt "@title:window"
 msgid "New Image File Name"
@@ -11760,8 +11760,8 @@ msgstr ""
 
 #: core/dplugins/generic/import/dscanner/scandialog.cpp:249
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:177
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2324
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2343
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2321
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2340
 #, kde-format
 msgctxt "@title:window"
 msgid "Overwrite File?"
@@ -23298,13 +23298,13 @@ msgctxt "@title:window"
 msgid "Export to Remote Storage"
 msgstr "Exportera till annan dator"
 
-#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:214
+#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:213
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload not Completed"
 msgstr "Uppladdning ej slutförd"
 
-#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:215
+#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:214
 #, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
@@ -23370,13 +23370,13 @@ msgid "Start importing the specified images into the currently selected album."
 msgstr ""
 "Starta import av angivna bilder till albumet som för närvarande är markerat."
 
-#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:160
+#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:159
 #, kde-format
 msgctxt "@title:window"
 msgid "Import not Completed"
 msgstr "Import ej slutförd"
 
-#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:161
+#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:160
 #, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
@@ -50362,7 +50362,7 @@ msgid "Delete File"
 msgstr "Ta bort fil"
 
 #: core/showfoto/main/showfoto_iofiles.cpp:78
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2370
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2367
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Saving File"
@@ -59307,7 +59307,7 @@ msgctxt "@label: saving progress on status bar"
 msgid "Saving:"
 msgstr "Sparar: "
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1665
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1663
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -59321,32 +59321,32 @@ msgstr ""
 "i\n"
 "\"%2\"."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1798
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1795
 #, kde-format
 msgctxt "@info"
 msgid "Could not open a temporary file in the folder \"%1\": %2 (%3)"
 msgstr "Kunde inte öppna tillfällig fil i katalogen \"%1\": %2 (%3)"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1994
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1991
 #, kde-format
 msgctxt "@info"
 msgid "Unable to determine the format to save the target image with."
 msgstr "Kunde inte bestämma format att spara resultatbilden med."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2001
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1998
 #, kde-format
 msgctxt "@info"
 msgid "Cannot Save: Found file path \"%1\" is invalid."
 msgstr "Kan inte spara: Filens sökväg \"%1\" är ogiltig."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2248
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2245
 #, kde-format
 msgctxt "@info"
 msgid "Cannot save file \"%1\" to the suggested version file name \"%2\""
 msgstr ""
 "Kan inte spara filen \"%1\" till den föreslagna versionens filnamn \"%2\""
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2325
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2322
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -59356,7 +59356,7 @@ msgstr ""
 "Du har inte skrivrättigheter för filen med namnet \"%1\". Är du säker på att "
 "du vill skriva över den?"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2344
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2341
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -59365,25 +59365,25 @@ msgstr ""
 "En fil med namnet \"%1\" finns redan. Är du säker på att du vill skriva över "
 "den?"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2371
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2368
 #, kde-format
 msgctxt "@info"
 msgid "Failed to overwrite original file"
 msgstr "Misslyckades skriva över originalfilen"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2450
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2447
 #, kde-format
 msgctxt "@info"
 msgid "Color-Managed View is enabled."
 msgstr "Färghanterad vy är aktiv."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2454
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2451
 #, kde-format
 msgctxt "@info"
 msgid "Color-Managed View is disabled."
 msgstr "Färghanterad vy är inaktiv."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2459
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2456
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -59392,74 +59392,74 @@ msgid ""
 msgstr ""
 "Färghantering är inte inställd, alltså är inte färghanterad vy tillgänglig."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2495
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2492
 #, kde-format
 msgctxt "@info"
 msgid "Under-Exposure indicator is enabled"
 msgstr "Indikering av underexponering är aktiv"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2496
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2493
 #, kde-format
 msgctxt "@info"
 msgid "Under-Exposure indicator is disabled"
 msgstr "Indikering av underexponering är inaktiv"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2510
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2507
 #, kde-format
 msgctxt "@info"
 msgid "Over-Exposure indicator is enabled"
 msgstr "Indikering av överexponering är aktiv"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2511
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2508
 #, kde-format
 msgctxt "@info"
 msgid "Over-Exposure indicator is disabled"
 msgstr "Indikering av överexponering är inaktiv"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2602
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2599
 #, kde-format
 msgctxt "@title Image Transform"
 msgid "Transform"
 msgstr "Transformera"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2625
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2622
 #, kde-format
 msgctxt "@title Image Decorate"
 msgid "Decorate"
 msgstr "Dekorera"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2636
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2633
 #, kde-format
 msgctxt "@title Image Effect"
 msgid "Effects"
 msgstr "Effekter"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2647
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2644
 #, kde-format
 msgctxt "@title Image Colors"
 msgid "Colors"
 msgstr "Färger"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2658
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2655
 #, kde-format
 msgctxt "@title Image Enhance"
 msgid "Enhance"
 msgstr "Förbättra"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2848
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2899
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2845
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2896
 #, kde-format
 msgctxt "@action"
 msgid "Open With"
 msgstr "Öppna med"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2860
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2857
 #, kde-format
 msgctxt "@action: open with other application"
 msgid "Other..."
 msgstr "Annat..."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2869
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2866
 #, kde-format
 msgctxt "@action: open with desktop application"
 msgid "Open With..."

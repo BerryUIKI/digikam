@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-18 00:42+0000\n"
+"POT-Creation-Date: 2026-09-20 00:42+0000\n"
 "PO-Revision-Date: 2015-02-26 21:39+0100\n"
 "Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -2930,7 +2930,7 @@ msgid "Main Tools"
 msgstr "Glavna alatna traka"
 
 #: core/app/main/digikamapp_tools.cpp:39
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2669
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2666
 #, fuzzy, kde-format
 #| msgid "Post Processing"
 msgctxt "@title Post Processing Tools"
@@ -2938,7 +2938,7 @@ msgid "Post-Processing"
 msgstr "Kasnije procesiranje"
 
 #: core/app/main/digikamapp_tools.cpp:59
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2698
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2695
 #, fuzzy, kde-format
 #| msgid "Export"
 msgctxt "@title Export Tools"
@@ -2946,7 +2946,7 @@ msgid "Export"
 msgstr "Izvezi"
 
 #: core/app/main/digikamapp_tools.cpp:70
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2709
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2706
 #, fuzzy, kde-format
 #| msgid "Import"
 msgctxt "@title Import Tools"
@@ -12422,7 +12422,7 @@ msgstr "Skeniraj sliku"
 
 #: core/dplugins/generic/import/dscanner/scandialog.cpp:172
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:100
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1848
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1845
 #, fuzzy, kde-format
 #| msgid "New Image File Name"
 msgctxt "@title:window"
@@ -12463,8 +12463,8 @@ msgstr ""
 
 #: core/dplugins/generic/import/dscanner/scandialog.cpp:249
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:177
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2324
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2343
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2321
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2340
 #, fuzzy, kde-format
 #| msgid "Overwrite File?"
 msgctxt "@title:window"
@@ -24923,14 +24923,14 @@ msgctxt "@title:window"
 msgid "Export to Remote Storage"
 msgstr "Unesi sa skenera..."
 
-#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:214
+#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:213
 #, fuzzy, kde-format
 #| msgid "Slideshow Usage"
 msgctxt "@title:window"
 msgid "Upload not Completed"
 msgstr "Iskoristivost projekcije slajdova"
 
-#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:215
+#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:214
 #, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
@@ -24996,14 +24996,14 @@ msgctxt "@info:tooltip, button"
 msgid "Start importing the specified images into the currently selected album."
 msgstr "Promijenite naziv datoteke trenutno odabrane stavke."
 
-#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:160
+#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:159
 #, fuzzy, kde-format
 #| msgid "Imported comments"
 msgctxt "@title:window"
 msgid "Import not Completed"
 msgstr "Ubačeni komentari"
 
-#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:161
+#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:160
 #, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
@@ -54581,7 +54581,7 @@ msgid "Delete File"
 msgstr "Izbriši datoteku"
 
 #: core/showfoto/main/showfoto_iofiles.cpp:78
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2370
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2367
 #, fuzzy, kde-format
 #| msgid "Error Saving File"
 msgctxt "@title:window"
@@ -64179,7 +64179,7 @@ msgctxt "@label: saving progress on status bar"
 msgid "Saving:"
 msgstr "Snimam: "
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1665
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1663
 #, fuzzy, kde-format
 #| msgid ""
 #| "Failed to save file\n"
@@ -64198,21 +64198,21 @@ msgstr ""
 "u\n"
 "„%2“."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1798
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1795
 #, fuzzy, kde-format
 #| msgid "Could not open a temporary file in the folder \"%1\": %2 (%3)"
 msgctxt "@info"
 msgid "Could not open a temporary file in the folder \"%1\": %2 (%3)"
 msgstr "Nije moguće otvoriti privremenu datoteku u mapi \"%1\":%2 (%3)"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1994
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1991
 #, fuzzy, kde-format
 #| msgid "Unable to determine the format to save the target image with."
 msgctxt "@info"
 msgid "Unable to determine the format to save the target image with."
 msgstr "Nije moguće odrediti format za spremanje željene sliku sa."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2001
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1998
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Cannot Save: Found file path \"%1\" is invalid."
@@ -64220,7 +64220,7 @@ msgstr ""
 "Ne možete spasiti: Pronađeni put datoteke <filename>%1 </filename> je "
 "nevažeći."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2248
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2245
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Cannot save file \"%1\" to the suggested version file name \"%2\""
@@ -64228,7 +64228,7 @@ msgstr ""
 "Ne mogu spremiti datoteku  <filename>%1</filename> na predloženu verziju "
 "datoteke imena  <filename>%2</filename>"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2325
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2322
 #, fuzzy, kde-format
 #| msgid ""
 #| "You do not have write permissions for the file named \"%1\". Are you sure "
@@ -64241,7 +64241,7 @@ msgstr ""
 "Nemate dozvole pisanja za datoteku pod imenom „%1“. Sigurni ste da želite da "
 "ga prebrišete?"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2344
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2341
 #, fuzzy, kde-format
 #| msgid ""
 #| "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
@@ -64251,28 +64251,28 @@ msgid ""
 msgstr ""
 "Datoteka sa imenom „%1“ već postoji. Sigurni ste da želite da ga prebrišete?"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2371
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2368
 #, fuzzy, kde-format
 #| msgid "Failed to overwrite original file"
 msgctxt "@info"
 msgid "Failed to overwrite original file"
 msgstr "Neuspjelo prepisivanje preko originalne datoteke"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2450
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2447
 #, fuzzy, kde-format
 #| msgid "Color-Managed View is enabled."
 msgctxt "@info"
 msgid "Color-Managed View is enabled."
 msgstr "Pregled upravljan bojom je uključen."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2454
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2451
 #, fuzzy, kde-format
 #| msgid "Color-Managed View is disabled."
 msgctxt "@info"
 msgid "Color-Managed View is disabled."
 msgstr "Pregled upravljan bojom je isključen."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2459
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2456
 #, fuzzy, kde-format
 #| msgid ""
 #| "Color Management is not configured, so the Color-Managed View is not "
@@ -64285,85 +64285,85 @@ msgstr ""
 "Upravljanje bojom nije konfigurisano tako da pregled upravljan bojom nije "
 "dostupa."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2495
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2492
 #, fuzzy, kde-format
 #| msgid "Under-Exposure indicator is enabled"
 msgctxt "@info"
 msgid "Under-Exposure indicator is enabled"
 msgstr "Pokazivač premalo-izloženog je omogućen"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2496
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2493
 #, fuzzy, kde-format
 #| msgid "Under-Exposure indicator is disabled"
 msgctxt "@info"
 msgid "Under-Exposure indicator is disabled"
 msgstr "Pokazivač premalo-izloženog je onemogućen"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2510
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2507
 #, fuzzy, kde-format
 #| msgid "Over-Exposure indicator is enabled"
 msgctxt "@info"
 msgid "Over-Exposure indicator is enabled"
 msgstr "Pokazivač previše-izloženog je omogućen"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2511
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2508
 #, fuzzy, kde-format
 #| msgid "Over-Exposure indicator is disabled"
 msgctxt "@info"
 msgid "Over-Exposure indicator is disabled"
 msgstr "Pokazivač previše-izloženog je onemogućen"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2602
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2599
 #, fuzzy, kde-format
 #| msgid "Transform"
 msgctxt "@title Image Transform"
 msgid "Transform"
 msgstr "Trasformiši"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2625
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2622
 #, fuzzy, kde-format
 #| msgid "Decorate"
 msgctxt "@title Image Decorate"
 msgid "Decorate"
 msgstr "Dekoriši"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2636
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2633
 #, fuzzy, kde-format
 #| msgid "Effects"
 msgctxt "@title Image Effect"
 msgid "Effects"
 msgstr "Efekti"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2647
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2644
 #, fuzzy, kde-format
 #| msgid "Colors"
 msgctxt "@title Image Colors"
 msgid "Colors"
 msgstr "Boje"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2658
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2655
 #, fuzzy, kde-format
 #| msgid "Enhance"
 msgctxt "@title Image Enhance"
 msgid "Enhance"
 msgstr "Poboljšaj"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2848
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2899
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2845
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2896
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@action"
 msgid "Open With"
 msgstr "Otvori pomoću"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2860
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2857
 #, fuzzy, kde-format
 #| msgid "Other..."
 msgctxt "@action: open with other application"
 msgid "Other..."
 msgstr "Ostalo..."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2869
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2866
 #, fuzzy, kde-format
 #| msgid "Open With..."
 msgctxt "@action: open with desktop application"

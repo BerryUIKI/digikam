@@ -30,7 +30,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-18 00:42+0000\n"
+"POT-Creation-Date: 2026-09-20 00:42+0000\n"
 "PO-Revision-Date: 2026-09-02 11:38+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
@@ -2589,21 +2589,21 @@ msgid "Main Tools"
 msgstr "Aðalverkfæri"
 
 #: core/app/main/digikamapp_tools.cpp:39
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2669
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2666
 #, kde-format
 msgctxt "@title Post Processing Tools"
 msgid "Post-Processing"
 msgstr "Eftirvinnsla"
 
 #: core/app/main/digikamapp_tools.cpp:59
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2698
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2695
 #, kde-format
 msgctxt "@title Export Tools"
 msgid "Export"
 msgstr "Flytja út"
 
 #: core/app/main/digikamapp_tools.cpp:70
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2709
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2706
 #, kde-format
 msgctxt "@title Import Tools"
 msgid "Import"
@@ -11650,7 +11650,7 @@ msgstr "Skanna myndir"
 
 #: core/dplugins/generic/import/dscanner/scandialog.cpp:172
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:100
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1848
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1845
 #, kde-format
 msgctxt "@title:window"
 msgid "New Image File Name"
@@ -11690,8 +11690,8 @@ msgstr ""
 
 #: core/dplugins/generic/import/dscanner/scandialog.cpp:249
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:177
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2324
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2343
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2321
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2340
 #, kde-format
 msgctxt "@title:window"
 msgid "Overwrite File?"
@@ -23217,13 +23217,13 @@ msgctxt "@title:window"
 msgid "Export to Remote Storage"
 msgstr "Flytja út á fjartengda geymslu"
 
-#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:214
+#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:213
 #, kde-format
 msgctxt "@title:window"
 msgid "Upload not Completed"
 msgstr "Sendingu skráa er ekki lokið"
 
-#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:215
+#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:214
 #, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
@@ -23290,13 +23290,13 @@ msgctxt "@info:tooltip, button"
 msgid "Start importing the specified images into the currently selected album."
 msgstr "Hefja innflutning á tilgreindum myndum inn í valið albúm."
 
-#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:160
+#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:159
 #, kde-format
 msgctxt "@title:window"
 msgid "Import not Completed"
 msgstr "Innflutningi skráa er ekki lokið"
 
-#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:161
+#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:160
 #, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
@@ -50282,7 +50282,7 @@ msgid "Delete File"
 msgstr "Eyða skrá"
 
 #: core/showfoto/main/showfoto_iofiles.cpp:78
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2370
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2367
 #, kde-format
 msgctxt "@title:window"
 msgid "Error Saving File"
@@ -59211,7 +59211,7 @@ msgctxt "@label: saving progress on status bar"
 msgid "Saving:"
 msgstr "Vista: "
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1665
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1663
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -59225,32 +59225,32 @@ msgstr ""
 "í\n"
 "\"%2\"."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1798
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1795
 #, kde-format
 msgctxt "@info"
 msgid "Could not open a temporary file in the folder \"%1\": %2 (%3)"
 msgstr "Gat ekki opnað bráðabirgðaskrá í möppunni \"%1\": %2 (%3)"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1994
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1991
 #, kde-format
 msgctxt "@info"
 msgid "Unable to determine the format to save the target image with."
 msgstr ""
 "Tókst ekki að finna út með hvaða sniði eigi að vista endanlegu myndina."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2001
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1998
 #, kde-format
 msgctxt "@info"
 msgid "Cannot Save: Found file path \"%1\" is invalid."
 msgstr "Get ekki vistað: Fann að skráarslóðin \"%1\" er ógild."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2248
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2245
 #, kde-format
 msgctxt "@info"
 msgid "Cannot save file \"%1\" to the suggested version file name \"%2\""
 msgstr "Ekki tókst að vista skrána \"%1\" með valda útgáfuskráarheitinu \"%2\""
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2325
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2322
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -59260,7 +59260,7 @@ msgstr ""
 "Þú hefur ekki skrifréttindi fyrir skrána með heitinu \"%1\". Ertu viss um að "
 "þú viljir skrifa yfir hana?"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2344
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2341
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -59269,25 +59269,25 @@ msgstr ""
 "Skrá með nafninu \"%1\" er þegar til. Ertu viss um að þú viljir skrifa yfir "
 "hana?"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2371
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2368
 #, kde-format
 msgctxt "@info"
 msgid "Failed to overwrite original file"
 msgstr "Mistókst að skrifa yfir upphaflegt skjal"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2450
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2447
 #, kde-format
 msgctxt "@info"
 msgid "Color-Managed View is enabled."
 msgstr "Litasstýrð sýn er virkjuð."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2454
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2451
 #, kde-format
 msgctxt "@info"
 msgid "Color-Managed View is disabled."
 msgstr "Litasstýrð sýn er óvirk."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2459
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2456
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -59297,74 +59297,74 @@ msgstr ""
 "Litastýring hefur ekki verið sett upp, þannig að litastýrð sýn er ekki "
 "tiltæk."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2495
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2492
 #, kde-format
 msgctxt "@info"
 msgid "Under-Exposure indicator is enabled"
 msgstr "Undirlýsingarvari er virkjaður"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2496
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2493
 #, kde-format
 msgctxt "@info"
 msgid "Under-Exposure indicator is disabled"
 msgstr "Undirlýsingarvari er óvirkur"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2510
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2507
 #, kde-format
 msgctxt "@info"
 msgid "Over-Exposure indicator is enabled"
 msgstr "Yfirlýsingarvari er virkjaður"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2511
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2508
 #, kde-format
 msgctxt "@info"
 msgid "Over-Exposure indicator is disabled"
 msgstr "Yfirlýsingarvari er óvirkur"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2602
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2599
 #, kde-format
 msgctxt "@title Image Transform"
 msgid "Transform"
 msgstr "Ummynda"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2625
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2622
 #, kde-format
 msgctxt "@title Image Decorate"
 msgid "Decorate"
 msgstr "Skreyta"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2636
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2633
 #, kde-format
 msgctxt "@title Image Effect"
 msgid "Effects"
 msgstr "Sjónhverfingar"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2647
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2644
 #, kde-format
 msgctxt "@title Image Colors"
 msgid "Colors"
 msgstr "Litir"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2658
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2655
 #, kde-format
 msgctxt "@title Image Enhance"
 msgid "Enhance"
 msgstr "Bæting"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2848
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2899
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2845
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2896
 #, kde-format
 msgctxt "@action"
 msgid "Open With"
 msgstr "Opna með"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2860
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2857
 #, kde-format
 msgctxt "@action: open with other application"
 msgid "Other..."
 msgstr "Annað..."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2869
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2866
 #, kde-format
 msgctxt "@action: open with desktop application"
 msgid "Open With..."

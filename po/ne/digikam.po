@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-18 00:42+0000\n"
+"POT-Creation-Date: 2026-09-20 00:42+0000\n"
 "PO-Revision-Date: 2007-08-19 14:42+0545\n"
 "Last-Translator: Nabin Gautam <nabin@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -2604,21 +2604,21 @@ msgid "Main Tools"
 msgstr "रङ"
 
 #: core/app/main/digikamapp_tools.cpp:39
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2669
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2666
 #, fuzzy, kde-format
 msgctxt "@title Post Processing Tools"
 msgid "Post-Processing"
 msgstr "फाइल गुण"
 
 #: core/app/main/digikamapp_tools.cpp:59
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2698
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2695
 #, fuzzy, kde-format
 msgctxt "@title Export Tools"
 msgid "Export"
 msgstr "निर्यात"
 
 #: core/app/main/digikamapp_tools.cpp:70
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2709
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2706
 #, fuzzy, kde-format
 msgctxt "@title Import Tools"
 msgid "Import"
@@ -11284,7 +11284,7 @@ msgstr "थप्नका लागि छवि चयन गर्नुह�
 
 #: core/dplugins/generic/import/dscanner/scandialog.cpp:172
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:100
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1848
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1845
 #, fuzzy, kde-format
 #| msgid "New Image File Name"
 msgctxt "@title:window"
@@ -11325,8 +11325,8 @@ msgstr ""
 
 #: core/dplugins/generic/import/dscanner/scandialog.cpp:249
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:177
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2324
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2343
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2321
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2340
 #, fuzzy, kde-format
 #| msgid "Overwrite File?"
 msgctxt "@title:window"
@@ -22427,14 +22427,14 @@ msgctxt "@title:window"
 msgid "Export to Remote Storage"
 msgstr "टिप्पणी:"
 
-#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:214
+#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:213
 #, fuzzy, kde-format
 #| msgid "Download Selected"
 msgctxt "@title:window"
 msgid "Upload not Completed"
 msgstr "चयन गरेको डाउनलोड गर्नुहोस्"
 
-#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:215
+#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:214
 #, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
@@ -22496,13 +22496,13 @@ msgctxt "@info:tooltip, button"
 msgid "Start importing the specified images into the currently selected album."
 msgstr "यो विकल्पले हालै चयन गरेको वस्तुको फाइलनाम पुन: नामकरण गर्न अनुमति दिन्छ ।"
 
-#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:160
+#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:159
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Import not Completed"
 msgstr "छवि टिप्पणी मुद्रण गर्नुहोस्"
 
-#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:161
+#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:160
 #, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
@@ -48978,7 +48978,7 @@ msgid "Delete File"
 msgstr "फाइल मेट्नुहोस्"
 
 #: core/showfoto/main/showfoto_iofiles.cpp:78
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2370
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2367
 #, fuzzy, kde-format
 #| msgid "Error Saving File"
 msgctxt "@title:window"
@@ -57651,7 +57651,7 @@ msgctxt "@label: saving progress on status bar"
 msgid "Saving:"
 msgstr "बचत हुँदैछ: "
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1665
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1663
 #, fuzzy, kde-format
 #| msgid ""
 #| "Failed to save file\n"
@@ -57670,32 +57670,32 @@ msgstr ""
 "लाई\n"
 "\"%2\" मा बचत गर्न असफल ।"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1798
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1795
 #, fuzzy, kde-format
 #| msgid "Failed to list files in %1"
 msgctxt "@info"
 msgid "Could not open a temporary file in the folder \"%1\": %2 (%3)"
 msgstr "%1 मा फाइल सूचीकरण गर्न असफल"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1994
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1991
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Unable to determine the format to save the target image with."
 msgstr "<p>यहाँ छविको व्यतिरेक समायोजन सेट गर्नुहोस् ।"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2001
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1998
 #, kde-format
 msgctxt "@info"
 msgid "Cannot Save: Found file path \"%1\" is invalid."
 msgstr ""
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2248
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2245
 #, kde-format
 msgctxt "@info"
 msgid "Cannot save file \"%1\" to the suggested version file name \"%2\""
 msgstr ""
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2325
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2322
 #, fuzzy, kde-format
 #| msgid ""
 #| "You do not have write permissions for the file named \"%1\". Are you sure "
@@ -57707,7 +57707,7 @@ msgid ""
 msgstr ""
 "\"%1\" नामको फाइलमा तपाईँलाई लेख्ने अनुमति छैन । यसलाई अधिलेखन गर्न तपाईँ यकिन हुनुहुन्छ ?"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2344
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2341
 #, fuzzy, kde-format
 #| msgid ""
 #| "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
@@ -57716,26 +57716,26 @@ msgid ""
 "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
 msgstr "\"%1\" नामको फाइल पहिल्यै अवस्थित छ । यसलाई अधिलेखन गर्न तपाईँ यकिन हुनुहुन्छ ?"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2371
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2368
 #, fuzzy, kde-format
 #| msgid "Failed to overwrite original file"
 msgctxt "@info"
 msgid "Failed to overwrite original file"
 msgstr "मौलिक फाइल अधिलेखन गर्न असफल"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2450
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2447
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Color-Managed View is enabled."
 msgstr "रङ सन्तुलन दृश्य सक्षम गरियो"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2454
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2451
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Color-Managed View is disabled."
 msgstr "रङ सन्तुलन दृश्य अक्षम गरियो"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2459
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2456
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -57743,80 +57743,80 @@ msgid ""
 "available."
 msgstr ""
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2495
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2492
 #, fuzzy, kde-format
 #| msgid "Under-Exposure indicator is enabled"
 msgctxt "@info"
 msgid "Under-Exposure indicator is enabled"
 msgstr "न्यून-प्रर्दशन सूचक सक्षम गरियो"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2496
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2493
 #, fuzzy, kde-format
 #| msgid "Under-Exposure indicator is disabled"
 msgctxt "@info"
 msgid "Under-Exposure indicator is disabled"
 msgstr "न्यून-प्रर्दशन सूचक अक्षम गरियो"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2510
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2507
 #, fuzzy, kde-format
 #| msgid "Over-Exposure indicator is enabled"
 msgctxt "@info"
 msgid "Over-Exposure indicator is enabled"
 msgstr "अधिक-प्रर्दशन सूचक सक्षम गरियो"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2511
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2508
 #, fuzzy, kde-format
 #| msgid "Over-Exposure indicator is disabled"
 msgctxt "@info"
 msgid "Over-Exposure indicator is disabled"
 msgstr "अधिक-प्रर्दशन सूचक अक्षम गरियो"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2602
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2599
 #, fuzzy, kde-format
 msgctxt "@title Image Transform"
 msgid "Transform"
 msgstr "रूपान्तरण"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2625
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2622
 #, fuzzy, kde-format
 msgctxt "@title Image Decorate"
 msgid "Decorate"
 msgstr "घुमाउनुहोस्"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2636
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2633
 #, fuzzy, kde-format
 msgctxt "@title Image Effect"
 msgid "Effects"
 msgstr "रङ गहिराइ:"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2647
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2644
 #, fuzzy, kde-format
 #| msgid "Colors"
 msgctxt "@title Image Colors"
 msgid "Colors"
 msgstr "रङ"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2658
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2655
 #, fuzzy, kde-format
 msgctxt "@title Image Enhance"
 msgid "Enhance"
 msgstr "रद्द गर्नुहोस्"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2848
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2899
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2845
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2896
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@action"
 msgid "Open With"
 msgstr "यससँग खोल्नुहोस्"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2860
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2857
 #, fuzzy, kde-format
 msgctxt "@action: open with other application"
 msgid "Other..."
 msgstr "तिखोपन..."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2869
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2866
 #, fuzzy, kde-format
 msgctxt "@action: open with desktop application"
 msgid "Open With..."

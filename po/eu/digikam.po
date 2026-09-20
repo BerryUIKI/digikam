@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-18 00:42+0000\n"
+"POT-Creation-Date: 2026-09-20 00:42+0000\n"
 "PO-Revision-Date: 2026-08-29 20:09+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -2615,21 +2615,21 @@ msgid "Main Tools"
 msgstr "Tresna nagusiak"
 
 #: core/app/main/digikamapp_tools.cpp:39
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2669
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2666
 #, kde-format
 msgctxt "@title Post Processing Tools"
 msgid "Post-Processing"
 msgstr "Osteko prozesamendua"
 
 #: core/app/main/digikamapp_tools.cpp:59
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2698
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2695
 #, kde-format
 msgctxt "@title Export Tools"
 msgid "Export"
 msgstr "Esportazioa"
 
 #: core/app/main/digikamapp_tools.cpp:70
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2709
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2706
 #, kde-format
 msgctxt "@title Import Tools"
 msgid "Import"
@@ -11661,7 +11661,7 @@ msgstr "Eskaneatu irudiak"
 
 #: core/dplugins/generic/import/dscanner/scandialog.cpp:172
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:100
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1848
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1845
 #, kde-format
 msgctxt "@title:window"
 msgid "New Image File Name"
@@ -11701,8 +11701,8 @@ msgstr ""
 
 #: core/dplugins/generic/import/dscanner/scandialog.cpp:249
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:177
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2324
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2343
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2321
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2340
 #, kde-format
 msgctxt "@title:window"
 msgid "Overwrite File?"
@@ -23498,14 +23498,14 @@ msgctxt "@title:window"
 msgid "Export to Remote Storage"
 msgstr "Esportatu urruneko biltegira"
 
-#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:214
+#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:213
 #, fuzzy, kde-format
 #| msgid "Upload not completed"
 msgctxt "@title:window"
 msgid "Upload not Completed"
 msgstr "Zama-igotzea ez da burutu"
 
-#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:215
+#: core/dplugins/generic/webservices/filetransfer/ftexportwindow.cpp:214
 #, fuzzy, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
@@ -23578,14 +23578,14 @@ msgctxt "@info:tooltip, button"
 msgid "Start importing the specified images into the currently selected album."
 msgstr "Hasi adierazitako irudiak unean hautatutako albumera inportatzen."
 
-#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:160
+#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:159
 #, fuzzy, kde-format
 #| msgid "Imported comments"
 msgctxt "@title:window"
 msgid "Import not Completed"
 msgstr "Inportatzea ez da osatu"
 
-#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:161
+#: core/dplugins/generic/webservices/filetransfer/ftimportwindow.cpp:160
 #, fuzzy, kde-format
 msgid ""
 "Some of the images have not been transferred and are still in the list. You "
@@ -51996,7 +51996,7 @@ msgid "Delete File"
 msgstr "Ezabatu fitxategia"
 
 #: core/showfoto/main/showfoto_iofiles.cpp:78
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2370
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2367
 #, fuzzy, kde-format
 #| msgid "Error Saving File"
 msgctxt "@title:window"
@@ -61157,7 +61157,7 @@ msgctxt "@label: saving progress on status bar"
 msgid "Saving:"
 msgstr "Gordetzen..."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1665
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1663
 #, fuzzy, kde-format
 #| msgid ""
 #| "Failed to save file\n"
@@ -61176,33 +61176,33 @@ msgstr ""
 "fitxategia\n"
 "\"%2\"(e)n  gordetzean."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1798
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1795
 #, fuzzy, kde-format
 #| msgid "Could not open a temporary file in the folder \"%1\": %2 (%3)"
 msgctxt "@info"
 msgid "Could not open a temporary file in the folder \"%1\": %2 (%3)"
 msgstr "Ezin izan da aldi baterako fitxategia \"%1\" karpetan ireki: %2 (%3)"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:1994
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1991
 #, fuzzy, kde-format
 #| msgid "Unable to determine the format to save the target image with."
 msgctxt "@info"
 msgid "Unable to determine the format to save the target image with."
 msgstr "Ezin da formatua zehaztu helburuko irudia horrekin gordetzeko."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2001
+#: core/utilities/imageeditor/editor/editorwindow.cpp:1998
 #, kde-format
 msgctxt "@info"
 msgid "Cannot Save: Found file path \"%1\" is invalid."
 msgstr ""
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2248
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2245
 #, kde-format
 msgctxt "@info"
 msgid "Cannot save file \"%1\" to the suggested version file name \"%2\""
 msgstr ""
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2325
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2322
 #, fuzzy, kde-format
 #| msgid ""
 #| "You do not have write permissions for the file named \"%1\". Are you sure "
@@ -61215,7 +61215,7 @@ msgstr ""
 "Ez duzu idazteko nahikoa baimenik \"%1\" fitxategiarentzako. Ziur zaude "
 "gainidatzi nahi duzula?"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2344
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2341
 #, fuzzy, kde-format
 #| msgid ""
 #| "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
@@ -61225,28 +61225,28 @@ msgid ""
 msgstr ""
 "«%1» izeneko fitxategi bat existitzen da. Ziur zaude gainidatzi nahi duzula?"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2371
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2368
 #, fuzzy, kde-format
 #| msgid "Failed to overwrite original file"
 msgctxt "@info"
 msgid "Failed to overwrite original file"
 msgstr "Huts egin du jatorrizko fitxategia gainidaztean"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2450
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2447
 #, fuzzy, kde-format
 #| msgid "Color-Managed View is enabled."
 msgctxt "@info"
 msgid "Color-Managed View is enabled."
 msgstr "Kolore-kudeaketaren ikuspegia gaituta dago."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2454
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2451
 #, fuzzy, kde-format
 #| msgid "Color-Managed View is disabled."
 msgctxt "@info"
 msgid "Color-Managed View is disabled."
 msgstr "Kolore-kudeaketaren ikuspegia desgaituta dago."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2459
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2456
 #, fuzzy, kde-format
 #| msgid ""
 #| "Color Management is not configured, so the Color-Managed View is not "
@@ -61259,84 +61259,84 @@ msgstr ""
 "Koloreen kudeaketa ez dagoenez konfiguratuta, kolore-kudeaketaren ikuspegia "
 "ez dago erabilgarri."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2495
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2492
 #, fuzzy, kde-format
 #| msgid "Under-Exposure indicator is enabled"
 msgctxt "@info"
 msgid "Under-Exposure indicator is enabled"
 msgstr "Azpi-esposizioaren adierazlea gaituta dago"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2496
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2493
 #, fuzzy, kde-format
 #| msgid "Under-Exposure indicator is disabled"
 msgctxt "@info"
 msgid "Under-Exposure indicator is disabled"
 msgstr "Azpi-esposizioaren adierazlea desgaituta dago"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2510
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2507
 #, fuzzy, kde-format
 #| msgid "Over-Exposure indicator is enabled"
 msgctxt "@info"
 msgid "Over-Exposure indicator is enabled"
 msgstr "Gain-esposizioaren adierazlea gaituta dago"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2511
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2508
 #, fuzzy, kde-format
 #| msgid "Over-Exposure indicator is disabled"
 msgctxt "@info"
 msgid "Over-Exposure indicator is disabled"
 msgstr "Gain-esposizioaren adierazlea desgaituta dago"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2602
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2599
 #, fuzzy, kde-format
 #| msgid "Transform"
 msgctxt "@title Image Transform"
 msgid "Transform"
 msgstr "Eraldatu"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2625
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2622
 #, fuzzy, kde-format
 #| msgid "Decorate"
 msgctxt "@title Image Decorate"
 msgid "Decorate"
 msgstr "Apaindu"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2636
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2633
 #, fuzzy, kde-format
 msgctxt "@title Image Effect"
 msgid "Effects"
 msgstr "Efektuak"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2647
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2644
 #, fuzzy, kde-format
 #| msgid "Colors"
 msgctxt "@title Image Colors"
 msgid "Colors"
 msgstr "Koloreak"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2658
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2655
 #, fuzzy, kde-format
 #| msgid "Enhance"
 msgctxt "@title Image Enhance"
 msgid "Enhance"
 msgstr "Hobetu"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2848
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2899
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2845
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2896
 #, fuzzy, kde-format
 #| msgid "Open With"
 msgctxt "@action"
 msgid "Open With"
 msgstr "Ireki honekin"
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2860
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2857
 #, fuzzy, kde-format
 #| msgid "Other..."
 msgctxt "@action: open with other application"
 msgid "Other..."
 msgstr "Bestelakoa..."
 
-#: core/utilities/imageeditor/editor/editorwindow.cpp:2869
+#: core/utilities/imageeditor/editor/editorwindow.cpp:2866
 #, fuzzy, kde-format
 #| msgid "Open With..."
 msgctxt "@action: open with desktop application"
