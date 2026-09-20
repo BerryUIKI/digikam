@@ -233,7 +233,7 @@ bool DMetadata::setItemTagsPath(const QStringList& tagsPath, const DMetadataSett
         const std::string myStr = entry.namespaceName.toStdString();
         const char* nameSpace   = myStr.data();
 
-        newList.resize(0);;
+        newList.clear();
 
         // Get keywords from tags path, for type tag
 
