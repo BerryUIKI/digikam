@@ -53,7 +53,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-20 00:42+0000\n"
+"POT-Creation-Date: 2026-09-20 12:51+0000\n"
 "PO-Revision-Date: 2023-08-28 12:02+0300\n"
 "Last-Translator: Petros Vidalis <pvidalis@gmail.com>\n"
 "Language-Team: Greek <kde-i18n-doc@kde.org>\n"
@@ -1648,7 +1648,7 @@ msgstr "Αρχικοποίηση της Κύριας προβολής..."
 #: core/utilities/imageeditor/editor/editorwindow.cpp:1516
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:426
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:449
-#: core/utilities/survey/surveywindow_setup.cpp:264
+#: core/utilities/survey/surveywindow_setup.cpp:272
 #, fuzzy, kde-format
 #| msgid "Loading: "
 msgctxt "@label"
@@ -2431,152 +2431,159 @@ msgctxt "@action: setup"
 msgid "Last Image"
 msgstr "Τελευταία εικόνα"
 
-#: core/app/main/digikamapp_setup.cpp:1004
+#: core/app/main/digikamapp_setup.cpp:1005
+#, fuzzy, kde-format
+#| msgid "Flash mode"
+msgctxt "@action: setup"
+msgid "Play/Pause Video"
+msgstr "Λειτουργία φλας"
+
+#: core/app/main/digikamapp_setup.cpp:1013
 #, kde-format
 msgctxt "@action: setup"
 msgid "Cu&t"
 msgstr "Αποκο&πή"
 
-#: core/app/main/digikamapp_setup.cpp:1006
+#: core/app/main/digikamapp_setup.cpp:1015
 #, kde-format
 msgctxt "@action: setup"
 msgid "Cut selection to clipboard"
 msgstr "Αποκοπή επιλογής στο πρόχειρο"
 
-#: core/app/main/digikamapp_setup.cpp:1025
+#: core/app/main/digikamapp_setup.cpp:1034
 #, kde-format
 msgctxt "@action: setup"
 msgid "Edit Titles"
 msgstr "Επεξεργασία τίτλων"
 
-#: core/app/main/digikamapp_setup.cpp:1030
+#: core/app/main/digikamapp_setup.cpp:1039
 #, kde-format
 msgctxt "@action: setup"
 msgid "Edit Comments"
 msgstr "Επεξεργασία σχολίων"
 
-#: core/app/main/digikamapp_setup.cpp:1035
+#: core/app/main/digikamapp_setup.cpp:1044
 #, kde-format
 msgctxt "@action: setup"
 msgid "Show Assigned Tags"
 msgstr "Εμφάνιση αντιστοιχισμένων ετικετών"
 
-#: core/app/main/digikamapp_setup.cpp:1044
+#: core/app/main/digikamapp_setup.cpp:1053
 #, kde-format
 msgctxt "@action: setup"
 msgid "Adjust Exif Orientation Tag"
 msgstr "Προσαρμογή ετικέτας προσανατολισμού Exif"
 
-#: core/app/main/digikamapp_setup.cpp:1047
+#: core/app/main/digikamapp_setup.cpp:1056
 #, kde-format
 msgctxt "@action: normal exif orientation"
 msgid "Normal"
 msgstr "Κανονικό"
 
-#: core/app/main/digikamapp_setup.cpp:1049
+#: core/app/main/digikamapp_setup.cpp:1058
 #, kde-format
 msgctxt "@action: setup"
 msgid "Flipped Horizontally"
 msgstr "Αναστροφή οριζόντια"
 
-#: core/app/main/digikamapp_setup.cpp:1051
+#: core/app/main/digikamapp_setup.cpp:1060
 #, kde-format
 msgctxt "@action: setup"
 msgid "Rotated Upside Down"
 msgstr "Περιστραμμένο ανάποδα"
 
-#: core/app/main/digikamapp_setup.cpp:1053
+#: core/app/main/digikamapp_setup.cpp:1062
 #, kde-format
 msgctxt "@action: setup"
 msgid "Flipped Vertically"
 msgstr "Ανεστραμμένο Κάθετα"
 
-#: core/app/main/digikamapp_setup.cpp:1055
+#: core/app/main/digikamapp_setup.cpp:1064
 #, kde-format
 msgctxt "@action: setup"
 msgid "Rotated Right / Horiz. Flipped"
 msgstr "Περιεστρεμμένο δεξιά / οριζ. αναστροφή"
 
-#: core/app/main/digikamapp_setup.cpp:1057
+#: core/app/main/digikamapp_setup.cpp:1066
 #, kde-format
 msgctxt "@action: setup"
 msgid "Rotated Right"
 msgstr "Περιεστρεμμένο δεξιά"
 
-#: core/app/main/digikamapp_setup.cpp:1059
+#: core/app/main/digikamapp_setup.cpp:1068
 #, kde-format
 msgctxt "@action: setup"
 msgid "Rotated Right / Vert. Flipped"
 msgstr "Περιεστρεμμένο δεξιά / κατακ. αναστροφή"
 
-#: core/app/main/digikamapp_setup.cpp:1061
+#: core/app/main/digikamapp_setup.cpp:1070
 #, kde-format
 msgctxt "@action: setup"
 msgid "Rotated Left"
 msgstr "Περιεστρεμμένο αριστερά"
 
-#: core/app/main/digikamapp_setup.cpp:1122
+#: core/app/main/digikamapp_setup.cpp:1131
 #, kde-format
 msgctxt "@action: setup"
 msgid "Rotate"
 msgstr "Περιστροφή"
 
-#: core/app/main/digikamapp_setup.cpp:1128
+#: core/app/main/digikamapp_setup.cpp:1137
 #, fuzzy, kde-format
 #| msgid "Auto rotate"
 msgctxt "@action: auto-rotate image"
 msgid "Auto-Rotate"
 msgstr "Αυτόματη περιστροφή"
 
-#: core/app/main/digikamapp_setup.cpp:1136
+#: core/app/main/digikamapp_setup.cpp:1145
 #, kde-format
 msgctxt "@action: rotate image left"
 msgid "Left"
 msgstr "Αριστερά"
 
-#: core/app/main/digikamapp_setup.cpp:1143
+#: core/app/main/digikamapp_setup.cpp:1152
 #, kde-format
 msgctxt "@action: rotate image right"
 msgid "Right"
 msgstr "Δεξιά"
 
-#: core/app/main/digikamapp_setup.cpp:1153
+#: core/app/main/digikamapp_setup.cpp:1162
 #, kde-format
 msgctxt "@action: setup"
 msgid "Flip"
 msgstr "Αναστροφή"
 
-#: core/app/main/digikamapp_setup.cpp:1157
+#: core/app/main/digikamapp_setup.cpp:1166
 #, kde-format
 msgctxt "@action: setup"
 msgid "Horizontally"
 msgstr "Οριζόντια"
 
-#: core/app/main/digikamapp_setup.cpp:1164
+#: core/app/main/digikamapp_setup.cpp:1173
 #, kde-format
 msgctxt "@action: setup"
 msgid "Vertically"
 msgstr "Κατακόρυφα"
 
-#: core/app/main/digikamapp_setup.cpp:1174
+#: core/app/main/digikamapp_setup.cpp:1183
 #, kde-format
 msgctxt "@action: setup"
 msgid "Auto Rotate/Flip Using Exif Information"
 msgstr "Αυτόματη περιστροφή/αναστροφή με χρήση πληροφοριών Exif"
 
-#: core/app/main/digikamapp_setup.cpp:1185
+#: core/app/main/digikamapp_setup.cpp:1194
 #, kde-format
 msgctxt "@info: setup"
 msgid "Loading themes..."
 msgstr "Φόρτωση θεμάτων..."
 
-#: core/app/main/digikamapp_setup.cpp:1188
+#: core/app/main/digikamapp_setup.cpp:1197
 #, kde-format
 msgctxt "@action: setup"
 msgid "&Themes"
 msgstr "&Θέματα"
 
-#: core/app/main/digikamapp_setup.cpp:1204
+#: core/app/main/digikamapp_setup.cpp:1213
 #, kde-format
 msgctxt "@info: setup"
 msgid "Loading tools..."
@@ -3386,7 +3393,7 @@ msgstr "Φίλτρα"
 msgid "Cannot open the root album. It is not a physical location."
 msgstr "Αδυναμία ανοίγματος του λευκώματος ρίζας. Δεν είναι φυσική θέση."
 
-#: core/app/views/stack/itemiconview_items.cpp:741
+#: core/app/views/stack/itemiconview_items.cpp:764
 #, kde-format
 msgid ""
 "The current query from the database returned no results. Change search "
@@ -64302,19 +64309,19 @@ msgid "Move to Trash without Confirmation"
 msgstr "Μετακίνηση στα απορρίμματα χωρίς επιβεβαίωση"
 
 #: core/utilities/imageeditor/main/imagewindow_setup.cpp:66
-#: core/utilities/survey/surveywindow_setup.cpp:165
+#: core/utilities/survey/surveywindow_setup.cpp:173
 #, kde-format
 msgid "Edit Titles"
 msgstr "Επεξεργασία τίτλων"
 
 #: core/utilities/imageeditor/main/imagewindow_setup.cpp:71
-#: core/utilities/survey/surveywindow_setup.cpp:170
+#: core/utilities/survey/surveywindow_setup.cpp:178
 #, kde-format
 msgid "Edit Comments"
 msgstr "Επεξεργασία σχολίων"
 
 #: core/utilities/imageeditor/main/imagewindow_setup.cpp:76
-#: core/utilities/survey/surveywindow_setup.cpp:175
+#: core/utilities/survey/surveywindow_setup.cpp:183
 #, kde-format
 msgid "Show Assigned Tags"
 msgstr "Εμφάνιση αντιστοιχισμένων ετικετών"
@@ -74671,6 +74678,12 @@ msgstr "Εισαγωγή αντικειμένων"
 msgid "Survey"
 msgstr ""
 
+#: core/utilities/survey/surveywindow_setup.cpp:161
+#, fuzzy, kde-format
+#| msgid "Flash mode"
+msgid "Play/Pause Video"
+msgstr "Λειτουργία φλας"
+
 #~ msgid "Roll"
 #~ msgstr "Κύλιση"
 
@@ -80485,11 +80498,6 @@ msgstr ""
 #~| msgid "File Format"
 #~ msgid "FLIR File Format"
 #~ msgstr "Τύπος αρχειοθέτησης"
-
-#, fuzzy
-#~| msgid "Flash mode"
-#~ msgid "Flash Video"
-#~ msgstr "Λειτουργία φλας"
 
 #, fuzzy
 #~| msgid "Show image Format"
