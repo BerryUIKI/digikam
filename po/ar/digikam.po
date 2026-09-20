@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-20 12:51+0000\n"
+"POT-Creation-Date: 2026-09-20 16:15+0000\n"
 "PO-Revision-Date: 2026-09-15 17:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -4254,17 +4254,17 @@ msgstr "أبيض"
 #: core/libs/properties/import/importitempropertiestab.cpp:448
 #: core/libs/properties/itempropertiessidebar.cpp:277
 #: core/libs/properties/itempropertiessidebar.cpp:280
-#: core/libs/properties/itempropertiessidebardb.cpp:814
-#: core/libs/properties/itempropertiessidebardb.cpp:816
-#: core/libs/properties/itempropertiessidebardb.cpp:919
-#: core/libs/properties/itempropertiessidebardb.cpp:926
+#: core/libs/properties/itempropertiessidebardb.cpp:818
+#: core/libs/properties/itempropertiessidebardb.cpp:820
+#: core/libs/properties/itempropertiessidebardb.cpp:923
+#: core/libs/properties/itempropertiessidebardb.cpp:930
 #, kde-format
 msgctxt "@info: item properties"
 msgid "Yes"
 msgstr "نعم"
 
 #: core/app/views/tableview/tableview_column_digikam.cpp:497
-#: core/libs/properties/itempropertiessidebardb.cpp:930
+#: core/libs/properties/itempropertiessidebardb.cpp:934
 #, kde-format
 msgctxt "@info: item properties"
 msgid "Yes (stack)"
@@ -4277,10 +4277,10 @@ msgstr "نعم (كومة)"
 #: core/libs/properties/import/importitempropertiestab.cpp:452
 #: core/libs/properties/itempropertiessidebar.cpp:278
 #: core/libs/properties/itempropertiessidebar.cpp:281
-#: core/libs/properties/itempropertiessidebardb.cpp:815
-#: core/libs/properties/itempropertiessidebardb.cpp:817
-#: core/libs/properties/itempropertiessidebardb.cpp:920
-#: core/libs/properties/itempropertiessidebardb.cpp:938
+#: core/libs/properties/itempropertiessidebardb.cpp:819
+#: core/libs/properties/itempropertiessidebardb.cpp:821
+#: core/libs/properties/itempropertiessidebardb.cpp:924
+#: core/libs/properties/itempropertiessidebardb.cpp:942
 #: core/libs/properties/itempropertiestab_setters.cpp:88
 #, kde-format
 msgctxt "@info: item properties"
@@ -26830,17 +26830,17 @@ msgstr "تحويل يوافراو الخام"
 msgid "Unable to load image"
 msgstr "فشل تحميل الصّورة"
 
-#: core/libs/aitoolspipeline/aitoolspipeline.cpp:472
+#: core/libs/aitoolspipeline/aitoolspipeline.cpp:473
 #, kde-format
 msgid "AI Tools Processing"
 msgstr "معالجة بأدوات الذكاء الاصطناعي"
 
-#: core/libs/aitoolspipeline/aitoolspipeline.cpp:514
+#: core/libs/aitoolspipeline/aitoolspipeline.cpp:515
 #, kde-format
 msgid "Auto-rotating: %1\n"
 msgstr "تدوير آليّ: %1\n"
 
-#: core/libs/aitoolspipeline/aitoolspipeline.cpp:515
+#: core/libs/aitoolspipeline/aitoolspipeline.cpp:516
 #: core/libs/tags/autoassignment/autotagsengine.cpp:232
 #: core/utilities/maintenance/tools/duplicates/duplicatesfinder.cpp:189
 #: core/utilities/maintenance/tools/facesmanagement/facesengine.cpp:490
@@ -26852,12 +26852,12 @@ msgstr "تدوير آليّ: %1\n"
 msgid "Album: %1\n"
 msgstr "ألبوم: %1\n"
 
-#: core/libs/aitoolspipeline/aitoolspipeline.cpp:516
+#: core/libs/aitoolspipeline/aitoolspipeline.cpp:517
 #, kde-format
 msgid "Rotation: %1\n"
 msgstr "التّدوير: %1\n"
 
-#: core/libs/aitoolspipeline/aitoolspipeline.cpp:538
+#: core/libs/aitoolspipeline/aitoolspipeline.cpp:539
 #, kde-format
 msgid "Skipped"
 msgstr "مُتخطّاة"
@@ -34434,13 +34434,13 @@ msgid "Select the Image File List to Load"
 msgstr "اختر قائمة ملفات الصور لتحميلها"
 
 #: core/libs/dplugins/widgets/ditemslist.cpp:557
-#: core/libs/dplugins/widgets/ditemslist.cpp:639
+#: core/libs/dplugins/widgets/ditemslist.cpp:640
 #, kde-format
 msgctxt "@option"
 msgid "All Files (*)"
 msgstr "كلّ الملفّات (*)"
 
-#: core/libs/dplugins/widgets/ditemslist.cpp:637
+#: core/libs/dplugins/widgets/ditemslist.cpp:638
 #, kde-format
 msgctxt "@title:window"
 msgid "Select the Image File List to Save"
@@ -38032,7 +38032,7 @@ msgstr "غير معدل"
 
 #: core/libs/properties/import/importitempropertiestab.cpp:336
 #: core/libs/properties/itempropertiessidebar.cpp:218
-#: core/libs/properties/itempropertiessidebardb.cpp:757
+#: core/libs/properties/itempropertiessidebardb.cpp:761
 #, kde-format
 msgctxt "@info: item properties"
 msgid "unavailable"
@@ -38275,8 +38275,8 @@ msgstr "غير معاير"
 
 #: core/libs/properties/itempropertiessidebar.cpp:260
 #: core/libs/properties/itempropertiessidebar.cpp:267
-#: core/libs/properties/itempropertiessidebardb.cpp:791
-#: core/libs/properties/itempropertiessidebardb.cpp:804
+#: core/libs/properties/itempropertiessidebardb.cpp:795
+#: core/libs/properties/itempropertiessidebardb.cpp:808
 #, kde-format
 msgctxt "@info: item properties"
 msgid "Unknown"
@@ -38289,21 +38289,21 @@ msgid "%1x%2 (%3Mpx)"
 msgstr "%1×%2 (%3م.بكسل)"
 
 #: core/libs/properties/itempropertiessidebar.cpp:276
-#: core/libs/properties/itempropertiessidebardb.cpp:813
+#: core/libs/properties/itempropertiessidebardb.cpp:817
 #, kde-format
 msgctxt "@info: item properties"
 msgid "%1 bpp"
 msgstr "%1 بت في بكسل"
 
 #: core/libs/properties/itempropertiessidebar.cpp:312
-#: core/libs/properties/itempropertiessidebardb.cpp:847
+#: core/libs/properties/itempropertiessidebardb.cpp:851
 #, kde-format
 msgctxt "@info: item properties"
 msgid "%1 (%2)"
 msgstr "%1 (%2)"
 
 #: core/libs/properties/itempropertiessidebar.cpp:317
-#: core/libs/properties/itempropertiessidebardb.cpp:852
+#: core/libs/properties/itempropertiessidebardb.cpp:856
 #, kde-format
 msgctxt "@info: item properties"
 msgid "%1 ISO"
@@ -38337,7 +38337,7 @@ msgstr "افتح لسان الوسوم للتحرير"
 msgid "Open the Information tab for editing"
 msgstr "افتح لسان المعلومات للتحرير"
 
-#: core/libs/properties/itempropertiessidebardb.cpp:796
+#: core/libs/properties/itempropertiessidebardb.cpp:800
 #, kde-format
 msgctxt "@info: width x height (megapixels Mpx)"
 msgid "%1x%2 (%3Mpx)"
