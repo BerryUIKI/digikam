@@ -296,7 +296,7 @@ SearchWindow* SearchTabHeader::searchWindow() const
     if (!d->searchWindow)
     {
         qCDebug(DIGIKAM_GENERAL_LOG) << "Creating search window";
-        d->searchWindow = new SearchWindow;
+        d->searchWindow = new SearchWindow(DigikamApp::instance());
 
         connect(d->searchWindow, SIGNAL(searchEdited(int,QString)),
                 this, SLOT(slotAdvancedSearchEdited(int,QString)),

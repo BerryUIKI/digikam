@@ -36,7 +36,7 @@ public:
     /**
      * Create a new SearchWindow with an empty advanced search
      */
-    SearchWindow();
+    explicit SearchWindow(QWidget* const parent);
 
     ~SearchWindow()                                                   override;
 
@@ -93,9 +93,6 @@ protected:
     void keyPressEvent(QKeyEvent*) override;
 
 private:
-
-    /// @note disabled
-    SearchWindow(QWidget*) = delete;
 
     void setupNlSearch();
     void writeConstraintToXml(SearchXmlWriter& writer,

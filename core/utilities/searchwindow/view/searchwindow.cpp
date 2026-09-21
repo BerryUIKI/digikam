@@ -17,10 +17,11 @@
 namespace Digikam
 {
 
-SearchWindow::SearchWindow()
-    : QWidget(nullptr),
+SearchWindow::SearchWindow(QWidget* const parent)
+    : QWidget(parent),
       d      (new Private)
 {
+    setWindowFlags(Qt::Window);
     QVBoxLayout* const layout   = new QVBoxLayout;
 
     QWidget* const nlPanel      = new QWidget(this);

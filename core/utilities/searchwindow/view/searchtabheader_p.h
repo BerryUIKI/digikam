@@ -42,8 +42,9 @@
 
 // Local includes
 
-#include "digikam_globals.h"
 #include "digikam_debug.h"
+#include "digikam_config.h"
+#include "digikam_globals.h"
 #include "album.h"
 #include "albummanager.h"
 #include "searchfolderview.h"
@@ -52,7 +53,7 @@
 #include "dexpanderbox.h"
 #include "searchqueryengine.h"
 #include "dworkingpixmap.h"
-#include "digikam_config.h"
+#include "digikamapp.h"
 
 namespace Digikam
 {
