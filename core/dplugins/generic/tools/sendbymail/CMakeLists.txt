@@ -27,12 +27,15 @@ set(sendbymailplugin_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/manager/imageresizejob.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/manager/mailsettings.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/manager/mailprocess.cpp
+
     ${CMAKE_CURRENT_SOURCE_DIR}/wizard/mailwizard.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/wizard/mailintropage.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/wizard/mailalbumspage.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/wizard/mailimagespage.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/wizard/mailsettingspage.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/wizard/mailfinalpage.cpp
+
+    ${CMAKE_CURRENT_SOURCE_DIR}/tools/applemailbinary.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/outlookbinary.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/thunderbirdbinary.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/evolutionbinary.cpp
@@ -41,6 +44,7 @@ set(sendbymailplugin_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/netscapebinary.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/clawsmailbinary.cpp
     ${CMAKE_CURRENT_SOURCE_DIR}/tools/balsabinary.cpp
+
     ${CMAKE_CURRENT_SOURCE_DIR}/sendbymailplugin.cpp
 )
 

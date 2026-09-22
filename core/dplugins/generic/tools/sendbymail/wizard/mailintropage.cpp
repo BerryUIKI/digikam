@@ -42,6 +42,7 @@
 #include "evolutionbinary.h"
 #include "netscapebinary.h"
 #include "outlookbinary.h"
+#include "applemailbinary.h"
 #include "sylpheedbinary.h"
 #include "thunderbirdbinary.h"
 
@@ -75,6 +76,7 @@ public:
     KmailBinary       kmailBin;
     NetscapeBinary    netscBin;
     OutlookBinary     outloBin;
+    AppleMailBinary   amailBin;
     SylpheedBinary    sylphBin;
     ThunderbirdBinary thundBin;
 };
@@ -130,6 +132,10 @@ MailIntroPage::MailIntroPage(QWizard* const dialog, const QString& title)
     // digiKam Bundle PKG install
 
     d->binSearch->addDirectory(macOSBundlePrefix() + QLatin1String("bin"));
+
+    // Path to found Apple Mail
+
+    d->binSearch->addDirectory(QLatin1String("/System/Application/Mail.app/Contents/MacOS"));
 
 #endif
 
@@ -204,6 +210,10 @@ void MailIntroPage::slotBinariesFound()
     d->wizard->settings()->binPaths.insert(MailSettings::OUTLOOK, d->outloBin.isValid() ?
                                            d->outloBin.path() : QString());
 
+
+    d->wizard->settings()->binPaths.insert(MailSettings::APPLEMAIL, d->outloBin.isValid() ?
+                                           d->amailBin.path() : QString());
+
     d->wizard->settings()->binPaths.insert(MailSettings::SYLPHEED, d->sylphBin.isValid() ?
                                            d->sylphBin.path() : QString());
 
@@ -219,17 +229,7 @@ bool MailIntroPage::isComplete() const
     QString val     = vals.join(QString());
     qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << val;
 
-#ifdef Q_OS_MACOS
-
-    // Under macOS, Apple Mail is at least always present.
-    return true;
-
-#else
-
     return (!val.isEmpty());
-
-#endif
-
 }
 
 } // namespace DigikamGenericSendByMailPlugin
