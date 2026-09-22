@@ -332,14 +332,6 @@ fi
 
 port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtbase -examples -tests
 port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtdeclarative -examples -tests
-
-if [[ $DK_QTVERSION = 5 ]] ; then
-
-    port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtmacextras -examples -tests
-    port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtquickcontrols -examples -tests
-    port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtxmlpatterns -examples -tests
-fi
-
 port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtscxml -examples -tests
 port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtsvg -examples -tests
 port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qttools -examples -tests

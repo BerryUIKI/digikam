@@ -105,27 +105,12 @@ libexec/qt$DK_QTVERSION/plugins/generic/*.dylib \
 libexec/qt$DK_QTVERSION/plugins/styles/*.dylib \
 "
 
-if [[ $DK_QTVERSION == 5 ]] ; then
+# Qt6 specific plugins
 
-    # Qt5 specific plugins
-
-    OTHER_APPS=$OTHER_APPS"\
-    libexec/qt$DK_QTVERSION/plugins/audio/*.dylib \
-    libexec/qt$DK_QTVERSION/plugins/bearer/*.dylib \
-    libexec/qt$DK_QTVERSION/plugins/printsupport/*.dylib \
-    libexec/qt$DK_QTVERSION/plugins/platformthemes/*.dylib \
-    "
-
-else
-
-    # Qt6 specific plugins
-
-    OTHER_APPS=$OTHER_APPS"\
-    libexec/qt$DK_QTVERSION/plugins/multimedia/*.dylib \
-    libexec/qt$DK_QTVERSION/plugins/tls/*.dylib \
-    "
-
-fi
+OTHER_APPS=$OTHER_APPS"\
+libexec/qt$DK_QTVERSION/plugins/multimedia/*.dylib \
+libexec/qt$DK_QTVERSION/plugins/tls/*.dylib \
+"
 
 #lib/sane/*.so \
 
@@ -150,17 +135,11 @@ share/ImageMagick* \
 etc/xdg \
 etc/ImageMagick* \
 etc/mariadb$MARIADB_SUFFIX \
+libexec/qt$DK_QTVERSION/lib/QtWebEngineCore.framework \
 "
 
-if [[ $DK_QTVERSION == 6 ]] ; then
-
-    OTHER_DIRS=$OTHER_DIRS"\
-    libexec/qt$DK_QTVERSION/lib/QtWebEngineCore.framework \
-    "
-
-fi
-
 # Additional Data Directories - to be copied recursively
+# NOTE: Qt5Curve is located in Library/Application
 OTHER_DATA="\
 share/opencv4 \
 share/k* \
@@ -168,17 +147,8 @@ share/mime \
 Library/Application/ \
 share/applications \
 lensfun \
+share/QtCurve \
 "
-
-if [[ $DK_QTVERSION == 6 ]] ; then
-
-    # NOTE: Qt5Curve is located in Library/Application
-
-    OTHER_DATA=$OTHER_DATA"\
-    share/QtCurve
-    "
-
-fi
 
 # Packaging tool paths
 PACKAGESBUILD="/usr/local/bin/packagesbuild"
@@ -324,15 +294,7 @@ cp -a "$INSTALL_PREFIX/share/icons/hicolor" "$TEMPROOT/digikam.app/Contents/Reso
 
 # Copy the Qt configuration ini file
 
-if [[ $DK_QTVERSION = 5 ]] ; then
-
-    cp $ORIG_WD/data/qt.conf.qt5 "$TEMPROOT/digikam.app/Contents/Resources/qt.conf"
-
-else
-
-    cp $ORIG_WD/data/qt.conf.qt6 "$TEMPROOT/digikam.app/Contents/Resources/qt.conf"
-
-fi
+cp $ORIG_WD/data/qt.conf.qt6 "$TEMPROOT/digikam.app/Contents/Resources/qt.conf"
 
 echo "---------- Copying i18n..."
 
@@ -488,16 +450,7 @@ chmod 755 "$PROJECTDIR/postinstall"
 
 # See https://bugs.kde.org/show_bug.cgi?id=487799#c54
 
-if [[ $DK_QTVERSION = 6 ]] ; then
-
-    cp $INSTALL_PREFIX/share/icons/breeze/breeze-icons.rcc $TEMPROOT/digikam.app/Contents/Resources/breeze.rcc
-
-else
-
-    cp $ORIG_WD/../common/breeze.rcc                        $TEMPROOT/digikam.app/Contents/Resources/breeze.rcc
-    cp $ORIG_WD/../common/breeze-dark.rcc                   $TEMPROOT/digikam.app/Contents/Resources/breeze-dark.rcc
-
-fi
+cp $INSTALL_PREFIX/share/icons/breeze/breeze-icons.rcc $TEMPROOT/digikam.app/Contents/Resources/breeze.rcc
 
 #################################################################################################
 # Cleanup symbols in binary files to free space.
@@ -629,19 +582,9 @@ ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/iconengine
 ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/sqldrivers"                    "$TEMPROOT/digikam.app/Contents/MacOS/sqldrivers"
 ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/kf$DK_QTVERSION"               "$TEMPROOT/digikam.app/Contents/MacOS/kf$DK_QTVERSION"
 
-if [[ $DK_QTVERSION = 6 ]] ; then
-
-    ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/multimedia"                "$TEMPROOT/digikam.app/Contents/MacOS/multimedia"
-    ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/tls"                       "$TEMPROOT/digikam.app/Contents/MacOS/tls"
-    ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/kiconthemes$DK_QTVERSION"  "$TEMPROOT/digikam.app/Contents/MacOS/kiconthemes$DK_QTVERSION"
-
-else
-
-    # Qt5 only
-
-    ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/kauth"                     "$TEMPROOT/digikam.app/Contents/MacOS/kauth"
-
-fi
+ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/multimedia"                "$TEMPROOT/digikam.app/Contents/MacOS/multimedia"
+ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/tls"                       "$TEMPROOT/digikam.app/Contents/MacOS/tls"
+ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/kiconthemes$DK_QTVERSION"  "$TEMPROOT/digikam.app/Contents/MacOS/kiconthemes$DK_QTVERSION"
 
 # For Showfoto
 
@@ -654,19 +597,9 @@ ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/iconengin
 ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/sqldrivers"                   "$TEMPROOT/showfoto.app/Contents/MacOS/sqldrivers"
 ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/kf$DK_QTVERSION"              "$TEMPROOT/showfoto.app/Contents/MacOS/kf$DK_QTVERSION"
 
-if [[ $DK_QTVERSION = 6 ]] ; then
-
-    ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/multimedia"               "$TEMPROOT/showfoto.app/Contents/MacOS/multimedia"
-    ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/tls"                      "$TEMPROOT/showfoto.app/Contents/MacOS/tls"
-    ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/kiconthemes$DK_QTVERSION" "$TEMPROOT/showfoto.app/Contents/MacOS/kiconthemes$DK_QTVERSION"
-
-else
-
-    # Qt5 only
-
-    ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/kauth"                     "$TEMPROOT/showfoto.app/Contents/MacOS/kauth"
-
-fi
+ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/multimedia"               "$TEMPROOT/showfoto.app/Contents/MacOS/multimedia"
+ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/tls"                      "$TEMPROOT/showfoto.app/Contents/MacOS/tls"
+ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/kiconthemes$DK_QTVERSION" "$TEMPROOT/showfoto.app/Contents/MacOS/kiconthemes$DK_QTVERSION"
 
 echo -e "\n---------- Cleanup files in bundle"
 
@@ -769,15 +702,7 @@ else
 
 fi
 
-if [[ $DK_QTVERSION == 5 ]] ; then
-
-    QT_SUF="-Qt5"
-
-else
-
-    QT_SUF="-Qt6"
-
-fi
+QT_SUF="-Qt6"
 
 TARGET_INSTALLER=digiKam-$DKRELEASEID$DK_SUBVER$QT_SUF-MacOS-$TARGET_ARCH$DEBUG_SUF.pkg
 TARGET_PKG_FILE=$BUILDDIR/bundle/$TARGET_INSTALLER
