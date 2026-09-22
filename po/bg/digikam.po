@@ -33,7 +33,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 00:42+0000\n"
+"POT-Creation-Date: 2026-09-22 15:58+0000\n"
 "PO-Revision-Date: 2026-09-13 18:52+0200\n"
 "Last-Translator: Mincho Kondarev <mkondarev@yahoo.de>\n"
 "Language-Team: Bulgarian <kde-i18n-doc@kde.org>\n"
@@ -2994,7 +2994,7 @@ msgstr "Показване на лупа (x%1)"
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlintropage.cpp:83
 #: core/dplugins/generic/tools/jalbum/wizard/jalbumintropage.cpp:90
 #: core/dplugins/generic/tools/printcreator/wizard/advprintintropage.cpp:86
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:104
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:106
 #: core/dplugins/generic/tools/videoslideshow/vidslideintropage.cpp:93
 #: core/libs/album/engine/album.cpp:493
 #: core/libs/album/manager/albummanager.cpp:178
@@ -10901,7 +10901,7 @@ msgstr "Нова широчина:"
 #: core/dplugins/editor/transform/shear/sheartool.cpp:109
 #: core/dplugins/editor/transform/shear/sheartool.cpp:307
 #: core/dplugins/editor/transform/shear/sheartool.cpp:308
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:140
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:142
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:134
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:102
 #, kde-format
@@ -18112,7 +18112,7 @@ msgstr "Създаване на Html галерия..."
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlfinalpage.cpp:98
 #: core/dplugins/generic/tools/jalbum/wizard/jalbumfinalpage.cpp:99
 #: core/dplugins/generic/tools/printcreator/wizard/advprintfinalpage.cpp:126
-#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:116
+#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:118
 #: core/dplugins/generic/tools/videoslideshow/vidslidefinalpage.cpp:122
 #: core/dplugins/generic/webservices/unified/wizard/wsfinalpage.cpp:125
 #, kde-format
@@ -18229,7 +18229,7 @@ msgstr ""
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlintropage.cpp:81
 #: core/dplugins/generic/tools/jalbum/wizard/jalbumintropage.cpp:88
 #: core/dplugins/generic/tools/printcreator/wizard/advprintintropage.cpp:84
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:102
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:104
 #: core/dplugins/generic/tools/videoslideshow/vidslideintropage.cpp:91
 #, kde-format
 msgid "&Choose image selection method:"
@@ -18238,7 +18238,7 @@ msgstr "&Избиране на метод за избор на изображе�
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlintropage.cpp:84
 #: core/dplugins/generic/tools/jalbum/wizard/jalbumintropage.cpp:91
 #: core/dplugins/generic/tools/printcreator/wizard/advprintintropage.cpp:87
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:105
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:107
 #: core/dplugins/generic/tools/videoslideshow/vidslideintropage.cpp:94
 #: core/libs/database/utils/widgets/dbstatdlg.cpp:51
 #, kde-format
@@ -20648,7 +20648,7 @@ msgid "Optional Gimp Binaries"
 msgstr "Допълнителни двоични файлове на Gimp"
 
 #: core/dplugins/generic/tools/printcreator/wizard/advprintoutputpage.cpp:75
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:151
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:153
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:146
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:113
 #, kde-format
@@ -20723,7 +20723,7 @@ msgstr ""
 "Избраният потребителски размер на снимката не може да бъде приложен към "
 "размера на хартията."
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1358
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1357
 #, kde-format
 msgid ""
 "Custom\n"
@@ -20738,7 +20738,7 @@ msgid "Welcome to Print Creator"
 msgstr "Добре дошли в Отпечатване на снимки"
 
 #: core/dplugins/generic/tools/printcreator/wizard/advprintwizard.cpp:101
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:77
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:79
 #: core/dplugins/generic/tools/videoslideshow/vidslidewizard.cpp:78
 #: core/dplugins/generic/webservices/unified/wizard/wswizard.cpp:86
 #, kde-format
@@ -20786,67 +20786,67 @@ msgstr "Страница %1 от %2"
 msgid "Error opening input file"
 msgstr "Грешка при отваряне на входния файл"
 
-#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:106
+#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:107
 #, kde-format
 msgid "Error opening temporary folder"
 msgstr "Грешка при отварянето на временната папка"
 
-#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:129
+#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:131
 #, kde-format
 msgid "Cannot resize image. Aborting."
 msgstr "Не може да се преоразмери изображението. Прекъсване."
 
-#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:142
+#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:145
 #, kde-format
 msgid "Cannot save resized image (JPEG). Aborting."
 msgstr "Не може да се запише изображение с променен размер (JPEG). Прекъсване."
 
-#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:150
+#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:154
 #, kde-format
 msgid "Cannot save resized image (PNG). Aborting."
 msgstr "Не може да се запише изображение с променен размер (PNG). Прекъсване."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:109
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:111
 #, kde-format
 msgid "Cannot create a temporary directory"
 msgstr "Не може да се създаде временна директория"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:170
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:172
 #, kde-format
 msgid "Resizing %1"
 msgstr "Преоразмеряване %1"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:188
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:190
 #, kde-format
 msgid "%1 resized successfully"
 msgstr "%1 е успешно преоразмерен"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:202
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:204
 #, kde-format
 msgid "Failed to resize %1: %2"
 msgstr "Неуспешно преоразмеряване на %1: %2"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:239
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:241
 #, kde-format
 msgid "There are no files to send"
 msgstr "Няма файлове за изпращане"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:263
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:265
 #, kde-format
 msgid "Build images properties file"
 msgstr "Изграждане на файл със свойства на изображенията"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:279
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:281
 #, kde-format
 msgid "no caption"
 msgstr "няма надпис"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:284
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:286
 #, kde-format
 msgid "no keywords"
 msgstr "без ключови думи"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:287
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
 #, kde-format
 msgid ""
 "file \"%1\":\n"
@@ -20855,37 +20855,37 @@ msgstr ""
 "файл \"%1\":\n"
 "Оригинални изображения: %2\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
 #, kde-format
 msgid "Comments: %1\n"
 msgstr "Коментари: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:293
 #, kde-format
 msgid "Tags: %1\n"
 msgstr "Етикети: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:293
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:295
 #, kde-format
 msgid "Rating: %1\n"
 msgstr "Оценка: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:298
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:300
 #, kde-format
 msgid "properties.txt"
 msgstr "properties.txt"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:313
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:315
 #, kde-format
 msgid "Image properties file cannot be opened"
 msgstr "Файлът със свойствата на изображението не може да бъде отворен"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:325
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:327
 #, kde-format
 msgid "Image properties file done"
 msgstr "Файлът със свойствата на изображението е готов"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:345
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:347
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:982
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:995
 #, kde-format
@@ -20893,7 +20893,7 @@ msgctxt "@title:window"
 msgid "Processing Failed"
 msgstr "Обработката е неуспешна"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:346
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:348
 #, kde-format
 msgid ""
 "Some images cannot be resized.\n"
@@ -20902,7 +20902,7 @@ msgstr ""
 "Някои изображения не могат да бъдат преоразмерени.\n"
 "Искате ли те да бъдат добавени като прикачени файлове без промяна на размера?"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:419
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:421
 #, kde-format
 msgid ""
 "The file \"%1\" is too big to be sent, please reduce its size or change your "
@@ -20911,18 +20911,18 @@ msgstr ""
 "Файлът \"%1\" е твърде голям, за да бъде изпратен, моля, намалете размера му "
 "или променете настройките си"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:659
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
 #, kde-format
 msgid "Send items by mail from digiKam"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:663
 #, fuzzy, kde-format
 #| msgid "Title of the image"
 msgid "List of attached items"
 msgstr "Заглавие на изображението"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:703
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:710
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Error While to Set Image as Wallpaper"
@@ -20930,28 +20930,28 @@ msgctxt "@title:window"
 msgid "Error While to Send Items by mail"
 msgstr "Грешка при задаване на изображение като тапет"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:704
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:711
 #, kde-format
 msgctxt "@info"
-msgid "Cannot send items using native Apple MAil application"
+msgid "Cannot send items using native Apple Mail application"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:720
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:727
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr "Неуспешно стартиране на програмата \"%1\". Проверете системата си."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:732
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:739
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "Стартиране на програмата \"%1\"..."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:736
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:743
 #, kde-format
 msgid "After having sent your images by email..."
 msgstr "След като сте изпратили изображенията си по имейл..."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:737
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:744
 #, kde-format
 msgid "Press 'Finish' button to clean up temporary files"
 msgstr "Натиснете бутона \"Завършване\", за да почистите временните файлове"
@@ -20992,26 +20992,26 @@ msgctxt "Mail client: OUTLOOK"
 msgid "Outlook"
 msgstr "Outlook"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:106
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:103
 #, fuzzy, kde-format
 #| msgid "AppleSingle"
 msgctxt "Mail client: APPLEMAIL"
 msgid "Apple Mail"
 msgstr "AppleSingle"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:110
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:104
 #, kde-format
 msgctxt "Mail client: SYLPHEED"
 msgid "Sylpheed"
 msgstr "Sylpheed"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:111
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:105
 #, kde-format
 msgctxt "Mail client: THUNDERBIRD"
 msgid "Thunderbird"
 msgstr "Thunderbird"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:120
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:114
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:151
 #: core/libs/dplugins/webservices/wssettings.cpp:117
 #, kde-format
@@ -21019,7 +21019,7 @@ msgctxt "Image format: JPEG"
 msgid "Jpeg"
 msgstr "Jpeg"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:121
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:115
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:152
 #: core/libs/dplugins/webservices/wssettings.cpp:118
 #, kde-format
@@ -21057,6 +21057,12 @@ msgctxt "@action"
 msgid "Send by Mail..."
 msgstr "Изпращане по е-поща..."
 
+#: core/dplugins/generic/tools/sendbymail/tools/applemailbinary.cpp:31
+#, fuzzy, kde-format
+#| msgid "Gnome Mail Client."
+msgid "Apple Mail Client."
+msgstr "Пощенски клиент на Gnome."
+
 #: core/dplugins/generic/tools/sendbymail/tools/balsabinary.cpp:31
 #: core/dplugins/generic/tools/sendbymail/tools/evolutionbinary.cpp:31
 #, kde-format
@@ -21089,24 +21095,24 @@ msgstr "Пощенски клиент Outlook."
 msgid "Mozilla Foundation Mail Client."
 msgstr "Пощенски клиент на Mozilla Foundation."
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:124
+#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:126
 #, kde-format
 msgid "Preparing file to export by mail..."
 msgstr "Подготовка на файла за експортиране по електронна поща..."
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:132
+#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:134
 #: core/dplugins/generic/webservices/unified/wizard/wsfinalpage.cpp:135
 #, kde-format
 msgid "%1 input items to process"
 msgstr "%1 входни елементи за обработка"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailimagespage.cpp:61
+#: core/dplugins/generic/tools/sendbymail/wizard/mailimagespage.cpp:63
 #, kde-format
 msgid "<p>This view list all items to export by mail.</p>"
 msgstr ""
 "<p>В този изглед се представят всички елементи за експортиране по пощата.</p>"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:91
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:93
 #, kde-format
 msgid ""
 "<qt><p><h1><b>Welcome to Email Tool</b></h1></p><p>This assistant will guide "
@@ -21120,28 +21126,28 @@ msgstr ""
 "коригирате свойствата на прикачените файлове всъответствие с възможностите "
 "на вашата пощенска услуга.</p></qt>"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:113
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:115
 #, kde-format
 msgctxt "@title:group"
 msgid "Mail client application Binaries"
 msgstr "Двоичен код на програма за пощенски клиент"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:88
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:90
 #, kde-format
 msgid "Mail program:"
 msgstr "Програма за е-поща:"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:92
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:94
 #, kde-format
 msgid "Select your preferred external mail client program here."
 msgstr "Изберете тук предпочитаната от вас програма за клиент за външна поща."
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:107
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:109
 #, kde-format
 msgid "Attach a file with items properties"
 msgstr "Прикачване на файл със свойства на елементите"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:108
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:110
 #, kde-format
 msgid ""
 "If you enable this option, all item properties as Comments, Rating, or Tags, "
@@ -21150,25 +21156,25 @@ msgstr ""
 "Ако разрешите тази опция, всички свойства на елемента като коментари, оценка "
 "или етикети, ще бъдат добавени като прикачен файл."
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:118
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:120
 #: core/utilities/geolocation/engine/settings/MarbleConfigView.cpp:188
 #: core/utilities/geolocation/engine/settings/MarbleConfigView.cpp:195
 #, kde-format
 msgid " MB"
 msgstr " MB"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:120
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:122
 #, kde-format
 msgid "Maximum email size limit:"
 msgstr "Ограничение на максималния размер на електронната поща:"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:125
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:127
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:87
 #, kde-format
 msgid "Adjust image properties"
 msgstr "Настройване на свойствата на изображението"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:127
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:129
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:126
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:89
 #, kde-format
@@ -21179,13 +21185,13 @@ msgstr ""
 "Ако разрешите тази опция, всички изображения, които ще бъдат изпратени, "
 "могат да бъдат преоразмерени и компресирани."
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:131
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:133
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:93
 #, kde-format
 msgid "Image Properties"
 msgstr "Информация за изображението"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:141
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:143
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:135
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:103
 #, kde-format
@@ -21196,21 +21202,21 @@ msgstr ""
 "Изберете дължината на изображенията, които ще бъдат изпратени. Съотношението "
 "на страните се запазва."
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:144
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:146
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:139
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:106
 #, kde-format
 msgid "Image Length:"
 msgstr "Дължина на изображението:"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:155
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:157
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:150
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:117
 #, kde-format
 msgid "Select your preferred format to convert image."
 msgstr "Изберете предпочитания от вас формат за конвертиране на изображението."
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:174
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:176
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:136
 #, kde-format
 msgid "<p>The new compression value of JPEG images to be sent:</p>"
@@ -21218,7 +21224,7 @@ msgstr ""
 "<p>Новата стойност на компресия на JPEG изображенията, които ще бъдат "
 "изпратени:</p>"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:175
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:177
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:137
 #, kde-format
 msgid ""
@@ -21230,21 +21236,21 @@ msgstr ""
 "b>: средна компресия<br><b>75</b>: ниска компресия (стойност по "
 "подразбиране)<br><b>100</b>: без компресия</p>"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:183
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:185
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:168
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:145
 #, kde-format
 msgid "Image quality:"
 msgstr "Качество на изображението:"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:188
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:190
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:173
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:150
 #, kde-format
 msgid "Remove all metadata"
 msgstr "Премахване на всички метаданни"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:189
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:191
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:174
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:151
 #, kde-format
@@ -21255,30 +21261,30 @@ msgstr ""
 "Ако разрешите тази опция, всички метаданни като Exif, Iptc и Xmp ще бъдат "
 "премахнати."
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:65
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Send by Email"
 msgstr "Изпращане по поща"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:76
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:78
 #, kde-format
 msgid "Welcome to Email Tool"
 msgstr "Добре дошли в инструмента за електронна поща"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:78
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:80
 #: core/dplugins/generic/tools/videoslideshow/vidslidewizard.cpp:79
 #: core/dplugins/generic/webservices/unified/wizard/wswizard.cpp:87
 #, kde-format
 msgid "Images List"
 msgstr "Списък с изображения"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:79
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:81
 #, kde-format
 msgid "Email Settings"
 msgstr "Настройки на е-поща"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:80
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:82
 #, kde-format
 msgid "Export by Email"
 msgstr "Експортиране по е-поща"

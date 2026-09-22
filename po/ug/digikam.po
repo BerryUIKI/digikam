@@ -43,10 +43,10 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 00:42+0000\n"
-"PO-Revision-Date: 2026-05-29 17:21-0400\n"
+"POT-Creation-Date: 2026-09-22 15:58+0000\n"
+"PO-Revision-Date: 2026-09-22 18:03+0900\n"
 "Last-Translator: Abduqadir Abliz <sahranbay@gmail.com>\n"
-"Language-Team: Uyghur Computer Science Association <UKIJ@yahoogroups.com>\n"
+"Language-Team: Uyghur <kde-i18n-doc@kde.org>\n"
 "Language: ug\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
@@ -211,7 +211,7 @@ msgstr "ئاخىرى: "
 #, kde-format
 msgctxt "@info: month-name year-string"
 msgid "%1 %2"
-msgstr "%1 %2"
+msgstr ""
 
 #: core/app/dragdrop/albumdragdrop.cpp:282
 #: core/app/dragdrop/albumdragdrop.cpp:376
@@ -381,8 +381,6 @@ msgid ""
 "Defines in which way the selected tags are combined to filter the images. "
 "This also includes the '%1' check box."
 msgstr ""
-"تاللىغان كۆپ بەلگە بىلەن بىرلەشتۈرۈپ سۈرەتنى قانداق سۈزۈش بەلگىلىنىدۇ. «%1» "
-"تاللانمىسى تاللانغاندىمۇ كۈچكە ئىگە."
 
 #: core/app/filters/filtersidebarwidget_faces.cpp:65
 #, kde-format
@@ -801,8 +799,6 @@ msgid ""
 "Removes the face property from the selected tag and the face region from the "
 "contained images. Can also untag the images if wished."
 msgstr ""
-"تاللانغان بەلگىنىڭ چىراي خاسلىقى ۋە سۈرەتتىكى چىراي دائىرىسىنى چىقىرىۋېتىدۇ. "
-"ئەگەر ئېھتىياجلىق بولغاندا سۈرەتنىڭ بەلگىسىنىمۇ چىقىرىۋەتكىلى بولىدۇ."
 
 #: core/app/items/utils/contextmenuhelper_tags.cpp:108
 #, kde-format
@@ -817,8 +813,6 @@ msgid ""
 "Removes the face property from the selected tags and the face region from "
 "the contained images. Can also untag the images if wished."
 msgstr ""
-"تاللانغان بەلگىنىڭ چىراي خاسلىقى ۋە سۈرەتتىكى چىراي دائىرىسىنى چىقىرىۋېتىدۇ. "
-"ئەگەر ئېھتىياجلىق بولغاندا سۈرەتنىڭ بەلگىسىنىمۇ چىقىرىۋەتكىلى بولىدۇ."
 
 #: core/app/items/utils/contextmenuhelper_tags.cpp:124
 #, kde-format
@@ -985,7 +979,7 @@ msgstr[0] "ئالىي ئىزدەش - %1 تۈر"
 #, kde-format
 msgctxt "Month String - Year String"
 msgid "%1 %2"
-msgstr "%1 %2"
+msgstr ""
 
 #: core/app/items/utils/itemviewutilities.cpp:208
 #, kde-format
@@ -1053,7 +1047,7 @@ msgstr "چوڭلۇقى:"
 #: core/utilities/import/items/importtooltipfiller.cpp:170
 #, kde-format
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: core/app/items/utils/tooltipfiller.cpp:104
 #: core/dplugins/editor/filters/blurfx/blurfxtool.cpp:92
@@ -1083,7 +1077,7 @@ msgstr "يوچۇن"
 #, kde-format
 msgctxt "width x height (megapixels Mpx)"
 msgid "%1x%2 (%3Mpx)"
-msgstr "%1x%2 (%3Mpx)"
+msgstr ""
 
 #: core/app/items/utils/tooltipfiller.cpp:121
 #: core/showfoto/thumbbar/showfototooltipfiller.cpp:102
@@ -1152,7 +1146,7 @@ msgstr "نۇر گەردىشى/فوكۇسى:"
 #: core/utilities/import/items/importtooltipfiller.cpp:184
 #, kde-format
 msgid "%1 ISO"
-msgstr "%1 ISO"
+msgstr ""
 
 #: core/app/items/utils/tooltipfiller.cpp:251
 #: core/showfoto/thumbbar/showfototooltipfiller.cpp:213
@@ -1201,7 +1195,7 @@ msgstr "كاندۇك تېزلىكى:"
 #: core/app/items/utils/tooltipfiller.cpp:389
 #, kde-format
 msgid " fps"
-msgstr " fps"
+msgstr ""
 
 #: core/app/items/utils/tooltipfiller.cpp:401
 #: core/dplugins/generic/tools/videoslideshow/vidslidevideopage.cpp:160
@@ -1390,9 +1384,9 @@ msgid ""
 "ExifTool binary file in the metadata section.\n"
 "Error message: %1"
 msgstr ""
-"ExifTool نى ئىشلەتكىلى بولمايدۇ ياكى ئادەتتىكىدەك ئىشلىمەيدۇ. digiKam "
-"تەڭشەكتىكى تەپسىلىي سانلىق مەلۇمات بۆلىكىدە ExifTool ئىككىلىك ھۆججىتى بار "
-"يوقلۇقىنى تەكشۈرۈڭ.\n"
+"ExifTool is not available in your digiKam installation or is not working "
+"correctly. Go to the digiKam settings and check the availability of the "
+"ExifTool binary file in the metadata section.\n"
 "خاتالىق ئۇچۇرى: %1"
 
 #: core/app/main/digikamapp.cpp:746 core/app/views/stack/trashview.cpp:528
@@ -1411,7 +1405,7 @@ msgstr[0] "ھېچقانداق تۈر تاللانمىدى (%1 [%2] تۈر)"
 #, kde-format
 msgid "No item selected (%1 item. With grouped items: %2)"
 msgid_plural "No item selected (%1 items. With grouped items: %2)"
-msgstr[0] "ھېچقانداق تۈر تاللانمىدى (%1 تۈر،گۇرۇپپىلانغان تۈر: %2)"
+msgstr[0] ""
 
 #: core/app/main/digikamapp.cpp:768
 #, kde-format
@@ -1429,7 +1423,7 @@ msgstr[0] "%1/%2‎‏ [%3] تۈر تاللاندى (%4/%5)"
 #, kde-format
 msgid "1/%2 item selected. Total with grouped items: %3"
 msgid_plural "%1/%2 items selected. Total with grouped items: %3"
-msgstr[0] "%1/%2‎‏ تۈر تاللاندى. جەمئىي گۇرۇپپىلانغان تۈر: %3"
+msgstr[0] ""
 
 #: core/app/main/digikamapp.cpp:797
 #, kde-format
@@ -1441,7 +1435,7 @@ msgstr[0] "%1/%2‎‏ [%3/%4] تۈر تاللاندى (%5/%6)"
 #, kde-format
 msgid "1/%2 item selected. With grouped items: %3/%4"
 msgid_plural "%1/%2 items selected. With grouped items: %3/%4"
-msgstr[0] "%1/%2‎‏ تۈر تاللاندى %3/%4‎‏ گۇرۇپپىلانغان تۈر"
+msgstr[0] ""
 
 #: core/app/main/digikamapp.cpp:837
 #, kde-format
@@ -1456,7 +1450,7 @@ msgstr " (%1 / %2 [%3] )"
 #: core/app/main/digikamapp.cpp:855
 #, kde-format
 msgid " (%1 of %2. Total with grouped items: %3)"
-msgstr " (%1 / %2. جەمئىي گۇرۇپپىلانغان تۈر: %3)"
+msgstr ""
 
 #: core/app/main/digikamapp.cpp:866
 #, kde-format
@@ -1534,8 +1528,6 @@ msgid ""
 "You have chosen a bright color scheme. We switch to a dark icon theme. The "
 "icon theme is available after a restart of digiKam."
 msgstr ""
-"يورۇق رەڭ لايىھەسىنى تاللىدىڭىز. قاراڭغۇ سىنبەلگە ئۆرنىكىگە ئالماشتۇردۇق. "
-"سىنبەلگە ئۆرنىكى digiKam قايتا قوزغىتىلغاندىن كېيىن كۈچكە ئىگە بولىدۇ."
 
 #: core/app/main/digikamapp_config.cpp:130
 #: core/showfoto/main/showfoto_config.cpp:204
@@ -1544,8 +1536,6 @@ msgid ""
 "You have chosen a dark color scheme. We switch to a bright icon theme. The "
 "icon theme is available after a restart of digiKam."
 msgstr ""
-"قاراڭغۇ رەڭ لايىھەسىنى تاللىدىڭىز. يورۇق سىنبەلگە ئۆرنىكىگە ئالماشتۇردۇق. "
-"سىنبەلگە ئۆرنىكى digiKam قايتا قوزغىتىلغاندىن كېيىن كۈچكە ئىگە بولىدۇ."
 
 #: core/app/main/digikamapp_import.cpp:95
 #, kde-format
@@ -2341,11 +2331,10 @@ msgid "Last Image"
 msgstr ""
 
 #: core/app/main/digikamapp_setup.cpp:1005
-#, fuzzy, kde-format
-#| msgid "Flash Video"
+#, kde-format
 msgctxt "@action: setup"
 msgid "Play/Pause Video"
-msgstr "چاقماق لامپا: "
+msgstr ""
 
 #: core/app/main/digikamapp_setup.cpp:1013
 #, kde-format
@@ -2716,7 +2705,7 @@ msgstr "ئاساسىي قورال بالداق"
 #: core/libs/timeadjust/timeadjustsettings.cpp:136
 #, kde-format
 msgid "digiKam"
-msgstr "digiKam"
+msgstr ""
 
 #: core/app/main/main.cpp:250 core/showfoto/main/main.cpp:225
 #, kde-format
@@ -2952,7 +2941,7 @@ msgstr ""
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlintropage.cpp:83
 #: core/dplugins/generic/tools/jalbum/wizard/jalbumintropage.cpp:90
 #: core/dplugins/generic/tools/printcreator/wizard/advprintintropage.cpp:86
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:104
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:106
 #: core/dplugins/generic/tools/videoslideshow/vidslideintropage.cpp:93
 #: core/libs/album/engine/album.cpp:493
 #: core/libs/album/manager/albummanager.cpp:178
@@ -3801,7 +3790,7 @@ msgstr ""
 #: core/app/views/stack/welcomepageview_features.cpp:118
 #, kde-format
 msgid "<li>%1</li>"
-msgstr "<li>%1</li>"
+msgstr ""
 
 #: core/app/views/stack/welcomepageview_features.cpp:121
 #, kde-format
@@ -4356,7 +4345,7 @@ msgstr "ئاق بالانس"
 #, kde-format
 msgctxt "@info: tableview"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: core/app/views/tableview/tableview_column_photo.cpp:258
 #, kde-format
@@ -4368,7 +4357,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info: tableview"
 msgid "%1 ms"
-msgstr "%1 ms"
+msgstr ""
 
 #: core/app/views/tableview/tableview_column_photo.cpp:268
 #, kde-format
@@ -4380,7 +4369,7 @@ msgstr "%1 مىكروسېكۇنت"
 #, kde-format
 msgctxt "@info: tableview"
 msgid "%1 ISO"
-msgstr "%1 ISO"
+msgstr ""
 
 #: core/app/views/tableview/tableview_column_photo.cpp:437
 #, kde-format
@@ -4610,12 +4599,10 @@ msgid "Database internal server"
 msgstr ""
 
 #: core/app/views/utils/componentsinfodlg.cpp:252
-#, fuzzy, kde-format
-#| msgctxt "@item: component info"
-#| msgid "Database backend"
+#, kde-format
 msgctxt "@item: component info"
 msgid "Database backend version"
-msgstr "ساندان ئارقا ئۇچى"
+msgstr ""
 
 #: core/app/views/utils/componentsinfodlg.cpp:256
 #, kde-format
@@ -5328,44 +5315,44 @@ msgstr "كىرگۈزگەن بىلەن ئوخشاش"
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlimagesettingspage.cpp:170
 #, kde-format
 msgid "JPEG"
-msgstr "JPEG"
+msgstr ""
 
 #: core/dplugins/bqm/custom/userscript/userscript.cpp:98
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlimagesettingspage.cpp:89
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlimagesettingspage.cpp:170
 #, kde-format
 msgid "PNG"
-msgstr "PNG"
+msgstr ""
 
 #: core/dplugins/bqm/custom/userscript/userscript.cpp:99
 #, kde-format
 msgid "TIFF"
-msgstr "TIFF"
+msgstr ""
 
 #: core/dplugins/bqm/custom/userscript/userscript.cpp:100
 #, kde-format
 msgid "JPEG 2000"
-msgstr "JPEG 2000"
+msgstr ""
 
 #: core/dplugins/bqm/custom/userscript/userscript.cpp:101
 #, kde-format
 msgid "JPEG XL"
-msgstr "JPEG XL"
+msgstr ""
 
 #: core/dplugins/bqm/custom/userscript/userscript.cpp:102
 #, kde-format
 msgid "AVIF"
-msgstr "AVIF"
+msgstr ""
 
 #: core/dplugins/bqm/custom/userscript/userscript.cpp:103
 #, kde-format
 msgid "HEIF"
-msgstr "HEIF"
+msgstr ""
 
 #: core/dplugins/bqm/custom/userscript/userscript.cpp:104
 #, kde-format
 msgid "WEBP"
-msgstr "WEBP"
+msgstr ""
 
 #: core/dplugins/bqm/custom/userscript/userscript.cpp:108
 #, kde-format
@@ -6337,7 +6324,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Exif:"
-msgstr "Exif:"
+msgstr ""
 
 #: core/dplugins/bqm/metadata/removemetadata/removemetadata.cpp:100
 #, kde-format
@@ -6355,7 +6342,7 @@ msgstr "چېسلا"
 #, kde-format
 msgctxt "@item: exif namespace"
 msgid "GPS"
-msgstr "GPS"
+msgstr ""
 
 #: core/dplugins/bqm/metadata/removemetadata/removemetadata.cpp:103
 #, kde-format
@@ -6373,7 +6360,7 @@ msgstr "ئىزاھ ۋە چۈشەندۈرۈش"
 #, kde-format
 msgctxt "@title"
 msgid "Iptc:"
-msgstr "Iptc:"
+msgstr ""
 
 #: core/dplugins/bqm/metadata/removemetadata/removemetadata.cpp:108
 #, kde-format
@@ -6403,7 +6390,7 @@ msgstr "سۈرەتنى ئالدىن كۆزەت"
 #, kde-format
 msgctxt "@title"
 msgid "Xmp:"
-msgstr "Xmp:"
+msgstr ""
 
 #: core/dplugins/bqm/metadata/removemetadata/removemetadata.cpp:115
 #, kde-format
@@ -6445,7 +6432,7 @@ msgstr "Dublin يادروسى"
 #, kde-format
 msgctxt "@item: xmp namespace"
 msgid "Exif"
-msgstr "Exif"
+msgstr ""
 
 #: core/dplugins/bqm/metadata/removemetadata/removemetadata.cpp:122
 #, kde-format
@@ -8773,7 +8760,7 @@ msgstr ""
 #: core/dplugins/editor/enhance/restoration/restorationtool.cpp:117
 #, kde-format
 msgid "Preset"
-msgstr ""
+msgstr "ئەسلىگە قايتۇرۇش"
 
 #: core/dplugins/editor/enhance/restoration/restorationtool.cpp:123
 #, kde-format
@@ -8986,7 +8973,7 @@ msgstr "نىسبىتى(&B):"
 #, kde-format
 msgctxt "Dimension separator, as in: '15 x 10 centimeters'"
 msgid "x"
-msgstr "x"
+msgstr ""
 
 #. i18n: ectx: property (text), item, widget (QComboBox, kcfg_PrintUnit)
 #: core/dplugins/editor/file/print/printoptionspage.ui:230
@@ -9981,12 +9968,12 @@ msgstr "يېڭى كەڭلىك:"
 #: core/dplugins/editor/transform/shear/sheartool.cpp:109
 #: core/dplugins/editor/transform/shear/sheartool.cpp:307
 #: core/dplugins/editor/transform/shear/sheartool.cpp:308
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:140
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:142
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:134
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:102
 #, kde-format
 msgid " px"
-msgstr " px"
+msgstr ""
 
 #: core/dplugins/editor/transform/freerotation/freerotationtool.cpp:109
 #: core/dplugins/editor/transform/perspective/perspectivetool.cpp:109
@@ -10628,7 +10615,7 @@ msgstr "كەڭلىك:"
 #: core/dplugins/editor/transform/resize/resizetool.cpp:364
 #, kde-format
 msgid "px"
-msgstr "px"
+msgstr ""
 
 #: core/dplugins/editor/transform/resize/resizetool.cpp:361
 #, kde-format
@@ -10685,7 +10672,7 @@ msgstr ""
 #, kde-format
 msgctxt "Pixels"
 msgid "px"
-msgstr "px"
+msgstr ""
 
 #: core/dplugins/editor/transform/resize/resizetool.cpp:642
 #, kde-format
@@ -10958,7 +10945,7 @@ msgstr "ھۆججەت قاپلامسىز؟"
 #, kde-format
 msgid ""
 "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
-msgstr "«%1» ئاتلىق ھۆججەت مەۋجۇت. ئۇنى راستتىنلا قاپلىۋېتەمسىز؟"
+msgstr ""
 
 #: core/dplugins/generic/import/dscanner/scandialog.cpp:301
 #, kde-format
@@ -11492,137 +11479,137 @@ msgstr "ۋاقىت رايونى:"
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:167
 #, kde-format
 msgid "GMT-12:00"
-msgstr "GMT-12:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:168
 #, kde-format
 msgid "GMT-11:00"
-msgstr "GMT-11:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:169
 #, kde-format
 msgid "GMT-10:00"
-msgstr "GMT-10:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:170
 #, kde-format
 msgid "GMT-09:00"
-msgstr "GMT-09:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:171
 #, kde-format
 msgid "GMT-08:00"
-msgstr "GMT-08:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:172
 #, kde-format
 msgid "GMT-07:00"
-msgstr "GMT-07:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:173
 #, kde-format
 msgid "GMT-06:00"
-msgstr "GMT-06:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:174
 #, kde-format
 msgid "GMT-05:00"
-msgstr "GMT-05:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:175
 #, kde-format
 msgid "GMT-04:00"
-msgstr "GMT-04:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:176
 #, kde-format
 msgid "GMT-03:00"
-msgstr "GMT-03:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:177
 #, kde-format
 msgid "GMT-02:00"
-msgstr "GMT-02:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:178
 #, kde-format
 msgid "GMT-01:00"
-msgstr "GMT-01:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:179
 #, kde-format
 msgid "GMT"
-msgstr "GMT"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:180
 #, kde-format
 msgid "GMT+01:00"
-msgstr "GMT+01:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:181
 #, kde-format
 msgid "GMT+02:00"
-msgstr "GMT+02:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:182
 #, kde-format
 msgid "GMT+03:00"
-msgstr "GMT+03:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:183
 #, kde-format
 msgid "GMT+04:00"
-msgstr "GMT+04:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:184
 #, kde-format
 msgid "GMT+05:00"
-msgstr "GMT+05:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:185
 #, kde-format
 msgid "GMT+06:00"
-msgstr "GMT+06:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:186
 #, kde-format
 msgid "GMT+07:00"
-msgstr "GMT+07:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:187
 #, kde-format
 msgid "GMT+08:00"
-msgstr "GMT+08:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:188
 #, kde-format
 msgid "GMT+09:00"
-msgstr "GMT+09:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:189
 #, kde-format
 msgid "GMT+10:00"
-msgstr "GMT+10:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:190
 #, kde-format
 msgid "GMT+11:00"
-msgstr "GMT+11:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:191
 #, kde-format
 msgid "GMT+12:00"
-msgstr "GMT+12:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:192
 #, kde-format
 msgid "GMT+13:00"
-msgstr "GMT+13:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:193
 #, kde-format
 msgid "GMT+14:00"
-msgstr "GMT+14:00"
+msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/kmlexport/kmlwidget.cpp:194
 #, kde-format
@@ -16760,7 +16747,7 @@ msgstr ""
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlfinalpage.cpp:98
 #: core/dplugins/generic/tools/jalbum/wizard/jalbumfinalpage.cpp:99
 #: core/dplugins/generic/tools/printcreator/wizard/advprintfinalpage.cpp:126
-#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:116
+#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:118
 #: core/dplugins/generic/tools/videoslideshow/vidslidefinalpage.cpp:122
 #: core/dplugins/generic/webservices/unified/wizard/wsfinalpage.cpp:125
 #, kde-format
@@ -16871,7 +16858,7 @@ msgstr ""
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlintropage.cpp:81
 #: core/dplugins/generic/tools/jalbum/wizard/jalbumintropage.cpp:88
 #: core/dplugins/generic/tools/printcreator/wizard/advprintintropage.cpp:84
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:102
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:104
 #: core/dplugins/generic/tools/videoslideshow/vidslideintropage.cpp:91
 #, kde-format
 msgid "&Choose image selection method:"
@@ -16880,7 +16867,7 @@ msgstr ""
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlintropage.cpp:84
 #: core/dplugins/generic/tools/jalbum/wizard/jalbumintropage.cpp:91
 #: core/dplugins/generic/tools/printcreator/wizard/advprintintropage.cpp:87
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:105
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:107
 #: core/dplugins/generic/tools/videoslideshow/vidslideintropage.cpp:94
 #: core/libs/database/utils/widgets/dbstatdlg.cpp:51
 #, kde-format
@@ -16943,7 +16930,7 @@ msgstr ""
 #, kde-format
 msgctxt "'%1' is a label for a theme parameter"
 msgid "%1:"
-msgstr "%1:"
+msgstr ""
 
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlthemepage.cpp:144
 #, kde-format
@@ -18525,19 +18512,19 @@ msgstr ""
 #, kde-format
 msgctxt "Image format: JPEG"
 msgid "JPEG"
-msgstr "JPEG"
+msgstr ""
 
 #: core/dplugins/generic/tools/printcreator/manager/advprintsettings.cpp:139
 #, kde-format
 msgctxt "Image format: PNG"
 msgid "PNG"
-msgstr "PNG"
+msgstr ""
 
 #: core/dplugins/generic/tools/printcreator/manager/advprintsettings.cpp:140
 #, kde-format
 msgctxt "Image format: TIFF"
 msgid "TIFF"
-msgstr "TIFF"
+msgstr ""
 
 #: core/dplugins/generic/tools/printcreator/manager/advprintsettings.cpp:149
 #, kde-format
@@ -18950,7 +18937,7 @@ msgstr ""
 #: core/dplugins/generic/tools/printcreator/wizard/advprintcustomdlg.cpp:36
 #, kde-format
 msgid "Number of rows"
-msgstr ""
+msgstr "قۇر سانى"
 
 #: core/dplugins/generic/tools/printcreator/wizard/advprintcustomdlg.cpp:37
 #, kde-format
@@ -19072,7 +19059,7 @@ msgid "Optional Gimp Binaries"
 msgstr ""
 
 #: core/dplugins/generic/tools/printcreator/wizard/advprintoutputpage.cpp:75
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:151
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:153
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:146
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:113
 #, kde-format
@@ -19143,7 +19130,7 @@ msgstr "ئىختىيارى جايلاشتۇرۇش"
 msgid "The selected custom photo size can not be applied to the paper size."
 msgstr ""
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1358
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1357
 #, kde-format
 msgid ""
 "Custom\n"
@@ -19156,7 +19143,7 @@ msgid "Welcome to Print Creator"
 msgstr ""
 
 #: core/dplugins/generic/tools/printcreator/wizard/advprintwizard.cpp:101
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:77
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:79
 #: core/dplugins/generic/tools/videoslideshow/vidslidewizard.cpp:78
 #: core/dplugins/generic/webservices/unified/wizard/wswizard.cpp:86
 #, kde-format
@@ -19204,104 +19191,104 @@ msgstr "بەت %1 / %2"
 msgid "Error opening input file"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:106
+#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:107
 #, kde-format
 msgid "Error opening temporary folder"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:129
+#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:131
 #, kde-format
 msgid "Cannot resize image. Aborting."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:142
+#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:145
 #, kde-format
 msgid "Cannot save resized image (JPEG). Aborting."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:150
+#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:154
 #, kde-format
 msgid "Cannot save resized image (PNG). Aborting."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:109
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:111
 #, kde-format
 msgid "Cannot create a temporary directory"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:170
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:172
 #, kde-format
 msgid "Resizing %1"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:188
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:190
 #, kde-format
 msgid "%1 resized successfully"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:202
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:204
 #, kde-format
 msgid "Failed to resize %1: %2"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:239
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:241
 #, kde-format
 msgid "There are no files to send"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:263
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:265
 #, kde-format
 msgid "Build images properties file"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:279
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:281
 #, kde-format
 msgid "no caption"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:284
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:286
 #, kde-format
 msgid "no keywords"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:287
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
 #, kde-format
 msgid ""
 "file \"%1\":\n"
 "Original images: %2\n"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
 #, kde-format
 msgid "Comments: %1\n"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:293
 #, kde-format
 msgid "Tags: %1\n"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:293
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:295
 #, kde-format
 msgid "Rating: %1\n"
 msgstr "باھا: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:298
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:300
 #, kde-format
 msgid "properties.txt"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:313
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:315
 #, kde-format
 msgid "Image properties file cannot be opened"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:325
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:327
 #, kde-format
 msgid "Image properties file done"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:345
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:347
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:982
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:995
 #, kde-format
@@ -19309,58 +19296,58 @@ msgctxt "@title:window"
 msgid "Processing Failed"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:346
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:348
 #, kde-format
 msgid ""
 "Some images cannot be resized.\n"
 "Do you want them to be added as attachments without resizing?"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:419
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:421
 #, kde-format
 msgid ""
 "The file \"%1\" is too big to be sent, please reduce its size or change your "
 "settings"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:659
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
 #, kde-format
 msgid "Send items by mail from digiKam"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:663
 #, kde-format
 msgid "List of attached items"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:703
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:710
 #, kde-format
 msgctxt "@title:window"
 msgid "Error While to Send Items by mail"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:704
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:711
 #, kde-format
 msgctxt "@info"
-msgid "Cannot send items using native Apple MAil application"
+msgid "Cannot send items using native Apple Mail application"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:720
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:727
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:732
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:739
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:736
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:743
 #, kde-format
 msgid "After having sent your images by email..."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:737
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:744
 #, kde-format
 msgid "Press 'Finish' button to clean up temporary files"
 msgstr ""
@@ -19401,25 +19388,25 @@ msgctxt "Mail client: OUTLOOK"
 msgid "Outlook"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:106
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:103
 #, kde-format
 msgctxt "Mail client: APPLEMAIL"
 msgid "Apple Mail"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:110
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:104
 #, kde-format
 msgctxt "Mail client: SYLPHEED"
 msgid "Sylpheed"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:111
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:105
 #, kde-format
 msgctxt "Mail client: THUNDERBIRD"
 msgid "Thunderbird"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:120
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:114
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:151
 #: core/libs/dplugins/webservices/wssettings.cpp:117
 #, kde-format
@@ -19427,7 +19414,7 @@ msgctxt "Image format: JPEG"
 msgid "Jpeg"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:121
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:115
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:152
 #: core/libs/dplugins/webservices/wssettings.cpp:118
 #, kde-format
@@ -19458,6 +19445,11 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Send by Mail..."
+msgstr ""
+
+#: core/dplugins/generic/tools/sendbymail/tools/applemailbinary.cpp:31
+#, kde-format
+msgid "Apple Mail Client."
 msgstr ""
 
 #: core/dplugins/generic/tools/sendbymail/tools/balsabinary.cpp:31
@@ -19492,23 +19484,23 @@ msgstr ""
 msgid "Mozilla Foundation Mail Client."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:124
+#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:126
 #, kde-format
 msgid "Preparing file to export by mail..."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:132
+#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:134
 #: core/dplugins/generic/webservices/unified/wizard/wsfinalpage.cpp:135
 #, kde-format
 msgid "%1 input items to process"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailimagespage.cpp:61
+#: core/dplugins/generic/tools/sendbymail/wizard/mailimagespage.cpp:63
 #, kde-format
 msgid "<p>This view list all items to export by mail.</p>"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:91
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:93
 #, kde-format
 msgid ""
 "<qt><p><h1><b>Welcome to Email Tool</b></h1></p><p>This assistant will guide "
@@ -19517,53 +19509,53 @@ msgid ""
 "accordingly with your mail service capabilities.</p></qt>"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:113
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:115
 #, kde-format
 msgctxt "@title:group"
 msgid "Mail client application Binaries"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:88
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:90
 #, kde-format
 msgid "Mail program:"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:92
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:94
 #, kde-format
 msgid "Select your preferred external mail client program here."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:107
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:109
 #, kde-format
 msgid "Attach a file with items properties"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:108
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:110
 #, kde-format
 msgid ""
 "If you enable this option, all item properties as Comments, Rating, or Tags, "
 "will be added as an attached file."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:118
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:120
 #: core/utilities/geolocation/engine/settings/MarbleConfigView.cpp:188
 #: core/utilities/geolocation/engine/settings/MarbleConfigView.cpp:195
 #, kde-format
 msgid " MB"
-msgstr " MB"
+msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:120
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:122
 #, kde-format
 msgid "Maximum email size limit:"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:125
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:127
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:87
 #, kde-format
 msgid "Adjust image properties"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:127
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:129
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:126
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:89
 #, kde-format
@@ -19572,13 +19564,13 @@ msgid ""
 "recompressed."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:131
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:133
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:93
 #, kde-format
 msgid "Image Properties"
 msgstr "سۈرەت خاسلىقى"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:141
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:143
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:135
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:103
 #, kde-format
@@ -19587,27 +19579,27 @@ msgid ""
 "preserved."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:144
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:146
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:139
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:106
 #, kde-format
 msgid "Image Length:"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:155
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:157
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:150
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:117
 #, kde-format
 msgid "Select your preferred format to convert image."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:174
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:176
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:136
 #, kde-format
 msgid "<p>The new compression value of JPEG images to be sent:</p>"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:175
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:177
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:137
 #, kde-format
 msgid ""
@@ -19616,21 +19608,21 @@ msgid ""
 "value)<br><b>100</b>: no compression</p>"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:183
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:185
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:168
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:145
 #, kde-format
 msgid "Image quality:"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:188
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:190
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:173
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:150
 #, kde-format
 msgid "Remove all metadata"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:189
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:191
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:174
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:151
 #, kde-format
@@ -19639,30 +19631,30 @@ msgid ""
 "removed."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:65
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Send by Email"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:76
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:78
 #, kde-format
 msgid "Welcome to Email Tool"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:78
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:80
 #: core/dplugins/generic/tools/videoslideshow/vidslidewizard.cpp:79
 #: core/dplugins/generic/webservices/unified/wizard/wswizard.cpp:87
 #, kde-format
 msgid "Images List"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:79
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:81
 #, kde-format
 msgid "Email Settings"
 msgstr "ئېلخەت تەڭشىكى"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:80
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:82
 #, kde-format
 msgid "Export by Email"
 msgstr ""
@@ -20334,7 +20326,7 @@ msgstr ""
 #, kde-format
 msgctxt "artist - title"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr ""
 
 #: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:200
 #, kde-format
@@ -20491,7 +20483,7 @@ msgstr ""
 #: core/dplugins/generic/view/presentation/dialogs/presentation_captionpage.ui:17
 #, kde-format
 msgid "Select Font..."
-msgstr ""
+msgstr "خەت نۇسخا تاللاش…"
 
 #. i18n: ectx: property (text), widget (QLabel, label_3)
 #: core/dplugins/generic/view/presentation/dialogs/presentation_captionpage.ui:35
@@ -20726,7 +20718,7 @@ msgstr "ئارىلاشتۇر"
 #, kde-format
 msgctxt "Filter Effect: Cube"
 msgid "Cube"
-msgstr ""
+msgstr "كۇب"
 
 #: core/dplugins/generic/view/presentation/opengl/presentationgl.cpp:534
 #, kde-format
@@ -21267,7 +21259,7 @@ msgstr "ئاگاھلاندۇرۇش"
 #, kde-format
 msgctxt "@info"
 msgid "Authentication failed. Click \"Continue\" to authenticate."
-msgstr ""
+msgstr "دەلىللىيەلمىدى. Click \"Continue\" to authenticate."
 
 #: core/dplugins/generic/webservices/box/boxwindow.cpp:251
 #: core/dplugins/generic/webservices/google/gswindow.cpp:522
@@ -21343,14 +21335,14 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Login Failed"
-msgstr ""
+msgstr "تىزىمغا كىرەلمىدى"
 
 #: core/dplugins/generic/webservices/box/boxwindow.cpp:380
 #: core/dplugins/generic/webservices/onedrive/odwindow.cpp:380
 #, kde-format
 msgctxt "@info"
 msgid "Authentication failed. Do you want to try again?"
-msgstr ""
+msgstr "دەلىللىيەلمىدى. Do you want to try again?"
 
 #: core/dplugins/generic/webservices/box/boxwindow.cpp:395
 #: core/dplugins/generic/webservices/box/boxwindow.cpp:400
@@ -21412,7 +21404,7 @@ msgstr ""
 #: core/dplugins/generic/webservices/twitter/twitterwindow.cpp:387
 #, kde-format
 msgid "Authentication failed. Do you want to try again?"
-msgstr ""
+msgstr "دەلىللىيەلمىدى. Do you want to try again?"
 
 #: core/dplugins/generic/webservices/dropbox/dbwindow.cpp:269
 #: core/dplugins/generic/webservices/facebook/fbwindow.cpp:481
@@ -21474,7 +21466,7 @@ msgstr "ھەممەيلەن"
 #: core/dplugins/generic/webservices/facebook/fbplugin.cpp:49
 #, kde-format
 msgid "Facebook"
-msgstr "Facebook"
+msgstr ""
 
 #: core/dplugins/generic/webservices/facebook/fbplugin.cpp:64
 #, kde-format
@@ -21499,7 +21491,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title:window"
 msgid "Facebook"
-msgstr "Facebook"
+msgstr ""
 
 #: core/dplugins/generic/webservices/facebook/fbplugin.cpp:121
 #, kde-format
@@ -21977,7 +21969,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Flickr"
-msgstr "Flickr"
+msgstr ""
 
 #: core/dplugins/generic/webservices/flickr/flickrplugin.cpp:59
 #, kde-format
@@ -22471,7 +22463,7 @@ msgstr "شەخسىيەت:"
 #, kde-format
 msgctxt "@title"
 msgid "Google"
-msgstr "Google"
+msgstr ""
 
 #: core/dplugins/generic/webservices/google/gsplugin.cpp:61
 #, kde-format
@@ -24237,7 +24229,7 @@ msgstr ""
 #: core/dplugins/generic/webservices/twitter/twitterwindow.cpp:251
 #, kde-format
 msgid "Authentication failed. Click \"Continue\" to authenticate."
-msgstr ""
+msgstr "دەلىللىيەلمىدى. Click \"Continue\" to authenticate."
 
 #: core/dplugins/generic/webservices/pinterest/pwindow.cpp:287
 #, kde-format
@@ -26693,6 +26685,8 @@ msgid ""
 "Error while converting the database.\n"
 " Details: %1"
 msgstr ""
+"Error while converting the database.\n"
+" Details: %1"
 
 #: core/libs/database/coredb/coredbschemaupdater.cpp:201
 #, kde-format
@@ -26907,6 +26901,9 @@ msgid ""
 "the digikam application and is absolutely required to run digikam. Please "
 "check your installation."
 msgstr ""
+"Could not open the configuration file <b>%1</b>. This file is installed with "
+"the digikam application and is absolutely required to run digikam. "
+"ئورناتمىڭىزنى تەكشۈرۈڭ."
 
 #: core/libs/database/engine/dbengineconfigloader.cpp:179
 #, kde-format
@@ -27349,7 +27346,7 @@ msgstr ""
 #, kde-format
 msgctxt "%p is the percent value, % is the percent sign"
 msgid "%p%"
-msgstr "%p%"
+msgstr ""
 
 #: core/libs/database/utils/widgets/dbmigrationdlg.cpp:143
 #, kde-format
@@ -28536,7 +28533,7 @@ msgstr ""
 #, kde-format
 msgctxt "Color Model: RGB"
 msgid "RGB"
-msgstr "RGB"
+msgstr ""
 
 #: core/libs/dimg/dimg_metadata.cpp:452
 #, kde-format
@@ -28560,13 +28557,13 @@ msgstr "ئىندېكسلانغان"
 #, kde-format
 msgctxt "Color Model: YCbCr"
 msgid "YCbCr"
-msgstr "YCbCr"
+msgstr ""
 
 #: core/libs/dimg/dimg_metadata.cpp:472
 #, kde-format
 msgctxt "Color Model: CMYK"
 msgid "CMYK"
-msgstr "CMYK"
+msgstr ""
 
 #: core/libs/dimg/dimg_metadata.cpp:477
 #, kde-format
@@ -30293,7 +30290,7 @@ msgstr ""
 #, kde-format
 msgctxt "%1 is the percent value, % is the percent sign"
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #: core/libs/dimg/filters/hotpixels/blackframelistviewitem.cpp:161
 #, kde-format
@@ -31518,7 +31515,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item: WB temperature preset"
 msgid "Sunrise"
-msgstr ""
+msgstr "كۈن چىقىش"
 
 #: core/libs/dimg/filters/wb/wbsettings.cpp:165
 #, kde-format
@@ -32081,7 +32078,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item"
 msgid "File Owner"
-msgstr ""
+msgstr "ئىگىسى"
 
 #: core/libs/dplugins/setup/dpluginaboutdlg.cpp:148
 #, kde-format
@@ -32268,7 +32265,7 @@ msgstr ""
 #, kde-format
 msgctxt "Web Service: FLICKR"
 msgid "Flickr"
-msgstr "Flickr"
+msgstr ""
 
 #: core/libs/dplugins/webservices/wssettings.cpp:103
 #, kde-format
@@ -32286,7 +32283,7 @@ msgstr ""
 #, kde-format
 msgctxt "Web Service: FACEBOOK"
 msgid "Facebook"
-msgstr "Facebook"
+msgstr ""
 
 #: core/libs/dplugins/webservices/wssettings.cpp:106
 #, kde-format
@@ -33754,7 +33751,7 @@ msgstr "يوچۇن"
 #, kde-format
 msgctxt "@info: Temperature in Kelvin"
 msgid "%1 K"
-msgstr "%1 K"
+msgstr ""
 
 #: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1017
 #: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1033
@@ -35888,7 +35885,7 @@ msgstr "ئىشلەتكىلى بولمايدۇ"
 #, kde-format
 msgctxt "@info: item size"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: core/libs/properties/import/importitempropertiestab.cpp:389
 #, kde-format
@@ -35900,19 +35897,19 @@ msgstr ""
 #, kde-format
 msgctxt "@info: item resolution"
 msgid "%1x%2 (%3Mpx)"
-msgstr "%1x%2 (%3Mpx)"
+msgstr ""
 
 #: core/libs/properties/import/importitempropertiestab.cpp:495
 #, kde-format
 msgctxt "@info: focal length"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: core/libs/properties/import/importitempropertiestab.cpp:500
 #, kde-format
 msgctxt "@label"
 msgid "%1 ISO"
-msgstr "%1 ISO"
+msgstr ""
 
 #: core/libs/properties/itempropertiescolorstab.cpp:132
 #, kde-format
@@ -36130,7 +36127,7 @@ msgstr "يوچۇن"
 #, kde-format
 msgctxt "@info: item properties"
 msgid "%1x%2 (%3Mpx)"
-msgstr "%1x%2 (%3Mpx)"
+msgstr ""
 
 #: core/libs/properties/itempropertiessidebar.cpp:276
 #: core/libs/properties/itempropertiessidebardb.cpp:817
@@ -36144,14 +36141,14 @@ msgstr ""
 #, kde-format
 msgctxt "@info: item properties"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: core/libs/properties/itempropertiessidebar.cpp:317
 #: core/libs/properties/itempropertiessidebardb.cpp:856
 #, kde-format
 msgctxt "@info: item properties"
 msgid "%1 ISO"
-msgstr "%1 ISO"
+msgstr ""
 
 #: core/libs/properties/itempropertiessidebardb.cpp:109
 #, kde-format
@@ -36185,7 +36182,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info: width x height (megapixels Mpx)"
 msgid "%1x%2 (%3Mpx)"
-msgstr "%1x%2 (%3Mpx)"
+msgstr ""
 
 #: core/libs/properties/itempropertiestab.cpp:36
 #, kde-format
@@ -36545,13 +36542,13 @@ msgstr ""
 #, kde-format
 msgctxt "@info: unit file size in bytes"
 msgid "B"
-msgstr "B"
+msgstr ""
 
 #: core/libs/properties/itempropertiestab_setters.cpp:411
 #, kde-format
 msgctxt "@info: item properties"
 msgid " fps"
-msgstr " fps"
+msgstr ""
 
 #: core/libs/properties/itemselectionpropertiestab.cpp:108
 #, kde-format
@@ -40399,7 +40396,7 @@ msgstr "ئىشلىتىدىغان خەت نۇسخا چوڭلۇقىنى تاللى
 #, kde-format
 msgctxt "@info: font properties"
 msgid "The Quick Brown Fox Jumps Over The Lazy Dog"
-msgstr "The Quick Brown Fox Jumps Over The Lazy Dog"
+msgstr ""
 
 #: core/libs/widgets/fonts/dfontproperties.cpp:474
 #, kde-format
@@ -40408,8 +40405,6 @@ msgid ""
 "This sample text illustrates the current settings. You may edit it to test "
 "special characters."
 msgstr ""
-"بۇ ھازىرقى تەڭشەكنىڭ نەتىجىسىنى كۆرسىتىدۇ. ئالاھىدە ھەرپلەرنى كۆرسىتىش "
-"ئۈچۈن، ئۇنى تەھرىرلەشكە بولىدۇ."
 
 #: core/libs/widgets/fonts/dfontproperties.cpp:720
 #: core/libs/widgets/fonts/dfontproperties.cpp:771
@@ -40514,7 +40509,7 @@ msgstr ""
 #, kde-format
 msgctxt "<Profile Description> (<File Name>)"
 msgid "%1 (%2)"
-msgstr "%1 (%2)"
+msgstr ""
 
 #: core/libs/widgets/iccprofiles/iccprofilescombobox.cpp:252
 #, kde-format
@@ -40606,7 +40601,7 @@ msgstr ""
 #, kde-format
 msgctxt "@item: icc profile properties"
 msgid "Manufacturer"
-msgstr ""
+msgstr "ئىشلەپچىقارغۇچى"
 
 #: core/libs/widgets/iccprofiles/iccprofilewidget.cpp:130
 #, kde-format
@@ -40766,7 +40761,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info: icc profile color space"
 msgid "RGB"
-msgstr "RGB"
+msgstr ""
 
 #: core/libs/widgets/iccprofiles/iccprofilewidget.cpp:365
 #: core/libs/widgets/iccprofiles/iccprofilewidget.cpp:426
@@ -40780,7 +40775,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info: icc profile color space"
 msgid "HSV"
-msgstr "HSV"
+msgstr ""
 
 #: core/libs/widgets/iccprofiles/iccprofilewidget.cpp:377
 #: core/libs/widgets/iccprofiles/iccprofilewidget.cpp:438
@@ -40794,14 +40789,14 @@ msgstr ""
 #, kde-format
 msgctxt "@info: icc profile color space"
 msgid "CMYK"
-msgstr "CMYK"
+msgstr ""
 
 #: core/libs/widgets/iccprofiles/iccprofilewidget.cpp:389
 #: core/libs/widgets/iccprofiles/iccprofilewidget.cpp:450
 #, kde-format
 msgctxt "@info: icc profile color space"
 msgid "CMY"
-msgstr "CMY"
+msgstr ""
 
 #: core/libs/widgets/iccprofiles/iccprofilewidget.cpp:395
 #: core/libs/widgets/iccprofiles/iccprofilewidget.cpp:456
@@ -40930,7 +40925,7 @@ msgstr ""
 #, kde-format
 msgctxt "%1 width, %2 height, %3 mpixels"
 msgid "%1x%2 (%3Mpx)"
-msgstr "%1x%2 (%3Mpx)"
+msgstr ""
 
 #: core/libs/widgets/itemview/itemviewdelegate.cpp:427
 #: core/libs/widgets/itemview/itemviewdelegate.cpp:447
@@ -41346,7 +41341,7 @@ msgstr "ھالەت بالدىقىنى كۆرسەت"
 #, kde-format
 msgctxt "%1 is the zoom percent value, % is the percent sign"
 msgid "%1%"
-msgstr "%1%"
+msgstr ""
 
 #: core/libs/widgets/mainview/dzoombar.cpp:227
 #, kde-format
@@ -44283,7 +44278,7 @@ msgstr "ئانگولا"
 #, kde-format
 msgctxt "@info: country code"
 msgid "Anguilla"
-msgstr ""
+msgstr "ئانگۋىللا"
 
 #: core/libs/widgets/metadata/utils/countryselector.cpp:54
 #, kde-format
@@ -44313,7 +44308,7 @@ msgstr "ئەرمېنىيە"
 #, kde-format
 msgctxt "@info: country code"
 msgid "Aruba"
-msgstr ""
+msgstr "ئارۇبا"
 
 #: core/libs/widgets/metadata/utils/countryselector.cpp:59
 #, kde-format
@@ -44385,7 +44380,7 @@ msgstr "بېنىن"
 #, kde-format
 msgctxt "@info: country code"
 msgid "Bermuda"
-msgstr ""
+msgstr "بېرمۇدا"
 
 #: core/libs/widgets/metadata/utils/countryselector.cpp:71
 #, kde-format
@@ -44733,7 +44728,7 @@ msgstr "گانا"
 #, kde-format
 msgctxt "@info: country code"
 msgid "Gibraltar"
-msgstr ""
+msgstr "جەبىلتارىق"
 
 #: core/libs/widgets/metadata/utils/countryselector.cpp:129
 #, kde-format
@@ -44763,7 +44758,7 @@ msgstr ""
 #, kde-format
 msgctxt "@info: country code"
 msgid "Guam"
-msgstr ""
+msgstr "گۇئام"
 
 #: core/libs/widgets/metadata/utils/countryselector.cpp:134
 #, kde-format
@@ -45051,7 +45046,7 @@ msgstr "مارشال تاقىم ئاراللىرى"
 #, kde-format
 msgctxt "@info: country code"
 msgid "Martinique"
-msgstr ""
+msgstr "مارتىنىكا"
 
 #: core/libs/widgets/metadata/utils/countryselector.cpp:182
 #, kde-format
@@ -45069,7 +45064,7 @@ msgstr "ماۋرىتىئۇس"
 #, kde-format
 msgctxt "@info: country code"
 msgid "Mayotte"
-msgstr ""
+msgstr "مايوتتې"
 
 #: core/libs/widgets/metadata/utils/countryselector.cpp:185
 #, kde-format
@@ -45111,7 +45106,7 @@ msgstr "مونتېنېگرو"
 #, kde-format
 msgctxt "@info: country code"
 msgid "Montserrat"
-msgstr ""
+msgstr "مونتسېررات"
 
 #: core/libs/widgets/metadata/utils/countryselector.cpp:192
 #, kde-format
@@ -45189,7 +45184,7 @@ msgstr "نىگېرىيە"
 #, kde-format
 msgctxt "@info: country code"
 msgid "Niue"
-msgstr ""
+msgstr "نىيۇئې"
 
 #: core/libs/widgets/metadata/utils/countryselector.cpp:206
 #, kde-format
@@ -45297,7 +45292,7 @@ msgstr "قاتار"
 #, kde-format
 msgctxt "@info: country code"
 msgid "Reunion"
-msgstr ""
+msgstr "رېئونىيون"
 
 #: core/libs/widgets/metadata/utils/countryselector.cpp:224
 #, kde-format
@@ -45735,7 +45730,7 @@ msgstr "پەلەستىن"
 #, kde-format
 msgctxt "@info: country code"
 msgid "Gaza"
-msgstr ""
+msgstr "غەززە"
 
 #: core/libs/widgets/metadata/utils/countryselector.cpp:299
 #, kde-format
@@ -47336,7 +47331,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title"
 msgid "Stack"
-msgstr ""
+msgstr "دەستىلە"
 
 #: core/showfoto/folderview/showfotofolderviewlist.cpp:152
 #, kde-format
@@ -48649,7 +48644,7 @@ msgstr ""
 #, kde-format
 msgctxt "@title: stack-view list on items"
 msgid "Stack"
-msgstr ""
+msgstr "دەستىلە"
 
 #: core/showfoto/thumbbar/showfotodragdrophandler.cpp:44
 #, kde-format
@@ -50142,7 +50137,7 @@ msgstr ""
 #: core/utilities/fuzzysearch/findduplicatesalbum.cpp:67
 #, kde-format
 msgid "Ref. albums"
-msgstr ""
+msgstr "Ref. ئالبوم"
 
 #: core/utilities/fuzzysearch/findduplicatesalbum.cpp:68
 #, kde-format
@@ -50594,7 +50589,7 @@ msgstr "سەپلە(&C)…"
 #, kde-format
 msgctxt "means meter"
 msgid "m"
-msgstr "m"
+msgstr ""
 
 #: core/utilities/geolocation/engine/core/MarbleLocale.cpp:163
 #, kde-format
@@ -50721,12 +50716,12 @@ msgstr ""
 #: core/utilities/geolocation/engine/geodata/data/GeoDataCoordinates.cpp:571
 #, kde-format
 msgid "W"
-msgstr "W"
+msgstr ""
 
 #: core/utilities/geolocation/engine/geodata/data/GeoDataCoordinates.cpp:571
 #, kde-format
 msgid "E"
-msgstr "E"
+msgstr ""
 
 #: core/utilities/geolocation/engine/geodata/data/GeoDataCoordinates.cpp:794
 #: core/utilities/geolocation/engine/plugins/render/compass/CompassFloatItem.cpp:158
@@ -50785,7 +50780,7 @@ msgstr ""
 #: core/utilities/geolocation/engine/geodata/data/GeoDataPlacemark.cpp:464
 #, kde-format
 msgid "Mountain"
-msgstr ""
+msgstr "تاغ"
 
 #: core/utilities/geolocation/engine/geodata/data/GeoDataPlacemark.cpp:422
 #: core/utilities/geolocation/engine/geodata/data/GeoDataPlacemark.cpp:434
@@ -52377,43 +52372,43 @@ msgstr ""
 #, kde-format
 msgctxt "North direction terms"
 msgid "*"
-msgstr "*"
+msgstr ""
 
 #: core/utilities/geolocation/engine/geodata/data/LonLatParser.cpp:63
 #, kde-format
 msgctxt "East direction terms"
 msgid "*"
-msgstr "*"
+msgstr ""
 
 #: core/utilities/geolocation/engine/geodata/data/LonLatParser.cpp:66
 #, kde-format
 msgctxt "South direction terms"
 msgid "*"
-msgstr "*"
+msgstr ""
 
 #: core/utilities/geolocation/engine/geodata/data/LonLatParser.cpp:69
 #, kde-format
 msgctxt "West direction terms"
 msgid "*"
-msgstr "*"
+msgstr ""
 
 #: core/utilities/geolocation/engine/geodata/data/LonLatParser.cpp:102
 #, kde-format
 msgctxt "Degree symbol terms"
 msgid "*"
-msgstr "*"
+msgstr ""
 
 #: core/utilities/geolocation/engine/geodata/data/LonLatParser.cpp:105
 #, kde-format
 msgctxt "Minutes symbol terms"
 msgid "*"
-msgstr "*"
+msgstr ""
 
 #: core/utilities/geolocation/engine/geodata/data/LonLatParser.cpp:108
 #, kde-format
 msgctxt "Seconds symbol terms"
 msgid "*"
-msgstr "*"
+msgstr ""
 
 #: core/utilities/geolocation/engine/geodata/graphicsitem/GeoLineStringGraphicsItem.cpp:296
 #, kde-format
@@ -52932,7 +52927,7 @@ msgstr "كىلومېتىر"
 #: core/utilities/geolocation/engine/plugins/render/mapscale/MapScaleFloatItem.cpp:291
 #, kde-format
 msgid "m"
-msgstr "m"
+msgstr ""
 
 #: core/utilities/geolocation/engine/plugins/render/mapscale/MapScaleFloatItem.cpp:300
 #, kde-format
@@ -53195,7 +53190,7 @@ msgstr "چوڭلۇقى(&S):"
 #: core/utilities/geolocation/engine/plugins/render/overviewmap/OverviewMapConfigWidget.ui:97
 #, kde-format
 msgid "x"
-msgstr "x"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, label_4)
 #: core/utilities/geolocation/engine/plugins/render/overviewmap/OverviewMapConfigWidget.ui:200
@@ -53861,7 +53856,7 @@ msgstr ""
 #: core/utilities/geolocation/engine/storage/LatLonBoxWidget.ui:203
 #, kde-format
 msgid "°"
-msgstr "°"
+msgstr ""
 
 #. i18n: ectx: property (text), widget (QLabel, northLabel)
 #: core/utilities/geolocation/engine/storage/LatLonBoxWidget.ui:66
@@ -53938,7 +53933,7 @@ msgstr ""
 #: core/utilities/geolocation/engine/tile/TileCreatorDialog.ui:560
 #, no-c-format, kde-format
 msgid "%p%"
-msgstr "%p%"
+msgstr ""
 
 #. i18n: ectx: property (title), widget (QGroupBox, groupBox_2)
 #: core/utilities/geolocation/engine/tile/TileLevelRangeWidget.ui:29
@@ -55125,7 +55120,7 @@ msgstr ""
 #, kde-format
 msgctxt "<Problem> - <b>"
 msgid "%1 - %2"
-msgstr "%1 - %2"
+msgstr ""
 
 #: core/utilities/imageeditor/dialogs/colorcorrectiondlg.cpp:204
 #, kde-format
@@ -55561,19 +55556,19 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "JPEG"
-msgstr "JPEG"
+msgstr ""
 
 #: core/utilities/imageeditor/editor/editorwindow.cpp:234
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "TIFF"
-msgstr "TIFF"
+msgstr ""
 
 #: core/utilities/imageeditor/editor/editorwindow.cpp:235
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "PNG"
-msgstr "PNG"
+msgstr ""
 
 #: core/utilities/imageeditor/editor/editorwindow.cpp:236
 #, kde-format
@@ -55585,13 +55580,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "JPEG 2000"
-msgstr "JPEG 2000"
+msgstr ""
 
 #: core/utilities/imageeditor/editor/editorwindow.cpp:246
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "HEIF"
-msgstr "HEIF"
+msgstr ""
 
 #: core/utilities/imageeditor/editor/editorwindow.cpp:252
 #, kde-format
@@ -55603,13 +55598,13 @@ msgstr ""
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "WEBP"
-msgstr "WEBP"
+msgstr ""
 
 #: core/utilities/imageeditor/editor/editorwindow.cpp:262
 #, kde-format
 msgctxt "@action:inmenu"
 msgid "AVIF"
-msgstr "AVIF"
+msgstr ""
 
 #: core/utilities/imageeditor/editor/editorwindow.cpp:280
 #, kde-format
@@ -55931,7 +55926,7 @@ msgstr ""
 msgctxt "@info"
 msgid ""
 "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
-msgstr "«%1» ئاتلىق ھۆججەت مەۋجۇت. ئۇنى راستتىنلا قاپلىۋېتەمسىز؟"
+msgstr ""
 
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2368
 #, kde-format
@@ -56051,7 +56046,7 @@ msgstr "يوچۇن"
 #: core/utilities/imageeditor/main/imagewindow.cpp:373
 #, kde-format
 msgid "%1x%2 (%3Mpx)"
-msgstr "%1x%2 (%3Mpx)"
+msgstr ""
 
 #: core/utilities/imageeditor/main/imagewindow.cpp:946
 #, kde-format
@@ -57260,14 +57255,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "PNG"
-msgstr "PNG"
+msgstr ""
 
 #: core/utilities/import/widgets/advancedsettings.cpp:83
 #: core/utilities/setup/editor/setupversioning.cpp:130
 #, kde-format
 msgctxt "@label:listbox"
 msgid "TIFF"
-msgstr "TIFF"
+msgstr ""
 
 #: core/utilities/import/widgets/advancedsettings.cpp:84
 #: core/utilities/setup/editor/setupversioning.cpp:132
@@ -57288,7 +57283,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "HEIF"
-msgstr "HEIF"
+msgstr ""
 
 #: core/utilities/import/widgets/advancedsettings.cpp:102
 #: core/utilities/setup/editor/setupversioning.cpp:150
@@ -57302,14 +57297,14 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "WEBP"
-msgstr "WEBP"
+msgstr ""
 
 #: core/utilities/import/widgets/advancedsettings.cpp:116
 #: core/utilities/setup/editor/setupversioning.cpp:164
 #, kde-format
 msgctxt "@label:listbox"
 msgid "AVIF"
-msgstr "AVIF"
+msgstr ""
 
 #: core/utilities/import/widgets/advancedsettings.cpp:130
 #, kde-format
@@ -58104,6 +58099,8 @@ msgid ""
 "All operations are done.\n"
 "Duration: %1"
 msgstr ""
+"All operations are done.\n"
+"داۋاملىشىش ۋاقتى: %1"
 
 #: core/utilities/maintenance/manager/maintenancemngr.cpp:434
 #, kde-format
@@ -58116,6 +58113,8 @@ msgid ""
 "Process is done.\n"
 "Duration: %1"
 msgstr ""
+"Process is done.\n"
+"داۋاملىشىش ۋاقتى: %1"
 
 #: core/utilities/maintenance/tools/dbcleaner/dbcleaner.cpp:123
 #: core/utilities/maintenance/tools/dbcleaner/dbcleaner.cpp:226
@@ -59263,7 +59262,7 @@ msgstr ""
 #, kde-format
 msgctxt "Size of the file ...-..."
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:134
 #, kde-format
@@ -59511,7 +59510,7 @@ msgstr ""
 #, kde-format
 msgctxt "Lens aperture as f-number ...-..."
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:486
 #, kde-format
@@ -59522,7 +59521,7 @@ msgstr ""
 #, kde-format
 msgctxt "Focal length of the lens ...-..."
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:505
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:671
@@ -59534,13 +59533,13 @@ msgstr ""
 #, kde-format
 msgctxt "35mm equivalent focal length ...-..."
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:525
 #, kde-format
 msgctxt "Exposure time ...-..."
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:545
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:673
@@ -59563,7 +59562,7 @@ msgstr ""
 #, kde-format
 msgctxt "ISO film speed (linear scale, ASA) ...-..."
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:593
 #, kde-format
@@ -59592,7 +59591,7 @@ msgstr ""
 #, kde-format
 msgctxt "Color temperature used for white balance ...-..."
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:630
 #, kde-format
@@ -59620,7 +59619,7 @@ msgstr ""
 #, kde-format
 msgctxt "Distance of the subject from the lens ...-..."
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:655
 #, kde-format
@@ -59656,7 +59655,7 @@ msgstr ""
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:720
 #, kde-format
 msgid "GPS"
-msgstr "GPS"
+msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:697
 #, kde-format
@@ -59667,7 +59666,7 @@ msgstr ""
 #, kde-format
 msgctxt "Altitude range ...-..."
 msgid "-"
-msgstr "-"
+msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:720
 #, kde-format
@@ -59871,7 +59870,7 @@ msgstr "ۋە"
 #, kde-format
 msgctxt "Seconds"
 msgid "s"
-msgstr "s"
+msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:940
 #, kde-format
@@ -59893,7 +59892,7 @@ msgstr "ۋە"
 #, kde-format
 msgctxt "Frames per Second"
 msgid "fps"
-msgstr "fps"
+msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:958
 #, kde-format
@@ -59920,7 +59919,7 @@ msgstr "ۋە"
 #, kde-format
 msgctxt "Bits per Second"
 msgid "bps"
-msgstr "bps"
+msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1046
 #, kde-format
@@ -60137,12 +60136,10 @@ msgid "Rating 4 or more"
 msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:192
-#, fuzzy, kde-format
-#| msgctxt "@info: generate album name for exporting"
-#| msgid "Rating: "
+#, kde-format
 msgctxt "@item"
 msgid "Rating 5"
-msgstr "باھالاش: "
+msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:197
 #, kde-format
@@ -60151,11 +60148,10 @@ msgid "Oriented horizontally (landscape)"
 msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:198
-#, fuzzy, kde-format
-#| msgid "Subject distance"
+#, kde-format
 msgctxt "@item"
 msgid "Subject tag: landscape"
-msgstr "جىسىم ئارىلىقى"
+msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchintentresolver.cpp:86
 #, kde-format
@@ -60164,10 +60160,9 @@ msgid "\"%1\" could mean more than one thing. Which did you mean?"
 msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:155
-#, fuzzy, kde-format
-#| msgid "Failed to load image"
+#, kde-format
 msgid "Failed to load the language model."
-msgstr "سۈرەتنى ئوقۇش مەغلۇپ بولدى"
+msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:181
 #, kde-format
@@ -60187,16 +60182,14 @@ msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:239
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:249
-#, fuzzy, kde-format
-#| msgid "Failed to open muxer"
+#, kde-format
 msgid "Failed to tokenize the prompt."
-msgstr "سۈرەتنى ئوقۇش مەغلۇپ بولدى"
+msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:286
-#, fuzzy, kde-format
-#| msgid "Connection failed."
+#, kde-format
 msgid "Model decode failed."
-msgstr "باغلىنالمىدى."
+msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchnlmodelmanager.cpp:100
 #, kde-format
@@ -60335,17 +60328,14 @@ msgstr ""
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:70
 #: core/utilities/searchwindow/view/searchwindow.cpp:70
-#, fuzzy, kde-format
-#| msgid "Clear current selection"
+#, kde-format
 msgid "Cancel the current interpretation"
-msgstr "نۆۋەتتىكى تاللانغان مەزمۇنىنى تازىلا"
+msgstr ""
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:95
-#, fuzzy, kde-format
-#| msgid "Advanced Search - 1 Item"
-#| msgid_plural "Advanced Search - %1 Items"
+#, kde-format
 msgid "Open Advanced Search"
-msgstr "ئالىي ئىزدەش - %1 تۈر"
+msgstr ""
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:96
 #, kde-format
@@ -60420,10 +60410,9 @@ msgid "Try"
 msgstr "سىنا"
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:38
-#, fuzzy, kde-format
-#| msgid "Native Language"
+#, kde-format
 msgid "Natural Language Search"
-msgstr "كۆڭۈلدىكى تىل"
+msgstr ""
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:42
 #, kde-format
@@ -60462,10 +60451,9 @@ msgid "The natural-language search model has not been downloaded yet."
 msgstr ""
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:126
-#, fuzzy, kde-format
-#| msgid "Download"
+#, kde-format
 msgid "Download Model..."
-msgstr "چۈشۈرۈش"
+msgstr ""
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:170
 #, kde-format
@@ -61164,7 +61152,7 @@ msgstr ""
 #: core/utilities/setup/camera/cameraselection.cpp:147
 #, kde-format
 msgid "USB"
-msgstr "USB"
+msgstr ""
 
 #: core/utilities/setup/camera/cameraselection.cpp:148
 #, kde-format
@@ -62234,7 +62222,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label:listbox"
 msgid "JPEG"
-msgstr "JPEG"
+msgstr ""
 
 #: core/utilities/setup/editor/setupversioning.cpp:171
 #, kde-kuit-format
@@ -62778,6 +62766,9 @@ msgid ""
 "All your changes will be lost.\n"
 " Do you want to continue?"
 msgstr ""
+"This option will reset configuration to default\n"
+"All your changes will be lost.\n"
+" Do you want to continue?"
 
 #: core/utilities/setup/metadata/advancedmetadatatab.cpp:395
 #, kde-format
@@ -64909,10 +64900,9 @@ msgid "Survey"
 msgstr "راي سىناش"
 
 #: core/utilities/survey/surveywindow_setup.cpp:161
-#, fuzzy, kde-format
-#| msgid "Flash Video"
+#, kde-format
 msgid "Play/Pause Video"
-msgstr "چاقماق لامپا: "
+msgstr ""
 
 #~ msgid "Roll"
 #~ msgstr "ئات"
