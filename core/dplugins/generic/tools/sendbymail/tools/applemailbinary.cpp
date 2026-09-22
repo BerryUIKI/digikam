@@ -4,7 +4,7 @@
  * https://www.digikam.org
  *
  * Date        : 2019-07-06
- * Description : Autodetect outlook binary program
+ * Description : Autodetect Apple Mail binary program
  *
  * SPDX-FileCopyrightText: 2020-2026 by Gilles Caulier <caulier dot gilles at gmail dot com>
  *

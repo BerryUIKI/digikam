@@ -120,6 +120,7 @@ MailIntroPage::MailIntroPage(QWizard* const dialog, const QString& title)
     d->binSearch->addBinary(d->evoluBin);
     d->binSearch->addBinary(d->netscBin);
     d->binSearch->addBinary(d->outloBin);
+    d->binSearch->addBinary(d->amailBin);
     d->binSearch->addBinary(d->sylphBin);
     d->binSearch->addBinary(d->thundBin);
 
@@ -210,8 +211,7 @@ void MailIntroPage::slotBinariesFound()
     d->wizard->settings()->binPaths.insert(MailSettings::OUTLOOK, d->outloBin.isValid() ?
                                            d->outloBin.path() : QString());
 
-
-    d->wizard->settings()->binPaths.insert(MailSettings::APPLEMAIL, d->outloBin.isValid() ?
+    d->wizard->settings()->binPaths.insert(MailSettings::APPLEMAIL, d->amailBin.isValid() ?
                                            d->amailBin.path() : QString());
 
     d->wizard->settings()->binPaths.insert(MailSettings::SYLPHEED, d->sylphBin.isValid() ?
