@@ -260,7 +260,7 @@ void MailSettingsPage::initializePage()
 
             // Under macOS Apple Mail is always available.
 
-            if ((int)it.key() != APPLEMAIL)
+            if ((int)it.key() != MailSettings::APPLEMAIL)
 
 #endif
 
