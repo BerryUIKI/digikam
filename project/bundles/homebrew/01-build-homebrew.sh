@@ -146,14 +146,6 @@ echo "---------- Building digiKam dependencies with Homebrew"
 
 echo -e "\n"
 
-# Homebrew supports Qt6 only
-if [[ $DK_QTVERSION = 5 ]] ; then
-    # brew install qt@5
-    export PATH=$ORIG_PATH
-    TerminateScript
-    exit
-fi
-
 ${INSTALL_PREFIX}/bin/brew install \
              cmake \
              ccache \

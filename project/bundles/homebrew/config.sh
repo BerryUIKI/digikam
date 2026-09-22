@@ -18,54 +18,10 @@ BUILDING_DIR="`pwd`/temp.build"
 # Target macOS architecture: "x86_64" for Intel 64 bits, or "arm64" for Apple Silicon 64 bits.
 ARCH_TARGET="`uname -m`"
 
-if [[ $ARCH_TARGET = "x86_64" ]] ; then
+OSX_MIN_TARGET="11.3"
 
-    # Minimum MacOS target for backward binary compatibility with Intel CPU
-    # This require to install older MacOS SDKs with Xcode.
-    # See this url to download a older SDK archive :
-    #
-    # https://github.com/alexey-lysiuk/macos-sdk
-    #
-    # Uncompress the archive to /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
-    # and adjust the property "MinimumSDKVersion" from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist
-    # sudo /usr/libexec/PlistBuddy -c "Set MinimumSDKVersion 10.13" /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist
-    #
-    # Possible values:
-    # 12.0  : Monterey     : tested   : Qt                                            5.13, 5.14, 5.15
-    # 11.0  : BigSur       : tested   : Qt                                      5.12, 5.13, 5.14, 5.15
-    # 10.15 : Catalina     : tested   : Qt                                5.11, 5.12, 5.13, 5.14, 5.15
-    # 10.14 : Mojave       : tested   : Qt                     5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15
-    # 10.13 : High Sierra  : tested   : Qt                     5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15
-    # 10.12 : Sierra       : tested   : Qt                5.8, 5.9, 5.10, 5.11, 5.12, 5.13
-    # 10.11 : El Capitan   : tested   : Qt 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11
-    # 10.10 : Yosemite     : tested   : Qt 5.5, 5.6, 5.7, 5.8, 5.9
-    # 10.9  : Mavericks    : tested   : Qt 5.5, 5.6, 5.7, 5.8
-    # 10.8  : MountainLion : tested   : Qt 5.5, 5.6, 5.7
-    # 10.7  : Lion         : untested : Qt 5.5, 5.6
-    # 10.6  : SnowLeopard  : untested : ???
-    #
-    # Older values cannot be set as it do not support x86_64.
-    OSX_MIN_TARGET="10.15"
-
-    # Directory to build and install HomeBrew packages.
-    INSTALL_PREFIX="/usr/local/homebrew"
-    # INSTALL_PREFIX="/usr/local/hb-digikam.org.$ARCH_TARGET"
-
-elif [[ $ARCH_TARGET = "arm64" ]] ; then
-
-    # Apple Silicon is supported since macOS BigSur
-    OSX_MIN_TARGET="11.3"
-
-    # Directory to build and install HomeBrew packages.
-    INSTALL_PREFIX="/opt/homebrew"
-    # INSTALL_PREFIX="/opt/hb-digikam.org.$ARCH_TARGET"
-
-else
-
-    echo "Unsupported or invalid target architecture..."
-    exit -1
-
-fi
+# Directory to build and install HomeBrew packages.
+INSTALL_PREFIX="/opt/homebrew"
 
 echo "Target Architecture: $ARCH_TARGET"
 
@@ -88,9 +44,7 @@ DK_URL="http://download.kde.org/stable/digikam"
 DK_BUILDTEMP=~/dktemp
 
 # Qt version to use in bundle and provided by Homebrew.
-#DK_QTVERSION="5"
 DK_QTVERSION="6"
-
 
 # digiKam tag version from git. Official tarball do not include extra shared libraries.
 # The list of tags can be listed with this url: https://invent.kde.org/graphics/digikam/-/tags
@@ -121,39 +75,19 @@ DK_UPLOADURL="digikam@tinami.kde.org"
 # KDE frameworks version + Upload URL.
 # See official release here: https://download.kde.org/stable/frameworks/
 
-if [[ $DK_QTVERSION == 5 ]] ; then
+# Use Qt 6.8 LTS for the moment.
+MP_QTSUBVERSION="8"
 
-    # KDE Plasma version.
-    # See official release here: https://download.kde.org/stable/plasma/
-    DK_KDE_VERSION="5.116"
+# KDE KF6 frameworks version.
+# See official release here: https://download.kde.org/stable/frameworks/
+DK_KDE_VERSION="v6.14.0"
 
-    # KDE Application version.
-    # See official release here: https://download.kde.org/stable/release-service/
-    DK_KP_VERSION="5.27.11"
+# KDE Plasma version.
+# See official release here: https://download.kde.org/stable/plasma/
+DK_KP_VERSION="v6.3.5"
 
-    # KDE KF6 frameworks version.
-    # See official release here: https://download.kde.org/stable/frameworks/
-    DK_KA_VERSION="24.05.1"
-    
-    DK_UPLOADDIR="/srv/archives/files/digikam/unstable"
+# KDE Application version.
+# See official release here: https://download.kde.org/stable/release-service/
+DK_KA_VERSION="v25.04.1"
 
-else
-
-    # Use Qt 6.8 LTS for the moment.
-    MP_QTSUBVERSION="8"
-
-    # KDE KF6 frameworks version.
-    # See official release here: https://download.kde.org/stable/frameworks/
-    DK_KDE_VERSION="v6.14.0"
-
-    # KDE Plasma version.
-    # See official release here: https://download.kde.org/stable/plasma/
-    DK_KP_VERSION="v6.3.5"
-
-    # KDE Application version.
-    # See official release here: https://download.kde.org/stable/release-service/
-    DK_KA_VERSION="v25.04.1"
-
-    DK_UPLOADDIR="/srv/archives/files/digikam/unstable"
-
-fi
+DK_UPLOADDIR="/srv/archives/files/digikam/unstable"

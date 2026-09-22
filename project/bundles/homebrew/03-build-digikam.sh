@@ -146,12 +146,7 @@ sed -e "s/DENABLE_GUI_TRANSLATIONS=OFF/DENABLE_GUI_TRANSLATIONS=ON/g"   ./bootst
 sed -e "s/DBUILD_TESTING=ON/DBUILD_TESTING=OFF/g"                       ./bootstrap.homebrew > ./tmp.homebrew ; mv -f ./tmp.homebrew ./bootstrap.homebrew
 sed -e "s/DENABLE_DBUS=ON/DENABLE_DBUS=OFF/g"                           ./bootstrap.homebrew > ./tmp.homebrew ; mv -f ./tmp.homebrew ./bootstrap.homebrew
 sed -e "s/DENABLE_APPSTYLES=OFF/DENABLE_APPSTYLES=ON/g"                 ./bootstrap.homebrew > ./tmp.homebrew ; mv -f ./tmp.homebrew ./bootstrap.homebrew
-
-if [[ $DK_QTVERSION = 6 ]] ; then
-
-    sed -e "s/DBUILD_WITH_QT6=OFF/DBUILD_WITH_QT6=ON/g"         ./bootstrap.homebrew > ./tmp.homebrew ; mv -f ./tmp.homebrew ./bootstrap.homebrew
-
-fi
+sed -e "s/DBUILD_WITH_QT6=OFF/DBUILD_WITH_QT6=ON/g"         ./bootstrap.homebrew > ./tmp.homebrew ; mv -f ./tmp.homebrew ./bootstrap.homebrew
 
 chmod +x ./bootstrap.homebrew
 
@@ -200,15 +195,11 @@ if [ $? -ne 0 ]; then
     exit;
 fi
 
-if [[ $DK_QTVERSION == 6 ]] ; then
+# Qt6 install of .../Applications/... binaries is done at the wrong place.
 
-    # Qt6 install of .../Applications/... binaries is done at the wrong place.
-
-    mkdir -p $INSTALL_PREFIX/$RELOCATE_PREFIX/
-    mv $INSTALL_PREFIX/bin/digikam.*  $INSTALL_PREFIX/$RELOCATE_PREFIX/
-    mv $INSTALL_PREFIX/bin/showfoto.* $INSTALL_PREFIX/$RELOCATE_PREFIX/
-
-fi
+mkdir -p $INSTALL_PREFIX/$RELOCATE_PREFIX/
+mv $INSTALL_PREFIX/bin/digikam.*  $INSTALL_PREFIX/$RELOCATE_PREFIX/
+mv $INSTALL_PREFIX/bin/showfoto.* $INSTALL_PREFIX/$RELOCATE_PREFIX/
 
 ################################################################################################
 # Install Extra Plugins

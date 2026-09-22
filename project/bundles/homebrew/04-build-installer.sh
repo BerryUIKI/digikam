@@ -144,11 +144,7 @@ QtSvgWidgets \
 "
 # Other apps - non-MacOS binaries & libraries to be included with required dylibsQT_PLUGIN_EXT
 
-if [[ $ARCH_TARGET = "x86_64" ]] ; then
-    QT_PLUGIN_EXT="so"
-else
-    QT_PLUGIN_EXT="dylib"
-fi
+QT_PLUGIN_EXT="dylib"
 
 # Note: lib/plugins/styles/ files are *.so in both architectures. Why this mess?
 MARIADB_SOURCE_DIR="opt/mariadb"
@@ -870,15 +866,7 @@ else
 
 fi
 
-if [[ $DK_QTVERSION == 5 ]] ; then
-
-    QT_SUF="-Qt5"
-
-else
-
-    QT_SUF="-Qt6"
-
-fi
+QT_SUF="-Qt6"
 
 TARGET_INSTALLER=digiKam-$DKRELEASEID$DK_SUBVER$QT_SUF-MacOS-$ARCH_TARGET$DEBUG_SUF.pkg
 TARGET_PKG_FILE=$BUILDDIR/bundle/$TARGET_INSTALLER
