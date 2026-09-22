@@ -261,7 +261,7 @@ void AdvPrintPhotoPage::initializePage()
     {
         QList<QListWidgetItem*> list = d->photoUi->ListPhotoSizes->findItems(d->settings->savedPhotoSize, Qt::MatchExactly);
 
-        if (list.count())
+        if (!list.isEmpty())
         {
             d->photoUi->ListPhotoSizes->setCurrentItem(list[0]);
         }
@@ -369,7 +369,7 @@ void AdvPrintPhotoPage::slotOutputChanged(const QString& text)
 
 void AdvPrintPhotoPage::slotXMLLoadElement(QXmlStreamReader& xmlReader)
 {
-    if (d->settings->photos.size())
+    if (!d->settings->photos.isEmpty())
     {
         // read image is the last.
 
@@ -455,7 +455,7 @@ void AdvPrintPhotoPage::slotXMLLoadElement(QXmlStreamReader& xmlReader)
 
 void AdvPrintPhotoPage::slotXMLSaveItem(QXmlStreamWriter& xmlWriter, int itemIndex)
 {
-    if (d->settings->photos.size())
+    if (!d->settings->photos.isEmpty())
     {
         AdvPrintPhoto* const pPhoto = d->settings->photos[itemIndex];
 
@@ -500,7 +500,7 @@ void AdvPrintPhotoPage::slotXMLCustomElement(QXmlStreamWriter& xmlWriter)
 
 void AdvPrintPhotoPage::slotContextMenuRequested()
 {
-    if (d->settings->photos.size())
+    if (!d->settings->photos.isEmpty())
     {
         int itemIndex         = d->photoUi->mPrintList->listView()->currentIndex().row();
         d->photoUi->mPrintList->listView()->blockSignals(true);
@@ -532,7 +532,7 @@ void AdvPrintPhotoPage::slotContextMenuRequested()
 
 void AdvPrintPhotoPage::slotIncreaseCopies()
 {
-    if (d->settings->photos.size())
+    if (!d->settings->photos.isEmpty())
     {
         QList<QUrl> list;
         const DItemsListViewItem* const item = dynamic_cast<DItemsListViewItem*>(d->photoUi->mPrintList->listView()->currentItem());
@@ -550,7 +550,7 @@ void AdvPrintPhotoPage::slotIncreaseCopies()
 
 void AdvPrintPhotoPage::slotDecreaseCopies()
 {
-    if (d->settings->photos.size())
+    if (!d->settings->photos.isEmpty())
     {
         const DItemsListViewItem* const item = dynamic_cast<DItemsListViewItem*>
             (d->photoUi->mPrintList->listView()->currentItem());
@@ -619,7 +619,7 @@ void AdvPrintPhotoPage::slotAddItems(const QList<QUrl>& list)
     d->photoUi->mPrintList->blockSignals(false);
     d->photoUi->LblPhotoCount->setText(QString::number(d->settings->photos.count()));
 
-    if (d->settings->photos.size())
+    if (!d->settings->photos.isEmpty())
     {
         setComplete(true);
     }
@@ -636,7 +636,7 @@ void AdvPrintPhotoPage::slotRemovingItems(const QList<int>& list)
 
     for (int itemIndex : std::as_const(list))
     {
-        if (d->settings->photos.size() && itemIndex >= 0)
+        if (!d->settings->photos.isEmpty() && (itemIndex >= 0))
         {
             /// Debug data: found and copies
 
@@ -807,7 +807,7 @@ void AdvPrintPhotoPage::slotXMLCustomElement(QXmlStreamReader& xmlReader)
     QList<QListWidgetItem*> list    = d->photoUi->ListPhotoSizes->findItems(d->settings->savedPhotoSize,
                                                                             Qt::MatchExactly);
 
-    if (list.count())
+    if (!list.isEmpty())
     {
         qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << " PhotoSize " << list[0]->text();
         d->photoUi->ListPhotoSizes->setCurrentItem(list[0]);
@@ -1215,10 +1215,9 @@ void AdvPrintPhotoPage::slotPageSetup()
     }
     else
     {
-        QList<QListWidgetItem*> list =
-            d->photoUi->ListPhotoSizes->findItems(lastSize, Qt::MatchExactly);
+        QList<QListWidgetItem*> list = d->photoUi->ListPhotoSizes->findItems(lastSize, Qt::MatchExactly);
 
-        if (list.count())
+        if (!list.isEmpty())
         {
             d->photoUi->ListPhotoSizes->setCurrentItem(list[0]);
         }
