@@ -13,8 +13,8 @@ Bundles component versions:
 | Windows Qt6   | 6.11.1 (*) | 6.28.0 (*) | 3.4.8 (*)    | 4.12     | 9.0.1 (*) | 1.23.2     | 13.59 (*) | 0.28.9 (*) | 4.0.3 (*) | 20260914 (*) | 0.4.1     |    -         | Windows 11 + VCPKG  |
 | AppImage Qt5  | 5.15.19 (*)| 5.116      | 10.06.23     | 4.14 (*) | 9.0.1 (*) | 1.23.3 (*) | 13.59 (*) | 0.28.9 (*) | 4.0.3 (*) | 20260914 (*) | 0.4.1     | 20260405     | XUbuntu 22.04       |
 | AppImage Qt6  | 6.11.2 (*) | 6.28.0 (*) | 10.06.23     | 4.14 (*) | 9.0.1 (*) | 1.23.3 (*) | 13.59 (*) | 0.28.9 (*) | 4.0.3 (*) | 20260914 (*) | 0.4.1     |    -         | XUbuntu 22.04       |
-| macOS Qt5     | 5.15.19(*) | 5.116      | 10.11.18     | 4.14 (*) | 8.1.2 (*) | 1.23.3 (*) | 13.59 (*) | 0.28.9 (*) | 4.0.3 (*) | 20260914 (*) | 0.4.1     | 20260405     | Monterey + Macports |
-| macOS Qt6     | 6.11.2 (*) | 6.28.0 (*) | 10.11.18     | 4.14 (*) | 8.1.2 (*) | 1.23.4 (*) | 13.59 (*) | 0.28.9 (*) | 4.0.3 (*) | 20260914 (*) | 0.4.1     |    -         | Tathoe   + Macports |
+| macOS Intel   | 6.11.2 (*) | 6.28.0 (*) | 10.11.18     | 4.14 (*) | 8.1.2 (*) | 1.23.4 (*) | 13.59 (*) | 0.28.9 (*) | 4.0.3 (*) | 20260914 (*) | 0.4.1     |    -         | Sequoia + Macports  |
+| macOS Silicon | 6.11.2 (*) | 6.28.0 (*) | 10.11.18     | 4.14 (*) | 8.1.2 (*) | 1.23.4 (*) | 13.59 (*) | 0.28.9 (*) | 4.0.3 (*) | 20260914 (*) | 0.4.1     |    -         | Tathoe   + Macports |
 
 Icon-View  : Improve filename matching for timelapse/burst grouping items.
 Raw Support: Add support of Sony ARW6 CRAW HQ, Sony ILCE-7M5, and Canon R50 V.
@@ -25,6 +25,7 @@ Search     : Natural Language Search in the Advanced Search tool, powered by a l
              (duration, frame rate, bitrate), and file formats. For details, see this report:
              https://community.kde.org/GSoC/2026/StatusReports/SrirupaDatta
 Preview    : Add configurable Play/Pause Video shortcut for preview mode.
+Bundles    : macOS Intel ported to Qt6.
 
 *****************************************************************************************************
 
