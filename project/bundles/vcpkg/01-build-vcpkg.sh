@@ -112,38 +112,19 @@ $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install zstd
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install bzip2
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install ffmpeg[ffmpeg,all-nonfree]
 
-if [[ $DK_QTVERSION = 6 ]] ; then
-
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtbase[sql-mysql]
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtmultimedia[ffmpeg]
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtnetworkauth
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qttranslations
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtimageformats
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qttools
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtsvg
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtscxml
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtspeech
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtwebchannel
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtpositioning
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtwebengine
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qt5compat
-
-else
-
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qt5-base[mysqlplugin]
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qt5-multimedia
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qt5-networkauth
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qt5-translations
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qt5-imageformats
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qt5-tools
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qt5-svg
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qt5-scxml
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qt5-speech
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qt5-webchannel
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qt5-webengine
-    $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qt5-winextras
-
-fi
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtbase[sql-mysql]
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtmultimedia[ffmpeg]
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtnetworkauth
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qttranslations
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtimageformats
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qttools
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtsvg
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtscxml
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtspeech
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtwebchannel
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtpositioning
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qtwebengine
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install qt5compat
 
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install opencv4[opencl,dnn,openmp,thread]
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install boost-graph

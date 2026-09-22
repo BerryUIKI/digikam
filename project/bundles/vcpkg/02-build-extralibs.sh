@@ -81,13 +81,7 @@ rm -rf $BUILDING_DIR/dk_cmake/* || true
 "${CMAKE_BIN}" --build . --parallel --config RelWithDebInfo --target ext_kwidgetsaddons
 "${CMAKE_BIN}" --build . --parallel --config RelWithDebInfo --target ext_kitemviews
 "${CMAKE_BIN}" --build . --parallel --config RelWithDebInfo --target ext_kcompletion
-
-if [[ $DK_QTVERSION == 6 ]] ; then
-
-    "${CMAKE_BIN}" --build . --parallel --config RelWithDebInfo --target ext_kcolorscheme
-
-fi
-
+"${CMAKE_BIN}" --build . --parallel --config RelWithDebInfo --target ext_kcolorscheme
 "${CMAKE_BIN}" --build . --parallel --config RelWithDebInfo --target ext_kconfigwidgets
 "${CMAKE_BIN}" --build . --parallel --config RelWithDebInfo --target ext_kiconthemes
 "${CMAKE_BIN}" --build . --parallel --config RelWithDebInfo --target ext_kservice

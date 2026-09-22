@@ -55,7 +55,6 @@ DK_URL="http://download.kde.org/stable/digikam"
 DK_BUILDTEMP=$BUILDING_DIR/dktemp
 
 # Qt version to use in bundle and provided by VCPKG.
-#DK_QTVERSION="5"
 DK_QTVERSION="6"
 
 # digiKam tag version from git. Official tarball do not include extra shared libraries.
@@ -63,7 +62,6 @@ DK_QTVERSION="6"
 # If you want to package current implementation from git, use "master" as tag.
 #DK_VERSION=v7.6.0
 DK_VERSION=master
-#DK_VERSION=qt5-maintenance
 
 #DK_REVISION=7d64840905ba968de186a9f30bc3ccff64c89224
 
@@ -83,36 +81,16 @@ DK_UPLOADURL="digikam@tinami.kde.org"
 # KDE frameworks version + Upload URL.
 # See official release here: https://download.kde.org/stable/frameworks/
 
-if [[ $DK_QTVERSION == 5 ]] ; then
+# KDE KF6 frameworks version.
+# See official release here: https://download.kde.org/stable/frameworks/
+DK_KDE_VERSION="v6.28.0"
 
-    # KDE KF5 frameworks version.
-    # See official release here: https://download.kde.org/stable/frameworks/
-    DK_KDE_VERSION="5.116"
+# KDE Plasma version.
+# See official release here: https://download.kde.org/stable/plasma/
+DK_KP_VERSION="v6.7.2"
 
-    # KDE Plasma version.
-    # See official release here: https://download.kde.org/stable/plasma/
-    DK_KP_VERSION="5.27.12"
+# KDE Application version.
+# See official release here: https://download.kde.org/stable/release-service/
+DK_KA_VERSION="v26.04.3"
 
-    # KDE Application version.
-    # See official release here: https://download.kde.org/stable/release-service/
-    DK_KA_VERSION="24.05.1"
-
-    DK_UPLOADDIR="/srv/archives/files/digikam/legacy"
-
-else
-
-    # KDE KF6 frameworks version.
-    # See official release here: https://download.kde.org/stable/frameworks/
-    DK_KDE_VERSION="v6.28.0"
-
-    # KDE Plasma version.
-    # See official release here: https://download.kde.org/stable/plasma/
-    DK_KP_VERSION="v6.7.2"
-
-    # KDE Application version.
-    # See official release here: https://download.kde.org/stable/release-service/
-    DK_KA_VERSION="v26.04.3"
-
-    DK_UPLOADDIR="/srv/archives/files/digikam"
-
-fi
+DK_UPLOADDIR="/srv/archives/files/digikam"

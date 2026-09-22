@@ -132,29 +132,13 @@ mkdir -p $BUNDLEDIR/translations
 echo -e "\n---------- Generics data"
 cp -r $VCPKG_INSTALL_PREFIX/share/lensfun                                 $BUNDLEDIR/data                       2>/dev/null
 
-
-
-if [[ $DK_QTVERSION = 6 ]] ; then
-
-    cp -r $VCPKG_INSTALL_PREFIX/share/digikam                             $BUNDLEDIR/data                       2>/dev/null
-    cp -r $VCPKG_INSTALL_PREFIX/share/showfoto                            $BUNDLEDIR/data                       2>/dev/null
-    cp -r $VCPKG_INSTALL_PREFIX/share/solid                               $BUNDLEDIR/data                       2>/dev/null
-    cp -r $VCPKG_INSTALL_PREFIX/share/kxmlgui5                            $BUNDLEDIR/data                       2>/dev/null
-    cp -r $VCPKG_INSTALL_PREFIX/share/knotifications6                     $BUNDLEDIR/data                       2>/dev/null
-    cp -r $VCPKG_INSTALL_PREFIX/share/applications                        $BUNDLEDIR/data                       2>/dev/null
-    cp -r $VCPKG_INSTALL_PREFIX/share/Qt6/resources                       $BUNDLEDIR/                           2>/dev/null
-
-else
-
-    cp -r $VCPKG_INSTALL_PREFIX/bin/data/digikam                          $BUNDLEDIR/data                       2>/dev/null
-    cp -r $VCPKG_INSTALL_PREFIX/bin/data/showfoto                         $BUNDLEDIR/data                       2>/dev/null
-    cp -r $VCPKG_INSTALL_PREFIX/bin/data/solid                            $BUNDLEDIR/data                       2>/dev/null
-    cp -r $VCPKG_INSTALL_PREFIX/bin/data/kxmlgui5                         $BUNDLEDIR/data                       2>/dev/null
-    cp -r $VCPKG_INSTALL_PREFIX/bin/data/knotifications5                  $BUNDLEDIR/data                       2>/dev/null
-    cp -r $VCPKG_INSTALL_PREFIX/bin/data/applications                     $BUNDLEDIR/data                       2>/dev/null
-    cp -r $VCPKG_INSTALL_PREFIX/share/qt5/resources                       $BUNDLEDIR/                           2>/dev/null
-
-fi
+cp -r $VCPKG_INSTALL_PREFIX/share/digikam                                 $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/showfoto                                $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/solid                                   $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/kxmlgui5                                $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/knotifications6                         $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/applications                            $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/Qt6/resources                           $BUNDLEDIR/                           2>/dev/null
 
 cp -r $VCPKG_INSTALL_PREFIX/bin/data/k*                                   $BUNDLEDIR/data                       2>/dev/null
 
@@ -165,45 +149,20 @@ echo -e "\n---------- icons-set"
 
 # See https://bugs.kde.org/show_bug.cgi?id=487799#c54
 
-if [[ $DK_QTVERSION = 6 ]] ; then
-
 # Icons generation with vcpkg::python3 from KF6::breeze-icons do not work yet (lxml module is missing).
 # Use the pre-compiled rcc file instead for the moment.
 #
-#    cp $VCPKG_INSTALL_PREFIX/bin/data/icons/breeze/breeze-icons.rcc       $BUNDLEDIR/breeze.rcc                 2>/dev/null
+#cp $VCPKG_INSTALL_PREFIX/bin/data/icons/breeze/breeze-icons.rcc       $BUNDLEDIR/breeze.rcc                 2>/dev/null
 
-    cp $BUILDDIR/../common/breeze.rcc                                     $BUNDLEDIR/breeze.rcc                 2>/dev/null
+cp $BUILDDIR/../common/breeze.rcc                                     $BUNDLEDIR/breeze.rcc                 2>/dev/null
 
-else
-
-    cp $BUILDDIR/../common/breeze.rcc                                     $BUNDLEDIR/breeze.rcc                 2>/dev/null
-    cp $BUILDDIR/../common/breeze-dark.rcc                                $BUNDLEDIR/breeze-dark.rcc            2>/dev/null
-
-fi
-
-if [[ $DK_QTVERSION = 6 ]] ; then
-
-    cp -r $VCPKG_INSTALL_PREFIX/share/icons                               $BUNDLEDIR/data                       2>/dev/null
-
-else
-
-    cp -r $VCPKG_INSTALL_PREFIX/bin/data/icons                            $BUNDLEDIR/data                       2>/dev/null
-
-fi
+cp -r $VCPKG_INSTALL_PREFIX/share/icons                               $BUNDLEDIR/data                       2>/dev/null
 
 echo -e "\n---------- i18n"
 
 # Qt framekork translations
 
-if [[ $DK_QTVERSION = 6 ]] ; then
-
-    cp -r $VCPKG_INSTALL_PREFIX/translations/Qt6/*                        $BUNDLEDIR/translations               2>/dev/null
-
-else
-
-    cp -r $VCPKG_INSTALL_PREFIX/share/qt5/translations/*                  $BUNDLEDIR/translations               2>/dev/null
-
-fi
+cp -r $VCPKG_INSTALL_PREFIX/translations/Qt6/*                        $BUNDLEDIR/translations               2>/dev/null
 
 rm -fr $BUNDLEDIR/translations/assistant*.qm
 rm -fr $BUNDLEDIR/translations/designer*.qm
@@ -234,15 +193,7 @@ done
 
 echo -e "\n---------- Qt plugins"
 
-if [[ $DK_QTVERSION = 6 ]] ; then
-
-    cp -r $VCPKG_INSTALL_PREFIX/Qt6/plugins                               $BUNDLEDIR/                           2>/dev/null
-
-else
-
-    cp -r $VCPKG_INSTALL_PREFIX/plugins                                   $BUNDLEDIR/                           2>/dev/null
-
-fi
+cp -r $VCPKG_INSTALL_PREFIX/Qt6/plugins                               $BUNDLEDIR/                           2>/dev/null
 
 echo -e "\n---------- OpenGl Software for Qt6"
 # Taken from https://download.qt.io/development_releases/prebuilt/llvmpipe/windows/
@@ -376,21 +327,10 @@ $VCPKG_INSTALL_PREFIX/tools/libsnoretoast/snoretoast.exe \
 $VCPKG_INSTALL_PREFIX/tools/ffmpeg/ffmpeg.exe            \
 "
 
-if [[ $DK_QTVERSION = 6 ]] ; then
-
-    EXE_FILES+="\
-    $VCPKG_INSTALL_PREFIX/tools/Qt6/bin/QtWebEngineProcess.exe \
-    $VCPKG_INSTALL_PREFIX/bin/kbuildsycoca6.exe    \
-    "
-
-else
-
-    EXE_FILES+="\
-    $VCPKG_INSTALL_PREFIX/tools/Qt5/QtWebEngineProcess.exe \
-    $VCPKG_INSTALL_PREFIX/bin/kbuildsycoca5.exe            \
-    "
-
-fi
+EXE_FILES+="\
+$VCPKG_INSTALL_PREFIX/tools/Qt6/bin/QtWebEngineProcess.exe \
+$VCPKG_INSTALL_PREFIX/bin/kbuildsycoca6.exe    \
+"
 
 for app in $EXE_FILES ; do
 
@@ -399,19 +339,9 @@ for app in $EXE_FILES ; do
 
 done
 
-if [[ $DK_QTVERSION = 6 ]] ; then
-
-    DLL_FILES="\
-    `find  $VCPKG_INSTALL_PREFIX/Qt6/plugins -name "*.dll" -type f | sed 's|$VCPKG_INSTALL_PREFIX/Qt6/plugins||'`  \
-    "
-
-else
-
-    DLL_FILES="\
-    `find  $VCPKG_INSTALL_PREFIX/plugins -name "*.dll" -type f | sed 's|$VCPKG_INSTALL_PREFIX/plugins||'`  \
-    "
-
-fi
+DLL_FILES="\
+`find  $VCPKG_INSTALL_PREFIX/Qt6/plugins -name "*.dll" -type f | sed 's|$VCPKG_INSTALL_PREFIX/Qt6/plugins||'`  \
+"
 
 for app in $DLL_FILES ; do
 
@@ -468,13 +398,9 @@ for vscompdll in $VS_DLL_COMP ; do
 
 done
 
-if [[ $DK_QTVERSION = 6 ]] ; then
-
-    # Group icon-engine plugins at the same place
-    mv -f $BUNDLEDIR/plugins/kiconthemes6/iconengines/*.dll $BUNDLEDIR/plugins/iconengines/
-    rm -fr $BUNDLEDIR/plugins/kiconthemes6
-
-fi
+# Group icon-engine plugins at the same place
+mv -f $BUNDLEDIR/plugins/kiconthemes6/iconengines/*.dll $BUNDLEDIR/plugins/iconengines/
+rm -fr $BUNDLEDIR/plugins/kiconthemes6
 
 #################################################################################################
 # Install ExifTool binary.
@@ -507,15 +433,7 @@ else
 
 fi
 
-if [[ $DK_QTVERSION == 5 ]] ; then
-
-    QT_SUF="-Qt5"
-
-else
-
-    QT_SUF="-Qt6"
-
-fi
+QT_SUF="-Qt6"
 
 TARGET_INSTALLER=digiKam-$DK_RELEASEID$DK_SUBVER$QT_SUF-Win64$DEBUG_SUF.exe
 PORTABLE_FILE=digiKam-$DK_RELEASEID$DK_SUBVER$QT_SUF-Win64$DEBUG_SUF.tar.xz

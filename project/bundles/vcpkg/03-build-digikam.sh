@@ -160,12 +160,6 @@ sed -e "s/DENABLE_DBUS=ON/DENABLE_DBUS=OFF/g"                                   
 sed -e "s/DENABLE_NLSEARCH_LLAMACPP=OFF/DENABLE_NLSEARCH_LLAMACPP=ON/g"               ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
 sed -e "s/DENABLE_NLSEARCH_SYSTEM_LLAMACPP=OFF/DENABLE_NLSEARCH_SYSTEM_LLAMACPP=ON/g" ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
 
-if [[ $DK_QTVERSION = 5 ]] ; then
-
-    sed -e "s/DBUILD_WITH_QT6=ON/DBUILD_WITH_QT6=OFF/g"         ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
-
-fi
-
 chmod +x ./bootstrap.vcpkg
 
 ./bootstrap.vcpkg $INSTALL_DIR RelWithDebInfo
