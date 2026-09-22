@@ -27,52 +27,8 @@ HOST_ARCH="`uname -m`"
 # Equal: "x86_64" for Intel 64 bits, "arm64" for Apple Silicon 64 bits, or "universal for both architectures.
 TARGET_ARCH=$HOST_ARCH
 
-if [[ $HOST_ARCH = "x86_64" ]] ; then
-
-    # Minimum MacOS target for backward binary compatibility with Intel CPU
-    # This require to install older MacOS SDKs with Xcode.
-    # See this url to download a older SDK archive :
-    #
-    # https://github.com/alexey-lysiuk/macos-sdk
-    #
-    # Uncompress the archive to /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Developer/SDKs/
-    # and adjust the property "MinimumSDKVersion" from /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist
-    # sudo /usr/libexec/PlistBuddy -c "Set MinimumSDKVersion 10.13" /Applications/Xcode.app/Contents/Developer/Platforms/MacOSX.platform/Info.plist
-    #
-    # Possible values:
-    # 12.0  : Monterey     : tested   : Qt                                            5.13, 5.14, 5.15
-    # 11.0  : BigSur       : tested   : Qt                                      5.12, 5.13, 5.14, 5.15
-    # 10.15 : Catalina     : tested   : Qt                                5.11, 5.12, 5.13, 5.14, 5.15
-    # 10.14 : Mojave       : tested   : Qt                     5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15
-    # 10.13 : High Sierra  : tested   : Qt                     5.9, 5.10, 5.11, 5.12, 5.13, 5.14, 5.15
-    # 10.12 : Sierra       : tested   : Qt                5.8, 5.9, 5.10, 5.11, 5.12, 5.13
-    # 10.11 : El Capitan   : tested   : Qt 5.5, 5.6, 5.7, 5.8, 5.9, 5.10, 5.11
-    # 10.10 : Yosemite     : tested   : Qt 5.5, 5.6, 5.7, 5.8, 5.9
-    # 10.9  : Mavericks    : tested   : Qt 5.5, 5.6, 5.7, 5.8
-    # 10.8  : MountainLion : tested   : Qt 5.5, 5.6, 5.7
-    # 10.7  : Lion         : untested : Qt 5.5, 5.6
-    # 10.6  : SnowLeopard  : untested : ???
-    #
-    # Older values cannot be set as it do not support x86_64.
-    OSX_MIN_TARGET="10.15"
-
-elif [[ $HOST_ARCH = "arm64" ]] ; then
-
-    # Apple Silicon is supported since macOS BigSur
-    OSX_MIN_TARGET="11.3"
-
-    if [[ $MP_UNIVERSAL = 1 ]] ; then
-
-        TARGET_ARCH=universal
-
-    fi
-
-else
-
-    echo "Unsupported or invalid target architecture ($HOST_ARCH)..."
-    exit -1
-
-fi
+# Note: Apple Silicon is supported since macOS BigSur
+OSX_MIN_TARGET="11.3"
 
 echo "Host Architecture  : $HOST_ARCH"
 echo "Target Architecture: $TARGET_ARCH"
@@ -107,15 +63,7 @@ DK_URL="http://download.kde.org/stable/digikam"
 DK_BUILDTEMP=~/dktemp
 
 # Qt version to use in bundle and provided by Macports.
-if [[ $HOST_ARCH = "x86_64" ]] ; then
-
-    DK_QTVERSION="5"
-
-else
-
-    DK_QTVERSION="6"
-
-fi
+DK_QTVERSION="6"
 
 # Mariadb version to install for Qt SQL plugin.
 DK_MARIADB_VERSION="10.11"
@@ -150,36 +98,16 @@ DK_UPLOADURL="digikam@tinami.kde.org"
 # KDE frameworks version + Upload URL.
 # See official release here: https://download.kde.org/stable/frameworks/
 
-if [[ $DK_QTVERSION == 5 ]] ; then
+# KDE KF6 frameworks version.
+# See official release here: https://download.kde.org/stable/frameworks/
+DK_KDE_VERSION="v6.28.0"
 
-    # KDE KF5 frameworks version.
-    # See official release here: https://download.kde.org/stable/frameworks/
-    DK_KDE_VERSION="5.116"
+# KDE Plasma version.
+# See official release here: https://download.kde.org/stable/plasma/
+DK_KP_VERSION="v6.7.4"
 
-    # KDE Plasma version.
-    # See official release here: https://download.kde.org/stable/plasma/
-    DK_KP_VERSION="5.27.11"
+# KDE Application version.
+# See official release here: https://download.kde.org/stable/release-service/
+DK_KA_VERSION="v26.04.3"
 
-    # KDE Application version.
-    # See official release here: https://download.kde.org/stable/release-service/
-    DK_KA_VERSION="24.05.1"
-
-    DK_UPLOADDIR="/srv/archives/files/digikam/legacy"
-
-else
-
-    # KDE KF6 frameworks version.
-    # See official release here: https://download.kde.org/stable/frameworks/
-    DK_KDE_VERSION="v6.28.0"
-
-    # KDE Plasma version.
-    # See official release here: https://download.kde.org/stable/plasma/
-    DK_KP_VERSION="v6.7.4"
-
-    # KDE Application version.
-    # See official release here: https://download.kde.org/stable/release-service/
-    DK_KA_VERSION="v26.04.3"
-
-    DK_UPLOADDIR="/srv/archives/files/digikam/"
-
-fi
+DK_UPLOADDIR="/srv/archives/files/digikam/"
