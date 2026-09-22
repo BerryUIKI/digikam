@@ -731,7 +731,7 @@ void ItemPreviewView::slotShowContextMenu(QGraphicsSceneContextMenuEvent* event)
 
     // if there is a face in the image, give the option to remove all faces
 
-    if (d->faceGroup->items().length() > 0)
+    if (!d->faceGroup->items().isEmpty())
     {
         fmenu->addAction(d->forgetFacesAction);
     }

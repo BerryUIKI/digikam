@@ -130,8 +130,7 @@ private Q_SLOTS:
     void slotDeleteItem();
 
     /**
-     * @brief slotUpdateFaces - after applying some transformation on
-     *                          image, update face tags position
+     * @brief after applying some transformation on item, update face tags position
      */
     void slotUpdateFaces();
 
