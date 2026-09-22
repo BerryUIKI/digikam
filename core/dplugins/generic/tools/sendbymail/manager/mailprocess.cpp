@@ -668,19 +668,22 @@ bool MailProcess::invokeMailAgent()
                                  it != fileList.constEnd() ; ++it)
                             {
                                 paths.append(QLatin1String("\""));
-                                paths.append(QDir::toNativeSeparators((*it).toLocalFile()));
+                                paths.append((*it).toLocalFile());              // POSIX path, do not use QUrl::toNativeSeparators
                                 paths.append(QLatin1String("\", "));
                             }
 
-                            // Remove the last ' "'.
-
-                            paths.remove(paths.size() - 2, 2);
+                            if (paths.endsWith(QLatin1String(", ")))
+                            {
+                                paths.remove(paths.size() - 2, 2);
+                            }
 
                             args << QLatin1String("-e");
                             args << QString::fromUtf8("repeat with filePath in {%1}").arg(paths);
 
                                 args << QLatin1String("-e");
-                                args << QLatin1String("tell content make new attachment with properties {file name:POSIX file filePath}");
+                                args << QLatin1String("tell content");
+                                args << QLatin1String("-e");
+                                args << QLatin1String("make new attachment with properties {file name:POSIX file (filePath as text)}");
                                 args << QLatin1String("-e");
                                 args << QLatin1String("end tell");
 
@@ -692,6 +695,7 @@ bool MailProcess::invokeMailAgent()
 
                     args << QLatin1String("-e");
                     args << QLatin1String("end tell");
+
                     args << QLatin1String("-e");
                     args << QLatin1String("return");
 
