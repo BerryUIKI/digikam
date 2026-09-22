@@ -692,6 +692,8 @@ bool MailProcess::invokeMailAgent()
 
                     args << QLatin1String("-e");
                     args << QLatin1String("end tell");
+                    args << QLatin1String("-e");
+                    args << QLatin1String("return");
 
                     qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Apple Mail OSA Script:" << args;
 
