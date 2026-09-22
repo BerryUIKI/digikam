@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-20 16:15+0000\n"
+"POT-Creation-Date: 2026-09-22 00:42+0000\n"
 "PO-Revision-Date: 2023-08-27 22:16+0200\n"
 "Last-Translator: Shinjo Park <kde@peremen.name>\n"
 "Language-Team: Korean <kde-kr@kde.org>\n"
@@ -21283,22 +21283,45 @@ msgid ""
 msgstr ""
 "파일 \"%1\"을(를) 보내기에 너무 큽니다. 크기를 조정하거나 설정을 변경하십시오"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:649
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:659
+#, kde-format
+msgid "Send items by mail from digiKam"
+msgstr ""
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#, fuzzy, kde-format
+#| msgid "Color model of the image"
+msgid "List of attached items"
+msgstr "이미지의 색상 모델"
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:703
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "Error While to Send Items by mail"
+msgstr "색상"
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:704
+#, kde-format
+msgctxt "@info"
+msgid "Cannot send items using native Apple MAil application"
+msgstr ""
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:720
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr "프로그램 \"%1\"을(를) 시작할 수 없습니다. 시스템을 확인하십시오."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:732
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "프로그램 \"%1\" 시작하는 중..."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:665
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:736
 #, kde-format
 msgid "After having sent your images by email..."
 msgstr "그림을 이메일로 보낸 후..."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:666
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:737
 #, kde-format
 msgid "Press 'Finish' button to clean up temporary files"
 msgstr "임시 파일을 삭제하려면 완료 단추를 누르십시오"
@@ -21339,19 +21362,26 @@ msgctxt "Mail client: OUTLOOK"
 msgid "Outlook"
 msgstr "Outlook"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:103
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:106
+#, fuzzy, kde-format
+#| msgid "AppleSingle"
+msgctxt "Mail client: APPLEMAIL"
+msgid "Apple Mail"
+msgstr "AppleSingle"
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:110
 #, kde-format
 msgctxt "Mail client: SYLPHEED"
 msgid "Sylpheed"
 msgstr "실피드"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:104
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:111
 #, kde-format
 msgctxt "Mail client: THUNDERBIRD"
 msgid "Thunderbird"
 msgstr "Thunderbird"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:113
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:120
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:151
 #: core/libs/dplugins/webservices/wssettings.cpp:117
 #, kde-format
@@ -21359,7 +21389,7 @@ msgctxt "Image format: JPEG"
 msgid "Jpeg"
 msgstr "JPEG"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:114
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:121
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:152
 #: core/libs/dplugins/webservices/wssettings.cpp:118
 #, kde-format
@@ -23246,9 +23276,9 @@ msgstr "Box로 내보내기(&B)..."
 #: core/dplugins/generic/webservices/flickr/flickrtalker.cpp:1198
 #: core/dplugins/generic/webservices/google/gdrive/gdtalker.cpp:467
 #: core/dplugins/generic/webservices/onedrive/odtalker.cpp:450
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:716
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:863
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1031
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:717
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:864
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1032
 #: core/dplugins/generic/webservices/twitter/twittertalker.cpp:757
 #: core/dplugins/generic/webservices/twitter/twittertalker.cpp:780
 #: core/dplugins/generic/webservices/twitter/twittertalker.cpp:823
@@ -24533,17 +24563,17 @@ msgstr "업로드 시작"
 msgid "Photostream Only"
 msgstr "포토스트림만"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:779
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:778
 #, kde-format
 msgid "Flickr Export"
 msgstr "Flickr 내보내기"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:814
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:813
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr "%1에서 앨범 정보를 가져오지 못했습니다. %2\n"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:821
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:820
 #, fuzzy, kde-format
 #| msgctxt "@title: dialog"
 #| msgid "Warning"
@@ -24551,7 +24581,7 @@ msgctxt "@title: window failed add photo"
 msgid "Warning"
 msgstr "경고"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:822
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:821
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"
@@ -24560,14 +24590,14 @@ msgstr ""
 "%1에 사진을 업로드하지 못했습니다. %2\n"
 "계속 하시겠습니까?"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:826
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:825
 #, fuzzy, kde-format
 #| msgid "Continue"
 msgctxt "@action: button failed add photo"
 msgid "Continue"
 msgstr "계속"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:827
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:826
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action: button failed add photo"
@@ -26752,16 +26782,16 @@ msgid "Incorrect username or password specified"
 msgstr "잘못된 사용자 이름 또는 암호가 지정됨"
 
 #: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:552
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:737
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:738
 #, fuzzy, kde-format
 #| msgid "Upload to Piwigo version < 2.4 is no longer supported"
 msgid "Upload to Piwigo version inferior to 2.4 is no longer supported"
 msgstr "Piwigo 버전 2.4 미만으로 업로드는 더 이상 지원하지 않음"
 
 #: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:627
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:709
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:783
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:856
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:710
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:784
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:857
 #, kde-format
 msgid "Invalid response received from remote Piwigo"
 msgstr "원격 Piwigo에서 잘못된 응답을 받음"
@@ -26772,37 +26802,37 @@ msgstr "원격 Piwigo에서 잘못된 응답을 받음"
 msgid "Failed to list albums"
 msgstr "앨범 목록을 가져올 수 없음"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:683
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:684
 #, kde-format
 msgid "Photo '%1' already exists."
 msgstr "'%1' 사진이 이미 있습니다."
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:790
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:791
 #, kde-format
 msgid "Photo '%1' already exists in this album."
 msgstr "'%1' 사진이 이 앨범에 이미 있습니다."
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:879
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:880
 #, kde-format
 msgid "Error : Cannot open photo: %1"
 msgstr "오류: 사진을 열 수 없음: %1"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:907
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:908
 #, kde-format
 msgid "Upload the chunk %1/%2 of %3"
 msgstr "%3의 조각 %1/%2 업로드"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:940
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:941
 #, kde-format
 msgid "Warning : The full size photo cannot be uploaded."
 msgstr "경고: 전체 크기 사진은 업로드할 수 없습니다."
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:991
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:992
 #, kde-format
 msgid "Upload the metadata of %1"
 msgstr "%1의 메타데이터 업로드"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1024
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1025
 #, kde-format
 msgid "Invalid response received from remote Piwigo (%1)"
 msgstr "원격 Piwigo에서 잘못된 응답을 받음(%1)"
@@ -27260,7 +27290,7 @@ msgstr "잘못된 사용자 이름/별명/암호"
 msgid "Invalid API key"
 msgstr "잘못된 API 키"
 
-#: core/dplugins/generic/webservices/smugmug/smugtalker.cpp:1084
+#: core/dplugins/generic/webservices/smugmug/smugtalker.cpp:1085
 #, fuzzy, kde-format
 msgid "Failed to list album template"
 msgstr ""
@@ -53342,7 +53372,7 @@ msgid ""
 "and all nested items if any?"
 msgstr "<qt><b>%1</b> 앨범 및 포함된 모든 사진을 삭제하시겠습니까?</qt>"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:669
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:670
 #, kde-format
 msgctxt "@title"
 msgid "Unnamed"
@@ -60180,33 +60210,33 @@ msgctxt "@title:window"
 msgid "Reverse Geo-coding Error"
 msgstr "역 지오코딩"
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:799
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:803
 #, fuzzy, kde-format
 #| msgid "Add New Tag..."
 msgctxt "@title:window"
 msgid "Add New Tag"
 msgstr "새 태그 추가..."
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:800
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:804
 #, kde-format
 msgid "Select a name for the new tag:"
 msgstr ""
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:942
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:946
 #, kde-format
 msgid ""
 "%1 out of %2 images have been reverse geocoded. Would you like to keep the "
 "tags which were already obtained?"
 msgstr ""
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:949
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:953
 #, kde-format
 msgid ""
 "1 image have been reverse geocoded. Would you like to keep the tags which "
 "were already obtained?"
 msgstr ""
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:955
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:959
 #, fuzzy, kde-format
 #| msgctxt "@item: map tool"
 #| msgid "Reverse Geocoding"
@@ -65996,7 +66026,7 @@ msgid ""
 msgstr ""
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:70
-#: core/utilities/searchwindow/view/searchwindow.cpp:69
+#: core/utilities/searchwindow/view/searchwindow.cpp:70
 #, fuzzy, kde-format
 #| msgid "Cancel current operation"
 msgid "Cancel the current interpretation"
@@ -66085,35 +66115,35 @@ msgstr "모든 그룹 닫기"
 msgid "Try"
 msgstr "시도하기"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:37
+#: core/utilities/searchwindow/view/searchwindow.cpp:38
 #, fuzzy, kde-format
 #| msgid "Default Language"
 msgid "Natural Language Search"
 msgstr "기본 언어"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:41
+#: core/utilities/searchwindow/view/searchwindow.cpp:42
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:44
+#: core/utilities/searchwindow/view/searchwindow.cpp:45
 #, kde-format
 msgid "Translate my query to English first"
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:46
+#: core/utilities/searchwindow/view/searchwindow.cpp:47
 #, kde-format
 msgid ""
 "When enabled, your query is translated to English before being interpreted, "
 "so you can type in your own language. Requires an internet connection."
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:84
+#: core/utilities/searchwindow/view/searchwindow.cpp:85
 #, kde-format
 msgid "Open the Natural Language Search handbook"
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:113
+#: core/utilities/searchwindow/view/searchwindow.cpp:114
 #, kde-format
 msgid ""
 "Natural Language Search lets you find images by describing them in your own "
@@ -66122,19 +66152,19 @@ msgid ""
 "connection required once downloaded."
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:121
+#: core/utilities/searchwindow/view/searchwindow.cpp:122
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:125
+#: core/utilities/searchwindow/view/searchwindow.cpp:126
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Download New"
 msgid "Download Model..."
 msgstr "새로운 항목 다운로드"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:169
+#: core/utilities/searchwindow/view/searchwindow.cpp:170
 #, fuzzy, kde-format
 #| msgctxt "@action: setup"
 #| msgid "Advanced Search..."
@@ -67404,179 +67434,179 @@ msgctxt "@info:tooltip"
 msgid "Removes the collection from digiKam."
 msgstr "선택 반전"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:629
+#: core/utilities/setup/collections/setupcollectionview.cpp:631
 #, kde-format
 msgid "It was not possible to add a collection for the following paths:"
 msgstr ""
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:657
-#: core/utilities/setup/collections/setupcollectionview.cpp:1505
+#: core/utilities/setup/collections/setupcollectionview.cpp:659
+#: core/utilities/setup/collections/setupcollectionview.cpp:1507
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose the Folder Containing your Collection"
 msgstr ""
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:696
+#: core/utilities/setup/collections/setupcollectionview.cpp:698
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Problem Appending Collection"
 msgstr "선택 반전"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:697
+#: core/utilities/setup/collections/setupcollectionview.cpp:699
 #, fuzzy, kde-format
 #| msgid "A linked item already exists."
 msgid "A collection with the path \"%1\" already exists."
 msgstr "링크된 항목이 이미 존재합니다."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:860
+#: core/utilities/setup/collections/setupcollectionview.cpp:862
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Remove Path from the Collection?"
 msgstr "선택 반전"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:861
+#: core/utilities/setup/collections/setupcollectionview.cpp:863
 #, fuzzy, kde-format
 msgid ""
 "Do you want to remove the appended path \"%1\" from the collection \"%2\"?"
 msgstr "메타데이터"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:868
+#: core/utilities/setup/collections/setupcollectionview.cpp:870
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Remove Collection?"
 msgstr "선택 반전"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:869
+#: core/utilities/setup/collections/setupcollectionview.cpp:871
 #, kde-format
 msgid ""
 "Do you want to remove the collection \"%1\" from your list of collections?"
 msgstr ""
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:934
-#: core/utilities/setup/collections/setupcollectionview.cpp:1724
+#: core/utilities/setup/collections/setupcollectionview.cpp:936
+#: core/utilities/setup/collections/setupcollectionview.cpp:1726
 #, fuzzy, kde-format
 msgid "Local Collections"
 msgstr "선택 반전"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:939
-#: core/utilities/setup/collections/setupcollectionview.cpp:1725
+#: core/utilities/setup/collections/setupcollectionview.cpp:941
+#: core/utilities/setup/collections/setupcollectionview.cpp:1727
 #, kde-format
 msgid "Collections on Removable Media"
 msgstr ""
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:944
-#: core/utilities/setup/collections/setupcollectionview.cpp:1726
+#: core/utilities/setup/collections/setupcollectionview.cpp:946
+#: core/utilities/setup/collections/setupcollectionview.cpp:1728
 #, kde-format
 msgid "Collections on Network Shares"
 msgstr ""
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:981
+#: core/utilities/setup/collections/setupcollectionview.cpp:983
 #, fuzzy, kde-format
 msgid "Add Collection"
 msgstr "선택 반전"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1031
+#: core/utilities/setup/collections/setupcollectionview.cpp:1033
 #, kde-format
 msgid "Col. %1"
 msgstr ""
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1127
+#: core/utilities/setup/collections/setupcollectionview.cpp:1129
 #, kde-format
 msgid "This collection is currently not available."
 msgstr ""
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1132
+#: core/utilities/setup/collections/setupcollectionview.cpp:1134
 #, kde-format
 msgid "No problems found, enjoy this collection."
 msgstr ""
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1137
+#: core/utilities/setup/collections/setupcollectionview.cpp:1139
 #, kde-format
 msgid "This collection is hidden."
 msgstr ""
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1156
+#: core/utilities/setup/collections/setupcollectionview.cpp:1158
 #, kde-format
 msgid "Append network path"
 msgstr ""
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1184
+#: core/utilities/setup/collections/setupcollectionview.cpp:1186
 #, kde-format
 msgid "Update collection"
 msgstr "모음집 업데이트"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1212
+#: core/utilities/setup/collections/setupcollectionview.cpp:1214
 #, fuzzy, kde-format
 msgid "Remove collection"
 msgstr "선택 반전"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1247
+#: core/utilities/setup/collections/setupcollectionview.cpp:1249
 #, kde-format
 msgctxt "#title: collection name"
 msgid "Name"
 msgstr "이름"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1252
+#: core/utilities/setup/collections/setupcollectionview.cpp:1254
 #, fuzzy, kde-format
 #| msgid "Path"
 msgctxt "#title: collection mount path"
 msgid "Path"
 msgstr "경로"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1257
+#: core/utilities/setup/collections/setupcollectionview.cpp:1259
 #, fuzzy, kde-format
 #| msgid "Status"
 msgctxt "#title: collection status"
 msgid "Status"
 msgstr "상태"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1555
+#: core/utilities/setup/collections/setupcollectionview.cpp:1557
 #, kde-format
 msgid "You have previously added a collection that contains the path \"%1\"."
 msgstr ""
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1593
+#: core/utilities/setup/collections/setupcollectionview.cpp:1595
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Problem Adding Collection"
 msgstr "선택 반전"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1598
+#: core/utilities/setup/collections/setupcollectionview.cpp:1600
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Problem updating Collection"
 msgstr "선택 반전"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1615
+#: core/utilities/setup/collections/setupcollectionview.cpp:1617
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Adding Collection"
 msgstr "선택 반전"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1619
+#: core/utilities/setup/collections/setupcollectionview.cpp:1621
 #, fuzzy, kde-format
 #| msgid "Update collection"
 msgctxt "@title:window"
 msgid "Update Collection"
 msgstr "모음집 업데이트"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1627
+#: core/utilities/setup/collections/setupcollectionview.cpp:1629
 #, kde-format
 msgid "Your new collection will be created with this name:"
 msgstr ""
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1631
+#: core/utilities/setup/collections/setupcollectionview.cpp:1633
 #, kde-format
 msgid "Your collection will be updated to this name:"
 msgstr ""
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1714
+#: core/utilities/setup/collections/setupcollectionview.cpp:1716
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Select Category"
 msgstr "선택"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1718
+#: core/utilities/setup/collections/setupcollectionview.cpp:1720
 #, kde-format
 msgid "Your collection will use this category:"
 msgstr ""

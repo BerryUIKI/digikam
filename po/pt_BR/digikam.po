@@ -18,8 +18,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-20 16:15+0000\n"
-"PO-Revision-Date: 2026-09-18 08:21-0300\n"
+"POT-Creation-Date: 2026-09-22 00:42+0000\n"
+"PO-Revision-Date: 2026-09-21 06:44-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
 "Language: pt_BR\n"
@@ -2348,11 +2348,10 @@ msgid "Last Image"
 msgstr "Última imagem"
 
 #: core/app/main/digikamapp_setup.cpp:1005
-#, fuzzy, kde-format
-#| msgid "Flash mode"
+#, kde-format
 msgctxt "@action: setup"
 msgid "Play/Pause Video"
-msgstr "Modo do flash"
+msgstr "Reproduzir/Pausar vídeo"
 
 #: core/app/main/digikamapp_setup.cpp:1013
 #, kde-format
@@ -20806,22 +20805,47 @@ msgstr ""
 "O arquivo \"%1\" é muito grande para ser enviado. Reduza o tamanho ou altere "
 "as suas configurações"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:649
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:659
+#, kde-format
+msgid "Send items by mail from digiKam"
+msgstr ""
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#, fuzzy, kde-format
+#| msgid "Title of the image"
+msgid "List of attached items"
+msgstr "Título da imagem"
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:703
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Error While to Set Image as Wallpaper"
+msgctxt "@title:window"
+msgid "Error While to Send Items by mail"
+msgstr "Erro ao definir imagem como papel de parede"
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:704
+#, kde-format
+msgctxt "@info"
+msgid "Cannot send items using native Apple MAil application"
+msgstr ""
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:720
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr "Não foi possível iniciar o programa \"%1\". Verifique o seu sistema."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:732
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "Iniciando o programa \"%1\"..."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:665
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:736
 #, kde-format
 msgid "After having sent your images by email..."
 msgstr "Após ter enviado as suas imagens por e-mail..."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:666
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:737
 #, kde-format
 msgid "Press 'Finish' button to clean up temporary files"
 msgstr "Pressione o botão 'Concluir' para limpar os arquivos temporários"
@@ -20862,19 +20886,26 @@ msgctxt "Mail client: OUTLOOK"
 msgid "Outlook"
 msgstr "Outlook"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:103
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:106
+#, fuzzy, kde-format
+#| msgid "AppleSingle"
+msgctxt "Mail client: APPLEMAIL"
+msgid "Apple Mail"
+msgstr "AppleSingle"
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:110
 #, kde-format
 msgctxt "Mail client: SYLPHEED"
 msgid "Sylpheed"
 msgstr "Sylpheed"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:104
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:111
 #, kde-format
 msgctxt "Mail client: THUNDERBIRD"
 msgid "Thunderbird"
 msgstr "Thunderbird"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:113
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:120
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:151
 #: core/libs/dplugins/webservices/wssettings.cpp:117
 #, kde-format
@@ -20882,7 +20913,7 @@ msgctxt "Image format: JPEG"
 msgid "Jpeg"
 msgstr "Jpeg"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:114
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:121
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:152
 #: core/libs/dplugins/webservices/wssettings.cpp:118
 #, kde-format
@@ -22838,9 +22869,9 @@ msgstr "Exportar para o &Box..."
 #: core/dplugins/generic/webservices/flickr/flickrtalker.cpp:1198
 #: core/dplugins/generic/webservices/google/gdrive/gdtalker.cpp:467
 #: core/dplugins/generic/webservices/onedrive/odtalker.cpp:450
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:716
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:863
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1031
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:717
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:864
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1032
 #: core/dplugins/generic/webservices/twitter/twittertalker.cpp:757
 #: core/dplugins/generic/webservices/twitter/twittertalker.cpp:780
 #: core/dplugins/generic/webservices/twitter/twittertalker.cpp:823
@@ -24061,23 +24092,23 @@ msgstr "Iniciar envio"
 msgid "Photostream Only"
 msgstr "Apenas para o Photostream"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:779
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:778
 #, kde-format
 msgid "Flickr Export"
 msgstr "Exportar para o Flickr"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:814
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:813
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr "Falha ao obter informações do álbum de fotos de %1. %2\n"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:821
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:820
 #, kde-format
 msgctxt "@title: window failed add photo"
 msgid "Warning"
 msgstr "Aviso"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:822
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:821
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"
@@ -24086,13 +24117,13 @@ msgstr ""
 "Falha ao enviar a foto para o %1. %2\n"
 "Deseja continuar?"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:826
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:825
 #, kde-format
 msgctxt "@action: button failed add photo"
 msgid "Continue"
 msgstr "Continuar"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:827
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:826
 #, kde-format
 msgctxt "@action: button failed add photo"
 msgid "Cancel"
@@ -26121,15 +26152,15 @@ msgid "Incorrect username or password specified"
 msgstr "Nome de usuário ou senha indicado incorretamente"
 
 #: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:552
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:737
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:738
 #, kde-format
 msgid "Upload to Piwigo version inferior to 2.4 is no longer supported"
 msgstr "Não há mais suporte a envio para o Piwigo com versão inferior a 2.4"
 
 #: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:627
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:709
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:783
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:856
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:710
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:784
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:857
 #, kde-format
 msgid "Invalid response received from remote Piwigo"
 msgstr "Resposta inválida recebida do Piwigo remoto"
@@ -26140,37 +26171,37 @@ msgstr "Resposta inválida recebida do Piwigo remoto"
 msgid "Failed to list albums"
 msgstr "Falha ao listar os álbuns"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:683
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:684
 #, kde-format
 msgid "Photo '%1' already exists."
 msgstr "A foto '%1' já existe."
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:790
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:791
 #, kde-format
 msgid "Photo '%1' already exists in this album."
 msgstr "A foto '%1' já existe neste álbum."
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:879
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:880
 #, kde-format
 msgid "Error : Cannot open photo: %1"
 msgstr "Erro: Não é possível abrir a foto: %1"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:907
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:908
 #, kde-format
 msgid "Upload the chunk %1/%2 of %3"
 msgstr "Enviar o bloco %1/%2 de %3"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:940
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:941
 #, kde-format
 msgid "Warning : The full size photo cannot be uploaded."
 msgstr "Atenção: Não é possível enviar a foto no tamanho original."
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:991
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:992
 #, kde-format
 msgid "Upload the metadata of %1"
 msgstr "Enviar os metadados de %1"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1024
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1025
 #, kde-format
 msgid "Invalid response received from remote Piwigo (%1)"
 msgstr "Resposta inválida recebida do Piwigo remoto (%1)"
@@ -26612,7 +26643,7 @@ msgstr "Usuário/apelido/senha inválido"
 msgid "Invalid API key"
 msgstr "Chave API inválida"
 
-#: core/dplugins/generic/webservices/smugmug/smugtalker.cpp:1084
+#: core/dplugins/generic/webservices/smugmug/smugtalker.cpp:1085
 #, kde-format
 msgid "Failed to list album template"
 msgstr "Falha ao listar modelo de álbum"
@@ -51992,7 +52023,7 @@ msgstr ""
 "Tem certeza de que deseja remover o item \"%1\"\n"
 "e todos os itens aninhados, se houver?"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:669
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:670
 #, kde-format
 msgctxt "@title"
 msgid "Unnamed"
@@ -58641,18 +58672,18 @@ msgctxt "@title:window"
 msgid "Reverse Geo-coding Error"
 msgstr "Erro de geocodificação reversa"
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:799
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:803
 #, kde-format
 msgctxt "@title:window"
 msgid "Add New Tag"
 msgstr "Adicionar nova etiqueta"
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:800
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:804
 #, kde-format
 msgid "Select a name for the new tag:"
 msgstr "Selecione um nome para a nova etiqueta:"
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:942
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:946
 #, kde-format
 msgid ""
 "%1 out of %2 images have been reverse geocoded. Would you like to keep the "
@@ -58661,7 +58692,7 @@ msgstr ""
 "%1 em %2 imagens foram geocodificadas de forma reversa. Deseja manter as "
 "etiquetas que já foram obtidas?"
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:949
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:953
 #, kde-format
 msgid ""
 "1 image have been reverse geocoded. Would you like to keep the tags which "
@@ -58670,7 +58701,7 @@ msgstr ""
 "1 imagem foi geocodificada de forma reversa. Deseja manter as etiquetas que "
 "já foram obtidas?"
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:955
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:959
 #, kde-format
 msgctxt "@title:window"
 msgid "Abort reverse geocoding?"
@@ -64416,7 +64447,7 @@ msgstr ""
 "consulta"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:70
-#: core/utilities/searchwindow/view/searchwindow.cpp:69
+#: core/utilities/searchwindow/view/searchwindow.cpp:70
 #, kde-format
 msgid "Cancel the current interpretation"
 msgstr "Cancelar a interpretação atual"
@@ -64503,23 +64534,23 @@ msgstr "Limpar todos os grupos"
 msgid "Try"
 msgstr "Tentar"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:37
+#: core/utilities/searchwindow/view/searchwindow.cpp:38
 #, kde-format
 msgid "Natural Language Search"
 msgstr "Pesquisa em linguagem natural"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:41
+#: core/utilities/searchwindow/view/searchwindow.cpp:42
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
 msgstr ""
 "Por exemplo, fotos de paisagens com rótulo vermelho tiradas perto de Paris"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:44
+#: core/utilities/searchwindow/view/searchwindow.cpp:45
 #, kde-format
 msgid "Translate my query to English first"
 msgstr "Traduzir minha consulta para o inglês primeiro"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:46
+#: core/utilities/searchwindow/view/searchwindow.cpp:47
 #, kde-format
 msgid ""
 "When enabled, your query is translated to English before being interpreted, "
@@ -64529,12 +64560,12 @@ msgstr ""
 "interpretada, permitindo que você digite no seu próprio idioma. Requer "
 "conexão com a internet."
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:84
+#: core/utilities/searchwindow/view/searchwindow.cpp:85
 #, kde-format
 msgid "Open the Natural Language Search handbook"
 msgstr "Abrir o manual de pesquisa em linguagem natural"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:113
+#: core/utilities/searchwindow/view/searchwindow.cpp:114
 #, kde-format
 msgid ""
 "Natural Language Search lets you find images by describing them in your own "
@@ -64547,17 +64578,17 @@ msgstr ""
 "perto de Paris\". Ela utiliza um modelo de linguagem executado localmente no "
 "seu computador, sem necessidade de conexão com a internet após o download."
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:121
+#: core/utilities/searchwindow/view/searchwindow.cpp:122
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
 msgstr "O modelo de pesquisa em linguagem natural ainda não foi baixado."
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:125
+#: core/utilities/searchwindow/view/searchwindow.cpp:126
 #, kde-format
 msgid "Download Model..."
 msgstr "Baixar modelo..."
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:169
+#: core/utilities/searchwindow/view/searchwindow.cpp:170
 #, kde-format
 msgctxt "@title:window"
 msgid "Advanced Search"
@@ -65989,176 +66020,176 @@ msgctxt "@info:tooltip"
 msgid "Removes the collection from digiKam."
 msgstr "Remove a coleção do digiKam."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:629
+#: core/utilities/setup/collections/setupcollectionview.cpp:631
 #, kde-format
 msgid "It was not possible to add a collection for the following paths:"
 msgstr "Não foi possível adicionar uma coleção nos seguintes caminhos:"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:657
-#: core/utilities/setup/collections/setupcollectionview.cpp:1505
+#: core/utilities/setup/collections/setupcollectionview.cpp:659
+#: core/utilities/setup/collections/setupcollectionview.cpp:1507
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose the Folder Containing your Collection"
 msgstr "Escolha a pasta que contém a sua coleção"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:696
+#: core/utilities/setup/collections/setupcollectionview.cpp:698
 #, kde-format
 msgctxt "@title:window"
 msgid "Problem Appending Collection"
 msgstr "Problema ao adicionar a coleção"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:697
+#: core/utilities/setup/collections/setupcollectionview.cpp:699
 #, kde-format
 msgid "A collection with the path \"%1\" already exists."
 msgstr "Uma coleção com o caminho \"%1\" já existe."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:860
+#: core/utilities/setup/collections/setupcollectionview.cpp:862
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Path from the Collection?"
 msgstr "Remover o caminho da coleção?"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:861
+#: core/utilities/setup/collections/setupcollectionview.cpp:863
 #, kde-format
 msgid ""
 "Do you want to remove the appended path \"%1\" from the collection \"%2\"?"
 msgstr "Deseja remover o caminho anexado \"%1\" da coleção \"%2\"?"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:868
+#: core/utilities/setup/collections/setupcollectionview.cpp:870
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Collection?"
 msgstr "Remover a coleção?"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:869
+#: core/utilities/setup/collections/setupcollectionview.cpp:871
 #, kde-format
 msgid ""
 "Do you want to remove the collection \"%1\" from your list of collections?"
 msgstr "Deseja remover a coleção \"%1\" da sua lista de coleções?"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:934
-#: core/utilities/setup/collections/setupcollectionview.cpp:1724
+#: core/utilities/setup/collections/setupcollectionview.cpp:936
+#: core/utilities/setup/collections/setupcollectionview.cpp:1726
 #, kde-format
 msgid "Local Collections"
 msgstr "Coleções locais"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:939
-#: core/utilities/setup/collections/setupcollectionview.cpp:1725
+#: core/utilities/setup/collections/setupcollectionview.cpp:941
+#: core/utilities/setup/collections/setupcollectionview.cpp:1727
 #, kde-format
 msgid "Collections on Removable Media"
 msgstr "Coleções em mídias removíveis"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:944
-#: core/utilities/setup/collections/setupcollectionview.cpp:1726
+#: core/utilities/setup/collections/setupcollectionview.cpp:946
+#: core/utilities/setup/collections/setupcollectionview.cpp:1728
 #, kde-format
 msgid "Collections on Network Shares"
 msgstr "Coleções em compartilhamentos de rede"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:981
+#: core/utilities/setup/collections/setupcollectionview.cpp:983
 #, kde-format
 msgid "Add Collection"
 msgstr "Adicionar coleção"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1031
+#: core/utilities/setup/collections/setupcollectionview.cpp:1033
 #, kde-format
 msgid "Col. %1"
 msgstr "Coleção %1"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1127
+#: core/utilities/setup/collections/setupcollectionview.cpp:1129
 #, kde-format
 msgid "This collection is currently not available."
 msgstr "No momento esta coleção não está disponível."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1132
+#: core/utilities/setup/collections/setupcollectionview.cpp:1134
 #, kde-format
 msgid "No problems found, enjoy this collection."
 msgstr "Nenhum problema encontrado, aproveite esta coleção."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1137
+#: core/utilities/setup/collections/setupcollectionview.cpp:1139
 #, kde-format
 msgid "This collection is hidden."
 msgstr "Esta coleção está oculta."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1156
+#: core/utilities/setup/collections/setupcollectionview.cpp:1158
 #, kde-format
 msgid "Append network path"
 msgstr "Adicionar caminho de rede"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1184
+#: core/utilities/setup/collections/setupcollectionview.cpp:1186
 #, kde-format
 msgid "Update collection"
 msgstr "Atualizar coleção"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1212
+#: core/utilities/setup/collections/setupcollectionview.cpp:1214
 #, kde-format
 msgid "Remove collection"
 msgstr "Remover coleção"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1247
+#: core/utilities/setup/collections/setupcollectionview.cpp:1249
 #, kde-format
 msgctxt "#title: collection name"
 msgid "Name"
 msgstr "Nome"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1252
+#: core/utilities/setup/collections/setupcollectionview.cpp:1254
 #, kde-format
 msgctxt "#title: collection mount path"
 msgid "Path"
 msgstr "Caminho"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1257
+#: core/utilities/setup/collections/setupcollectionview.cpp:1259
 #, kde-format
 msgctxt "#title: collection status"
 msgid "Status"
 msgstr "Status"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1555
+#: core/utilities/setup/collections/setupcollectionview.cpp:1557
 #, kde-format
 msgid "You have previously added a collection that contains the path \"%1\"."
 msgstr ""
 "Você já adicionou anteriormente uma coleção que contém o caminho \"%1\"."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1593
+#: core/utilities/setup/collections/setupcollectionview.cpp:1595
 #, kde-format
 msgctxt "@title:window"
 msgid "Problem Adding Collection"
 msgstr "Problema ao adicionar a coleção"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1598
+#: core/utilities/setup/collections/setupcollectionview.cpp:1600
 #, kde-format
 msgctxt "@title:window"
 msgid "Problem updating Collection"
 msgstr "Problema ao atualizar a coleção"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1615
+#: core/utilities/setup/collections/setupcollectionview.cpp:1617
 #, kde-format
 msgctxt "@title:window"
 msgid "Adding Collection"
 msgstr "Adicionando coleção"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1619
+#: core/utilities/setup/collections/setupcollectionview.cpp:1621
 #, kde-format
 msgctxt "@title:window"
 msgid "Update Collection"
 msgstr "Atualizando coleção"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1627
+#: core/utilities/setup/collections/setupcollectionview.cpp:1629
 #, kde-format
 msgid "Your new collection will be created with this name:"
 msgstr "Sua nova coleção será criada com o nome:"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1631
+#: core/utilities/setup/collections/setupcollectionview.cpp:1633
 #, kde-format
 msgid "Your collection will be updated to this name:"
 msgstr "Sua coleção será atualizada para este nome:"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1714
+#: core/utilities/setup/collections/setupcollectionview.cpp:1716
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Category"
 msgstr "Selecione categoria"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1718
+#: core/utilities/setup/collections/setupcollectionview.cpp:1720
 #, kde-format
 msgid "Your collection will use this category:"
 msgstr "Sua coleção usará esta categoria:"
@@ -69717,10 +69748,9 @@ msgid "Survey"
 msgstr "Pesquisa"
 
 #: core/utilities/survey/surveywindow_setup.cpp:161
-#, fuzzy, kde-format
-#| msgid "Flash mode"
+#, kde-format
 msgid "Play/Pause Video"
-msgstr "Modo do flash"
+msgstr "Reproduzir/Pausar vídeo"
 
 #~ msgid "Roll"
 #~ msgstr "Enrolar"

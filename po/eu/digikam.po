@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-20 16:15+0000\n"
+"POT-Creation-Date: 2026-09-22 00:42+0000\n"
 "PO-Revision-Date: 2026-08-29 20:09+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -20731,22 +20731,45 @@ msgstr ""
 "\"%1\" fitxategia handiegia da bidaltzeko. Txikiagotu horren tamaina, edo "
 "aldatu zure ezarpenak"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:649
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:659
+#, kde-format
+msgid "Send items by mail from digiKam"
+msgstr ""
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#, fuzzy, kde-format
+#| msgid "Color model of the image"
+msgid "List of attached items"
+msgstr "Irudiaren kolore-eredua"
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:703
+#, fuzzy, kde-format
+msgctxt "@title:window"
+msgid "Error While to Send Items by mail"
+msgstr "Irudia kolore-espazio batera bihurtzeko tresna."
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:704
+#, kde-format
+msgctxt "@info"
+msgid "Cannot send items using native Apple MAil application"
+msgstr ""
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:720
 #, fuzzy, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr "Huts egin du \"%1\" programa abiaraztean. Egiaztatu sistema."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:732
 #, fuzzy, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "\"%1\" programa abiarazten..."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:665
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:736
 #, fuzzy, kde-format
 msgid "After having sent your images by email..."
 msgstr "Irudiak postaz bidali ondoren..."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:666
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:737
 #, kde-format
 msgid "Press 'Finish' button to clean up temporary files"
 msgstr ""
@@ -20788,19 +20811,26 @@ msgctxt "Mail client: OUTLOOK"
 msgid "Outlook"
 msgstr "Outlook"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:103
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:106
+#, fuzzy, kde-format
+#| msgid "AppleSingle"
+msgctxt "Mail client: APPLEMAIL"
+msgid "Apple Mail"
+msgstr "AppleSingle"
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:110
 #, fuzzy, kde-format
 msgctxt "Mail client: SYLPHEED"
 msgid "Sylpheed"
 msgstr "Sylpheed"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:104
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:111
 #, fuzzy, kde-format
 msgctxt "Mail client: THUNDERBIRD"
 msgid "Thunderbird"
 msgstr "Thunderbird"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:113
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:120
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:151
 #: core/libs/dplugins/webservices/wssettings.cpp:117
 #, fuzzy, kde-format
@@ -20808,7 +20838,7 @@ msgctxt "Image format: JPEG"
 msgid "Jpeg"
 msgstr "JPEG"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:114
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:121
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:152
 #: core/libs/dplugins/webservices/wssettings.cpp:118
 #, fuzzy, kde-format
@@ -22805,9 +22835,9 @@ msgstr "Esportatu &Box-era..."
 #: core/dplugins/generic/webservices/flickr/flickrtalker.cpp:1198
 #: core/dplugins/generic/webservices/google/gdrive/gdtalker.cpp:467
 #: core/dplugins/generic/webservices/onedrive/odtalker.cpp:450
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:716
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:863
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1031
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:717
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:864
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1032
 #: core/dplugins/generic/webservices/twitter/twittertalker.cpp:757
 #: core/dplugins/generic/webservices/twitter/twittertalker.cpp:780
 #: core/dplugins/generic/webservices/twitter/twittertalker.cpp:823
@@ -24114,26 +24144,26 @@ msgstr "Hasi zama-igotzen"
 msgid "Photostream Only"
 msgstr "Photostream soilik"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:779
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:778
 #, fuzzy, kde-format
 msgid "Flickr Export"
 msgstr "Flickr Esportatu"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:814
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:813
 #, fuzzy, kde-format
 #| msgid "Failed to retrieve EXIF information for %1"
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr ""
 "Huts egin du argazki multzoaren informazioa %1 gunetik eskuratzea. %2\n"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:821
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:820
 #, fuzzy, kde-format
 #| msgid "Warning"
 msgctxt "@title: window failed add photo"
 msgid "Warning"
 msgstr "Abisua"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:822
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:821
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"
@@ -24142,14 +24172,14 @@ msgstr ""
 "Huts egin du argazkia %1(e)ra zama-igotzea. %2\n"
 "Jarraitu nahi duzu?"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:826
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:825
 #, fuzzy, kde-format
 #| msgid "Continue"
 msgctxt "@action: button failed add photo"
 msgid "Continue"
 msgstr "Jarraitu"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:827
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:826
 #, fuzzy, kde-format
 #| msgid "Cancel"
 msgctxt "@action: button failed add photo"
@@ -26314,15 +26344,15 @@ msgid "Incorrect username or password specified"
 msgstr "Erabiltzaile-izen edo pasahitz okerra zehaztu da"
 
 #: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:552
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:737
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:738
 #, kde-format
 msgid "Upload to Piwigo version inferior to 2.4 is no longer supported"
 msgstr "Piwigo 2.4 baino bertsio txikiagora zama-igotzea jada ez da onartzen"
 
 #: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:627
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:709
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:783
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:856
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:710
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:784
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:857
 #, kde-format
 msgid "Invalid response received from remote Piwigo"
 msgstr "Urruneko Piwigo zerbitzaritik erantzun baliogabea jaso da"
@@ -26333,37 +26363,37 @@ msgstr "Urruneko Piwigo zerbitzaritik erantzun baliogabea jaso da"
 msgid "Failed to list albums"
 msgstr "Albumak zerrendatzea huts egin du"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:683
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:684
 #, kde-format
 msgid "Photo '%1' already exists."
 msgstr "'%1' argazkia lehendik ere badago."
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:790
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:791
 #, kde-format
 msgid "Photo '%1' already exists in this album."
 msgstr "'%1' argazkia album honetan lehendik ere badago."
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:879
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:880
 #, kde-format
 msgid "Error : Cannot open photo: %1"
 msgstr "Errorea: Ezin du argazkia ireki: %1"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:907
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:908
 #, kde-format
 msgid "Upload the chunk %1/%2 of %3"
 msgstr "Zama-igo  %3tik  %1/%2  puska"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:940
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:941
 #, kde-format
 msgid "Warning : The full size photo cannot be uploaded."
 msgstr "Abisua: Neurri osoko argazkia ezin da zama-igo."
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:991
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:992
 #, kde-format
 msgid "Upload the metadata of %1"
 msgstr "Zama-igo %1(r)(e)n metadatuak"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1024
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1025
 #, kde-format
 msgid "Invalid response received from remote Piwigo (%1)"
 msgstr "urruneko Piwigo zerbitzaritik erantzun baliogabea jaso da (%1)"
@@ -26821,7 +26851,7 @@ msgstr "izen/goitizen/pasahitz baliogabea"
 msgid "Invalid API key"
 msgstr "API-gako baliogabea"
 
-#: core/dplugins/generic/webservices/smugmug/smugtalker.cpp:1084
+#: core/dplugins/generic/webservices/smugmug/smugtalker.cpp:1085
 #, kde-format
 msgid "Failed to list album template"
 msgstr "Album-txantiloia zerrendatzea huts egin du"
@@ -53302,7 +53332,7 @@ msgstr ""
 "Ziur zaude \"%1\" elementua eta habiaratutako\n"
 "elementu kendu nahi dituzula?"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:669
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:670
 #, kde-format
 msgctxt "@title"
 msgid "Unnamed"
@@ -60043,33 +60073,33 @@ msgctxt "@title:window"
 msgid "Reverse Geo-coding Error"
 msgstr "Alderantzizko ordenan"
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:799
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:803
 #, fuzzy, kde-format
 #| msgid "Add New Tag..."
 msgctxt "@title:window"
 msgid "Add New Tag"
 msgstr "Gehitu etiketa berria..."
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:800
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:804
 #, kde-format
 msgid "Select a name for the new tag:"
 msgstr "Aukeratu etiketa berrirako izen bat:"
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:942
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:946
 #, kde-format
 msgid ""
 "%1 out of %2 images have been reverse geocoded. Would you like to keep the "
 "tags which were already obtained?"
 msgstr ""
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:949
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:953
 #, kde-format
 msgid ""
 "1 image have been reverse geocoded. Would you like to keep the tags which "
 "were already obtained?"
 msgstr ""
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:955
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:959
 #, fuzzy, kde-format
 #| msgid "Process reverse geocoding"
 msgctxt "@title:window"
@@ -66053,7 +66083,7 @@ msgid ""
 msgstr ""
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:70
-#: core/utilities/searchwindow/view/searchwindow.cpp:69
+#: core/utilities/searchwindow/view/searchwindow.cpp:70
 #, fuzzy, kde-format
 msgid "Cancel the current interpretation"
 msgstr "Utzi uneko eragiketa"
@@ -66143,35 +66173,35 @@ msgstr "Itxi talde guztiak"
 msgid "Try"
 msgstr "Saiatu"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:37
+#: core/utilities/searchwindow/view/searchwindow.cpp:38
 #, fuzzy, kde-format
 #| msgid "Default Language"
 msgid "Natural Language Search"
 msgstr "Langue par défaut"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:41
+#: core/utilities/searchwindow/view/searchwindow.cpp:42
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:44
+#: core/utilities/searchwindow/view/searchwindow.cpp:45
 #, kde-format
 msgid "Translate my query to English first"
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:46
+#: core/utilities/searchwindow/view/searchwindow.cpp:47
 #, kde-format
 msgid ""
 "When enabled, your query is translated to English before being interpreted, "
 "so you can type in your own language. Requires an internet connection."
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:84
+#: core/utilities/searchwindow/view/searchwindow.cpp:85
 #, kde-format
 msgid "Open the Natural Language Search handbook"
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:113
+#: core/utilities/searchwindow/view/searchwindow.cpp:114
 #, kde-format
 msgid ""
 "Natural Language Search lets you find images by describing them in your own "
@@ -66180,17 +66210,17 @@ msgid ""
 "connection required once downloaded."
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:121
+#: core/utilities/searchwindow/view/searchwindow.cpp:122
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:125
+#: core/utilities/searchwindow/view/searchwindow.cpp:126
 #, fuzzy, kde-format
 msgid "Download Model..."
 msgstr "Zama-jaitsi ibilbidea"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:169
+#: core/utilities/searchwindow/view/searchwindow.cpp:170
 #, fuzzy, kde-format
 #| msgid "Advanced Search"
 msgctxt "@title:window"
@@ -67671,175 +67701,175 @@ msgctxt "@info:tooltip"
 msgid "Removes the collection from digiKam."
 msgstr "Bilduma digiKametik kentzen du."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:629
+#: core/utilities/setup/collections/setupcollectionview.cpp:631
 #, kde-format
 msgid "It was not possible to add a collection for the following paths:"
 msgstr "Ezin da bilduma bat honako bide-izenei gehitu:"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:657
-#: core/utilities/setup/collections/setupcollectionview.cpp:1505
+#: core/utilities/setup/collections/setupcollectionview.cpp:659
+#: core/utilities/setup/collections/setupcollectionview.cpp:1507
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose the Folder Containing your Collection"
 msgstr "Aukeratu zure bilduma duen karpeta"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:696
+#: core/utilities/setup/collections/setupcollectionview.cpp:698
 #, kde-format
 msgctxt "@title:window"
 msgid "Problem Appending Collection"
 msgstr "Arazoa bilduma eranstean"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:697
+#: core/utilities/setup/collections/setupcollectionview.cpp:699
 #, kde-format
 msgid "A collection with the path \"%1\" already exists."
 msgstr "Jada badago \"%1\" bide-izena duen bilduma bat."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:860
+#: core/utilities/setup/collections/setupcollectionview.cpp:862
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Path from the Collection?"
 msgstr "Bide-izena bildumatik kendu nahi duzu?"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:861
+#: core/utilities/setup/collections/setupcollectionview.cpp:863
 #, kde-format
 msgid ""
 "Do you want to remove the appended path \"%1\" from the collection \"%2\"?"
 msgstr "Erantsitako \"%1\" bide-izena \"%2\" bildumatik kendu nahi duzu?"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:868
+#: core/utilities/setup/collections/setupcollectionview.cpp:870
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Collection?"
 msgstr "Bilduma kendu?"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:869
+#: core/utilities/setup/collections/setupcollectionview.cpp:871
 #, kde-format
 msgid ""
 "Do you want to remove the collection \"%1\" from your list of collections?"
 msgstr "\"%1\" bilduma bildumen zerrendatik kentzea nahi duzu?"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:934
-#: core/utilities/setup/collections/setupcollectionview.cpp:1724
+#: core/utilities/setup/collections/setupcollectionview.cpp:936
+#: core/utilities/setup/collections/setupcollectionview.cpp:1726
 #, kde-format
 msgid "Local Collections"
 msgstr "Bilduma lokalak"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:939
-#: core/utilities/setup/collections/setupcollectionview.cpp:1725
+#: core/utilities/setup/collections/setupcollectionview.cpp:941
+#: core/utilities/setup/collections/setupcollectionview.cpp:1727
 #, kde-format
 msgid "Collections on Removable Media"
 msgstr "Bildumak euskarri aldagarrietan"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:944
-#: core/utilities/setup/collections/setupcollectionview.cpp:1726
+#: core/utilities/setup/collections/setupcollectionview.cpp:946
+#: core/utilities/setup/collections/setupcollectionview.cpp:1728
 #, kde-format
 msgid "Collections on Network Shares"
 msgstr "Bildumak sarean partekatuta"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:981
+#: core/utilities/setup/collections/setupcollectionview.cpp:983
 #, kde-format
 msgid "Add Collection"
 msgstr "Gehitu bilduma"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1031
+#: core/utilities/setup/collections/setupcollectionview.cpp:1033
 #, kde-format
 msgid "Col. %1"
 msgstr "%1 bild."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1127
+#: core/utilities/setup/collections/setupcollectionview.cpp:1129
 #, kde-format
 msgid "This collection is currently not available."
 msgstr "Bilduma hau unean ez dago erabilgarri."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1132
+#: core/utilities/setup/collections/setupcollectionview.cpp:1134
 #, kde-format
 msgid "No problems found, enjoy this collection."
 msgstr "Ez da arazorik aurkitu, gozatu bilduma honekin."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1137
+#: core/utilities/setup/collections/setupcollectionview.cpp:1139
 #, kde-format
 msgid "This collection is hidden."
 msgstr "Bilduma hau ezkutatuta dago."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1156
+#: core/utilities/setup/collections/setupcollectionview.cpp:1158
 #, kde-format
 msgid "Append network path"
 msgstr "Erantsi sarearen bide-izena"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1184
+#: core/utilities/setup/collections/setupcollectionview.cpp:1186
 #, kde-format
 msgid "Update collection"
 msgstr "Eguneratu bilduma"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1212
+#: core/utilities/setup/collections/setupcollectionview.cpp:1214
 #, kde-format
 msgid "Remove collection"
 msgstr "Kendu bilduma"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1247
+#: core/utilities/setup/collections/setupcollectionview.cpp:1249
 #, kde-format
 msgctxt "#title: collection name"
 msgid "Name"
 msgstr "Izena"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1252
+#: core/utilities/setup/collections/setupcollectionview.cpp:1254
 #, kde-format
 msgctxt "#title: collection mount path"
 msgid "Path"
 msgstr "Bide-izena"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1257
+#: core/utilities/setup/collections/setupcollectionview.cpp:1259
 #, kde-format
 msgctxt "#title: collection status"
 msgid "Status"
 msgstr "Egoera"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1555
+#: core/utilities/setup/collections/setupcollectionview.cpp:1557
 #, kde-format
 msgid "You have previously added a collection that contains the path \"%1\"."
 msgstr "Aurretik \"%1\" bide-izena duen bilduma bat gehitu duzu."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1593
+#: core/utilities/setup/collections/setupcollectionview.cpp:1595
 #, kde-format
 msgctxt "@title:window"
 msgid "Problem Adding Collection"
 msgstr "Arazoa bilduma gehitzean"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1598
+#: core/utilities/setup/collections/setupcollectionview.cpp:1600
 #, kde-format
 msgctxt "@title:window"
 msgid "Problem updating Collection"
 msgstr "Arazoa bilduma eguneratzean"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1615
+#: core/utilities/setup/collections/setupcollectionview.cpp:1617
 #, kde-format
 msgctxt "@title:window"
 msgid "Adding Collection"
 msgstr "Bilduma gehitzen"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1619
+#: core/utilities/setup/collections/setupcollectionview.cpp:1621
 #, kde-format
 msgctxt "@title:window"
 msgid "Update Collection"
 msgstr "Eguneratu bilduma"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1627
+#: core/utilities/setup/collections/setupcollectionview.cpp:1629
 #, kde-format
 msgid "Your new collection will be created with this name:"
 msgstr "Zure bilduma berria izen honekin sortu da:"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1631
+#: core/utilities/setup/collections/setupcollectionview.cpp:1633
 #, kde-format
 msgid "Your collection will be updated to this name:"
 msgstr "Zure bilduma izen honetara eguneratuko da:"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1714
+#: core/utilities/setup/collections/setupcollectionview.cpp:1716
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Category"
 msgstr "Hautatu kategoria"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1718
+#: core/utilities/setup/collections/setupcollectionview.cpp:1720
 #, kde-format
 msgid "Your collection will use this category:"
 msgstr "Zure bildumak kategoria hau erabiliko du:"

@@ -12,7 +12,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-20 16:15+0000\n"
+"POT-Creation-Date: 2026-09-22 00:42+0000\n"
 "PO-Revision-Date: 2026-09-15 17:19+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
@@ -20405,22 +20405,47 @@ msgid ""
 "settings"
 msgstr "الملف \"%1\" كبير جدًا للإرسال، الرجاء تقليل حجمه أو تغيير إعداداتك"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:649
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:659
+#, kde-format
+msgid "Send items by mail from digiKam"
+msgstr ""
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#, fuzzy, kde-format
+#| msgid "Title of the image"
+msgid "List of attached items"
+msgstr "عنوان الصورة"
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:703
+#, fuzzy, kde-format
+#| msgctxt "@title:window"
+#| msgid "Error While to Set Image as Wallpaper"
+msgctxt "@title:window"
+msgid "Error While to Send Items by mail"
+msgstr "خطأ أثناء ضبط الصورة كخلفية حاسوب"
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:704
+#, kde-format
+msgctxt "@info"
+msgid "Cannot send items using native Apple MAil application"
+msgstr ""
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:720
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr "فشلتُ في بدء البرنامج \"%1\". تحقق من نظامك."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:732
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "بدء تشغيل البرنامج \"%1\"..."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:665
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:736
 #, kde-format
 msgid "After having sent your images by email..."
 msgstr "بعد إرسال صورك عبر البريد الإلكتروني..."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:666
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:737
 #, kde-format
 msgid "Press 'Finish' button to clean up temporary files"
 msgstr "اضغط على زر 'إنهاء' لتنظيف الملفات المؤقتة"
@@ -20461,19 +20486,26 @@ msgctxt "Mail client: OUTLOOK"
 msgid "Outlook"
 msgstr "أوتلوك"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:103
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:106
+#, fuzzy, kde-format
+#| msgid "AppleSingle"
+msgctxt "Mail client: APPLEMAIL"
+msgid "Apple Mail"
+msgstr "أبل سينغل"
+
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:110
 #, kde-format
 msgctxt "Mail client: SYLPHEED"
 msgid "Sylpheed"
 msgstr "Sylpheed"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:104
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:111
 #, kde-format
 msgctxt "Mail client: THUNDERBIRD"
 msgid "Thunderbird"
 msgstr "طائر الرعد"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:113
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:120
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:151
 #: core/libs/dplugins/webservices/wssettings.cpp:117
 #, kde-format
@@ -20481,7 +20513,7 @@ msgctxt "Image format: JPEG"
 msgid "Jpeg"
 msgstr "JPEG"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:114
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:121
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:152
 #: core/libs/dplugins/webservices/wssettings.cpp:118
 #, kde-format
@@ -22392,9 +22424,9 @@ msgstr "صدر إلى &Box..."
 #: core/dplugins/generic/webservices/flickr/flickrtalker.cpp:1198
 #: core/dplugins/generic/webservices/google/gdrive/gdtalker.cpp:467
 #: core/dplugins/generic/webservices/onedrive/odtalker.cpp:450
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:716
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:863
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1031
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:717
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:864
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1032
 #: core/dplugins/generic/webservices/twitter/twittertalker.cpp:757
 #: core/dplugins/generic/webservices/twitter/twittertalker.cpp:780
 #: core/dplugins/generic/webservices/twitter/twittertalker.cpp:823
@@ -23602,23 +23634,23 @@ msgstr "ابدأ الرفع"
 msgid "Photostream Only"
 msgstr "تيار الصور فقط"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:779
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:778
 #, kde-format
 msgid "Flickr Export"
 msgstr "تصدير فليكر"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:814
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:813
 #, kde-format
 msgid "Failed to Fetch Photoset information from %1. %2\n"
 msgstr "فشل جلب معلومات مجموعة الصور من %1. %2\n"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:821
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:820
 #, kde-format
 msgctxt "@title: window failed add photo"
 msgid "Warning"
 msgstr "تحذير"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:822
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:821
 #, kde-format
 msgid ""
 "Failed to upload photo into %1. %2\n"
@@ -23627,13 +23659,13 @@ msgstr ""
 "فشل رفع الصورة إلى %1. %2\n"
 "هل تريد المتابعة؟"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:826
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:825
 #, kde-format
 msgctxt "@action: button failed add photo"
 msgid "Continue"
 msgstr "تابع"
 
-#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:827
+#: core/dplugins/generic/webservices/flickr/flickrwindow.cpp:826
 #, kde-format
 msgctxt "@action: button failed add photo"
 msgid "Cancel"
@@ -25640,15 +25672,15 @@ msgid "Incorrect username or password specified"
 msgstr "اسم المستخدم أو كلمة المرور غير صحيحين"
 
 #: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:552
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:737
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:738
 #, kde-format
 msgid "Upload to Piwigo version inferior to 2.4 is no longer supported"
 msgstr "الرفع إلى بيويجو ذي الإصدار الأقدم من 2.4 لم يعد مدعومًا"
 
 #: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:627
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:709
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:783
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:856
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:710
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:784
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:857
 #, kde-format
 msgid "Invalid response received from remote Piwigo"
 msgstr "استقبل رد غير صالح من Piwigo البعيد"
@@ -25659,37 +25691,37 @@ msgstr "استقبل رد غير صالح من Piwigo البعيد"
 msgid "Failed to list albums"
 msgstr "فشل في سرد الألبومات"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:683
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:684
 #, kde-format
 msgid "Photo '%1' already exists."
 msgstr "الصورة «%1» موجودة بالفعل."
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:790
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:791
 #, kde-format
 msgid "Photo '%1' already exists in this album."
 msgstr "الصورة «%1» موجودة بالفعل في هذا الألبوم."
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:879
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:880
 #, kde-format
 msgid "Error : Cannot open photo: %1"
 msgstr "خطأ: لا يمكن فتح الصورة: %1"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:907
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:908
 #, kde-format
 msgid "Upload the chunk %1/%2 of %3"
 msgstr "ارفع المقطع %1/%2 من %3"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:940
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:941
 #, kde-format
 msgid "Warning : The full size photo cannot be uploaded."
 msgstr "تحذير: لا يمكن رفع الصورة كاملة الحجم."
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:991
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:992
 #, kde-format
 msgid "Upload the metadata of %1"
 msgstr "ارفع البيانات الوصفية لـ %1"
 
-#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1024
+#: core/dplugins/generic/webservices/piwigo/piwigotalker.cpp:1025
 #, kde-format
 msgid "Invalid response received from remote Piwigo (%1)"
 msgstr "استقبل رد غير صالح من Piwigo البعيد (%1)"
@@ -26128,7 +26160,7 @@ msgstr "المستخدم/الكنية/كلمة المرور غير صالح"
 msgid "Invalid API key"
 msgstr "مفتاح API غير صالح"
 
-#: core/dplugins/generic/webservices/smugmug/smugtalker.cpp:1084
+#: core/dplugins/generic/webservices/smugmug/smugtalker.cpp:1085
 #, kde-format
 msgid "Failed to list album template"
 msgstr "فشل في سرد قالب الألبوم"
@@ -51214,7 +51246,7 @@ msgstr ""
 "هل أنت متأكد من أنك تريد إزالة العنصر \"%1\"\n"
 "وكل العناصر المتداخلة إن وجدت؟"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:669
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:670
 #, kde-format
 msgctxt "@title"
 msgid "Unnamed"
@@ -57796,18 +57828,18 @@ msgctxt "@title:window"
 msgid "Reverse Geo-coding Error"
 msgstr "خطأ في تحديد الموقع الجغرافي العكسيّ"
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:799
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:803
 #, kde-format
 msgctxt "@title:window"
 msgid "Add New Tag"
 msgstr "أضف وسمًا جديدًا"
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:800
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:804
 #, kde-format
 msgid "Select a name for the new tag:"
 msgstr "اختر اسمًا للوسم الجديد:"
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:942
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:946
 #, kde-format
 msgid ""
 "%1 out of %2 images have been reverse geocoded. Would you like to keep the "
@@ -57816,7 +57848,7 @@ msgstr ""
 "حدد الموقع الجغرافي العكسي لـ %1 من أصل %2 صورة. أتريد الاحتفاظ بالعلامات "
 "التي حصلت عليها؟"
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:949
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:953
 #, kde-format
 msgid ""
 "1 image have been reverse geocoded. Would you like to keep the tags which "
@@ -57825,7 +57857,7 @@ msgstr ""
 "حدد الموقع الجغرافي العكسي لصورة واحدة. أتريد الاحتفاظ بالعلامات التي حصلت "
 "عليها؟"
 
-#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:955
+#: core/utilities/geolocation/geoiface/reversegeocoding/rgwidget.cpp:959
 #, kde-format
 msgctxt "@title:window"
 msgid "Abort reverse geocoding?"
@@ -63508,7 +63540,7 @@ msgid ""
 msgstr "فسِّر النص أعلاه كبحث باللغة الطبيعية وابنِ الاستعلام"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:70
-#: core/utilities/searchwindow/view/searchwindow.cpp:69
+#: core/utilities/searchwindow/view/searchwindow.cpp:70
 #, kde-format
 msgid "Cancel the current interpretation"
 msgstr "ألغِ التفسير الحالي"
@@ -63594,22 +63626,22 @@ msgstr "امحُ كلّ المجموعات"
 msgid "Try"
 msgstr "جرّب"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:37
+#: core/utilities/searchwindow/view/searchwindow.cpp:38
 #, kde-format
 msgid "Natural Language Search"
 msgstr "البحث باللغة الطبيعية"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:41
+#: core/utilities/searchwindow/view/searchwindow.cpp:42
 #, kde-format
 msgid "e.g. landscape photos with red labels taken near Paris"
 msgstr "مثلًا: صور مناظر طبيعية بلصائق حمراء ملتقطة قرب باريس"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:44
+#: core/utilities/searchwindow/view/searchwindow.cpp:45
 #, kde-format
 msgid "Translate my query to English first"
 msgstr "ترجم استعلامي إلى الإنجليزية أولًا"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:46
+#: core/utilities/searchwindow/view/searchwindow.cpp:47
 #, kde-format
 msgid ""
 "When enabled, your query is translated to English before being interpreted, "
@@ -63618,12 +63650,12 @@ msgstr ""
 "عند التفعيل، تُترجم استعلامك إلى الإنجليزية قبل تفسيره، لذا يمكنك الكتابة "
 "بلغتك الخاصة. يتطلب اتصالًا بالإنترنت."
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:84
+#: core/utilities/searchwindow/view/searchwindow.cpp:85
 #, kde-format
 msgid "Open the Natural Language Search handbook"
 msgstr "افتح دليل البحث باللغة الطبيعية"
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:113
+#: core/utilities/searchwindow/view/searchwindow.cpp:114
 #, kde-format
 msgid ""
 "Natural Language Search lets you find images by describing them in your own "
@@ -63635,17 +63667,17 @@ msgstr ""
 "\"صور بلصائق حمراء ملتقطة قرب باريس\". يستخدم نموذجًا لغويًا يعمل محليًا على "
 "حاسوبك، دون الحاجة إلى اتصال بالإنترنت بعد التنزيل."
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:121
+#: core/utilities/searchwindow/view/searchwindow.cpp:122
 #, kde-format
 msgid "The natural-language search model has not been downloaded yet."
 msgstr "لم يُنزَّل نموذج البحث باللغة الطبيعية بعد."
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:125
+#: core/utilities/searchwindow/view/searchwindow.cpp:126
 #, kde-format
 msgid "Download Model..."
 msgstr "نزِّل النموذج..."
 
-#: core/utilities/searchwindow/view/searchwindow.cpp:169
+#: core/utilities/searchwindow/view/searchwindow.cpp:170
 #, kde-format
 msgctxt "@title:window"
 msgid "Advanced Search"
@@ -64965,175 +64997,175 @@ msgctxt "@info:tooltip"
 msgid "Removes the collection from digiKam."
 msgstr "أزل المجموعة من دجيكام."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:629
+#: core/utilities/setup/collections/setupcollectionview.cpp:631
 #, kde-format
 msgid "It was not possible to add a collection for the following paths:"
 msgstr "لم يكن ممكنًا إضافة تجميعة للمسارات الآتية:"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:657
-#: core/utilities/setup/collections/setupcollectionview.cpp:1505
+#: core/utilities/setup/collections/setupcollectionview.cpp:659
+#: core/utilities/setup/collections/setupcollectionview.cpp:1507
 #, kde-format
 msgctxt "@title:window"
 msgid "Choose the Folder Containing your Collection"
 msgstr "اختر المجلد الذي يحوي مجموعتك"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:696
+#: core/utilities/setup/collections/setupcollectionview.cpp:698
 #, kde-format
 msgctxt "@title:window"
 msgid "Problem Appending Collection"
 msgstr "مشكلة في إضافة المجموعة"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:697
+#: core/utilities/setup/collections/setupcollectionview.cpp:699
 #, kde-format
 msgid "A collection with the path \"%1\" already exists."
 msgstr "توجد مجموعة بالمسار «%1» بالفعل."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:860
+#: core/utilities/setup/collections/setupcollectionview.cpp:862
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Path from the Collection?"
 msgstr "أزل المسار من المجموعة؟"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:861
+#: core/utilities/setup/collections/setupcollectionview.cpp:863
 #, kde-format
 msgid ""
 "Do you want to remove the appended path \"%1\" from the collection \"%2\"?"
 msgstr "هل تريد إزالة المسار المضاف «%1» من المجموعة «%2»؟"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:868
+#: core/utilities/setup/collections/setupcollectionview.cpp:870
 #, kde-format
 msgctxt "@title:window"
 msgid "Remove Collection?"
 msgstr "أزل التّجميعة؟"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:869
+#: core/utilities/setup/collections/setupcollectionview.cpp:871
 #, kde-format
 msgid ""
 "Do you want to remove the collection \"%1\" from your list of collections?"
 msgstr "أتريد إزالة التّجميعة ”%1“ من قائمة تجميعاتك؟"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:934
-#: core/utilities/setup/collections/setupcollectionview.cpp:1724
+#: core/utilities/setup/collections/setupcollectionview.cpp:936
+#: core/utilities/setup/collections/setupcollectionview.cpp:1726
 #, kde-format
 msgid "Local Collections"
 msgstr "التّجميعات المحليّة"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:939
-#: core/utilities/setup/collections/setupcollectionview.cpp:1725
+#: core/utilities/setup/collections/setupcollectionview.cpp:941
+#: core/utilities/setup/collections/setupcollectionview.cpp:1727
 #, kde-format
 msgid "Collections on Removable Media"
 msgstr "مجموعات على وسائط قابلة للإزالة"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:944
-#: core/utilities/setup/collections/setupcollectionview.cpp:1726
+#: core/utilities/setup/collections/setupcollectionview.cpp:946
+#: core/utilities/setup/collections/setupcollectionview.cpp:1728
 #, kde-format
 msgid "Collections on Network Shares"
 msgstr "مجموعات على مشاركات شبكة"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:981
+#: core/utilities/setup/collections/setupcollectionview.cpp:983
 #, kde-format
 msgid "Add Collection"
 msgstr "أضف تجميعة"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1031
+#: core/utilities/setup/collections/setupcollectionview.cpp:1033
 #, kde-format
 msgid "Col. %1"
 msgstr "العمود %1"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1127
+#: core/utilities/setup/collections/setupcollectionview.cpp:1129
 #, kde-format
 msgid "This collection is currently not available."
 msgstr "هذه التّجميعة غير متوفّرة حاليًّا."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1132
+#: core/utilities/setup/collections/setupcollectionview.cpp:1134
 #, kde-format
 msgid "No problems found, enjoy this collection."
 msgstr "لا مشاكل، استمتع بهذه التّجميعة."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1137
+#: core/utilities/setup/collections/setupcollectionview.cpp:1139
 #, kde-format
 msgid "This collection is hidden."
 msgstr "هذه التّجميعة مخفيّة."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1156
+#: core/utilities/setup/collections/setupcollectionview.cpp:1158
 #, kde-format
 msgid "Append network path"
 msgstr "أضف مسار شبكة"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1184
+#: core/utilities/setup/collections/setupcollectionview.cpp:1186
 #, kde-format
 msgid "Update collection"
 msgstr "حدّث التّجميعة"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1212
+#: core/utilities/setup/collections/setupcollectionview.cpp:1214
 #, kde-format
 msgid "Remove collection"
 msgstr "أزل التّجميعة"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1247
+#: core/utilities/setup/collections/setupcollectionview.cpp:1249
 #, kde-format
 msgctxt "#title: collection name"
 msgid "Name"
 msgstr "الاسم"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1252
+#: core/utilities/setup/collections/setupcollectionview.cpp:1254
 #, kde-format
 msgctxt "#title: collection mount path"
 msgid "Path"
 msgstr "المسار"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1257
+#: core/utilities/setup/collections/setupcollectionview.cpp:1259
 #, kde-format
 msgctxt "#title: collection status"
 msgid "Status"
 msgstr "الحالة"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1555
+#: core/utilities/setup/collections/setupcollectionview.cpp:1557
 #, kde-format
 msgid "You have previously added a collection that contains the path \"%1\"."
 msgstr "أضفت مجموعة سابقًا تحوي المسار «%1»."
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1593
+#: core/utilities/setup/collections/setupcollectionview.cpp:1595
 #, kde-format
 msgctxt "@title:window"
 msgid "Problem Adding Collection"
 msgstr "مشكلة في إضافة المجموعة"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1598
+#: core/utilities/setup/collections/setupcollectionview.cpp:1600
 #, kde-format
 msgctxt "@title:window"
 msgid "Problem updating Collection"
 msgstr "مشكلة في تحديث المجموعة"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1615
+#: core/utilities/setup/collections/setupcollectionview.cpp:1617
 #, kde-format
 msgctxt "@title:window"
 msgid "Adding Collection"
 msgstr "إضافة مجموعة"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1619
+#: core/utilities/setup/collections/setupcollectionview.cpp:1621
 #, kde-format
 msgctxt "@title:window"
 msgid "Update Collection"
 msgstr "حدّث التّجميعة"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1627
+#: core/utilities/setup/collections/setupcollectionview.cpp:1629
 #, kde-format
 msgid "Your new collection will be created with this name:"
 msgstr "ستنشأ مجموعتك الجديدة بهذا الاسم:"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1631
+#: core/utilities/setup/collections/setupcollectionview.cpp:1633
 #, kde-format
 msgid "Your collection will be updated to this name:"
 msgstr "ستحدث مجموعتك إلى هذا الاسم:"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1714
+#: core/utilities/setup/collections/setupcollectionview.cpp:1716
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Category"
 msgstr "حدد صنفًا"
 
-#: core/utilities/setup/collections/setupcollectionview.cpp:1718
+#: core/utilities/setup/collections/setupcollectionview.cpp:1720
 #, kde-format
 msgid "Your collection will use this category:"
 msgstr "ستستخدم مجموعتك هذه الفئة:"
