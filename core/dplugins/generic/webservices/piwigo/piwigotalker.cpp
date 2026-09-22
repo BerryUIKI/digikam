@@ -1041,7 +1041,7 @@ void PiwigoTalker::parseResponseAddPhotoSummary(const QByteArray& data)
 
 void PiwigoTalker::deleteTemporaryFile()
 {
-    if (d->tmpPath.size())
+    if (!d->tmpPath.isEmpty())
     {
         QFile(d->tmpPath).remove();
         d->tmpPath = QLatin1String("");

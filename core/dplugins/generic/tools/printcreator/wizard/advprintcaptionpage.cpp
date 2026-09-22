@@ -247,7 +247,7 @@ void AdvPrintCaptionPage::updateCaption(AdvPrintPhoto* const pPhoto)
 
 void AdvPrintCaptionPage::slotUpdateCaptions()
 {
-    if (d->settings->photos.size())
+    if (!d->settings->photos.isEmpty())
     {
         for (AdvPrintPhoto* const pPhoto : std::as_const(d->settings->photos))
         {

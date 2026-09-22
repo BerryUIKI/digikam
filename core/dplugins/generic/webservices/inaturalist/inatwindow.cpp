@@ -680,7 +680,7 @@ void INatWindow::slotComputerVision()
 {
     const QList<QUrl>& imageUrls = d->imglst->imageUrls();
 
-    if (imageUrls.count())
+    if (!imageUrls.isEmpty())
     {
         qCDebug(DIGIKAM_WEBSERVICES_LOG) << "Requesting computer-vision id for"
                                          << imageUrls[0].toLocalFile();

@@ -548,7 +548,7 @@ bool INatTalker::restoreApiToken(const QString& username,
 
 bool INatTalker::stillUploading() const
 {
-    return d->pendingRequests.count();
+    return !d->pendingRequests.isEmpty();
 }
 
 void INatTalker::unLink()
