@@ -52,6 +52,8 @@ public:
 
     Private() = default;
 
+public:
+
     bool               cancel               = false;
 
     QList<QUrl>        attachementFiles;
@@ -451,7 +453,6 @@ bool MailProcess::invokeMailAgent()
             QString prog = QDir::toNativeSeparators(d->settings->binPaths[d->settings->mailProgram]);
 
             if (prog.isEmpty() && (d->settings->mailProgram != MailSettings::APPLEMAIL))
-)
             {
                 qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Mail binary path is empty."
                                                      << "Cannot start Mail client program!";
