@@ -129,7 +129,7 @@ bool DItemDrag::decode(const QMimeData* e,
 
     QByteArray ba = e->data(QLatin1String("digikam/item-urls"));
 
-    if (ba.size())
+    if (!ba.isEmpty())
     {
         QDataStream ds(ba);
 
@@ -144,7 +144,7 @@ bool DItemDrag::decode(const QMimeData* e,
         QByteArray albumarray = e->data(QLatin1String("digikam/album-ids"));
         QByteArray imagearray = e->data(QLatin1String("digikam/item-ids"));
 
-        if (albumarray.size() && imagearray.size())
+        if (!albumarray.isEmpty() && !imagearray.isEmpty())
         {
             QDataStream dsAlbums(albumarray);
 
@@ -222,7 +222,7 @@ bool DAlbumDrag::decode(const QMimeData* e, QList<QUrl>& kioUrls, int& albumID)
     QByteArray albumarray = e->data(QLatin1String("digikam/album-ids"));
     QByteArray kioarray   = e->data(QLatin1String("digikam/digikamalbums"));
 
-    if (albumarray.size() && kioarray.size())
+    if (!albumarray.isEmpty() && !kioarray.isEmpty())
     {
         QDataStream dsAlbums(albumarray);
 
@@ -273,7 +273,7 @@ bool DTagListDrag::decode(const QMimeData* e, QList<int>& tagIDs)
 
     QByteArray ba = e->data(QLatin1String("digikam/taglist"));
 
-    if (ba.size())
+    if (!ba.isEmpty())
     {
         QDataStream ds(ba);
 
@@ -315,7 +315,7 @@ bool DCameraItemListDrag::decode(const QMimeData* e, QStringList& cameraItemPath
 
     QByteArray ba = e->data(QLatin1String("digikam/cameraItemlist"));
 
-    if (ba.size())
+    if (!ba.isEmpty())
     {
         QDataStream ds(ba);
 
@@ -359,7 +359,7 @@ bool DCameraDragObject::decode(const QMimeData* e, CameraType& ctype)
 {
     QByteArray ba = e->data(QLatin1String("camera/unknown"));
 
-    if (ba.size())
+    if (!ba.isEmpty())
     {
         int     startingNumber;
         QString title, model, port, path;

@@ -766,7 +766,7 @@ bool FacePipelineDetectRecognize::writer()
 
         names.clear();
 
-        if (package->faceRects.size())
+        if (!package->faceRects.isEmpty())
         {
             databaseFaces.clear();
             identities.clear();
