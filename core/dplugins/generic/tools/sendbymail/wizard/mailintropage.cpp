@@ -136,7 +136,7 @@ MailIntroPage::MailIntroPage(QWizard* const dialog, const QString& title)
 
     // Path to found Apple Mail
 
-    d->binSearch->addDirectory(QLatin1String("/System/Application/Mail.app/Contents/MacOS"));
+    d->binSearch->addDirectory(QLatin1String("/System/Applications/Mail.app/Contents/MacOS"));
 
 #endif
 
