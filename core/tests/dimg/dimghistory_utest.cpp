@@ -116,7 +116,7 @@ void DImgHistoryTest::slotImageLoaded(const QString&, bool success)
     {
         qCDebug(DIGIKAM_TESTS_LOG) << i << h.entries().at(i).referredImages.size();
 
-        if (h.entries().at(i).referredImages.size())
+        if (!h.entries().at(i).referredImages.isEmpty())
         {
             qCDebug(DIGIKAM_TESTS_LOG) << " " << i << h.entries().at(i).referredImages.first().m_type;
         }

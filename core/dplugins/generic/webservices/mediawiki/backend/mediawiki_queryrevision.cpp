@@ -43,6 +43,8 @@ public:
     {
     }
 
+public:
+
     QMap<QString, QString> requestParameter;
 };
 
@@ -76,7 +78,7 @@ void QueryRevision::setProperties(Properties properties)
 
     if (properties & QueryRevision::Flags)
     {
-        if (buff.length())
+        if (!buff.isEmpty())
         {
             buff.append(QStringLiteral("|"));
         }
@@ -86,7 +88,7 @@ void QueryRevision::setProperties(Properties properties)
 
     if (properties & QueryRevision::Timestamp)
     {
-        if (buff.length())
+        if (!buff.isEmpty())
         {
             buff.append(QStringLiteral("|"));
         }
@@ -96,7 +98,7 @@ void QueryRevision::setProperties(Properties properties)
 
     if (properties & QueryRevision::User)
     {
-        if (buff.length())
+        if (!buff.isEmpty())
         {
             buff.append(QStringLiteral("|"));
         }
@@ -106,7 +108,7 @@ void QueryRevision::setProperties(Properties properties)
 
     if (properties & QueryRevision::Comment)
     {
-        if (buff.length())
+        if (!buff.isEmpty())
         {
             buff.append(QStringLiteral("|"));
         }
@@ -116,7 +118,7 @@ void QueryRevision::setProperties(Properties properties)
 
     if (properties & QueryRevision::Size)
     {
-        if (buff.length())
+        if (!buff.isEmpty())
         {
             buff.append(QStringLiteral("|"));
         }
@@ -126,7 +128,7 @@ void QueryRevision::setProperties(Properties properties)
 
     if (properties & QueryRevision::Content)
     {
-        if (buff.length())
+        if (!buff.isEmpty())
         {
             buff.append(QStringLiteral("|"));
         }

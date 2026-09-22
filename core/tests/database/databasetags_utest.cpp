@@ -95,7 +95,7 @@ void DatabaseTagsTest::initTestCase()
     QVERIFY2(dbChangeGood, "Could not set temp album db");
 
     QList<CollectionLocation> locs = CollectionManager::instance()->allAvailableLocations();
-    QVERIFY2(locs.size(), "Failed to auto-create one collection in setDatabase");
+    QVERIFY2(!locs.isEmpty(), "Failed to auto-create one collection in setDatabase");
 
     ScanController::instance()->completeCollectionScan();
     AlbumManager::instance()->startScan();
@@ -113,7 +113,7 @@ void DatabaseTagsTest::initTestCase()
         }
     }
 
-    QVERIFY2( all.size() == 3, "Failed to scan empty directory. We must have one root album, one album, and one trash.");
+    QVERIFY2(all.size() == 3, "Failed to scan empty directory. We must have one root album, one album, and one trash.");
 }
 
 void DatabaseTagsTest::cleanupTestCase()
