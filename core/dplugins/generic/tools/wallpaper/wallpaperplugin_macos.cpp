@@ -44,12 +44,12 @@ bool WallpaperPlugin::setWallpaper(const QString& path, int layout) const
     QStringList args;
     args << QLatin1String("-e");
     args << QLatin1String("tell application \"System Events\"");
-    args << QLatin1String("-e");
-    args << QLatin1String("tell current desktop");
-    args << QLatin1String("-e");
-    args << QString::fromUtf8("set picture to POSIX file \"%1\"").arg(path);
-    args << QLatin1String("-e");
-    args << QLatin1String("end tell");
+        args << QLatin1String("-e");
+        args << QLatin1String("tell current desktop");
+            args << QLatin1String("-e");
+            args << QString::fromUtf8("set picture to POSIX file \"%1\"").arg(path);
+        args << QLatin1String("-e");
+        args << QLatin1String("end tell");
     args << QLatin1String("-e");
     args << QLatin1String("end tell");
     args << QLatin1String("-e");
