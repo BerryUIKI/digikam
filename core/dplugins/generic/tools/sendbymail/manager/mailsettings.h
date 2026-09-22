@@ -35,7 +35,7 @@ class MailSettings
 public:
 
     /**
-     * Images selection mode
+     * @brief Images selection mode
      */
     enum Selection
     {
@@ -68,7 +68,7 @@ public:
     ~MailSettings() = default;
 
     /**
-     * Read and write settings in config file between sessions.
+     * @brief Read and write settings in config file between sessions.
      */
     void  readSettings(const KConfigGroup& group);
     void  writeSettings(KConfigGroup& group);
@@ -76,7 +76,7 @@ public:
     QString format()           const;
 
     /**
-     * Return the attachment limit in bytes
+     * @return the attachment limit in bytes
      */
     qint64  attachementLimit() const;
 
@@ -84,16 +84,16 @@ public:
     QUrl mailUrl(const QUrl& orgUrl) const;
 
     /**
-     * Helper methods to fill combobox from GUI.
+     * @brief Helper methods to fill combobox from GUI.
      */
     static QMap<MailClient,  QString> mailClientNames();
     static QMap<ImageFormat, QString> imageFormatNames();
 
 public:
 
-    Selection                 selMode           = IMAGES;    ///< Items selection mode
+    Selection                 selMode           = IMAGES;       ///< Items selection mode
 
-    QList<QUrl>               inputImages;      ///< Selected items to send.
+    QList<QUrl>               inputImages;                      ///< Selected items to send.
 
     bool                      addFileProperties = false;
     bool                      imagesChangeProp  = false;
@@ -112,9 +112,9 @@ public:
 
     ImageFormat               imageFormat       = JPEG;
 
-    QMap<QUrl, QUrl>          itemsList;        ///< Map of original item and attached item (can be resized).
+    QMap<QUrl, QUrl>          itemsList;                        ///< Map of original item and attached item (can be resized).
 
-    QMap<MailClient, QString> binPaths;         ///< Map of paths for all mail clients.
+    QMap<MailClient, QString> binPaths;                         ///< Map of paths for all mail clients.
 };
 
 } // namespace DigikamGenericSendByMailPlugin

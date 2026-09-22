@@ -40,6 +40,8 @@ public:
         }
     }
 
+public:
+
     bool             albumSupport   = false;
     QWidget*         albumSelector  = nullptr;
     MailWizard*      wizard         = nullptr;

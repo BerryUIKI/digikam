@@ -58,6 +58,8 @@ public:
         }
     }
 
+public:
+
     DHistoryView*     progressView  = nullptr;
     DProgressWdg*     progressBar   = nullptr;
     bool              complete      = false;

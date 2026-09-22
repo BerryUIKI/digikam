@@ -49,6 +49,8 @@ public:
 
     explicit Private() = default;
 
+public:
+
     DInfoInterface*     iface           = nullptr;
     MailIntroPage*      introPage       = nullptr;
     MailAlbumsPage*     albumsPage      = nullptr;

@@ -58,6 +58,8 @@ public:
         }
     }
 
+public:
+
     QComboBox*      mailAgentName       = nullptr;
     QComboBox*      imageFormat         = nullptr;
 

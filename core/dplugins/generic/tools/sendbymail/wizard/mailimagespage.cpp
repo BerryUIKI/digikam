@@ -47,6 +47,8 @@ public:
         }
     }
 
+public:
+
     DItemsList*     imageList   = nullptr;
     MailWizard*     wizard      = nullptr;
     DInfoInterface* iface       = nullptr;

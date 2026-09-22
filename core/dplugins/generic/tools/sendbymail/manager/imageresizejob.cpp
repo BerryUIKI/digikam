@@ -93,6 +93,7 @@ bool ImageResizeJob::imageResize(MailSettings* const settings,
     if (!fi.exists() || !fi.isReadable())
     {
         err = i18n("Error opening input file");
+
         return false;
     }
 
@@ -104,6 +105,7 @@ bool ImageResizeJob::imageResize(MailSettings* const settings,
     if (!tmpDir.exists() || !tmpDir.isWritable())
     {
         err = i18n("Error opening temporary folder");
+
         return false;
     }
 
@@ -127,6 +129,7 @@ bool ImageResizeJob::imageResize(MailSettings* const settings,
             if ((scaledImg.width() > sizeFactor) || (scaledImg.height() > sizeFactor))
             {
                 err = i18n("Cannot resize image. Aborting.");
+
                 return false;
             }
 
@@ -140,6 +143,7 @@ bool ImageResizeJob::imageResize(MailSettings* const settings,
             if (!img.save(destName, settings->format()))
             {
                 err = i18n("Cannot save resized image (JPEG). Aborting.");
+
                 return false;
             }
         }
@@ -148,6 +152,7 @@ bool ImageResizeJob::imageResize(MailSettings* const settings,
             if (!img.save(destName, settings->format()))
             {
                 err = i18n("Cannot save resized image (PNG). Aborting.");
+
                 return false;
             }
         }
