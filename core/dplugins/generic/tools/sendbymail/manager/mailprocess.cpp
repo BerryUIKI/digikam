@@ -450,7 +450,8 @@ bool MailProcess::invokeMailAgent()
         {
             QString prog = QDir::toNativeSeparators(d->settings->binPaths[d->settings->mailProgram]);
 
-            if (prog.isEmpty())
+            if (prog.isEmpty() && (d->settings->mailProgram != MailSettings::APPLEMAIL))
+)
             {
                 qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Mail binary path is empty."
                                                      << "Cannot start Mail client program!";
@@ -691,9 +692,6 @@ bool MailProcess::invokeMailAgent()
                     args << QLatin1String("-e");
                     args << QLatin1String("end tell");
 
-                    args << QLatin1String("-e");
-                    args << QLatin1String("return");
-
                     int ret = QProcess::execute(QLatin1String("/usr/bin/osascript"), args);
 
                     if ((ret == -1) || (ret == 2))
@@ -701,7 +699,7 @@ bool MailProcess::invokeMailAgent()
                         QMessageBox::warning(nullptr,
                                              i18nc("@title:window",
                                                    "Error While to Send Items by mail"),
-                                             i18nc("@info", "Cannot send items using native Apple MAil application"));
+                                             i18nc("@info", "Cannot send items using native Apple Mail application"));
 
                         return false;
                     }
