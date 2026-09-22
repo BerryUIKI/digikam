@@ -97,7 +97,7 @@ cmake --build . --config RelWithDebInfo --target ext_kguiaddons          -- -j$C
 cmake --build . --config RelWithDebInfo --target ext_kwidgetsaddons      -- -j$CPU_CORES
 cmake --build . --config RelWithDebInfo --target ext_kitemviews          -- -j$CPU_CORES
 cmake --build . --config RelWithDebInfo --target ext_kcompletion         -- -j$CPU_CORES
-cmake --build . --config RelWithDebInfo --target ext_kcolorscheme           -- -j$CPU_CORES
+cmake --build . --config RelWithDebInfo --target ext_kcolorscheme        -- -j$CPU_CORES
 cmake --build . --config RelWithDebInfo --target ext_kconfigwidgets      -- -j$CPU_CORES
 cmake --build . --config RelWithDebInfo --target ext_kiconthemes         -- -j$CPU_CORES
 cmake --build . --config RelWithDebInfo --target ext_kservice            -- -j$CPU_CORES

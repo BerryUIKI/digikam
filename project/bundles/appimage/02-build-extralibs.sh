@@ -83,12 +83,7 @@ cmake --build . --config RelWithDebInfo --target ext_kguiaddons                 
 cmake --build . --config RelWithDebInfo --target ext_kwidgetsaddons             -- -j$CPU_CORES
 cmake --build . --config RelWithDebInfo --target ext_kitemviews                 -- -j$CPU_CORES
 cmake --build . --config RelWithDebInfo --target ext_kcompletion                -- -j$CPU_CORES
-
-if [[ $DK_QTVERSION == 6 ]] ; then
-
-    cmake --build . --config RelWithDebInfo --target ext_kcolorscheme           -- -j$CPU_CORES
-
-fi
+cmake --build . --config RelWithDebInfo --target ext_kcolorscheme               -- -j$CPU_CORES
 
 cmake --build . --config RelWithDebInfo --target ext_kconfigwidgets             -- -j$CPU_CORES
 cmake --build . --config RelWithDebInfo --target ext_kiconthemes                -- -j$CPU_CORES
@@ -109,13 +104,9 @@ cmake --build . --config RelWithDebInfo --target ext_sonnet                     
 cmake --build . --config RelWithDebInfo --target ext_ktextwidgets               -- -j$CPU_CORES
 
 # libksane support
-if [[ $DK_QTVERSION == 6 ]] ; then
-
-    cmake --build . --config RelWithDebInfo --target ext_qca                    -- -j$CPU_CORES
-    cmake --build . --config RelWithDebInfo --target ext_kwallet                -- -j$CPU_CORES
-    cmake --build . --config RelWithDebInfo --target ext_ksanecore              -- -j$CPU_CORES
-
-fi
+cmake --build . --config RelWithDebInfo --target ext_qca                        -- -j$CPU_CORES
+cmake --build . --config RelWithDebInfo --target ext_kwallet                    -- -j$CPU_CORES
+cmake --build . --config RelWithDebInfo --target ext_ksanecore                  -- -j$CPU_CORES
 
 cmake --build . --config RelWithDebInfo --target ext_libksane                   -- -j$CPU_CORES
 

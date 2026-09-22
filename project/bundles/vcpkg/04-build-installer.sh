@@ -130,20 +130,20 @@ mkdir -p $BUNDLEDIR/translations
 # Data files ---------------------------------------------------------------------------------
 
 echo -e "\n---------- Generics data"
-cp -r $VCPKG_INSTALL_PREFIX/share/lensfun                                 $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/lensfun                             $BUNDLEDIR/data                       2>/dev/null
 
-cp -r $VCPKG_INSTALL_PREFIX/share/digikam                                 $BUNDLEDIR/data                       2>/dev/null
-cp -r $VCPKG_INSTALL_PREFIX/share/showfoto                                $BUNDLEDIR/data                       2>/dev/null
-cp -r $VCPKG_INSTALL_PREFIX/share/solid                                   $BUNDLEDIR/data                       2>/dev/null
-cp -r $VCPKG_INSTALL_PREFIX/share/kxmlgui5                                $BUNDLEDIR/data                       2>/dev/null
-cp -r $VCPKG_INSTALL_PREFIX/share/knotifications6                         $BUNDLEDIR/data                       2>/dev/null
-cp -r $VCPKG_INSTALL_PREFIX/share/applications                            $BUNDLEDIR/data                       2>/dev/null
-cp -r $VCPKG_INSTALL_PREFIX/share/Qt6/resources                           $BUNDLEDIR/                           2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/digikam                             $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/showfoto                            $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/solid                               $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/kxmlgui5                            $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/knotifications6                     $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/applications                        $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/Qt6/resources                       $BUNDLEDIR/                           2>/dev/null
 
-cp -r $VCPKG_INSTALL_PREFIX/bin/data/k*                                   $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/bin/data/k*                               $BUNDLEDIR/data                       2>/dev/null
 
 echo -e "\n---------- Qt config"
-cp    $BUILDDIR/data/qt.conf                                              $BUNDLEDIR/                           2>/dev/null
+cp    $BUILDDIR/data/qt.conf                                          $BUNDLEDIR/                           2>/dev/null
 
 echo -e "\n---------- icons-set"
 
@@ -169,14 +169,14 @@ rm -fr $BUNDLEDIR/translations/designer*.qm
 rm -fr $BUNDLEDIR/translations/linguist*.qm
 rm -fr $BUNDLEDIR/translations/qt_help*.qm
 # KDE framework translations
-cp -r $VCPKG_INSTALL_PREFIX/bin/data/locale                               $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/bin/data/locale                           $BUNDLEDIR/data                       2>/dev/null
 # digiKam translations
-cp -r $VCPKG_INSTALL_PREFIX/share/locale                                  $BUNDLEDIR/data                       2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/share/locale                              $BUNDLEDIR/data                       2>/dev/null
 
 # See bug 471058
 echo -e "\n---------- Freedesktop"
-mkdir -p $BUNDLEDIR/share/mime/packages/                                                                        2>/dev/null
-cp -r  $ORIG_WD/data/freedesktop.org.xml                                  $BUNDLEDIR/share/mime/packages        2>/dev/null
+mkdir -p $BUNDLEDIR/share/mime/packages/                                                                    2>/dev/null
+cp -r  $ORIG_WD/data/freedesktop.org.xml                              $BUNDLEDIR/share/mime/packages        2>/dev/null
 
 echo -e "\n---------- Copy Git Revisions Manifest"
 

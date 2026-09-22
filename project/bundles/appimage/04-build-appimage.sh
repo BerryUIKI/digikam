@@ -109,57 +109,30 @@ cp -r /usr/share/showfoto                                 ./usr/share
 
 # See https://bugs.kde.org/show_bug.cgi?id=487799#c54
 
-if [[ $DK_QTVERSION = 6 ]] ; then
-
-    cp /usr/share/icons/breeze/breeze-icons.rcc           ./usr/share/digikam/breeze.rcc
-
-else
-
-    cp $ORIG_WD/../common/breeze.rcc                      ./usr/share/digikam/breeze.rcc
-    cp $ORIG_WD/../common/breeze-dark.rcc                 ./usr/share/digikam/breeze-dark.rcc
-
-fi
+cp /usr/share/icons/breeze/breeze-icons.rcc           ./usr/share/digikam/breeze.rcc
 
 cd $APP_IMG_DIR/usr/share/showfoto
 ln -s ../digikam/breeze.rcc                               breeze.rcc
-
-if [[ $DK_QTVERSION = 5 ]] ; then
-
-    ln -s ../digikam/breeze-dark.rcc                      breeze-dark.rcc
-
-fi
 
 cd $APP_IMG_DIR
 cp $ORIG_WD/data/qt.conf                                  ./usr/bin
 cp -r /usr/lensfun                                        ./usr/share
 
-if [[ $DK_QTVERSION == 5 ]] ; then
+cp -r /usr/share/knotifications6                          ./usr/share
 
-    cp -r /usr/share/knotifications5                      ./usr/share
-    cp -r /usr/share/kservices5                           ./usr/share
-    cp -r /usr/share/kservicetypes5                       ./usr/share
-    cp -r /usr/share/kxmlgui5                             ./usr/share
-    cp -r /usr/share/kf5                                  ./usr/share
+# Not available with KF6
 
-else
+cp -r /usr/share/kservices6                               ./usr/share  || true
+cp -r /usr/share/kservicetypes6                           ./usr/share  || true
 
-    cp -r /usr/share/knotifications6                      ./usr/share
+# KF6 still use kxmlgui5 subdir.
 
-    # Not available with KF6
+cp -r /usr/share/kxmlgui5                                 ./usr/share
+cp -r /usr/share/kf6                                      ./usr/share
 
-    cp -r /usr/share/kservices6                           ./usr/share  || true
-    cp -r /usr/share/kservicetypes6                       ./usr/share  || true
+# WHY it's necessary, else application menu are broken...
 
-    # KF6 still use kxmlgui5 subdir.
-
-    cp -r /usr/share/kxmlgui5                             ./usr/share
-    cp -r /usr/share/kf6                                  ./usr/share
-
-    # WHY it's necessary, else application menu are broken...
-
-    ln -s ./kxmlgui6                                      ./usr/share/kxmlgui5
-
-fi
+ln -s ./kxmlgui6                                          ./usr/share/kxmlgui5
 
 cp -r /usr/share/solid                                    ./usr/share
 cp -r /usr/share/icu                                      ./usr/share
@@ -179,17 +152,8 @@ cp -r /usr/share/opencv4                                  ./usr/share  || true
 
 cp -r /usr/share/dbus-1/services/*kde*                    ./usr/share/dbus-1/services/
 
-if [[ $DK_QTVERSION == 5 ]] ; then
-
-    cp -r /usr/share/dbus-1/interfaces/kf5*               ./usr/share/dbus-1/interfaces/
-    cp -r /usr/${LIBSUFFIX}/libexec/kf5                   ./usr/lib/libexec/
-
-else
-
-    cp -r /usr/share/dbus-1/interfaces/kf6*               ./usr/share/dbus-1/interfaces/
-    cp -r /usr/${LIBSUFFIX}/libexec/kf6                   ./usr/lib/libexec/
-
-fi
+cp -r /usr/share/dbus-1/interfaces/kf6*                   ./usr/share/dbus-1/interfaces/
+cp -r /usr/${LIBSUFFIX}/libexec/kf6                       ./usr/lib/libexec/
 
 echo -e "------------- Copy AppImage stream data files\n"
 
@@ -323,17 +287,8 @@ echo -e "---------- Copy target binaries\n"
 cp /usr/bin/digikam                 ./usr/bin
 cp /usr/bin/showfoto                ./usr/bin
 
-if [[ $DK_QTVERSION == 5 ]] ; then
-
-    cp /usr/bin/kbuildsycoca5       ./usr/bin
-    cp /usr/bin/solid-hardware5     ./usr/bin
-
-else
-
-    cp /usr/bin/kbuildsycoca6       ./usr/bin
-    cp /usr/bin/solid-hardware6     ./usr/bin
-
-fi
+cp /usr/bin/kbuildsycoca6           ./usr/bin
+cp /usr/bin/solid-hardware6         ./usr/bin
 
 echo -e "------------- Copy QtWebEngine runtime process\n"
 
@@ -573,15 +528,7 @@ cd usr/ ; find . -type f -exec sed -i -e 's|/usr|././|g' {} \; ; cd ..
 
 sed -i -e 's|././/share/X11/|/usr/share/X11/|g' ./usr/plugins/platforminputcontexts/libcomposeplatforminputcontextplugin.so
 
-if [[ $DK_QTVERSION == 6 ]] ; then
-
-    sed -i -e 's|././/share/X11/|/usr/share/X11/|g' ./usr/lib/libQt6XcbQpa.so.6
-
-else
-
-    sed -i -e 's|././/share/X11/|/usr/share/X11/|g' ./usr/lib/libQt5XcbQpa.so.5
-
-fi
+sed -i -e 's|././/share/X11/|/usr/share/X11/|g' ./usr/lib/libQt6XcbQpa.so.6
 
 #################################################################################################
 # Install ExifTool binary.
@@ -625,15 +572,7 @@ else
 
 fi
 
-if [[ $DK_QTVERSION == 5 ]] ; then
-
-    QT_SUF="-Qt5"
-
-else
-
-    QT_SUF="-Qt6"
-
-fi
+QT_SUF="-Qt6"
 
 APPIMAGE=$APP"-"$DK_RELEASEID$DK_SUBVER"$QT_SUF-x86-64$DEBUG_SUF.appimage"
 
@@ -672,11 +611,11 @@ cp /usr/share/icons/hicolor/256x256/apps/showfoto.png   ./showfoto.png
 cp /usr/share/icons/hicolor/256x256/apps/digikam.png    ./.DirIcon
 
 mkdir -p $APP_IMG_DIR/usr/share/icons/default/128x128/apps
-cp -r /usr/share/icons/hicolor/128x128/apps/digikam.png ./usr/share/icons/default/128x128/apps/digikam.png
+cp -r /usr/share/icons/hicolor/128x128/apps/digikam.png  ./usr/share/icons/default/128x128/apps/digikam.png
 cp -r /usr/share/icons/hicolor/128x128/apps/showfoto.png ./usr/share/icons/default/128x128/apps/showfoto.png
 
 mkdir -p $APP_IMG_DIR/usr/share/icons/default/128x128/mimetypes
-cp -r /usr/share/icons/hicolor/128x128/apps/digikam.png ./usr/share/icons/default/128x128/mimetypes/application-vnd.digikam.png
+cp -r /usr/share/icons/hicolor/128x128/apps/digikam.png  ./usr/share/icons/default/128x128/mimetypes/application-vnd.digikam.png
 cp -r /usr/share/icons/hicolor/128x128/apps/showfoto.png ./usr/share/icons/default/128x128/mimetypes/application-vnd.showfoto.png
 
 mkdir -p $ORIG_WD/bundle

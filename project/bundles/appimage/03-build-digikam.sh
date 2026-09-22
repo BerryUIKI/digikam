@@ -127,17 +127,8 @@ echo "---------- Configure digiKam $DK_VERSION"
 #export CC=/usr/bin/clang
 #export CXX=/usr/bin/clang++
 
-if [[ $DK_QTVERSION == 5 ]] ; then
-
-    echo "Build digiKam with Qt5"
-    BUILD_WITH_QT6=OFF
-
-else
-
-    echo "Build digiKam with Qt6"
-    BUILD_WITH_QT6=ON
-
-fi
+echo "Build digiKam with Qt6"
+BUILD_WITH_QT6=ON
 
 cmake -G "Unix Makefiles" .. \
       -DCMAKE_BUILD_TYPE=RelWithDebInfo \
