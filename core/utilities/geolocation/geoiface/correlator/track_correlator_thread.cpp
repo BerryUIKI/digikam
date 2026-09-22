@@ -55,6 +55,8 @@ void TrackCorrelatorThread::run()
         currentIndices << 0;
     }
 
+    TrackCorrelator::Correlation::List readyItems;
+
     for (TrackCorrelator::Correlation::List::iterator it = itemsToCorrelate.begin() ; it != itemsToCorrelate.end() ; ++it)
     {
         if (doCancel)
@@ -75,7 +77,7 @@ void TrackCorrelatorThread::run()
         QPair<int, int>                    lastIndexPair;
         QDateTime                          firstBiggerTime;
         QPair<int, int>                    firstIndexPair;
-        TrackCorrelator::Correlation::List readyItems;
+        readyItems.clear();
 
         for (int f = 0 ; f < nFiles ; ++f)
         {

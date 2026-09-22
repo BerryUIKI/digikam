@@ -108,6 +108,8 @@ bool TemplateManager::load()
         return false;
     }
 
+    QStringList list;
+
     for (QDomNode n = docElem.firstChild() ; !n.isNull() ; n = n.nextSibling())
     {
         QDomElement e = n.toElement();
@@ -125,8 +127,8 @@ bool TemplateManager::load()
         Template               t;
         IptcCoreLocationInfo   locationInf;
         IptcCoreContactInfo    contactInf;
-        QStringList            list;
         MetaEngine::AltLangMap altLang;
+        list.clear();
 
         for (QDomNode n2 = e.firstChild() ; !n2.isNull() ; n2 = n2.nextSibling())
         {
