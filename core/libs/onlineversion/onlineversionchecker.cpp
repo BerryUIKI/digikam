@@ -321,18 +321,16 @@ bool OnlineVersionChecker::bundleProperties(QString& arch, QString& ext,
 #if defined Q_OS_MACOS
 
     ext       = QLatin1String("pkg");
+    qtVersion = QLatin1String("Qt6");
+    dir       = QLatin1String("/");
 
 #   if defined Q_PROCESSOR_X86_64
 
     arch      = QLatin1String("x86-64");
-    qtVersion = QLatin1String("Qt5");
-    dir       = QLatin1String("/legacy");
 
 #   elif defined Q_PROCESSOR_ARM
 
     arch      = QLatin1String("arm64");
-    qtVersion = QLatin1String("Qt6");
-    dir       = QLatin1String("/");
 
 #   endif
 
