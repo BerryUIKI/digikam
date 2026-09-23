@@ -25,10 +25,6 @@
 
 // KDE includes
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#   include <ksane_version.h>
-#endif
-
 namespace DigikamGenericDScannerPlugin
 {
 
@@ -43,21 +39,7 @@ public:
 
     void setTargetFile(const QUrl& url, const QString& format);
     void setScannerModel(const QString& make, const QString& model);
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     void setImageData(const QImage& imageData);
-
-#elif KSANE_VERSION < QT_VERSION_CHECK(21,8,0)
-
-    void setImageData(const QByteArray& ksaneData, int width, int height,
-                      int bytesPerLine, int ksaneFormat);
-
-#else
-
-    void setImageData(const QImage& imageData);
-
-#endif
 
 Q_SIGNALS:
 

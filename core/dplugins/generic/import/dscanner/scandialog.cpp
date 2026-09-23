@@ -80,22 +80,8 @@ ScanDialog::ScanDialog(KSaneWidget* const saneWdg, QWidget* const parent)
 
     // ------------------------------------------------------------------------
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     connect(d->saneWidget, &KSaneWidget::scannedImageReady,
             this, &ScanDialog::slotSaveImage);
-
-#elif KSANE_VERSION < QT_VERSION_CHECK(21,8,0)
-
-    connect(d->saneWidget, &KSaneWidget::imageReady,
-            this, &ScanDialog::slotSaveImage);
-
-#else
-
-    connect(d->saneWidget, &KSaneWidget::scannedImageReady,
-            this, &ScanDialog::slotSaveImage);
-
-#endif
 
     connect(this, &QDialog::finished,
             this, &ScanDialog::slotDialogFinished);
@@ -130,21 +116,7 @@ void ScanDialog::slotDialogFinished()
     d->saneWidget->closeDevice();
 }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
 void ScanDialog::slotSaveImage(const QImage& image_data)
-
-#elif KSANE_VERSION < QT_VERSION_CHECK(21,8,0)
-
-// cppcheck-suppress constParameterCallback
-void ScanDialog::slotSaveImage(QByteArray& ksane_data, int width, int height, int bytes_per_line, int ksaneformat)
-
-#else
-
-void ScanDialog::slotSaveImage(const QImage& image_data)
-
-#endif
-
 {
     QStringList writableMimetypes;
     QList<QByteArray> supported = QImageWriter::supportedMimeTypes();
@@ -275,23 +247,8 @@ void ScanDialog::slotSaveImage(const QImage& image_data)
     connect(thread, &SaveImgThread::signalComplete,
             this, &ScanDialog::slotThreadDone);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     thread->setImageData(image_data);
     thread->setScannerModel(d->saneWidget->deviceVendor(), d->saneWidget->deviceModel());
-
-#elif KSANE_VERSION < QT_VERSION_CHECK(21,8,0)
-
-    thread->setImageData(ksane_data, width, height, bytes_per_line, ksaneformat);
-    thread->setScannerModel(d->saneWidget->make(), d->saneWidget->model());
-
-#else
-
-    thread->setImageData(image_data);
-    thread->setScannerModel(d->saneWidget->deviceVendor(), d->saneWidget->deviceModel());
-
-#endif
-
     thread->setTargetFile(newURL, format);
     thread->start();
 }

@@ -24,10 +24,6 @@
 
 #include <ksanewidget.h>
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#   include <ksane_version.h>
-#endif
-
 // Local includes
 
 #include "dplugindialog.h"
@@ -59,20 +55,7 @@ Q_SIGNALS:
 
 private Q_SLOTS:
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     void slotSaveImage(const QImage&);
-
-#elif KSANE_VERSION < QT_VERSION_CHECK(21,8,0)
-
-    void slotSaveImage(QByteArray&, int, int, int, int);
-
-#else
-
-    void slotSaveImage(const QImage&);
-
-#endif
-
     void slotThreadProgress(const QUrl&, int);
     void slotThreadDone(const QUrl&, bool);
     void slotDialogFinished();
