@@ -23,25 +23,13 @@ class Q_DECL_HIDDEN AbstractCheckableAlbumModel::Private
 {
 public:
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
-
     Private()
-        : extraFlags                          (),                       // why this difference between Qt5 and 6 ?
+        : extraFlags                          (),
           staticVectorContainingCheckStateRole(1, Qt::CheckStateRole)
-
     {
     }
 
-#else
-
-    Private()
-        : extraFlags                          (nullptr),
-          staticVectorContainingCheckStateRole(1, Qt::CheckStateRole)
-
-    {
-    }
-
-#endif
+public:
 
     Qt::ItemFlags                 extraFlags;
     bool                          rootIsCheckable       = true;
@@ -49,7 +37,7 @@ public:
     bool                          recursive             = false;
     QHash<Album*, Qt::CheckState> checkedAlbums;
 
-    QVector<int> staticVectorContainingCheckStateRole;
+    QVector<int>                  staticVectorContainingCheckStateRole;
 };
 
 AbstractCheckableAlbumModel::AbstractCheckableAlbumModel(Album::Type albumType,

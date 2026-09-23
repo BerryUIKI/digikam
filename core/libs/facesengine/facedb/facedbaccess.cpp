@@ -61,17 +61,7 @@ FaceDbAccessStaticPriv* FaceDbAccess::d = nullptr;
 // -----------------------------------------------------------------------------
 
 class Q_DECL_HIDDEN FaceDbAccessMutexLocker
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     : public QMutexLocker<QRecursiveMutex>
-
-#else
-
-    : public QMutexLocker
-
-#endif
-
 {
 public:
 

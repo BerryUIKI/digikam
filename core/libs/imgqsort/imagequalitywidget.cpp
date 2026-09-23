@@ -348,17 +348,8 @@ void ImageQualityWidget::setupUi()
     connect(d->detectCompression, SIGNAL(toggled(bool)),
             d->setCompressionWeight, SLOT(setEnabled(bool)));
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
-
     connect(d->detectButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked),
             this, &ImageQualityWidget::slotDisableOptionViews);
-
-#else
-
-    connect(d->detectButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked),
-            this, &ImageQualityWidget::slotDisableOptionViews);
-
-#endif
 
     if (SettingsDisplayMode::BQM == d->displayMode)
     {

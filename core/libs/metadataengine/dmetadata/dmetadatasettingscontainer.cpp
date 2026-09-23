@@ -31,19 +31,9 @@ namespace Digikam
 
 static const struct NameSpaceDefinition
 {
-    NamespaceEntry::NamespaceType type    = NamespaceEntry::TAGS;
-
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
+    NamespaceEntry::NamespaceType type = NamespaceEntry::TAGS;
 
     const KLazyLocalizedString    title;
-
-#else
-
-    const char*                   context = nullptr;
-    const char*                   title   = nullptr;
-
-#endif
-
 }
 namespaceTitleDefinitions[] =
 {
@@ -75,92 +65,32 @@ namespaceTitleDefinitions[] =
 
 QString NamespaceEntry::DM_TAG_CONTAINER()
 {
-
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
-
     return QString::fromUtf8(namespaceTitleDefinitions[NamespaceEntry::TAGS].title.untranslatedText());
-
-#else
-
-    return QString::fromUtf8(namespaceTitleDefinitions[NamespaceEntry::TAGS].title);
-
-#endif
-
 }
 
 QString NamespaceEntry::DM_TITLE_CONTAINER()
 {
-
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
-
     return QString::fromUtf8(namespaceTitleDefinitions[NamespaceEntry::TITLE].title.untranslatedText());
-
-#else
-
-    return QString::fromUtf8(namespaceTitleDefinitions[NamespaceEntry::TITLE].title);
-
-#endif
-
 }
 
 QString NamespaceEntry::DM_RATING_CONTAINER()
 {
-
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
-
     return QString::fromUtf8(namespaceTitleDefinitions[NamespaceEntry::RATING].title.untranslatedText());
-
-#else
-
-    return QString::fromUtf8(namespaceTitleDefinitions[NamespaceEntry::RATING].title);
-
-#endif
-
 }
 
 QString NamespaceEntry::DM_COMMENT_CONTAINER()
 {
-
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
-
     return QString::fromUtf8(namespaceTitleDefinitions[NamespaceEntry::COMMENT].title.untranslatedText());
-
-#else
-
-    return QString::fromUtf8(namespaceTitleDefinitions[NamespaceEntry::COMMENT].title);
-
-#endif
-
 }
 
 QString NamespaceEntry::DM_PICKLABEL_CONTAINER()
 {
-
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
-
     return QString::fromUtf8(namespaceTitleDefinitions[NamespaceEntry::PICKLABEL].title.untranslatedText());
-
-#else
-
-    return QString::fromUtf8(namespaceTitleDefinitions[NamespaceEntry::PICKLABEL].title);
-
-#endif
-
 }
 
 QString NamespaceEntry::DM_COLORLABEL_CONTAINER()
 {
-
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
-
     return QString::fromUtf8(namespaceTitleDefinitions[NamespaceEntry::COLORLABEL].title.untranslatedText());
-
-#else
-
-    return QString::fromUtf8(namespaceTitleDefinitions[NamespaceEntry::COLORLABEL].title);
-
-#endif
-
 }
 
 // ------------------------------------------------------------
@@ -794,8 +724,6 @@ void DMetadataSettingsContainer::writeOneGroup(KConfigGroup& group, const QStrin
 QString DMetadataSettingsContainer::translateMappingKey(const QString& key) const
 {
 
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
-
     if      (NamespaceEntry::DM_TAG_CONTAINER() == key)
     {
         return namespaceTitleDefinitions[NamespaceEntry::TAGS].title.toString();
@@ -820,41 +748,6 @@ QString DMetadataSettingsContainer::translateMappingKey(const QString& key) cons
     {
         return namespaceTitleDefinitions[NamespaceEntry::COLORLABEL].title.toString();
     }
-
-#else
-
-    if      (NamespaceEntry::DM_TAG_CONTAINER() == key)
-    {
-        return i18nc(namespaceTitleDefinitions[NamespaceEntry::TAGS].context,
-                     namespaceTitleDefinitions[NamespaceEntry::TAGS].title);
-    }
-    else if (NamespaceEntry::DM_TITLE_CONTAINER() == key)
-    {
-        return i18nc(namespaceTitleDefinitions[NamespaceEntry::TITLE].context,
-                     namespaceTitleDefinitions[NamespaceEntry::TITLE].title);
-    }
-    else if (NamespaceEntry::DM_RATING_CONTAINER() == key)
-    {
-        return i18nc(namespaceTitleDefinitions[NamespaceEntry::RATING].context,
-                     namespaceTitleDefinitions[NamespaceEntry::RATING].title);
-    }
-    else if (NamespaceEntry::DM_COMMENT_CONTAINER() == key)
-    {
-        return i18nc(namespaceTitleDefinitions[NamespaceEntry::COMMENT].context,
-                     namespaceTitleDefinitions[NamespaceEntry::COMMENT].title);
-    }
-    else if (NamespaceEntry::DM_PICKLABEL_CONTAINER() == key)
-    {
-        return i18nc(namespaceTitleDefinitions[NamespaceEntry::PICKLABEL].context,
-                     namespaceTitleDefinitions[NamespaceEntry::PICKLABEL].title);
-    }
-    else if (NamespaceEntry::DM_COLORLABEL_CONTAINER() == key)
-    {
-        return i18nc(namespaceTitleDefinitions[NamespaceEntry::COLORLABEL].context,
-                     namespaceTitleDefinitions[NamespaceEntry::COLORLABEL].title);
-    }
-
-#endif
 
     return key;
 }

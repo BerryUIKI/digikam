@@ -397,17 +397,8 @@ void ExifToolProcess::initExifTool()
     connect(this, &QProcess::started,
             this, &ExifToolProcess::slotStarted);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     connect(this, &QProcess::finished,
             this, &ExifToolProcess::slotFinished);
-
-#else
-
-    connect(this, QOverload<int, QProcess::ExitStatus>::of(&QProcess::finished),
-            this, &ExifToolProcess::slotFinished);
-
-#endif
 
     connect(this, &QProcess::errorOccurred,
             this, &ExifToolProcess::slotErrorOccurred);

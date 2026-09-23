@@ -256,19 +256,8 @@ bool FaceClassifier::retrain()
 
     d->trainingFuture.setFuture(QtConcurrent::run(
                                                   QThreadPool::globalInstance(),
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                                   &FaceClassifier::loadTrainingData,
                                                   this
-
-#else
-
-                                                  this,
-                                                  &FaceClassifier::loadTrainingData
-
-#endif
-
                                                  )
     );
 
@@ -679,19 +668,8 @@ int FaceClassifier::listSearch(const cv::Mat& target,
 {
     VotingGroups votes;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     for (const auto& [key, value] : identityFeatures.asKeyValueRange())
     {
-
-#else
-
-    for (const auto& key : identityFeatures.keys())
-    {
-        const auto& value = identityFeatures[key];
-
-#endif
-
         for (const cv::Mat& feature : std::as_const(value))
         {
             if (exclusionLabelList.contains(key))

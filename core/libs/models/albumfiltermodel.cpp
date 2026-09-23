@@ -527,33 +527,14 @@ bool AlbumFilterModel::lessThan(const QModelIndex& left, const QModelIndex& righ
         return QSortFilterProxyModel::lessThan(left, right);
     }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-    if ((valLeft.typeId() == QMetaType::QString) && (valRight.typeId() == QMetaType::QString))
-
-#else
-
-    if ((valLeft.type() == QVariant::String) && (valRight.type() == QVariant::String))
-
-#endif
-
+    if      ((valLeft.typeId() == QMetaType::QString) && (valRight.typeId() == QMetaType::QString))
     {
         const ItemSortCollator* const sorter = ItemSortCollator::instance();
         bool natural                         = ApplicationSettings::instance()->isStringTypeNatural();
 
         return (sorter->albumCompare(valLeft.toString(), valRight.toString(), sortCaseSensitivity(), natural) < 0);
     }
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     else if ((valLeft.typeId() == QMetaType::QDate) && (valRight.typeId() == QMetaType::QDate))
-
-#else
-
-    else if ((valLeft.type() == QVariant::Date) && (valRight.type() == QVariant::Date))
-
-#endif
-
     {
         return (compareByOrder(valLeft.toDate(), valRight.toDate(), Qt::AscendingOrder) < 0);
     }

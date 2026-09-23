@@ -31,12 +31,7 @@
 #include <kconfig.h>
 #include <kconfiggroup.h>
 #include <kservice_version.h>
-
-#if KSERVICE_VERSION > QT_VERSION_CHECK(5, 81, 0)
-#   include <kapplicationtrader.h>
-#else
-#   include <kmimetypetrader.h>
-#endif
+#include <kapplicationtrader.h>
 
 // Local includes
 
@@ -279,17 +274,7 @@ KService::List DServiceMenu::servicesForOpenWith(const QList<QUrl>& urls)
             constraints << constraintTemplate.arg(mimeType);
         }
 
-#if KSERVICE_VERSION > QT_VERSION_CHECK(5, 81, 0)
-
         offers = KApplicationTrader::queryByMimeType(firstMimeType);
-
-#else
-
-        offers = KMimeTypeTrader::self()->query(firstMimeType,
-                                                QLatin1String("Application"),
-                                                constraints.join(QLatin1String(" and ")));
-
-#endif
 
         // remove duplicate service entries
 
@@ -422,7 +407,7 @@ QIcon DServiceMenu::getIconFromService(const DServiceInfo& sinfo)
 {
     QIcon icon(QIcon::fromTheme(sinfo.icon));
 
-#if defined Q_OS_WIN && (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+#ifdef Q_OS_WIN
 
     if (icon.isNull())
     {

@@ -70,17 +70,8 @@ DNNFaceDetectorYuNet::DNNFaceDetectorYuNet()
         qCCritical(DIGIKAM_FACESENGINE_LOG) << "Failed to load YuNet model";
         std::runtime_error e("Failed to load YuNet model");
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         std::exception_ptr p = std::make_exception_ptr(e);
         QUnhandledException(p).raise();
-
-#else
-
-        QUnhandledException().raise();
-
-#endif
-
     }
 }
 

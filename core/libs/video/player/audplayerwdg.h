@@ -18,20 +18,7 @@
 
 #include <QWidget>
 #include <QString>
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-// QtMultimedia includes
-
-#   include <QMediaPlayer>
-
-#else
-
-// QtAVPlayer includes
-
-#   include "daudioplayer.h"
-
-#endif
+#include <QMediaPlayer>
 
 // Local includes
 
@@ -61,17 +48,8 @@ private Q_SLOTS:
     void slotTimeUpdaterTimeout(qint64);
     void slotSetVolume(int);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     void slotPlayerStateChanged(QMediaPlayer::PlaybackState);
     void slotPlayerError(QMediaPlayer::Error, const QString&);
-
-#else
-
-    void slotPlayerStateChanged(QAVPlayer::State);
-    void slotPlayerError(QAVPlayer::Error, const QString&);
-
-#endif
 
 private:
 

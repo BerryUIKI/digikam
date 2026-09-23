@@ -110,16 +110,7 @@ void ExifToolParser::cmdCompleted(const ExifToolProcess::Result& result)
                 QVariantMap propsMap = it.value().toMap();
                 QString data;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                 if (propsMap.find(QLatin1String("val")).value().typeId() == QMetaType::QVariantList)
-
-#else
-
-                if (propsMap.find(QLatin1String("val")).value().type() == QVariant::List)
-
-#endif
-
                 {
                     QStringList list = propsMap.find(QLatin1String("val")).value().toStringList();
                     data             = list.join(QLatin1String(", "));

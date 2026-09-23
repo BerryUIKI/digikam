@@ -26,12 +26,7 @@
 #include <QTime>
 #include <QUrl>
 #include <QMessageBox>
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-#   include <QAudioOutput>
-
-#endif
+#include <QAudioOutput>
 
 // KDE includes
 
@@ -56,15 +51,7 @@ public:
 
     QString  afile;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     QMediaPlayer* mediaObject = nullptr;
-
-#else
-
-    DAudioPlayer* mediaObject = nullptr;
-
-#endif
 
     QPushButton* playPauseBtn = nullptr;
     QPushButton* stopBtn      = nullptr;
@@ -79,9 +66,7 @@ AudPlayerWdg::AudPlayerWdg(QWidget* const parent)
     : QWidget(parent),
       d      (new Private)
 {
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-    d->mediaObject = new QMediaPlayer(this);
+    d->mediaObject               = new QMediaPlayer(this);
     d->mediaObject->setAudioOutput(new QAudioOutput(this));
 
     connect(d->mediaObject, SIGNAL(playbackStateChanged(QMediaPlayer::PlaybackState)),
@@ -93,23 +78,8 @@ AudPlayerWdg::AudPlayerWdg(QWidget* const parent)
     connect(d->mediaObject, SIGNAL(positionChanged(qint64)),
             this, SLOT(slotTimeUpdaterTimeout(qint64)));
 
-#else
-
-    d->mediaObject = new DAudioPlayer(this);
-
-    connect(d->mediaObject->player(), SIGNAL(stateChanged(QAVPlayer::State)),
-            this, SLOT(slotPlayerStateChanged(QAVPlayer::State)));
-
-    connect(d->mediaObject->player(), SIGNAL(errorOccurred(QAVPlayer::Error,QString)),
-            this, SLOT(slotPlayerError(QAVPlayer::Error,QString)));
-
-    connect(d->mediaObject, SIGNAL(positionChanged(qint64)),
-            this, SLOT(slotTimeUpdaterTimeout(qint64)));
-
-#endif
-
-    d->playPauseBtn = new QPushButton(QIcon::fromTheme(QLatin1String("media-playback-start")), QString(), this);
-    d->stopBtn      = new QPushButton(QIcon::fromTheme(QLatin1String("media-playback-stop")),  QString(), this);
+    d->playPauseBtn              = new QPushButton(QIcon::fromTheme(QLatin1String("media-playback-start")), QString(), this);
+    d->stopBtn                   = new QPushButton(QIcon::fromTheme(QLatin1String("media-playback-stop")),  QString(), this);
 
     d->elapsedTimeLabel          = new QLabel(this);
     DLineWidget* const separator = new DLineWidget(Qt::Vertical, this);
@@ -166,17 +136,7 @@ void AudPlayerWdg::slotSetVolume(int v)
 {
     if (d->mediaObject->audioOutput())
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         d->mediaObject->audioOutput()->setVolume(v / 100.0);
-
-#else
-
-        d->mediaObject->setVolume((qreal)v / 100.0);
-
-#endif
-
     }
 }
 
@@ -189,34 +149,12 @@ void AudPlayerWdg::slotPlay()
         return;
     }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     if (
         (d->mediaObject->playbackState() != QMediaPlayer::PlayingState) ||
         (d->mediaObject->playbackState() == QMediaPlayer::PausedState)
        )
-
-#else
-
-    if (
-        (d->mediaObject->state() != QAVPlayer::PlayingState) ||
-        (d->mediaObject->state() == QAVPlayer::PausedState)
-       )
-
-#endif
-
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         if (d->mediaObject->playbackState() != QMediaPlayer::PlayingState)
-
-#else
-
-        if (d->mediaObject->state() != QAVPlayer::PlayingState)
-
-#endif
-
         {
             d->mediaObject->setSource(QUrl::fromLocalFile(d->afile));
             d->mediaObject->play();
@@ -248,17 +186,7 @@ void AudPlayerWdg::slotStop()
 
 void AudPlayerWdg::slotTimeUpdaterTimeout(qint64 current)
 {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     if (d->mediaObject->error() != QMediaPlayer::NoError)
-
-#else
-
-    if (d->mediaObject->mediaStatus() == QAVPlayer::InvalidMedia)
-
-#endif
-
     {
         QMessageBox::warning(qApp->activeWindow(), qApp->applicationName(),
                              i18n("An error has occurred while playing: the media is not valid"));
@@ -282,8 +210,6 @@ void AudPlayerWdg::slotTimeUpdaterTimeout(qint64 current)
 
     d->elapsedTimeLabel->setText(elapsedTime.toString(QLatin1String("H:mm:ss")));
 }
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
 void AudPlayerWdg::slotPlayerError(QMediaPlayer::Error err, const QString& message)
 {
@@ -317,43 +243,6 @@ void AudPlayerWdg::slotPlayerStateChanged(QMediaPlayer::PlaybackState state)
         }
     }
 }
-
-#else
-
-void AudPlayerWdg::slotPlayerError(QAVPlayer::Error err, const QString& message)
-{
-    if (err != QAVPlayer::NoError)
-    {
-        QMessageBox::warning(qApp->activeWindow(), qApp->applicationName(),
-                             i18n("An error has occurred while playing: %1", message));
-    }
-}
-
-void AudPlayerWdg::slotPlayerStateChanged(QAVPlayer::State state)
-{
-    switch (state)
-    {
-        case QAVPlayer::PausedState:
-        case QAVPlayer::StoppedState:
-        {
-            d->playPauseBtn->setIcon(QIcon::fromTheme(QLatin1String("media-playback-start")));
-            break;
-        }
-
-        case QAVPlayer::PlayingState:
-        {
-            d->playPauseBtn->setIcon(QIcon::fromTheme(QLatin1String("media-playback-pause")));
-            break;
-        }
-
-        default:
-        {
-            break;
-        }
-    }
-}
-
-#endif
 
 void AudPlayerWdg::setZeroTime()
 {
