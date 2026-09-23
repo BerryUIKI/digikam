@@ -39,18 +39,9 @@ AutotagsClassifierBase::AutotagsClassifierBase(float _threshold, const QString& 
         qCCritical(DIGIKAM_AUTOTAGSENGINE_LOG) << "AutotagsClassifierBase Failed to load predefined classes from file:"
                                                << predefinedClassFile;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         std::runtime_error e("Failed to load predefined classes");
         std::exception_ptr p = std::make_exception_ptr(e);
         QUnhandledException(p).raise();
-
-#else
-
-        QUnhandledException().raise();
-
-#endif
-
     }
 }
 

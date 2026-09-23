@@ -211,17 +211,7 @@ void TagsManager::slotSaveTags()
     }
 
     QTextStream tagStream(&tagFile);
-
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-
-    // In Qt5 only. Qt6 uses UTF-8 by default.
-
-    tagStream.setCodec(QTextCodec::codecForName("UTF-8"));
-
-#endif
-
     QApplication::setOverrideCursor(Qt::WaitCursor);
-
     tagStream.setAutoDetectUnicode(true);
 
     QStringList sortedTagList;
@@ -323,17 +313,7 @@ void TagsManager::slotLoadTags()
     }
 
     QTextStream tagStream(&tagFile);
-
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-
-    // In Qt5 only. Qt6 uses UTF-8 by default.
-
-    tagStream.setCodec(QTextCodec::codecForName("UTF-8"));
-
-#endif
-
     QApplication::setOverrideCursor(Qt::WaitCursor);
-
     tagStream.setAutoDetectUnicode(true);
 
     QStringList tagPathList;

@@ -93,7 +93,7 @@ if(KF6FileMetaData_FOUND)
 
 endif()
 
-if(KPim${QT_VERSION_MAJOR}AkonadiContact_FOUND OR KPim${QT_VERSION_MAJOR}AkonadiContactCore_FOUND)
+if(KPim6AkonadiContact_FOUND OR KPim$6AkonadiContactCore_FOUND)
 
     set(DIGIKAMCORE_OBJECTS
         ${DIGIKAMCORE_OBJECTS}
@@ -365,18 +365,18 @@ if(KF6FileMetaData_FOUND)
 
 endif()
 
-if(KPim${QT_VERSION_MAJOR}AkonadiContact_FOUND)
+if(KPim6AkonadiContact_FOUND)
 
     target_link_libraries(digikamcore
                           PRIVATE
-                          KPim${QT_VERSION_MAJOR}::AkonadiContact
+                          KPim6::AkonadiContact
     )
 
-elseif(KPim${QT_VERSION_MAJOR}AkonadiContactCore_FOUND)
+elseif(KPim6AkonadiContactCore_FOUND)
 
     target_link_libraries(digikamcore
                           PRIVATE
-                          KPim${QT_VERSION_MAJOR}::AkonadiContactCore
+                          KPim6::AkonadiContactCore
     )
 
 endif()

@@ -82,17 +82,8 @@ TagCheckView::TagCheckView(QWidget* const parent, TagModel* const tagModel)
     d->toggleParentsAction->setData(Parents);
     d->toggleBothAction->setData(ChildrenAndParents);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     connect(d->toggleAutoAction, SIGNAL(actionTriggered(QAction*)),
             this, SLOT(toggleAutoActionSelected(QAction*)));
-
-#else
-
-    connect(d->toggleAutoAction, SIGNAL(triggered(QAction*)),
-            this, SLOT(toggleAutoActionSelected(QAction*)));
-
-#endif
 
     connect(albumModel(), SIGNAL(checkStateChanged(Album*,Qt::CheckState)),
             this, SLOT(slotCheckStateChange(Album*,Qt::CheckState)));

@@ -183,13 +183,7 @@ void TagCompleter::update(const QString& fragment)
     }
 
     d->model->appendColumn(items);
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     setModel(d->model);
-
-#endif
-
 }
 
 void TagCompleter::slotActivated(const QModelIndex& index)

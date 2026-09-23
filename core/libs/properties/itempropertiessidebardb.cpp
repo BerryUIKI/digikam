@@ -959,20 +959,9 @@ void ItemPropertiesSideBarDB::slotImageSelectionPropertiesInformation()
 
     d->selectionPropertiesTab->clear();
 
-    d->selectedItemsTask =
-        QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-                          &ItemPropertiesSideBarDB::calculateItemsMultithreaded, this
-
-#else
-
-                          this, &ItemPropertiesSideBarDB::calculateItemsMultithreaded
-
-#endif
-
-                         );
+    d->selectedItemsTask = QtConcurrent::run(
+                                             &ItemPropertiesSideBarDB::calculateItemsMultithreaded, this
+                                            );
 }
 
 void ItemPropertiesSideBarDB::calculateItemsMultithreaded()
