@@ -21,7 +21,7 @@ if(LibXml2_FOUND AND LibXslt_FOUND)
 
 endif()
 
-if(FLEX_FOUND AND BISON_FOUND AND KF${QT_VERSION_MAJOR}ThreadWeaver_FOUND)
+if(FLEX_FOUND AND BISON_FOUND AND KF6ThreadWeaver_FOUND)
 
     add_subdirectory(panorama)
 

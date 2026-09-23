@@ -88,16 +88,8 @@ if(KF${QT_VERSION_MAJOR}IconThemes_FOUND)
     target_link_libraries(digikam
                           PUBLIC
                           KF${QT_VERSION_MAJOR}::IconThemes
+                          KF${QT_VERSION_MAJOR}::IconWidgets
     )
-
-    if(Qt6_FOUND)
-
-        target_link_libraries(digikam
-                              PUBLIC
-                              KF${QT_VERSION_MAJOR}::IconWidgets
-        )
-
-    endif()
 
 endif()
 
@@ -119,11 +111,7 @@ if(ImageMagick_Magick++_FOUND)
 
 endif()
 
-if(Qt6_FOUND)
-    install(TARGETS digikam DESTINATION ${KDE_INSTALL_BINDIR})
-else()
-    install(TARGETS digikam ${INSTALL_TARGETS_DEFAULT_ARGS})
-endif()
+install(TARGETS digikam DESTINATION ${KDE_INSTALL_BINDIR})
 
 if(APPLE)
     install(FILES "$<TARGET_FILE:digikam>.dSYM" DESTINATION "${CMAKE_INSTALL_BINDIR}" CONFIGURATIONS Debug RelWithDebInfo)
@@ -145,14 +133,6 @@ if(WIN32)
     target_link_libraries(digikam_windows_stub_exe
                           PRIVATE
                           digikam)
-
-    if(NOT Qt6_FOUND)
-
-        target_link_libraries(digikam_windows_stub_exe
-                              PRIVATE
-                              Qt${QT_VERSION_MAJOR}::WinMain)
-
-    endif()
 
     set_target_properties(digikam_windows_stub_exe PROPERTIES OUTPUT_NAME "digikam")
     target_include_directories(digikam_windows_stub_exe PRIVATE ${CMAKE_CURRENT_SOURCE_DIR}/main)

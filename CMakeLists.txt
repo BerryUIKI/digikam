@@ -89,8 +89,7 @@ message(STATUS "Target Build Type: ${CMAKE_BUILD_TYPE}")
 
 # Extra check to detect Qt core with minimal version before to continue.
 
-set(QT5_MIN_VERSION       "5.14.0")
-set(QT6_MIN_VERSION       "6.4.0")
+set(QT6_MIN_VERSION     "6.5.0")
 set(CMAKE_MODULE_PATH
                       ${CMAKE_SOURCE_DIR}/core/cmake/modules
                       ${CMAKE_SOURCE_DIR}/core/cmake/macros
@@ -101,11 +100,7 @@ set(CMAKE_MODULE_PATH
 
 include(RulesFindQtCore)
 
-if(Qt6_FOUND)
-    set(ECM_MIN_VERSION "5.240.0")
-else()
-    set(ECM_MIN_VERSION "5.55.0")
-endif()
+set(ECM_MIN_VERSION     "6.5.0")
 
 if("${QT_VERSION}" VERSION_GREATER 6.6.99)
     set(CMAKE_CXX_STANDARD      20)

@@ -6,8 +6,8 @@
 
 include_directories(${CMAKE_SOURCE_DIR}/core/libs/dplugins/webservices/o2/src)
 
-include_directories($<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::WebEngineWidgets,INTERFACE_INCLUDE_DIRECTORIES>)
-set(QWEB_BACKEND Qt${QT_VERSION_MAJOR}::WebEngineWidgets)
+include_directories($<TARGET_PROPERTY:Qt6::WebEngineWidgets,INTERFACE_INCLUDE_DIRECTORIES>)
+set(QWEB_BACKEND Qt6::WebEngineWidgets)
 
 add_subdirectory(box)
 add_subdirectory(dropbox)
@@ -21,17 +21,10 @@ add_subdirectory(mediawiki)
 add_subdirectory(onedrive)
 add_subdirectory(pinterest)
 add_subdirectory(piwigo)
-
-if(NOT Qt6_FOUND AND Qt5XmlPatterns_FOUND)
-
-    add_subdirectory(rajce)
-
-endif()
-
 add_subdirectory(smugmug)
 add_subdirectory(twitter)
 
-if(KF${QT_VERSION_MAJOR}KIO_FOUND)
+if(KF6KIO_FOUND)
 
     add_subdirectory(filetransfer)
 

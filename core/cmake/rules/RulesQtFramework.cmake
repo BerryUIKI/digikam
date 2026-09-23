@@ -4,8 +4,10 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED
+find_package(Qt${QT_VERSION_MAJOR}
+             REQUIRED
              NO_MODULE COMPONENTS
+
              Core
              Concurrent
              Widgets
@@ -16,41 +18,18 @@ find_package(Qt${QT_VERSION_MAJOR} REQUIRED
              Network
              NetworkAuth
              Svg
-)
-
-find_package(Qt${QT_VERSION_MAJOR} REQUIRED
-                                   NO_MODULE
-                                   COMPONENTS
-                                   WebEngineWidgets
+             WebEngineWidgets
+             StateMachine
+             SvgWidgets
 )
 
 find_package(Qt${QT_VERSION_MAJOR}
              OPTIONAL_COMPONENTS
+
              DBus
              OpenGL
+             OpenGLWidgets
 )
-
-if(Qt6_FOUND)
-
-    find_package(Qt${QT_VERSION_MAJOR} REQUIRED
-                 NO_MODULE COMPONENTS
-                 StateMachine
-                 SvgWidgets
-    )
-
-    find_package(Qt${QT_VERSION_MAJOR}
-                 OPTIONAL_COMPONENTS
-                 OpenGLWidgets
-    )
-
-else()
-
-    find_package(Qt${QT_VERSION_MAJOR}
-                 OPTIONAL_COMPONENTS
-                 XmlPatterns                # For Rajce plugin
-    )
-
-endif()
 
 if(ENABLE_DBUS)
 
@@ -66,16 +45,21 @@ endif()
 
 if(BUILD_TESTING)
 
-    find_package(Qt${QT_VERSION_MAJOR} REQUIRED
-                                       NO_MODULE
-                                       COMPONENTS
-                                       Test
+    find_package(Qt${QT_VERSION_MAJOR}
+                 REQUIRED
+                 NO_MODULE COMPONENTS
+
+                 Test
     )
+
+    # Optional, for 'sialis' O2 library test tool.
 
     find_package(Qt${QT_VERSION_MAJOR}
                  QUIET
                  OPTIONAL_COMPONENTS
-                 Qml WebView  # Optional, for 'sialis' O2 library test tool.
+
+                 Qml
+                 WebView
     )
 
 endif()

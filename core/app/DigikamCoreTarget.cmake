@@ -156,6 +156,8 @@ target_link_libraries(digikamcore
                       Qt${QT_VERSION_MAJOR}::Concurrent
                       Qt${QT_VERSION_MAJOR}::Svg
                       Qt${QT_VERSION_MAJOR}::WebEngineWidgets
+                      Qt${QT_VERSION_MAJOR}::StateMachine
+                      Qt${QT_VERSION_MAJOR}::SvgWidgets
 
                       KF${QT_VERSION_MAJOR}::Solid
                       KF${QT_VERSION_MAJOR}::WindowSystem
@@ -211,17 +213,6 @@ else()
     )
 
 endif()
-
-if(Qt6_FOUND)
-
-    target_link_libraries(digikamcore
-                          PRIVATE
-                          Qt${QT_VERSION_MAJOR}::StateMachine
-                          Qt${QT_VERSION_MAJOR}::SvgWidgets
-    )
-
-endif()
-
 
 if(ENABLE_DBUS)
 
@@ -301,23 +292,10 @@ endif()
 
 if(X11_FOUND)
 
-    if(Qt6_FOUND)
-
-        target_link_libraries(digikamcore
-                              PRIVATE
-                              ${X11_LIBRARIES}
-        )
-
-    else()
-
-
-        target_link_libraries(digikamcore
-                              PRIVATE
-                              Qt5::X11Extras
-                              ${X11_LIBRARIES}
-        )
-
-    endif()
+    target_link_libraries(digikamcore
+                          PRIVATE
+                          ${X11_LIBRARIES}
+    )
 
 endif()
 

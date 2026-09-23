@@ -6,12 +6,12 @@
 
 APPLY_COMMON_POLICIES()
 
-include_directories($<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Core,INTERFACE_INCLUDE_DIRECTORIES>
+include_directories($<TARGET_PROPERTY:Qt6::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:Qt6::Core,INTERFACE_INCLUDE_DIRECTORIES>
 
-                    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::I18n,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::ConfigCore,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::Service,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF6::I18n,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF6::ConfigCore,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF6::Service,INTERFACE_INCLUDE_DIRECTORIES>
 )
 
 ###
@@ -50,24 +50,13 @@ target_compile_definitions(core_videotoolscommon_obj
 
 if(ENABLE_MEDIAPLAYER)
 
-    if(Qt6_FOUND AND ENABLE_QTMULTIMEDIA)
+    if(ENABLE_QTMULTIMEDIA)
 
         # NOTE: this part depends of QtMultimedia
 
         set(libvideotools_SRCS
-            ${CMAKE_CURRENT_SOURCE_DIR}/player/qtmm/mediaplayerview.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/player/qtmm/slidevideo.cpp
-        )
-
-    else()
-
-        # NOTE: this part depends of QtAVPlayer
-
-        set(libvideotools_SRCS
-            ${CMAKE_CURRENT_SOURCE_DIR}/player/QtAVPlayer/daudioplayer.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/player/QtAVPlayer/dvideowidget.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/player/QtAVPlayer/mediaplayerview.cpp
-            ${CMAKE_CURRENT_SOURCE_DIR}/player/QtAVPlayer/slidevideo.cpp
+            ${CMAKE_CURRENT_SOURCE_DIR}/player/mediaplayerview.cpp
+            ${CMAKE_CURRENT_SOURCE_DIR}/player/slidevideo.cpp
         )
 
     endif()
@@ -84,13 +73,5 @@ if(ENABLE_MEDIAPLAYER)
                                PRIVATE
                                ${MEDIAPLAYER_DEFINITIONS}
     )
-
-    # ---
-
-    if (NOT ENABLE_QTMULTIMEDIA)
-
-        add_subdirectory(QtAVPlayer)
-
-    endif()
 
 endif()

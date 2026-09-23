@@ -305,16 +305,8 @@ if(KF${QT_VERSION_MAJOR}IconThemes_FOUND)
     target_link_libraries(digikamgui
                           PRIVATE
                           KF${QT_VERSION_MAJOR}::IconThemes
+                          KF${QT_VERSION_MAJOR}::IconWidgets
     )
-
-    if(Qt6_FOUND)
-
-        target_link_libraries(digikamgui
-                              PRIVATE
-                              KF${QT_VERSION_MAJOR}::IconWidgets
-        )
-
-    endif()
 
 endif()
 

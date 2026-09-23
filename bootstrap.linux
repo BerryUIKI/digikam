@@ -15,34 +15,18 @@ trap 'echo "FAILED COMMAND: $PREVIOUS_COMMAND"' ERR
 #export CXX=/usr/bin/clang++
 
 SOURCEDIR=$PWD
-export BUILD_WITH_QT6=0
 
-if [[ $BUILD_WITH_QT6 == 1 ]] ; then
-    QTPATHS="qtpaths6"
-else
-    QTPATHS="qtpaths"
-fi
+QTPATHS="qtpaths6"
 
-# Prior Qt6 first. if failed try Qt5
 # Customized install Qt path compiled with https://github.com/cgilles/digikam-install-deps.git
 
-if   [[ -d /opt/qt6 && $BUILD_WITH_QT6 == 1 ]] ; then
+if [[ -d /opt/qt6 ]] ; then
 
     export Qt6_DIR=/opt/qt6
 
     QTPATHS="/opt/qt6/bin/qtpaths6"
 
     export CMAKE_BINARY=/opt/qt6/bin/cmake
-
-elif [ -d /opt/qt5 ] ; then
-
-    export Qt5_DIR=/opt/qt5
-
-    QTPATHS="/opt/qt5/bin/qtpaths"
-
-    export CMAKE_BINARY=/opt/qt5/bin/cmake
-
-    export BUILD_WITH_QT6=0
 
 fi
 
@@ -52,13 +36,10 @@ export OpenCV_DIR=/opt/qt6/lib/cmake
 command -v $QTPATHS >/dev/null 2>&1 || { echo >&2 "This script require $QTPATHS CLI tool from Qt project but it's not installed. Aborting."; exit 1; }
 
 if [ "$1" == "" ]; then
+
     MAKEFILES_TYPE='Unix Makefiles'
 
-    if [[ $BUILD_WITH_QT6 == 1 ]] ; then
-        BUILDDIR=$PWD"/build.qt6"
-    else
-        BUILDDIR=$PWD"/build"
-    fi
+    BUILDDIR=$PWD"/build.qt6"
 
     MESSAGE="Now run make in $BUILDDIR."
 
@@ -66,11 +47,7 @@ elif [ "$1" == "--ninja" ]; then
 
     MAKEFILES_TYPE='Ninja'
 
-    if [[ $BUILD_WITH_QT6 == 1 ]] ; then
-        BUILDDIR=$PWD"/build.qt6"
-    else
-        BUILDDIR=$PWD"/build"
-    fi
+    BUILDDIR=$PWD"/build.qt6"
 
     MESSAGE="Now run ninja in $BUILDDIR."
 
@@ -124,7 +101,6 @@ echo "Qt      Install Path : $QT_INSTALL_PREFIX"
 echo "digiKam Install Path : $DIGIKAM_INSTALL_PREFIX"
 echo "CMake binary         : $CMAKE_BINARY"
 echo "Build Directory      : $BUILDDIR"
-echo "Build for Qt6        : $BUILD_WITH_QT6"
 echo "ECM min version      : $ECM_MIN_VERSION"
 
 mkdir -p $DIGIKAM_INSTALL_PREFIX
@@ -139,7 +115,6 @@ $CMAKE_BINARY -G "$MAKEFILES_TYPE" . \
       $ADDITIONAL_CMAKE_FLAGS \
       -DBUILD_TESTING=ON \
       -DBUILD_WITH_CCACHE=ON \
-      -DBUILD_WITH_QT6=$BUILD_WITH_QT6 \
       -DENABLE_GUI_TRANSLATIONS=OFF \
       -DENABLE_DIGIKAM_CORE=ON \
       -DENABLE_KFILEMETADATASUPPORT=ON \
