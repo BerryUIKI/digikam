@@ -62,7 +62,9 @@ SearchTabHeader::SearchTabHeader(QWidget* const parent)
     d->nlInterpretButton      = new QToolButton(this);
     d->nlInterpretButton->setIcon(QIcon::fromTheme(QLatin1String("system-run")));
     d->nlInterpretButton->setToolTip(i18n("Interpret the text above as a natural-language "
-                                            "search and build the query"));
+                                          "search and build the query. If the language model "
+                                          "has not been downloaded yet, the Advanced Search "
+                                          "dialog will open so you can download it."));
     d->nlInterpretButton->setCheckable(false);
 
     d->nlCancelButton         = new QToolButton(this);

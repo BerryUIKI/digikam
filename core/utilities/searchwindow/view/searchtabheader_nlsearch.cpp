@@ -35,6 +35,18 @@ void SearchTabHeader::slotNlInterpretClicked()
         return;
     }
 
+    // If the model has not been downloaded yet, open the Advanced Search
+    // dialog, which presents the download option, instead of failing silently.
+
+    if (!SearchNlModelManager::isModelAvailable())
+    {
+        SearchWindow* const window = searchWindow();
+        window->show();
+        window->raise();
+
+        return;
+    }
+
     // Claim this text so the keyword edit's editingFinished/timer paths
     // treat it as already-handled and don't fire a racing keyword search.
 
