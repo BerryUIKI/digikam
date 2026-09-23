@@ -44,6 +44,15 @@ else
 
 fi
 
+if [[ ! -d /opt/qt6 ]] ; then
+
+    echo "Qt6 install not present in /opt/qt6."
+    echo "Please install Qt6 with https://github.com/cgilles/digikam-install-deps"
+    echo "Aborted..."
+    exit -1
+
+fi
+
 checksCPUCores
 
 ORIG_WD="`pwd`"
@@ -68,22 +77,10 @@ mkdir -p build.clazy
 cd build.clazy
 
 #export PATH=/opt/clazy/bin:/opt/clazy/lib:$PATH
+export Qt6_DIR=/opt/qt6
+#QTPATHS="/opt/qt6/bin/qtpaths6"
+export CMAKE_BINARY=/opt/qt6/bin/cmake
 
-if [[ -d /opt/qt6 ]] ; then
-
-    export BUILD_WITH_QT6=1
-    export Qt6_DIR=/opt/qt6
-#    QTPATHS="/opt/qt6/bin/qtpaths6"
-    export CMAKE_BINARY=/opt/qt6/bin/cmake
-
-else
-
-    export BUILD_WITH_QT6=0
-    QTPATHS="qtpaths"
-
-fi
-
-#export LLVM_VERSION=19
 
 export PATH=/opt/qt6/bin/:/opt/clazy/bin/:$PATH
 

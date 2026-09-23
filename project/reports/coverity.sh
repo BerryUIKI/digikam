@@ -31,6 +31,15 @@ checksCPUCores
 
 ORIG_WD="`pwd`"
 
+if [[ ! -d /opt/qt6 ]] ; then
+
+    echo "Qt6 install not present in /opt/qt6."
+    echo "Please install Qt6 with https://github.com/cgilles/digikam-install-deps"
+    echo "Aborted..."
+    exit -1
+
+fi
+
 # Check run-time dependencies
 
 if ! which cov-build ; then
@@ -64,24 +73,12 @@ rm -fr build.coverity
 mkdir -p build.coverity
 cd build.coverity
 
-if [[ -d /opt/qt6 ]] ; then
-
-    export BUILD_WITH_QT6=1
-    export Qt6_DIR=/opt/qt6
-    QTPATHS="/opt/qt6/bin/qtpaths6"
-    export CMAKE_BINARY=/opt/qt6/bin/cmake
-
-else
-
-    export BUILD_WITH_QT6=0
-    QTPATHS="qtpaths"
-    export CMAKE_BINARY=cmake
-
-fi
+export Qt6_DIR=/opt/qt6
+QTPATHS="/opt/qt6/bin/qtpaths6"
+export CMAKE_BINARY=/opt/qt6/bin/cmake
 
 $CMAKE_BINARY -G "Unix Makefiles" . \
       -DCMAKE_BUILD_TYPE=Debug \
-      -DBUILD_WITH_QT6=$BUILD_WITH_QT6 \
       -DBUILD_TESTING=ON \
       -DDIGIKAMSC_CHECKOUT_PO=OFF \
       -DDIGIKAMSC_CHECKOUT_DOC=OFF \
