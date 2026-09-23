@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
-find_package(KF${QT_VERSION_MAJOR} ${KF${QT_VERSION_MAJOR}_MIN_VERSION} REQUIRED
+find_package(KF6 ${KF6_MIN_VERSION} REQUIRED
                                     COMPONENTS
                                     XmlGui
                                     CoreAddons
@@ -15,7 +15,7 @@ find_package(KF${QT_VERSION_MAJOR} ${KF${QT_VERSION_MAJOR}_MIN_VERSION} REQUIRED
                                     I18n
 )
 
-find_package(KF${QT_VERSION_MAJOR} ${KF${QT_VERSION_MAJOR}_MIN_VERSION} QUIET
+find_package(KF6 ${KF6_MIN_VERSION} QUIET
                                     OPTIONAL_COMPONENTS
                                     KIO                         # For Desktop integration (Widgets only).
                                     IconThemes                  # For Desktop integration.
@@ -27,7 +27,7 @@ find_package(KF${QT_VERSION_MAJOR} ${KF${QT_VERSION_MAJOR}_MIN_VERSION} QUIET
 
 if(ENABLE_KFILEMETADATASUPPORT)
 
-    find_package(KF${QT_VERSION_MAJOR} ${KF${QT_VERSION_MAJOR}_MIN_VERSION} QUIET
+    find_package(KF6 ${KF6_MIN_VERSION} QUIET
                                         OPTIONAL_COMPONENTS
                                         FileMetaData            # For Plasma desktop file indexer support.
     )
@@ -36,67 +36,43 @@ endif()
 
 if(ENABLE_AKONADICONTACTSUPPORT)
 
-    if(Qt6_FOUND)
-
-        find_package(KPim${QT_VERSION_MAJOR} ${AKONADI_MIN_VERSION} QUIET
-                                                OPTIONAL_COMPONENTS
-                                                Akonadi
-                                                AkonadiContactCore  # For KDE Mail Contacts support.
-        )
-        find_package(KF${QT_VERSION_MAJOR} ${AKONADI_MIN_VERSION} QUIET
-                                                OPTIONAL_COMPONENTS
-                                                Contacts            # API for contacts/address book data.
-        )
-        find_package(KPim${QT_VERSION_MAJOR}Akonadi ${AKONADI_MIN_VERSION} QUIET)
-        find_package(KPim${QT_VERSION_MAJOR}AkonadiContactCore ${AKONADI_MIN_VERSION} QUIET)
-
-    else()
-
-        find_package(KF${QT_VERSION_MAJOR} ${AKONADI_MIN_VERSION} QUIET
-                                                OPTIONAL_COMPONENTS
-                                                Akonadi
-                                                AkonadiContact      # For KDE Mail Contacts support.
-                                                Contacts            # API for contacts/address book data.
-        )
-        find_package(KPim${QT_VERSION_MAJOR}Akonadi ${AKONADI_MIN_VERSION} QUIET)
-        find_package(KPim${QT_VERSION_MAJOR}AkonadiContact ${AKONADI_MIN_VERSION} QUIET)
-
-    endif()
-
-endif()
-
-if(Qt6_FOUND)
-
-    find_package(KSaneWidgets6)
-
-else()
-
-    find_package(KF${QT_VERSION_MAJOR} ${KSANE_MIN_VERSION} QUIET
-                                       OPTIONAL_COMPONENTS
-                                       Sane                      # For digital scanner support.
+    find_package(KPim6 ${AKONADI_MIN_VERSION} QUIET
+                                              OPTIONAL_COMPONENTS
+                                              Akonadi
+                                              AkonadiContactCore  # For KDE Mail Contacts support.
     )
 
+    find_package(KF6 ${AKONADI_MIN_VERSION} QUIET
+                                            OPTIONAL_COMPONENTS
+                                            Contacts            # API for contacts/address book data.
+    )
+
+    find_package(KPim6Akonadi ${AKONADI_MIN_VERSION} QUIET)
+    find_package(KPim6AkonadiContactCore ${AKONADI_MIN_VERSION} QUIET)
+
 endif()
 
-find_package(KF${QT_VERSION_MAJOR} ${CALENDAR_MIN_VERSION} QUIET
+find_package(KSaneWidgets6)
+
+find_package(KF6 ${CALENDAR_MIN_VERSION} QUIET
                                          OPTIONAL_COMPONENTS
                                          CalendarCore           # For Calendar tool.
 )
 
-if ("${KF${QT_VERSION_MAJOR}CalendarCore_VERSION}" VERSION_GREATER 5.6.40)
+if ("${KF6CalendarCore_VERSION}" VERSION_GREATER 5.6.40)
 
     set(HAVE_KCALENDAR_QDATETIME TRUE)
 
 endif()
 
 if(ENABLE_AKONADICONTACTSUPPORT AND
-   (NOT (KPim${QT_VERSION_MAJOR}AkonadiContact_FOUND OR KPim${QT_VERSION_MAJOR}AkonadiContactCore_FOUND) OR NOT KF${QT_VERSION_MAJOR}Contacts_FOUND))
+   (NOT (KPim6AkonadiContact_FOUND OR KPim6AkonadiContactCore_FOUND) OR NOT KF6Contacts_FOUND))
 
     set(ENABLE_AKONADICONTACTSUPPORT OFF)
 
 endif()
 
-if(ENABLE_KFILEMETADATASUPPORT AND NOT KF${QT_VERSION_MAJOR}FileMetaData_FOUND)
+if(ENABLE_KFILEMETADATASUPPORT AND NOT KF6FileMetaData_FOUND)
 
     set(ENABLE_KFILEMETADATASUPPORT OFF)
 
@@ -106,16 +82,16 @@ endif()
 
 if(ENABLE_KIO)
 
-    if(KF${QT_VERSION_MAJOR}KIO_FOUND)
+    if(KF6KIO_FOUND)
 
-        get_target_property(KIOWidgets_INCLUDE_DIRS KF${QT_VERSION_MAJOR}::KIOWidgets
+        get_target_property(KIOWidgets_INCLUDE_DIRS KF6::KIOWidgets
                             INTERFACE_INCLUDE_DIRECTORIES)
-        message(STATUS "KF${QT_VERSION_MAJOR}::KIOWidgets include dirs: ${KIOWidgets_INCLUDE_DIRS}")
+        message(STATUS "KF6::KIOWidgets include dirs: ${KIOWidgets_INCLUDE_DIRS}")
 
         if(NOT KIOWidgets_INCLUDE_DIRS)
 
-            message(STATUS "KF${QT_VERSION_MAJOR}::KIOWidgets not available in shared KIO library. KIO support disabled.")
-            set(KF${QT_VERSION_MAJOR}KIO_FOUND FALSE)
+            message(STATUS "KF6::KIOWidgets not available in shared KIO library. KIO support disabled.")
+            set(KF6KIO_FOUND FALSE)
 
         endif()
 
@@ -123,7 +99,7 @@ if(ENABLE_KIO)
 
 else()
 
-    message(STATUS "KF${QT_VERSION_MAJOR}::KIO support is explicitly disabled.")
-    set(KF${QT_VERSION_MAJOR}KIO_FOUND FALSE)
+    message(STATUS "KF6::KIO support is explicitly disabled.")
+    set(KF6KIO_FOUND FALSE)
 
 endif()

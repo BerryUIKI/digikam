@@ -175,7 +175,7 @@ include(RulesLiblensfun)
 
 # -- Check dependencies for Panorama tool --------------------------------------
 
-if(FLEX_FOUND AND BISON_FOUND AND KF${QT_VERSION_MAJOR}ThreadWeaver_FOUND)
+if(FLEX_FOUND AND BISON_FOUND AND KF6ThreadWeaver_FOUND)
 
     set(HAVE_PANORAMA 1)
 
@@ -271,7 +271,7 @@ endif()
 
 PRINT_LIBRARY_STATUS("libexpat"      "https://libexpat.github.io"                        "(version >= 2.0.0)"                 EXPAT_FOUND)
 PRINT_LIBRARY_STATUS("libjpeg"       "https://github.com/libjpeg-turbo/libjpeg-turbo"    "(version >= 6b)"                    JPEG_FOUND)
-PRINT_LIBRARY_STATUS("libkde"        "https://invent.kde.org/frameworks/"                "(version >= ${KF${QT_VERSION_MAJOR}_MIN_VERSION})"    KF${QT_VERSION_MAJOR}_FOUND)
+PRINT_LIBRARY_STATUS("libkde"        "https://invent.kde.org/frameworks/"                "(version >= ${KF6_MIN_VERSION})"    KF6_FOUND)
 PRINT_LIBRARY_STATUS("liblcms"       "https://github.com/mm2/Little-CMS"                 "(version >= 2.0.0)"                 LCMS2_FOUND)
 PRINT_LIBRARY_STATUS("libopencv"     "https://github.com/opencv/opencv"                  "(version >= ${OPENCV_MIN_VERSION})" OpenCV_FOUND)
 PRINT_LIBRARY_STATUS("libpng"        "https://libpng.sourceforge.io/"                    "(version >= 1.2.7)"                 PNG_FOUND)

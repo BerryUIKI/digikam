@@ -218,7 +218,7 @@ endif()
 
 if(ENABLE_GUI_TRANSLATIONS)
     find_package(Gettext REQUIRED)
-    find_package(KF${QT_VERSION_MAJOR}I18n NO_MODULE)
+    find_package(KF6I18n NO_MODULE)
     ki18n_install(po)
 endif()
 
