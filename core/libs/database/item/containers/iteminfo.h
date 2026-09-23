@@ -640,16 +640,7 @@ public:
     /**
      * @return a signature for the item.
      */
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     size_t hash()                                                                       const;
-
-#else
-
-    uint hash()                                                                         const;
-
-#endif
 
     /**
      * @brief Scans the database for items with the given signature.
@@ -671,16 +662,7 @@ private:
     QExplicitlySharedDataPointer<ItemInfoData> m_data;
 };
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
 inline size_t qHash(const ItemInfo& info)
-
-#else
-
-inline uint qHash(const ItemInfo& info)
-
-#endif
-
 {
     return info.hash();
 }

@@ -1670,17 +1670,7 @@ QVariantList CoreDB::getItemPosition(qlonglong imageID, DatabaseFields::ItemPosi
         {
             for (int i = 0 ; i < values.size() ; ++i)
             {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                 if ((values.at(i).typeId() == QMetaType::QString) &&
-
-#else
-
-                if ((values.at(i).type() == QVariant::String) &&
-
-#endif
-
                     (
                      (fieldNames.at(i) == QLatin1String("latitudeNumber"))  ||
                      (fieldNames.at(i) == QLatin1String("longitudeNumber")) ||
@@ -1741,17 +1731,7 @@ QVariantList CoreDB::getItemPositions(const QList<qlonglong>& imageIDs, Database
         {
             for (int i = 0 ; i < values.size() ; ++i)
             {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                 if ((values.at(i).typeId() == QMetaType::QString) &&
-
-#else
-
-                if ((values.at(i).type() == QVariant::String) &&
-
-#endif
-
                     (
                      (fieldNames.at(i) == QLatin1String("latitudeNumber"))  ||
                      (fieldNames.at(i) == QLatin1String("longitudeNumber")) ||

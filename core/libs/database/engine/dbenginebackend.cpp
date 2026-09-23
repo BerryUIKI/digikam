@@ -372,19 +372,7 @@ void BdEngineBackendPrivate::debugOutputFailedQuery(const QSqlQuery& query) cons
                                   << query.executedQuery()
                                   << "\nError messages:" << query.lastError().driverText() << query.lastError().databaseText()
                                   << query.lastError().nativeErrorCode() << query.lastError().type()
-                                  << "\nBound values: " <<
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-                                    query.boundValues()
-
-#else
-
-                                    query.boundValues().values()
-
-#endif
-
-                                  ;
+                                  << "\nBound values: " << query.boundValues();
 }
 
 void BdEngineBackendPrivate::debugOutputFailedTransaction(const QSqlError& error) const
@@ -1340,16 +1328,7 @@ QSqlQuery BdEngineBackend::execQuery(const QString& sql, const QMap<QString, QVa
                 bool isValue                  = actionType.isValue();
                 QVariant value                = actionType.getActionValue();
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                 if      (value.typeId() == qMetaTypeId<QMap<QString, QVariant> >())
-
-#else
-
-                if      (value.type() == QVariant::Map)
-
-#endif
-
                 {
                     QMap<QString, QVariant> placeHolderMap = value.toMap();
                     QMap<QString, QVariant>::const_iterator iterator;
@@ -1370,17 +1349,7 @@ QSqlQuery BdEngineBackend::execQuery(const QString& sql, const QMap<QString, QVa
                         }
                     }
                 }
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                 else if (value.typeId() == qMetaTypeId<QList<QVariant> >())
-
-#else
-
-                else if (value.type() == QVariant::List)
-
-#endif
-
                 {
                     QList<QVariant> placeHolderList = value.toList();
                     QList<QVariant>::const_iterator iterator;
@@ -1407,17 +1376,7 @@ QSqlQuery BdEngineBackend::execQuery(const QString& sql, const QMap<QString, QVa
                         }
                     }
                 }
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                 else if (value.typeId() == QMetaType::QStringList)
-
-#else
-
-                else if (value.type() == QVariant::StringList)
-
-#endif
-
                 {
                     QStringList placeHolderList = value.toStringList();
                     QStringList::const_iterator iterator;
@@ -1837,15 +1796,7 @@ QSqlQuery BdEngineBackend::copyQuery(const QSqlQuery& old)
 
     // only for positional binding
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     QVariantList boundValues = old.boundValues();
-
-#else
-
-    QList<QVariant> boundValues = old.boundValues().values();
-
-#endif
 
     for (const QVariant& value : std::as_const(boundValues))
     {

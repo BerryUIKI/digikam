@@ -62,17 +62,7 @@ void MyTreeWidget::startDrag(Qt::DropActions /*supportedActions*/)
     drag->exec(Qt::CopyAction);
 }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
 QMimeData* MyTreeWidget::mimeData(const QList<QTreeWidgetItem*>& items) const
-
-#else
-
-// cppcheck-suppress passedByValue
-QMimeData* MyTreeWidget::mimeData(const QList<QTreeWidgetItem*> items) const    // clazy:exclude=function-args-by-ref
-
-#endif
-
 {
     return QTreeWidget::mimeData(items);
 }
