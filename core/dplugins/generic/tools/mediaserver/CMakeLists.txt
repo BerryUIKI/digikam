@@ -148,7 +148,6 @@ if(MSVC)
     list(APPEND upnpsdk_SRCS ${CMAKE_CURRENT_SOURCE_DIR}/upnpsdk/Neptune/Source/System/Win32/NptWin32DynamicLibraries.cpp
                              ${CMAKE_CURRENT_SOURCE_DIR}/upnpsdk/Neptune/Source/System/Win32/NptWin32MessageQueue.cpp
                              ${CMAKE_CURRENT_SOURCE_DIR}/upnpsdk/Neptune/Source/System/Win32/NptWin32Queue.cpp
-#                             ${CMAKE_CURRENT_SOURCE_DIR}/upnpsdk/Neptune/Source/System/Win32/NptWin32SerialPort.cpp
                              ${CMAKE_CURRENT_SOURCE_DIR}/upnpsdk/Neptune/Source/System/Win32/NptWin32System.cpp
                              ${CMAKE_CURRENT_SOURCE_DIR}/upnpsdk/Neptune/Source/System/Win32/NptWin32Threads.cpp
     )
@@ -173,7 +172,7 @@ set(libmediaserver_SRCS
     ${CMAKE_CURRENT_SOURCE_DIR}/server/dmediaservermngr.cpp
 )
 
-DISABLE_GCC_COMPILER_WARNINGS("13.2.99" "-Wtemplate-id-cdtor")
+REMOVE_COMPILER_WARNINGS("-Wtemplate-id-cdtor")
 
 # For Unit-tests and plugin
 add_library(mediaserverbackend STATIC ${libmediaserver_SRCS})
