@@ -138,7 +138,7 @@ if(ENABLE_NLSEARCH_LLAMACPP)
 
             endforeach()
 
-            ConfigureLlamaGgmlHeader(true)
+            ConfigureLlamaGgmlHeader(false)
 
         else()
 
