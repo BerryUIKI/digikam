@@ -35,6 +35,8 @@ void SearchTabHeader::slotNlInterpretClicked()
         return;
     }
 
+#ifdef HAVE_LLAMACPP
+
     // If the model has not been downloaded yet, open the Advanced Search
     // dialog, which presents the download option, instead of failing silently.
 
@@ -46,6 +48,8 @@ void SearchTabHeader::slotNlInterpretClicked()
 
         return;
     }
+
+#endif
 
     // Claim this text so the keyword edit's editingFinished/timer paths
     // treat it as already-handled and don't fire a racing keyword search.

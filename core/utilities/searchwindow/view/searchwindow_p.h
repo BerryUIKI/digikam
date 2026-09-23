@@ -24,7 +24,6 @@
 #include <QKeyEvent>
 #include <QScreen>
 #include <QWindow>
-
 #include <QLineEdit>
 #include <QLabel>
 #include <QMenu>

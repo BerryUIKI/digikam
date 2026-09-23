@@ -42,11 +42,12 @@
 
 // Local includes
 
-#include "digikam_debug.h"
 #include "digikam_config.h"
+#include "digikam_debug.h"
 #include "digikam_globals.h"
 #include "album.h"
 #include "albummanager.h"
+#include "searchnlmodelmanager.h"
 #include "searchfolderview.h"
 #include "searchwindow.h"
 #include "coredbsearchxml.h"
