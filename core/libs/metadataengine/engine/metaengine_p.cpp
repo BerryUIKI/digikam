@@ -18,10 +18,6 @@
 
 // Qt includes
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#   include <QTextCodec>
-#endif
-
 #include <qplatformdefs.h>
 
 // Local includes
@@ -718,9 +714,6 @@ QString MetaEngine::Private::convertCommentValue(const Exiv2::Exifdatum& exifDat
 
         if      (charset == "Jis")
         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             if (Exiv2::convertStringCharset(comment, charset.c_str(), "UTF-8"))
             {
                 return QString::fromUtf8(comment);
@@ -729,26 +722,6 @@ QString MetaEngine::Private::convertCommentValue(const Exiv2::Exifdatum& exifDat
             {
                 return QLatin1String("");
             }
-
-#else
-
-            QTextCodec* const codec = QTextCodec::codecForName("JIS7");
-
-            if (codec)
-            {
-                const char* tmp = comment.c_str();
-
-                // cppcheck-suppress knownConditionTrueFalse
-                if (tmp)
-                {
-                    return codec->toUnicode(tmp);
-                }
-            }
-
-            return QLatin1String("");
-
-#endif
-
         }
         else if (charset == "Ascii")
         {

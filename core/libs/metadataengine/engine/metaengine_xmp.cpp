@@ -1045,17 +1045,7 @@ QVariant MetaEngine::getXmpTagVariant(const char* xmpTagName, bool rationalAsLis
                     {
                         if (!(*it).count())
                         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                             return QVariant(QMetaType(QMetaType::QVariantList));
-
-#else
-
-                            return QVariant(QVariant::List);
-
-#endif
-
                         }
 
                         QList<QVariant> list;
@@ -1068,17 +1058,7 @@ QVariant MetaEngine::getXmpTagVariant(const char* xmpTagName, bool rationalAsLis
                     {
                         if (!(*it).count())
                         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                             return QVariant(QMetaType(QMetaType::Double));
-
-#else
-
-                            return QVariant(QVariant::Double);
-
-#endif
-
                         }
 
                         // prefer double precision
@@ -1088,17 +1068,7 @@ QVariant MetaEngine::getXmpTagVariant(const char* xmpTagName, bool rationalAsLis
 
                         if (den == 0.0)
                         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                             return QVariant(QMetaType(QMetaType::Double));
-
-#else
-
-                            return QVariant(QVariant::Double);
-
-#endif
-
                         }
 
                         return QVariant(num / den);

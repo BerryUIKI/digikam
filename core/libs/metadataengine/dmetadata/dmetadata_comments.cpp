@@ -650,44 +650,15 @@ MetaEngine::AltLangMap DMetadata::toAltLangMap(const QVariant& var)
     {
         return map;
     }
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     switch (var.typeId())
-
-#else
-
-    switch (var.type())
-
-#endif
-
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         case QMetaType::QString:
-
-#else
-
-        case QVariant::String:
-
-#endif
-
         {
             map.insert(QLatin1String("x-default"), var.toString());
             break;
         }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         case  qMetaTypeId<QMap<QString, QVariant> >():
-
-#else
-
-        case QVariant::Map:
-
-#endif
-
         {
             QMap<QString, QVariant> varMap = var.toMap();
 

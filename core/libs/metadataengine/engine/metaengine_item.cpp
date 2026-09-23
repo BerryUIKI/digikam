@@ -1383,32 +1383,13 @@ bool MetaEngine::getItemPreview(QImage& preview) const
 
                         case MetaEngine::ORIENTATION_HFLIP:
                         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 9, 0))
-
                             preview = preview.flipped(Qt::Horizontal);
-
-#else
-
-                            preview = preview.mirrored(true, false);
-
-#endif
                             break;
                         }
 
                         case MetaEngine::ORIENTATION_VFLIP:
                         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 9, 0))
-
                             preview = preview.flipped(Qt::Vertical);
-
-#else
-
-                            preview = preview.mirrored(false, true);
-
-#endif
-
                             break;
                         }
 
@@ -1420,16 +1401,7 @@ bool MetaEngine::getItemPreview(QImage& preview) const
 
                         case MetaEngine::ORIENTATION_ROT_90_HFLIP:
                         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 9, 0))
-
                             preview = preview.transformed(QTransform().rotate(270)).flipped(Qt::Horizontal);
-
-#else
-
-                            preview = preview.transformed(QTransform().rotate(270)).mirrored(true, false);
-
-#endif
                             break;
                         }
 
@@ -1441,17 +1413,7 @@ bool MetaEngine::getItemPreview(QImage& preview) const
 
                         case MetaEngine::ORIENTATION_ROT_90_VFLIP:
                         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 9, 0))
-
                             preview = preview.transformed(QTransform().rotate(270)).flipped(Qt::Vertical);
-
-#else
-
-                            preview = preview.transformed(QTransform().rotate(270)).mirrored(false, true);
-
-#endif
-
                             break;
                         }
 

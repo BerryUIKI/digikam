@@ -101,31 +101,11 @@ void DNotificationWrapper(const QString& eventId, const QString& message,
 
     if (eventId.isEmpty())
     {
-
-#   if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         KNotification::event(KNotification::Notification, message, logoPixmap);
-
-#   else
-
-        KNotification::event(KNotification::Notification, message, logoPixmap, parent);
-
-#   endif
-
     }
     else
     {
-
-#   if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         KNotification::event(eventId, message, logoPixmap);
-
-#   else
-
-        KNotification::event(eventId, message, logoPixmap, parent);
-
-#   endif
-
     }
 
 #else
