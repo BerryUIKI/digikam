@@ -24,7 +24,13 @@ void FilesDownloader::slotDownload()
     d->faceEngineCheck->setEnabled(false);
     d->aestheticCheck->setEnabled(false);
     d->autoTagsCheck->setEnabled(false);
+
+#ifdef HAVE_LLAMACPP
+
     d->nlSearchCheck->setEnabled(false);
+
+#endif
+
     d->selector->setEnabled(false);
 
     if (d->error.isEmpty())
@@ -234,7 +240,13 @@ void FilesDownloader::slotUpdateDownloadInfo()
         appSystem.enableFaceEngine  = d->faceEngineCheck->isChecked();
         appSystem.enableAesthetic   = d->aestheticCheck->isChecked();
         appSystem.enableAutoTags    = d->autoTagsCheck->isChecked();
+
+#ifdef HAVE_LLAMACPP
+
         appSystem.enableNlSearch    = d->nlSearchCheck->isChecked();
+
+#endif
+
         appSystem.saveSettings();
     }
 

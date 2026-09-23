@@ -46,6 +46,7 @@
 
 // Local includes
 
+#include "digikam_config.h"
 #include "digikam_debug.h"
 #include "digikam_globals.h"
 #include "dfileselector.h"

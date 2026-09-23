@@ -78,7 +78,12 @@ void FilesDownloader::startDownload()
     d->faceEngineCheck  = new QCheckBox(i18n("Use Face Management feature"),         mainWidget);
     d->aestheticCheck   = new QCheckBox(i18n("Use Aesthetic Detection feature"),     mainWidget);
     d->autoTagsCheck    = new QCheckBox(i18n("Use AutoTags Assignment feature"),     mainWidget);
+
+#ifdef HAVE_LLAMACPP
+
     d->nlSearchCheck    = new QCheckBox(i18n("Use Natural Language Search feature"), mainWidget);
+
+#endif
 
     d->progress         = new QProgressBar(mainWidget);
     d->progress->setFormat(i18nc("%p is the percent value, % is the percent sign", "%p%"));
@@ -99,7 +104,13 @@ void FilesDownloader::startDownload()
     vBox->addWidget(d->faceEngineCheck);
     vBox->addWidget(d->aestheticCheck);
     vBox->addWidget(d->autoTagsCheck);
+
+#ifdef HAVE_LLAMACPP
+
     vBox->addWidget(d->nlSearchCheck);
+
+#endif
+
     vBox->addStretch(1);
     vBox->addWidget(d->nameLabel);
     vBox->addWidget(d->progress);
@@ -126,7 +137,13 @@ void FilesDownloader::startDownload()
         d->faceEngineCheck->setChecked(appSystem.enableFaceEngine);
         d->aestheticCheck->setChecked(appSystem.enableAesthetic);
         d->autoTagsCheck->setChecked(appSystem.enableAutoTags);
+
+#ifdef HAVE_LLAMACPP
+
         d->nlSearchCheck->setChecked(appSystem.enableNlSearch);
+
+#endif
+
     }
 
     {
@@ -151,8 +168,12 @@ void FilesDownloader::startDownload()
     connect(d->autoTagsCheck, SIGNAL(toggled(bool)),
             this, SLOT(slotUpdateDownloadInfo()));
 
+#ifdef HAVE_LLAMACPP
+
     connect(d->nlSearchCheck, SIGNAL(toggled(bool)),
             this, SLOT(slotUpdateDownloadInfo()));
+
+#endif
 
     slotUpdateDownloadInfo();
 
