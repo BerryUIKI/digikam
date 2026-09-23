@@ -7,29 +7,25 @@
 # Function to flush all LLAMA and GGML variables on the template header.
 # Boolean debug flag allow to pront all variables to the console.
 # LLAMA_VARIABLES_LIST and GGML_VARIABLES_LIST must contains all the extracted variables from the libraries.
-function(ConfigureLlamaGgmlHeader debug)
+function(ConfigureLlamaGgmlHeader)
 
-    if(debug)
-
-        # Show all extracted variables
-
-        message(STATUS "LLAMA.CPP configuration:")
-
-        foreach(VAR IN LISTS LLAMA_VARIABLES_LIST)
-
-            message(STATUS "   ${VAR} = ${${VAR}}")
-
-        endforeach()
-
-        message(STATUS "GGML configuration:")
-
-        foreach(VAR IN LISTS GGML_VARIABLES_LIST)
-
-            message(STATUS "   ${VAR} = ${${VAR}}")
-
-        endforeach()
-
-    endif()
+    # Show all extracted variables
+#
+#    message(STATUS "LLAMA.CPP configuration:")
+#
+#    foreach(VAR IN LISTS LLAMA_VARIABLES_LIST)
+#
+#        message(STATUS "   ${VAR} = ${${VAR}}")
+#
+#    endforeach()
+#
+#    message(STATUS "GGML configuration:")
+#
+#    foreach(VAR IN LISTS GGML_VARIABLES_LIST)
+#
+#        message(STATUS "   ${VAR} = ${${VAR}}")
+#
+#    endforeach()
 
     # Flush the configuration to the template header
 
@@ -138,7 +134,7 @@ if(ENABLE_NLSEARCH_LLAMACPP)
 
             endforeach()
 
-            ConfigureLlamaGgmlHeader(false)
+            ConfigureLlamaGgmlHeader()
 
         else()
 
