@@ -25,10 +25,6 @@
 #include <QTextStream>
 #include <QStandardPaths>
 
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-#   include <QTextCodec>
-#endif
-
 // KDE includes
 
 #include <klocalizedstring.h>
@@ -304,15 +300,6 @@ bool MjpegServerMngr::save()
     }
 
     QTextStream stream(&file);
-
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-
-    // In Qt5 only. Qt6 uses UTF-8 by default.
-
-    stream.setCodec(QTextCodec::codecForName("UTF-8"));
-
-#endif
-
     stream.setAutoDetectUnicode(true);
     stream << doc.toString(4);
     file.close();

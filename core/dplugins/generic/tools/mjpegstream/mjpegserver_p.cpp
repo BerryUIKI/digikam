@@ -139,19 +139,7 @@ void MjpegServer::Private::close()
 
 void MjpegServer::Private::start()
 {
-    srvTask = QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-                                &MjpegServer::Private::writerThread, this
-
-#else
-
-                                this, &MjpegServer::Private::writerThread
-
-#endif
-
-    );
+    srvTask = QtConcurrent::run(&MjpegServer::Private::writerThread, this);
 
     qCDebug(DIGIKAM_GENERAL_LOG) << "MJPEG server started...";
 }
@@ -249,17 +237,7 @@ void MjpegServer::Private::writerThread()
                 for (QTcpSocket* const client : std::as_const(clients))
                 {
                     sockTasks.append(QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                      &MjpegServer::Private::clientWriteMultithreaded, this,
-
-#else
-
-                                     this, &MjpegServer::Private::clientWriteMultithreaded,
-
-#endif
-
                                      client->socketDescriptor(),
                                      lastFrame)
                                     );

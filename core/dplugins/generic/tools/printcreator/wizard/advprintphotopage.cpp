@@ -49,18 +49,7 @@ namespace DigikamGenericPrintCreatorPlugin
 
 static const struct CustomPageLayoutName
 {
-
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
-
     const KLazyLocalizedString    title;
-
-#else
-
-    const char*                   context;
-    const char*                   title;
-
-#endif
-
 }
 CUSTOM_PAGE_LAYOUT_NAME =
 {
@@ -244,16 +233,7 @@ void AdvPrintPhotoPage::initializePage()
 
     // restore photoSize
 
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
-
     if (d->settings->savedPhotoSize == CUSTOM_PAGE_LAYOUT_NAME.title.toString())
-
-#else
-
-    if (d->settings->savedPhotoSize == i18nc(CUSTOM_PAGE_LAYOUT_NAME.context, CUSTOM_PAGE_LAYOUT_NAME.title))
-
-#endif
-
     {
         d->photoUi->ListPhotoSizes->setCurrentRow(0);
     }
@@ -421,16 +401,7 @@ void AdvPrintPhotoPage::slotXMLLoadElement(QXmlStreamReader& xmlReader)
                 {
                     qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << " found " << attr.toString();
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
-
                     pPhoto->m_pAdvPrintCaptionInfo->m_captionColor.fromString(attr.toString());
-
-#else
-
-                    pPhoto->m_pAdvPrintCaptionInfo->m_captionColor.setNamedColor(attr.toString());
-
-#endif
-
                 }
 
                 attr = attrs.value(QLatin1String("size"));
@@ -926,16 +897,7 @@ void AdvPrintPhotoPage::slotListPhotoSizesSelected()
 
     // if custom page layout we launch a dialog to choose what kind
 
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
-
     if (item->text() == CUSTOM_PAGE_LAYOUT_NAME.title.toString())
-
-#else
-
-    if (item->text() == i18nc(CUSTOM_PAGE_LAYOUT_NAME.context, CUSTOM_PAGE_LAYOUT_NAME.title))
-
-#endif
-
     {
         // check if a custom layout has already been added
 
@@ -1200,16 +1162,7 @@ void AdvPrintPhotoPage::slotPageSetup()
 
     // restore photoSize
 
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
-
     if (lastSize == CUSTOM_PAGE_LAYOUT_NAME.title.toString())
-
-#else
-
-    if (lastSize == i18nc(CUSTOM_PAGE_LAYOUT_NAME.context, CUSTOM_PAGE_LAYOUT_NAME.title))
-
-#endif
-
     {
         d->photoUi->ListPhotoSizes->setCurrentRow(0);
     }
@@ -1340,15 +1293,7 @@ void AdvPrintPhotoPage::initPhotoSizes(const QSizeF& pageSize)
 
     // Adding custom choice
 
-#if KI18N_VERSION >= QT_VERSION_CHECK(5, 89, 0)
-
     QListWidgetItem* const pWItem = new QListWidgetItem(CUSTOM_PAGE_LAYOUT_NAME.title.toString());
-
-#else
-
-    QListWidgetItem* const pWItem = new QListWidgetItem(i18nc(CUSTOM_PAGE_LAYOUT_NAME.context, CUSTOM_PAGE_LAYOUT_NAME.title));
-
-#endif
 
     TemplateIcon ti(80, pageSize.toSize());
     ti.begin();

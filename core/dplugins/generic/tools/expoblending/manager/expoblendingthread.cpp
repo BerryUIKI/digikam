@@ -612,17 +612,7 @@ bool ExpoBlendingThread::startPreProcessing(const QList<QUrl>& inUrls,
         QUrl url = inUrls.at(i);
 
         tasks.append(QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                        &ExpoBlendingThread::preProcessingMultithreaded, this,
-
-#else
-
-                                       this, &ExpoBlendingThread::preProcessingMultithreaded,
-
-#endif
-
                                        url
                                       )
         );
@@ -632,16 +622,7 @@ bool ExpoBlendingThread::startPreProcessing(const QList<QUrl>& inUrls,
     {
         t.waitForFinished();
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         error |= t.takeResult();
-
-#else
-
-        error |= t.result();
-
-#endif
-
     }
 
     if (error)

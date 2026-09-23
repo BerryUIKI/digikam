@@ -493,20 +493,9 @@ bool GeolocationEdit::eventFilter(QObject* const o, QEvent* const e)
     {
         QMouseEvent const* m = static_cast<QMouseEvent*>(e);
 
-        QPoint p(
+        QPoint p(m->position().toPoint());
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-                 m->position().toPoint()
-#else
-
-                 m->x(), m->y()
-
-#endif
-
-        );
-
-        const int var = d->tabBar->tabAt(p);
+        const int var        = d->tabBar->tabAt(p);
 
         if (var < 0)
         {

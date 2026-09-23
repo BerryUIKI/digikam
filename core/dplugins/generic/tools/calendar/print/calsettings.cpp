@@ -27,25 +27,13 @@
 
 // KCalCore includes
 
-#   if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-#       include <kcalendarcore/icalformat.h>
-#       include <kcalendarcore/filestorage.h>
-#       include <kcalendarcore/memorycalendar.h>
+#   include <kcalendarcore/icalformat.h>
+#   include <kcalendarcore/filestorage.h>
+#   include <kcalendarcore/memorycalendar.h>
 
 using namespace KCalendarCore;
 
-#   else
-
-#       include <kcalcore/icalformat.h>
-#       include <kcalcore/filestorage.h>
-#       include <kcalcore/memorycalendar.h>
-
-using namespace KCalCore;
-
-#   endif
-
-    // Qt includes
+// Qt includes
 
 #   include <QTimeZone>
 
@@ -59,6 +47,8 @@ class Q_DECL_HIDDEN CalSettings::Private
 public:
 
     Private() = default;
+
+public:
 
     QMap<int, QUrl>  monthMap;
     QMap<QDate, Day> special;
@@ -360,12 +350,6 @@ void CalSettings::loadSpecial(const QUrl& url, const QColor& color)
         }
 
         qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Loaded " << counter << " events";
-
-#   if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-
-        memCal->close();
-
-#   endif
 
         if (fileStorage->close())
         {

@@ -47,15 +47,7 @@ private:
     bool validatePage()     override;
     void cleanupPage()      override;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     void cleanupPage(QMutexLocker<QMutex>& lock);
-
-#else
-
-    void cleanupPage(QMutexLocker& lock);
-
-#endif
 
 Q_SIGNALS:
 
