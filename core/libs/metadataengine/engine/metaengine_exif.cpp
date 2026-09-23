@@ -545,50 +545,19 @@ bool MetaEngine::setExifTagVariant(const char* exifTagName, const QVariant& val,
                                    bool rationalWantSmallDenominator) const
 {
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     switch (val.typeId())
-
-#else
-
-    switch (val.type())
-
-#endif
-
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
         case QMetaType::Int:
         case QMetaType::UInt:
         case QMetaType::Bool:
         case QMetaType::LongLong:
         case QMetaType::ULongLong:
-
-#else
-
-        case QVariant::Int:
-        case QVariant::UInt:
-        case QVariant::Bool:
-        case QVariant::LongLong:
-        case QVariant::ULongLong:
-
-#endif
-
         {
             return setExifTagLong(exifTagName, val.toInt());
         }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         case QMetaType::Double:
-
-#else
-
-        case QVariant::Double:
-
-#endif
-
         {
             long num = 0;
             long den = 1;
@@ -605,16 +574,7 @@ bool MetaEngine::setExifTagVariant(const char* exifTagName, const QVariant& val,
             return setExifTagRational(exifTagName, num, den);
         }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         case qMetaTypeId<QList<QVariant> >():
-
-#else
-
-        case QVariant::List:
-
-#endif
-
         {
             long num = 0;
             long den = 1;
@@ -633,18 +593,8 @@ bool MetaEngine::setExifTagVariant(const char* exifTagName, const QVariant& val,
             return setExifTagRational(exifTagName, num, den);
         }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         case QMetaType::QDate:
         case QMetaType::QDateTime:
-
-#else
-
-        case QVariant::Date:
-        case QVariant::DateTime:
-
-#endif
-
         {
             QDateTime dateTime = asDateTimeUTC(val.toDateTime());
 
@@ -669,32 +619,13 @@ bool MetaEngine::setExifTagVariant(const char* exifTagName, const QVariant& val,
             return false;
         }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         case QMetaType::QString:
         case QMetaType::QChar:
-
-#else
-
-        case QVariant::String:
-        case QVariant::Char:
-
-#endif
-
         {
             return setExifTagString(exifTagName, val.toString());
         }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         case QMetaType::QByteArray:
-
-#else
-
-        case QVariant::ByteArray:
-
-#endif
-
         {
             return setExifTagData(exifTagName, val.toByteArray());
         }
@@ -718,63 +649,25 @@ QString MetaEngine::createExifUserStringFromValue(const char* exifTagName,
         Exiv2::ExifKey key(exifTagName);
         Exiv2::Exifdatum datum(key);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         switch (val.typeId())
-
-#else
-
-        switch (val.type())
-
-#endif
-
         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
             case QMetaType::Int:
             case QMetaType::Bool:
             case QMetaType::LongLong:
             case QMetaType::ULongLong:
-
-#else
-            case QVariant::Int:
-            case QVariant::Bool:
-            case QVariant::LongLong:
-            case QVariant::ULongLong:
-
-#endif
-
             {
                 datum = (int32_t)val.toInt();
                 break;
             }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             case QMetaType::UInt:
-
-#else
-
-            case QVariant::UInt:
-
-#endif
-
             {
                 datum = (uint32_t)val.toUInt();
                 break;
             }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             case QMetaType::Double:
-
-#else
-
-            case QVariant::Double:
-
-#endif
-
             {
                 long num, den;
                 convertToRationalSmallDenominator(val.toDouble(), &num, &den);
@@ -785,16 +678,7 @@ QString MetaEngine::createExifUserStringFromValue(const char* exifTagName,
                 break;
             }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             case qMetaTypeId<QList<QVariant> >():
-
-#else
-
-            case QVariant::List:
-
-#endif
-
             {
                 long num             = 0;
                 long den             = 1;
@@ -817,18 +701,8 @@ QString MetaEngine::createExifUserStringFromValue(const char* exifTagName,
                 break;
             }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             case QMetaType::QDate:
             case QMetaType::QDateTime:
-
-#else
-
-            case QVariant::Date:
-            case QVariant::DateTime:
-
-#endif
-
             {
                 QDateTime dateTime = asDateTimeUTC(val.toDateTime());
 
@@ -841,20 +715,9 @@ QString MetaEngine::createExifUserStringFromValue(const char* exifTagName,
                 break;
             }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             case QMetaType::QByteArray:
             case QMetaType::QString:
             case QMetaType::QChar:
-
-#else
-
-            case QVariant::ByteArray:
-            case QVariant::String:
-            case QVariant::Char:
-
-#endif
-
             {
                 datum = val.toString().toStdString();
                 break;
@@ -1000,17 +863,7 @@ QVariant MetaEngine::getExifTagVariant(const char* exifTagName, bool rationalAsL
                     }
                     else
                     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                         return QVariant(QMetaType(QMetaType::Int));
-
-#else
-
-                        return QVariant(QVariant::Int);
-
-#endif
-
                     }
                 }
 
@@ -1021,49 +874,20 @@ QVariant MetaEngine::getExifTagVariant(const char* exifTagName, bool rationalAsL
                     {
                         if ((int)it->count() <= component)
                         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                             return QVariant(QMetaType(QMetaType::QVariantList));
-
-#else
-
-                            return QVariant(QVariant::List);
-
-#endif
-
                         }
 
                         QList<QVariant> list;
                         list << (*it).toRational(component).first;
                         list << (*it).toRational(component).second;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                         return QVariant(QMetaType(QMetaType::QVariantList));
-
-#else
-
-                        return QVariant(list);
-
-#endif
-
                     }
                     else
                     {
                         if ((int)it->count() <= component)
                         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                             return QVariant(QMetaType(QMetaType::Double));
-
-#else
-
-                            return QVariant(QVariant::Double);
-
-#endif
-
                         }
 
                         // prefer double precision
@@ -1074,16 +898,7 @@ QVariant MetaEngine::getExifTagVariant(const char* exifTagName, bool rationalAsL
                         if (den == 0.0)
                         {
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                             return QVariant(QMetaType(QMetaType::Double));
-
-#else
-
-                            return QVariant(QVariant::Double);
-
-#endif
-
                         }
 
                         return QVariant(num / den);
