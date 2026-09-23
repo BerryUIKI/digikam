@@ -99,20 +99,6 @@ GSTalkerBase::GSTalkerBase(QObject* const parent, const QStringList& scope, cons
 
     m_service->setAuthorizationUrl(QUrl(d->authUrl));
 
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-
-    m_service->setModifyParametersFunction([](QAbstractOAuth::Stage stage, QVariantMap* parameters)
-        {
-            if (stage == QAbstractOAuth::Stage::RequestingAccessToken)
-            {
-                QByteArray code = parameters->value(QLatin1String("code")).toByteArray();
-                (*parameters)[QLatin1String("code")] = QUrl::fromPercentEncoding(code);
-            }
-        }
-    );
-
-#else
-
     m_service->setModifyParametersFunction([](QAbstractOAuth::Stage stage, QMultiMap<QString, QVariant>* parameters)
         {
             if (stage == QAbstractOAuth::Stage::RequestingAccessToken)
@@ -122,8 +108,6 @@ GSTalkerBase::GSTalkerBase(QObject* const parent, const QStringList& scope, cons
             }
         }
     );
-
-#endif
 
     QOAuthHttpServerReplyHandler* const replyHandler = new QOAuthHttpServerReplyHandler(8000, this);
     m_service->setReplyHandler(replyHandler);

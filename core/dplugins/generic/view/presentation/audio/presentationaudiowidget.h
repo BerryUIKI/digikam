@@ -22,20 +22,7 @@
 
 #include <QUrl>
 #include <QKeyEvent>
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
-// QtMultimedia includes
-
-#   include <QMediaPlayer>
-
-#else
-
-// QtAVPlayer includes
-
-#   include "daudioplayer.h"
-
-#endif
+#include <QMediaPlayer>
 
 // Local includes
 
@@ -81,20 +68,9 @@ private Q_SLOTS:
     void slotTimeUpdaterTimeout(qint64);
     void slotError();
     void slotSetVolume(int);
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
     void slotMediaStateChanged(QMediaPlayer::MediaStatus);
     void slotPlayerStateChanged(QMediaPlayer::PlaybackState);
     void slotPlayerError(QMediaPlayer::Error);
-
-#else
-
-    void slotMediaStateChanged(QAVPlayer::MediaStatus);
-    void slotPlayerStateChanged(QAVPlayer::State);
-    void slotPlayerError(QAVPlayer::Error, const QString&);
-
-#endif
 
 private:
 

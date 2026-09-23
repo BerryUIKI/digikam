@@ -20,19 +20,12 @@ if(ENABLE_MEDIAPLAYER)
 
     if (Qt6Multimedia_VERSION VERSION_GREATER_EQUAL 6.5.0)
 
-        set(ENABLE_QTMULTIMEDIA ON)
         message(STATUS "MediaPlayer type:     Qt6::Multimedia")
 
     else()
 
-        set(ENABLE_QTMULTIMEDIA OFF)
-
-        if(NOT ${FFMPEG_FOUND})
-
-            set(ENABLE_MEDIAPLAYER OFF)
-            message(STATUS "MediaPlayer type:     None")
-
-        endif()
+        set(ENABLE_MEDIAPLAYER OFF)
+        message(STATUS "MediaPlayer type:     None")
 
     endif()
 

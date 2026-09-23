@@ -29,22 +29,7 @@
 #include <QListWidget>
 #include <QListWidgetItem>
 #include <QUrl>
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
-// QtMultimedia includes
-
-#   include <QMediaPlayer>
-
-#else
-
-// QtAVPlayer includes
-
-#   include "daudioplayer.h"
-
-using namespace Digikam;
-
-#endif
+#include <QMediaPlayer>
 
 namespace DigikamGenericPresentationPlugin
 {
@@ -72,18 +57,8 @@ Q_SIGNALS:
 
 private Q_SLOTS:
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
     void slotMediaStateChanged(QMediaPlayer::MediaStatus status);
     void slotPlayerError(QMediaPlayer::Error);
-
-#else
-
-    void slotMediaStateChanged(QAVPlayer::MediaStatus status);
-    void slotPlayerError(QAVPlayer::Error, const QString&);
-    void slotDurationChanged(qint64 duration);
-
-#endif
 
 private:
 

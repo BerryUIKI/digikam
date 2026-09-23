@@ -12,19 +12,11 @@ if(HAVE_MEDIAPLAYER)
 
     include_directories(${CMAKE_CURRENT_SOURCE_DIR}/audio)
 
-    if(Qt6_FOUND AND ENABLE_QTMULTIMEDIA)
+    include_directories($<TARGET_PROPERTY:Qt6::MultimediaWidgets,INTERFACE_INCLUDE_DIRECTORIES>)
 
-        include_directories($<TARGET_PROPERTY:Qt6::MultimediaWidgets,INTERFACE_INCLUDE_DIRECTORIES>)
-
-        set(QTMEDIA_BACKEND Qt6::Multimedia
-                            Qt6::MultimediaWidgets
-        )
-
-    else()
-
-        set(QTMEDIA_BACKEND ${MEDIAPLAYER_LIBRARIES})
-
-    endif()
+    set(QTMEDIA_BACKEND Qt6::Multimedia
+                        Qt6::MultimediaWidgets
+    )
 
 endif()
 
@@ -43,10 +35,8 @@ if(HAVE_OPENGL)
 
     set(QT_OPENGL_LIBRARIES Qt6::OpenGL)
 
-    if (Qt6_FOUND)
-        include_directories($<TARGET_PROPERTY:Qt6::OpenGLWidgets,INTERFACE_INCLUDE_DIRECTORIES>)
-        set(QT_OPENGL_LIBRARIES ${QT_OPENGL_LIBRARIES} Qt6::OpenGLWidgets)
-    endif()
+    include_directories($<TARGET_PROPERTY:Qt6::OpenGLWidgets,INTERFACE_INCLUDE_DIRECTORIES>)
+    set(QT_OPENGL_LIBRARIES ${QT_OPENGL_LIBRARIES} Qt6::OpenGLWidgets)
 
 endif()
 

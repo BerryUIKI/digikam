@@ -227,14 +227,12 @@ MACRO_BOOL_TO_01(ENABLE_AKONADICONTACTSUPPORT                   HAVE_AKONADICONT
 MACRO_BOOL_TO_01(ENABLE_MARIADBSUPPORT                          HAVE_MARIADBSUPPORT)
 MACRO_BOOL_TO_01(ENABLE_INTERNALMARIADB                         HAVE_INTERNALMARIADB)
 MACRO_BOOL_TO_01(ENABLE_MEDIAPLAYER                             HAVE_MEDIAPLAYER)
-MACRO_BOOL_TO_01(ENABLE_QTMULTIMEDIA                            HAVE_QTMULTIMEDIA)
 MACRO_BOOL_TO_01(ENABLE_DBUS                                    HAVE_DBUS)
 MACRO_BOOL_TO_01(ENABLE_APPSTYLES                               HAVE_APPSTYLE_SUPPORT)
 MACRO_BOOL_TO_01(ImageMagick_FOUND                              HAVE_IMAGE_MAGICK)
 MACRO_BOOL_TO_01(HEIF_FOUND                                     HAVE_HEIF)
 MACRO_BOOL_TO_01(X265_FOUND                                     HAVE_X265)
 MACRO_BOOL_TO_01(JXL_FOUND                                      HAVE_JXL)
-MACRO_BOOL_TO_01(Qt5XmlPatterns_FOUND                           HAVE_QTXMLPATTERNS)
 MACRO_BOOL_TO_01(CCACHE_FOUND                                   HAVE_CCACHE)
 
 # ==============================================================================
@@ -252,7 +250,6 @@ PRINT_COMPONENT_COMPILE_STATUS("DBUS Support"                               ENAB
 PRINT_COMPONENT_COMPILE_STATUS("App. Style Support"                         ENABLE_APPSTYLES)
 PRINT_COMPONENT_COMPILE_STATUS("Geolocation Support"                        ENABLE_GEOLOCATION)
 PRINT_COMPONENT_COMPILE_STATUS("Media Player Support"                       ENABLE_MEDIAPLAYER)
-PRINT_COMPONENT_COMPILE_STATUS("QtMultimedia Support"                       ENABLE_QTMULTIMEDIA)
 PRINT_COMPONENT_COMPILE_STATUS("Native Language Search Support"             ENABLE_NLSEARCH_LLAMACPP)
 
 # ==============================================================================

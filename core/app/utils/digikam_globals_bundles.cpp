@@ -288,13 +288,6 @@ void loadStdQtTranslationFiles(QApplication& app)
             QLatin1String("qtquickcontrols2"),
             QLatin1String("qtmultimedia"),
             QLatin1String("qtwebengine"),
-
-#ifdef HAVE_QTXMLPATTERNS
-
-            QLatin1String("qtxmlpatterns"),
-
-#endif
-
         };
 
         for (const QString& catalog : std::as_const(qtCatalogs))

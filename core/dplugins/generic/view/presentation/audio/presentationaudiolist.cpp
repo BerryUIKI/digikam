@@ -27,14 +27,7 @@
 #include <QUrl>
 #include <QMessageBox>
 #include <QApplication>
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
-// QtMultimedia includes
-
-#   include <QMediaMetaData>
-
-#endif
+#include <QMediaMetaData>
 
 // KDE includes
 
@@ -60,17 +53,7 @@ public:
     QString       artist;
     QString       title;
     QTime         totalTime;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
     QMediaPlayer* mediaObject = nullptr;
-
-#else
-
-    DAudioPlayer* mediaObject = nullptr;
-
-#endif
-
 };
 
 PresentationAudioListItem::PresentationAudioListItem(QListWidget* const parent, const QUrl& url)
@@ -82,8 +65,6 @@ PresentationAudioListItem::PresentationAudioListItem(QListWidget* const parent, 
 
     d->totalTime   = QTime(0, 0, 0);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
     d->mediaObject = new QMediaPlayer();
 
     connect(d->mediaObject, SIGNAL(mediaStatusChanged(QMediaPlayer::MediaStatus)),
@@ -91,21 +72,6 @@ PresentationAudioListItem::PresentationAudioListItem(QListWidget* const parent, 
 
     connect(d->mediaObject, SIGNAL(errorOccurred(QMediaPlayer::Error,QString)),
             this, SLOT(slotPlayerError(QMediaPlayer::Error)));
-
-#else
-
-    d->mediaObject = new DAudioPlayer(this);
-
-    connect(d->mediaObject->player(), SIGNAL(mediaStatusChanged(QAVPlayer::MediaStatus)),
-            this, SLOT(slotMediaStateChanged(QAVPlayer::MediaStatus)));
-
-    connect(d->mediaObject->player(), SIGNAL(durationChanged(qint64)),
-            this, SLOT(slotDurationChanged(qint64)));
-
-    connect(d->mediaObject->player(), SIGNAL(errorOccurred(QAVPlayer::Error,QString)),
-            this, SLOT(slotPlayerError(QAVPlayer::Error,QString)));
-
-#endif
 
     d->mediaObject->setSource(url);
 }
@@ -139,8 +105,6 @@ QTime PresentationAudioListItem::totalTime() const
 {
     return d->totalTime;
 }
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
 
 void PresentationAudioListItem::slotPlayerError(QMediaPlayer::Error err)
 {
@@ -181,50 +145,6 @@ void PresentationAudioListItem::slotMediaStateChanged(QMediaPlayer::MediaStatus 
 
     Q_EMIT signalTotalTimeReady(d->url, d->totalTime);
 }
-
-#else
-
-void PresentationAudioListItem::slotPlayerError(QAVPlayer::Error err, const QString& message)
-{
-    if (err != QAVPlayer::NoError)
-    {
-        qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "An error as occurred while playing (" << message << ")";
-        showErrorDialog(message);
-    }
-}
-
-void PresentationAudioListItem::slotMediaStateChanged(QAVPlayer::MediaStatus newStatus)
-{
-    if (newStatus == QAVPlayer::InvalidMedia)
-    {
-        showErrorDialog(i18n("No detail available"));
-    }
-}
-
-void PresentationAudioListItem::slotDurationChanged(qint64 duration)
-{
-    int hours    = (int)(duration  / (long int)(60 * 60 * 1000));
-    int mins     = (int)((duration / (long int)(60 * 1000 )) - (long int)(hours * 60));
-    int secs     = (int)((duration / (long int)1000) - (long int)(hours * 60 * 60) - (long int)(mins * 60));
-    d->totalTime = QTime(hours, mins, secs);
-
-    QScopedPointer<DMetadata> meta(new DMetadata(d->url.toLocalFile()));
-    d->artist    = meta->getXmpTagString("Xmp.xmpDM.artist");
-    d->title     = meta->getXmpTagString("Xmp.xmpDM.shotName");
-
-    if ( d->artist.isEmpty() && d->title.isEmpty() )
-    {
-        setText(d->url.fileName());
-    }
-    else
-    {
-        setText(i18nc("artist - title", "%1 - %2", artist(), title()));
-    }
-
-    Q_EMIT signalTotalTimeReady(d->url, d->totalTime);
-}
-
-#endif
 
 void PresentationAudioListItem::showErrorDialog(const QString& err)
 {

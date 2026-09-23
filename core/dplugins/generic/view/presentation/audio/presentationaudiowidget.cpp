@@ -21,12 +21,7 @@
 #include <QTime>
 #include <QUrl>
 #include <QIcon>
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
-#   include <QAudioOutput>
-
-#endif
+#include <QAudioOutput>
 
 // Local includes
 
@@ -45,26 +40,19 @@ public:
 
     Private() = default;
 
+public:
+
     PresentationContainer* sharedData  = nullptr;
     QList<QUrl>            urlList;
     int                    currIndex   = 0;
     bool                   canHide     = true;
     bool                   isZeroTime  = false;
     bool                   playingNext = false;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
     QMediaPlayer*          mediaObject = nullptr;
-
-#else
-
-    DAudioPlayer*          mediaObject = nullptr;
-
-#endif
-
 };
 
-PresentationAudioWidget::PresentationAudioWidget(QWidget* const parent, const QList<QUrl>& urls, PresentationContainer* const sharedData)
+PresentationAudioWidget::PresentationAudioWidget(QWidget* const parent,
+                                                 const QList<QUrl>& urls, PresentationContainer* const sharedData)
     : QWidget(parent),
       d      (new Private)
 {
@@ -108,8 +96,6 @@ PresentationAudioWidget::PresentationAudioWidget(QWidget* const parent, const QL
     m_playButton->setEnabled(false);
     m_prevButton->setEnabled(false);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
     d->mediaObject = new QMediaPlayer(this);
     d->mediaObject->setAudioOutput(new QAudioOutput(this));
 
@@ -124,24 +110,6 @@ PresentationAudioWidget::PresentationAudioWidget(QWidget* const parent, const QL
 
     connect(d->mediaObject, SIGNAL(positionChanged(qint64)),
             this, SLOT(slotTimeUpdaterTimeout(qint64)));
-
-#else
-
-    d->mediaObject = new DAudioPlayer(this);
-
-    connect(d->mediaObject->player(), SIGNAL(mediaStatusChanged(QAVPlayer::MediaStatus)),
-            this, SLOT(slotMediaStateChanged(QAVPlayer::MediaStatus)));
-
-    connect(d->mediaObject->player(), SIGNAL(stateChanged(QAVPlayer::State)),
-            this, SLOT(slotPlayerStateChanged(QAVPlayer::State)));
-
-    connect(d->mediaObject->player(), SIGNAL(errorOccurred(QAVPlayer::Error,QString)),
-            this, SLOT(slotPlayerError(QAVPlayer::Error,QString)));
-
-    connect(d->mediaObject, SIGNAL(positionChanged(qint64)),
-            this, SLOT(slotTimeUpdaterTimeout(qint64)));
-
-#endif
 
     connect(m_volumeWidget, SIGNAL(valueChanged(int)),
             this, SLOT(slotSetVolume(int)));
@@ -165,17 +133,7 @@ void PresentationAudioWidget::slotSetVolume(int v)
 {
     if (d->mediaObject->audioOutput())
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
         d->mediaObject->audioOutput()->setVolume(v / 100.0);
-
-#else
-
-        d->mediaObject->setVolume((qreal)v / 100.0);
-
-#endif
-
     }
 }
 
@@ -186,17 +144,7 @@ bool PresentationAudioWidget::canHide() const
 
 bool PresentationAudioWidget::isPaused() const
 {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
     return (d->mediaObject->playbackState() == QMediaPlayer::PausedState);
-
-#else
-
-    return (d->mediaObject->state() == QAVPlayer::PausedState);
-
-#endif
-
 }
 
 void PresentationAudioWidget::checkSkip()
@@ -309,34 +257,12 @@ void PresentationAudioWidget::slotPlay()
         return;
     }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
     if (
         (d->mediaObject->playbackState() != QMediaPlayer::PlayingState) ||
         (d->mediaObject->playbackState() == QMediaPlayer::PausedState)
        )
-
-#else
-
-    if (
-        (d->mediaObject->state() != QAVPlayer::PlayingState) ||
-        (d->mediaObject->state() == QAVPlayer::PausedState)
-       )
-
-#endif
-
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
         if (d->mediaObject->playbackState() != QMediaPlayer::PlayingState)
-
-#else
-
-        if (d->mediaObject->state() != QAVPlayer::PlayingState)
-
-#endif
-
         {
             d->mediaObject->setSource(d->urlList[d->currIndex]);
             qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "Playing:" << d->urlList[d->currIndex];
@@ -426,17 +352,7 @@ void PresentationAudioWidget::slotNext()
 
 void PresentationAudioWidget::slotTimeUpdaterTimeout(qint64 current)
 {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
-
     if (d->mediaObject->error() != QMediaPlayer::NoError)
-
-#else
-
-    if (d->mediaObject->mediaStatus() == QAVPlayer::InvalidMedia)
-
-#endif
-
     {
         slotError();
         return;
@@ -460,8 +376,6 @@ void PresentationAudioWidget::slotTimeUpdaterTimeout(qint64 current)
 
     m_elapsedTimeLabel->setText(elapsedTime.toString(QLatin1String("H:mm:ss")));
 }
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0)) && defined HAVE_QTMULTIMEDIA
 
 void PresentationAudioWidget::slotMediaStateChanged(QMediaPlayer::MediaStatus status)
 {
@@ -506,54 +420,6 @@ void PresentationAudioWidget::slotPlayerStateChanged(QMediaPlayer::PlaybackState
         }
     }
 }
-
-#else
-
-void PresentationAudioWidget::slotMediaStateChanged(QAVPlayer::MediaStatus status)
-{
-    if (status == QAVPlayer::EndOfMedia)
-    {
-        slotNext();
-    }
-}
-
-void PresentationAudioWidget::slotPlayerError(QAVPlayer::Error err, const QString& message)
-{
-    if (err != QAVPlayer::NoError)
-    {
-        qCDebug(DIGIKAM_DPLUGIN_GENERIC_LOG) << "An error as occurred while playing (" << message << ")";
-        slotError();
-    }
-}
-
-void PresentationAudioWidget::slotPlayerStateChanged(QAVPlayer::State state)
-{
-    switch (state)
-    {
-        case QAVPlayer::PausedState:
-        case QAVPlayer::StoppedState:
-        {
-            m_playButton->setIcon(QIcon::fromTheme(QLatin1String("media-playback-start")));
-            checkSkip();
-            break;
-        }
-
-        case QAVPlayer::PlayingState:
-        {
-            m_playButton->setIcon(QIcon::fromTheme(QLatin1String("media-playback-pause")));
-            d->playingNext = true;
-            checkSkip();
-            break;
-        }
-
-        default:
-        {
-            break;
-        }
-    }
-}
-
-#endif
 
 void PresentationAudioWidget::slotError()
 {

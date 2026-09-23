@@ -27,18 +27,6 @@ void LibsInfoDlg::populateFeatures()
     new QTreeWidgetItem(m_features, QStringList() <<
                         i18nc(Private::CONTEXT, "Parallelized demosaicing") <<        d->checkTriState(DRawDecoder::librawUseGomp()));
 
-#ifdef HAVE_QTXMLPATTERNS
-
-    new QTreeWidgetItem(m_features, QStringList() <<
-                        i18nc(Private::CONTEXT, "Rajce support") <<                   d->supportedYes());
-
-#else
-
-    new QTreeWidgetItem(m_features, QStringList() <<
-                        i18nc(Private::CONTEXT, "Rajce support") <<                   d->supportedNo());
-
-#endif
-
     new QTreeWidgetItem(m_features, QStringList() <<
                         i18nc(Private::CONTEXT, "Exiv2 supports XMP metadata") <<     (MetaEngine::supportXmp() ?  d->supportedYes() : d->supportedNo()));
 
@@ -48,7 +36,7 @@ void LibsInfoDlg::populateFeatures()
     new QTreeWidgetItem(m_features, QStringList() <<
                         i18nc(Private::CONTEXT, "Exiv2 supports JPEG-XL metadata") << (MetaEngine::supportJpegXL() ? d->supportedYes() : d->supportedNo()));
 
-#ifdef HAVE_QMULTIMEDIA
+#ifdef HAVE_MEDIAPLAYER
 
     new QTreeWidgetItem(m_features, QStringList() <<
                         i18nc(Private::CONTEXT, "Qt Multimedia support") <<          d->supportedYes());

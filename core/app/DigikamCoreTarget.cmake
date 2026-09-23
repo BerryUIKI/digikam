@@ -71,15 +71,6 @@ if(ENABLE_MEDIAPLAYER)
         $<TARGET_OBJECTS:core_videotools_obj>
     )
 
-    if (NOT ENABLE_QTMULTIMEDIA)
-
-        set(DIGIKAMCORE_OBJECTS
-            ${DIGIKAMCORE_OBJECTS}
-            $<TARGET_OBJECTS:core_qtavplayer_obj>
-        )
-
-    endif()
-
 endif()
 
 if(ENABLE_GEOLOCATION)
