@@ -5,12 +5,12 @@
 #
 
 include_directories(
-    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Test,INTERFACE_INCLUDE_DIRECTORIES>
-    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Gui,INTERFACE_INCLUDE_DIRECTORIES>
-    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Core,INTERFACE_INCLUDE_DIRECTORIES>
-    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
+    $<TARGET_PROPERTY:Qt6::Test,INTERFACE_INCLUDE_DIRECTORIES>
+    $<TARGET_PROPERTY:Qt6::Gui,INTERFACE_INCLUDE_DIRECTORIES>
+    $<TARGET_PROPERTY:Qt6::Core,INTERFACE_INCLUDE_DIRECTORIES>
+    $<TARGET_PROPERTY:Qt6::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
 
-    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::I18n,INTERFACE_INCLUDE_DIRECTORIES>
+    $<TARGET_PROPERTY:KF6::I18n,INTERFACE_INCLUDE_DIRECTORIES>
 
     ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/nlsearch
 )
@@ -38,12 +38,12 @@ target_link_libraries(nlsearchpipeline_utest
                      digikamcore
                      digikamdatabase
 
-                     Qt${QT_VERSION_MAJOR}::Core
-                     Qt${QT_VERSION_MAJOR}::Gui
-                     Qt${QT_VERSION_MAJOR}::Widgets
-                     Qt${QT_VERSION_MAJOR}::Test
+                     Qt6::Core
+                     Qt6::Gui
+                     Qt6::Widgets
+                     Qt6::Test
 
-                     KF${QT_VERSION_MAJOR}::I18n
+                     KF6::I18n
 
                      ${OpenCV_LIBRARIES}
 )

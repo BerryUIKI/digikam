@@ -11,4 +11,4 @@ set(QT_VERSION       ${Qt6Core_VERSION})
 set(QT_MIN_VERSION   ${QT6_MIN_VERSION})
 set(QT_VERSION_MAJOR 6)
 
-message(STATUS "Suitable Qt${QT_VERSION_MAJOR} >= ${QT_MIN_VERSION} detected: '${QT_VERSION}'.")
+message(STATUS "Suitable Qt6 >= ${QT_MIN_VERSION} detected: '${QT_VERSION}'.")

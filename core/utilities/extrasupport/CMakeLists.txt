@@ -8,6 +8,6 @@ if(KPim${QT_VERSION_MAJOR}AkonadiContact_FOUND OR KPim${QT_VERSION_MAJOR}Akonadi
     add_subdirectory(addressbook)
 endif()
 
-if(KF${QT_VERSION_MAJOR}FileMetaData_FOUND)
+if(KF6FileMetaData_FOUND)
     add_subdirectory(filesindexer)
 endif()

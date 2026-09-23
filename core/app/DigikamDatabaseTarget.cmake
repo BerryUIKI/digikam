@@ -40,13 +40,13 @@ target_link_libraries(digikamdatabase
 
                       PRIVATE
 
-                      Qt${QT_VERSION_MAJOR}::Core
-                      Qt${QT_VERSION_MAJOR}::Gui
-                      Qt${QT_VERSION_MAJOR}::Sql
+                      Qt6::Core
+                      Qt6::Gui
+                      Qt6::Sql
 
-                      KF${QT_VERSION_MAJOR}::ConfigCore
-                      KF${QT_VERSION_MAJOR}::Solid
-                      KF${QT_VERSION_MAJOR}::I18n
+                      KF6::ConfigCore
+                      KF6::Solid
+                      KF6::I18n
 
                       digikamcore
 
@@ -63,7 +63,7 @@ if(ENABLE_DBUS)
 
     target_link_libraries(digikamdatabase
                           PRIVATE
-                          Qt${QT_VERSION_MAJOR}::DBus
+                          Qt6::DBus
     )
 
 endif()

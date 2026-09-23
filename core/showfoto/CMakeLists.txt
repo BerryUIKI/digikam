@@ -122,7 +122,7 @@ target_include_directories(showfoto
                            AFTER
                            PRIVATE
 
-                           $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Network,INTERFACE_INCLUDE_DIRECTORIES>
+                           $<TARGET_PROPERTY:Qt6::Network,INTERFACE_INCLUDE_DIRECTORIES>
 
                            ${CMAKE_SOURCE_DIR}/core/app/dragdrop
                            ${CMAKE_SOURCE_DIR}/core/app/items/overlays
@@ -132,12 +132,12 @@ target_include_directories(showfoto
                            ${DK_LOCAL_INCLUDES_UTILS}
 )
 
-if(KF${QT_VERSION_MAJOR}IconThemes_FOUND)
+if(KF6IconThemes_FOUND)
 
     target_include_directories(showfoto
                                AFTER
                                PRIVATE
-                               $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::IconThemes,INTERFACE_INCLUDE_DIRECTORIES>
+                               $<TARGET_PROPERTY:KF6::IconThemes,INTERFACE_INCLUDE_DIRECTORIES>
     )
 
     if (Qt6_FOUND)
@@ -145,7 +145,7 @@ if(KF${QT_VERSION_MAJOR}IconThemes_FOUND)
         target_include_directories(showfoto
                                    AFTER
                                    PRIVATE
-                                   $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::IconWidgets,INTERFACE_INCLUDE_DIRECTORIES>
+                                   $<TARGET_PROPERTY:KF6::IconWidgets,INTERFACE_INCLUDE_DIRECTORIES>
         )
 
     endif()
@@ -159,50 +159,50 @@ target_link_libraries(showfoto
 
                       PUBLIC
 
-                      Qt${QT_VERSION_MAJOR}::Core
-                      Qt${QT_VERSION_MAJOR}::Gui
-                      Qt${QT_VERSION_MAJOR}::Xml
-                      Qt${QT_VERSION_MAJOR}::Widgets
+                      Qt6::Core
+                      Qt6::Gui
+                      Qt6::Xml
+                      Qt6::Widgets
 
-                      KF${QT_VERSION_MAJOR}::XmlGui
-                      KF${QT_VERSION_MAJOR}::I18n
-                      KF${QT_VERSION_MAJOR}::ConfigCore
-                      KF${QT_VERSION_MAJOR}::Service
-                      KF${QT_VERSION_MAJOR}::CoreAddons
+                      KF6::XmlGui
+                      KF6::I18n
+                      KF6::ConfigCore
+                      KF6::Service
+                      KF6::CoreAddons
 
                       digikamcore
 )
 
-if(KF${QT_VERSION_MAJOR}Notifications_FOUND)
+if(KF6Notifications_FOUND)
 
     target_link_libraries(showfoto
                           PUBLIC
-                          KF${QT_VERSION_MAJOR}::Notifications
+                          KF6::Notifications
     )
 
 endif()
 
-if(KF${QT_VERSION_MAJOR}NotifyConfig_FOUND)
+if(KF6NotifyConfig_FOUND)
 
     target_link_libraries(showfoto
                           PUBLIC
-                          KF${QT_VERSION_MAJOR}::NotifyConfig
+                          KF6::NotifyConfig
     )
 
 endif()
 
-if(KF${QT_VERSION_MAJOR}IconThemes_FOUND)
+if(KF6IconThemes_FOUND)
 
     target_link_libraries(showfoto
                           PUBLIC
-                          KF${QT_VERSION_MAJOR}::IconThemes
+                          KF6::IconThemes
     )
 
     if (Qt6_FOUND)
 
         target_link_libraries(showfoto
                               PUBLIC
-                              KF${QT_VERSION_MAJOR}::IconWidgets
+                              KF6::IconWidgets
         )
 
     endif()
@@ -281,7 +281,7 @@ if(WIN32)
 
         target_link_libraries(showfoto_windows_stub_exe
                               PRIVATE
-                              Qt${QT_VERSION_MAJOR}::WinMain)
+                              Qt6::WinMain)
 
     endif()
 

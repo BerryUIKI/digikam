@@ -4,7 +4,7 @@
 # SPDX-License-Identifier: BSD-3-Clause
 #
 
-find_package(Qt${QT_VERSION_MAJOR}
+find_package(Qt6
              REQUIRED
              NO_MODULE COMPONENTS
 
@@ -23,7 +23,7 @@ find_package(Qt${QT_VERSION_MAJOR}
              SvgWidgets
 )
 
-find_package(Qt${QT_VERSION_MAJOR}
+find_package(Qt6
              OPTIONAL_COMPONENTS
 
              DBus
@@ -33,7 +33,7 @@ find_package(Qt${QT_VERSION_MAJOR}
 
 if(ENABLE_DBUS)
 
-    if(NOT Qt${QT_VERSION_MAJOR}DBus_FOUND)
+    if(NOT Qt6DBus_FOUND)
 
         set(ENABLE_DBUS OFF)
 
@@ -45,7 +45,7 @@ endif()
 
 if(BUILD_TESTING)
 
-    find_package(Qt${QT_VERSION_MAJOR}
+    find_package(Qt6
                  REQUIRED
                  NO_MODULE COMPONENTS
 
@@ -54,7 +54,7 @@ if(BUILD_TESTING)
 
     # Optional, for 'sialis' O2 library test tool.
 
-    find_package(Qt${QT_VERSION_MAJOR}
+    find_package(Qt6
                  QUIET
                  OPTIONAL_COMPONENTS
 

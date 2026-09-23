@@ -8,20 +8,20 @@ APPLY_COMMON_POLICIES()
 
 include(MacroDPlugins)
 
-include_directories($<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Concurrent,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Core,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::PrintSupport,INTERFACE_INCLUDE_DIRECTORIES>
+include_directories($<TARGET_PROPERTY:Qt6::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:Qt6::Concurrent,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:Qt6::Core,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:Qt6::PrintSupport,INTERFACE_INCLUDE_DIRECTORIES>
 
-                    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::ConfigCore,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::I18n,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF6::ConfigCore,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF6::I18n,INTERFACE_INCLUDE_DIRECTORIES>
 
                     ${CMAKE_CURRENT_SOURCE_DIR}/print
                     ${CMAKE_CURRENT_SOURCE_DIR}/wizard
 )
 
-if(KF${QT_VERSION_MAJOR}CalendarCore_FOUND)
-    include_directories($<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::CalendarCore,INTERFACE_INCLUDE_DIRECTORIES>)
+if(KF6CalendarCore_FOUND)
+    include_directories($<TARGET_PROPERTY:KF6::CalendarCore,INTERFACE_INCLUDE_DIRECTORIES>)
 endif()
 
 set(calendarplugin_SRCS
@@ -43,18 +43,18 @@ ki18n_wrap_ui(calendarplugin_SRCS
               ${CMAKE_CURRENT_SOURCE_DIR}/ui/calprogress.ui
 )
 
-if(KF${QT_VERSION_MAJOR}CalendarCore_FOUND)
+if(KF6CalendarCore_FOUND)
 
     DIGIKAM_ADD_GENERIC_PLUGIN(NAME    Calendar
                                SOURCES ${calendarplugin_SRCS}
-                               DEPENDS KF${QT_VERSION_MAJOR}::CalendarCore Qt${QT_VERSION_MAJOR}::PrintSupport
+                               DEPENDS KF6::CalendarCore Qt6::PrintSupport
     )
 
 else()
 
     DIGIKAM_ADD_GENERIC_PLUGIN(NAME    Calendar
                                SOURCES ${calendarplugin_SRCS}
-                               DEPENDS Qt${QT_VERSION_MAJOR}::PrintSupport
+                               DEPENDS Qt6::PrintSupport
     )
 
 endif()

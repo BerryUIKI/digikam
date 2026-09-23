@@ -93,7 +93,7 @@ if(ENABLE_GEOLOCATION)
 
 endif()
 
-if(KF${QT_VERSION_MAJOR}FileMetaData_FOUND)
+if(KF6FileMetaData_FOUND)
 
     set(DIGIKAMCORE_OBJECTS
         ${DIGIKAMCORE_OBJECTS}
@@ -147,25 +147,25 @@ target_link_libraries(digikamcore
 
                       PRIVATE
 
-                      Qt${QT_VERSION_MAJOR}::Core
-                      Qt${QT_VERSION_MAJOR}::Gui
-                      Qt${QT_VERSION_MAJOR}::Xml
-                      Qt${QT_VERSION_MAJOR}::Widgets
-                      Qt${QT_VERSION_MAJOR}::Sql
-                      Qt${QT_VERSION_MAJOR}::PrintSupport
-                      Qt${QT_VERSION_MAJOR}::Concurrent
-                      Qt${QT_VERSION_MAJOR}::Svg
-                      Qt${QT_VERSION_MAJOR}::WebEngineWidgets
-                      Qt${QT_VERSION_MAJOR}::StateMachine
-                      Qt${QT_VERSION_MAJOR}::SvgWidgets
+                      Qt6::Core
+                      Qt6::Gui
+                      Qt6::Xml
+                      Qt6::Widgets
+                      Qt6::Sql
+                      Qt6::PrintSupport
+                      Qt6::Concurrent
+                      Qt6::Svg
+                      Qt6::WebEngineWidgets
+                      Qt6::StateMachine
+                      Qt6::SvgWidgets
 
-                      KF${QT_VERSION_MAJOR}::Solid
-                      KF${QT_VERSION_MAJOR}::WindowSystem
-                      KF${QT_VERSION_MAJOR}::ConfigGui
-                      KF${QT_VERSION_MAJOR}::XmlGui
-                      KF${QT_VERSION_MAJOR}::I18n
-                      KF${QT_VERSION_MAJOR}::Service
-                      KF${QT_VERSION_MAJOR}::CoreAddons
+                      KF6::Solid
+                      KF6::WindowSystem
+                      KF6::ConfigGui
+                      KF6::XmlGui
+                      KF6::I18n
+                      KF6::Service
+                      KF6::CoreAddons
 
                       # Required by CImg which use pthread internally.
 
@@ -218,7 +218,7 @@ if(ENABLE_DBUS)
 
     target_link_libraries(digikamcore
                           PRIVATE
-                          Qt${QT_VERSION_MAJOR}::DBus
+                          Qt6::DBus
     )
 
 endif()
@@ -227,65 +227,65 @@ if(ENABLE_MEDIAPLAYER)
 
     target_link_libraries(digikamcore
                           PRIVATE
-                          Qt${QT_VERSION_MAJOR}::Multimedia
-                          Qt${QT_VERSION_MAJOR}::MultimediaWidgets
+                          Qt6::Multimedia
+                          Qt6::MultimediaWidgets
                           ${MEDIAPLAYER_LIBRARIES}
     )
 
 endif()
 
-if(KF${QT_VERSION_MAJOR}IconThemes_FOUND)
+if(KF6IconThemes_FOUND)
 
     target_link_libraries(digikamcore
                           PRIVATE
-                          KF${QT_VERSION_MAJOR}::IconThemes
+                          KF6::IconThemes
     )
 
     if(Qt6_FOUND)
 
         target_link_libraries(digikamcore
                               PRIVATE
-                              KF${QT_VERSION_MAJOR}::IconWidgets
+                              KF6::IconWidgets
         )
 
     endif()
 
 endif()
 
-if(KF${QT_VERSION_MAJOR}KIO_FOUND)
+if(KF6KIO_FOUND)
 
     target_link_libraries(digikamcore
                           PRIVATE
-                          KF${QT_VERSION_MAJOR}::KIOCore
-                          KF${QT_VERSION_MAJOR}::KIOWidgets
+                          KF6::KIOCore
+                          KF6::KIOWidgets
     )
 
 endif()
 
-if(KF${QT_VERSION_MAJOR}Notifications_FOUND)
+if(KF6Notifications_FOUND)
 
     target_link_libraries(digikamcore
                           PRIVATE
-                          KF${QT_VERSION_MAJOR}::Notifications
+                          KF6::Notifications
     )
 
 endif()
 
-if(KF${QT_VERSION_MAJOR}NotifyConfig_FOUND)
+if(KF6NotifyConfig_FOUND)
 
     target_link_libraries(digikamcore
                           PRIVATE
-                          KF${QT_VERSION_MAJOR}::NotifyConfig
+                          KF6::NotifyConfig
     )
 
 endif()
 
-if(KF${QT_VERSION_MAJOR}Sonnet_FOUND)
+if(KF6Sonnet_FOUND)
 
     target_link_libraries(digikamcore
                           PRIVATE
-                          KF${QT_VERSION_MAJOR}::SonnetCore
-                          KF${QT_VERSION_MAJOR}::SonnetUi
+                          KF6::SonnetCore
+                          KF6::SonnetUi
     )
 
 endif()
@@ -365,11 +365,11 @@ if(OpenCV_FOUND)
 
 endif()
 
-if(KF${QT_VERSION_MAJOR}FileMetaData_FOUND)
+if(KF6FileMetaData_FOUND)
 
     target_link_libraries(digikamcore
                           PRIVATE
-                          KF${QT_VERSION_MAJOR}::FileMetaData
+                          KF6::FileMetaData
     )
 
 endif()

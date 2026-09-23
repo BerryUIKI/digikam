@@ -8,14 +8,14 @@ APPLY_COMMON_POLICIES()
 
 include(MacroDPlugins)
 
-include_directories($<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Core,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Concurrent,INTERFACE_INCLUDE_DIRECTORIES>
+include_directories($<TARGET_PROPERTY:Qt6::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:Qt6::Core,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:Qt6::Concurrent,INTERFACE_INCLUDE_DIRECTORIES>
 
-                    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::I18n,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::ConfigCore,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::ConfigWidgets,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::Service,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF6::I18n,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF6::ConfigCore,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF6::ConfigWidgets,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF6::Service,INTERFACE_INCLUDE_DIRECTORIES>
 
                     ${CMAKE_CURRENT_SOURCE_DIR}/generator
                     ${CMAKE_CURRENT_SOURCE_DIR}/parameters
@@ -66,7 +66,7 @@ set(htmlgalleryplugin_SRCS
 
 DIGIKAM_ADD_GENERIC_PLUGIN(NAME    HtmlGallery
                            SOURCES ${htmlgalleryplugin_SRCS}
-                           DEPENDS Qt${QT_VERSION_MAJOR}::Concurrent
+                           DEPENDS Qt6::Concurrent
                                    ${LIBXSLT_EXSLT_LIBRARIES}
                                    ${LIBXSLT_LIBRARIES}
                                    ${LIBXML2_LIBRARIES}

@@ -62,17 +62,17 @@ macro(DIGIKAM_ADD_GENERIC_PLUGIN)
 
                           digikamcore
 
-                          Qt${QT_VERSION_MAJOR}::Core
-                          Qt${QT_VERSION_MAJOR}::Gui
-                          Qt${QT_VERSION_MAJOR}::Xml
-                          Qt${QT_VERSION_MAJOR}::Widgets
-                          Qt${QT_VERSION_MAJOR}::Network
-                          Qt${QT_VERSION_MAJOR}::NetworkAuth
+                          Qt6::Core
+                          Qt6::Gui
+                          Qt6::Xml
+                          Qt6::Widgets
+                          Qt6::Network
+                          Qt6::NetworkAuth
 
-                          KF${QT_VERSION_MAJOR}::XmlGui
-                          KF${QT_VERSION_MAJOR}::I18n
-                          KF${QT_VERSION_MAJOR}::ConfigCore
-                          KF${QT_VERSION_MAJOR}::Service
+                          KF6::XmlGui
+                          KF6::I18n
+                          KF6::ConfigCore
+                          KF6::Service
 
                           ${_parse_results_DEPENDS}
                           ${_extra_deps}
@@ -153,15 +153,15 @@ macro(DIGIKAM_ADD_EDITOR_PLUGIN)
 
                           digikamcore
 
-                          Qt${QT_VERSION_MAJOR}::Core
-                          Qt${QT_VERSION_MAJOR}::Gui
-                          Qt${QT_VERSION_MAJOR}::Xml
-                          Qt${QT_VERSION_MAJOR}::Widgets
+                          Qt6::Core
+                          Qt6::Gui
+                          Qt6::Xml
+                          Qt6::Widgets
 
-                          KF${QT_VERSION_MAJOR}::XmlGui
-                          KF${QT_VERSION_MAJOR}::I18n
-                          KF${QT_VERSION_MAJOR}::ConfigCore
-                          KF${QT_VERSION_MAJOR}::Service
+                          KF6::XmlGui
+                          KF6::I18n
+                          KF6::ConfigCore
+                          KF6::Service
 
                           ${_parse_results_DEPENDS}
                           ${_extra_deps}
@@ -244,16 +244,16 @@ macro(DIGIKAM_ADD_BQM_PLUGIN)
                           digikamdatabase
                           digikamgui
 
-                          Qt${QT_VERSION_MAJOR}::Core
-                          Qt${QT_VERSION_MAJOR}::Gui
-                          Qt${QT_VERSION_MAJOR}::Xml
-                          Qt${QT_VERSION_MAJOR}::Widgets
-                          Qt${QT_VERSION_MAJOR}::Sql
+                          Qt6::Core
+                          Qt6::Gui
+                          Qt6::Xml
+                          Qt6::Widgets
+                          Qt6::Sql
 
-                          KF${QT_VERSION_MAJOR}::XmlGui
-                          KF${QT_VERSION_MAJOR}::I18n
-                          KF${QT_VERSION_MAJOR}::ConfigCore
-                          KF${QT_VERSION_MAJOR}::Service
+                          KF6::XmlGui
+                          KF6::I18n
+                          KF6::ConfigCore
+                          KF6::Service
 
                           ${_parse_results_DEPENDS}
                           ${_extra_deps}
@@ -334,15 +334,15 @@ macro(DIGIKAM_ADD_RAWIMPORT_PLUGIN)
 
                           digikamcore
 
-                          Qt${QT_VERSION_MAJOR}::Core
-                          Qt${QT_VERSION_MAJOR}::Gui
-                          Qt${QT_VERSION_MAJOR}::Xml
-                          Qt${QT_VERSION_MAJOR}::Widgets
+                          Qt6::Core
+                          Qt6::Gui
+                          Qt6::Xml
+                          Qt6::Widgets
 
-                          KF${QT_VERSION_MAJOR}::XmlGui
-                          KF${QT_VERSION_MAJOR}::I18n
-                          KF${QT_VERSION_MAJOR}::ConfigCore
-                          KF${QT_VERSION_MAJOR}::Service
+                          KF6::XmlGui
+                          KF6::I18n
+                          KF6::ConfigCore
+                          KF6::Service
 
                           ${_parse_results_DEPENDS}
                           ${_extra_deps}
@@ -423,13 +423,13 @@ macro(DIGIKAM_ADD_DIMG_PLUGIN)
 
                           digikamcore
 
-                          Qt${QT_VERSION_MAJOR}::Core
-                          Qt${QT_VERSION_MAJOR}::Gui
-                          Qt${QT_VERSION_MAJOR}::Xml
-                          Qt${QT_VERSION_MAJOR}::Widgets
+                          Qt6::Core
+                          Qt6::Gui
+                          Qt6::Xml
+                          Qt6::Widgets
 
-                          KF${QT_VERSION_MAJOR}::I18n
-                          KF${QT_VERSION_MAJOR}::ConfigCore
+                          KF6::I18n
+                          KF6::ConfigCore
 
                           ${_parse_results_DEPENDS}
                           ${_extra_deps}

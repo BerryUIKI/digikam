@@ -54,14 +54,14 @@ macro(marble_add_plugin)
 
                           digikamcore
 
-                          Qt${QT_VERSION_MAJOR}::Core
-                          Qt${QT_VERSION_MAJOR}::Gui
-                          Qt${QT_VERSION_MAJOR}::Xml
-                          Qt${QT_VERSION_MAJOR}::Widgets
-                          Qt${QT_VERSION_MAJOR}::Network
-                          Qt${QT_VERSION_MAJOR}::Svg
+                          Qt6::Core
+                          Qt6::Gui
+                          Qt6::Xml
+                          Qt6::Widgets
+                          Qt6::Network
+                          Qt6::Svg
 
-                          KF${QT_VERSION_MAJOR}::I18n
+                          KF6::I18n
 
                           PNG::PNG                          # For zlib
 
@@ -75,7 +75,7 @@ macro(marble_add_plugin)
 
                               PRIVATE
 
-                              Qt${QT_VERSION_MAJOR}::SvgWidgets
+                              Qt6::SvgWidgets
         )
 
     endif()

@@ -14,10 +14,10 @@ if(HAVE_MEDIAPLAYER)
 
     if(Qt6_FOUND AND ENABLE_QTMULTIMEDIA)
 
-        include_directories($<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::MultimediaWidgets,INTERFACE_INCLUDE_DIRECTORIES>)
+        include_directories($<TARGET_PROPERTY:Qt6::MultimediaWidgets,INTERFACE_INCLUDE_DIRECTORIES>)
 
-        set(QTMEDIA_BACKEND Qt${QT_VERSION_MAJOR}::Multimedia
-                            Qt${QT_VERSION_MAJOR}::MultimediaWidgets
+        set(QTMEDIA_BACKEND Qt6::Multimedia
+                            Qt6::MultimediaWidgets
         )
 
     else()
@@ -39,13 +39,13 @@ if(HAVE_OPENGL)
     endif()
 
     include_directories(${CMAKE_CURRENT_SOURCE_DIR}/opengl)
-    include_directories($<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::OpenGL,INTERFACE_INCLUDE_DIRECTORIES>)
+    include_directories($<TARGET_PROPERTY:Qt6::OpenGL,INTERFACE_INCLUDE_DIRECTORIES>)
 
-    set(QT_OPENGL_LIBRARIES Qt${QT_VERSION_MAJOR}::OpenGL)
+    set(QT_OPENGL_LIBRARIES Qt6::OpenGL)
 
     if (Qt6_FOUND)
-        include_directories($<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::OpenGLWidgets,INTERFACE_INCLUDE_DIRECTORIES>)
-        set(QT_OPENGL_LIBRARIES ${QT_OPENGL_LIBRARIES} Qt${QT_VERSION_MAJOR}::OpenGLWidgets)
+        include_directories($<TARGET_PROPERTY:Qt6::OpenGLWidgets,INTERFACE_INCLUDE_DIRECTORIES>)
+        set(QT_OPENGL_LIBRARIES ${QT_OPENGL_LIBRARIES} Qt6::OpenGLWidgets)
     endif()
 
 endif()
@@ -55,11 +55,11 @@ include_directories(${CMAKE_CURRENT_SOURCE_DIR}/dialogs
                     ${CMAKE_CURRENT_SOURCE_DIR}/common
 )
 
-include_directories($<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Core,INTERFACE_INCLUDE_DIRECTORIES>
+include_directories($<TARGET_PROPERTY:Qt6::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:Qt6::Core,INTERFACE_INCLUDE_DIRECTORIES>
 
-                    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::ConfigCore,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::I18n,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF6::ConfigCore,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF6::I18n,INTERFACE_INCLUDE_DIRECTORIES>
 )
 
 set(presentationplugin_SRCS

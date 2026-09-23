@@ -57,17 +57,17 @@ target_link_libraries(digikam
 
                       PUBLIC
 
-                      Qt${QT_VERSION_MAJOR}::Core
-                      Qt${QT_VERSION_MAJOR}::Gui
-                      Qt${QT_VERSION_MAJOR}::Widgets
-                      Qt${QT_VERSION_MAJOR}::Sql
+                      Qt6::Core
+                      Qt6::Gui
+                      Qt6::Widgets
+                      Qt6::Sql
 
-                      KF${QT_VERSION_MAJOR}::WindowSystem
-                      KF${QT_VERSION_MAJOR}::I18n
-                      KF${QT_VERSION_MAJOR}::XmlGui
-                      KF${QT_VERSION_MAJOR}::ConfigCore
-                      KF${QT_VERSION_MAJOR}::Service
-                      KF${QT_VERSION_MAJOR}::CoreAddons
+                      KF6::WindowSystem
+                      KF6::I18n
+                      KF6::XmlGui
+                      KF6::ConfigCore
+                      KF6::Service
+                      KF6::CoreAddons
 
                       digikamcore
                       digikamdatabase
@@ -78,26 +78,26 @@ if(ENABLE_DBUS)
 
     target_link_libraries(digikam
                           PUBLIC
-                          Qt${QT_VERSION_MAJOR}::DBus
+                          Qt6::DBus
     )
 
 endif()
 
-if(KF${QT_VERSION_MAJOR}IconThemes_FOUND)
+if(KF6IconThemes_FOUND)
 
     target_link_libraries(digikam
                           PUBLIC
-                          KF${QT_VERSION_MAJOR}::IconThemes
-                          KF${QT_VERSION_MAJOR}::IconWidgets
+                          KF6::IconThemes
+                          KF6::IconWidgets
     )
 
 endif()
 
-if(KF${QT_VERSION_MAJOR}KIO_FOUND)
+if(KF6KIO_FOUND)
 
     target_link_libraries(digikam
                           PUBLIC
-                          KF${QT_VERSION_MAJOR}::KIOWidgets
+                          KF6::KIOWidgets
     )
 
 endif()

@@ -19,17 +19,17 @@ include_directories(${DK_LOCAL_INCLUDES}
 # -------------------------------------------------------------------------------
 # Unit-tests common dependencies
 
-set(_extra_deps ${_extra_deps} Qt${QT_VERSION_MAJOR}::WebEngineWidgets)
+set(_extra_deps ${_extra_deps} Qt6::WebEngineWidgets)
 
 if(ENABLE_DBUS)
 
-    set(_extra_deps ${_extra_deps} Qt${QT_VERSION_MAJOR}::DBus)
+    set(_extra_deps ${_extra_deps} Qt6::DBus)
 
 endif()
 
-if(KF${QT_VERSION_MAJOR}Notifications_FOUND)
+if(KF6Notifications_FOUND)
 
-    set(_extra_deps ${_extra_deps} KF${QT_VERSION_MAJOR}::Notifications)
+    set(_extra_deps ${_extra_deps} KF6::Notifications)
 
 endif()
 
@@ -88,20 +88,20 @@ if(APPLE)
 
 endif()
 
-set(COMMON_TEST_LINK Qt${QT_VERSION_MAJOR}::Core
-                     Qt${QT_VERSION_MAJOR}::Gui
-                     Qt${QT_VERSION_MAJOR}::Xml
-                     Qt${QT_VERSION_MAJOR}::Widgets
-                     Qt${QT_VERSION_MAJOR}::Concurrent
-                     Qt${QT_VERSION_MAJOR}::Test
-                     Qt${QT_VERSION_MAJOR}::Sql
+set(COMMON_TEST_LINK Qt6::Core
+                     Qt6::Gui
+                     Qt6::Xml
+                     Qt6::Widgets
+                     Qt6::Concurrent
+                     Qt6::Test
+                     Qt6::Sql
 
-                     KF${QT_VERSION_MAJOR}::XmlGui
-                     KF${QT_VERSION_MAJOR}::I18n
-                     KF${QT_VERSION_MAJOR}::ConfigCore
-                     KF${QT_VERSION_MAJOR}::CoreAddons
-                     KF${QT_VERSION_MAJOR}::Service
-                     KF${QT_VERSION_MAJOR}::Solid
+                     KF6::XmlGui
+                     KF6::I18n
+                     KF6::ConfigCore
+                     KF6::CoreAddons
+                     KF6::Service
+                     KF6::Solid
 
                      ${OPENMP_LDFLAGS}
                      ${JPEG_LIBRARIES}
@@ -130,8 +130,8 @@ add_library(libmodeltest STATIC
 
 target_link_libraries(libmodeltest
                       PRIVATE
-                      Qt${QT_VERSION_MAJOR}::Core
-                      Qt${QT_VERSION_MAJOR}::Test
+                      Qt6::Core
+                      Qt6::Test
 )
 
 # -------------------------------------------------------------------------------
@@ -178,7 +178,7 @@ if(ENABLE_GEOLOCATION)
 
 endif()
 
-if(FLEX_FOUND AND BISON_FOUND AND KF${QT_VERSION_MAJOR}ThreadWeaver_FOUND)
+if(FLEX_FOUND AND BISON_FOUND AND KF6ThreadWeaver_FOUND)
 
     add_subdirectory(panorama)
 

@@ -258,19 +258,19 @@ target_link_libraries(digikamgui
 
                       PRIVATE
 
-                      Qt${QT_VERSION_MAJOR}::Core
-                      Qt${QT_VERSION_MAJOR}::Gui
-                      Qt${QT_VERSION_MAJOR}::Widgets
-                      Qt${QT_VERSION_MAJOR}::Sql
-                      Qt${QT_VERSION_MAJOR}::PrintSupport
+                      Qt6::Core
+                      Qt6::Gui
+                      Qt6::Widgets
+                      Qt6::Sql
+                      Qt6::PrintSupport
 
-                      KF${QT_VERSION_MAJOR}::XmlGui
-                      KF${QT_VERSION_MAJOR}::Solid
-                      KF${QT_VERSION_MAJOR}::ConfigCore
-                      KF${QT_VERSION_MAJOR}::ConfigGui
-                      KF${QT_VERSION_MAJOR}::Service
-                      KF${QT_VERSION_MAJOR}::WindowSystem
-                      KF${QT_VERSION_MAJOR}::I18n
+                      KF6::XmlGui
+                      KF6::Solid
+                      KF6::ConfigCore
+                      KF6::ConfigGui
+                      KF6::Service
+                      KF6::WindowSystem
+                      KF6::I18n
 
                       digikamcore
                       digikamdatabase
@@ -288,33 +288,33 @@ target_link_libraries(digikamgui
 
 target_link_libraries(digikamgui
                       PRIVATE
-                      Qt${QT_VERSION_MAJOR}::WebEngineWidgets
+                      Qt6::WebEngineWidgets
 )
 
 if(ENABLE_DBUS)
 
     target_link_libraries(digikamgui
                           PRIVATE
-                          Qt${QT_VERSION_MAJOR}::DBus
+                          Qt6::DBus
     )
 
 endif()
 
-if(KF${QT_VERSION_MAJOR}IconThemes_FOUND)
+if(KF6IconThemes_FOUND)
 
     target_link_libraries(digikamgui
                           PRIVATE
-                          KF${QT_VERSION_MAJOR}::IconThemes
-                          KF${QT_VERSION_MAJOR}::IconWidgets
+                          KF6::IconThemes
+                          KF6::IconWidgets
     )
 
 endif()
 
-if(KF${QT_VERSION_MAJOR}KIO_FOUND)
+if(KF6KIO_FOUND)
 
     target_link_libraries(digikamgui
                           PRIVATE
-                          KF${QT_VERSION_MAJOR}::KIOWidgets
+                          KF6::KIOWidgets
     )
 
 endif()

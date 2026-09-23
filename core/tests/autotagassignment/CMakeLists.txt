@@ -7,15 +7,15 @@
 APPLY_COMMON_POLICIES()
 
 include_directories(
-                    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Network,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Concurrent,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Xml,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:Qt${QT_VERSION_MAJOR}::Core,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:Qt6::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:Qt6::Network,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:Qt6::Concurrent,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:Qt6::Xml,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:Qt6::Core,INTERFACE_INCLUDE_DIRECTORIES>
 
-                    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::ConfigCore,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::XmlGui,INTERFACE_INCLUDE_DIRECTORIES>
-                    $<TARGET_PROPERTY:KF${QT_VERSION_MAJOR}::Service,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF6::ConfigCore,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF6::XmlGui,INTERFACE_INCLUDE_DIRECTORIES>
+                    $<TARGET_PROPERTY:KF6::Service,INTERFACE_INCLUDE_DIRECTORIES>
 )
 
 # -----------------------------------------------------------------------------
@@ -30,9 +30,9 @@ target_link_libraries(detect_object_cli
                       digikamdatabase
                       digikamgui
 
-                      KF${QT_VERSION_MAJOR}::XmlGui
-                      KF${QT_VERSION_MAJOR}::ConfigCore
-                      KF${QT_VERSION_MAJOR}::Service
+                      KF6::XmlGui
+                      KF6::ConfigCore
+                      KF6::Service
                       ${COMMON_TEST_LINK}
 )
 
@@ -48,9 +48,9 @@ target_link_libraries(detect_object_gui
                       digikamdatabase
                       digikamgui
 
-                      KF${QT_VERSION_MAJOR}::XmlGui
-                      KF${QT_VERSION_MAJOR}::ConfigCore
-                      KF${QT_VERSION_MAJOR}::Service
+                      KF6::XmlGui
+                      KF6::ConfigCore
+                      KF6::Service
                       ${COMMON_TEST_LINK}
 )
 
@@ -64,9 +64,9 @@ target_link_libraries(detect_object_batch_cli
                       digikamdatabase
                       digikamgui
 
-                      KF${QT_VERSION_MAJOR}::XmlGui
-                      KF${QT_VERSION_MAJOR}::ConfigCore
-                      KF${QT_VERSION_MAJOR}::Service
+                      KF6::XmlGui
+                      KF6::ConfigCore
+                      KF6::Service
                       ${COMMON_TEST_LINK}
 )
 
@@ -82,9 +82,9 @@ target_link_libraries(autotagging_batch_cli
                       digikamdatabase
                       digikamgui
 
-                      KF${QT_VERSION_MAJOR}::XmlGui
-                      KF${QT_VERSION_MAJOR}::ConfigCore
-                      KF${QT_VERSION_MAJOR}::Service
+                      KF6::XmlGui
+                      KF6::ConfigCore
+                      KF6::Service
                       ${COMMON_TEST_LINK}
 )
 
@@ -98,8 +98,8 @@ target_link_libraries(resnet_cli
                       digikamdatabase
                       digikamgui
 
-                      KF${QT_VERSION_MAJOR}::XmlGui
-                      KF${QT_VERSION_MAJOR}::ConfigCore
-                      KF${QT_VERSION_MAJOR}::Service
+                      KF6::XmlGui
+                      KF6::ConfigCore
+                      KF6::Service
                       ${COMMON_TEST_LINK}
 )
