@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-22 15:58+0000\n"
-"PO-Revision-Date: 2026-09-12 10:42+0200\n"
+"PO-Revision-Date: 2026-09-22 09:50+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -22,7 +22,7 @@ msgstr ""
 "Content-Transfer-Encoding: 8bit\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Accelerator-Marker: &\n"
-"X-Generator: Lokalize 25.04.0\n"
+"X-Generator: Lokalize 26.08.1\n"
 
 #: core/app/date/ddateedit.cpp:489
 #, kde-format
@@ -2352,7 +2352,7 @@ msgstr "Última imatge"
 #, kde-format
 msgctxt "@action: setup"
 msgid "Play/Pause Video"
-msgstr ""
+msgstr "Reproduïu o pausa vídeo"
 
 #: core/app/main/digikamapp_setup.cpp:1013
 #, kde-format
@@ -20853,28 +20853,27 @@ msgstr ""
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
 #, kde-format
 msgid "Send items by mail from digiKam"
-msgstr ""
+msgstr "Envia elements per correu des de digiKam"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:663
-#, fuzzy, kde-format
-#| msgid "Title of the image"
+#, kde-format
 msgid "List of attached items"
-msgstr "Títol de la imatge"
+msgstr "Llista d'elements adjuntats"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:710
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error While to Set Image as Wallpaper"
+#, kde-format
 msgctxt "@title:window"
 msgid "Error While to Send Items by mail"
-msgstr ""
-"S'ha produït un error mentre s'establia la imatge com a fons de pantalla"
+msgstr "S'ha produït un error mentre s'enviava elements per correu"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:711
-#, kde-format
+#, fuzzy, kde-format
+#| msgctxt "@info"
+#| msgid "Cannot send items using native Apple MAil application"
 msgctxt "@info"
 msgid "Cannot send items using native Apple Mail application"
 msgstr ""
+"No s'han pogut enviar elements utilitzant l'aplicació nativa Mail d'Apple"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:727
 #, kde-format
@@ -20933,11 +20932,10 @@ msgid "Outlook"
 msgstr "Outlook"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:103
-#, fuzzy, kde-format
-#| msgid "AppleSingle"
+#, kde-format
 msgctxt "Mail client: APPLEMAIL"
 msgid "Apple Mail"
-msgstr "AppleSingle"
+msgstr "Mail d'Apple"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:104
 #, kde-format
@@ -69149,16 +69147,14 @@ msgid "Use OpenCL hardware acceleration"
 msgstr "Utilitza l'acceleració de maquinari OpenCL"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:139
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and requires that certain environment "
-#| "variables are set manually."
+#, kde-format
 msgid ""
 "This option is still experimental and requires that certain environment "
 "variables are set manually. See the online documentation for details."
 msgstr ""
 "Esta opció encara és experimental i necessita que determinades variables "
-"d'entorn es definisquen manualment."
+"d'entorn es definisquen manualment. Vegeu els detalls a la documentació en "
+"línia."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:142
 #, kde-format
@@ -69166,16 +69162,14 @@ msgid "Use OpenCL acceleration for AI models"
 msgstr "Utilitza l'acceleració OpenCL per als models d'IA"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and may lead to crashes if the proper "
-#| "drivers are not installed."
+#, kde-format
 msgid ""
 "This option is still experimental and may lead to crashes if the proper "
 "drivers are not installed. See the online documentation for details."
 msgstr ""
 "Esta opció encara és experimental i pot provocar fallades si no estan "
-"instal·lats els controladors adequats."
+"instal·lats els controladors adequats. Vegeu els detalls a la documentació "
+"en línia."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:147
 #, kde-format
@@ -70013,4 +70007,4 @@ msgstr "Estudi"
 #: core/utilities/survey/surveywindow_setup.cpp:161
 #, kde-format
 msgid "Play/Pause Video"
-msgstr ""
+msgstr "Reproduïu o pausa vídeo"

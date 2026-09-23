@@ -7,7 +7,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 00:42+0000\n"
+"POT-Creation-Date: 2026-09-22 15:58+0000\n"
 "PO-Revision-Date: 2024-03-09 12:45+0100\n"
 "Last-Translator: Karl Ove Hufthammer <karl@huftis.org>\n"
 "Language-Team: Norwegian Bokmål <l10n-no@nuug.no>\n"
@@ -322,7 +322,6 @@ msgstr[1] ""
 
 #: core/app/dragdrop/tagdragdrop.cpp:538
 #, fuzzy, kde-format
-#| msgid "Assign Tags to &All Items"
 msgid "Assign Tag '%2' to Items"
 msgid_plural "Assign Tag(s) '%2' to Items"
 msgstr[0] "Tilordne etiketter til &alle elementer"
@@ -355,33 +354,27 @@ msgstr ""
 
 #: core/app/filters/filtersidebarwidget_faces.cpp:65
 #, fuzzy, kde-format
-#| msgctxt "Browse images sorted by depicted people"
-#| msgid "People"
 msgctxt "@title"
 msgid "People"
 msgstr "Personer"
 
 #: core/app/filters/filtersidebarwidget_properties.cpp:36
 #, fuzzy, kde-format
-#| msgid "Text Filter"
 msgid "Text Filter:"
 msgstr "Tekstfilter"
 
 #: core/app/filters/filtersidebarwidget_properties.cpp:41
 #, fuzzy, kde-format
-#| msgid "MIME Type Filter"
 msgid "MIME Type Filter:"
 msgstr "MIME-type filter"
 
 #: core/app/filters/filtersidebarwidget_properties.cpp:46
 #, fuzzy, kde-format
-#| msgid "Geolocation Filter"
 msgid "Geolocation Filter:"
 msgstr "Geolokaliseringsfilter"
 
 #: core/app/filters/filtersidebarwidget_properties.cpp:51
 #, fuzzy, kde-format
-#| msgid "Labels Filter"
 msgid "Labels Filter:"
 msgstr "Merkelappfiltre"
 
@@ -2059,14 +2052,12 @@ msgstr ""
 
 #: core/app/main/digikamapp_setup.cpp:630
 #, fuzzy, kde-format
-#| msgid "Pick Label:"
 msgctxt "@action: setup"
 msgid "By Pick Label"
 msgstr "Plukk-merkelapp:"
 
 #: core/app/main/digikamapp_setup.cpp:631
 #, fuzzy, kde-format
-#| msgid "Color Label:"
 msgctxt "@action: setup"
 msgid "By Color Label"
 msgstr "Fargemerkelapp:"
@@ -2079,7 +2070,6 @@ msgstr ""
 
 #: core/app/main/digikamapp_setup.cpp:634
 #, fuzzy, kde-format
-#| msgid "Any Orientation"
 msgctxt "@action: setup"
 msgid "By Orientation"
 msgstr "Hvilken som helst retning"
@@ -2092,7 +2082,6 @@ msgstr ""
 
 #: core/app/main/digikamapp_setup.cpp:636
 #, fuzzy, kde-format
-#| msgid "Position:"
 msgctxt "@action: setup"
 msgid "By Gps Position"
 msgstr "Posisjon:"
@@ -2829,50 +2818,41 @@ msgstr ""
 
 #: core/app/utils/digikam_version.cpp:66
 #, fuzzy, kde-format
-#| msgid "Contribute..."
 msgid "Contribute: "
 msgstr "Bidra …"
 
 #: core/app/utils/digikam_version.cpp:69
 #, fuzzy, kde-format
-#| msgid "Date:"
 msgid "Donate: "
 msgstr "Dato:"
 
 #: core/app/views/preview/itempreviewvideo.cpp:98
 #: core/app/views/preview/itempreviewview.cpp:284
 #, fuzzy, kde-format
-#| msgid "Crop Information"
 msgctxt "@info:tooltip"
 msgid "Show OSD Information"
 msgstr "Informasjon om beskjæring"
 
 #: core/app/views/preview/itempreviewview.cpp:194
 #, fuzzy, kde-format
-#| msgctxt "go to previous image"
-#| msgid "Back"
 msgctxt "@info:tooltip Go to previous image"
 msgid "Back"
 msgstr "Tilbake"
 
 #: core/app/views/preview/itempreviewview.cpp:196
 #, fuzzy, kde-format
-#| msgctxt "go to next image"
-#| msgid "Forward"
 msgctxt "@info:tooltip Go to next image"
 msgid "Forward"
 msgstr "Forover"
 
 #: core/app/views/preview/itempreviewview.cpp:207
 #, fuzzy, kde-format
-#| msgid "Add a Face Tag"
 msgctxt "@info:tooltip"
 msgid "Add a Face Tag"
 msgstr "Legg til en ansiktsetikett"
 
 #: core/app/views/preview/itempreviewview.cpp:212
 #, fuzzy, kde-format
-#| msgid "Clear all faces on this image"
 msgctxt "@info:tooltip"
 msgid "Clear all faces on this image"
 msgstr "Tøm alle ansikter på dette bildet"
@@ -2885,7 +2865,6 @@ msgstr ""
 
 #: core/app/views/preview/itempreviewview.cpp:222
 #, fuzzy, kde-format
-#| msgid "Show Face Tags"
 msgctxt "@info:tooltip"
 msgid "Show Face Tags"
 msgstr "Vis ansiktsetiketter"
@@ -2898,7 +2877,6 @@ msgstr ""
 
 #: core/app/views/preview/itempreviewview.cpp:229
 #, fuzzy, kde-format
-#| msgid "Show youngest first"
 msgctxt "@info:tooltip"
 msgid "Show focus points"
 msgstr "Vis yngste først"
@@ -2911,28 +2889,24 @@ msgstr ""
 
 #: core/app/views/preview/itempreviewview.cpp:248
 #, fuzzy, kde-format
-#| msgid "Show numbers"
 msgctxt "@info:tooltip"
 msgid "Show Magnifier"
 msgstr "Vis tall"
 
 #: core/app/views/preview/itempreviewview.cpp:253
 #, fuzzy, kde-format
-#| msgid "Zoom out"
 msgctxt "@info:tooltip"
 msgid "Zoom Factor"
 msgstr "Forminsk"
 
 #: core/app/views/preview/itempreviewview.cpp:276
 #, fuzzy, kde-format
-#| msgid "Exposure Indicators"
 msgctxt "@info:tooltip"
 msgid "Under-Exposure Indicator"
 msgstr "Eksponeringsindikatorer"
 
 #: core/app/views/preview/itempreviewview.cpp:280
 #, fuzzy, kde-format
-#| msgid "Exposure Indicators"
 msgctxt "@info:tooltip"
 msgid "Over-Exposure Indicator"
 msgstr "Eksponeringsindikatorer"
@@ -2953,7 +2927,7 @@ msgstr ""
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlintropage.cpp:83
 #: core/dplugins/generic/tools/jalbum/wizard/jalbumintropage.cpp:90
 #: core/dplugins/generic/tools/printcreator/wizard/advprintintropage.cpp:86
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:104
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:106
 #: core/dplugins/generic/tools/videoslideshow/vidslideintropage.cpp:93
 #: core/libs/album/engine/album.cpp:493
 #: core/libs/album/manager/albummanager.cpp:178
@@ -3515,9 +3489,6 @@ msgstr ""
 
 #: core/app/views/stack/welcomepageview_features.cpp:37
 #, fuzzy, kde-format
-#| msgid ""
-#| "Enable this option to use the background theme color in the image editor "
-#| "area."
 msgid ""
 "Add new Slideshow option to customize the color background instead pure "
 "black in case of images transparency usage."
@@ -3527,9 +3498,6 @@ msgstr ""
 
 #: core/app/views/stack/welcomepageview_features.cpp:38
 #, fuzzy, kde-format
-#| msgid ""
-#| "Enable this option to use the background theme color in the image editor "
-#| "area."
 msgid ""
 "Add new Presentation option to customize the color background instead pure "
 "black in case of images transparency usage."
@@ -3608,19 +3576,16 @@ msgstr ""
 
 #: core/app/views/stack/welcomepageview_features.cpp:56
 #, fuzzy, kde-format
-#| msgid "Item properties"
 msgid "Item Property improvements:"
 msgstr "Elementegenskaper"
 
 #: core/app/views/stack/welcomepageview_features.cpp:58
 #, fuzzy, kde-format
-#| msgid "Copy to Clipboard"
 msgid "Add new button to copy all properties as text in clipboard."
 msgstr "Kopier til utklippstavla"
 
 #: core/app/views/stack/welcomepageview_features.cpp:59
 #, fuzzy, kde-format
-#| msgid "Add new tag to current tag. Current tag is last clicked tag."
 msgid "Add new button to open current item in file manager."
 msgstr ""
 "Legg til ny etikett til gjeldende etikett. Gjeldende etikett er den det sist "
@@ -3656,7 +3621,6 @@ msgstr ""
 
 #: core/app/views/stack/welcomepageview_features.cpp:70
 #, fuzzy, kde-format
-#| msgid "Preview grouped items"
 msgid "Preview Mode improvements:"
 msgstr "Forhåndsvis grupperte elementer"
 
@@ -3720,8 +3684,6 @@ msgstr ""
 
 #: core/app/views/stack/welcomepageview_features.cpp:83
 #, fuzzy, kde-format
-#| msgid "Advanced Search - 1 Item"
-#| msgid_plural "Advanced Search - %1 Items"
 msgid "Advanced Search improvements:"
 msgstr "Avansert søk – ett element"
 
@@ -3949,15 +3911,12 @@ msgstr ""
 
 #: core/app/views/tableview/tableview_column_digikam.cpp:82
 #, fuzzy, kde-format
-#| msgctxt "Group of the file"
-#| msgid "Group"
 msgctxt "@title: grouped"
 msgid "Grouped"
 msgstr "Gruppe"
 
 #: core/app/views/tableview/tableview_column_digikam.cpp:83
 #, fuzzy, kde-format
-#| msgid "Less options"
 msgctxt "@title: versioned"
 msgid "Versioned"
 msgstr "Færre valg"
@@ -4000,15 +3959,12 @@ msgstr ""
 
 #: core/app/views/tableview/tableview_column_digikam.cpp:124
 #, fuzzy, kde-format
-#| msgctxt "Group of the file"
-#| msgid "Group"
 msgctxt "@info: tableview"
 msgid "Grouped"
 msgstr "Gruppe"
 
 #: core/app/views/tableview/tableview_column_digikam.cpp:129
 #, fuzzy, kde-format
-#| msgid "Less options"
 msgctxt "@info: tableview"
 msgid "Versioned"
 msgstr "Færre valg"
@@ -4648,14 +4604,12 @@ msgstr ""
 
 #: core/app/views/utils/componentsinfodlg.cpp:252
 #, fuzzy, kde-format
-#| msgid "Database backend"
 msgctxt "@item: component info"
 msgid "Database backend version"
 msgstr "Databasemotor"
 
 #: core/app/views/utils/componentsinfodlg.cpp:256
 #, fuzzy, kde-format
-#| msgid "Default Language Caption Options"
 msgctxt "@item: component info"
 msgid "Natural Language Configuration"
 msgstr "Valg for standardspråk for bildetekst"
@@ -6342,8 +6296,6 @@ msgstr ""
 
 #: core/dplugins/bqm/metadata/assigntemplate/assigntemplateplugin.cpp:42
 #, fuzzy, kde-format
-#| msgctxt "new smug album dialog"
-#| msgid "Template:"
 msgctxt "@title"
 msgid "Apply Template"
 msgstr "Mal:"
@@ -6617,7 +6569,6 @@ msgstr ""
 
 #: core/dplugins/bqm/transform/autorotate/autorotateplugin.cpp:58
 #, fuzzy, kde-format
-#| msgid "Enable this option to automatically set the orientation."
 msgctxt "@info"
 msgid "A tool to automatically rotate images"
 msgstr "Velg retning automatisk."
@@ -10189,7 +10140,7 @@ msgstr "Ny bredde:"
 #: core/dplugins/editor/transform/shear/sheartool.cpp:109
 #: core/dplugins/editor/transform/shear/sheartool.cpp:307
 #: core/dplugins/editor/transform/shear/sheartool.cpp:308
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:140
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:142
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:134
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:102
 #, kde-format
@@ -17088,7 +17039,7 @@ msgstr ""
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlfinalpage.cpp:98
 #: core/dplugins/generic/tools/jalbum/wizard/jalbumfinalpage.cpp:99
 #: core/dplugins/generic/tools/printcreator/wizard/advprintfinalpage.cpp:126
-#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:116
+#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:118
 #: core/dplugins/generic/tools/videoslideshow/vidslidefinalpage.cpp:122
 #: core/dplugins/generic/webservices/unified/wizard/wsfinalpage.cpp:125
 #, kde-format
@@ -17199,7 +17150,7 @@ msgstr ""
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlintropage.cpp:81
 #: core/dplugins/generic/tools/jalbum/wizard/jalbumintropage.cpp:88
 #: core/dplugins/generic/tools/printcreator/wizard/advprintintropage.cpp:84
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:102
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:104
 #: core/dplugins/generic/tools/videoslideshow/vidslideintropage.cpp:91
 #, kde-format
 msgid "&Choose image selection method:"
@@ -17208,7 +17159,7 @@ msgstr "&Velg metode for bildeutvalg:"
 #: core/dplugins/generic/tools/htmlgallery/wizard/htmlintropage.cpp:84
 #: core/dplugins/generic/tools/jalbum/wizard/jalbumintropage.cpp:91
 #: core/dplugins/generic/tools/printcreator/wizard/advprintintropage.cpp:87
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:105
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:107
 #: core/dplugins/generic/tools/videoslideshow/vidslideintropage.cpp:94
 #: core/libs/database/utils/widgets/dbstatdlg.cpp:51
 #, kde-format
@@ -19404,7 +19355,7 @@ msgid "Optional Gimp Binaries"
 msgstr ""
 
 #: core/dplugins/generic/tools/printcreator/wizard/advprintoutputpage.cpp:75
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:151
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:153
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:146
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:113
 #, kde-format
@@ -19475,7 +19426,7 @@ msgstr ""
 msgid "The selected custom photo size can not be applied to the paper size."
 msgstr ""
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1358
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1357
 #, kde-format
 msgid ""
 "Custom\n"
@@ -19488,7 +19439,7 @@ msgid "Welcome to Print Creator"
 msgstr ""
 
 #: core/dplugins/generic/tools/printcreator/wizard/advprintwizard.cpp:101
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:77
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:79
 #: core/dplugins/generic/tools/videoslideshow/vidslidewizard.cpp:78
 #: core/dplugins/generic/webservices/unified/wizard/wswizard.cpp:86
 #, kde-format
@@ -19536,69 +19487,69 @@ msgstr "Side %1 av %2"
 msgid "Error opening input file"
 msgstr "Klarte ikke å åpne inndatafila"
 
-#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:106
+#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:107
 #, kde-format
 msgid "Error opening temporary folder"
 msgstr "Kan ikke åpne midlertidig mappe"
 
-#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:129
+#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:131
 #, kde-format
 msgid "Cannot resize image. Aborting."
 msgstr "Kan ikke endre bildestørrelsen. Avbryter."
 
-#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:142
+#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:145
 #, kde-format
 msgid "Cannot save resized image (JPEG). Aborting."
 msgstr ""
 "Klarer ikke å lagre bildet som har fått endret størrelsen (JPEG). Avbryter."
 
-#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:150
+#: core/dplugins/generic/tools/sendbymail/manager/imageresizejob.cpp:154
 #, kde-format
 msgid "Cannot save resized image (PNG). Aborting."
 msgstr ""
 "Klarer ikke å lagre bildet som har fått endret størrelsen (PNG). Avbryter."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:109
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:111
 #, kde-format
 msgid "Cannot create a temporary directory"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:170
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:172
 #, kde-format
 msgid "Resizing %1"
 msgstr "Endrer størrelsen %1"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:188
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:190
 #, kde-format
 msgid "%1 resized successfully"
 msgstr "%1 har fått endret størrelsen"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:202
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:204
 #, kde-format
 msgid "Failed to resize %1: %2"
 msgstr "Klarte ikke endre størrelse på %1 : %2"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:239
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:241
 #, kde-format
 msgid "There are no files to send"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:263
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:265
 #, kde-format
 msgid "Build images properties file"
 msgstr "Lag fil for bildeegenskapene"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:279
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:281
 #, kde-format
 msgid "no caption"
 msgstr "ingen bildetekst"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:284
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:286
 #, kde-format
 msgid "no keywords"
 msgstr "ingen nøkkelord"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:287
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
 #, kde-format
 msgid ""
 "file \"%1\":\n"
@@ -19607,37 +19558,37 @@ msgstr ""
 "fil «%1»:\n"
 "Originalbilde: %2\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
 #, kde-format
 msgid "Comments: %1\n"
 msgstr "Kommentarer: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:293
 #, kde-format
 msgid "Tags: %1\n"
 msgstr "Etiketter: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:293
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:295
 #, kde-format
 msgid "Rating: %1\n"
 msgstr "Karakterer: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:298
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:300
 #, kde-format
 msgid "properties.txt"
 msgstr "egenskaper.txt"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:313
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:315
 #, kde-format
 msgid "Image properties file cannot be opened"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:325
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:327
 #, kde-format
 msgid "Image properties file done"
 msgstr "Fila med bildeegenskaper er ferdig"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:345
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:347
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:982
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:995
 #, kde-format
@@ -19645,14 +19596,14 @@ msgctxt "@title:window"
 msgid "Processing Failed"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:346
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:348
 #, kde-format
 msgid ""
 "Some images cannot be resized.\n"
 "Do you want them to be added as attachments without resizing?"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:419
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:421
 #, kde-format
 msgid ""
 "The file \"%1\" is too big to be sent, please reduce its size or change your "
@@ -19661,46 +19612,46 @@ msgstr ""
 "Fila «%1» er for stor til å sendes, reduser størrelsen eller endre "
 "innstillingene."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:659
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
 #, kde-format
 msgid "Send items by mail from digiKam"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:663
 #, kde-format
 msgid "List of attached items"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:703
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:710
 #, kde-format
 msgctxt "@title:window"
 msgid "Error While to Send Items by mail"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:704
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:711
 #, kde-format
 msgctxt "@info"
-msgid "Cannot send items using native Apple MAil application"
+msgid "Cannot send items using native Apple Mail application"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:720
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:727
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr ""
 "Kan ikke starte programmet «%1».\n"
 "Undersøk din installasjon."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:732
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:739
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "Starter programmet «%1» …"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:736
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:743
 #, kde-format
 msgid "After having sent your images by email..."
 msgstr "Etter at du har sendt bildene dine med e-post …"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:737
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:744
 #, kde-format
 msgid "Press 'Finish' button to clean up temporary files"
 msgstr ""
@@ -19741,26 +19692,25 @@ msgctxt "Mail client: OUTLOOK"
 msgid "Outlook"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:106
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:103
 #, fuzzy, kde-format
-#| msgid "AppleSingle"
 msgctxt "Mail client: APPLEMAIL"
 msgid "Apple Mail"
 msgstr "AppleSingle"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:110
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:104
 #, kde-format
 msgctxt "Mail client: SYLPHEED"
 msgid "Sylpheed"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:111
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:105
 #, kde-format
 msgctxt "Mail client: THUNDERBIRD"
 msgid "Thunderbird"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:120
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:114
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:151
 #: core/libs/dplugins/webservices/wssettings.cpp:117
 #, kde-format
@@ -19768,7 +19718,7 @@ msgctxt "Image format: JPEG"
 msgid "Jpeg"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:121
+#: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:115
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:152
 #: core/libs/dplugins/webservices/wssettings.cpp:118
 #, kde-format
@@ -19799,6 +19749,11 @@ msgstr ""
 #, kde-format
 msgctxt "@action"
 msgid "Send by Mail..."
+msgstr ""
+
+#: core/dplugins/generic/tools/sendbymail/tools/applemailbinary.cpp:31
+#, kde-format
+msgid "Apple Mail Client."
 msgstr ""
 
 #: core/dplugins/generic/tools/sendbymail/tools/balsabinary.cpp:31
@@ -19833,23 +19788,23 @@ msgstr ""
 msgid "Mozilla Foundation Mail Client."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:124
+#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:126
 #, kde-format
 msgid "Preparing file to export by mail..."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:132
+#: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:134
 #: core/dplugins/generic/webservices/unified/wizard/wsfinalpage.cpp:135
 #, kde-format
 msgid "%1 input items to process"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailimagespage.cpp:61
+#: core/dplugins/generic/tools/sendbymail/wizard/mailimagespage.cpp:63
 #, kde-format
 msgid "<p>This view list all items to export by mail.</p>"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:91
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:93
 #, kde-format
 msgid ""
 "<qt><p><h1><b>Welcome to Email Tool</b></h1></p><p>This assistant will guide "
@@ -19858,53 +19813,53 @@ msgid ""
 "accordingly with your mail service capabilities.</p></qt>"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:113
+#: core/dplugins/generic/tools/sendbymail/wizard/mailintropage.cpp:115
 #, kde-format
 msgctxt "@title:group"
 msgid "Mail client application Binaries"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:88
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:90
 #, kde-format
 msgid "Mail program:"
 msgstr "E-postprogram:"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:92
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:94
 #, kde-format
 msgid "Select your preferred external mail client program here."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:107
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:109
 #, kde-format
 msgid "Attach a file with items properties"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:108
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:110
 #, kde-format
 msgid ""
 "If you enable this option, all item properties as Comments, Rating, or Tags, "
 "will be added as an attached file."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:118
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:120
 #: core/utilities/geolocation/engine/settings/MarbleConfigView.cpp:188
 #: core/utilities/geolocation/engine/settings/MarbleConfigView.cpp:195
 #, kde-format
 msgid " MB"
 msgstr " MB"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:120
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:122
 #, kde-format
 msgid "Maximum email size limit:"
 msgstr "Sørste størrelse på e-post:"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:125
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:127
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:87
 #, kde-format
 msgid "Adjust image properties"
 msgstr "Endre bildeegenskapene"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:127
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:129
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:126
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:89
 #, kde-format
@@ -19915,13 +19870,13 @@ msgstr ""
 "Denne innstillinga gjør det mulig å endre størrelse og komprimeringsnivå på "
 "bildene som skal sendes."
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:131
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:133
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:93
 #, kde-format
 msgid "Image Properties"
 msgstr "Bildeegenskaper"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:141
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:143
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:135
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:103
 #, kde-format
@@ -19930,28 +19885,28 @@ msgid ""
 "preserved."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:144
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:146
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:139
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:106
 #, kde-format
 msgid "Image Length:"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:155
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:157
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:150
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:117
 #, kde-format
 msgid "Select your preferred format to convert image."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:174
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:176
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:136
 #, kde-format
 msgid "<p>The new compression value of JPEG images to be sent:</p>"
 msgstr ""
 "<p>Den nye komprimeringsverdien for de JPEG-bildene som skal sendes:</p>"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:175
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:177
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:137
 #, kde-format
 msgid ""
@@ -19960,21 +19915,21 @@ msgid ""
 "value)<br><b>100</b>: no compression</p>"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:183
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:185
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:168
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:145
 #, kde-format
 msgid "Image quality:"
 msgstr "Bildekvalitet:"
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:188
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:190
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:173
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:150
 #, kde-format
 msgid "Remove all metadata"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:189
+#: core/dplugins/generic/tools/sendbymail/wizard/mailsettingspage.cpp:191
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:174
 #: core/dplugins/generic/webservices/unified/wizard/wssettingspage.cpp:151
 #, kde-format
@@ -19983,30 +19938,30 @@ msgid ""
 "removed."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:65
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:67
 #, kde-format
 msgctxt "@title:window"
 msgid "Send by Email"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:76
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:78
 #, kde-format
 msgid "Welcome to Email Tool"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:78
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:80
 #: core/dplugins/generic/tools/videoslideshow/vidslidewizard.cpp:79
 #: core/dplugins/generic/webservices/unified/wizard/wswizard.cpp:87
 #, kde-format
 msgid "Images List"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:79
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:81
 #, kde-format
 msgid "Email Settings"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:80
+#: core/dplugins/generic/tools/sendbymail/wizard/mailwizard.cpp:82
 #, kde-format
 msgid "Export by Email"
 msgstr ""
@@ -21003,7 +20958,6 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QLabel, m_bgLabel)
 #: core/dplugins/generic/view/presentation/dialogs/presentation_mainpage.ui:241
 #, fuzzy, kde-format
-#| msgid "&Use theme background color"
 msgid "Use background color for images:"
 msgstr "&Bruk bakgrunnsfargen fra temaet"
 
@@ -21301,27 +21255,21 @@ msgstr "Oppførsel"
 
 #: core/dplugins/generic/view/slideshow/dialogs/setupslideshow_dialog.cpp:112
 #, fuzzy, kde-format
-#| msgid "Delay between images (ms):"
 msgid "Delay between items: "
 msgstr "Forsinkelse mellom bilder (ms):"
 
 #: core/dplugins/generic/view/slideshow/dialogs/setupslideshow_dialog.cpp:116
 #, fuzzy, kde-format
-#| msgid "The delay, in seconds, between images."
 msgid "The delay, in seconds, between items."
 msgstr "Antall sekunders pause mellom hvert bilde."
 
 #: core/dplugins/generic/view/slideshow/dialogs/setupslideshow_dialog.cpp:118
 #, fuzzy, kde-format
-#| msgid "Start with current image"
 msgid "Start with current item"
 msgstr "Begynn med gjeldende bilde"
 
 #: core/dplugins/generic/view/slideshow/dialogs/setupslideshow_dialog.cpp:119
 #, fuzzy, kde-format
-#| msgid ""
-#| "If this option is enabled, the Slideshow will be started with the current "
-#| "image selected in the images list."
 msgid ""
 "If this option is enabled, the Slideshow will be started with the current "
 "item selected in the items list."
@@ -21362,14 +21310,11 @@ msgstr ""
 
 #: core/dplugins/generic/view/slideshow/dialogs/setupslideshow_dialog.cpp:131
 #, fuzzy, kde-format
-#| msgid "Show image labels"
 msgid "Show labels editor"
 msgstr "Vis bildeetiketter"
 
 #: core/dplugins/generic/view/slideshow/dialogs/setupslideshow_dialog.cpp:132
 #, fuzzy, kde-format
-#| msgid ""
-#| "Show the camera aperture and focal length at the bottom of the screen."
 msgid ""
 "Show the digiKam item color label and pick label editors at the bottom of "
 "the screen."
@@ -21377,27 +21322,21 @@ msgstr "Skriv kameraets blenderåpning og brennvidde nederst på skjermen."
 
 #: core/dplugins/generic/view/slideshow/dialogs/setupslideshow_dialog.cpp:134
 #, fuzzy, kde-format
-#| msgid "Start image editor"
 msgid "Show rating editor"
 msgstr "Bilderedigering"
 
 #: core/dplugins/generic/view/slideshow/dialogs/setupslideshow_dialog.cpp:135
 #, fuzzy, kde-format
-#| msgid "Show the image creation time/date at the bottom of the screen."
 msgid "Show the digiKam item rating editor at the bottom of the screen."
 msgstr "Skriv datoen da bildet ble tatt nederst på skjermen"
 
 #: core/dplugins/generic/view/slideshow/dialogs/setupslideshow_dialog.cpp:137
 #, fuzzy, kde-format
-#| msgid "&Use theme background color"
 msgid "Use background color for items:"
 msgstr "&Bruk bakgrunnsfargen fra temaet"
 
 #: core/dplugins/generic/view/slideshow/dialogs/setupslideshow_dialog.cpp:139
 #, fuzzy, kde-format
-#| msgid ""
-#| "Enable this option to use the background theme color in the image editor "
-#| "area."
 msgid "Define a color to use as background to render items on screen."
 msgstr ""
 "Velg dette alternativet for å bruke temaets bakgrunnsfarge i "
@@ -22054,7 +21993,6 @@ msgstr ""
 
 #: core/dplugins/generic/webservices/filecopy/fcexportwidget.cpp:123
 #, fuzzy, kde-format
-#| msgid "Adjust image properties"
 msgid "Adjust Image Properties"
 msgstr "Endre bildeegenskapene"
 
@@ -22148,15 +22086,11 @@ msgstr ""
 
 #: core/dplugins/generic/webservices/filetransfer/ftexportwidget.cpp:75
 #, fuzzy, kde-format
-#| msgid "Target location: "
 msgid "Target Location: "
 msgstr "Måladresse: "
 
 #: core/dplugins/generic/webservices/filetransfer/ftexportwidget.cpp:76
 #, fuzzy, kde-format
-#| msgid ""
-#| "Sets the target address to upload the images to. This can be any address "
-#| "as used in Dolphin or Konqueror, e.g. ftp://my.server.org/sub/folder."
 msgid ""
 "Sets the target address to upload the images to. This can be any address as "
 "used in your file-manager, e.g:<br><i>ftp://my.server.org/sub/folder</"
@@ -22175,7 +22109,6 @@ msgstr ""
 
 #: core/dplugins/generic/webservices/filetransfer/ftexportwidget.cpp:153
 #, fuzzy, kde-format
-#| msgid "Target location: "
 msgctxt "@title:window"
 msgid "Select Target Location..."
 msgstr "Måladresse: "
@@ -22220,15 +22153,11 @@ msgstr ""
 
 #: core/dplugins/generic/webservices/filetransfer/ftimportwidget.cpp:72
 #, fuzzy, kde-format
-#| msgid "Target location: "
 msgid "Source Location: "
 msgstr "Måladresse: "
 
 #: core/dplugins/generic/webservices/filetransfer/ftimportwidget.cpp:73
 #, fuzzy, kde-format
-#| msgid ""
-#| "Sets the target address to upload the images to. This can be any address "
-#| "as used in Dolphin or Konqueror, e.g. ftp://my.server.org/sub/folder."
 msgid ""
 "Sets the source address to download the images to. This can be any address "
 "as used in your file-manager, e.g:<br><i>ftp://my.server.org/sub/folder</"
@@ -22245,7 +22174,6 @@ msgstr ""
 
 #: core/dplugins/generic/webservices/filetransfer/ftimportwidget.cpp:89
 #, fuzzy, kde-format
-#| msgid "This is the list of images to import into the current album."
 msgid ""
 "This is the list of source items to import into the selected destination."
 msgstr ""
@@ -22253,7 +22181,6 @@ msgstr ""
 
 #: core/dplugins/generic/webservices/filetransfer/ftimportwidget.cpp:101
 #, fuzzy, kde-format
-#| msgid "Destination Path:"
 msgid "Select Destination Location:"
 msgstr "Målsti:"
 
@@ -26021,7 +25948,6 @@ msgstr ""
 
 #: core/libs/album/manager/albummanager_database.cpp:128
 #, fuzzy, kde-format
-#| msgid "Binary not found."
 msgid "The MariaDB binary tools was not found."
 msgstr "Fant ikke binær"
 
@@ -26710,7 +26636,6 @@ msgstr ""
 
 #: core/libs/album/treeview/labelstreeview_p.cpp:52
 #, fuzzy, kde-format
-#| msgid "Enter tag name here..."
 msgid "Customize label name here..."
 msgstr "Skriv etikettnavnet her …"
 
@@ -27654,7 +27579,6 @@ msgstr ""
 
 #: core/libs/database/server/databaseserver.cpp:751
 #, fuzzy, kde-format
-#| msgid "Device detection under progress, please wait..."
 msgid "A MariaDB database upgrade is in progress, please wait..."
 msgstr "Er i ferd med å oppdage enheter. Vent litt …"
 
@@ -27865,7 +27789,6 @@ msgstr "Leser bilder i enkeltalbum …"
 
 #: core/libs/database/utils/widgets/dbmigrationdlg.cpp:129
 #, fuzzy, kde-format
-#| msgid "Migrate ->"
 msgid "Migrate →"
 msgstr "Flytt →"
 
@@ -27895,13 +27818,11 @@ msgstr ""
 
 #: core/libs/database/utils/widgets/dbmigrationdlg.cpp:143
 #, fuzzy, kde-format
-#| msgid "Step Progress"
 msgid "Step progress:"
 msgstr "Framdrift"
 
 #: core/libs/database/utils/widgets/dbmigrationdlg.cpp:144
 #, fuzzy, kde-format
-#| msgid "Overall Progress"
 msgid "Overall progress:"
 msgstr "Total framgang"
 
@@ -27932,7 +27853,6 @@ msgstr "Databasekonvertering ble  avbrutt."
 
 #: core/libs/database/utils/widgets/dbmigrationdlg.cpp:299
 #, fuzzy, kde-format
-#| msgid "Step Progress (%1)"
 msgid "Step progress (%1):"
 msgstr "Framgang (%1)"
 
@@ -27943,7 +27863,6 @@ msgstr ""
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:49
 #, fuzzy, kde-format
-#| msgid "Type:"
 msgid "Type: "
 msgstr "Type:"
 
@@ -27989,21 +27908,18 @@ msgstr ""
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:93
 #, fuzzy, kde-format
-#| msgid "Add information from the database"
 msgctxt "@info:tooltip"
 msgid "Get information about <b>Database Type</b>"
 msgstr "Legg til informasjon fra databasen"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:107
 #, fuzzy, kde-format
-#| msgid "Path"
 msgctxt "@label:database path"
 msgid "Path: "
 msgstr "Sti"
 
 #: core/libs/database/utils/widgets/dbsettingswidget.cpp:115
 #, fuzzy, kde-format
-#| msgid "Add information from the database"
 msgctxt "@info:tooltip"
 msgid "Get information about <b>Database Path</b>"
 msgstr "Legg til informasjon fra databasen"
@@ -30033,9 +29949,6 @@ msgstr ""
 
 #: core/libs/dimg/filters/curves/curveswidget.cpp:288
 #, fuzzy, kde-format
-#| msgid ""
-#| "x:%1\n"
-#| "y:%2"
 msgid ""
 "x:%1\n"
 "y:%2\n"
@@ -34057,7 +33970,6 @@ msgstr "Elementnavn"
 
 #: core/libs/filters/textfilter.cpp:76
 #, fuzzy, kde-format
-#| msgid "Item Name"
 msgid "Item Path"
 msgstr "Elementnavn"
 
@@ -34093,7 +34005,6 @@ msgstr "Pikselstørrelse for elementet"
 
 #: core/libs/filters/textfilter.cpp:91
 #, fuzzy, kde-format
-#| msgid "Infrared Filter"
 msgid "Inverted Filter"
 msgstr "Infrarødfilter"
 
@@ -36878,14 +36789,11 @@ msgstr "XMP"
 
 #: core/libs/properties/itempropertiessidebar.cpp:76
 #, fuzzy, kde-format
-#| msgid "Copy to Clipboard"
 msgid "Copy the all properties in clipboard"
 msgstr "Kopier til utklippstavla"
 
 #: core/libs/properties/itempropertiessidebar.cpp:80
 #, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Open raw files in the image editor"
 msgid "Open item in the file manager"
 msgstr "Åpner raw-filer i bilderedigeringsprogrammet"
 
@@ -37149,8 +37057,6 @@ msgstr "Fil"
 
 #: core/libs/properties/itempropertiestab.cpp:486
 #, fuzzy, kde-format
-#| msgctxt "@item:inmenu Group Items"
-#| msgid "By Folder"
 msgid "Folder"
 msgstr "Etter mappe"
 
@@ -37161,20 +37067,16 @@ msgstr ""
 
 #: core/libs/properties/itempropertiestab.cpp:488
 #, fuzzy, kde-format
-#| msgid "Modified"
 msgid "Modified Date"
 msgstr "Endret"
 
 #: core/libs/properties/itempropertiestab.cpp:490
 #, fuzzy, kde-format
-#| msgctxt "Owner of the file"
-#| msgid "Owner"
 msgid "Owner"
 msgstr "Eier"
 
 #: core/libs/properties/itempropertiestab.cpp:491
 #, fuzzy, kde-format
-#| msgid "Less options"
 msgid "Permissions"
 msgstr "Færre valg"
 
@@ -37185,20 +37087,16 @@ msgstr ""
 
 #: core/libs/properties/itempropertiestab.cpp:495
 #, fuzzy, kde-format
-#| msgctxt "@title:tab"
-#| msgid "Rotation"
 msgid "Ratio"
 msgstr "Rotering"
 
 #: core/libs/properties/itempropertiestab.cpp:496
 #, fuzzy, kde-format
-#| msgid "Bit depth"
 msgid "Bit Depth"
 msgstr "Bitdybde"
 
 #: core/libs/properties/itempropertiestab.cpp:497
 #, fuzzy, kde-format
-#| msgid "Color Model"
 msgid "Color Mode"
 msgstr "Fargemodell"
 
@@ -37219,28 +37117,21 @@ msgstr ""
 
 #: core/libs/properties/itempropertiestab.cpp:501
 #, fuzzy, kde-format
-#| msgctxt "Group of the file"
-#| msgid "Group"
 msgid "Grouped"
 msgstr "Gruppe"
 
 #: core/libs/properties/itempropertiestab.cpp:503
 #, fuzzy, kde-format
-#| msgctxt "camera make"
-#| msgid "Make:"
 msgid "Make"
 msgstr "Merke:"
 
 #: core/libs/properties/itempropertiestab.cpp:504
 #, fuzzy, kde-format
-#| msgctxt "camera model"
-#| msgid "Model:"
 msgid "Model"
 msgstr "Modell:"
 
 #: core/libs/properties/itempropertiestab.cpp:505
 #, fuzzy, kde-format
-#| msgid "Date and time"
 msgid "Date Time"
 msgstr "Dato og tid"
 
@@ -37260,13 +37151,11 @@ msgstr "Blender"
 
 #: core/libs/properties/itempropertiestab.cpp:508
 #, fuzzy, kde-format
-#| msgid "Focal length"
 msgid "Focal Length"
 msgstr "Brennvidde"
 
 #: core/libs/properties/itempropertiestab.cpp:509
 #, fuzzy, kde-format
-#| msgid "Exposure time"
 msgid "Exposure Time"
 msgstr "Eksponeringstid"
 
@@ -37279,14 +37168,11 @@ msgstr "Følsomhet"
 
 #: core/libs/properties/itempropertiestab.cpp:511
 #, fuzzy, kde-format
-#| msgid "Exposure mode"
 msgid "Exposure Mode"
 msgstr "Eksponeringsmetode"
 
 #: core/libs/properties/itempropertiestab.cpp:512
 #, fuzzy, kde-format
-#| msgctxt "light source"
-#| msgid "Flash"
 msgid "Flash"
 msgstr "Blits"
 
@@ -37310,46 +37196,36 @@ msgstr ""
 
 #: core/libs/properties/itempropertiestab.cpp:518
 #, fuzzy, kde-format
-#| msgid "Video Codec"
 msgid "Video Video Codec"
 msgstr "Video-kodek"
 
 #: core/libs/properties/itempropertiestab.cpp:519
 #, fuzzy, kde-format
-#| msgid "Audio Bit Rate"
 msgid "Video Audio Bit Rate"
 msgstr "Bitrate for lyd"
 
 #: core/libs/properties/itempropertiestab.cpp:520
 #, fuzzy, kde-format
-#| msgid "Audio Channel Type"
 msgid "Video Audio Channel Type"
 msgstr "Lydkanal-type"
 
 #: core/libs/properties/itempropertiestab.cpp:521
 #, fuzzy, kde-format
-#| msgid "Video Codec"
 msgid "Video Audio Codec"
 msgstr "Video-kodek"
 
 #: core/libs/properties/itempropertiestab.cpp:523
 #, fuzzy, kde-format
-#| msgctxt "caption of the file"
-#| msgid "Caption:"
 msgid "Caption"
 msgstr "Tekst:"
 
 #: core/libs/properties/itempropertiestab.cpp:524
 #, fuzzy, kde-format
-#| msgctxt "image title"
-#| msgid "Title:"
 msgid "Title"
 msgstr "Tittel:"
 
 #: core/libs/properties/itempropertiestab.cpp:526
 #, fuzzy, kde-format
-#| msgctxt "Browse images sorted by depicted people"
-#| msgid "People"
 msgid "Peoples"
 msgstr "Personer"
 
@@ -37367,7 +37243,6 @@ msgstr ""
 
 #: core/libs/properties/itempropertiestab.cpp:530
 #, fuzzy, kde-format
-#| msgid "Colors"
 msgid "Color"
 msgstr "Farger"
 
@@ -37398,15 +37273,12 @@ msgstr ""
 
 #: core/libs/properties/itemselectionpropertiestab.cpp:108
 #, fuzzy, kde-format
-#| msgid "Item properties"
 msgid "<b>Selected Items Properties</b>"
 msgstr "Elementegenskaper"
 
 #: core/libs/properties/itemselectionpropertiestab.cpp:111
 #: core/libs/properties/itemselectionpropertiestab.cpp:164
 #, fuzzy, kde-format
-#| msgctxt "@label"
-#| msgid "Open raw files in the image editor"
 msgid "Open in the file manager"
 msgstr "Åpner raw-filer i bilderedigeringsprogrammet"
 
@@ -37425,21 +37297,16 @@ msgstr "Størrelse: "
 #: core/libs/properties/itemselectionpropertiestab.cpp:120
 #: core/libs/properties/itemselectionpropertiestab.cpp:173
 #, fuzzy, kde-format
-#| msgctxt "Group of the file"
-#| msgid "Group"
 msgid "Groups: "
 msgstr "Gruppe"
 
 #: core/libs/properties/itemselectionpropertiestab.cpp:161
 #, fuzzy, kde-format
-#| msgid "Album Properties"
 msgid "<b>All Item Properties</b>"
 msgstr "Albumegenskaper"
 
 #: core/libs/properties/itemsgroupedtoolbar.cpp:45
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Remove From Group"
 msgid "Remove from Group"
 msgstr "Fjern fra gruppe"
 
@@ -39761,13 +39628,11 @@ msgstr "Ikke endre"
 
 #: core/libs/template/templateselector.cpp:215
 #, fuzzy, kde-format
-#| msgid "Template Title:"
 msgid "Template overwrites all"
 msgstr "Malens tittel:"
 
 #: core/libs/template/templateselector.cpp:219
 #, fuzzy, kde-format
-#| msgid "Template Title:"
 msgid "Template will be merged"
 msgstr "Malens tittel:"
 
@@ -39783,25 +39648,21 @@ msgstr "Bruksmåter:"
 
 #: core/libs/threadimageio/preview/previewosdwidget.cpp:72
 #, fuzzy, kde-format
-#| msgid "Show image file name"
 msgid "Show item file name"
 msgstr "Vis &navnet på bildefilen"
 
 #: core/libs/threadimageio/preview/previewosdwidget.cpp:73
 #, fuzzy, kde-format
-#| msgid "Show the image file name at the bottom of the screen."
 msgid "Show the item file name at the bottom of the screen."
 msgstr "Skriv bildefilens navn nederst på skjermen."
 
 #: core/libs/threadimageio/preview/previewosdwidget.cpp:75
 #, fuzzy, kde-format
-#| msgid "Show image creation date"
 msgid "Show item creation date"
 msgstr "Vis bildets opprettelses&datoen "
 
 #: core/libs/threadimageio/preview/previewosdwidget.cpp:76
 #, fuzzy, kde-format
-#| msgid "Show the image creation time/date at the bottom of the screen."
 msgid "Show the item creation time/date at the bottom of the screen."
 msgstr "Skriv datoen da bildet ble tatt nederst på skjermen"
 
@@ -39850,62 +39711,51 @@ msgstr ""
 
 #: core/libs/threadimageio/preview/previewosdwidget.cpp:90
 #, fuzzy, kde-format
-#| msgid "Show image caption"
 msgid "Show item caption"
 msgstr "Vis bildetekst"
 
 #: core/libs/threadimageio/preview/previewosdwidget.cpp:91
 #, fuzzy, kde-format
-#| msgid "Show the image caption at the bottom of the screen."
 msgid "Show the item caption at the bottom of the screen."
 msgstr "Vis bildeteksten nederst på skjermen"
 
 #: core/libs/threadimageio/preview/previewosdwidget.cpp:93
 #, fuzzy, kde-format
-#| msgid "Show image title"
 msgid "Show item title"
 msgstr "Vis bildetittel"
 
 #: core/libs/threadimageio/preview/previewosdwidget.cpp:94
 #, fuzzy, kde-format
-#| msgid "Show the image title at the bottom of the screen."
 msgid "Show the item title at the bottom of the screen."
 msgstr "Skriv bildets tittel nederst på skjermen."
 
 #: core/libs/threadimageio/preview/previewosdwidget.cpp:96
 #, fuzzy, kde-format
-#| msgid "Show item on left panel"
 msgid "Show item caption if it has not title"
 msgstr "Vis elementet i venstre panel"
 
 #: core/libs/threadimageio/preview/previewosdwidget.cpp:97
 #, fuzzy, kde-format
-#| msgid ""
-#| "Show the image caption at the bottom of the screen if no titles existed."
 msgid "Show the item caption at the bottom of the screen if no titles existed."
 msgstr "Vis bildeteksten nederst på skjermen hvis det ikke fantes noen titler."
 
 #: core/libs/threadimageio/preview/previewosdwidget.cpp:99
 #, fuzzy, kde-format
-#| msgid "Show image tags"
 msgid "Show item tags"
 msgstr "Vis bildeetiketter"
 
 #: core/libs/threadimageio/preview/previewosdwidget.cpp:100
 #, fuzzy, kde-format
-#| msgid "Show the image file name at the bottom of the screen."
 msgid "Show the digiKam item tag names at the bottom of the screen."
 msgstr "Skriv bildefilens navn nederst på skjermen."
 
 #: core/libs/threadimageio/preview/previewosdwidget.cpp:102
 #, fuzzy, kde-format
-#| msgid "Next month"
 msgid "Text font:"
 msgstr "Neste måned"
 
 #: core/libs/threadimageio/preview/previewosdwidget.cpp:103
 #, fuzzy, kde-format
-#| msgid "Select here the font used to display text in Tree Views."
 msgid "Select here the font used to display OSD text over the slideshow."
 msgstr "Velg skrifttype for trevisning."
 
@@ -40002,7 +39852,6 @@ msgstr "Fil sist endret"
 
 #: core/libs/timeadjust/timeadjustsettings.cpp:157
 #, fuzzy, kde-format
-#| msgid "EXIF: created"
 msgid "File created"
 msgstr "EXIF: opprettet"
 
@@ -41064,7 +40913,6 @@ msgstr ""
 #: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:222
 #: core/libs/video/player/qtmm/mediaplayerview.cpp:323
 #, fuzzy, kde-format
-#| msgid "Rotate Left"
 msgctxt "rotate video in counterclockwize"
 msgid "Rotate Left"
 msgstr "Drei mot venstre"
@@ -41072,7 +40920,6 @@ msgstr "Drei mot venstre"
 #: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:225
 #: core/libs/video/player/qtmm/mediaplayerview.cpp:326
 #, fuzzy, kde-format
-#| msgid "Rotate Right"
 msgctxt "rotate video in clockwize"
 msgid "Rotate Right"
 msgstr "Drei mot høyre"
@@ -41086,8 +40933,6 @@ msgstr ""
 #: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:910
 #: core/libs/video/player/qtmm/mediaplayerview.cpp:741
 #, fuzzy, kde-format
-#| msgctxt "<drive type> \"<device name or label>\""
-#| msgid "%1 \"%2\""
 msgid ""
 "%1\n"
 "\n"
@@ -42234,7 +42079,6 @@ msgstr "Fargestyring"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:356
 #, fuzzy, kde-format
-#| msgid "MySQL interface"
 msgid "MariaDB interface"
 msgstr "MySQL-grensesnitt"
 
@@ -49010,15 +48854,12 @@ msgstr ""
 #: core/showfoto/setup/showfotosetupmisc.cpp:304
 #: core/utilities/setup/misc/setupmisc_appearance.cpp:109
 #, fuzzy, kde-format
-#| msgid "Date and time"
 msgid "Date and time format (%1):"
 msgstr "Dato og tid"
 
 #: core/showfoto/setup/showfotosetupmisc.cpp:311
 #: core/utilities/setup/misc/setupmisc_appearance.cpp:116
 #, fuzzy, kde-format
-#| msgid ""
-#| "Set here the fractions of seconds for the date and time of image creation."
 msgid "This string is used as the date and time format in whole application."
 msgstr ""
 "Oppgi her deler av sekunder for dato og tidsangivelse for opprettelse av "
@@ -58029,8 +57870,6 @@ msgstr ""
 
 #: core/utilities/import/main/importui.cpp:417
 #, fuzzy, kde-format
-#| msgctxt "@item:inmenu Group Items"
-#| msgid "By Format"
 msgctxt "@item:inmenu Sort by"
 msgid "By Format"
 msgstr "Etter format"
@@ -58043,14 +57882,12 @@ msgstr ""
 
 #: core/utilities/import/main/importui.cpp:420
 #, fuzzy, kde-format
-#| msgid "Pick Label:"
 msgctxt "@item:inmenu Sort by"
 msgid "By PickLabel"
 msgstr "Plukk-merkelapp:"
 
 #: core/utilities/import/main/importui.cpp:421
 #, fuzzy, kde-format
-#| msgid "Color Label:"
 msgctxt "@item:inmenu Sort by"
 msgid "By ColorLabel"
 msgstr "Fargemerkelapp:"
@@ -60580,13 +60417,11 @@ msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:188
 #, fuzzy, kde-format
-#| msgid "Modified"
 msgid "Modified last"
 msgstr "Endret"
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:189
 #, fuzzy, kde-format
-#| msgid "Return video with the frame rate"
 msgid "Return items modified within the last"
 msgstr "Hent video med rammerate"
 
@@ -60738,29 +60573,23 @@ msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:449
 #, fuzzy, kde-format
-#| msgid "Return video with the frame rate"
 msgid "Return items without a camera ..."
 msgstr "Hent video med rammerate"
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:452
 #, fuzzy, kde-format
-#| msgctxt "camera make"
-#| msgid "Make:"
 msgctxt "Camera"
 msgid "Make"
 msgstr "Merke:"
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:453
 #, fuzzy, kde-format
-#| msgctxt "camera model"
-#| msgid "Model:"
 msgctxt "Camera"
 msgid "Model"
 msgstr "Modell:"
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:454
 #, fuzzy, kde-format
-#| msgid "No Lens Filter"
 msgctxt "Camera"
 msgid "Lens Type"
 msgstr "Intet linsefilter"
@@ -60892,13 +60721,11 @@ msgstr "Makro,  nær eller fjern visning"
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:665
 #, fuzzy, kde-format
-#| msgid "Crop Settings"
 msgid "Capture Settings"
 msgstr "Innstillinger for beskjæring"
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:665
 #, fuzzy, kde-format
-#| msgid "Return video with the frame rate"
 msgid "Return items without selected capture settings ..."
 msgstr "Hent video med rammerate"
 
@@ -60909,13 +60736,11 @@ msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:679
 #, fuzzy, kde-format
-#| msgid "White balance (color temperature)"
 msgid "White balance color temperature"
 msgstr "Hvitbalanse (fargetemperatur)"
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:681
 #, fuzzy, kde-format
-#| msgid "Subject distance (category)"
 msgid "Subject Distance Category"
 msgstr "Avstand til motv (kategori)"
 
@@ -60985,19 +60810,16 @@ msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:793
 #, fuzzy, kde-format
-#| msgid "Replace"
 msgid "Place"
 msgstr "Erstatt"
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:793
 #, fuzzy, kde-format
-#| msgid "Return video with the frame rate"
 msgid "Return items without selected place information ..."
 msgstr "Hent video med rammerate"
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:798
 #, fuzzy, kde-format
-#| msgid "State/Province:"
 msgid "State/Province"
 msgstr "Stat/Provins:"
 
@@ -61258,7 +61080,6 @@ msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:1175
 #, fuzzy, kde-format
-#| msgid "Return video with the frame rate"
 msgid "Return items with confirmed face regions"
 msgstr "Hent video med rammerate"
 
@@ -61309,8 +61130,6 @@ msgstr "Stående"
 
 #: core/utilities/searchwindow/fields/searchfields_recentmodified.cpp:47
 #, fuzzy, kde-format
-#| msgctxt "second color for border effect"
-#| msgid "Second:"
 msgid "seconds"
 msgstr "Andre:"
 
@@ -61326,8 +61145,6 @@ msgstr ""
 
 #: core/utilities/searchwindow/fields/searchfields_recentmodified.cpp:50
 #, fuzzy, kde-format
-#| msgctxt "time adjust offset, days value label"
-#| msgid "days"
 msgid "days"
 msgstr "dager"
 
@@ -61401,8 +61218,6 @@ msgstr ""
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:185
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:191
 #, fuzzy, kde-format
-#| msgctxt "@option:check"
-#| msgid "Pick label"
 msgctxt "@item"
 msgid "Pick label: Accepted"
 msgstr "Plukk-merkelapp: "
@@ -61415,21 +61230,18 @@ msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:192
 #, fuzzy, kde-format
-#| msgid "Rating"
 msgctxt "@item"
 msgid "Rating 5"
 msgstr "Karakter"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:197
 #, fuzzy, kde-format
-#| msgid "Fine horizontal angle:"
 msgctxt "@item"
 msgid "Oriented horizontally (landscape)"
 msgstr "Fininnstilling vannrett:"
 
 #: core/utilities/searchwindow/nlsearch/searchcapabilitydictionary.cpp:198
 #, fuzzy, kde-format
-#| msgid "Subject distance"
 msgctxt "@item"
 msgid "Subject tag: landscape"
 msgstr "Avstand til motv"
@@ -61442,7 +61254,6 @@ msgstr ""
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:155
 #, fuzzy, kde-format
-#| msgid "Failed to load image"
 msgid "Failed to load the language model."
 msgstr "Klarte ikke å laste inn bilde"
 
@@ -61465,13 +61276,11 @@ msgstr ""
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:239
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:249
 #, fuzzy, kde-format
-#| msgid "Failed to open file."
 msgid "Failed to tokenize the prompt."
 msgstr "Klarte ikke åpne fil."
 
 #: core/utilities/searchwindow/nlsearch/searchllamaworker.cpp:286
 #, fuzzy, kde-format
-#| msgid "Connection failed."
 msgid "Model decode failed."
 msgstr "Oppkobling mislyktes."
 
@@ -61613,13 +61422,11 @@ msgstr ""
 #: core/utilities/searchwindow/view/searchtabheader.cpp:70
 #: core/utilities/searchwindow/view/searchwindow.cpp:70
 #, fuzzy, kde-format
-#| msgid "Cancel current operation"
 msgid "Cancel the current interpretation"
 msgstr "Avbryt handlingen som pågår"
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:95
 #, fuzzy, kde-format
-#| msgid "(Advanced Search)"
 msgid "Open Advanced Search"
 msgstr "(Avansert søk)"
 
@@ -61674,7 +61481,6 @@ msgstr ""
 #: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:123
 #: core/utilities/searchwindow/view/searchwindow_slots.cpp:180
 #, fuzzy, kde-format
-#| msgid "Printing Cancelled"
 msgid "Interpretation cancelled."
 msgstr "Avbrutt utskrift"
 
@@ -61691,8 +61497,6 @@ msgstr "Legg til søkegruppe"
 
 #: core/utilities/searchwindow/view/searchview.cpp:540
 #, fuzzy, kde-format
-#| msgctxt "@action:inmenu"
-#| msgid "Close All Groups"
 msgid "Clear All Groups"
 msgstr "Lukk alle grupper"
 
@@ -61744,8 +61548,6 @@ msgstr ""
 
 #: core/utilities/searchwindow/view/searchwindow.cpp:126
 #, fuzzy, kde-format
-#| msgctxt "@action"
-#| msgid "Download New"
 msgid "Download Model..."
 msgstr "Last ned nye"
 
@@ -61757,7 +61559,6 @@ msgstr ""
 
 #: core/utilities/searchwindow/view/searchwindow_nlsearch.cpp:70
 #, fuzzy, kde-format
-#| msgid "Loading themes..."
 msgid "Loading the language model... %1%"
 msgstr "Laster inn temaer …"
 
@@ -61800,7 +61601,6 @@ msgstr "Vis &filnavn"
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:28
 #, fuzzy, kde-format
-#| msgid "Set this option to show the filename below the image thumbnail."
 msgid "Set this option to show the filename below the thumbnail."
 msgstr "Kryss av her for å vise filnavn under miniatyrbildene."
 
@@ -61812,7 +61612,6 @@ msgstr "Vis fil&størrelse"
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:31
 #, fuzzy, kde-format
-#| msgid "Set this option to show the file size below the image thumbnail."
 msgid "Set this option to show the file size below the thumbnail."
 msgstr "Kryss av her for å vise filstørrelsen under miniatyrbildene"
 
@@ -61824,9 +61623,6 @@ msgstr "Vis opprettelses&datoen fra kameraet"
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:34
 #, fuzzy, kde-format
-#| msgid ""
-#| "Set this option to show the camera creation date below the image "
-#| "thumbnail."
 msgid "Set this option to show the camera creation date below the thumbnail."
 msgstr ""
 "Kryss av her for å vise kameraets opprettelsesdato under miniatyrbildene."
@@ -61846,40 +61642,31 @@ msgstr ""
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:42
 #, fuzzy, kde-format
-#| msgid "Show image dimensions"
 msgid "Show item dimensions"
 msgstr "Vis bildemålene"
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:43
 #, fuzzy, kde-format
-#| msgid ""
-#| "Set this option to show the image size in pixels below the image "
-#| "thumbnail."
 msgid "Set this option to show the item size in pixels below the thumbnail."
 msgstr "Kryss av her for å vise bildeoppløsningen under  miniatyrbildene."
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:46
 #, fuzzy, kde-format
-#| msgid "Show image aspect ratio"
 msgid "Show item aspect ratio"
 msgstr "Vis forholdet mellom høyde og bredde for bildet"
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:47
 #, fuzzy, kde-format
-#| msgid ""
-#| "Set this option to show the image aspect ratio below the image thumbnail."
 msgid "Set this option to show the item aspect ratio below the thumbnail."
 msgstr "Kryss av her for å vise høyde/bredde-forholdet under miniatyrbildet."
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:50
 #, fuzzy, kde-format
-#| msgid "Show item &rating"
 msgid "Show item format"
 msgstr "Vis element&karakter"
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:51
 #, fuzzy, kde-format
-#| msgid "Set this option to show image format over image thumbnail."
 msgid "Set this option to show item mime type over thumbnail."
 msgstr "Kryss av her for å vise bildeformat over miniatyrbildene."
 
@@ -61890,7 +61677,6 @@ msgstr "Vis digiKam-titte&l"
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:54
 #, fuzzy, kde-format
-#| msgid "Set this option to show the digiKam title below the image thumbnail."
 msgid "Set this option to show the digiKam title below the thumbnail."
 msgstr "Kryss av her for å vise digiKam-tittelen under miniatyrbildene."
 
@@ -61901,8 +61687,6 @@ msgstr "Vis digiKam&tekster"
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:58
 #, fuzzy, kde-format
-#| msgid ""
-#| "Set this option to show the digiKam captions below the image thumbnail."
 msgid "Set this option to show the digiKam captions below the thumbnail."
 msgstr "Kryss av her for å vise digikam-tekster under miniatyrbildene."
 
@@ -61914,7 +61698,6 @@ msgstr "Vis digiKam-&etikett"
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:62
 #, fuzzy, kde-format
-#| msgid "Set this option to show the digiKam tags below the image thumbnail."
 msgid "Set this option to show the digiKam tags list below the thumbnail."
 msgstr "Kryss av her for å vise digiKam-etiketter under miniatyrbildene."
 
@@ -61925,8 +61708,6 @@ msgstr "Vis digiKam-&karakter."
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:66
 #, fuzzy, kde-format
-#| msgid ""
-#| "Set this option to show the digiKam rating below the image thumbnail."
 msgid "Set this option to show the digiKam rating below the thumbnail."
 msgstr "Kryss av her for å vise karakteren under miniatyrbildene."
 
@@ -61937,7 +61718,6 @@ msgstr ""
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:70
 #, fuzzy, kde-format
-#| msgid "Set this option to show the digiKam title below the image thumbnail."
 msgid "Set this option to show the digiKam pick label below the thumbnail."
 msgstr "Kryss av her for å vise digiKam-tittelen under miniatyrbildene."
 
@@ -61948,8 +61728,6 @@ msgstr ""
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:74
 #, fuzzy, kde-format
-#| msgid ""
-#| "Set this option to show the digiKam rating below the image thumbnail."
 msgid ""
 "Set this option to show the digiKam color label as a line below the "
 "thumbnail."
@@ -61963,9 +61741,6 @@ msgstr "Vis knapper for å rotere overlegg"
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:80
 #, fuzzy, kde-format
-#| msgid ""
-#| "Set this option to show overlay buttons on the image thumbnail for image "
-#| "rotation."
 msgid ""
 "Set this option to show the transformation overlay buttons over the "
 "thumbnail to process left or right rotation."
@@ -61979,9 +61754,6 @@ msgstr ""
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:84
 #, fuzzy, kde-format
-#| msgid ""
-#| "Set this option to show overlay buttons on the image thumbnail for image "
-#| "rotation."
 msgid ""
 "Set this option to show an overlay button over the thumbnail to open it in "
 "fullscreen mode."
@@ -61990,15 +61762,11 @@ msgstr ""
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:87
 #, fuzzy, kde-format
-#| msgid "Show rotation overlay buttons"
 msgid "Show geolocation overlay button"
 msgstr "Vis knapper for å rotere overlegg"
 
 #: core/utilities/setup/album/setupalbumview_iconview.cpp:88
 #, fuzzy, kde-format
-#| msgid ""
-#| "Set this option to show overlay buttons on the image thumbnail for image "
-#| "rotation."
 msgid ""
 "Set this option to show an overlay button over the thumbnail to identify "
 "geolocated item and open the map tab."
@@ -62097,7 +61865,6 @@ msgstr ""
 
 #: core/utilities/setup/album/setupalbumview_preview.cpp:31
 #, fuzzy, kde-format
-#| msgid "Ref. images"
 msgctxt "@label:listbox Mode of RAW preview decoding"
 msgid "Raw images:"
 msgstr "Ref. bilder "
@@ -62158,20 +61925,17 @@ msgstr ""
 
 #: core/utilities/setup/album/setupalbumview_preview.cpp:53
 #, fuzzy, kde-format
-#| msgid "Show numbers"
 msgid "Magnifier"
 msgstr "Vis tall"
 
 #: core/utilities/setup/album/setupalbumview_preview.cpp:57
 #, fuzzy, kde-format
-#| msgid "Zoom out"
 msgctxt "@label:listbox Preview magnifier tool zoom factor"
 msgid "Zoom Factor:"
 msgstr "Forminsk"
 
 #: core/utilities/setup/album/setupalbumview_preview.cpp:68
 #, fuzzy, kde-format
-#| msgid "Icon Size:"
 msgctxt "@label:listbox Preview magnifier tool size"
 msgid "Tool Size:"
 msgstr "Ikonstørrelse:"
@@ -62184,22 +61948,18 @@ msgstr ""
 
 #: core/utilities/setup/album/setupalbumview_preview.cpp:71
 #, fuzzy, kde-format
-#| msgctxt "embedded preview type in dng file"
-#| msgid "Medium"
 msgctxt "@item Magnifier tool size"
 msgid "Medium"
 msgstr "Middels"
 
 #: core/utilities/setup/album/setupalbumview_preview.cpp:72
 #, fuzzy, kde-format
-#| msgid "Target"
 msgctxt "@item Magnifier tool size"
 msgid "Large"
 msgstr "Mål"
 
 #: core/utilities/setup/album/setupalbumview_preview.cpp:73
 #, fuzzy, kde-format
-#| msgid "Target"
 msgctxt "@item Magnifier tool size"
 msgid "Very Large"
 msgstr "Mål"
@@ -62222,13 +61982,11 @@ msgstr ""
 
 #: core/utilities/setup/album/setupalbumview_preview.cpp:88
 #, fuzzy, kde-format
-#| msgid "Set this option to display the image captions."
 msgid "Check this if you want to auto play the videos or animations."
 msgstr "Kryss av her for å vise bildetekster"
 
 #: core/utilities/setup/album/setupalbumview_preview.cpp:90
 #, fuzzy, kde-format
-#| msgid "Show icons and text over preview"
 msgid "Show a text overlay over preview."
 msgstr "Vis ikoner og tekst over forhåndsvisning"
 
@@ -66004,8 +65762,6 @@ msgstr ""
 
 #: core/utilities/setup/template/setuptemplate.cpp:43
 #, fuzzy, kde-format
-#| msgctxt "new smug album dialog"
-#| msgid "Template:"
 msgid "Merge Template"
 msgstr "Mal:"
 

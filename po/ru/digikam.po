@@ -57,7 +57,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-22 15:58+0000\n"
-"PO-Revision-Date: 2026-09-06 20:35+0200\n"
+"PO-Revision-Date: 2026-09-22 22:45+0200\n"
 "Last-Translator: Alexander Yavorskiy <kekcuha@gmail.com>\n"
 "Language-Team: Russian <kde-russian@lists.kde.ru>\n"
 "Language: ru\n"
@@ -2445,10 +2445,10 @@ msgid "Last Image"
 msgstr "Последнее изображение"
 
 #: core/app/main/digikamapp_setup.cpp:1005
-#, fuzzy, kde-format
+#, kde-format
 msgctxt "@action: setup"
 msgid "Play/Pause Video"
-msgstr "Режим вспышки"
+msgstr "Воспроизведение/пауза видео"
 
 #: core/app/main/digikamapp_setup.cpp:1013
 #, kde-format
@@ -20903,27 +20903,24 @@ msgstr ""
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
 #, kde-format
 msgid "Send items by mail from digiKam"
-msgstr ""
+msgstr "Отправка объектов по почте из digiKam"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:663
-#, fuzzy, kde-format
-#| msgid "Unify tags of selected items"
+#, kde-format
 msgid "List of attached items"
-msgstr "Объединить метки выделенных объектов"
+msgstr "Список вложенных объектов"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:710
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error While to Set Image as Wallpaper"
+#, kde-format
 msgctxt "@title:window"
 msgid "Error While to Send Items by mail"
-msgstr "Ошибка при назначении изображения фоном рабочего стола"
+msgstr "Ошибка при отправке объектов по почте"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:711
 #, kde-format
 msgctxt "@info"
 msgid "Cannot send items using native Apple Mail application"
-msgstr ""
+msgstr "Не удалось отправить объекты с помощью приложения Apple Mail"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:727
 #, kde-format
@@ -20982,11 +20979,10 @@ msgid "Outlook"
 msgstr "Outlook"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:103
-#, fuzzy, kde-format
-#| msgid "AppleSingle"
+#, kde-format
 msgctxt "Mail client: APPLEMAIL"
 msgid "Apple Mail"
-msgstr "AppleSingle"
+msgstr "Apple Mail"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:104
 #, kde-format
@@ -21046,10 +21042,9 @@ msgid "Send by Mail..."
 msgstr "Отправить по электронной почте..."
 
 #: core/dplugins/generic/tools/sendbymail/tools/applemailbinary.cpp:31
-#, fuzzy, kde-format
-#| msgid "Gnome Mail Client."
+#, kde-format
 msgid "Apple Mail Client."
-msgstr "Почтовый клиент Gnome."
+msgstr "Почтовый клиент Apple Mail."
 
 #: core/dplugins/generic/tools/sendbymail/tools/balsabinary.cpp:31
 #: core/dplugins/generic/tools/sendbymail/tools/evolutionbinary.cpp:31
@@ -53046,26 +53041,30 @@ msgid ""
 "GPS direction of the camera in degrees (0-360°, where 0°=North, 90°=East, "
 "180°=South, 270°=West)"
 msgstr ""
+"Направление камеры по GPS в градусах (0–360°, где 0° — север, 90° — восток, "
+"180° — юг, 270° — запад)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:124
 #, kde-format
 msgid "Camera roll angle in degrees (rotation around the X-axis)"
-msgstr ""
+msgstr "Угол крена камеры в градусах (поворот вокруг оси X)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:125
 #, kde-format
 msgid "Camera tilt angle in degrees (rotation around the Y-axis)"
-msgstr ""
+msgstr "Угол наклона камеры в градусах (поворот вокруг оси Y)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:126
 #, kde-format
 msgid "GPS accuracy in meters (estimated horizontal position error)"
 msgstr ""
+"Точность GPS в метрах (оценка погрешности определения координат по "
+"горизонтали)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:127
 #, kde-format
 msgid "User-provided description of the GPS location or landmark"
-msgstr ""
+msgstr "Заданное пользователем описание места по GPS или ориентира"
 
 #: core/utilities/advancedrename/parser/options/dateoption.cpp:41
 #, kde-format
@@ -69074,16 +69073,14 @@ msgid "Use OpenCL hardware acceleration"
 msgstr "Использовать аппаратное ускорение OpenCL"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:139
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and requires that certain environment "
-#| "variables are set manually."
+#, kde-format
 msgid ""
 "This option is still experimental and requires that certain environment "
 "variables are set manually. See the online documentation for details."
 msgstr ""
-"Эта функция всё ещё является экспериментальной и требует ручной настройки "
-"некоторых переменных."
+"Эта возможность является экспериментальной и требует ручной установки "
+"некоторых переменных окружения. Подробности приведены в документации в "
+"Интернете."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:142
 #, kde-format
@@ -69093,16 +69090,14 @@ msgstr ""
 "интеллекта"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and may lead to crashes if the proper "
-#| "drivers are not installed."
+#, kde-format
 msgid ""
 "This option is still experimental and may lead to crashes if the proper "
 "drivers are not installed. See the online documentation for details."
 msgstr ""
-"Эта функция всё ещё является экспериментальной и может привести к сбоям, "
-"еслине будут установлены соответствующие драйверы."
+"Эта возможность является экспериментальной и может приводить к сбоям, если "
+"не установлены подходящие драйверы. Подробности приведены в документации в "
+"Интернете."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:147
 #, kde-format
@@ -69934,9 +69929,9 @@ msgid "Survey"
 msgstr "Обзор"
 
 #: core/utilities/survey/surveywindow_setup.cpp:161
-#, fuzzy, kde-format
+#, kde-format
 msgid "Play/Pause Video"
-msgstr "Режим вспышки"
+msgstr "Воспроизведение/пауза видео"
 
 #~ msgid "Roll"
 #~ msgstr "Поворот"
