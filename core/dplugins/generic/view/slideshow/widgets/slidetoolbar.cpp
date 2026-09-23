@@ -405,17 +405,7 @@ void SlideToolBar::keyPressEvent(QKeyEvent* e)
 
 void SlideToolBar::slotScreenSelected(QAction* act)
 {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     if (!act || (act->data().typeId() != QMetaType::Int))
-
-#else
-
-    if (!act || (act->data().type() != QVariant::Int))
-
-#endif
-
     {
         return;
     }
