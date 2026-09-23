@@ -126,28 +126,12 @@ QImage::Format QtOpenCVImg::findClosestFormat(QImage::Format formatHint)
         case QImage::Format_RGB32:
         case QImage::Format_ARGB32:
         case QImage::Format_ARGB32_Premultiplied:
-
-#if QT_VERSION >= 0x040400
-
         case QImage::Format_RGB888:
-
-#endif
-
-#if QT_VERSION >= 0x050200
-
         case QImage::Format_RGBX8888:
         case QImage::Format_RGBA8888:
         case QImage::Format_RGBA8888_Premultiplied:
-
-#endif
-
-#if QT_VERSION >= 0x050500
-
         case QImage::Format_Alpha8:
         case QImage::Format_Grayscale8:
-
-#endif
-
         {
             format = formatHint;
 
@@ -169,8 +153,6 @@ QImage::Format QtOpenCVImg::findClosestFormat(QImage::Format formatHint)
             break;
         }
 
-#if QT_VERSION > 0x040400
-
         case QImage::Format_RGB444:
         case QImage::Format_RGB555:
         case QImage::Format_RGB666:
@@ -189,8 +171,6 @@ QImage::Format QtOpenCVImg::findClosestFormat(QImage::Format formatHint)
 
             break;
         }
-
-#endif
 
         default:
         {
@@ -536,15 +516,9 @@ QImage QtOpenCVImg::mat2Image(const cv::Mat& mat, MatColorOrder order, QImage::F
             format = formatHint;
 
             if (
-                   (formatHint != QImage::Format_Indexed8)
-
-#if QT_VERSION >= 0x050500
-
-                && (formatHint != QImage::Format_Alpha8)
-                && (formatHint != QImage::Format_Grayscale8)
-
-#endif
-
+                (formatHint != QImage::Format_Indexed8)  &&
+                (formatHint != QImage::Format_Alpha8)    &&
+                (formatHint != QImage::Format_Grayscale8)
                )
             {
                 format = QImage::Format_Indexed8;
@@ -553,34 +527,12 @@ QImage QtOpenCVImg::mat2Image(const cv::Mat& mat, MatColorOrder order, QImage::F
 
         else if (mat.channels() == 3)
         {
-
-#if QT_VERSION >= 0x040400
-
             format = QImage::Format_RGB888;
 
             if (order == MCO_BGR)
             {
                 cv::cvtColor(mat, mat_adjustCn, cv::ColorConversionCodes::COLOR_BGR2RGB);
             }
-
-#else
-
-            format = QImage::Format_RGB32;
-            cv::Mat mat_tmp;
-            cv::cvtColor(mat, mat_tmp, ((order == MCO_BGR) ? cv::ColorConversionCodes::COLOR_BGR2BGRA : cv::ColorConversionCodes::COLOR_RGB2BGRA));
-
-#   if Q_BYTE_ORDER == Q_LITTLE_ENDIAN
-
-            mat_adjustCn = mat_tmp;
-
-#   else
-
-            mat_adjustCn = argb2bgra(mat_tmp);
-
-#   endif
-
-#endif
-
         }
 
         else if (mat.channels() == 4)
@@ -590,38 +542,20 @@ QImage QtOpenCVImg::mat2Image(const cv::Mat& mat, MatColorOrder order, QImage::F
             format = findClosestFormat(formatHint);
 
             if (
-                   (format != QImage::Format_RGB32)
-                && (format != QImage::Format_ARGB32)
-                && (format != QImage::Format_ARGB32_Premultiplied)
-
-#if QT_VERSION >= 0x050200
-
-                && (format != QImage::Format_RGBX8888)
-                && (format != QImage::Format_RGBA8888)
-                && (format != QImage::Format_RGBA8888_Premultiplied)
-
-#endif
-
+                (format != QImage::Format_RGB32)                 &&
+                (format != QImage::Format_ARGB32)                &&
+                (format != QImage::Format_ARGB32_Premultiplied)  &&
+                (format != QImage::Format_RGBX8888)              &&
+                (format != QImage::Format_RGBA8888)              &&
+                (format != QImage::Format_RGBA8888_Premultiplied)
                )
             {
-
-#if QT_VERSION >= 0x050200
-
                 format = ((order == MCO_RGBA) ? QImage::Format_RGBA8888 : QImage::Format_ARGB32);
-
-#else
-
-                format = QImage::Format_ARGB32;
-
-#endif
-
             }
 
             // Channel order required by the target QImage
 
             MatColorOrder requiredOrder = getColorOrderOfRGB32Format();
-
-#if QT_VERSION >= 0x050200
 
             if (
                 (formatHint == QImage::Format_RGBX8888) ||
@@ -631,8 +565,6 @@ QImage QtOpenCVImg::mat2Image(const cv::Mat& mat, MatColorOrder order, QImage::F
             {
                 requiredOrder = MCO_RGBA;
             }
-
-#endif
 
             if (order != requiredOrder)
             {
@@ -701,8 +633,6 @@ cv::Mat QtOpenCVImg::image2Mat_shared(const QImage& img, MatColorOrder* const or
                 break;
             }
 
-#if QT_VERSION >= 0x040400
-
             case QImage::Format_RGB888:
             {
                 if (order)
@@ -712,8 +642,6 @@ cv::Mat QtOpenCVImg::image2Mat_shared(const QImage& img, MatColorOrder* const or
 
                 break;
             }
-
-#endif
 
             case QImage::Format_RGB32:
             case QImage::Format_ARGB32:
@@ -727,8 +655,6 @@ cv::Mat QtOpenCVImg::image2Mat_shared(const QImage& img, MatColorOrder* const or
                 break;
             }
 
-#if QT_VERSION >= 0x050200
-
             case QImage::Format_RGBX8888:
             case QImage::Format_RGBA8888:
             case QImage::Format_RGBA8888_Premultiplied:
@@ -741,17 +667,11 @@ cv::Mat QtOpenCVImg::image2Mat_shared(const QImage& img, MatColorOrder* const or
                 break;
             }
 
-#endif
-
-#if QT_VERSION >= 0x050500
-
             case QImage::Format_Alpha8:
             case QImage::Format_Grayscale8:
             {
                 break;
             }
-
-#endif
 
             default:
             {
@@ -797,48 +717,31 @@ QImage QtOpenCVImg::mat2Image_shared(const cv::Mat& mat, QImage::Format formatHi
         if (mat.type() == CV_8UC1)
         {
             if (
-                   // cppcheck-suppress duplicateConditionalAssign
-                   (formatHint != QImage::Format_Indexed8)
-
-#if QT_VERSION >= 0x050500
-
-                && (formatHint != QImage::Format_Alpha8)
-                && (formatHint != QImage::Format_Grayscale8)
-
-#endif
-
+                // cppcheck-suppress duplicateConditionalAssign
+                (formatHint != QImage::Format_Indexed8)   &&
+                (formatHint != QImage::Format_Alpha8)     &&
+                (formatHint != QImage::Format_Grayscale8)
                )
             {
                 // cppcheck-suppress duplicateConditionalAssign
                 formatHint = QImage::Format_Indexed8;
             }
-
-#if QT_VERSION >= 0x040400
-
         }
 
         else if (mat.type() == CV_8UC3)
         {
             formatHint = QImage::Format_RGB888;
-
-#endif
-
         }
 
         else if (mat.type() == CV_8UC4)
         {
-            if (   (formatHint != QImage::Format_RGB32)
-                && (formatHint != QImage::Format_ARGB32)
-                && (formatHint != QImage::Format_ARGB32_Premultiplied)
-
-#if QT_VERSION >= 0x050200
-
-                && (formatHint != QImage::Format_RGBX8888)
-                && (formatHint != QImage::Format_RGBA8888)
-                && (formatHint != QImage::Format_RGBA8888_Premultiplied)
-
-#endif
-
+            if (
+                (formatHint != QImage::Format_RGB32)                 &&
+                (formatHint != QImage::Format_ARGB32)                &&
+                (formatHint != QImage::Format_ARGB32_Premultiplied)  &&
+                (formatHint != QImage::Format_RGBX8888)              &&
+                (formatHint != QImage::Format_RGBA8888)              &&
+                (formatHint != QImage::Format_RGBA8888_Premultiplied)
                )
             {
                 formatHint = QImage::Format_ARGB32;

@@ -164,35 +164,18 @@ int ParallelWorkers::replacementStaticQtMetacall(QMetaObject::Call _c, int _id, 
 
         for (int i = 0 ; i < types.size() ; ++i)
         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             int typeId = QMetaType::fromName(QByteArrayView(types[i].constData())).id();
 
-#else
-
-            int typeId = QMetaType::type(types[i].constData());
-
-#endif
-
-            if (!typeId && _a[i+1])
+            if (!typeId && _a[i + 1])
             {
                 qCWarning(DIGIKAM_GENERAL_LOG) << "Unable to handle unregistered datatype" << types[i] << "Dropping signal.";
+
                 return (_id - properMethods);
             }
 
             // We use QMetaType to copy the data. _a[0] is reserved for a return parameter.
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             void* const data = QMetaType(typeId).create(_a[i+1]);
-
-#else
-
-            void* const data = QMetaType::create(typeId, _a[i+1]);
-
-#endif
-
             args[i]          = QGenericArgument(types[i].constData(), data);
         }
 

@@ -136,17 +136,7 @@ void ProcessLauncher::run()
 
     qCInfo(DIGIKAM_GENERAL_LOG) << "=== Starting process:" << d->prog << d->args;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     d->process->start(d->prog, d->args);
-
-#else
-
-    d->process->setProgram(d->prog);
-    d->process->setArguments(d->args);
-    d->process->start();
-
-#endif
 
     if (d->process->waitForStarted(d->timeOut))
     {
@@ -185,15 +175,7 @@ void ProcessLauncher::slotReadyRead()
             {
                 if (!str.isEmpty())
                 {
-                    qCDebug(DIGIKAM_GENERAL_LOG)
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-                       .noquote()
-
-#endif
-
-                       << str;
+                    qCDebug(DIGIKAM_GENERAL_LOG).noquote() << str;
                 }
             }
         }

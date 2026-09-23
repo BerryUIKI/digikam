@@ -235,13 +235,7 @@ void SolidHardwareDlg::slotPopulateDevices()
             }
 
             QTreeWidgetItem* vitem       = nullptr;
-            QString title;
-
-#if (SOLID_VERSION >= QT_VERSION_CHECK(5, 71, 0))
-
-            title                        = device.displayName();
-
-#endif
+            QString title                = device.displayName();
 
             // cppcheck-suppress knownConditionTrueFalse
             if (title.isEmpty())

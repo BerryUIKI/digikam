@@ -94,19 +94,8 @@ int MLClassifierFoundation::VotingGroups::winner(WinnerType winnerType)
 
     QList<VoteTally> voteTally;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     for (auto [key, value] : votes.asKeyValueRange())
     {
-
-#else
-
-    for (const auto& key : votes.keys())
-    {
-        const auto& value = votes[key];
-
-#endif
-
         VoteTally t;
         t.label = key;
         t.votes = value.first;

@@ -250,13 +250,9 @@ QPixmap DConfigDlgTitle::pixmap() const
 
     return d->imageLabel->pixmap();
 
-#elif (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
-
-    return d->imageLabel->pixmap(Qt::ReturnByValue);
-
 #else
 
-    return *d->imageLabel->pixmap();
+    return d->imageLabel->pixmap(Qt::ReturnByValue);
 
 #endif
 

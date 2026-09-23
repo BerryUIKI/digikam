@@ -206,16 +206,7 @@ void DConfigDlgMngr::setupWidget(QWidget* widget, KConfigSkeletonItem* item)
     {
         const KConfigSkeletonItem* const sitem = d->conf->findItem(widget->objectName().mid(5));
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         if (sitem->property().typeId() == QMetaType::Int)
-
-#else
-
-        if (sitem->property().type() == QVariant::Int)
-
-#endif
-
         {
             QObjectList children                  = gb->children();
             children.removeAll(gb->layout());
@@ -551,17 +542,7 @@ QByteArray DConfigDlgMngr::getCustomProperty(const QWidget* widget) const
 
     if (prop.isValid())
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         if (!prop.canConvert(QMetaType(QMetaType::QByteArray)))
-
-#else
-
-        if (!prop.canConvert(QVariant::ByteArray))
-
-#endif
-
         {
            qCWarning(DIGIKAM_GENERAL_LOG) << "Property on"
                                           << widget->metaObject()->className()
@@ -600,17 +581,7 @@ QByteArray DConfigDlgMngr::getCustomPropertyChangedSignal(const QWidget *widget)
 
     if (prop.isValid())
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         if (!prop.canConvert(QMetaType(QMetaType::QByteArray)))
-
-#else
-
-        if (!prop.canConvert(QVariant::ByteArray))
-
-#endif
-
         {
            qCWarning(DIGIKAM_GENERAL_LOG) << "PropertyNotify on"
                                           << widget->metaObject()->className()

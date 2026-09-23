@@ -160,20 +160,12 @@ bool MLPipelineFoundation::addWorker(const MLPipelineStage& stage)
             // start a new thread
 
             QFutureWatcher<bool>* const watcher = new QFutureWatcher<bool>(this);
-            watcher->setFuture(QtConcurrent::run(threadPool,
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
+            watcher->setFuture(QtConcurrent::run(
+                                                 threadPool,
                                                  &MLPipelineFoundation::finder,
                                                  this
-
-#else
-
-                                                 this,
-                                                 &MLPipelineFoundation::finder
-
-#endif
-                                                ));
+                                                )
+            );
 
             watchList.append(watcher);
 
@@ -195,20 +187,12 @@ bool MLPipelineFoundation::addWorker(const MLPipelineStage& stage)
             // start a new thread
 
             QFutureWatcher<bool>* const watcher = new QFutureWatcher<bool>(this);
-            watcher->setFuture(QtConcurrent::run(threadPool,
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
+            watcher->setFuture(QtConcurrent::run(
+                                                 threadPool,
                                                  &MLPipelineFoundation::loader,
                                                  this
-
-#else
-
-                                                 this,
-                                                 &MLPipelineFoundation::loader
-
-#endif
-                                                ));
+                                                )
+            );
 
             watchList.append(watcher);
 
@@ -230,20 +214,12 @@ bool MLPipelineFoundation::addWorker(const MLPipelineStage& stage)
             // start a new thread
 
             QFutureWatcher<bool>* const watcher = new QFutureWatcher<bool>(this);
-            watcher->setFuture(QtConcurrent::run(threadPool,
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
+            watcher->setFuture(QtConcurrent::run(
+                                                 threadPool,
                                                  &MLPipelineFoundation::extractor,
                                                  this
-
-#else
-
-                                                 this,
-                                                 &MLPipelineFoundation::extractor
-
-#endif
-                                                ));
+                                                )
+            );
 
             watchList.append(watcher);
 
@@ -265,20 +241,12 @@ bool MLPipelineFoundation::addWorker(const MLPipelineStage& stage)
             // start a new thread
 
             QFutureWatcher<bool>* const watcher = new QFutureWatcher<bool>(this);
-            watcher->setFuture(QtConcurrent::run(threadPool,
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
+            watcher->setFuture(QtConcurrent::run(
+                                                 threadPool,
                                                  &MLPipelineFoundation::classifier,
                                                  this
-
-#else
-
-                                                 this,
-                                                 &MLPipelineFoundation::classifier
-
-#endif
-                                                ));
+                                                )
+            );
 
             watchList.append(watcher);
 
@@ -300,20 +268,12 @@ bool MLPipelineFoundation::addWorker(const MLPipelineStage& stage)
             // start a new thread
 
             QFutureWatcher<bool>* const watcher = new QFutureWatcher<bool>(this);
-            watcher->setFuture(QtConcurrent::run(threadPool,
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
+            watcher->setFuture(QtConcurrent::run(
+                                                 threadPool,
                                                  &MLPipelineFoundation::trainer,
                                                  this
-
-#else
-
-                                                 this,
-                                                 &MLPipelineFoundation::trainer
-
-#endif
-                                                ));
+                                                )
+            );
 
             watchList.append(watcher);
 
@@ -335,20 +295,12 @@ bool MLPipelineFoundation::addWorker(const MLPipelineStage& stage)
             // start a new thread
 
             QFutureWatcher<bool>* const watcher = new QFutureWatcher<bool>(this);
-            watcher->setFuture(QtConcurrent::run(threadPool,
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
+            watcher->setFuture(QtConcurrent::run(
+                                                 threadPool,
                                                  &MLPipelineFoundation::writer,
                                                  this
-
-#else
-
-                                                 this,
-                                                 &MLPipelineFoundation::writer
-
-#endif
-                                                ));
+                                                )
+            );
 
             watchList.append(watcher);
 
@@ -380,7 +332,7 @@ void MLPipelineFoundation::slotFinished()
 bool MLPipelineFoundation::checkMoreWorkers(int _totalItemCount, int currentItemCount, bool useFullCpu)
 {
     if (
-        useFullCpu                                 &&
+        useFullCpu                                  &&
         ((_totalItemCount + currentItemCount) > 25) &&
         (QThread::idealThreadCount() > 4)
        )
@@ -684,21 +636,8 @@ void MLPipelineFoundation::pipelinePerformanceEnd(const MLPipelineStage& stage, 
 
 void MLPipelineFoundation::showPipelinePerformance() const
 {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     for (auto [stage, profile] : performanceProfileList.asKeyValueRange())
     {
-
-#else
-
-    for (const auto& stage : performanceProfileList.keys())
-    {
-
-        const auto& profile = performanceProfileList[stage];
-
-#endif
-
         if (profile.itemCount > 0)
         {
             qCDebug(DIGIKAM_MLPIPELINEFOUNDATION_LOG) << "Stage:"               << stage
