@@ -78,9 +78,7 @@
 #   include <knotifyconfigwidget.h>
 #endif
 
-#if KCONFIGWIDGETS_VERSION > QT_VERSION_CHECK(5, 80, 0)
-#   include <khamburgermenu.h>
-#endif
+#include <khamburgermenu.h>
 
 // Restore warnings
 #if !defined(Q_OS_DARWIN) && defined(Q_CC_GNU)
@@ -184,11 +182,7 @@ public:
     QAction*                 showStatusBarAction        = nullptr;
     DAboutData*              about                      = nullptr;
 
-#if KCONFIGWIDGETS_VERSION > QT_VERSION_CHECK(5, 80, 0)
-
     KHamburgerMenu*          hamburgerMenu              = nullptr;
-
-#endif
 
     DLogoAction*             anim                       = nullptr;
 

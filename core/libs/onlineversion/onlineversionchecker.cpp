@@ -356,17 +356,8 @@ bool OnlineVersionChecker::bundleProperties(QString& arch, QString& ext,
 
 #   endif
 
-#   if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     qtVersion = QLatin1String("Qt6");
     dir       = QLatin1String("/");
-
-#   else
-
-    qtVersion = QLatin1String("Qt5");
-    dir       = QLatin1String("/legacy");
-
-#   endif
 
 #endif
 
@@ -390,17 +381,8 @@ bool OnlineVersionChecker::bundleProperties(QString& arch, QString& ext,
 
 #   endif
 
-#   if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     qtVersion = QLatin1String("Qt6");
     dir       = QLatin1String("/");
-
-#   else
-
-    qtVersion = QLatin1String("Qt5");
-    dir       = QLatin1String("/legacy");
-
-#   endif
 
 #endif
 

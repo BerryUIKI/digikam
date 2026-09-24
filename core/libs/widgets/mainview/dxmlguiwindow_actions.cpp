@@ -207,8 +207,6 @@ void DXmlGuiWindow::createSettingsActions()
 
 #endif
 
-#if KCONFIGWIDGETS_VERSION > QT_VERSION_CHECK(5, 80, 0)
-
     d->hamburgerMenu = KStandardAction::hamburgerMenu(nullptr, nullptr, actionCollection());
     d->hamburgerMenu->setShowMenuBarAction(d->showMenuBarAction);
     d->hamburgerMenu->setMenuBar(menuBar());
@@ -225,7 +223,6 @@ void DXmlGuiWindow::createSettingsActions()
             }
     );
 */
-#endif
 
 }
 

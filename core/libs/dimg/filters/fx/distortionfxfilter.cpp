@@ -968,17 +968,7 @@ void DistortionFXFilter::blockWaves(DImg* orgImage, DImg* destImage,
             prm.stop  = vals[j+1];
             prm.w     = w;
             tasks.append(QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                            &DistortionFXFilter::blockWavesMultithreaded, this,
-
-#else
-
-                                           this, &DistortionFXFilter::blockWavesMultithreaded,
-
-#endif
-
                                            prm
                                           )
             );
