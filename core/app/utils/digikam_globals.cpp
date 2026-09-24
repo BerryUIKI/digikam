@@ -278,16 +278,7 @@ QDateTime startOfDay(const QDate& date)
 QDateTime asDateTimeUTC(const QDateTime& dt)
 {
     QDateTime dateTime(dt);
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 5, 0))
-
     dateTime.setTimeZone(QTimeZone::UTC);
-
-#else
-
-    dateTime.setTimeSpec(Qt::UTC);
-
-#endif
 
     return dateTime;
 }
@@ -295,16 +286,7 @@ QDateTime asDateTimeUTC(const QDateTime& dt)
 QDateTime asDateTimeLocal(const QDateTime& dt)
 {
     QDateTime dateTime(dt);
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 5, 0))
-
     dateTime.setTimeZone(QTimeZone::LocalTime);
-
-#else
-
-    dateTime.setTimeSpec(Qt::LocalTime);
-
-#endif
 
     return dateTime;
 }

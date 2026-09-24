@@ -187,17 +187,8 @@ TagViewSideBarWidget::TagViewSideBarWidget(QWidget* const parent, TagModel* cons
     connect(d->rescanButton, SIGNAL(pressed()),
             this, SLOT(slotScanForAutotags()));
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
-
     connect(d->btnGroup, SIGNAL(idClicked(int)),
             this, SLOT(slotToggleTagsSelection(int)));
-
-#else
-
-    connect(d->btnGroup, SIGNAL(buttonClicked(int)),
-            this, SLOT(slotToggleTagsSelection(int)));
-
-#endif
 
     // hide autotags expander and rescan button if autotags are disabled
 

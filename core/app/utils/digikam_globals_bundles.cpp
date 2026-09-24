@@ -317,10 +317,6 @@ void loadEcmQtTranslationFiles(QApplication& app)
     // This function is based on the code in:
     // https://invent.kde.org/frameworks/extra-cmake-modules/-/blob/master/modules/ECMQmLoader.cpp.in
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-    // Qt6 version
-
     /**
      * Translation files have been verified with the DE i18n set located at:
      *
@@ -354,48 +350,6 @@ void loadEcmQtTranslationFiles(QApplication& app)
         QLatin1String("kwindowsystem6_qt"),     //      A  I        A  I        A  I
         QLatin1String("solid6_qt"),             //      A  I        A  I        A  I
         QLatin1String("sonnet6_qt"),            //      A  I        A  I        A  I
-
-#else
-
-    // Qt5 version
-
-    /**
-     * Translation files have been verified with the DE i18n set located at:
-     *
-     * macOS:    /Applications/digikam.org/digikam.app/Contents/Resources/locale/de/LC_MESSAGES
-     * AppImage: squashfs-root/usr/share/locale/de/LC_MESSAGES
-     * Windows:  C:\Program Files\digiKam\data\locale\de\LC_MESSAGES
-     *
-     * Bundle:                                          macOS      AppImage    Windows
-     *                                                  A  I        A  I        A  I
-     * Legend:
-     *    A = available (check with DE i18n set)
-     *    I = included
-     *    x = do not exists
-     *    ? = to check
-     */
-
-    const QStringList ecmCatalogs =
-    {
-        QLatin1String("karchive5_qt"),          //      A  I        A  I        A  I
-        QLatin1String("kauth5_qt"),             //      A  I        A  I        x
-        QLatin1String("kbookmarks5_qt"),        //      A  I        A  I        A  I
-        QLatin1String("kcodecs5_qt"),           //      A  I        A  I        A  I
-        QLatin1String("kcompletion5_qt"),       //      A  I        A  I        A  I
-        QLatin1String("kconfig5_qt"),           //      A  I        A  I        A  I
-        QLatin1String("kcoreaddons5_qt"),       //      A  I        A  I        A  I
-        QLatin1String("kdbusaddons5_qt"),       //      A  I        A  I        A  I
-        QLatin1String("kglobalaccel5_qt"),      //      x           A  I        x
-        QLatin1String("kitemviews5_qt"),        //      A  I        A  I        A  I
-        QLatin1String("kjobwidgets5_qt"),       //      A  I        A  I        A  I
-        QLatin1String("knotifications5_qt"),    //      A  I        A  I        A  I
-        QLatin1String("kwidgetsaddons5_qt"),    //      A  I        A  I        A  I
-        QLatin1String("kwindowsystem5_qt"),     //      A  I        A  I        A  I
-        QLatin1String("solid5_qt"),             //      A  I        A  I        A  I
-        QLatin1String("sonnet5_qt"),            //      x           A  I        A  I
-
-#endif
-
     };
 
     /**
@@ -470,15 +424,7 @@ void loadEcmQtTranslationFiles(QApplication& app)
                                  catalog                        +
                                  QLatin1String(".qm");
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             const QString root = QLibraryInfo::path(QLibraryInfo::PrefixPath);
-
-#else
-
-            const QString root = QLibraryInfo::location(QLibraryInfo::PrefixPath);
-
-#endif
 
             // For AppImage transalotion files uses AppDataLocation.
 
@@ -579,7 +525,7 @@ void setWindowsEnvironment(QApplication& app)
 void setAudioBackendEnvironment()
 {
 
-#if defined(Q_OS_LINUX) && (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
+#if defined Q_OS_LINUX
 
     if (!qEnvironmentVariableIsSet("QT_AUDIO_BACKEND"))
     {

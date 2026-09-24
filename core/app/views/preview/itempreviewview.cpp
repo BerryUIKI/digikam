@@ -660,16 +660,7 @@ bool ItemPreviewView::acceptsMouseClick(QMouseEvent* e)
     return d->faceGroup->acceptsMouseClick(mapToScene(e->pos()));
 }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
 void ItemPreviewView::enterEvent(QEnterEvent* e)
-
-#else
-
-void ItemPreviewView::enterEvent(QEvent* e)
-
-#endif
-
 {
     d->faceGroup->enterEvent(e);
 }
@@ -1038,15 +1029,7 @@ void ItemPreviewView::dropEvent(QDropEvent* e)
         popMenu.addAction(QIcon::fromTheme(QLatin1String("dialog-cancel")), i18n("&Cancel"));
         popMenu.setMouseTracking(true);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         const QAction* const choice             = popMenu.exec(this->mapToGlobal(e->position().toPoint()));
-
-#else
-
-        const QAction* const choice             = popMenu.exec(this->mapToGlobal(e->pos()));
-
-#endif
 
         if (choice == assignToThisAction)
         {
@@ -1061,6 +1044,7 @@ void ItemPreviewView::dropEvent(QDropEvent* e)
 
 void ItemPreviewView::slotPlayMotionPhoto()
 {
+
 #ifdef HAVE_MEDIAPLAYER
 
     ItemInfo info = d->item->imageInfo();
@@ -1128,6 +1112,7 @@ void ItemPreviewView::slotPlayMotionPhoto()
     Q_EMIT signalPlayMotionPhoto(d->motionPhotoBuffer, QUrl::fromLocalFile(info.filePath()), orientation);
 
 #endif
+
 }
 
 void ItemPreviewView::mousePressEvent(QMouseEvent* e)

@@ -1827,16 +1827,7 @@ void TimeLineWidget::mousePressEvent(QMouseEvent* e)
 {
     if (e->button() == Qt::LeftButton)
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         QPoint pt(e->position().toPoint().x(), e->position().toPoint().y());
-
-#else
-
-        QPoint pt(e->x(), e->y());
-
-#endif
 
         bool ctrlPressed    = e->modifiers() & Qt::ControlModifier;
         bool shiftPressed   = e->modifiers() & Qt::ShiftModifier;
@@ -1914,16 +1905,7 @@ void TimeLineWidget::mouseMoveEvent(QMouseEvent* e)
 
     if (d->validMouseEvent == true)
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         QPoint pt(e->position().toPoint().x(), e->position().toPoint().y());
-
-#else
-
-        QPoint pt(e->x(), e->y());
-
-#endif
 
         if (selEndDateTime.isNull())
         {

@@ -243,17 +243,8 @@ TimelineSideBarWidget::TimelineSideBarWidget(QWidget* const parent,
     connect(d->timeUnitCB, SIGNAL(activated(int)),
             this, SLOT(slotTimeUnitChanged(int)));
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
-
     connect(d->scaleBG, SIGNAL(idReleased(int)),
             this, SLOT(slotScaleChanged(int)));
-
-#else
-
-    connect(d->scaleBG, SIGNAL(buttonReleased(int)),
-            this, SLOT(slotScaleChanged(int)));
-
-#endif
 
     connect(d->timeLineWidget, SIGNAL(signalDateMapChanged()),
             this, SLOT(slotInit()));
