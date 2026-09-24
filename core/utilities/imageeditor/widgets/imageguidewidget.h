@@ -113,18 +113,9 @@ protected:
     void   mousePressEvent(QMouseEvent*)            override;
     void   mouseReleaseEvent(QMouseEvent*)          override;
     void   mouseMoveEvent(QMouseEvent*)             override;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-    void enterEvent(QEnterEvent*)                   override;
-
-#else
-
-    void enterEvent(QEvent*)                        override;
-
-#endif
-
+    void   enterEvent(QEnterEvent*)                 override;
     void   leaveEvent(QEvent*)                      override;
+
     void   updatePixmap();
     void   drawLineTo(const QPoint& endPoint);
     void   drawLineTo(int width, bool erase,

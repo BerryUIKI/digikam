@@ -167,18 +167,8 @@ PreviewToolBar::PreviewToolBar(QWidget* const parent)
     d->previewToggleMouseOverButton->setToolTip(i18n("Preview on mouse-over"));
     d->previewToggleMouseOverButton->setObjectName(QLatin1String("preview-toggle-mouse-over"));
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
-
     connect(d->previewButtons, SIGNAL(idReleased(int)),
             this, SLOT(slotButtonReleased(int)));
-
-#else
-
-    connect(d->previewButtons, SIGNAL(buttonReleased(int)),
-            this, SLOT(slotButtonReleased(int)));
-
-#endif
-
 }
 
 PreviewToolBar::~PreviewToolBar()

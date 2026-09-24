@@ -337,17 +337,7 @@ QStringList AssignedListView::mimeTypes() const
     return types;
 }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
 QMimeData* AssignedListView::mimeData(const QList<QTreeWidgetItem*>& items) const
-
-#else
-
-// cppcheck-suppress passedByValue
-QMimeData* AssignedListView::mimeData(const QList<QTreeWidgetItem*> items) const    // clazy:exclude=function-args-by-ref
-
-#endif
-
 {
     QMimeData* const mimeData = new QMimeData();
     QByteArray encodedData;
@@ -408,16 +398,7 @@ void AssignedListView::dropEvent(QDropEvent* e)
             QMultiMap<int, QString> map;
             ds >> map;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             AssignedListViewItem* const preceding = dynamic_cast<AssignedListViewItem*>(itemAt(e->position().toPoint()));
-
-#else
-
-            AssignedListViewItem* const preceding = dynamic_cast<AssignedListViewItem*>(itemAt(e->pos()));
-
-#endif
-
             assignTools(map, preceding);
         }
 
@@ -445,16 +426,7 @@ void AssignedListView::dropEvent(QDropEvent* e)
                 ds >> version;
                 ds >> settings;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                 AssignedListViewItem* const preceding = dynamic_cast<AssignedListViewItem*>(itemAt(e->position().toPoint()));
-
-#else
-
-                AssignedListViewItem* const preceding = dynamic_cast<AssignedListViewItem*>(itemAt(e->pos()));
-
-#endif
-
                 BatchToolSet set;
                 set.name                              = name;
                 set.group                             = (BatchTool::BatchToolGroup)group;
@@ -544,15 +516,7 @@ void AssignedListView::assignTools(const QMultiMap<int, QString>& map, AssignedL
 {
     // We pop all items in reverse order to have same order than selection from Batch Tools list.
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     QMultiMapIterator<int, QString> it(map);
-
-#else
-
-    QMapIterator<int, QString> it(map);
-
-#endif
 
     it.toBack();
 
