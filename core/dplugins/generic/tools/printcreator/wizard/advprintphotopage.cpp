@@ -35,6 +35,7 @@
 // KDE includes
 
 #include <kdesktopfile.h>
+#include <klazylocalizedstring.h>
 
 // Local includes
 
@@ -42,7 +43,6 @@
 #include "advprintwizard.h"
 #include "advprintcustomdlg.h"
 #include "templateicon.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace DigikamGenericPrintCreatorPlugin
 {
@@ -53,7 +53,7 @@ static const struct CustomPageLayoutName
 }
 CUSTOM_PAGE_LAYOUT_NAME =
 {
-    I18NC_NOOP("@info layout page", "Custom")
+    kli18nc("@info layout page", "Custom")
 };
 
 class Q_DECL_HIDDEN AdvPrintPhotoPage::Private

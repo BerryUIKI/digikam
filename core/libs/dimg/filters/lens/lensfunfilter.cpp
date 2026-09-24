@@ -20,12 +20,15 @@
 #include <QtConcurrentRun>
 #include <QScopedPointer>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "digikam_debug.h"
 #include "lensfuniface.h"
 #include "dmetadata.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 #include "actionthreadbase.h"
 
 // Disable deprecated API from older Lensfun.
@@ -52,6 +55,8 @@ class Q_DECL_HIDDEN LensFunFilter::Private
 public:
 
     Private() = default;
+
+public:
 
     DImg          tempImage;
 
@@ -112,7 +117,7 @@ QString LensFunFilter::DisplayableName()
     }
     FILTER_NAME =
     {
-        I18NC_NOOP("@title", "Lens Auto-Correction Tool")
+        kli18nc("@title", "Lens Auto-Correction Tool")
     };
 
     return FILTER_NAME.title.toString();

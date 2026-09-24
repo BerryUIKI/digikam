@@ -19,12 +19,12 @@
 
 #include <kconfiggroup.h>
 #include <klocalizedstring.h>
+#include <klazylocalizedstring.h>
 
 // Local includes
 
 #include "dmetadatasettings.h"
 #include "digikam_debug.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -39,27 +39,27 @@ namespaceTitleDefinitions[] =
 {
     {
         NamespaceEntry::TAGS,
-        I18NC_NOOP("@title: xmp namespace for tags container",        "Tags")
+        kli18nc("@title: xmp namespace for tags container",        "Tags")
     },
     {
         NamespaceEntry::TITLE,
-        I18NC_NOOP("@title: xmp namespace for title container",       "Title")
+        kli18nc("@title: xmp namespace for title container",       "Title")
     },
     {
         NamespaceEntry::RATING,
-        I18NC_NOOP("@title: xmp namespace for rating container",      "Rating")
+        kli18nc("@title: xmp namespace for rating container",      "Rating")
     },
     {
         NamespaceEntry::COMMENT,
-        I18NC_NOOP("@title: xmp namespace for comment container",     "Caption")
+        kli18nc("@title: xmp namespace for comment container",     "Caption")
     },
     {
         NamespaceEntry::PICKLABEL,
-        I18NC_NOOP("@title: xmp namespace for pick-label container",  "Pick label")
+        kli18nc("@title: xmp namespace for pick-label container",  "Pick label")
     },
     {
         NamespaceEntry::COLORLABEL,
-        I18NC_NOOP("@title: xmp namespace for color-label container", "Color label")
+        kli18nc("@title: xmp namespace for color-label container", "Color label")
     },
 };
 
