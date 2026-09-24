@@ -453,15 +453,7 @@ protected:
 
     ChoiceSearchComboBox* m_comboBox    = nullptr;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     QMetaType::Type       m_type        = QMetaType::UnknownType;
-
-#else
-
-    QVariant::Type        m_type        = QVariant::Invalid;
-
-#endif
 
     QString               m_anyText;
     ChoiceSearchModel*    m_model       = nullptr;
