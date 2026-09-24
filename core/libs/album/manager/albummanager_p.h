@@ -59,10 +59,6 @@ extern "C"
 #include <QCheckBox>
 #include <QSet>
 
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-#   include <QTextCodec>
-#endif
-
 // KDE includes
 
 #include <klocalizedstring.h>
@@ -130,16 +126,7 @@ public:
 
 // -----------------------------------------------------------------------------------
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
 inline size_t qHash(const PAlbumPath& id)
-
-#else
-
-inline uint qHash(const PAlbumPath& id)
-
-#endif
-
 {
     return (::qHash(id.albumRootId) ^ ::qHash(id.albumPath));
 }

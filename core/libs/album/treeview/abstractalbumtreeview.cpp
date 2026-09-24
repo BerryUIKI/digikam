@@ -514,17 +514,7 @@ void AbstractAlbumTreeView::startDrag(Qt::DropActions supportedActions)
         }
 
         QStyleOptionViewItem option;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         initViewItemOption(&option);
-
-#else
-
-        option = viewOptions();
-
-#endif
-
         option.rect                 = viewport()->rect();
         const QPixmap pixmap        = /*m_delegate->*/pixmapForDrag(option, indexes);
         QDrag* const drag           = new QDrag(this);
@@ -572,17 +562,7 @@ void AbstractAlbumTreeView::dragMoveEvent(QDragMoveEvent* e)
 
     if (handler)
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         const QModelIndex index     = indexVisuallyAt(e->position().toPoint());
-
-#else
-
-        const QModelIndex index     = indexVisuallyAt(e->pos());
-
-#endif
-
         const QModelIndex source    = m_albumFilterModel->mapToSourceAlbumModel(index);
         const Qt::DropAction action = handler->accepts(e, source);
 
@@ -614,16 +594,7 @@ void AbstractAlbumTreeView::dropEvent(QDropEvent* e)
 
     if (handler)
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         const QModelIndex index = indexVisuallyAt(e->position().toPoint());
-
-#else
-
-        const QModelIndex index = indexVisuallyAt(e->pos());
-
-#endif
 
         if (handler->dropEvent(this, e, m_albumFilterModel->mapToSourceAlbumModel(index)))
         {

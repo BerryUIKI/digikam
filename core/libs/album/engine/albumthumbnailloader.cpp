@@ -600,16 +600,7 @@ void AlbumThumbnailLoader::slotGotThumbnailFromIcon(const LoadingDescription& lo
 
     QRect faceRect = QRect();
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     if (loadingDescription.previewParameters.extraParameter.typeId() == QMetaType::QRect)
-
-#else
-
-    if (loadingDescription.previewParameters.extraParameter.type() == QVariant::Rect)
-
-#endif
-
     {
         faceRect = loadingDescription.previewParameters.extraParameter.toRect();
     }
