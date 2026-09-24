@@ -51,13 +51,6 @@ public:
 
 public:
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-
-    bool    useHighDpiScaling = false;
-    bool    useHighDpiPixmaps = false;
-
-#endif
-
     bool    enableAIAutoTools = false;
     bool    enableFaceEngine  = false;
     bool    enableAesthetic   = false;
@@ -69,14 +62,10 @@ public:
     bool    enableDnnOpenCL   = false;
     bool    dnnOpenCLTested   = false;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     bool    enableHWVideo     = false;
     bool    enableHWTConv     = false;
 
     QString videoBackend      = QLatin1String("ffmpeg");
-
-#endif
 
     // Faces Engine path.
 

@@ -733,16 +733,7 @@ bool TreeProxyModel::filterAcceptsRow(int srow, const QModelIndex& sparent) cons
         return false;
     }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     if (index.data().toString().contains(filterRegularExpression()))
-
-#else
-
-    if (index.data().toString().contains(filterRegExp()))
-
-#endif
-
     {
         return true;
     }

@@ -54,22 +54,6 @@ void SystemSettings::readSettings()
 
     settings.beginGroup(QLatin1String("System"));
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-
-#   ifdef Q_OS_LINUX
-
-    useHighDpiScaling    = settings.value(QLatin1String("useHighDpiScaling"), true).toBool();
-    useHighDpiPixmaps    = settings.value(QLatin1String("useHighDpiPixmaps"), true).toBool();
-
-#   else
-
-    useHighDpiScaling    = settings.value(QLatin1String("useHighDpiScaling"), false).toBool();
-    useHighDpiPixmaps    = settings.value(QLatin1String("useHighDpiPixmaps"), false).toBool();
-
-#   endif
-
-#endif
-
     if (settings.contains(QLatin1String("disableFaceEngine")))
     {
         bool oldSetting  = settings.value(QLatin1String("disableFaceEngine"), false).toBool();
@@ -100,14 +84,10 @@ void SystemSettings::readSettings()
     enableDnnOpenCL      = settings.value(QLatin1String("enableDnnOpenCL"),   false).toBool();
     dnnOpenCLTested      = settings.value(QLatin1String("dnnOpenCLTested"),   false).toBool();
 
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     enableHWVideo        = settings.value(QLatin1String("enableHWVideo"),     false).toBool();
     enableHWTConv        = settings.value(QLatin1String("enableHWTConv"),     false).toBool();
     videoBackend         = settings.value(QLatin1String("videoBackend"),      QLatin1String("ffmpeg")).toString();
 
-#endif
     // Faces Engine
 
     QString dataPath     = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
@@ -144,13 +124,6 @@ void SystemSettings::saveSettings()
 
     settings.beginGroup(QLatin1String("System"));
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-
-    settings.setValue(QLatin1String("useHighDpiScaling"), useHighDpiScaling);
-    settings.setValue(QLatin1String("useHighDpiPixmaps"), useHighDpiPixmaps);
-
-#endif
-
     settings.setValue(QLatin1String("enableAIAutoTools"), enableAIAutoTools);
     settings.setValue(QLatin1String("enableFaceEngine"),  enableFaceEngine);
     settings.setValue(QLatin1String("enableAesthetic"),   enableAesthetic);
@@ -167,13 +140,9 @@ void SystemSettings::saveSettings()
         settings.remove(QLatin1String("disableFaceEngine"));
     }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     settings.setValue(QLatin1String("enableHWVideo"),     enableHWVideo);
     settings.setValue(QLatin1String("enableHWTConv"),     enableHWTConv);
     settings.setValue(QLatin1String("videoBackend"),      videoBackend);
-
-#endif
 
     settings.setValue(QLatin1String("facesEnginePath"),   facesEnginePath);
 

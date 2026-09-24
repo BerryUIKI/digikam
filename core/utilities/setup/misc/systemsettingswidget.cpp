@@ -58,13 +58,6 @@ public:
 
     // Screen options
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-
-    QCheckBox*              useHighDpiScalingCheck = nullptr;
-    QCheckBox*              useHighDpiPixmapsCheck = nullptr;
-
-#endif
-
     QCheckBox*              softwareOpenGLCheck    = nullptr;
 
     // OpenCV and AI options
@@ -79,14 +72,10 @@ public:
 
     // Video rendering options
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     QCheckBox*              enableHWVideoCheck     = nullptr;
     QCheckBox*              enableHWTConvCheck     = nullptr;
 
     QComboBox*              videoBackendCBox       = nullptr;
-
-#endif
 
     // Debug traces options
 
@@ -124,13 +113,6 @@ SystemSettingsWidget::SystemSettingsWidget(QWidget* const parent)
 
     // Screen options
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-
-    d->useHighDpiScalingCheck = new QCheckBox(i18n("Use high DPI scaling from the screen factor"), this);
-    d->useHighDpiPixmapsCheck = new QCheckBox(i18n("Use pixmaps with high DPI resolution"), this);
-
-#endif
-
     d->softwareOpenGLCheck    = new QCheckBox(i18n("Use software OpenGL for rendering"), this);
 
     // OpenCV and AI options
@@ -157,8 +139,6 @@ SystemSettingsWidget::SystemSettingsWidget(QWidget* const parent)
 
     // Video rendering options
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     d->enableHWVideoCheck     = new QCheckBox(i18n("Use video hardware acceleration"), this);
     d->enableHWTConvCheck     = new QCheckBox(i18n("Use video textures conversion"), this);
 
@@ -180,8 +160,6 @@ SystemSettingsWidget::SystemSettingsWidget(QWidget* const parent)
     d->videoBackendCBox->addItem(i18n("AVFoundation (System)"), QLatin1String("darwin"));
 
 #   endif
-
-#endif
 
     // Debug traces options
 
@@ -210,13 +188,6 @@ SystemSettingsWidget::SystemSettingsWidget(QWidget* const parent)
 
     // Screen options
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-
-    layout->addWidget(d->useHighDpiScalingCheck,             row++, 0, 1, 2);
-    layout->addWidget(d->useHighDpiPixmapsCheck,             row++, 0, 1, 2);
-
-#endif
-
     layout->addWidget(d->softwareOpenGLCheck,                row++, 0, 1, 2);
 
     // OpenCV and AI options
@@ -231,15 +202,11 @@ SystemSettingsWidget::SystemSettingsWidget(QWidget* const parent)
 
     // Video rendering options
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     layout->addWidget(new DLineWidget(Qt::Horizontal, this), row++, 0, 1, 3);
     layout->addWidget(d->enableHWVideoCheck,                 row++, 0, 1, 3);
     layout->addWidget(d->enableHWTConvCheck,                 row++, 0, 1, 3);
     layout->addWidget(videoLabel,                            row,   0, 1, 1);
     layout->addWidget(d->videoBackendCBox,                   row++, 1, 1, 2);
-
-#endif
 
     // Debug traces options
 
@@ -283,13 +250,6 @@ void SystemSettingsWidget::readSettings()
 {
     SystemSettings system(qApp->applicationName());
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-
-    d->useHighDpiScalingCheck->setChecked(system.useHighDpiScaling);
-    d->useHighDpiPixmapsCheck->setChecked(system.useHighDpiPixmaps);
-
-#endif
-
     d->softwareOpenGLCheck->setChecked(system.softwareOpenGL);
     d->enableLoggingCheck->setChecked(system.enableLogging);
     d->enableOpenCLCheck->setChecked(system.enableOpenCL);
@@ -298,13 +258,9 @@ void SystemSettingsWidget::readSettings()
     d->openCLDNNTest->setEnabled(system.enableOpenCL);
     d->openCLDNNTestResult = system.dnnOpenCLTested;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     d->enableHWVideoCheck->setChecked(system.enableHWVideo);
     d->enableHWTConvCheck->setChecked(system.enableHWTConv);
     d->videoBackendCBox->setCurrentIndex(d->videoBackendCBox->findData(system.videoBackend));
-
-#endif
 
     // Proxy Settings
 
@@ -320,13 +276,6 @@ void SystemSettingsWidget::saveSettings()
 {
     SystemSettings system(qApp->applicationName());
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-
-    system.useHighDpiScaling = d->useHighDpiScalingCheck->isChecked();
-    system.useHighDpiPixmaps = d->useHighDpiPixmapsCheck->isChecked();
-
-#endif
-
     system.softwareOpenGL    = d->softwareOpenGLCheck->isChecked();
     system.enableLogging     = d->enableLoggingCheck->isChecked();
     system.enableOpenCL      = d->enableOpenCLCheck->isChecked();
@@ -335,13 +284,9 @@ void SystemSettingsWidget::saveSettings()
                                d->openCLDNNTestResult;
     system.dnnOpenCLTested   = d->openCLDNNTestResult;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     system.enableHWVideo     = d->enableHWVideoCheck->isChecked();
     system.enableHWTConv     = d->enableHWTConvCheck->isChecked();
     system.videoBackend      = d->videoBackendCBox->currentData().toString();
-
-#endif
 
     system.proxyUrl          = d->uiProxySettings.kcfg_proxyUrl->text();
     system.proxyPort         = d->uiProxySettings.kcfg_proxyPort->value();
