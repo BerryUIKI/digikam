@@ -31,18 +31,8 @@
 
 #include <kjob.h>
 #include <akonadi_version.h>
-
-#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 18, 41)
 #include <Akonadi/Item>
-#else
-#include <AkonadiCore/Item>
-#endif
-
-#if AKONADI_VERSION >= QT_VERSION_CHECK(5, 19, 80)
 #include <Akonadi/ContactSearchJob>
-#else
-#include <Akonadi/Contact/ContactSearchJob>
-#endif
 #include <KContacts/Addressee>
 
 #if defined(Q_OS_DARWIN) && defined(Q_CC_CLANG)

@@ -108,20 +108,9 @@ void FingerPrintsGenerator::slotStart()
     connect(&d->affectedAlbumWatcher, &QFutureWatcher<void>::finished,
             this, &FingerPrintsGenerator::slotAffectedAlbumsFinished);
 
-    d->affectedAlbumTask =
-        QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-                          &FingerPrintsGenerator::calculateAffectedAlbums, this
-
-#else
-
-                          this, &FingerPrintsGenerator::calculateAffectedAlbums
-
-#endif
-
-                         );
+    d->affectedAlbumTask = QtConcurrent::run(
+                                             &FingerPrintsGenerator::calculateAffectedAlbums, this
+                                            );
 
     d->affectedAlbumWatcher.setFuture(d->affectedAlbumTask);
 }

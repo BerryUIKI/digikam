@@ -14,20 +14,24 @@ include_directories($<TARGET_PROPERTY:Qt6::Widgets,INTERFACE_INCLUDE_DIRECTORIES
                     $<TARGET_PROPERTY:KF6::I18n,INTERFACE_INCLUDE_DIRECTORIES>
 )
 
-if(KPim${QT_VERSION_MAJOR}AkonadiContact_FOUND)
+if(KPim6AkonadiContact_FOUND)
+
     include_directories(
         $<TARGET_PROPERTY:KF6::AkonadiCore,INTERFACE_INCLUDE_DIRECTORIES>
         $<TARGET_PROPERTY:KF6::Contacts,INTERFACE_INCLUDE_DIRECTORIES>
 
         $<TARGET_PROPERTY:KF6::CoreAddons,INTERFACE_INCLUDE_DIRECTORIES>
     )
-elseif(KPim${QT_VERSION_MAJOR}AkonadiContactCore_FOUND)
+
+elseif(KPim6AkonadiContactCore_FOUND)
+
     include_directories(
-        $<TARGET_PROPERTY:KPim${QT_VERSION_MAJOR}::AkonadiCore,INTERFACE_INCLUDE_DIRECTORIES>
+        $<TARGET_PROPERTY:KPim6::AkonadiCore,INTERFACE_INCLUDE_DIRECTORIES>
         $<TARGET_PROPERTY:KF6::Contacts,INTERFACE_INCLUDE_DIRECTORIES>
 
         $<TARGET_PROPERTY:KF6::CoreAddons,INTERFACE_INCLUDE_DIRECTORIES>
     )
+
 endif()
 
 add_library(core_akonadiiface_obj OBJECT ${akonadiiface_SRCS})
@@ -42,10 +46,14 @@ add_library(akonadiiface STATIC $<TARGET_OBJECTS:core_akonadiiface_obj>)
 
 target_link_libraries(akonadiiface PRIVATE Qt6::Core KF6::I18n)
 
-if(KPim${QT_VERSION_MAJOR}AkonadiContact_FOUND)
-    target_include_directories(core_akonadiiface_obj PRIVATE $<TARGET_PROPERTY:KPim${QT_VERSION_MAJOR}::AkonadiContact,INTERFACE_INCLUDE_DIRECTORIES>)
-    target_link_libraries(akonadiiface PRIVATE KPim${QT_VERSION_MAJOR}::AkonadiContact KF6::Contacts)
-elseif(KPim${QT_VERSION_MAJOR}AkonadiContactCore_FOUND)
-    target_include_directories(core_akonadiiface_obj PRIVATE $<TARGET_PROPERTY:KPim${QT_VERSION_MAJOR}::AkonadiContactCore,INTERFACE_INCLUDE_DIRECTORIES>)
-    target_link_libraries(akonadiiface PRIVATE KPim${QT_VERSION_MAJOR}::AkonadiContactCore KF6::Contacts)
+if(KPim6AkonadiContact_FOUND)
+
+    target_include_directories(core_akonadiiface_obj PRIVATE $<TARGET_PROPERTY:KPim6::AkonadiContact,INTERFACE_INCLUDE_DIRECTORIES>)
+    target_link_libraries(akonadiiface PRIVATE KPim6::AkonadiContact KF6::Contacts)
+
+elseif(KPim6AkonadiContactCore_FOUND)
+
+    target_include_directories(core_akonadiiface_obj PRIVATE $<TARGET_PROPERTY:KPim6::AkonadiContactCore,INTERFACE_INCLUDE_DIRECTORIES>)
+    target_link_libraries(akonadiiface PRIVATE KPim6::AkonadiContactCore KF6::Contacts)
+
 endif()

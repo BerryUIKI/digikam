@@ -380,18 +380,8 @@ bool MarbleDefaultInputHandler::handleDoubleClick(QMouseEvent* event)
     qreal mouseLon             = 0.0;
     qreal mouseLat             = 0.0;
     const bool isMouseAboveMap = MarbleInputHandler::d->m_marblePresenter->map()->geoCoordinates(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                      event->position().x(), event->position().y(),
-
-#else
-
-                                     event->x(), event->y(),
-
-#endif
                                      mouseLon, mouseLat, GeoDataCoordinates::Radian);
-
 
     if (isMouseAboveMap)
     {
@@ -618,17 +608,8 @@ void MarbleDefaultInputHandler::handleLeftMouseButtonPress(QMouseEvent* event)
     // distance of a mouse drag while the mouse button is
     // still down.
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     d->m_leftPressedX = event->position().x();
     d->m_leftPressedY = event->position().y();
-
-#else
-
-    d->m_leftPressedX = event->x();
-    d->m_leftPressedY = event->y();
-
-#endif
 
     // Calculate translation of center point
 
@@ -657,16 +638,7 @@ void MarbleDefaultInputHandler::handleMiddleMouseButtonPress(QMouseEvent* event)
     d->m_midPressed     = true;
     d->m_leftPressed    = false;
     d->m_startingRadius = MarbleInputHandler::d->m_marblePresenter->radius();
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     d->m_midPressedY = event->position().y();
-
-#else
-
-    d->m_midPressedY = event->y();
-
-#endif
 
     if (MarbleInputHandler::d->m_inertialEarthRotation)
     {
@@ -725,17 +697,7 @@ void MarbleDefaultInputHandler::handleMouseButtonRelease(QMouseEvent* event)
     {
         if (d->m_rightOrigin == event->pos())
         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             Q_EMIT rmbRequest(event->position().x(), event->position().y());
-
-#else
-
-            Q_EMIT rmbRequest(event->x(), event->y());
-
-#endif
-
         }
 
         d->m_rightPressed = false;
@@ -875,17 +837,7 @@ QPoint MarbleDefaultInputHandler::mouseMovedOutside(QMouseEvent* event)
 
     if (boundingRect.width() != 0)
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         dirX = (int)(3 * (event->position().x() - boundingRect.left()) / boundingRect.width()) - 1;
-
-#else
-
-        dirX = (int)(3 * (event->x() - boundingRect.left()) / boundingRect.width()) - 1;
-
-#endif
-
     }
 
     if (dirX > 1)
@@ -900,17 +852,7 @@ QPoint MarbleDefaultInputHandler::mouseMovedOutside(QMouseEvent* event)
 
     if (boundingRect.height() != 0)
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         dirY = (int)(3 * (event->position().y() - boundingRect.top()) / boundingRect.height()) - 1;
-
-#else
-
-        dirY = (int)(3 * (event->y() - boundingRect.top()) / boundingRect.height()) - 1;
-
-#endif
-
     }
 
     if (dirY > 1)
@@ -985,29 +927,12 @@ bool MarbleDefaultInputHandler::handleMouseEvent(QMouseEvent* event)
     qreal mouseLon;
     qreal mouseLat;
     const bool isMouseAboveMap = MarbleInputHandler::d->m_marblePresenter->map()->geoCoordinates(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                      event->position().x(), event->position().y(),
-
-#else
-
-                                     event->x(), event->y(),
-
-#endif
                                      mouseLon, mouseLat, GeoDataCoordinates::Radian);
 
     notifyPosition(isMouseAboveMap, mouseLon, mouseLat);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     QPoint mousePosition(event->position().x(), event->position().y());
-
-#else
-
-    QPoint mousePosition(event->x(), event->y());
-
-#endif
 
     if (isMouseAboveMap || selectionRubber()->isVisible()
         || MarbleInputHandler::d->m_marblePresenter->map()->hasFeatureAt(mousePosition))
@@ -1029,18 +954,8 @@ bool MarbleDefaultInputHandler::handleMouseEvent(QMouseEvent* event)
         if (d->m_leftPressed && !selectionRubber()->isVisible())
         {
             qreal radius = (qreal)(MarbleInputHandler::d->m_marblePresenter->radius());
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             qreal deltax = event->position().x() - d->m_leftPressedX;
             qreal deltay = event->position().y() - d->m_leftPressedY;
-
-#else
-
-            qreal deltax = event->x() - d->m_leftPressedX;
-            qreal deltay = event->y() - d->m_leftPressedY;
-
-#endif
 
             if (
                 (qAbs(deltax) > d->m_dragThreshold) ||
@@ -1076,18 +991,8 @@ bool MarbleDefaultInputHandler::handleMouseEvent(QMouseEvent* event)
 
         if (d->m_midPressed)
         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             int eventy = event->position().y();
-
-#else
-
-            int eventy = event->y();
-
-#endif
-
-            int dy = d->m_midPressedY - eventy;
+            int dy     = d->m_midPressedY - eventy;
             MarbleInputHandler::d->m_marblePresenter->setRadius(d->m_startingRadius * pow(1.005, dy));
         }
 
@@ -1104,50 +1009,21 @@ bool MarbleDefaultInputHandler::handleMouseEvent(QMouseEvent* event)
 
             // Deltas from previous position.
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-            int dx = event->position().x() - d->m_rightPosition.x();
-            int dy = event->position().y() - d->m_rightPosition.y();
-
-#else
-
-            int dx = event->x() - d->m_rightPosition.x();
-            int dy = event->y() - d->m_rightPosition.y();
-
-#endif
+            int dx             = event->position().x() - d->m_rightPosition.x();
+            int dy             = event->position().y() - d->m_rightPosition.y();
 
             d->m_rightPosition = event->pos();
 
             // Moving on the bottom should be opposite direction.
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-            int sign = event->position().y() > centerY ? -1 : 1;
-
-#else
-
-            int sign = event->y() > centerY ? -1 : 1;
-
-#endif
+            int sign           = event->position().y() > centerY ? -1 : 1;
 
             // Left top and right bottom sides for y axis should be opposite direction.
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
             if (
                 ((event->position().x() < centerX) && (event->position().y() < centerY)) ||
                 ((event->position().x() > centerX) && (event->position().y() > centerY))
                )
-
-#else
-
-            if (
-                ((event->x() < centerX) && (event->y() < centerY)) ||
-                ((event->x() > centerX) && (event->y() > centerY))
-               )
-
-#endif
-
             {
                 dy *= -1;
             }

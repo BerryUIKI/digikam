@@ -21,12 +21,7 @@
 #include <QMap>
 #include <QString>
 #include <QFile>
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-#   include <QRegularExpression>
-#else
-#   include <QRegExp>
-#endif
+#include <QRegularExpression>
 
 // Local includes
 
@@ -51,9 +46,6 @@ public:
 
 void TemplateDocumentPrivate::processTemplateIncludes(QString& input)
 {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     QRegularExpression rx(QString::fromUtf8("%!\\{([^}]*)\\}%"));
 
     QStringList includes;
@@ -65,21 +57,6 @@ void TemplateDocumentPrivate::processTemplateIncludes(QString& input)
         includes << regMatch.captured(1);
         pos += regMatch.capturedLength();
     }
-
-#else
-
-    QRegExp rx(QString::fromUtf8("%!\\{([^}]*)\\}%"));
-
-    QStringList includes;
-    int pos = 0;
-
-    while ((pos = rx.indexIn(input, pos)) != -1)
-    {
-        includes << rx.cap(1);
-        pos += rx.matchedLength();
-    }
-
-#endif
 
     qCDebug(DIGIKAM_GEOENGINE_LOG) << "Template Includes" << includes;
 

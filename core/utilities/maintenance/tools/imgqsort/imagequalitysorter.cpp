@@ -128,20 +128,9 @@ void ImageQualitySorter::slotStart()
     connect(&d->affectedAlbumWatcher, &QFutureWatcher<void>::finished,
             this, &ImageQualitySorter::slotAffectedAlbumsFinished);
 
-    d->affectedAlbumTask =
-        QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-                          &ImageQualitySorter::calculateAffectedAlbums, this
-
-#else
-
-                          this, &ImageQualitySorter::calculateAffectedAlbums
-
-#endif
-
-                         );
+    d->affectedAlbumTask = QtConcurrent::run(
+                                             &ImageQualitySorter::calculateAffectedAlbums, this
+                                            );
 
     d->affectedAlbumWatcher.setFuture(d->affectedAlbumTask);
 }

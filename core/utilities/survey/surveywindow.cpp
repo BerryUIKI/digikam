@@ -41,13 +41,7 @@ SurveyWindow::SurveyWindow()
     setObjectName(QLatin1String("Survey"));
     setConfigGroupName(QLatin1String("Survey Settings"));
     setXMLFile(QLatin1String("surveywindowui5.rc"));
-
-#if (KXMLGUI_VERSION >= QT_VERSION_CHECK(5, 88, 0))
-
     setStateConfigGroup(configGroupName());
-
-#endif
-
     setCaption(i18n("Survey"));
 
     m_instance = this;

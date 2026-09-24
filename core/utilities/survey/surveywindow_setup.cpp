@@ -86,30 +86,12 @@ void SurveyWindow::setupActions()
     d->zoomPlusAction  = buildStdAction(StdZoomInAction, d->stack, SLOT(increaseZoom()), this);
     d->zoomPlusAction->setEnabled(false);
     ac->addAction(QLatin1String("survey_zoomplus"), d->zoomPlusAction);
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     ac->setDefaultShortcut(d->zoomPlusAction, QKeySequence(QKeyCombination(Qt::ShiftModifier, d->zoomPlusAction->shortcut()[0].key())));
-
-#else
-
-    ac->setDefaultShortcut(d->zoomPlusAction, Qt::Key(d->zoomPlusAction->shortcut()[0] ^ Qt::SHIFT) & d->zoomPlusAction->shortcut()[0]);
-
-#endif
 
     d->zoomMinusAction  = buildStdAction(StdZoomOutAction, d->stack, SLOT(decreaseZoom()), this);
     d->zoomMinusAction->setEnabled(false);
     ac->addAction(QLatin1String("survey_zoomminus"), d->zoomMinusAction);
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     ac->setDefaultShortcut(d->zoomMinusAction, QKeySequence(QKeyCombination(Qt::ShiftModifier, d->zoomMinusAction->shortcut()[0].key())));
-
-#else
-
-    ac->setDefaultShortcut(d->zoomMinusAction, Qt::Key(d->zoomMinusAction->shortcut()[0] ^ Qt::SHIFT) &  d->zoomMinusAction->shortcut()[0]);
-
-#endif
 
     d->zoomTo100percents = new QAction(QIcon::fromTheme(QLatin1String("zoom-original")), i18n("Zoom to 100%"), this);
     connect(d->zoomTo100percents, SIGNAL(triggered()), d->stack, SLOT(zoomTo100Percents()));

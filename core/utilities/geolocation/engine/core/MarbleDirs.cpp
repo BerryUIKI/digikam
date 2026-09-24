@@ -171,23 +171,10 @@ QString MarbleDirs::pluginLocalPath()
 
 QString MarbleDirs::pluginSystemPath()
 {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     return (
                QLibraryInfo::path(QLibraryInfo::PluginsPath) +
                QLatin1String("/digikam/marble")
            );
-
-#else
-
-    return (
-               QLibraryInfo::location(QLibraryInfo::PluginsPath) +
-               QLatin1String("/digikam/marble")
-           );
-
-#endif
-
 }
 
 void MarbleDirs::debug()

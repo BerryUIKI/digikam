@@ -23,10 +23,6 @@
 #include <QTextStream>
 #include <QStandardPaths>
 
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-#   include <QTextCodec>
-#endif
-
 // Local includes
 
 #include "digikam_debug.h"
@@ -325,15 +321,6 @@ bool WorkflowManager::save()
     }
 
     QTextStream stream(&file);
-
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-
-    // In Qt5 only. Qt6 uses UTF-8 by default.
-
-    stream.setCodec(QTextCodec::codecForName("UTF-8"));
-
-#endif
-
     stream.setAutoDetectUnicode(true);
     stream << doc.toString(4);
     file.close();
@@ -519,17 +506,7 @@ bool WorkflowManager::load(QStringList& failed)
                             QString pname = e3.attribute(QLatin1String("name"));
                             QString type  = e3.attribute(QLatin1String("type"));
                             QVariant var(val3);
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                             var.convert(QMetaType().fromName(type.toLatin1().constData()));
-
-#else
-
-                            var.convert(QVariant::nameToType(type.toLatin1().constData()));
-
-#endif
-
 /*
                             qCDebug(DIGIKAM_GENERAL_LOG) << "name=" << pname << " :: "
                                                          << "type=" << type << " :: "

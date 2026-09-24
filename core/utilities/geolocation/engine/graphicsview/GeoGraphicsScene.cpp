@@ -54,17 +54,7 @@ public:
     }
 
     typedef QHash<const GeoDataFeature*, GeoGraphicsItem*> FeatureItemMap;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     QMultiHash<TileId, FeatureItemMap> m_tiledItems;
-
-#else
-
-    QHash<TileId, FeatureItemMap>      m_tiledItems;
-
-#endif
-
     QMultiHash<const GeoDataFeature*, TileId> m_features; // multi hash because multi track and multi geometry insert multiple items
 
     // Stores the items which have been clicked;
@@ -80,6 +70,7 @@ GeoDataStyle::Ptr GeoGraphicsScenePrivate::highlightStyle(const GeoDataDocument*
                                                           const GeoDataStyleMap& styleMap)
 {
     // @todo Consider QUrl parsing when external styles are supported
+
     QString highlightStyleId = styleMap.value(QStringLiteral("highlight"));
     highlightStyleId.remove(QLatin1Char('#'));
 
@@ -230,16 +221,7 @@ void GeoGraphicsScene::applyHighlight(const QVector< GeoDataPlacemark* >& select
              tileIter != d->m_features.end() && tileIter.key() == placemark ;
              ++tileIter)
         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             auto const& clickedItemsList = d->m_tiledItems.values(*tileIter);
-
-#else
-
-            auto const& clickedItemsList = static_cast<QMultiHash<TileId, GeoGraphicsScenePrivate::FeatureItemMap> >(d->m_tiledItems).values();
-
-#endif
 
             for (auto const& clickedItems : clickedItemsList)
             {

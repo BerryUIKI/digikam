@@ -128,20 +128,9 @@ void ThumbsGenerator::slotStart()
     connect(&d->affectedAlbumWatcher, &QFutureWatcher<void>::finished,
             this, &ThumbsGenerator::slotAffectedAlbumsFinished);
 
-    d->affectedAlbumTask =
-        QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-                          &ThumbsGenerator::calculateAffectedAlbums, this
-
-#else
-
-                          this, &ThumbsGenerator::calculateAffectedAlbums
-
-#endif
-
-                         );
+    d->affectedAlbumTask = QtConcurrent::run(
+                                             &ThumbsGenerator::calculateAffectedAlbums, this
+                                            );
 
     d->affectedAlbumWatcher.setFuture(d->affectedAlbumTask);
 }

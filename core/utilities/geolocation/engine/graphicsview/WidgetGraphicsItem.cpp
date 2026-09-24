@@ -160,16 +160,7 @@ bool WidgetGraphicsItem::eventFilter(QObject* object, QEvent* e)
             {
                 shiftedPos              -= child->pos(); // transform to children's coordinates
                 QMouseEvent shiftedEvent = QMouseEvent(e->type(), shiftedPos,
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                                        event->globalPosition(),
-
-#else
-
-                                                       event->globalPos(),
-
-#endif
                                                        event->button(), event->buttons(),
                                                        event->modifiers());
 

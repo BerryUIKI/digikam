@@ -40,13 +40,7 @@ QueueMgrWindow::QueueMgrWindow()
 {
     setConfigGroupName(QLatin1String("Batch Queue Manager Settings"));
     setXMLFile(QLatin1String("queuemgrwindowui5.rc"));
-
-#if (KXMLGUI_VERSION >= QT_VERSION_CHECK(5, 88, 0))
-
     setStateConfigGroup(configGroupName());
-
-#endif
-
     setCaption(i18n("Batch Queue Manager"));
 
     qRegisterMetaType<BatchToolSettings>("BatchToolSettings");

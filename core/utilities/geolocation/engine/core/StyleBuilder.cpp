@@ -296,21 +296,29 @@ GeoDataStyle::ConstPtr StyleBuilder::Private::createRelationStyle(const StylePar
                 switch (parameters.relation->relationType())
                 {
                     case GeoDataRelation::RouteTrain:
+                    {
                         color = QStringLiteral("navy");
                         break;
+                    }
 
                     case GeoDataRelation::RouteSubway:
+                    {
                         color = QStringLiteral("cornflowerblue");
                         break;
+                    }
 
                     case GeoDataRelation::RouteTram:
+                    {
                         color = QStringLiteral("steelblue");
                         break;
+                    }
 
                     case GeoDataRelation::RouteBus:
                     case GeoDataRelation::RouteTrolleyBus:
+                    {
                         color = QStringLiteral("tomato");
                         break;
+                    }
 
                     case GeoDataRelation::RouteBicycle:
                     case GeoDataRelation::RouteMountainbike:
@@ -318,8 +326,10 @@ GeoDataStyle::ConstPtr StyleBuilder::Private::createRelationStyle(const StylePar
                     case GeoDataRelation::RouteHiking:
                     case GeoDataRelation::RouteHorse:
                     case GeoDataRelation::RouteInlineSkates:
+                    {
                         color = QStringLiteral("paleturquoise");
                         break;
+                    }
 
                     case GeoDataRelation::UnknownType:
                     case GeoDataRelation:: RouteRoad:
@@ -329,8 +339,10 @@ GeoDataStyle::ConstPtr StyleBuilder::Private::createRelationStyle(const StylePar
                     case GeoDataRelation::RouteSkiNordic:
                     case GeoDataRelation::RouteSkitour:
                     case GeoDataRelation::RouteSled:
+                    {
                         color = QString();
                         break;
+                    }
                 }
             }
 
@@ -575,23 +587,17 @@ GeoDataStyle::ConstPtr StyleBuilder::Private::createPlacemarkStyle(const StylePa
 
             QString const accessValue = osmData.tagValue(QStringLiteral("access"));
 
-            if (accessValue == QLatin1String("private") ||
-                accessValue == QLatin1String("no") ||
-                accessValue == QLatin1String("agricultural") ||
-                accessValue == QLatin1String("delivery") ||
-                accessValue == QLatin1String("forestry"))
+            if (
+                (accessValue == QLatin1String("private"))       ||
+                (accessValue == QLatin1String("no"))            ||
+                (accessValue == QLatin1String("agricultural"))  ||
+                (accessValue == QLatin1String("delivery"))      ||
+                (accessValue == QLatin1String("forestry"))
+               )
             {
                 QColor polyColor = polyStyle.color();
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                 float hue, sat, val;
-
-#else
-
-                qreal hue, sat, val;
-
-#endif
                 polyColor.getHsvF(&hue, &sat, &val);
                 polyColor.setHsvF(0.98, qMin(1.0, 0.2 + sat), val);
                 polyStyle.setColor(effectColor(polyColor));
@@ -602,21 +608,12 @@ GeoDataStyle::ConstPtr StyleBuilder::Private::createPlacemarkStyle(const StylePa
             {
                 QColor polyColor = polyStyle.color();
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                 float hue, sat, val;
-
-#else
-
-                qreal hue, sat, val;
-
-#endif
                 polyColor.getHsvF(&hue, &sat, &val);
                 polyColor.setHsvF(hue, 0.25 * sat, 0.95 * val);
                 polyStyle.setColor(effectColor(polyColor));
                 lineStyle.setColor(effectColor(lineStyle.color().lighter(115)));
             }
-
         }
 
         else if (visualCategory >= GeoDataPlacemark::WaterwayCanal && visualCategory <= GeoDataPlacemark::WaterwayStream)

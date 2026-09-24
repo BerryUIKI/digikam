@@ -110,17 +110,7 @@ QHash<QString, QVariant> AbstractFloatItem::settings() const
 
 void AbstractFloatItem::setSettings(const QHash<QString, QVariant>& settings)
 {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     if (settings.value(QStringLiteral("position")).metaType().id() == QMetaType::QString)
-
-#else
-
-    if (settings.value(QStringLiteral("position")).type() == QVariant::String)
-
-#endif
-
     {
 
 #ifdef Q_OS_MACOS
