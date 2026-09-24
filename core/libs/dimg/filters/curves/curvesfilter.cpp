@@ -15,11 +15,14 @@
 
 #include "curvesfilter.h"
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "digikam_debug.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -68,7 +71,7 @@ CurvesFilter::~CurvesFilter()
 
 QString CurvesFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Adjust Curves"));
+    return QString::fromUtf8(kli18n("Adjust Curves").untranslatedText());
 }
 
 void CurvesFilter::filterImage()

@@ -15,10 +15,13 @@
 
 #include "invertfilter.h"
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "digikam_debug.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -52,7 +55,7 @@ InvertFilter::~InvertFilter()
 
 QString InvertFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Invert Effect"));
+    return QString::fromUtf8(kli18n("Invert Effect").untranslatedText());
 }
 
 /**

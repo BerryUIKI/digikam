@@ -21,10 +21,13 @@
 #include <cstdio>
 #include <cmath>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -71,7 +74,7 @@ HSLFilter::~HSLFilter()
 
 QString HSLFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Hue / Saturation / Lightness Filter"));
+    return QString::fromUtf8(kli18n("Hue / Saturation / Lightness Filter").untranslatedText());
 }
 
 void HSLFilter::filterImage()

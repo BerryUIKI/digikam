@@ -21,12 +21,15 @@
 #include <cstdio>
 #include <cmath>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "digikam_debug.h"
 #include "imagehistogram.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -86,7 +89,7 @@ WBFilter::~WBFilter()
 
 QString WBFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("White Balance Tool"));
+    return QString::fromUtf8(kli18n("White Balance Tool").untranslatedText());
 }
 
 void WBFilter::filterImage()

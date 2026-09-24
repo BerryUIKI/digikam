@@ -20,10 +20,13 @@
 
 #include <QtMath>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "digikam_debug.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 #include "digikam_opencv.h"
 #include "qtopencvimg.h"
 
@@ -102,7 +105,7 @@ BackgroundBlurFilter::~BackgroundBlurFilter()
 
 QString BackgroundBlurFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Background Blur Filter"));
+    return QString::fromUtf8(kli18n("Background Blur Filter").untranslatedText());
 }
 
 void BackgroundBlurFilter::filterImage()

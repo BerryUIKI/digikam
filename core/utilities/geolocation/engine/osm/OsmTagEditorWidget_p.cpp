@@ -25,6 +25,7 @@
 // KDE includes
 
 #include <klocalizedstring.h>
+#include <klazylocalizedstring.h>
 
 // Local includes
 
@@ -39,12 +40,11 @@
 #include "GeoDataGeometry.h"
 #include "GeoDataPoint.h"
 #include "StyleBuilder.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Marble
 {
 
-const QString OsmTagEditorWidgetPrivate::m_customTagAdderText = QString::fromUtf8(I18N_NOOP("Add custom tag..."));
+const QString OsmTagEditorWidgetPrivate::m_customTagAdderText = QString::fromUtf8(kli18n("Add custom tag...").untranslatedText());
 
 OsmTagEditorWidgetPrivate::OsmTagEditorWidgetPrivate()
 {

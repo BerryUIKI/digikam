@@ -20,11 +20,14 @@
 #include <cstdio>
 #include <cmath>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "dcolor.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -49,7 +52,7 @@ MixerFilter::~MixerFilter()
 
 QString MixerFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Channel Mixer Tool"));
+    return QString::fromUtf8(kli18n("Channel Mixer Tool").untranslatedText());
 }
 
 void MixerFilter::filterImage()

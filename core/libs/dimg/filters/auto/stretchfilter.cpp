@@ -19,12 +19,15 @@
 #include <cstdio>
 #include <cmath>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "digikam_debug.h"
 #include "imagehistogram.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -49,7 +52,7 @@ StretchFilter::~StretchFilter()
 
 QString StretchFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Stretch Contrast"));
+    return QString::fromUtf8(kli18n("Stretch Contrast").untranslatedText());
 }
 
 void StretchFilter::filterImage()

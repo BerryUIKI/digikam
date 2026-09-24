@@ -22,10 +22,13 @@
 
 #include <QListWidget>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "invertfilter.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -464,7 +467,7 @@ FilmFilter::~FilmFilter()
 
 QString FilmFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Color Negative Inverter"));
+    return QString::fromUtf8(kli18n("Color Negative Inverter").untranslatedText());
 }
 
 void FilmFilter::filterImage()

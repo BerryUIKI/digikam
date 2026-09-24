@@ -29,10 +29,13 @@
 #include <QtMath>
 #include <QtConcurrentRun>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 #include "actionthreadbase.h"
 
 namespace Digikam
@@ -58,7 +61,7 @@ EmbossFilter::~EmbossFilter()
 
 QString EmbossFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Emboss Effect"));
+    return QString::fromUtf8(kli18n("Emboss Effect").untranslatedText());
 }
 
 /**

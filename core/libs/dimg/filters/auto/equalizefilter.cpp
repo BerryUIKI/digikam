@@ -19,12 +19,15 @@
 #include <cstdio>
 #include <cmath>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "digikam_debug.h"
 #include "imagehistogram.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -48,7 +51,7 @@ EqualizeFilter::~EqualizeFilter()
 
 QString EqualizeFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Auto Equalize"));
+    return QString::fromUtf8(kli18n("Auto Equalize").untranslatedText());
 }
 
 void EqualizeFilter::filterImage()

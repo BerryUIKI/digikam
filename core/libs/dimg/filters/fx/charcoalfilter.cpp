@@ -24,6 +24,10 @@
 #include <QtConcurrentRun>
 #include <QMutex>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
@@ -32,7 +36,6 @@
 #include "stretchfilter.h"
 #include "mixerfilter.h"
 #include "invertfilter.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 #include "actionthreadbase.h"
 
 namespace Digikam
@@ -84,7 +87,7 @@ CharcoalFilter::~CharcoalFilter()
 
 QString CharcoalFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Charcoal Effect"));
+    return QString::fromUtf8(kli18n("Charcoal Effect").untranslatedText());
 }
 
 void CharcoalFilter::filterImage()

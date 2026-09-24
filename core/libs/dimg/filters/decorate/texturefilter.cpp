@@ -21,11 +21,14 @@
 #include <cmath>
 #include <cstdlib>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "digikam_debug.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -50,7 +53,7 @@ TextureFilter::~TextureFilter()
 
 QString TextureFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Texture Filter"));
+    return QString::fromUtf8(kli18n("Texture Filter").untranslatedText());
 }
 
 /**

@@ -29,12 +29,15 @@
 #include <QtConcurrentRun>
 #include <QtMath>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "blurfilter.h"
 #include "randomnumbergenerator.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 #include "actionthreadbase.h"
 
 namespace Digikam
@@ -80,7 +83,7 @@ BlurFXFilter::~BlurFXFilter()
 
 QString BlurFXFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Blur FX Filter"));
+    return QString::fromUtf8(kli18n("Blur FX Filter").untranslatedText());
 }
 
 void BlurFXFilter::filterImage()

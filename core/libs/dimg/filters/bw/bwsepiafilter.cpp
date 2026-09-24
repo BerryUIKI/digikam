@@ -20,12 +20,15 @@
 #include <cstdio>
 #include <cmath>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "mixerfilter.h"
 #include "infraredfilter.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -72,7 +75,7 @@ BWSepiaFilter::~BWSepiaFilter()
 
 QString BWSepiaFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Black & White / Sepia Filter"));
+    return QString::fromUtf8(kli18n("Black & White / Sepia Filter").untranslatedText());
 }
 
 void BWSepiaFilter::filterImage()

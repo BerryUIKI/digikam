@@ -19,13 +19,16 @@
 #include <cstdio>
 #include <cmath>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "digikam_debug.h"
 #include "imagehistogram.h"
 #include "imagelevels.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -50,7 +53,7 @@ AutoLevelsFilter::~AutoLevelsFilter()
 
 QString AutoLevelsFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Auto Levels"));
+    return QString::fromUtf8(kli18n("Auto Levels").untranslatedText());
 }
 
 void AutoLevelsFilter::filterImage()

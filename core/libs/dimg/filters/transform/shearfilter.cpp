@@ -23,11 +23,14 @@
 #include <cmath>
 #include <cstdlib>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "dpixelsaliasfilter.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -82,7 +85,7 @@ ShearFilter::~ShearFilter()
 
 QString ShearFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Shear Tool"));
+    return QString::fromUtf8(kli18n("Shear Tool").untranslatedText());
 }
 
 QSize ShearFilter::getNewSize() const

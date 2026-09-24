@@ -25,11 +25,14 @@
 
 #include <QtConcurrentRun>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "dcolor.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 #include "actionthreadbase.h"
 
 namespace Digikam
@@ -124,7 +127,7 @@ QString NRFilter::FilterIdentifier()
 
 QString NRFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Noise Reduction Filter"));
+    return QString::fromUtf8(kli18n("Noise Reduction Filter").untranslatedText());
 }
 
 QList<int> NRFilter::SupportedVersions()

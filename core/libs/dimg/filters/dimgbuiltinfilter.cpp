@@ -15,12 +15,15 @@
 
 #include "dimgbuiltinfilter.h"
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "dimgthreadedfilter.h"
 #include "filteraction.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -364,47 +367,47 @@ QString DImgBuiltinFilter::displayableName() const
 
         case Rotate90:
         {
-            return QString::fromUtf8(I18N_NOOP("Rotate Right"));
+            return QString::fromUtf8(kli18n("Rotate Right").untranslatedText());
         }
 
         case Rotate180:
         {
-            return QString::fromUtf8(I18N_NOOP("Rotate 180 degrees"));
+            return QString::fromUtf8(kli18n("Rotate 180 degrees").untranslatedText());
         }
 
         case Rotate270:
         {
-            return QString::fromUtf8(I18N_NOOP("Rotate Left"));
+            return QString::fromUtf8(kli18n("Rotate Left").untranslatedText());
         }
 
         case FlipHorizontally:
         {
-            return QString::fromUtf8(I18N_NOOP("Flip Horizontally"));
+            return QString::fromUtf8(kli18n("Flip Horizontally").untranslatedText());
         }
 
         case FlipVertically:
         {
-            return QString::fromUtf8(I18N_NOOP("Flip Vertically"));
+            return QString::fromUtf8(kli18n("Flip Vertically").untranslatedText());
         }
 
         case Crop:
         {
-            return QString::fromUtf8(I18N_NOOP("Crop"));
+            return QString::fromUtf8(kli18n("Crop").untranslatedText());
         }
 
         case Resize:
         {
-            return QString::fromUtf8(I18N_NOOP("Resize"));
+            return QString::fromUtf8(kli18n("Resize").untranslatedText());
         }
 
         case ConvertTo8Bit:
         {
-            return QString::fromUtf8(I18N_NOOP("Convert to 8 Bit"));
+            return QString::fromUtf8(kli18n("Convert to 8 Bit").untranslatedText());
         }
 
         case ConvertTo16Bit:
         {
-            return QString::fromUtf8(I18N_NOOP("Convert to 16 Bit"));
+            return QString::fromUtf8(kli18n("Convert to 16 Bit").untranslatedText());
         }
     }
 

@@ -29,10 +29,13 @@
 #include <QtConcurrentRun>
 #include <QMutex>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 #include "actionthreadbase.h"
 
 namespace Digikam
@@ -79,7 +82,7 @@ OilPaintFilter::~OilPaintFilter()
 
 QString OilPaintFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Oil Painter Effect"));
+    return QString::fromUtf8(kli18n("Oil Painter Effect").untranslatedText());
 }
 
 /**

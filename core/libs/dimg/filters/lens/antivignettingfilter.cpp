@@ -26,10 +26,13 @@
 #include <cmath>
 #include <cstdlib>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -55,7 +58,7 @@ AntiVignettingFilter::~AntiVignettingFilter()
 
 QString AntiVignettingFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Anti-Vignetting Tool"));
+    return QString::fromUtf8(kli18n("Anti-Vignetting Tool").untranslatedText());
 }
 
 /**

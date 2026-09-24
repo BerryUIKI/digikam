@@ -35,10 +35,13 @@
 
 #include <QColor>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "digikam_debug.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -211,7 +214,7 @@ ContentAwareFilter::~ContentAwareFilter()
 
 QString ContentAwareFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Content-Aware Filter"));
+    return QString::fromUtf8(kli18n("Content-Aware Filter").untranslatedText());
 }
 
 void ContentAwareFilter::getEnergyImage()

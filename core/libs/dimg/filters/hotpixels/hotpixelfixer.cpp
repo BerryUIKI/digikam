@@ -25,10 +25,13 @@
 #include <QColor>
 #include <QStringList>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 #ifdef HAVE_FLOAT_H
 #   if HAVE_FLOAT_H
@@ -66,7 +69,7 @@ HotPixelFixer::~HotPixelFixer()
 
 QString HotPixelFixer::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Hot Pixels Tool"));
+    return QString::fromUtf8(kli18n("Hot Pixels Tool").untranslatedText());
 }
 
 Digikam::FilterAction HotPixelFixer::filterAction()

@@ -25,12 +25,15 @@
 
 #include <QDateTime>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "blurfilter.h"
 #include "mixerfilter.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -57,7 +60,7 @@ InfraredFilter::~InfraredFilter()
 
 QString InfraredFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Infrared Filter"));
+    return QString::fromUtf8(kli18n("Infrared Filter").untranslatedText());
 }
 
 /**

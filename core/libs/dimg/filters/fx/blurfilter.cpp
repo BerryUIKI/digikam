@@ -22,10 +22,13 @@
 #include <QtMath>
 #include <QMutex>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "digikam_debug.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 #include "actionthreadbase.h"
 
 namespace Digikam
@@ -85,7 +88,7 @@ BlurFilter::~BlurFilter()
 
 QString BlurFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Blur Filter"));
+    return QString::fromUtf8(kli18n("Blur Filter").untranslatedText());
 }
 
 void BlurFilter::blurMultithreaded(uint start, uint stop)

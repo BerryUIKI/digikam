@@ -26,11 +26,14 @@
 #include <QMutexLocker>
 #include <QWaitCondition>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "digikam_debug.h"
 #include "dynamicthread.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 #define cimg_plugin "cimg/greycstoration.h"
 
@@ -164,7 +167,7 @@ GreycstorationFilter::~GreycstorationFilter()
 
 QString GreycstorationFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Greycstoration Filter"));
+    return QString::fromUtf8(kli18n("Greycstoration Filter").untranslatedText());
 }
 
 void GreycstorationFilter::setSettings(const GreycstorationContainer& settings)

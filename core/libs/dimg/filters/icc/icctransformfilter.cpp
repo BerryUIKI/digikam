@@ -18,11 +18,14 @@
 
 #include <cmath>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "iccsettings.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -47,7 +50,7 @@ IccTransformFilter::~IccTransformFilter()
 
 QString IccTransformFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Color Profile Conversion"));
+    return QString::fromUtf8(kli18n("Color Profile Conversion").untranslatedText());
 }
 
 void IccTransformFilter::filterImage()

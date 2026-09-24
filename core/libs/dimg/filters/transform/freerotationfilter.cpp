@@ -21,11 +21,14 @@
 #include <cmath>
 #include <cstdlib>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "dpixelsaliasfilter.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -64,7 +67,7 @@ FreeRotationFilter::~FreeRotationFilter()
 
 QString FreeRotationFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Free Rotation"));
+    return QString::fromUtf8(kli18n("Free Rotation").untranslatedText());
 }
 
 QSize FreeRotationFilter::getNewSize() const

@@ -24,13 +24,16 @@
 
 #include <QtConcurrentRun>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "digikam_debug.h"
 #include "dcolor.h"
 #include "refocusmatrix.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 #include "actionthreadbase.h"
 
 namespace Digikam
@@ -91,7 +94,7 @@ RefocusFilter::~RefocusFilter()
 
 QString RefocusFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Refocus"));
+    return QString::fromUtf8(kli18n("Refocus").untranslatedText());
 }
 
 void RefocusFilter::filterImage()

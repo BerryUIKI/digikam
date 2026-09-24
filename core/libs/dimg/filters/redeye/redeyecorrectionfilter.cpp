@@ -27,10 +27,13 @@
 #include <QStandardPaths>
 #include <QMutexLocker>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "digikam_debug.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 #include "dnnmodelmanager.h"
 #include "dnnmodelyunet.h"
 #include "qtopencvimg.h"
@@ -90,7 +93,7 @@ RedEyeCorrectionFilter::~RedEyeCorrectionFilter()
 
 QString RedEyeCorrectionFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("RedEye Correction Filter"));
+    return QString::fromUtf8(kli18n("RedEye Correction Filter").untranslatedText());
 }
 
 void RedEyeCorrectionFilter::filterImage()

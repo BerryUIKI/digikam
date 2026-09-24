@@ -15,11 +15,14 @@
 
 #include "levelsfilter.h"
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "imagelevels.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -59,7 +62,7 @@ LevelsFilter::~LevelsFilter()
 
 QString LevelsFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Levels Adjust Tool"));
+    return QString::fromUtf8(kli18n("Levels Adjust Tool").untranslatedText());
 }
 
 void LevelsFilter::filterImage()

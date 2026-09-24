@@ -31,12 +31,15 @@
 #include <QtConcurrentRun>
 #include <QtMath>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "dpixelsaliasfilter.h"
 #include "randomnumbergenerator.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 #include "actionthreadbase.h"
 
 namespace Digikam
@@ -93,7 +96,7 @@ DistortionFXFilter::~DistortionFXFilter()
 
 QString DistortionFXFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Distortion Effect"));
+    return QString::fromUtf8(kli18n("Distortion Effect").untranslatedText());
 }
 
 void DistortionFXFilter::filterImage()

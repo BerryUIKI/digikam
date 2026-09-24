@@ -23,11 +23,14 @@
 #include <QtMath>
 #include <QtConcurrentRun>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "digikam_debug.h"
 #include "randomnumbergenerator.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 #include "actionthreadbase.h"
 
 namespace Digikam
@@ -74,7 +77,7 @@ LocalContrastFilter::~LocalContrastFilter()
 
 QString LocalContrastFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Local Contrast Filter"));
+    return QString::fromUtf8(kli18n("Local Contrast Filter").untranslatedText());
 }
 
 void LocalContrastFilter::filterImage()

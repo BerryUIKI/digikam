@@ -15,6 +15,10 @@
 
 #include "rawprocessingfilter.h"
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "drawdecoder.h"
@@ -24,7 +28,6 @@
 #include "filteraction.h"
 #include "icctransform.h"
 #include "wbfilter.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -61,7 +64,7 @@ RawProcessingFilter::~RawProcessingFilter()
 
 QString RawProcessingFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Raw Conversion"));
+    return QString::fromUtf8(kli18n("Raw Conversion").untranslatedText());
 }
 
 void RawProcessingFilter::setSettings(const DRawDecoding& settings)

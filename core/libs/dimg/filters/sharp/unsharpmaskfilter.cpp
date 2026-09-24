@@ -26,13 +26,16 @@
 
 #include <QtConcurrentRun>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "digikam_debug.h"
 #include "dcolor.h"
 #include "blurfilter.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 #include "actionthreadbase.h"
 
 namespace Digikam
@@ -66,7 +69,7 @@ UnsharpMaskFilter::~UnsharpMaskFilter()
 
 QString UnsharpMaskFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Unsharp Mask Tool"));
+    return QString::fromUtf8(kli18n("Unsharp Mask Tool").untranslatedText());
 }
 
 void UnsharpMaskFilter::unsharpMaskMultithreaded(uint start, uint stop, uint y)

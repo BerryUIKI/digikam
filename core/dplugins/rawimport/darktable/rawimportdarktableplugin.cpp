@@ -29,12 +29,12 @@
 
 // KDE includes
 
+#include <klazylocalizedstring.h>
 #include <klocalizedstring.h>
 
 // Local includes
 
 #include "digikam_debug.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 #include "dimg.h"
 #include "filteraction.h"
 #include "dfileoperations.h"
@@ -310,7 +310,7 @@ void DarkTableRawImportPlugin::slotProcessFinished(int code, QProcess::ExitStatu
         d->props = LoadingDescription(d->tempName, LoadingDescription::ConvertForEditor);
 
         FilterAction action(QLatin1String("darktable:RawConverter"), 1, FilterAction::DocumentedHistory);
-        action.setDisplayableName(QString::fromUtf8(I18N_NOOP("DarkTable Raw Conversion")));
+        action.setDisplayableName(QString::fromUtf8(kli18n("DarkTable Raw Conversion").untranslatedText()));
         d->decoded.addFilterAction(action);
 
         Q_EMIT signalDecodedImage(d->props, d->decoded);

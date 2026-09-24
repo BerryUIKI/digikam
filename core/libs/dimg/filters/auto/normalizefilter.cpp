@@ -19,11 +19,14 @@
 #include <cstdio>
 #include <cmath>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
 #include "digikam_debug.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -48,7 +51,7 @@ NormalizeFilter::~NormalizeFilter()
 
 QString NormalizeFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Auto Normalize"));
+    return QString::fromUtf8(kli18n("Auto Normalize").untranslatedText());
 }
 
 void NormalizeFilter::filterImage()

@@ -20,10 +20,13 @@
 #include <cstdio>
 #include <cmath>
 
+// KDE includes
+
+#include <klazylocalizedstring.h>
+
 // Local includes
 
 #include "dimg.h"
-#include "digikam_globals_p.h"      // For KF6::Ki18n deprecated
 
 namespace Digikam
 {
@@ -89,7 +92,7 @@ CBFilter::~CBFilter()
 
 QString CBFilter::DisplayableName()
 {
-    return QString::fromUtf8(I18N_NOOP("Color Balance Tool"));
+    return QString::fromUtf8(kli18n("Color Balance Tool").untranslatedText());
 }
 
 void CBFilter::filterImage()
