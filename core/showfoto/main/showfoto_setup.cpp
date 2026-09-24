@@ -131,12 +131,7 @@ void Showfoto::setupUserArea()
     d->leftSideBar->appendTab(d->stackView, d->stackView->getIcon(), d->stackView->getCaption());
 
     KMainWindow* const viewContainer = new KMainWindow(widget, Qt::Widget);
-
-#if (KXMLGUI_VERSION >= QT_VERSION_CHECK(5, 88, 0))
-
     viewContainer->setStateConfigGroup(QLatin1String("ImageViewer Thumbbar"));
-
-#endif
 
     m_splitter->addWidget(viewContainer);
     m_stackView                      = new Digikam::EditorStackView(viewContainer);

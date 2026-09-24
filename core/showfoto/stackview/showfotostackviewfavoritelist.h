@@ -84,17 +84,7 @@ private:
     void dragMoveEvent(QDragMoveEvent*);
     void dropEvent(QDropEvent*);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     QMimeData* mimeData(const QList<QTreeWidgetItem*>& items)           const override;
-
-#else
-
-    // cppcheck-suppress passedByValue
-    QMimeData* mimeData(const QList<QTreeWidgetItem*> items)            const override;     // clazy:exclude=function-args-by-ref
-
-#endif
-
     Qt::DropActions supportedDropActions()                              const override;
     void startDrag(Qt::DropActions supportedActions)                          override;
     QStringList mimeTypes()                                             const override;

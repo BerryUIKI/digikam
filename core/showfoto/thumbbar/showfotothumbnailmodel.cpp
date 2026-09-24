@@ -138,18 +138,9 @@ QVariant ShowfotoThumbnailModel::data(const QModelIndex& index, int role) const
         if (info.isNull() || url.isEmpty())
         {
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             QVariant var = QPixmap();
 
             return var;
-
-#else
-
-            return QVariant(QVariant::Pixmap);
-
-#endif
-
         }
 
         if (pixmapForItem(path, pixmap))
@@ -173,18 +164,9 @@ QVariant ShowfotoThumbnailModel::data(const QModelIndex& index, int role) const
             return thumbnailImage;
         }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             QVariant var = QPixmap();
 
             return var;
-
-#else
-
-            return QVariant(QVariant::Pixmap);
-
-#endif
-
     }
 
     return ShowfotoItemModel::data(index, role);
@@ -195,28 +177,9 @@ bool ShowfotoThumbnailModel::setData(const QModelIndex& index, const QVariant& v
     if (role == ThumbnailRole)
     {
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         switch (value.typeId())
-
-#else
-
-        switch (value.type())
-
-#endif
-
         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             case QMetaType::UnknownType:
-
-#else
-
-            case QVariant::Invalid:
-
-#endif
-
             {
                 d->thumbSize  = d->lastGlobalThumbSize;
                 d->detailRect = QRect();
@@ -224,16 +187,7 @@ bool ShowfotoThumbnailModel::setData(const QModelIndex& index, const QVariant& v
                 break;
             }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             case QMetaType::Int:
-
-#else
-
-            case QVariant::Int:
-
-#endif
-
             {
                 if (value.isNull())
                 {
@@ -247,16 +201,7 @@ bool ShowfotoThumbnailModel::setData(const QModelIndex& index, const QVariant& v
                 break;
             }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             case QMetaType::QRect:
-
-#else
-
-            case QVariant::Rect:
-
-#endif
-
             {
                 if (value.isNull())
                 {

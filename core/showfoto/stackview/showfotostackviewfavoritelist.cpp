@@ -190,18 +190,10 @@ void ShowfotoStackViewFavoriteList::dragEnterEvent(QDragEnterEvent* e)
 
 void ShowfotoStackViewFavoriteList::dragMoveEvent(QDragMoveEvent* e)
 {
-    if ((e->source() == this) &&
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-        (dynamic_cast<ShowfotoStackViewFavoriteItem*>(itemAt(e->position().toPoint())) != d->parent->topFavoritesItem()))
-
-#else
-
-        (dynamic_cast<ShowfotoStackViewFavoriteItem*>(itemAt(e->pos())) != d->parent->topFavoritesItem()))
-
-#endif
-
+    if (
+        (e->source() == this) &&
+        (dynamic_cast<ShowfotoStackViewFavoriteItem*>(itemAt(e->position().toPoint())) != d->parent->topFavoritesItem())
+       )
     {
         QTreeWidget::dragMoveEvent(e);
         e->accept();
@@ -244,15 +236,7 @@ void ShowfotoStackViewFavoriteList::dropEvent(QDropEvent* e)
             return;
         }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         ShowfotoStackViewFavoriteItem* const tgt = dynamic_cast<ShowfotoStackViewFavoriteItem*>(itemAt(e->position().toPoint()));
-
-#else
-
-        ShowfotoStackViewFavoriteItem* const tgt = dynamic_cast<ShowfotoStackViewFavoriteItem*>(itemAt(e->pos()));
-
-#endif
 
         if (!tgt)
         {
@@ -306,17 +290,7 @@ void ShowfotoStackViewFavoriteList::dropEvent(QDropEvent* e)
     e->ignore();
 }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
 QMimeData* ShowfotoStackViewFavoriteList::mimeData(const QList<QTreeWidgetItem*>& items) const
-
-#else
-
-// cppcheck-suppress passedByValue
-QMimeData* ShowfotoStackViewFavoriteList::mimeData(const QList<QTreeWidgetItem*> items) const     // clazy:exclude=function-args-by-ref
-
-#endif
-
 {
     QList<QUrl> urls;
 

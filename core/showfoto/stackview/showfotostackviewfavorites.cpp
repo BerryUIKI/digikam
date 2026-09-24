@@ -31,10 +31,6 @@
 #include <QDomElement>
 #include <QTextStream>
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#   include <QTextCodec>
-#endif
-
 // KDE includes
 
 #include <klocalizedstring.h>
@@ -574,17 +570,7 @@ bool ShowfotoStackViewFavorites::saveSettings()
     }
 
     QTextStream stream(&file);
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     stream.setEncoding(QStringConverter::Utf8);
-
-#else
-
-    stream.setCodec(QTextCodec::codecForName("UTF-8"));
-
-#endif
-
     stream.setAutoDetectUnicode(true);
     stream << doc.toString();
     file.close();

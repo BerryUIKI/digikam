@@ -106,30 +106,10 @@ MAIN_EXPORT int MAIN_FN(int argc, char** argv)
 {
     SystemSettings system(QLatin1String("showfoto"));
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-
-    // These settings has no effect with Qt6 (always enabled)
-
-    QCoreApplication::setAttribute(Qt::AA_UseHighDpiPixmaps,
-                                   system.useHighDpiPixmaps);
-
-    if (system.useHighDpiScaling)
-    {
-        QCoreApplication::setAttribute(Qt::AA_EnableHighDpiScaling);
-    }
-    else
-    {
-        QCoreApplication::setAttribute(Qt::AA_DisableHighDpiScaling);
-    }
-
-#else
-
     KMemoryInfo memInfo;
     quint64 maxLimit = memInfo.totalPhysical() / 1024 / 1024 / 1.40;
     maxLimit         = qMax((quint64)1024, maxLimit);
     QImageReader::setAllocationLimit(maxLimit);
-
-#endif
 
     if (system.softwareOpenGL)
     {
@@ -141,8 +121,6 @@ MAIN_EXPORT int MAIN_FN(int argc, char** argv)
     // Common OpenCL rules from digikam_globals.
 
     setOpenCLEnvironment(system.enableOpenCL);
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
 
     if (system.enableHWTConv)
     {
@@ -160,9 +138,7 @@ MAIN_EXPORT int MAIN_FN(int argc, char** argv)
 
     setAudioBackendEnvironment();
 
-#endif
-
-#if defined HAVE_KICONTHEMES && (KICONTHEMES_VERSION >= QT_VERSION_CHECK(6, 3, 0))
+#ifdef HAVE_KICONTHEMES
 
     KIconTheme::initTheme();
 

@@ -42,11 +42,7 @@ Showfoto::Showfoto(const QList<QUrl>& urlList, QWidget* const)
         d->splash->show();
     }
 
-#if (KXMLGUI_VERSION >= QT_VERSION_CHECK(5, 88, 0))
-
     setStateConfigGroup(configGroupName());
-
-#endif
 
     // Setup loading cache and thumbnails interface.
 
