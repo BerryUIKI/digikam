@@ -316,17 +316,7 @@ void DistortionFXFilter::fisheye(DImg* orgImage, DImg* destImage, double Coeff, 
             prm.stop  = vals[j+1];
             prm.h     = h;
             tasks.append(QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                            &DistortionFXFilter::fisheyeMultithreaded, this,
-
-#else
-
-                                           this, &DistortionFXFilter::fisheyeMultithreaded,
-
-#endif
-
                                            prm
                                           )
             );
@@ -471,17 +461,7 @@ void DistortionFXFilter::twirl(DImg* orgImage, DImg* destImage, int dist, bool A
             prm.stop  = vals[j+1];
             prm.h     = h;
             tasks.append(QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                            &DistortionFXFilter::twirlMultithreaded, this,
-
-#else
-
-                                           this, &DistortionFXFilter::twirlMultithreaded,
-
-#endif
-
                                            prm
                                           )
             );
@@ -622,17 +602,7 @@ void DistortionFXFilter::cylindrical(DImg* orgImage, DImg* destImage, double Coe
             prm.stop  = vals[j+1];
             prm.h     = h;
             tasks.append(QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                            &DistortionFXFilter::cylindricalMultithreaded, this,
-
-#else
-
-                                           this, &DistortionFXFilter::cylindricalMultithreaded,
-
-#endif
-
                                            prm
                                           )
             );
@@ -741,17 +711,7 @@ void DistortionFXFilter::multipleCorners(DImg* orgImage, DImg* destImage, int Fa
             prm.stop  = vals[j+1];
             prm.h     = h;
             tasks.append(QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                            &DistortionFXFilter::multipleCornersMultithreaded, this,
-
-#else
-
-                                           this, &DistortionFXFilter::multipleCornersMultithreaded,
-
-#endif
-
                                            prm
                                           )
             );
@@ -881,17 +841,7 @@ void DistortionFXFilter::waves(DImg* orgImage, DImg* destImage,
             prm.start = vals[j];
             prm.stop  = vals[j+1];
             tasks.append(QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                            &DistortionFXFilter::wavesHorizontalMultithreaded, this,
-
-#else
-
-                                           this, &DistortionFXFilter::wavesHorizontalMultithreaded,
-
-#endif
-
                                            prm
                                           )
             );
@@ -912,17 +862,7 @@ void DistortionFXFilter::waves(DImg* orgImage, DImg* destImage,
             prm.start = vals[j];
             prm.stop  = vals[j+1];
             tasks.append(QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                            &DistortionFXFilter::wavesVerticalMultithreaded, this,
-
-#else
-
-                                           this, &DistortionFXFilter::wavesVerticalMultithreaded,
-
-#endif
-
                                            prm
                                           )
             );
@@ -1150,17 +1090,7 @@ void DistortionFXFilter::circularWaves(DImg* orgImage, DImg* destImage, int X, i
             prm.stop  = vals[j+1];
             prm.h     = h;
             tasks.append(QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                            &DistortionFXFilter::circularWavesMultithreaded, this,
-
-#else
-
-                                           this, &DistortionFXFilter::circularWavesMultithreaded,
-
-#endif
-
                                            prm
                                           ));
         }
@@ -1280,17 +1210,7 @@ void DistortionFXFilter::polarCoordinates(DImg* orgImage, DImg* destImage, bool 
             prm.stop  = vals[j+1];
             prm.h     = h;
             tasks.append(QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                            &DistortionFXFilter::polarCoordinatesMultithreaded, this,
-
-#else
-
-                                           this, &DistortionFXFilter::polarCoordinatesMultithreaded,
-
-#endif
-
                                            prm
                                           ));
         }
@@ -1392,17 +1312,7 @@ void DistortionFXFilter::tile(DImg* orgImage, DImg* destImage,
         prm.start = vals[j];
         prm.stop  = vals[j+1];
         tasks.append(QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                        &DistortionFXFilter::tileMultithreaded, this,
-
-#else
-
-                                       this, &DistortionFXFilter::tileMultithreaded,
-
-#endif
-
                                        prm
                                       )
         );

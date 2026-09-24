@@ -538,16 +538,7 @@ QByteArray DImg::createUniqueHash(const QString& filePath, const QByteArray& ba)
 
         if ((readlen = qfile.read(databuf, 8192)) > 0)
         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 3, 0))
-
             md5.addData(QByteArrayView(databuf, readlen));
-
-#else
-
-            md5.addData(databuf, readlen);
-
-#endif
 
             QByteArray bsize;
             md5.addData(bsize.setNum(qfile.size()));
@@ -586,17 +577,7 @@ QByteArray DImg::createUniqueHashV2(const QString& filePath)
 
         if ((read = file.read(databuf.data(), fsize)) > 0)
         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 3, 0))
-
             md5.addData(QByteArrayView(databuf.data(), read));
-
-#else
-
-            md5.addData(databuf.data(), read);
-
-#endif
-
         }
 
         // Read last 100 kB
@@ -605,17 +586,7 @@ QByteArray DImg::createUniqueHashV2(const QString& filePath)
 
         if ((read = file.read(databuf.data(), fsize)) > 0)
         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 3, 0))
-
             md5.addData(QByteArrayView(databuf.data(), read));
-
-#else
-
-            md5.addData(databuf.data(), read);
-
-#endif
-
         }
     }
 
@@ -660,17 +631,7 @@ QByteArray DImg::createUniqueHashV3(const QString& filePath)
 
             if ((read = file.read(databuf.data(), rsize)) > 0)
             {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 3, 0))
-
                 md5.addData(QByteArrayView(databuf.data(), read));
-
-#else
-
-                md5.addData(databuf.data(), read);
-
-#endif
-
             }
 
             if (file.atEnd())
