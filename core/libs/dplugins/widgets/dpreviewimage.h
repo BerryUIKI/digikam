@@ -179,16 +179,7 @@ protected:
     void leaveEvent(QEvent*)                override;
     bool eventFilter(QObject*, QEvent*)     override;
     void resizeEvent(QResizeEvent*)         override;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     void enterEvent(QEnterEvent*)           override;
-
-#else
-
-    void enterEvent(QEvent*)                override;
-
-#endif
 
     void updateSelVisibility();
     void updateHighlight();

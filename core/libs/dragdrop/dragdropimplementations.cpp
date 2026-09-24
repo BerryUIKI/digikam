@@ -168,15 +168,7 @@ void DragDropViewImplementation::paste()
                      data, Qt::NoButton,
                      cutAction ? Qt::ShiftModifier : Qt::ControlModifier);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     QModelIndex index = asView()->indexAt(event.position().toPoint());
-
-#else
-
-    QModelIndex index = asView()->indexAt(event.pos());
-
-#endif
 
     if (!dragDropHandler()->accepts(&event, index))
     {
@@ -229,17 +221,7 @@ void DragDropViewImplementation::dragMoveEvent(QDragMoveEvent* e)
 
     if (handler)
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         QModelIndex index     = asView()->indexAt(e->position().toPoint());
-
-#else
-
-        QModelIndex index     = asView()->indexAt(e->pos());
-
-#endif
-
         Qt::DropAction action = handler->accepts(e, mapIndexForDragDrop(index));
 
         if (action == Qt::IgnoreAction)
@@ -262,16 +244,7 @@ void DragDropViewImplementation::dropEvent(QDropEvent* e)
 
     if (handler)
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         QModelIndex index = asView()->indexAt(e->position().toPoint());
-
-#else
-
-        QModelIndex index = asView()->indexAt(e->pos());
-
-#endif
 
         if (handler->dropEvent(asView(), e, mapIndexForDragDrop(index)))
         {

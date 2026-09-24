@@ -108,16 +108,7 @@ void RatingFilterWidget::mouseMoveEvent(QMouseEvent* e)
 
     if ( d->dirty )
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         int pos = e->position().toPoint().x() / regPixmapWidth() + 1;
-
-#else
-
-        int pos = e->x() / regPixmapWidth() + 1;
-
-#endif
 
         if (rating() != pos)
         {
@@ -139,16 +130,7 @@ void RatingFilterWidget::mousePressEvent(QMouseEvent* e)
     if ((e->button() == Qt::LeftButton) || (e->button() == Qt::MiddleButton))
     {
         d->dirty = true;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         int pos  = e->position().toPoint().x() / regPixmapWidth() + 1;
-
-#else
-
-        int pos  = e->x() / regPixmapWidth() + 1;
-
-#endif
 
         if (rating() == pos)
         {
