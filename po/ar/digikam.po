@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-22 15:58+0000\n"
-"PO-Revision-Date: 2026-09-15 17:19+0400\n"
+"PO-Revision-Date: 2026-09-23 18:47+0400\n"
 "Last-Translator: Zayed Al-Saidi <zayed.alsaidi@gmail.com>\n"
 "Language-Team: ar\n"
 "Language: ar\n"
@@ -2425,11 +2425,10 @@ msgid "Last Image"
 msgstr "الصّورة الأخيرة"
 
 #: core/app/main/digikamapp_setup.cpp:1005
-#, fuzzy, kde-format
-#| msgid "Flash mode"
+#, kde-format
 msgctxt "@action: setup"
 msgid "Play/Pause Video"
-msgstr "وضع الوميض"
+msgstr "تشغيل/إلباث الفيديو"
 
 #: core/app/main/digikamapp_setup.cpp:1013
 #, kde-format
@@ -20408,27 +20407,24 @@ msgstr "الملف \"%1\" كبير جدًا للإرسال، الرجاء تقل
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
 #, kde-format
 msgid "Send items by mail from digiKam"
-msgstr ""
+msgstr "أرسل العناصر بالبريد من ديغيكام"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:663
-#, fuzzy, kde-format
-#| msgid "Title of the image"
+#, kde-format
 msgid "List of attached items"
-msgstr "عنوان الصورة"
+msgstr "قائمة العناصر المرفقة"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:710
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error While to Set Image as Wallpaper"
+#, kde-format
 msgctxt "@title:window"
 msgid "Error While to Send Items by mail"
-msgstr "خطأ أثناء ضبط الصورة كخلفية حاسوب"
+msgstr "خطأ أثناء إرسال العناصر بالبريد"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:711
 #, kde-format
 msgctxt "@info"
 msgid "Cannot send items using native Apple Mail application"
-msgstr ""
+msgstr "تعذر إرسال العناصر باستخدام تطبيق Apple Mail الأصلي"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:727
 #, kde-format
@@ -20487,11 +20483,10 @@ msgid "Outlook"
 msgstr "أوتلوك"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:103
-#, fuzzy, kde-format
-#| msgid "AppleSingle"
+#, kde-format
 msgctxt "Mail client: APPLEMAIL"
 msgid "Apple Mail"
-msgstr "أبل سينغل"
+msgstr "بريد أبل"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:104
 #, kde-format
@@ -20551,10 +20546,9 @@ msgid "Send by Mail..."
 msgstr "إرسال عبر البريد..."
 
 #: core/dplugins/generic/tools/sendbymail/tools/applemailbinary.cpp:31
-#, fuzzy, kde-format
-#| msgid "Gnome Mail Client."
+#, kde-format
 msgid "Apple Mail Client."
-msgstr "عميل بريد جنوم."
+msgstr "عميل بريد أبل."
 
 #: core/dplugins/generic/tools/sendbymail/tools/balsabinary.cpp:31
 #: core/dplugins/generic/tools/sendbymail/tools/evolutionbinary.cpp:31
@@ -67760,14 +67754,13 @@ msgid "Use OpenCL hardware acceleration"
 msgstr "استخدم تسريع الأجهزة «أوبن سي‌إل»"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:139
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and requires that certain environment "
-#| "variables are set manually."
+#, kde-format
 msgid ""
 "This option is still experimental and requires that certain environment "
 "variables are set manually. See the online documentation for details."
-msgstr "هذا الخيار لا يزال تجريبيًا ويتطلب ضبط بعض المتغيرات البيئية يدويًا."
+msgstr ""
+"لا يزال هذا الخيار تجريبيا ويتطلب ضبط بعض متغيرات البيئة يدويا. راجع التوثيق "
+"على الإنترنت للتفاصيل."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:142
 #, kde-format
@@ -67775,16 +67768,13 @@ msgid "Use OpenCL acceleration for AI models"
 msgstr "استخدم تسريع «أوبن سي‌إل» لنماذج الذكاء الاصطناعي"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:143
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and may lead to crashes if the proper "
-#| "drivers are not installed."
+#, kde-format
 msgid ""
 "This option is still experimental and may lead to crashes if the proper "
 "drivers are not installed. See the online documentation for details."
 msgstr ""
-"هذا الخيار لا يزال تجريبيًا وقد يؤدي إلى انهيارات إذا لم تكن برامج التشغيل "
-"المناسبة مثبتة."
+"لا يزال هذا الخيار تجريبيا وقد يؤدي إلى انهيارات إذا لم تُثبَّت التعريفات "
+"المناسبة. راجع التوثيق على الإنترنت للتفاصيل."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:147
 #, kde-format
@@ -68603,10 +68593,9 @@ msgid "Survey"
 msgstr "الاستقصاء"
 
 #: core/utilities/survey/surveywindow_setup.cpp:161
-#, fuzzy, kde-format
-#| msgid "Flash mode"
+#, kde-format
 msgid "Play/Pause Video"
-msgstr "وضع الوميض"
+msgstr "تشغيل/إلباث الفيديو"
 
 #~ msgid "Roll"
 #~ msgstr "لف"

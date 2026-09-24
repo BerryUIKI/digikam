@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-22 15:58+0000\n"
-"PO-Revision-Date: 2026-09-22 06:30+0200\n"
+"PO-Revision-Date: 2026-09-23 08:34+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -20279,10 +20279,9 @@ msgid "Send by Mail..."
 msgstr "ელფოსტით გაგზავნა..."
 
 #: core/dplugins/generic/tools/sendbymail/tools/applemailbinary.cpp:31
-#, fuzzy, kde-format
-#| msgid "Gnome Mail Client."
+#, kde-format
 msgid "Apple Mail Client."
-msgstr "GNOME-ის ელფოსტის კლიენტი."
+msgstr "Apple Mail-ის კლიენტი."
 
 #: core/dplugins/generic/tools/sendbymail/tools/balsabinary.cpp:31
 #: core/dplugins/generic/tools/sendbymail/tools/evolutionbinary.cpp:31
@@ -59396,6 +59395,7 @@ msgctxt "@info"
 msgid ""
 "Show the result of converted date 1968-12-26 using your customized format."
 msgstr ""
+"1968-12-26 ფორმატის თქვენს მორგებულ ფორმატში გადაყვანილი თარიღის ჩვენება."
 
 #: core/utilities/import/widgets/albumcustomizer.cpp:248
 #, kde-format
@@ -59433,6 +59433,8 @@ msgid ""
 "Set here all options to convert RAW images to DNG container automatically as "
 "they are downloaded."
 msgstr ""
+"დააყენეთ აქ ყველა პარამეტრი RAW გამოსახულებების ავტომატურად გადაყვანად DNG "
+"კონტეინერში მისი გადმოწერისას."
 
 #: core/utilities/import/widgets/dngconvertsettings.cpp:84
 #, kde-format
@@ -59440,6 +59442,8 @@ msgctxt "@info"
 msgid ""
 "Enable this option to convert RAW images to DNG container automatically."
 msgstr ""
+"ჩართეთ ეს პარამეტრი RAW გამოსახულებების DNG კონტეინერში ავტომატურად "
+"გადასაყვანად."
 
 #: core/utilities/import/widgets/freespacewidget.cpp:318
 #, kde-format
@@ -59520,6 +59524,8 @@ msgid ""
 "Turn on this option to use the camera provided image filenames without "
 "modifications."
 msgstr ""
+"ჩართეთ ეს პარამეტრი კამერის მიერ მოწოდებული ფაილის სახელების ცვლილების "
+"გარეშე გამოსაყენებლად."
 
 #: core/utilities/import/widgets/renamecustomizer.cpp:108
 #, kde-format
@@ -59831,6 +59837,8 @@ msgid ""
 "<qt>No option<br><i>Note: only Albums Collection are processed by this tool."
 "</i></qt>"
 msgstr ""
+"<qt>არჩევნის გარეშე<br><i>შენიშვნა: ეს ხელსაწყო, მხოლოდ, ალბომის კოლექციებს "
+"ამუშავებს.</i></qt>"
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:81
 #, kde-format
@@ -59966,6 +59974,8 @@ msgid ""
 "This will delete all rejected face matches allowing the face recognizer to "
 "present the suggested matches again."
 msgstr ""
+"ეს წაშლის ყველა უარყოფილ სახის დამთხვევას, რითიც საშუალებას მისცემს სახის "
+"ამომცნობს, შემოთავაზებული დამთხვევები კიდევ წარმოგიდგინოთ."
 
 #: core/utilities/maintenance/main/maintenancedlg.cpp:226
 #, kde-format
@@ -60015,6 +60025,9 @@ msgid ""
 "faces? You’ll need to rescan images and start tagging unknown faces again "
 "before any faces can be recognized."
 msgstr ""
+"მართლა გნებავთ, წაშალოთ ყველა დადასტურებული, დაუდასტურებელი და უცნობი სახე? "
+"სახეების ამოცნობამდე გამოსახულებების თავიდან სკანირება და უცნობი სახეების "
+"ამოცნობა მოგიწევთ."
 
 #. i18n
 #: core/utilities/maintenance/manager/maintenancemngr.cpp:433

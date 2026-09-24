@@ -38,7 +38,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-22 15:58+0000\n"
-"PO-Revision-Date: 2026-09-22 07:13+0200\n"
+"PO-Revision-Date: 2026-09-23 07:20+0200\n"
 "Last-Translator: Matjaž Jeran <matjaz.jeran@amis.net>\n"
 "Language-Team: Slovenian <lugos-slo@lugos.si>\n"
 "Language: sl\n"
@@ -20719,12 +20719,10 @@ msgid "Error While to Send Items by mail"
 msgstr "Napaka pri pošiljanju predmetov po e-pošti"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:711
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Cannot send items using native Apple MAil application"
+#, kde-format
 msgctxt "@info"
 msgid "Cannot send items using native Apple Mail application"
-msgstr "Predmetov ni mogoče poslati z izvorno aplikacijo Apple Mail"
+msgstr "Predmetov ni mogoče poslati z domorodno aplikacijo Apple Mail"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:727
 #, kde-format
@@ -20846,10 +20844,9 @@ msgid "Send by Mail..."
 msgstr "Pošlji po elektronski pošti..."
 
 #: core/dplugins/generic/tools/sendbymail/tools/applemailbinary.cpp:31
-#, fuzzy, kde-format
-#| msgid "Gnome Mail Client."
+#, kde-format
 msgid "Apple Mail Client."
-msgstr "Poštni odjemalec Gnome."
+msgstr "Odjemalec Apple Mail."
 
 #: core/dplugins/generic/tools/sendbymail/tools/balsabinary.cpp:31
 #: core/dplugins/generic/tools/sendbymail/tools/evolutionbinary.cpp:31

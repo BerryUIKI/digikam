@@ -52,7 +52,7 @@ msgstr ""
 "Project-Id-Version: Digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-22 15:58+0000\n"
-"PO-Revision-Date: 2026-09-22 18:22+0300\n"
+"PO-Revision-Date: 2026-09-23 09:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
 "Language: tr\n"
@@ -20721,9 +20721,7 @@ msgid "Error While to Send Items by mail"
 msgstr "Ögeler Postalanırken Hata"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:711
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid "Cannot send items using native Apple MAil application"
+#, kde-format
 msgctxt "@info"
 msgid "Cannot send items using native Apple Mail application"
 msgstr "Ögeler, Apple Mail uygulaması kullanılarak gönderilemiyor"
@@ -20849,42 +20847,41 @@ msgid "Send by Mail..."
 msgstr "Posta ile Gönder…"
 
 #: core/dplugins/generic/tools/sendbymail/tools/applemailbinary.cpp:31
-#, fuzzy, kde-format
-#| msgid "Gnome Mail Client."
+#, kde-format
 msgid "Apple Mail Client."
-msgstr "Gnome posta istemcisi."
+msgstr "Apple Mail istemcisi"
 
 #: core/dplugins/generic/tools/sendbymail/tools/balsabinary.cpp:31
 #: core/dplugins/generic/tools/sendbymail/tools/evolutionbinary.cpp:31
 #, kde-format
 msgid "Gnome Mail Client."
-msgstr "Gnome posta istemcisi."
+msgstr "Gnome posta istemcisi"
 
 #: core/dplugins/generic/tools/sendbymail/tools/clawsmailbinary.cpp:31
 #: core/dplugins/generic/tools/sendbymail/tools/sylpheedbinary.cpp:31
 #, kde-format
 msgid "GTK based Mail Client."
-msgstr "GTK temelli posta istemcisi."
+msgstr "GTK temelli posta istemcisi"
 
 #: core/dplugins/generic/tools/sendbymail/tools/kmailbinary.cpp:33
 #, kde-format
 msgid "KDE Mail Client."
-msgstr "KDE posta istemcisi."
+msgstr "KDE posta istemcisi"
 
 #: core/dplugins/generic/tools/sendbymail/tools/netscapebinary.cpp:31
 #, kde-format
 msgid "Netscape Mail Client."
-msgstr "Netscape posta istemcisi."
+msgstr "Netscape posta istemcisi"
 
 #: core/dplugins/generic/tools/sendbymail/tools/outlookbinary.cpp:32
 #, kde-format
 msgid "Outlook Mail Client."
-msgstr "Outlook posta istemcisi."
+msgstr "Outlook posta istemcisi"
 
 #: core/dplugins/generic/tools/sendbymail/tools/thunderbirdbinary.cpp:31
 #, kde-format
 msgid "Mozilla Foundation Mail Client."
-msgstr "Mozilla Vakfı posta istemcisi."
+msgstr "Mozilla Vakfı posta istemcisi"
 
 #: core/dplugins/generic/tools/sendbymail/wizard/mailfinalpage.cpp:126
 #, kde-format
