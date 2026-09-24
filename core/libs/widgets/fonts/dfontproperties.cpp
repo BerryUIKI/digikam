@@ -705,15 +705,7 @@ void DFontProperties::Private::_d_family_chosen_slot(const QString& family)
 
     // Get the list of styles available in this family.
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     QStringList styles = QFontDatabase::styles(currentFamily);
-
-#else
-
-    QStringList styles = QFontDatabase().styles(currentFamily);
-
-#endif
 
     if (styles.isEmpty())
     {
@@ -734,20 +726,9 @@ void DFontProperties::Private::_d_family_chosen_slot(const QString& family)
         // that falls back to another when set.
         // Remove such styles, by checking set/get round-trip.
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         QFont testFont = QFontDatabase::font(currentFamily, style, 10);
 
         if (QFontDatabase::styleString(testFont) != style)
-
-#else
-
-        QFont testFont = QFontDatabase().font(currentFamily, style, 10);
-
-        if (QFontDatabase().styleString(testFont) != style)
-
-#endif
-
         {
             styles.removeAll(style);
             continue;
@@ -807,20 +788,9 @@ void DFontProperties::Private::_d_family_chosen_slot(const QString& family)
     qreal currentSize = setupSizeListBox(currentFamily, currentStyle);
     sizeOfFont->setValue(currentSize);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     selFont           = QFontDatabase::font(currentFamily, currentStyle, int(currentSize));
 
     if (QFontDatabase::isSmoothlyScalable(currentFamily, currentStyle) && (selFont.pointSize() == floor(currentSize)))
-
-#else
-
-    selFont           = QFontDatabase().font(currentFamily, currentStyle, int(currentSize));
-
-    if (QFontDatabase().isSmoothlyScalable(currentFamily, currentStyle) && (selFont.pointSize() == floor(currentSize)))
-
-#endif
-
     {
         selFont.setPointSizeF(currentSize);
     }
@@ -856,20 +826,9 @@ void DFontProperties::Private::_d_style_chosen_slot(const QString& style)
     qreal currentSize = setupSizeListBox(currentFamily, currentStyle);
     sizeOfFont->setValue(currentSize);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     selFont           = QFontDatabase::font(currentFamily, currentStyle, int(currentSize));
 
     if (QFontDatabase::isSmoothlyScalable(currentFamily, currentStyle) && (selFont.pointSize() == floor(currentSize)))
-
-#else
-
-    selFont           = QFontDatabase().font(currentFamily, currentStyle, int(currentSize));
-
-    if (QFontDatabase().isSmoothlyScalable(currentFamily, currentStyle) && (selFont.pointSize() == floor(currentSize)))
-
-#endif
-
     {
         selFont.setPointSizeF(currentSize);
     }
@@ -952,16 +911,7 @@ void DFontProperties::Private::_d_size_value_slot(double dval)
 
     // For Qt-bad-sizes workaround: skip this block unconditionally.
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     if (!QFontDatabase::isSmoothlyScalable(family, style))
-
-#else
-
-    if (!QFontDatabase().isSmoothlyScalable(family, style))
-
-#endif
-
     {
         // Bitmap font, allow only discrete sizes.
         // Determine the nearest in the direction of change.
@@ -1112,16 +1062,7 @@ qreal DFontProperties::Private::setupSizeListBox(const QString& family, const QS
 {
     QList<qreal>  sizes;
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     if (QFontDatabase::isSmoothlyScalable(family, style))
-
-#else
-
-    if (QFontDatabase().isSmoothlyScalable(family, style))
-
-#endif
-
     {
         // A vector font.
         //sampleEdit->setPaletteBackgroundPixmap( VectorPixmap ); // TODO
@@ -1131,15 +1072,7 @@ qreal DFontProperties::Private::setupSizeListBox(const QString& family, const QS
         // A bitmap font.
         //sampleEdit->setPaletteBackgroundPixmap( BitmapPixmap ); // TODO
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         QList<int> smoothSizes = QFontDatabase::smoothSizes(family, style);
-
-#else
-
-        QList<int> smoothSizes = QFontDatabase().smoothSizes(family, style);
-
-#endif
 
         for (int size : std::as_const(smoothSizes))
         {
@@ -1277,15 +1210,7 @@ void DFontProperties::Private::setupDisplay()
     QString currentFamily = qtFamilies[familyListBox->currentItem()->text()];
     QString currentStyle  = qtStyles[styleListBox->currentItem()->text()];
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     bool canCustomize     = QFontDatabase::isSmoothlyScalable(currentFamily, currentStyle);
-
-#else
-
-    bool canCustomize     = QFontDatabase().isSmoothlyScalable(currentFamily, currentStyle);
-
-#endif
 
     sizeListBox->setCurrentRow(nearestSizeRow(size, canCustomize));
 
@@ -1296,16 +1221,7 @@ void DFontProperties::Private::setupDisplay()
 
 void DFontProperties::getFontList(QStringList& list, uint fontListCriteria)
 {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     QStringList lstSys(QFontDatabase::families());
-
-#else
-
-    QStringList lstSys(QFontDatabase().families());
-
-#endif
 
     // If we have criteria; then check fonts before adding.
 
@@ -1317,17 +1233,7 @@ void DFontProperties::getFontList(QStringList& list, uint fontListCriteria)
         {
             if (
                 ((fontListCriteria & FixedWidthFonts) > 0) &&
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-                !QFontDatabase::isFixedPitch(*it)
-
-#else
-
-                !QFontDatabase().isFixedPitch(*it)
-
-#endif
-
+                 !QFontDatabase::isFixedPitch(*it)
                )
             {
                 continue;
@@ -1335,17 +1241,7 @@ void DFontProperties::getFontList(QStringList& list, uint fontListCriteria)
 
             if (
                 ((fontListCriteria & (SmoothScalableFonts | ScalableFonts)) == ScalableFonts) &&
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-                !QFontDatabase::isBitmapScalable(*it)
-
-#else
-
-                !QFontDatabase().isBitmapScalable(*it)
-
-#endif
-
+                 !QFontDatabase::isBitmapScalable(*it)
                )
             {
                 continue;
@@ -1353,17 +1249,7 @@ void DFontProperties::getFontList(QStringList& list, uint fontListCriteria)
 
             if (
                 ((fontListCriteria & SmoothScalableFonts) > 0) &&
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
-                !QFontDatabase::isSmoothlyScalable(*it)
-
-#else
-
-                !QFontDatabase().isSmoothlyScalable(*it)
-
-#endif
-
+                 !QFontDatabase::isSmoothlyScalable(*it)
                )
             {
                 continue;

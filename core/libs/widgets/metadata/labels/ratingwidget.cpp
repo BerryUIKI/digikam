@@ -187,15 +187,7 @@ void RatingWidget::mousePressEvent(QMouseEvent* e)
         return;
     }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     int pos = (e->position().toPoint().x() - d->offset) / d->width + 1;
-
-#else
-
-    int pos = (e->x() - d->offset) / d->width + 1;
-
-#endif
 
     if (d->rating == pos)
     {
@@ -238,15 +230,7 @@ void RatingWidget::mouseMoveEvent(QMouseEvent* e)
         return;
     }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     int pos = (e->position().toPoint().x() - d->offset) / d->width + 1;
-
-#else
-
-    int pos = (e->x() - d->offset) / d->width + 1;
-
-#endif
 
     if (d->rating != pos)
     {

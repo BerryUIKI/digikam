@@ -94,17 +94,8 @@ FileSaveConflictBox::FileSaveConflictBox(QWidget* const parent, bool addSkip)
     grid->setContentsMargins(spacing, spacing, spacing, spacing);
     grid->setSpacing(spacing);
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
-
     connect(d->conflictButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::idClicked),
             this, &FileSaveConflictBox::signalConflictButtonChanged);
-
-#else
-
-    connect(d->conflictButtonGroup, static_cast<void (QButtonGroup::*)(int)>(&QButtonGroup::buttonClicked),
-            this, &FileSaveConflictBox::signalConflictButtonChanged);
-
-#endif
 }
 
 FileSaveConflictBox::~FileSaveConflictBox()
