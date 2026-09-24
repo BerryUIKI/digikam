@@ -139,13 +139,8 @@ ItemViewCategorized::ItemViewCategorized(QWidget* const parent)
 
 ItemViewCategorized::~ItemViewCategorized()
 {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         delete d->currentMouseEvent;
         d->currentMouseEvent = nullptr;
-
-#endif
 
         delete d;
 }
@@ -348,16 +343,7 @@ void ItemViewCategorized::slotGridSizeChanged(const QSize& gridSize)
 void ItemViewCategorized::updateDelegateSizes()
 {
     QStyleOptionViewItem option;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     initViewItemOption(&option);
-
-#else
-
-    option = viewOptions();
-
-#endif
 
 /*
     int frameAroundContents = 0;
@@ -413,18 +399,16 @@ void ItemViewCategorized::slotActivated(const QModelIndex& index)
         // if the activation is caused by mouse click (not keyboard)
         // we need to check the hot area
 
-        if (d->currentMouseEvent->isAccepted() &&
-            !d->delegate->acceptsActivation(d->currentMouseEvent->pos(), visualRect(index), index))
+        if (
+            d->currentMouseEvent->isAccepted() &&
+            !d->delegate->acceptsActivation(d->currentMouseEvent->pos(), visualRect(index), index)
+           )
         {
             return;
         }
     }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     delete d->currentMouseEvent;
-
-#endif
 
     d->currentMouseEvent = nullptr;
     indexActivated(index, modifiers);
@@ -859,27 +843,12 @@ void ItemViewCategorized::mousePressEvent(QMouseEvent* event)
 
     if (!rightButtonPressed)
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         delete d->currentMouseEvent;
         d->currentMouseEvent = event->clone();
-
-#else
-
-        d->currentMouseEvent = event;
-
-#endif
-
     }
     else
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         delete d->currentMouseEvent;
-
-#endif
 
         d->currentMouseEvent = nullptr;
     }
@@ -1059,16 +1028,7 @@ bool ItemViewCategorized::viewportEvent(QEvent* event)
             }
 
             QStyleOptionViewItem option;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             initViewItemOption(&option);
-
-#else
-
-            option = viewOptions();
-
-#endif
 
             option.rect                 =  visualRect(index);
             option.state               |= ((index == currentIndex()) ? QStyle::State_HasFocus : QStyle::State_None);
@@ -1103,16 +1063,7 @@ void ItemViewCategorized::showIndexNotification(const QModelIndex& index, const 
     d->notificationToolTip->setTipContents(message);
 
     QStyleOptionViewItem option;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     initViewItemOption(&option);
-
-#else
-
-    option                      = viewOptions();
-
-#endif
 
     option.rect                 = visualRect(index);
     option.state               |= ((index == currentIndex()) ? QStyle::State_HasFocus : QStyle::State_None);
@@ -1139,16 +1090,7 @@ QModelIndex ItemViewCategorized::mapIndexForDragDrop(const QModelIndex& index) c
 QPixmap ItemViewCategorized::pixmapForDrag(const QList<QModelIndex>& indexes) const
 {
     QStyleOptionViewItem option;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     initViewItemOption(&option);
-
-#else
-
-    option                      = viewOptions();
-
-#endif
 
     option.rect                 = viewport()->rect();
 

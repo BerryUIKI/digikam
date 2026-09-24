@@ -107,16 +107,7 @@ QRect DCategorizedView::Private::visualRectInViewport(const QModelIndex& index) 
     QString    curCategory     = elementsInfo[index.row()].category;
     const bool leftToRightFlow = (listView->flow() == QListView::LeftToRight);
     QStyleOptionViewItem option;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     listView->initViewItemOption(&option);
-
-#else
-
-    option = listView->viewOptions();
-
-#endif
 
     if (leftToRightFlow)
     {
@@ -317,16 +308,7 @@ QRect DCategorizedView::Private::visualCategoryRectInViewport(const QString& cat
     }
 
     QStyleOptionViewItem option;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     listView->initViewItemOption(&option);
-
-#else
-
-    option = listView->viewOptions();
-
-#endif
 
     for (const QString& itCategory : std::as_const(categories))
     {
@@ -513,16 +495,7 @@ void DCategorizedView::Private::updateScrollbars()
 void DCategorizedView::Private::drawDraggedItems(QPainter* painter)
 {
     QStyleOptionViewItem option;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     listView->initViewItemOption(&option);
-
-#else
-
-    option        = listView->viewOptions();
-
-#endif
 
     option.state      &= ~QStyle::State_MouseOver;
     const auto indexes = listView->selectionModel()->selectedIndexes();
@@ -536,17 +509,7 @@ void DCategorizedView::Private::drawDraggedItems(QPainter* painter)
 
         if (option.rect.intersects(listView->viewport()->rect()))
         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             listView->itemDelegateForIndex(index)->paint(painter, option, index);
-
-#else
-
-            listView->itemDelegate(index)->paint(painter, option, index);
-
-#endif
-
         }
     }
 }

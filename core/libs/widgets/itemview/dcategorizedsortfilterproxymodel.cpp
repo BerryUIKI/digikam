@@ -127,21 +127,9 @@ int DCategorizedSortFilterProxyModel::compareCategories(const QModelIndex& left,
 
     Q_ASSERT(l.isValid());
     Q_ASSERT(r.isValid());
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     Q_ASSERT(l.typeId() == r.typeId());
 
     if (l.typeId() == QMetaType::QString)
-
-#else
-
-    Q_ASSERT(l.type() == r.type());
-
-    if (l.type() == QVariant::String)
-
-#endif
-
     {
         QString lstr = l.toString();
         QString rstr = r.toString();
