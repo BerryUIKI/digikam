@@ -29,18 +29,10 @@ ImportUI::ImportUI(const QString& cameraTitle, const QString& model,
       d            (new Private)
 {
     setConfigGroupName(QLatin1String("Camera Settings"));
-
     setXMLFile(QLatin1String("importui5.rc"));
-
-#if (KXMLGUI_VERSION >= QT_VERSION_CHECK(5, 88, 0))
-
     setStateConfigGroup(configGroupName());
-
-#endif
-
     setFullScreenOptions(FS_IMPORTUI);
     setWindowFlags(Qt::Window);
-
 
     m_instance     = this;
 

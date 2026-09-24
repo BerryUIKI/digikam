@@ -112,43 +112,16 @@ bool ImportThumbnailModel::setData(const QModelIndex& index, const QVariant& val
     if (role == ThumbnailRole)
     {
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         switch (value.typeId())
-
-#else
-
-        switch (value.type())
-
-#endif
-
         {
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             case QMetaType::UnknownType:
-
-#else
-
-            case QVariant::Invalid:
-
-#endif
-
             {
                 d->thumbSize  = d->lastGlobalThumbSize;
                 break;
             }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             case QMetaType::Int:
-
-#else
-
-            case QVariant::Int:
-
-#endif
-
             {
                 if (value.isNull())
                 {

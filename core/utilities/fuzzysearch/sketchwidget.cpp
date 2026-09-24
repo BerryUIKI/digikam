@@ -407,17 +407,7 @@ void SketchWidget::addPath(QXmlStreamReader& reader)
 
     if (!color.isEmpty())
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 6, 0))
-
         event.penColor.fromString(color.toString());
-
-#else
-
-        event.penColor.setNamedColor(color.toString());
-
-#endif
-
     }
 
     QPointF begin(0, 0), end(0, 0);
@@ -525,17 +515,7 @@ void SketchWidget::mousePressEvent(QMouseEvent* e)
 
 void SketchWidget::mouseMoveEvent(QMouseEvent* e)
 {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     if (rect().contains(e->position().toPoint().x(), e->position().toPoint().y()))
-
-#else
-
-    if (rect().contains(e->x(), e->y()))
-
-#endif
-
     {
         setFocus();
 

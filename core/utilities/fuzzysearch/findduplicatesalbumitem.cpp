@@ -147,20 +147,9 @@ QList<ItemInfo> FindDuplicatesAlbumItem::duplicatedItems()
 void FindDuplicatesAlbumItem::calculateInfos(const QList<qlonglong>& deletedImages)
 {
     d->calcTask = QtConcurrent::run(
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
                                     &FindDuplicatesAlbumItem::calculateInfosMultithreaded, this,
                                     deletedImages
-
-#else
-
-                                    this, &FindDuplicatesAlbumItem::calculateInfosMultithreaded,
-                                    deletedImages
-
-#endif
-
-    );
+                                   );
 }
 
 void FindDuplicatesAlbumItem::waitForCalculate()

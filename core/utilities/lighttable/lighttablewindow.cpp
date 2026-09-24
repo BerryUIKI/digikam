@@ -41,13 +41,7 @@ LightTableWindow::LightTableWindow()
     setObjectName(QLatin1String("Light Table"));
     setConfigGroupName(QLatin1String("LightTable Settings"));
     setXMLFile(QLatin1String("lighttablewindowui5.rc"));
-
-#if (KXMLGUI_VERSION >= QT_VERSION_CHECK(5, 88, 0))
-
     setStateConfigGroup(configGroupName());
-
-#endif
-
     setCaption(i18n("Light Table"));
 
     m_instance = this;

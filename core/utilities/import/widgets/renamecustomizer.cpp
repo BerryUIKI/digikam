@@ -148,23 +148,11 @@ RenameCustomizer::RenameCustomizer(QWidget* const parent, const QString& cameraT
 
     // -- setup connections -------------------------------------------------
 
-#if (QT_VERSION >= QT_VERSION_CHECK(5, 15, 0))
-
     connect(d->buttonGroup, SIGNAL(idClicked(int)),
             this, SLOT(slotRadioButtonClicked(int)));
 
     connect(d->renameDefaultCaseType, SIGNAL(activated(int)),
             this, SLOT(slotRenameOptionsChanged()));
-
-#else
-
-    connect(d->buttonGroup, SIGNAL(buttonClicked(int)),
-            this, SLOT(slotRadioButtonClicked(int)));
-
-    connect(d->renameDefaultCaseType, SIGNAL(activated(QString)),
-            this, SLOT(slotRenameOptionsChanged()));
-
-#endif
 
     connect(d->changedTimer, SIGNAL(timeout()),
             this, SIGNAL(signalChanged()));

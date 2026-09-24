@@ -32,10 +32,6 @@
 #include "tooltipspage.h"
 #include "startscanpage.h"
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-#   include "migratefromdigikam4page.h"
-#endif
-
 namespace Digikam
 {
 
@@ -46,13 +42,6 @@ public:
     Private() = default;
 
     WelcomePage*             welcomePage                = nullptr;
-
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-
-    MigrateFromDigikam4Page* migrateFromDigikam4Page    = nullptr;
-
-#endif
-
     CollectionPage*          collectionPage             = nullptr;
     DatabasePage*            databasePage               = nullptr;
     RawPage*                 rawPage                    = nullptr;
@@ -75,16 +64,6 @@ FirstRunDlg::FirstRunDlg(QWidget* const parent)
                                                    << QWizard::FinishButton);
 
     d->welcomePage    = new WelcomePage(this);    // First assistant page
-
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-
-    if (MigrateFromDigikam4Page::checkForMigration())
-    {
-        d->migrateFromDigikam4Page = new MigrateFromDigikam4Page(this);
-    }
-
-#endif
-
     d->collectionPage = new CollectionPage(this);
     d->databasePage   = new DatabasePage(this);
     d->rawPage        = new RawPage(this);
@@ -154,30 +133,15 @@ bool FirstRunDlg::validateCurrentPage()
 
 void FirstRunDlg::slotFinishPressed()
 {
+   // Save settings to rc files.
 
-#if (QT_VERSION < QT_VERSION_CHECK(6, 0, 0))
-
-    if (d->migrateFromDigikam4Page && d->migrateFromDigikam4Page->isMigrationChecked())
-    {
-       // The user choose to do a migration from digikam4
-
-       d->migrateFromDigikam4Page->doMigration();
-    }
-    else
-
-#endif
-
-    {
-       // Save settings to rc files.
-
-       d->collectionPage->saveSettings();
-       d->databasePage->saveSettings();
-       d->rawPage->saveSettings();
-       d->metadataPage->saveSettings();
-       d->previewPage->saveSettings();
-       d->openFilePage->saveSettings();
-       d->tooltipsPage->saveSettings();
-    }
+   d->collectionPage->saveSettings();
+   d->databasePage->saveSettings();
+   d->rawPage->saveSettings();
+   d->metadataPage->saveSettings();
+   d->previewPage->saveSettings();
+   d->openFilePage->saveSettings();
+   d->tooltipsPage->saveSettings();
 }
 
 } // namespace Digikam

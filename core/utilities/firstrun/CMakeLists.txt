@@ -31,15 +31,6 @@ include_directories($<TARGET_PROPERTY:Qt6::Gui,INTERFACE_INCLUDE_DIRECTORIES>
                     $<TARGET_PROPERTY:KF6::XmlGui,INTERFACE_INCLUDE_DIRECTORIES>
 )
 
-if(NOT Qt6_FOUND)
-
-    set(libfirstrun_SRCS
-        ${libfirstrun_SRCS}
-        ${CMAKE_CURRENT_SOURCE_DIR}/migratefromdigikam4page.cpp
-    )
-
-endif()
-
 # Used by digikamgui
 add_library(gui_firstrun_obj OBJECT ${libfirstrun_SRCS})
 
