@@ -62,17 +62,8 @@ bool ImportDragDropHandler::dropEvent(QAbstractItemView* view,
         return false;
     }
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     m_position  = m_view->mapToGlobal(e->position().toPoint());
     m_modifiers = e->modifiers();
-
-#else
-
-    m_position  = m_view->mapToGlobal(e->pos());
-    m_modifiers = e->keyboardModifiers();
-
-#endif
 
     if (accepts(e, droppedOn) == Qt::IgnoreAction)
     {
@@ -98,30 +89,11 @@ Qt::DropAction ImportDragDropHandler::accepts(const QDropEvent* e, const QModelI
 {
     if (DItemDrag::canDecode(e->mimeData()) || e->mimeData()->hasUrls())
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         if      (e->modifiers() & Qt::ControlModifier)
-
-#else
-
-        if      (e->keyboardModifiers() & Qt::ControlModifier)
-
-#endif
-
         {
             return Qt::CopyAction;
         }
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         else if (e->modifiers() & Qt::ShiftModifier)
-
-#else
-
-        else if (e->keyboardModifiers() & Qt::ShiftModifier)
-
-#endif
         {
             return Qt::MoveAction;
         }

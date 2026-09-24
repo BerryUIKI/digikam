@@ -115,17 +115,7 @@ bool ItemDragDropHandler::dropEvent(QAbstractItemView* view, const QDropEvent* e
 
     if (itemView)
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         album = itemView->albumAt(e->position().toPoint());
-
-#else
-
-        album = itemView->albumAt(e->pos());
-
-#endif
-
     }
     else
     {
@@ -133,17 +123,7 @@ bool ItemDragDropHandler::dropEvent(QAbstractItemView* view, const QDropEvent* e
 
         if (tableView)
         {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
             album = tableView->albumAt(e->position().toPoint());
-
-#else
-
-            album = tableView->albumAt(e->pos());
-
-#endif
-
         }
     }
 
@@ -157,18 +137,8 @@ bool ItemDragDropHandler::dropEvent(QAbstractItemView* view, const QDropEvent* e
     m_droppedOn = droppedOn;
     m_source    = e->source();
     m_proposed  = e->proposedAction();
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     m_position  = m_view->mapToGlobal(e->position().toPoint());
     m_modifiers = e->modifiers();
-
-#else
-
-    m_position  = m_view->mapToGlobal(e->pos());
-    m_modifiers = e->keyboardModifiers();
-
-#endif
 
     m_tagIDs.clear();
     m_srcURLs.clear();
@@ -291,31 +261,11 @@ Qt::DropAction ItemDragDropHandler::accepts(const QDropEvent* e, const QModelInd
 
     if (DItemDrag::canDecode(e->mimeData()) || e->mimeData()->hasUrls())
     {
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         if (e->modifiers() & Qt::ControlModifier)
-
-#else
-
-        if (e->keyboardModifiers() & Qt::ControlModifier)
-
-#endif
-
         {
             return Qt::CopyAction;
         }
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
         else if (e->modifiers() & Qt::ShiftModifier)
-
-#else
-
-        else if (e->keyboardModifiers() & Qt::ShiftModifier)
-
-#endif
-
         {
             return Qt::MoveAction;
         }

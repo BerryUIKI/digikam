@@ -44,15 +44,6 @@ class QAction;
 #define MAX3(a, b, c)  (qMax(qMax(a,b),c))
 #define MIN3(a, b, c)  (qMin(qMin(a,b),c))
 
-/**
- * Macro to use right return type with qHash(), changed with new Qt6 API.
- */
-#if QT_VERSION < QT_VERSION_CHECK(6,0,0)
-#   define QT_HASH_TYPE /* clazy:exclude=qt6-qhash-signature */ uint
-#else
-#   define QT_HASH_TYPE size_t
-#endif
-
 namespace Digikam
 {
 

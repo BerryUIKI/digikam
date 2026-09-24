@@ -70,19 +70,8 @@ bool TagDragDropHandler::dropEvent(QAbstractItemView* view,
 
     m_view      = view;
     m_source    = e->source();
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     m_position  = m_view->mapToGlobal(e->position().toPoint());
     m_modifiers = e->modifiers();
-
-#else
-
-    m_position  = m_view->mapToGlobal(e->pos());
-    m_modifiers = e->keyboardModifiers();
-
-#endif
-
     m_destAlbum = model()->talbumForIndex(droppedOn);
 
     m_tagIDs.clear();

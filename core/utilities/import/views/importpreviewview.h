@@ -80,16 +80,7 @@ protected:
     bool acceptsMouseClick(QMouseEvent* e) override;
     void leaveEvent(QEvent* e)             override;
     void showEvent(QShowEvent* e)          override;
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     void enterEvent(QEnterEvent*)          override;
-
-#else
-
-    void enterEvent(QEvent*)               override;
-
-#endif
 
 private Q_SLOTS:
 

@@ -157,20 +157,10 @@ void DigikamApp::setupActions()
     d->backwardActionMenu->setEnabled(false);
     ac->addAction(QLatin1String("album_back"), d->backwardActionMenu);
     ac->setDefaultShortcut(d->backwardActionMenu, Qt::ALT | Qt::Key_Left);
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     d->backwardActionMenu->setMenu(d->backwardActionMenu->popupMenu());
 
     connect(d->backwardActionMenu->popupMenu(), SIGNAL(aboutToShow()),
             this, SLOT(slotAboutToShowBackwardMenu()));
-
-#else
-
-    connect(d->backwardActionMenu->menu(), SIGNAL(aboutToShow()),
-            this, SLOT(slotAboutToShowBackwardMenu()));
-
-#endif
 
     connect(d->backwardActionMenu, &QAction::triggered,
             this, [this]() { d->view->slotAlbumHistoryBack(1); });
@@ -182,20 +172,10 @@ void DigikamApp::setupActions()
     d->forwardActionMenu->setEnabled(false);
     ac->addAction(QLatin1String("album_forward"), d->forwardActionMenu);
     ac->setDefaultShortcut(d->forwardActionMenu, Qt::ALT | Qt::Key_Right);
-
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     d->forwardActionMenu->setMenu(d->forwardActionMenu->popupMenu());
 
     connect(d->forwardActionMenu->popupMenu(), SIGNAL(aboutToShow()),
             this, SLOT(slotAboutToShowForwardMenu()));
-
-#else
-
-    connect(d->forwardActionMenu->menu(), SIGNAL(aboutToShow()),
-            this, SLOT(slotAboutToShowForwardMenu()));
-
-#endif
 
     connect(d->forwardActionMenu, &QAction::triggered,
             this, [this]() { d->view->slotAlbumHistoryForward(1); });
@@ -567,17 +547,8 @@ void DigikamApp::setupActions()
     d->albumSortAction = new KSelectAction(i18nc("@action: setup", "&Sort Albums"), this);
     d->albumSortAction->setWhatsThis(i18nc("@info: setup", "Sort Albums in tree-view."));
 
-#if (QT_VERSION >= QT_VERSION_CHECK(6, 0, 0))
-
     connect(d->albumSortAction, SIGNAL(indexTriggered(int)),
             d->view, SLOT(slotSortAlbums(int)));
-
-#else
-
-    connect(d->albumSortAction, SIGNAL(triggered(int)),
-            d->view, SLOT(slotSortAlbums(int)));
-
-#endif
 
     ac->addAction(QLatin1String("album_sort"), d->albumSortAction);
 

@@ -107,40 +107,9 @@ void DigikamApp::slotThemeChanged()
     {
         qApp->processEvents();
 
-#if defined HAVE_KICONTHEMES && (KICONTHEMES_VERSION >= QT_VERSION_CHECK(6, 3, 0))
+#ifdef HAVE_KICONTHEMES
 
         settings->setIconTheme(QString());
-
-#else
-
-        QColor color = qApp->palette().color(qApp->activeWindow()->backgroundRole());
-        QString iconTheme;
-        QString msgText;
-
-        if (color.lightness() > 127)
-        {
-            msgText   = i18n("You have chosen a bright color scheme. We switch "
-                             "to a dark icon theme. The icon theme is "
-                             "available after a restart of digiKam.");
-
-            iconTheme = QLatin1String("breeze");
-        }
-        else
-        {
-            msgText   = i18n("You have chosen a dark color scheme. We switch "
-                             "to a bright icon theme. The icon theme is "
-                             "available after a restart of digiKam.");
-
-            iconTheme = QLatin1String("breeze-dark");
-        }
-
-        if (settings->getIconTheme() != iconTheme)
-        {
-            QMessageBox::information(qApp->activeWindow(),
-                                     qApp->applicationName(), msgText);
-
-            settings->setIconTheme(iconTheme);
-        }
 
 #endif
 
