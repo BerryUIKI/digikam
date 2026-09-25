@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 15:58+0000\n"
+"POT-Creation-Date: 2026-09-25 00:42+0000\n"
 "PO-Revision-Date: 2026-08-29 20:09+0200\n"
 "Last-Translator: Iñigo Salvador Azurmendi <xalba@ni.eus>\n"
 "Language-Team: Basque <kde-i18n-eu@kde.org>\n"
@@ -11445,7 +11445,7 @@ msgid "cm"
 msgstr "cm"
 
 #: core/dplugins/editor/transform/resize/resizetool.cpp:927
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:417
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:397
 #, kde-format
 msgid "Resize"
 msgstr "Handiera aldatzea"
@@ -11666,7 +11666,7 @@ msgstr "Eskaneatu irudia"
 msgid "Scan Images"
 msgstr "Eskaneatu irudiak"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:172
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:144
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:100
 #: core/utilities/imageeditor/editor/editorwindow.cpp:1845
 #, kde-format
@@ -11674,27 +11674,27 @@ msgctxt "@title:window"
 msgid "New Image File Name"
 msgstr "Irudi berriaren fitxategi-izena"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:220
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:192
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:148
 #, kde-format
 msgctxt "@title:window"
 msgid "Unsupported Format"
 msgstr "Onartu gabeko formatua"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:221
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:193
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:149
 #, kde-format
 msgid "The target image file format \"%1\" is unsupported."
 msgstr "Xede-irudi formatua, \"%1\",  ez da onartzen."
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:233
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:205
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Cannot Save File"
 msgstr "Ezin du fitxategia gorde"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:234
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:206
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:162
 #, kde-format
 msgid ""
@@ -11706,7 +11706,7 @@ msgstr ""
 "\"%1\"\n"
 "\"%2\"(e)an."
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:249
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:221
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:177
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2321
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2340
@@ -11715,7 +11715,7 @@ msgctxt "@title:window"
 msgid "Overwrite File?"
 msgstr "Fitxategia gainidatzi?"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:250
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:222
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:178
 #, kde-format
 msgid ""
@@ -11724,18 +11724,18 @@ msgstr ""
 "Lehendik ere badago \"%1\" izeneko fitxategi bat. Ziur zaude gainidatzi nahi "
 "duzula?"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:301
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:258
 #, kde-format
 msgid "Saving file %1 -"
 msgstr "%1 fitxategia gordetzen -"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:309
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:266
 #, kde-format
 msgctxt "@title:window"
 msgid "File Not Saved"
 msgstr "Fitxategia ez da gorde"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:310
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:267
 #, kde-format
 msgid "Cannot save \"%1\" file"
 msgstr "Ezin da \"%1\" fitxategia gorde"
@@ -20616,54 +20616,54 @@ msgstr "Ezin da tamaina aldatutako irudia (JPEG) gorde. Abortatzen."
 msgid "Cannot save resized image (PNG). Aborting."
 msgstr "Ezin da tamaina aldatutako irudia (PNG) gorde. Abortatzen."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:111
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:107
 #, fuzzy, kde-format
 msgid "Cannot create a temporary directory"
 msgstr ""
 "Ezin da aldi baterako direktorioa sortu<nl/><filename>%1</filename><nl/>"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:172
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:168
 #, fuzzy, kde-format
 #| msgid "Rating"
 msgid "Resizing %1"
 msgstr "%1 tamainaz aldatzen"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:190
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:186
 #, fuzzy, kde-format
 msgid "%1 resized successfully"
 msgstr "%1(r)en tamaina ongi aldatuta"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:204
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:200
 #, fuzzy, kde-format
 #| msgid "Failed to save file: %1"
 msgid "Failed to resize %1: %2"
 msgstr "Huts egin du %1 tamainaz aldatzean: %2"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:241
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:237
 #, fuzzy, kde-format
 #| msgid "There are no images in this folder."
 msgid "There are no files to send"
 msgstr "Ez dago bidaltzeko fitxategirik"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:265
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:261
 #, fuzzy, kde-format
 #| msgid "File Properties"
 msgid "Build images properties file"
 msgstr "Eraiki irudien propietateen fitxategia"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:281
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:277
 #, fuzzy, kde-format
 #| msgid "Location"
 msgid "no caption"
 msgstr "epigraferik ez"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:286
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:282
 #, fuzzy, kde-format
 #| msgid "Keywords"
 msgid "no keywords"
 msgstr "gako-hitzik ez"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:285
 #, fuzzy, kde-format
 msgid ""
 "file \"%1\":\n"
@@ -20672,40 +20672,40 @@ msgstr ""
 "\"%1\" fitxategia:\n"
 "Jatorrizko irudiak: %2\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:287
 #, fuzzy, kde-format
 #| msgid "Contrast:"
 msgid "Comments: %1\n"
 msgstr "Iruzkinak: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:293
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
 #, fuzzy, kde-format
 #| msgid "Tag: %1"
 msgid "Tags: %1\n"
 msgstr "Etiketak: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:295
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
 #, fuzzy, kde-format
 msgid "Rating: %1\n"
 msgstr "Puntuazioa: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:300
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:296
 #, fuzzy, kde-format
 #| msgid "Properties"
 msgid "properties.txt"
 msgstr "propietateak.txt"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:315
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:302
 #, fuzzy, kde-format
 msgid "Image properties file cannot be opened"
 msgstr "Irudi propietateen fitxategia ezin da ireki"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:327
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:314
 #, fuzzy, kde-format
 msgid "Image properties file done"
 msgstr "Irudien propietateen fitxategia sortuta"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:347
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:334
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:982
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:995
 #, fuzzy, kde-format
@@ -20713,7 +20713,7 @@ msgctxt "@title:window"
 msgid "Processing Failed"
 msgstr "Prozesatzea huts egin du"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:348
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:335
 #, fuzzy, kde-format
 msgid ""
 "Some images cannot be resized.\n"
@@ -20722,7 +20722,7 @@ msgstr ""
 "Irudi batzuen neurria ezin da aldatu.\n"
 " Nahi duzu hauek neurria aldatzeke eranskin gisa gehitzea?"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:421
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:408
 #, fuzzy, kde-format
 msgid ""
 "The file \"%1\" is too big to be sent, please reduce its size or change your "
@@ -20731,45 +20731,45 @@ msgstr ""
 "\"%1\" fitxategia handiegia da bidaltzeko. Txikiagotu horren tamaina, edo "
 "aldatu zure ezarpenak"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:648
 #, kde-format
 msgid "Send items by mail from digiKam"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:663
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:650
 #, fuzzy, kde-format
 #| msgid "Color model of the image"
 msgid "List of attached items"
 msgstr "Irudiaren kolore-eredua"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:710
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:697
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Error While to Send Items by mail"
 msgstr "Irudia kolore-espazio batera bihurtzeko tresna."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:711
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:698
 #, kde-format
 msgctxt "@info"
 msgid "Cannot send items using native Apple Mail application"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:727
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:714
 #, fuzzy, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr "Huts egin du \"%1\" programa abiaraztean. Egiaztatu sistema."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:739
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:726
 #, fuzzy, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "\"%1\" programa abiarazten..."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:743
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:730
 #, fuzzy, kde-format
 msgid "After having sent your images by email..."
 msgstr "Irudiak postaz bidali ondoren..."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:744
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:731
 #, kde-format
 msgid "Press 'Finish' button to clean up temporary files"
 msgstr ""
@@ -22397,7 +22397,7 @@ msgid "Delay:"
 msgstr "Atzerapena:"
 
 #: core/dplugins/generic/view/presentation/widgets/presentationctrlwidget.cpp:250
-#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:436
+#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:426
 #, fuzzy, kde-format
 #| msgid "Delete Tag"
 msgctxt "@title:window"
@@ -22405,7 +22405,7 @@ msgid "Delete Image"
 msgstr "Ezabatu irudia"
 
 #: core/dplugins/generic/view/presentation/widgets/presentationctrlwidget.cpp:251
-#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:437
+#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:427
 #, fuzzy, kde-format
 #| msgid "Do you want to merge tag '%1' into tag '%2'?"
 msgid "Do you want to move this image to the trash?"
@@ -22876,7 +22876,6 @@ msgstr "Esportatu Box-era"
 #: core/dplugins/generic/webservices/onedrive/odwindow.cpp:77
 #: core/dplugins/generic/webservices/pinterest/pwindow.cpp:77
 #: core/dplugins/generic/webservices/piwigo/piwigowindow.cpp:266
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:45
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:119
 #: core/dplugins/generic/webservices/twitter/twitterwindow.cpp:77
 #, fuzzy, kde-format
@@ -23885,7 +23884,6 @@ msgstr "POST metodoa derrigorrezkoa da orain ezartzaile guztientzako"
 
 #: core/dplugins/generic/webservices/flickr/flickrtalker.cpp:801
 #: core/dplugins/generic/webservices/google/gphoto/gptalker.cpp:586
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:228
 #, fuzzy, kde-format
 msgid "Unknown error"
 msgstr "Errore ezezaguna"
@@ -26540,163 +26538,6 @@ msgstr ""
 "\n"
 "Jarraitu nahi duzu?"
 
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:40
-#, kde-format
-msgctxt "@option"
-msgid "Visibility"
-msgstr "Ikusgaitasuna"
-
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:41
-#, kde-format
-msgctxt "@info"
-msgid "Set the visibility of the album"
-msgstr "Ezarri albumaren ikusgaitasuna"
-
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:43
-#, kde-format
-msgctxt "@label: properties"
-msgid "Public"
-msgstr "Publikoa"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:48
-#, kde-format
-msgctxt "@title"
-msgid "Rajce"
-msgstr "Rajce"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:63
-#, kde-format
-msgctxt "@info"
-msgid "A tool to export to Rajce web-service"
-msgstr "Rajce web-zerbitzura esportatzeko tresna bat"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:68
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This tool allows users to export items to Rajce web-service.\n"
-#| "\n"
-#| "See Rajce web site for details: %1"
-msgctxt "@info"
-msgid ""
-"This tool allows users to export items to Rajce web-service.<br><br>See "
-"Rajce web site for details: %1"
-msgstr ""
-"Trena honek erabiltzaileei elementuak Rajce web-zerbitzura esportatzeko "
-"aukera ematen die.\n"
-"\n"
-"Ikusi Rajce-ren webgunea xehetasunetarako: %1"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:96
-#, kde-format
-msgctxt "@action"
-msgid "Export to &Rajce..."
-msgstr "Esportatu &Rajce-ra..."
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:162
-#, kde-format
-msgid "Not logged in"
-msgstr "Saioa hasteke"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:229
-#, kde-format
-msgid "Invalid command"
-msgstr "Komando baliogabea"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:230
-#, kde-format
-msgid "Invalid login name or password"
-msgstr "Saio-hasteko izena edo pasahitza baliogabea"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:231
-#, kde-format
-msgid "Session expired"
-msgstr "Saioa iraungi da"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:233
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:234
-#, kde-format
-msgid "Unknown album"
-msgstr "Album ezezaguna"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:235
-#, kde-format
-msgid "Failed to open album"
-msgstr "Albuma irekitzea huts egin du"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:236
-#, kde-format
-msgid "The album name cannot be empty"
-msgstr "Albumaren izena ezin da hutsik egon"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:237
-#, kde-format
-msgid "Failed to create album"
-msgstr "Albuma sortzea huts egin du"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:238
-#, kde-format
-msgid "Album does not exist"
-msgstr "Albuma ez da existitzen"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:241
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:243
-#, kde-format
-msgid "File upload failed"
-msgstr "Fitxategi zama-igotzea huts egin du"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:244
-#, kde-format
-msgid "Unsupported file extension"
-msgstr "Onartu gabeko fitxategi-luzapena"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:300
-#, kde-format
-msgid "Logging in %v%"
-msgstr "%v%-(e)n saio-hasten"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:301
-#, kde-format
-msgid "Logging out %v%"
-msgstr "%v%-(e)n saio-ixten"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:302
-#, kde-format
-msgid "Loading albums %v%"
-msgstr "%v% albumak zamatzen"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:303
-#, kde-format
-msgid "Creating album %v%"
-msgstr "%v% albuma sortzen"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:304
-#, kde-format
-msgid "Opening album %v%"
-msgstr "%v% albuma irekitzen"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:305
-#, kde-format
-msgid "Closing album %v%"
-msgstr "%v% albuma ixten"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:306
-#, kde-format
-msgid "Adding photos %v%"
-msgstr "%v% argazkiak gehitzen"
-
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:43
-#, kde-format
-msgctxt "@title:window"
-msgid "Export to Rajce.net"
-msgstr "Esportatu Rajce.net gunera"
-
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:46
-#, kde-format
-msgctxt "@info:tooltip, button"
-msgid "Start upload to Rajce.net"
-msgstr "Hasi Rajce.net-era zama-igotzen"
-
 #: core/dplugins/generic/webservices/smugmug/smugnewalbumdlg.cpp:71
 #, kde-format
 msgid "SmugMug New Album"
@@ -27697,32 +27538,32 @@ msgstr "Eskaneatu albumak"
 msgid "Searches"
 msgstr "Bilaketak"
 
-#: core/libs/album/manager/albummanager_database.cpp:111
+#: core/libs/album/manager/albummanager_database.cpp:107
 #, fuzzy, kde-format
 #| msgid "The core database name is empty"
 msgid "The MariaDB database directory was not found."
 msgstr "Muineko datu-basearen izena hutsik dago"
 
-#: core/libs/album/manager/albummanager_database.cpp:128
+#: core/libs/album/manager/albummanager_database.cpp:124
 #, fuzzy, kde-format
 #| msgid "The core database name is empty"
 msgid "The MariaDB binary tools was not found."
 msgstr "Muineko datu-basearen izena hutsik dago"
 
-#: core/libs/album/manager/albummanager_database.cpp:135
+#: core/libs/album/manager/albummanager_database.cpp:131
 #, fuzzy, kde-format
 #| msgid "The core database name is empty"
 msgid "The SQLite core database was not found."
 msgstr "Muineko datu-basearen izena hutsik dago"
 
-#: core/libs/album/manager/albummanager_database.cpp:144
+#: core/libs/album/manager/albummanager_database.cpp:140
 #, kde-format
 msgid ""
 "<p>If you want to start with a new configuration and with a first run "
 "wizard, delete the file:<br>%1</p>"
 msgstr ""
 
-#: core/libs/album/manager/albummanager_database.cpp:157
+#: core/libs/album/manager/albummanager_database.cpp:153
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p><b>An error occurred during the internal server start.</b></"
@@ -27735,20 +27576,20 @@ msgstr ""
 "p>Xehetasunak:\n"
 " %1"
 
-#: core/libs/album/manager/albummanager_database.cpp:173
+#: core/libs/album/manager/albummanager_database.cpp:169
 #, fuzzy, kde-format
 #| msgid "Failed to add tag to database"
 msgid "Failed to open the database."
 msgstr "Huts egin du etiketa datu-baseari gehitzean"
 
-#: core/libs/album/manager/albummanager_database.cpp:180
+#: core/libs/album/manager/albummanager_database.cpp:176
 #, kde-format
 msgid ""
 "<p>digiKam will attempt to start now, but it will <b>not</b> be functional.</"
 "p>"
 msgstr ""
 
-#: core/libs/album/manager/albummanager_database.cpp:215
+#: core/libs/album/manager/albummanager_database.cpp:211
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>Failed to open the database. </p><p>You cannot use digiKam without a "
@@ -27766,7 +27607,7 @@ msgstr ""
 "baina baliteke <b>ez</b> funtzionatzea. Egiaztatu datu-basearen ezarpenak "
 "<b>konfigurazioaren menuan</b>.</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:224
+#: core/libs/album/manager/albummanager_database.cpp:220
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>Failed to open the database. Error message from database:</p><p><b>%1</"
@@ -27785,12 +27626,12 @@ msgstr ""
 "funtzionatzea. Egiaztatu datu-basearen ezarpenak <b>konfigurazioaren menuan</"
 "b>.</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:243
+#: core/libs/album/manager/albummanager_database.cpp:239
 #, fuzzy, kde-format
 msgid "Failed to initialize the database."
 msgstr "Huts egin du etiketa datu-baseari gehitzean"
 
-#: core/libs/album/manager/albummanager_database.cpp:266
+#: core/libs/album/manager/albummanager_database.cpp:262
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your locale has changed since this album was last opened.\n"
@@ -27822,7 +27663,7 @@ msgstr ""
 "Bestela, klik egin 'Ez' eta zuzendu zure eskualde-ezarpenak digiKam "
 "berrabiarazi aurretik."
 
-#: core/libs/album/manager/albummanager_database.cpp:310
+#: core/libs/album/manager/albummanager_database.cpp:306
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>The collection </p><p><b>%1</b><br/>(%2)</p><p> is currently not found "
@@ -27836,7 +27677,7 @@ msgstr ""
 "<p>Honako bilduma</p><p><b>%1</b><br/>(%2)</p><p>ez da sisteman aurkitu.<br/"
 ">Hautatu aukera egokiena egoera hau kudeatzeko:</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:329
+#: core/libs/album/manager/albummanager_database.cpp:325
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>The collection is still available, but the identifier changed.<br/"
@@ -27853,7 +27694,7 @@ msgstr ""
 "fitxategi-sistemaren ezarpenak aldatzean gertatzea.<br/>Bilduma honako "
 "kokalekuan dago orain:</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:348
+#: core/libs/album/manager/albummanager_database.cpp:344
 #, kde-format
 msgid ""
 "The collection is located on a storage device which is not always attached. "
@@ -27862,7 +27703,7 @@ msgstr ""
 "Bilduma biltegiratzeko gailu batean kokatu da, baina ez da beti konektatuta "
 "egoten. Markatu bilduma bilduma aldagarri gisa."
 
-#: core/libs/album/manager/albummanager_database.cpp:355
+#: core/libs/album/manager/albummanager_database.cpp:351
 #, kde-format
 msgid ""
 "Take no action now. I would like to solve the problem later using the setup "
@@ -27871,21 +27712,21 @@ msgstr ""
 "Ez hartu ekintzarik orain. Arazoa beranduago ebatziko dut konfigurazioaren "
 "elkarrizketa-koadroa erabiliz."
 
-#: core/libs/album/manager/albummanager_database.cpp:369
+#: core/libs/album/manager/albummanager_database.cpp:365
 #, fuzzy, kde-format
 #| msgid "Collection not found"
 msgctxt "@title:window"
 msgid "Collection not Found"
 msgstr "Ez da bilduma aurkitu"
 
-#: core/libs/album/manager/albummanager_database.cpp:475
+#: core/libs/album/manager/albummanager_database.cpp:471
 #, fuzzy, kde-format
 #| msgid "Database Folder"
 msgctxt "@title:window"
 msgid "Database Folder"
 msgstr "Datu-basearen karpeta"
 
-#: core/libs/album/manager/albummanager_database.cpp:476
+#: core/libs/album/manager/albummanager_database.cpp:472
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the place to store the database. A "
@@ -27901,36 +27742,36 @@ msgstr ""
 "berretsiz) edo fitxategi zaharrari ezikusi eginez datu-base berri batekin "
 "hastea?</p> "
 
-#: core/libs/album/manager/albummanager_database.cpp:486
-#: core/libs/album/manager/albummanager_database.cpp:553
-#: core/libs/album/manager/albummanager_database.cpp:575
+#: core/libs/album/manager/albummanager_database.cpp:482
+#: core/libs/album/manager/albummanager_database.cpp:549
+#: core/libs/album/manager/albummanager_database.cpp:571
 #, fuzzy, kde-format
 #| msgid "Upgrade Database"
 msgctxt "@action:button"
 msgid "Upgrade Database"
 msgstr "Eguneratu datu-basea"
 
-#: core/libs/album/manager/albummanager_database.cpp:488
-#: core/libs/album/manager/albummanager_database.cpp:555
-#: core/libs/album/manager/albummanager_database.cpp:577
-#: core/libs/album/manager/albummanager_database.cpp:625
+#: core/libs/album/manager/albummanager_database.cpp:484
+#: core/libs/album/manager/albummanager_database.cpp:551
+#: core/libs/album/manager/albummanager_database.cpp:573
+#: core/libs/album/manager/albummanager_database.cpp:621
 #, fuzzy, kde-format
 #| msgid "Create New Database"
 msgctxt "@action:button"
 msgid "Create New Database"
 msgstr "Sortu datu-base berria"
 
-#: core/libs/album/manager/albummanager_database.cpp:544
-#: core/libs/album/manager/albummanager_database.cpp:567
-#: core/libs/album/manager/albummanager_database.cpp:617
-#: core/libs/album/manager/albummanager_database.cpp:649
+#: core/libs/album/manager/albummanager_database.cpp:540
+#: core/libs/album/manager/albummanager_database.cpp:563
+#: core/libs/album/manager/albummanager_database.cpp:613
+#: core/libs/album/manager/albummanager_database.cpp:645
 #, fuzzy, kde-format
 #| msgid "New database folder"
 msgctxt "@title:window"
 msgid "New Database Folder"
 msgstr "Datu-basearen karpeta berria"
 
-#: core/libs/album/manager/albummanager_database.cpp:545
+#: core/libs/album/manager/albummanager_database.cpp:541
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -27945,16 +27786,16 @@ msgstr ""
 "eguneratzea (datu-base berri batekin hasteko) edo uneko datu-basea kokaleku "
 "horretan kopiatzea eta hura erabiltzea?</p> "
 
-#: core/libs/album/manager/albummanager_database.cpp:557
-#: core/libs/album/manager/albummanager_database.cpp:627
-#: core/libs/album/manager/albummanager_database.cpp:658
+#: core/libs/album/manager/albummanager_database.cpp:553
+#: core/libs/album/manager/albummanager_database.cpp:623
+#: core/libs/album/manager/albummanager_database.cpp:654
 #, fuzzy, kde-format
 #| msgid "Copy Current Database"
 msgctxt "@action:button"
 msgid "Copy Current Database"
 msgstr "Kopiatu uneko datu-basea"
 
-#: core/libs/album/manager/albummanager_database.cpp:568
+#: core/libs/album/manager/albummanager_database.cpp:564
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -27967,7 +27808,7 @@ msgstr ""
 "karpeta horretan.</p><p>Zer nahiago duzu, datu-base zaharreko fitxategia "
 "eguneratzea, edo datu-base berri batekin hastea?</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:603
+#: core/libs/album/manager/albummanager_database.cpp:599
 #, kde-format
 msgid ""
 "Failed to copy the old database file (\"%1\") to its new location (\"%2\"). "
@@ -27976,7 +27817,7 @@ msgstr ""
 "Huts egin du datu-base zaharreko fitxategia (\"%1\") bere kokaleku berrian "
 "(\"%2\") kopiatzean. Datu-base zaharrak eguneratzen saiatzen."
 
-#: core/libs/album/manager/albummanager_database.cpp:618
+#: core/libs/album/manager/albummanager_database.cpp:614
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database."
@@ -27987,7 +27828,7 @@ msgstr ""
 "p><p>Zer nahiago duzu, uneko datu-basea kokaleku horretan kopiatzea eta hori "
 "erabiltzea, edo datu-base berri batekin hastea?</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:650
+#: core/libs/album/manager/albummanager_database.cpp:646
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -28000,14 +27841,14 @@ msgstr ""
 "nahiago duzu, existitzen den fitxategia datu-base berria bezala erabiltzea, "
 "edo hura kendu eta uneko datu-basea kokaleku horretan kopiatzea?</p> "
 
-#: core/libs/album/manager/albummanager_database.cpp:660
+#: core/libs/album/manager/albummanager_database.cpp:656
 #, fuzzy, kde-format
 #| msgid "Use Existing File"
 msgctxt "@action:button"
 msgid "Use Existing File"
 msgstr "Erabil lehendik dagoen fitxategia"
 
-#: core/libs/album/manager/albummanager_database.cpp:715
+#: core/libs/album/manager/albummanager_database.cpp:711
 #, kde-format
 msgid ""
 "Failed to backup the existing database file (\"%1\"). Refusing to replace "
@@ -28017,7 +27858,7 @@ msgstr ""
 "egitean. Fitxategia ordeztea ukatu egin da babeskopiarik gabe, existitzen "
 "den fitxategia erabiltzen."
 
-#: core/libs/album/manager/albummanager_database.cpp:733
+#: core/libs/album/manager/albummanager_database.cpp:729
 #, kde-format
 msgid ""
 "Failed to copy the old database file (\"%1\") to its new location (\"%2\"). "
@@ -28026,12 +27867,12 @@ msgstr ""
 "Huts egin du datu-base zaharreko fitxategia (\"%1\") bere kokaleku berrian "
 "(\"%2\") kopiatzean. Datu-base huts batekin hasten."
 
-#: core/libs/album/manager/albummanager_database.cpp:756
+#: core/libs/album/manager/albummanager_database.cpp:752
 #, kde-format
 msgid "<p><b>Please check the database settings in this dialog.</b></p>"
 msgstr ""
 
-#: core/libs/album/manager/albummanager_database.cpp:772
+#: core/libs/album/manager/albummanager_database.cpp:768
 #, fuzzy, kde-format
 #| msgid "New database folder"
 msgctxt "@action:button"
@@ -28248,7 +28089,7 @@ msgstr ""
 msgid "Context menu"
 msgstr "Testuinguruko menua"
 
-#: core/libs/album/treeview/abstractalbumtreeview.cpp:1108
+#: core/libs/album/treeview/abstractalbumtreeview.cpp:1079
 #: core/libs/database/utils/ifaces/dio.cpp:970
 #, fuzzy, kde-format
 #| msgid "Trash"
@@ -28284,7 +28125,7 @@ msgid "No Color"
 msgstr "Kolorerik ez"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:321
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:455
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:445
 #, fuzzy, kde-format
 #| msgid "Red"
 msgctxt "@info: color label name"
@@ -28292,7 +28133,7 @@ msgid "Red"
 msgstr "Gorria"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:327
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:461
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:451
 #, fuzzy, kde-format
 #| msgid "Orange"
 msgctxt "@info: color label name"
@@ -28300,7 +28141,7 @@ msgid "Orange"
 msgstr "Laranja"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:333
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:467
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:457
 #, fuzzy, kde-format
 #| msgid "Yellow"
 msgctxt "@info: color label name"
@@ -28308,7 +28149,7 @@ msgid "Yellow"
 msgstr "Horia"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:339
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:473
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:463
 #, fuzzy, kde-format
 #| msgid "Green"
 msgctxt "@info: color label name"
@@ -28316,7 +28157,7 @@ msgid "Green"
 msgstr "Berdea"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:345
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:479
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:469
 #, fuzzy, kde-format
 #| msgid "Blue"
 msgctxt "@info: color label name"
@@ -28324,7 +28165,7 @@ msgid "Blue"
 msgstr "Urdina"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:351
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:485
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:475
 #, fuzzy, kde-format
 #| msgid "Magenta"
 msgctxt "@info: color label name"
@@ -28332,7 +28173,7 @@ msgid "Magenta"
 msgstr "Magenta"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:357
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:491
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:481
 #, fuzzy, kde-format
 #| msgid "Gray"
 msgctxt "@info: color label name"
@@ -28340,7 +28181,7 @@ msgid "Gray"
 msgstr "Grisa"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:363
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:497
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:487
 #, fuzzy, kde-format
 #| msgid "Black"
 msgctxt "@info: color label name"
@@ -28348,7 +28189,7 @@ msgid "Black"
 msgstr "Beltza"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:369
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:503
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:493
 #, fuzzy, kde-format
 #| msgid "White"
 msgctxt "@info: color label name"
@@ -28363,7 +28204,7 @@ msgid "Picks: "
 msgstr "Aukeratuak:"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:398
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:269
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:259
 #, fuzzy, kde-format
 #| msgid "No Pick"
 msgctxt "@info: pick label name"
@@ -28371,21 +28212,21 @@ msgid "No Pick"
 msgstr "Aukeraturik ez"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:404
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:251
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:241
 #, kde-format
 msgctxt "@info: pick label name"
 msgid "Rejected"
 msgstr "Errefusatua"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:410
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:257
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:247
 #, kde-format
 msgctxt "@info: pick label name"
 msgid "Pending"
 msgstr "Zain"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:416
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:263
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:253
 #, kde-format
 msgctxt "@info: pick label name"
 msgid "Accepted"
@@ -29836,7 +29677,7 @@ msgstr "Aurrerapenaren informazioa"
 #: core/libs/onlineversion/onlineversiondlg.cpp:194
 #: core/libs/progressmanager/progressview.cpp:197
 #: core/libs/progressmanager/statusbarprogresswidget.cpp:98
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:84
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:89
 #, fuzzy, kde-format
 msgctxt "%p is the percent value, % is the percent sign"
 msgid "%p%"
@@ -32639,72 +32480,72 @@ msgctxt "@info"
 msgid "Set here the relief gain used to merge texture and image."
 msgstr "Ezarri erliebearen irabazia testura eta irudia batzean erabiltzeko."
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:387
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:367
 #, kde-format
 msgid "Rotate Right"
 msgstr "Biratu eskuinera"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:392
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:372
 #, fuzzy, kde-format
 #| msgid "Rotate 90 Degrees"
 msgid "Rotate 180 degrees"
 msgstr "Biratu 180 gradu"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:397
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:377
 #, kde-format
 msgid "Rotate Left"
 msgstr "Biratu ezkerrera"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:402
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:382
 #, kde-format
 msgid "Flip Horizontally"
 msgstr "Irauli horizontalki"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:407
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:387
 #, kde-format
 msgid "Flip Vertically"
 msgstr "Irauli bertikalki"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:412
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:392
 #, kde-format
 msgid "Crop"
 msgstr "Moztu"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:422
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:402
 #, fuzzy, kde-format
 msgid "Convert to 8 Bit"
 msgstr "Bihurtu 8 bitetara"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:427
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:407
 #, fuzzy, kde-format
 msgid "Convert to 16 Bit"
 msgstr "Bihurtu 16 bitetara"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:496
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:476
 #, fuzzy, kde-format
 msgctxt "Rotate image"
 msgid "Rotate"
 msgstr "Biratu"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:500
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:480
 #, fuzzy, kde-format
 msgctxt "Flip image"
 msgid "Flip"
 msgstr "Irauli"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:504
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:484
 #, fuzzy, kde-format
 msgctxt "Crop image"
 msgid "Crop"
 msgstr "Moztu"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:508
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:488
 #, fuzzy, kde-format
 msgctxt "Resize image"
 msgid "Resize"
 msgstr "Neurria aldatu"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:512
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:492
 #, fuzzy, kde-format
 msgctxt "Convert image bit depth"
 msgid "Convert Depth"
@@ -33853,86 +33694,86 @@ msgstr ""
 msgid "(exact match found)"
 msgstr ""
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:126
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:115
 #, kde-format
 msgctxt "@title"
 msgid "Lens Auto-Correction Tool"
 msgstr "Objektiboaren zuzenketa automatikoa"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:485
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:435
 #, fuzzy, kde-format
 msgctxt "@info; XMP settings"
 msgid "Camera: %1-%2"
 msgstr "Kamera"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:487
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:437
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Lens: %1"
 msgstr "Objektiboa: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:489
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:439
 #, fuzzy, kde-format
 msgctxt "@info; XMP settings"
 msgid "Subject Distance: <numid>%1</numid>"
 msgstr "Gaiaren distantzia:"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:491
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:441
 #, fuzzy, kde-format
 msgctxt "@info; XMP settings"
 msgid "Aperture: <numid>%1</numid>"
 msgstr "Irekidura: "
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:493
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:443
 #, fuzzy, kde-format
 msgctxt "@info; XMP settings"
 msgid "Focal Length: <numid>%1</numid>"
 msgstr "Fokuaren luzera:"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:495
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:445
 #, fuzzy, kde-format
 #| msgid "Contrast:"
 msgctxt "@info; XMP settings"
 msgid "Crop Factor: <numid>%1</numid>"
 msgstr "Kontrastea:"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:497
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:500
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:503
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:506
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:447
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:450
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:453
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:456
 #, fuzzy, kde-format
 msgctxt "@info: correction status"
 msgid "enabled"
 msgstr "Gaituta"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:497
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:447
 #, fuzzy, kde-format
 msgctxt "@info; XMP settings"
 msgid "CCA Correction: %1"
 msgstr "DKG zuzenketa"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:498
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:501
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:504
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:507
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:448
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:451
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:454
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:457
 #, fuzzy, kde-format
 msgctxt "@info: correction status"
 msgid "disabled"
 msgstr "ezgaituta"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:500
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:450
 #, fuzzy, kde-format
 msgctxt "@info; XMP settings"
 msgid "VIG Correction: %1"
 msgstr "DKG zuzenketa"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:503
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:453
 #, fuzzy, kde-format
 msgctxt "@info; XMP settings"
 msgid "DST Correction: %1"
 msgstr "ÑSA zuzenketa"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:506
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:456
 #, fuzzy, kde-format
 msgctxt "@info; XMP settings"
 msgid "GEO Correction: %1"
@@ -34051,73 +33892,73 @@ msgstr ""
 "aurrebista ikus dezakezu. Edozer ezarpen aldatzean, berriro kalkulatzen da "
 "hau."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:272
+#: core/libs/dimg/filters/levels/histogrambox.cpp:263
 #, kde-format
 msgid "<p>Select the histogram channel to display:</p>"
 msgstr "<p>Hautatu histogramaren kanala bistaratzeko:</p>"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:278
+#: core/libs/dimg/filters/levels/histogrambox.cpp:269
 #, kde-format
 msgctxt "The luminosity channel"
 msgid "Luminosity"
 msgstr "Argitasuna"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:279
+#: core/libs/dimg/filters/levels/histogrambox.cpp:270
 #, kde-format
 msgid "<b>Luminosity</b>: display the image's luminosity values."
 msgstr "<b>Argitasuna</b>: bistaratu irudiaren argitasunaren balioak."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:281
+#: core/libs/dimg/filters/levels/histogrambox.cpp:272
 #, kde-format
 msgctxt "The red channel"
 msgid "Red"
 msgstr "Gorria"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:282
+#: core/libs/dimg/filters/levels/histogrambox.cpp:273
 #, kde-format
 msgid "<b>Red</b>: display the red image-channel values."
 msgstr "<b>Gorria</b>: bistaratu irudiaren gorria kanalaren balioak."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:284
+#: core/libs/dimg/filters/levels/histogrambox.cpp:275
 #, kde-format
 msgctxt "The green channel"
 msgid "Green"
 msgstr "Berdea"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:285
+#: core/libs/dimg/filters/levels/histogrambox.cpp:276
 #, kde-format
 msgid "<b>Green</b>: display the green image-channel values."
 msgstr "<b>Berdea</b>: bistaratu irudiaren berdea kanalaren balioak."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:287
+#: core/libs/dimg/filters/levels/histogrambox.cpp:278
 #, kde-format
 msgctxt "The blue channel"
 msgid "Blue"
 msgstr "Urdina"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:288
+#: core/libs/dimg/filters/levels/histogrambox.cpp:279
 #, kde-format
 msgid "<b>Blue</b>: display the blue image-channel values."
 msgstr "<b>Urdina</b>: bistaratu irudiaren urdina kanalaren balioak."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:290
+#: core/libs/dimg/filters/levels/histogrambox.cpp:281
 #, kde-format
 msgctxt "The colors channel"
 msgid "Colors"
 msgstr "Koloreak"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:291
+#: core/libs/dimg/filters/levels/histogrambox.cpp:282
 #, kde-format
 msgid "<b>Colors</b>: Display all color channel values at the same time."
 msgstr "<b>Koloreak</b>: bistaratu koloreen kanalen balio guztiak aldi berean."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:293
+#: core/libs/dimg/filters/levels/histogrambox.cpp:284
 #, kde-format
 msgctxt "The alpha channel"
 msgid "Alpha"
 msgstr "Alfa"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:294
+#: core/libs/dimg/filters/levels/histogrambox.cpp:285
 #, kde-format
 msgid ""
 "<b>Alpha</b>: display the alpha image-channel values. This channel "
@@ -36623,47 +36464,47 @@ msgstr ""
 "Hautatu albumen edukia iragazteko erabilitako balorazio balioa. Erabili "
 "testuinguru-menu gainerakorra balorazio iragazkiaren baldintzak ezartzeko."
 
-#: core/libs/filters/ratingfilter.cpp:180
+#: core/libs/filters/ratingfilter.cpp:162
 #, kde-format
 msgid "Rating greater than or equal to %1."
 msgstr "Balorazioa %1 baino handiagoa edo berdina."
 
-#: core/libs/filters/ratingfilter.cpp:186
+#: core/libs/filters/ratingfilter.cpp:168
 #, kde-format
 msgid "Rating equal to %1."
 msgstr "Balorazioa %1(r)en berdina."
 
-#: core/libs/filters/ratingfilter.cpp:192
+#: core/libs/filters/ratingfilter.cpp:174
 #, kde-format
 msgid "Rating less than or equal to %1."
 msgstr "Balorazioa %1 baino gutxiago edo berdina."
 
-#: core/libs/filters/ratingfilter.cpp:232
+#: core/libs/filters/ratingfilter.cpp:214
 #, kde-format
 msgid "Items Without Rating"
 msgstr "Baloraziorik gabeko elementuak"
 
-#: core/libs/filters/ratingfilter.cpp:236
+#: core/libs/filters/ratingfilter.cpp:218
 #, kde-format
 msgid "Rating Filter Options"
 msgstr "Balorazio iragazkiaren aukerak"
 
-#: core/libs/filters/ratingfilter.cpp:241
+#: core/libs/filters/ratingfilter.cpp:223
 #, kde-format
 msgid "Greater Than or Equals Condition"
 msgstr "Baldintzaren berdina edo handiagoa"
 
-#: core/libs/filters/ratingfilter.cpp:243
+#: core/libs/filters/ratingfilter.cpp:225
 #, kde-format
 msgid "Equals Condition"
 msgstr "Baldintzaren berdina"
 
-#: core/libs/filters/ratingfilter.cpp:245
+#: core/libs/filters/ratingfilter.cpp:227
 #, kde-format
 msgid "Less Than or Equals Condition"
 msgstr "Baldintzaren berdina edo gutxiago"
 
-#: core/libs/filters/ratingfilter.cpp:248
+#: core/libs/filters/ratingfilter.cpp:230
 #, kde-format
 msgid "Exclude Items Without Rating"
 msgstr "Kanporatu baloraziorik gabeko elementuak"
@@ -44189,87 +44030,43 @@ msgstr ""
 "Elementua erakusteko errore bat gertatu da\n"
 "%1"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:197
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:211
+#: core/libs/video/player/mediaplayerview.cpp:211
 #, kde-format
 msgid "An error has occurred with the media player..."
 msgstr "Errore bat gertatu da euskarri jotzailearekin..."
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:198
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:212
+#: core/libs/video/player/mediaplayerview.cpp:212
 #, fuzzy, kde-format
 #| msgctxt "@info: media loading"
 #| msgid "No media"
 msgid "End of media."
 msgstr "Euskarririk ez"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:210
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:305
+#: core/libs/video/player/mediaplayerview.cpp:305
 #, kde-format
 msgctxt "go to previous image"
 msgid "Back"
 msgstr "Atzera"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:213
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:308
+#: core/libs/video/player/mediaplayerview.cpp:308
 #, kde-format
 msgctxt "go to next image"
 msgid "Forward"
 msgstr "Aurrera"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:216
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:314
-#, kde-format
-msgctxt "pause/play video"
-msgid "Pause/Play"
-msgstr "Etenaldia/Jo"
-
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:219
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:320
-#, kde-format
-msgctxt "capture video frame"
-msgid "Capture"
-msgstr "Atzeman"
-
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:222
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:323
-#, fuzzy, kde-format
-#| msgid "Rotate Left"
-msgctxt "rotate video in counterclockwize"
-msgid "Rotate Left"
-msgstr "Biratu ezkerrera"
-
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:225
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:326
-#, fuzzy, kde-format
-#| msgid "Rotate Right"
-msgctxt "rotate video in clockwize"
-msgid "Rotate Right"
-msgstr "Biratu eskuinera"
-
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:260
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:424
-#, kde-format
-msgid "Toggle playing in a loop"
-msgstr "Txandakatu begiztan jotzea"
-
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:910
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:741
-#, fuzzy, kde-format
-#| msgid "Error: %1"
-msgid ""
-"%1\n"
-"\n"
-"Error: \"%2\""
-msgstr "Errorea: %1"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:311
+#: core/libs/video/player/mediaplayerview.cpp:311
 #, kde-format
 msgctxt "video frame backward"
 msgid "Frame Backward"
 msgstr ""
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:317
+#: core/libs/video/player/mediaplayerview.cpp:314
+#, kde-format
+msgctxt "pause/play video"
+msgid "Pause/Play"
+msgstr "Etenaldia/Jo"
+
+#: core/libs/video/player/mediaplayerview.cpp:317
 #, fuzzy, kde-format
 #| msgctxt "@action: setup"
 #| msgid "Forward"
@@ -44277,65 +44074,99 @@ msgctxt "video frame forward"
 msgid "Frame Forward"
 msgstr "Aurrera"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:330
+#: core/libs/video/player/mediaplayerview.cpp:320
+#, kde-format
+msgctxt "capture video frame"
+msgid "Capture"
+msgstr "Atzeman"
+
+#: core/libs/video/player/mediaplayerview.cpp:323
+#, fuzzy, kde-format
+#| msgid "Rotate Left"
+msgctxt "rotate video in counterclockwize"
+msgid "Rotate Left"
+msgstr "Biratu ezkerrera"
+
+#: core/libs/video/player/mediaplayerview.cpp:326
+#, fuzzy, kde-format
+#| msgid "Rotate Right"
+msgctxt "rotate video in clockwize"
+msgid "Rotate Right"
+msgstr "Biratu eskuinera"
+
+#: core/libs/video/player/mediaplayerview.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "Change video playback rate"
 msgstr ""
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:335
+#: core/libs/video/player/mediaplayerview.cpp:335
 #, fuzzy, kde-format
 #| msgid "Date:"
 msgid "Rate"
 msgstr "Emaria:"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:339
+#: core/libs/video/player/mediaplayerview.cpp:339
 #, fuzzy, kde-format
 msgctxt "video play rate"
 msgid "0.5x"
 msgstr "x"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:342
+#: core/libs/video/player/mediaplayerview.cpp:342
 #, fuzzy, kde-format
 msgctxt "video play rate"
 msgid "1.0x"
 msgstr "x"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:345
+#: core/libs/video/player/mediaplayerview.cpp:345
 #, fuzzy, kde-format
 msgctxt "video play rate"
 msgid "1.5x"
 msgstr "x"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:348
+#: core/libs/video/player/mediaplayerview.cpp:348
 #, fuzzy, kde-format
 msgctxt "video play rate"
 msgid "2.0x"
 msgstr "x"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:351
+#: core/libs/video/player/mediaplayerview.cpp:351
 #, fuzzy, kde-format
 msgctxt "video play rate"
 msgid "2.5x"
 msgstr "x"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:354
+#: core/libs/video/player/mediaplayerview.cpp:354
 #, fuzzy, kde-format
 msgctxt "video play rate"
 msgid "3.0x"
 msgstr "x"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:357
+#: core/libs/video/player/mediaplayerview.cpp:357
 #, fuzzy, kde-format
 msgctxt "video play rate"
 msgid "4.0x"
 msgstr "x"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:360
+#: core/libs/video/player/mediaplayerview.cpp:360
 #, fuzzy, kde-format
 msgctxt "video play rate"
 msgid "5.0x"
 msgstr "x"
+
+#: core/libs/video/player/mediaplayerview.cpp:424
+#, kde-format
+msgid "Toggle playing in a loop"
+msgstr "Txandakatu begiztan jotzea"
+
+#: core/libs/video/player/mediaplayerview.cpp:741
+#, fuzzy, kde-format
+#| msgid "Error: %1"
+msgid ""
+"%1\n"
+"\n"
+"Error: \"%2\""
+msgstr "Errorea: %1"
 
 #: core/libs/widgets/combo/dcombobox.cpp:60
 #: core/libs/widgets/range/dnuminput.cpp:67
@@ -44625,20 +44456,20 @@ msgstr ""
 "Testu lagin honek uneko ezarpenak irudiz azaltzen ditu. Karaktere bereziak "
 "probatzeko editatu dezakezu."
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:720
-#: core/libs/widgets/fonts/dfontproperties.cpp:771
+#: core/libs/widgets/fonts/dfontproperties.cpp:712
+#: core/libs/widgets/fonts/dfontproperties.cpp:752
 #, kde-format
 msgctxt "@info: font style"
 msgid "Normal"
 msgstr "Arrunta"
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:779
+#: core/libs/widgets/fonts/dfontproperties.cpp:760
 #, kde-format
 msgctxt "@info: font style"
 msgid "Italic"
 msgstr "Etzana"
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:780
+#: core/libs/widgets/fonts/dfontproperties.cpp:761
 #, kde-format
 msgctxt "@info: font style"
 msgid "Oblique"
@@ -45683,7 +45514,7 @@ msgstr "Ezkutatu egoer&a-barra"
 msgid "Hide statusbar when window switch in full-screen mode."
 msgstr "Ezkutatu egoera-barra leihoa pantaila osoko modura aldatzean."
 
-#: core/libs/widgets/mainview/thememanager_p.cpp:1323
+#: core/libs/widgets/mainview/thememanager_p.cpp:1319
 #, kde-format
 msgctxt "default theme name"
 msgid "Default"
@@ -46732,7 +46563,7 @@ msgstr "XMP fitxategia gordetzeko"
 msgid "XMP text Files (*.xmp)"
 msgstr "XMP testu-fitxategiak (*.xmp)"
 
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:509
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:499
 #, kde-format
 msgctxt "@info: color label name"
 msgid "None"
@@ -66085,42 +65916,44 @@ msgstr "Uneko bilaketa"
 #: core/utilities/searchwindow/view/searchtabheader.cpp:64
 #, kde-format
 msgid ""
-"Interpret the text above as a natural-language search and build the query"
+"Interpret the text above as a natural-language search and build the query. "
+"If the language model has not been downloaded yet, the Advanced Search "
+"dialog will open so you can download it."
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:70
+#: core/utilities/searchwindow/view/searchtabheader.cpp:72
 #: core/utilities/searchwindow/view/searchwindow.cpp:70
 #, fuzzy, kde-format
 msgid "Cancel the current interpretation"
 msgstr "Utzi uneko eragiketa"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:95
+#: core/utilities/searchwindow/view/searchtabheader.cpp:97
 #, fuzzy, kde-format
 #| msgid "Advanced Search"
 msgid "Open Advanced Search"
 msgstr "Bilaketa aurreratua"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:96
+#: core/utilities/searchwindow/view/searchtabheader.cpp:98
 #, kde-format
 msgid "Run Now"
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:140
+#: core/utilities/searchwindow/view/searchtabheader.cpp:142
 #, kde-format
 msgid "Save Current Search"
 msgstr "Gorde uneko bilaketa"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:144
+#: core/utilities/searchwindow/view/searchtabheader.cpp:146
 #, kde-format
 msgid "Enter a name for the current search to save it in the \"Searches\" view"
 msgstr "Sartu uneko bilaketaren izena \"Bilaketak\" ikuspegian gordetzeko"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:149
+#: core/utilities/searchwindow/view/searchtabheader.cpp:151
 #, kde-format
 msgid "Save current search to a new virtual Album"
 msgstr "Gorde uneko bilaketa album birtual berrian"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:150
+#: core/utilities/searchwindow/view/searchtabheader.cpp:152
 #, kde-format
 msgid ""
 "If you press this button, the current search will be saved to a new virtual "
@@ -66129,18 +65962,18 @@ msgstr ""
 "Botoi honetan klik egitean, uneko bilaketa Bilaketako album birtual berrian "
 "gordeko da ezkerraldean ezarritako izena erabiliz."
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:165
-#: core/utilities/searchwindow/view/searchtabheader.cpp:192
+#: core/utilities/searchwindow/view/searchtabheader.cpp:167
+#: core/utilities/searchwindow/view/searchtabheader.cpp:194
 #, kde-format
 msgid "Edit Stored Search"
 msgstr "Editatu gordetako bilaketa"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:207
+#: core/utilities/searchwindow/view/searchtabheader.cpp:209
 #, kde-format
 msgid "Edit..."
 msgstr "Editatu..."
 
-#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:89
+#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:105
 #, fuzzy, kde-format
 #| msgid "Imported %1"
 msgid ""
@@ -66148,7 +65981,7 @@ msgid ""
 "%1"
 msgstr "%1 inportatu da"
 
-#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:123
+#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:139
 #: core/utilities/searchwindow/view/searchwindow_slots.cpp:180
 #, fuzzy, kde-format
 #| msgid "Process Cancelled..."
@@ -67933,30 +67766,30 @@ msgstr "Erabili estetika antzemateko funtzioa"
 msgid "Use AutoTags Assignment feature"
 msgstr "Erabili Etiketa automatikoak esleitzea funtzioa"
 
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:81
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:84
 #, fuzzy, kde-format
 #| msgid "Use Face Detection feature"
 msgid "Use Natural Language Search feature"
 msgstr "Erabili aurpegia atzemateko funtzioa"
 
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:290
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:311
 #, kde-format
 msgid "Clean up unused AI/DNN model files..."
 msgstr ""
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:46
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:52
 #, fuzzy, kde-format
 #| msgid "All files were downloaded successfully."
 msgid "All model files were downloaded successfully."
 msgstr "Fitxategi guztiak ondo zama-jaitsi dira."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:55
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:61
 #, kde-format
 msgctxt "@title:window"
 msgid "Download Error"
 msgstr "Zama-jaisteko errorea"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:56
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:62
 #, kde-format
 msgid ""
 "An error occurred during the download.\n"
@@ -67975,33 +67808,33 @@ msgstr ""
 "\n"
 "Berriz saiatu edo hurrengo abioan zama-jaisten jarrai dezakezu."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:64
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:70
 #, kde-format
 msgctxt "@action:button"
 msgid "Try Again"
 msgstr "Berriz saiatu"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:136
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:142
 #, kde-format
 msgid "Checksum is incorrect."
 msgstr "Egiaztapen-batura okerra da."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:160
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:166
 #, kde-format
 msgid "File write error."
 msgstr "Fitxategia idazteko errorea."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:167
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:173
 #, kde-format
 msgid "File open error."
 msgstr "Fitxategi irekitzeko errorea."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:182
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:188
 #, kde-format
 msgid "File on the server is too large."
 msgstr "Zerbitzariko fitxategia handiegia da."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:258
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:270
 #, kde-format
 msgid ""
 "<p>digiKam relies on large binary model files to power features like face "
@@ -68012,7 +67845,7 @@ msgid ""
 "model files.</p>"
 msgstr ""
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:264
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:276
 #, kde-format
 msgid ""
 "<p>Some required files are missing. Click “Download” to start installing the "
@@ -68022,13 +67855,13 @@ msgid ""
 "downloading the files.</b></p>"
 msgstr ""
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:271
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:283
 #, kde-format
 msgctxt "%1: file counter, %2: disk size with unit"
 msgid "The download requires %1 files with a size of %2."
 msgstr "Zama-jaitsierak %2 neurriko %1 fitxategi behar ditu."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:297
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:309
 #, kde-format
 msgid "All files for the selected features were found."
 msgstr ""
@@ -71248,6 +71081,108 @@ msgstr ""
 #| msgid "Flash mode"
 msgid "Play/Pause Video"
 msgstr "Flash-aren modua"
+
+#~ msgctxt "@option"
+#~ msgid "Visibility"
+#~ msgstr "Ikusgaitasuna"
+
+#~ msgctxt "@info"
+#~ msgid "Set the visibility of the album"
+#~ msgstr "Ezarri albumaren ikusgaitasuna"
+
+#~ msgctxt "@label: properties"
+#~ msgid "Public"
+#~ msgstr "Publikoa"
+
+#~ msgctxt "@title"
+#~ msgid "Rajce"
+#~ msgstr "Rajce"
+
+#~ msgctxt "@info"
+#~ msgid "A tool to export to Rajce web-service"
+#~ msgstr "Rajce web-zerbitzura esportatzeko tresna bat"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid ""
+#~| "This tool allows users to export items to Rajce web-service.\n"
+#~| "\n"
+#~| "See Rajce web site for details: %1"
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "This tool allows users to export items to Rajce web-service.<br><br>See "
+#~ "Rajce web site for details: %1"
+#~ msgstr ""
+#~ "Trena honek erabiltzaileei elementuak Rajce web-zerbitzura esportatzeko "
+#~ "aukera ematen die.\n"
+#~ "\n"
+#~ "Ikusi Rajce-ren webgunea xehetasunetarako: %1"
+
+#~ msgctxt "@action"
+#~ msgid "Export to &Rajce..."
+#~ msgstr "Esportatu &Rajce-ra..."
+
+#~ msgid "Not logged in"
+#~ msgstr "Saioa hasteke"
+
+#~ msgid "Invalid command"
+#~ msgstr "Komando baliogabea"
+
+#~ msgid "Invalid login name or password"
+#~ msgstr "Saio-hasteko izena edo pasahitza baliogabea"
+
+#~ msgid "Session expired"
+#~ msgstr "Saioa iraungi da"
+
+#~ msgid "Unknown album"
+#~ msgstr "Album ezezaguna"
+
+#~ msgid "Failed to open album"
+#~ msgstr "Albuma irekitzea huts egin du"
+
+#~ msgid "The album name cannot be empty"
+#~ msgstr "Albumaren izena ezin da hutsik egon"
+
+#~ msgid "Failed to create album"
+#~ msgstr "Albuma sortzea huts egin du"
+
+#~ msgid "Album does not exist"
+#~ msgstr "Albuma ez da existitzen"
+
+#~ msgid "File upload failed"
+#~ msgstr "Fitxategi zama-igotzea huts egin du"
+
+#~ msgid "Unsupported file extension"
+#~ msgstr "Onartu gabeko fitxategi-luzapena"
+
+#~ msgid "Logging in %v%"
+#~ msgstr "%v%-(e)n saio-hasten"
+
+#~ msgid "Logging out %v%"
+#~ msgstr "%v%-(e)n saio-ixten"
+
+#~ msgid "Loading albums %v%"
+#~ msgstr "%v% albumak zamatzen"
+
+#~ msgid "Creating album %v%"
+#~ msgstr "%v% albuma sortzen"
+
+#~ msgid "Opening album %v%"
+#~ msgstr "%v% albuma irekitzen"
+
+#~ msgid "Closing album %v%"
+#~ msgstr "%v% albuma ixten"
+
+#~ msgid "Adding photos %v%"
+#~ msgstr "%v% argazkiak gehitzen"
+
+#~ msgctxt "@title:window"
+#~ msgid "Export to Rajce.net"
+#~ msgstr "Esportatu Rajce.net gunera"
+
+#~ msgctxt "@info:tooltip, button"
+#~ msgid "Start upload to Rajce.net"
+#~ msgstr "Hasi Rajce.net-era zama-igotzen"
 
 #~ msgid "Roll"
 #~ msgstr "Jaurti"

@@ -51,7 +51,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 15:58+0000\n"
+"POT-Creation-Date: 2026-09-25 00:42+0000\n"
 "PO-Revision-Date: 2026-09-23 09:53+0300\n"
 "Last-Translator: Emir SARI <emir_sari@icloud.com>\n"
 "Language-Team: Turkish <kde-l10n-tr@kde.org>\n"
@@ -11556,7 +11556,7 @@ msgid "cm"
 msgstr "cm"
 
 #: core/dplugins/editor/transform/resize/resizetool.cpp:927
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:417
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:397
 #, kde-format
 msgid "Resize"
 msgstr "Yeniden Boyutlandır"
@@ -11776,7 +11776,7 @@ msgstr "Görsel Tara"
 msgid "Scan Images"
 msgstr "Görseller Tara"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:172
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:144
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:100
 #: core/utilities/imageeditor/editor/editorwindow.cpp:1845
 #, kde-format
@@ -11784,27 +11784,27 @@ msgctxt "@title:window"
 msgid "New Image File Name"
 msgstr "Yeni Görsel Dosyası Adı"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:220
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:192
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:148
 #, kde-format
 msgctxt "@title:window"
 msgid "Unsupported Format"
 msgstr "Desteklenmeyen Biçim"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:221
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:193
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:149
 #, kde-format
 msgid "The target image file format \"%1\" is unsupported."
 msgstr "“%1” hedef görsel biçimi desteklenmiyor."
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:233
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:205
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Cannot Save File"
 msgstr "Dosya Kaydedilemiyor"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:234
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:206
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:162
 #, kde-format
 msgid ""
@@ -11816,7 +11816,7 @@ msgstr ""
 "“%1”\n"
 "“%2” konumuna."
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:249
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:221
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:177
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2321
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2340
@@ -11825,7 +11825,7 @@ msgctxt "@title:window"
 msgid "Overwrite File?"
 msgstr "Dosyanın Üzerine Yaz?"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:250
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:222
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:178
 #, kde-format
 msgid ""
@@ -11834,18 +11834,18 @@ msgstr ""
 "“%1” adlı bir dosya hâlihazırda var. Üzerine yazmak istediğinizden emin "
 "misiniz?"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:301
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:258
 #, kde-format
 msgid "Saving file %1 -"
 msgstr "%1 dosyası kaydediliyor —"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:309
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:266
 #, kde-format
 msgctxt "@title:window"
 msgid "File Not Saved"
 msgstr "Dosya Kaydedilmedi"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:310
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:267
 #, kde-format
 msgid "Cannot save \"%1\" file"
 msgstr "“%1” dosyası kaydedilemiyor"
@@ -20599,47 +20599,47 @@ msgstr "Yeniden boyutlandırılmış görsel (JPEG) kaydedilemedi. İptal ediliy
 msgid "Cannot save resized image (PNG). Aborting."
 msgstr "Yeniden boyutlandırılmış görsel (PNG) kaydedilemedi. İptal ediliyor."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:111
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:107
 #, kde-format
 msgid "Cannot create a temporary directory"
 msgstr "Bir geçici dizin oluşturulamıyor"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:172
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:168
 #, kde-format
 msgid "Resizing %1"
 msgstr "Yeniden boyutlandırılıyor: %1"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:190
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:186
 #, kde-format
 msgid "%1 resized successfully"
 msgstr "%1, başarıyla yeniden boyutlandırıldı"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:204
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:200
 #, kde-format
 msgid "Failed to resize %1: %2"
 msgstr "%1 yeniden boyutlandırılamadı: %2"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:241
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:237
 #, kde-format
 msgid "There are no files to send"
 msgstr "Gönderilecek dosya yok"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:265
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:261
 #, kde-format
 msgid "Build images properties file"
 msgstr "Görsel özellikleri dosyası oluştur"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:281
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:277
 #, kde-format
 msgid "no caption"
 msgstr "alt yazı yok"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:286
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:282
 #, kde-format
 msgid "no keywords"
 msgstr "anahtar sözcük yok"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:285
 #, kde-format
 msgid ""
 "file \"%1\":\n"
@@ -20648,37 +20648,37 @@ msgstr ""
 "“%1” dosyası:\n"
 "Özgün görseller: %2\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:287
 #, kde-format
 msgid "Comments: %1\n"
 msgstr "Yorumlar: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:293
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
 #, kde-format
 msgid "Tags: %1\n"
 msgstr "Künyeler: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:295
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
 #, kde-format
 msgid "Rating: %1\n"
 msgstr "Derecelendirme: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:300
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:296
 #, kde-format
 msgid "properties.txt"
 msgstr "properties.txt"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:315
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:302
 #, kde-format
 msgid "Image properties file cannot be opened"
 msgstr "Görsel özellikleri dosyası açılamıyor"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:327
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:314
 #, kde-format
 msgid "Image properties file done"
 msgstr "Görsel özellikleri dosyası tamamlandır"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:347
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:334
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:982
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:995
 #, kde-format
@@ -20686,7 +20686,7 @@ msgctxt "@title:window"
 msgid "Processing Failed"
 msgstr "İşleme Başarısız"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:348
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:335
 #, kde-format
 msgid ""
 "Some images cannot be resized.\n"
@@ -20695,7 +20695,7 @@ msgstr ""
 "Bazı görseller yeniden boyutlandırılamıyor.\n"
 "Onları yeniden boyutlandırmadan eklemek ister misiniz?"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:421
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:408
 #, kde-format
 msgid ""
 "The file \"%1\" is too big to be sent, please reduce its size or change your "
@@ -20704,44 +20704,44 @@ msgstr ""
 "“%1” dosyası gönderilmek için çok büyük, lütfen boyutunu küçültün veya "
 "ayarlarınızı değiştirin"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:648
 #, kde-format
 msgid "Send items by mail from digiKam"
 msgstr "Ögeleri, digiKam’dan e-posta ile gönderin"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:663
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:650
 #, kde-format
 msgid "List of attached items"
 msgstr "İliştirilen ögelerin adları"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:710
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:697
 #, kde-format
 msgctxt "@title:window"
 msgid "Error While to Send Items by mail"
 msgstr "Ögeler Postalanırken Hata"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:711
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:698
 #, kde-format
 msgctxt "@info"
 msgid "Cannot send items using native Apple Mail application"
 msgstr "Ögeler, Apple Mail uygulaması kullanılarak gönderilemiyor"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:727
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:714
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr "“%1” programı başlatılamadı. Sisteminizi denetleyin."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:739
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:726
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "“%1” programı başlatılıyor…"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:743
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:730
 #, kde-format
 msgid "After having sent your images by email..."
 msgstr "Görselleriniz e-postayla gönderildikten sonra…"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:744
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:731
 #, kde-format
 msgid "Press 'Finish' button to clean up temporary files"
 msgstr "Geçici dosyaları temizlemek için “Bitir” düğmesine basın"
@@ -22339,14 +22339,14 @@ msgid "Delay:"
 msgstr "Gecikme:"
 
 #: core/dplugins/generic/view/presentation/widgets/presentationctrlwidget.cpp:250
-#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:436
+#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:426
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Image"
 msgstr "Görseli Sil"
 
 #: core/dplugins/generic/view/presentation/widgets/presentationctrlwidget.cpp:251
-#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:437
+#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:427
 #, kde-format
 msgid "Do you want to move this image to the trash?"
 msgstr "Bu görseli çöp kutusuna taşımak istiyor musunuz?"
@@ -22776,7 +22776,6 @@ msgstr "Box’a Dışa Aktar"
 #: core/dplugins/generic/webservices/onedrive/odwindow.cpp:77
 #: core/dplugins/generic/webservices/pinterest/pwindow.cpp:77
 #: core/dplugins/generic/webservices/piwigo/piwigowindow.cpp:266
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:45
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:119
 #: core/dplugins/generic/webservices/twitter/twitterwindow.cpp:77
 #, kde-format
@@ -23725,7 +23724,6 @@ msgstr "POST yöntemi, artık tüm ayarlayıcılar için zorunlu"
 
 #: core/dplugins/generic/webservices/flickr/flickrtalker.cpp:801
 #: core/dplugins/generic/webservices/google/gphoto/gptalker.cpp:586
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:228
 #, kde-format
 msgid "Unknown error"
 msgstr "Bilinmeyen hata"
@@ -26217,156 +26215,6 @@ msgstr ""
 "\n"
 "Sürdürmek istiyor musunuz?"
 
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:40
-#, kde-format
-msgctxt "@option"
-msgid "Visibility"
-msgstr "Görünürlük"
-
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:41
-#, kde-format
-msgctxt "@info"
-msgid "Set the visibility of the album"
-msgstr "Albümün görünürlüğünü ayarla"
-
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:43
-#, kde-format
-msgctxt "@label: properties"
-msgid "Public"
-msgstr "Genel"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:48
-#, kde-format
-msgctxt "@title"
-msgid "Rajce"
-msgstr "Rajce"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:63
-#, kde-format
-msgctxt "@info"
-msgid "A tool to export to Rajce web-service"
-msgstr "Rajce web hizmetine dışa aktarmak için bir araç"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:68
-#, kde-format
-msgctxt "@info"
-msgid ""
-"This tool allows users to export items to Rajce web-service.<br><br>See "
-"Rajce web site for details: %1"
-msgstr ""
-"Bu araç, kullanıcıların ögeleri Rajce web hizmetine dışa aktarmalarına "
-"olanak tanır.<br><br>Ayrıntılar için Rajce web sitesine bakın: %1"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:96
-#, kde-format
-msgctxt "@action"
-msgid "Export to &Rajce..."
-msgstr "&Rajce’ye Dışa Aktar…"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:162
-#, kde-format
-msgid "Not logged in"
-msgstr "Oturum açılmadı"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:229
-#, kde-format
-msgid "Invalid command"
-msgstr "Geçersiz komut"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:230
-#, kde-format
-msgid "Invalid login name or password"
-msgstr "Geçersiz kullanıcı adı veya parola"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:231
-#, kde-format
-msgid "Session expired"
-msgstr "Oturum süresi doldu"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:233
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:234
-#, kde-format
-msgid "Unknown album"
-msgstr "Bilinmeyen albüm"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:235
-#, kde-format
-msgid "Failed to open album"
-msgstr "Albüm açılamadı"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:236
-#, kde-format
-msgid "The album name cannot be empty"
-msgstr "Albüm adı boş bırakılamaz"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:237
-#, kde-format
-msgid "Failed to create album"
-msgstr "Albüm oluşturulamadı"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:238
-#, kde-format
-msgid "Album does not exist"
-msgstr "Albüm yok"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:241
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:243
-#, kde-format
-msgid "File upload failed"
-msgstr "Dosya karşıya yükleme başarısız"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:244
-#, kde-format
-msgid "Unsupported file extension"
-msgstr "Desteklenmeyen dosya uzantısı"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:300
-#, kde-format
-msgid "Logging in %v%"
-msgstr "Oturum açılıyor %​%v"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:301
-#, kde-format
-msgid "Logging out %v%"
-msgstr "Oturum kapatılıyor %​%v"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:302
-#, kde-format
-msgid "Loading albums %v%"
-msgstr "Albümler yükleniyor %​%v"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:303
-#, kde-format
-msgid "Creating album %v%"
-msgstr "Albüm oluşturuluyor %​%v"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:304
-#, kde-format
-msgid "Opening album %v%"
-msgstr "Albüm açılıyor %​%v"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:305
-#, kde-format
-msgid "Closing album %v%"
-msgstr "Albüm kapatılıyor %​%v"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:306
-#, kde-format
-msgid "Adding photos %v%"
-msgstr "Fotoğraflar ekleniyor %​%v"
-
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:43
-#, kde-format
-msgctxt "@title:window"
-msgid "Export to Rajce.net"
-msgstr "Rajce’ye Dışa Aktar"
-
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:46
-#, kde-format
-msgctxt "@info:tooltip, button"
-msgid "Start upload to Rajce.net"
-msgstr "Rajce.net’e yüklemeyi başlat"
-
 #: core/dplugins/generic/webservices/smugmug/smugnewalbumdlg.cpp:71
 #, kde-format
 msgid "SmugMug New Album"
@@ -27346,22 +27194,22 @@ msgstr "Albümler taranıyor"
 msgid "Searches"
 msgstr "Aramalar"
 
-#: core/libs/album/manager/albummanager_database.cpp:111
+#: core/libs/album/manager/albummanager_database.cpp:107
 #, kde-format
 msgid "The MariaDB database directory was not found."
 msgstr "MariaDB veri tabanı dizini bulunamadı."
 
-#: core/libs/album/manager/albummanager_database.cpp:128
+#: core/libs/album/manager/albummanager_database.cpp:124
 #, kde-format
 msgid "The MariaDB binary tools was not found."
 msgstr "MariaDB ikili araçları bulunamadı."
 
-#: core/libs/album/manager/albummanager_database.cpp:135
+#: core/libs/album/manager/albummanager_database.cpp:131
 #, kde-format
 msgid "The SQLite core database was not found."
 msgstr "SQLite çekirdek veri tabanı bulunamadı."
 
-#: core/libs/album/manager/albummanager_database.cpp:144
+#: core/libs/album/manager/albummanager_database.cpp:140
 #, kde-format
 msgid ""
 "<p>If you want to start with a new configuration and with a first run "
@@ -27370,18 +27218,18 @@ msgstr ""
 "<p>İlk kullanım sihirbazını çalıştırıp yeni bir yapılandırma başlatmak "
 "istiyorsanız şu dosyayı silin:<br>%1</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:157
+#: core/libs/album/manager/albummanager_database.cpp:153
 #, kde-format
 msgid ""
 "An error occurred during the internal server start.<p>Details:<br>%1</p>"
 msgstr "İçsel sunucu başlatılırken bir hata oluştu.<p>Ayrıntılar:<br>%1</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:173
+#: core/libs/album/manager/albummanager_database.cpp:169
 #, kde-format
 msgid "Failed to open the database."
 msgstr "Veri tabanı açılamadı."
 
-#: core/libs/album/manager/albummanager_database.cpp:180
+#: core/libs/album/manager/albummanager_database.cpp:176
 #, kde-format
 msgid ""
 "<p>digiKam will attempt to start now, but it will <b>not</b> be functional.</"
@@ -27390,7 +27238,7 @@ msgstr ""
 "<p>digiKam şimdi başlatılmaya çalışılacak; ancak işlevsel durumda "
 "<b>olmayacak</b>.</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:215
+#: core/libs/album/manager/albummanager_database.cpp:211
 #, kde-format
 msgid ""
 "<p>Failed to open the database.</p><p>You cannot use digiKam without a "
@@ -27403,7 +27251,7 @@ msgstr ""
 "durumda <b>olmayacak</b>. Lütfen <b>yapılandırma menüsünde</b> veri tabanı "
 "ayarlarını denetleyin.</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:224
+#: core/libs/album/manager/albummanager_database.cpp:220
 #, kde-format
 msgid ""
 "<p>Failed to open the database. Error message from database:</p><p><b>%1</"
@@ -27416,12 +27264,12 @@ msgstr ""
 "çalışılacak; ancak işlevsel durumda <b>olmayacak</b>. Lütfen <b>yapılandırma "
 "menüsünde</b> veri tabanı ayarlarını denetleyin.</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:243
+#: core/libs/album/manager/albummanager_database.cpp:239
 #, kde-format
 msgid "Failed to initialize the database."
 msgstr "Veri tabanı ilklendirilemedi."
 
-#: core/libs/album/manager/albummanager_database.cpp:266
+#: core/libs/album/manager/albummanager_database.cpp:262
 #, kde-format
 msgid ""
 "Your database character set has changed since this album was last opened.\n"
@@ -27444,7 +27292,7 @@ msgstr ""
 "“Evet”e tıklayın. Aksi takdirde, “Hayır”a tıklayın ve digiKam’i yeniden "
 "başlatmadan önce veri tabanı karakter kümesi ayarlarınızı düzeltin."
 
-#: core/libs/album/manager/albummanager_database.cpp:310
+#: core/libs/album/manager/albummanager_database.cpp:306
 #, kde-format
 msgid ""
 "<p>The collection </p><p><b>%1</b><br>(%2)</p><p> is currently not found on "
@@ -27455,7 +27303,7 @@ msgstr ""
 "bulunamadı.<br>Lütfen bu durumla başa çıkmak için en uygun seçeneği seçin:</"
 "p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:329
+#: core/libs/album/manager/albummanager_database.cpp:325
 #, kde-format
 msgid ""
 "<p>The collection is still available, but the identifier changed.<br>This "
@@ -27467,7 +27315,7 @@ msgstr ""
 "ayarlarının değiştirilmesinden kaynaklanabilir.<br>Koleksiyon şu anda şu "
 "konumda bulunuyor: </p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:348
+#: core/libs/album/manager/albummanager_database.cpp:344
 #, kde-format
 msgid ""
 "The collection is located on a storage device which is not always attached. "
@@ -27476,7 +27324,7 @@ msgstr ""
 "Koleksiyon, her zaman bağlı olmayan bir depolama aygıtında bulunuyor. "
 "Koleksiyonu kaldırılabilir koleksiyon olarak imleyin."
 
-#: core/libs/album/manager/albummanager_database.cpp:355
+#: core/libs/album/manager/albummanager_database.cpp:351
 #, kde-format
 msgid ""
 "Take no action now. I would like to solve the problem later using the setup "
@@ -27485,19 +27333,19 @@ msgstr ""
 "Şimdi hiçbir işlem yapmayın. Sorunu daha sonra kurulum iletişim kutusunu "
 "kullanarak çözmek istiyorum."
 
-#: core/libs/album/manager/albummanager_database.cpp:369
+#: core/libs/album/manager/albummanager_database.cpp:365
 #, kde-format
 msgctxt "@title:window"
 msgid "Collection not Found"
 msgstr "Koleksiyon Bulunamadı"
 
-#: core/libs/album/manager/albummanager_database.cpp:475
+#: core/libs/album/manager/albummanager_database.cpp:471
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Folder"
 msgstr "Veri Tabanı Klasörü"
 
-#: core/libs/album/manager/albummanager_database.cpp:476
+#: core/libs/album/manager/albummanager_database.cpp:472
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the place to store the database. A "
@@ -27513,33 +27361,33 @@ msgstr ""
 "onaylayın— yoksa eski dosyayı yok sayıp yeni bir veri tabanıyla mı "
 "başlarsınız?</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:486
-#: core/libs/album/manager/albummanager_database.cpp:553
-#: core/libs/album/manager/albummanager_database.cpp:575
+#: core/libs/album/manager/albummanager_database.cpp:482
+#: core/libs/album/manager/albummanager_database.cpp:549
+#: core/libs/album/manager/albummanager_database.cpp:571
 #, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Database"
 msgstr "Veri Tabanını Yükselt"
 
-#: core/libs/album/manager/albummanager_database.cpp:488
-#: core/libs/album/manager/albummanager_database.cpp:555
-#: core/libs/album/manager/albummanager_database.cpp:577
-#: core/libs/album/manager/albummanager_database.cpp:625
+#: core/libs/album/manager/albummanager_database.cpp:484
+#: core/libs/album/manager/albummanager_database.cpp:551
+#: core/libs/album/manager/albummanager_database.cpp:573
+#: core/libs/album/manager/albummanager_database.cpp:621
 #, kde-format
 msgctxt "@action:button"
 msgid "Create New Database"
 msgstr "Yeni Veri Tabanı Oluştur"
 
-#: core/libs/album/manager/albummanager_database.cpp:544
-#: core/libs/album/manager/albummanager_database.cpp:567
-#: core/libs/album/manager/albummanager_database.cpp:617
-#: core/libs/album/manager/albummanager_database.cpp:649
+#: core/libs/album/manager/albummanager_database.cpp:540
+#: core/libs/album/manager/albummanager_database.cpp:563
+#: core/libs/album/manager/albummanager_database.cpp:613
+#: core/libs/album/manager/albummanager_database.cpp:645
 #, kde-format
 msgctxt "@title:window"
 msgid "New Database Folder"
 msgstr "Yeni Veri Tabanı Klasörü"
 
-#: core/libs/album/manager/albummanager_database.cpp:545
+#: core/libs/album/manager/albummanager_database.cpp:541
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -27554,15 +27402,15 @@ msgstr ""
 "veya geçerli veri tabanını bu konuma kopyalayıp kullanmayı sürdürmek mi "
 "istiyorsunuz?</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:557
-#: core/libs/album/manager/albummanager_database.cpp:627
-#: core/libs/album/manager/albummanager_database.cpp:658
+#: core/libs/album/manager/albummanager_database.cpp:553
+#: core/libs/album/manager/albummanager_database.cpp:623
+#: core/libs/album/manager/albummanager_database.cpp:654
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Current Database"
 msgstr "Geçerli Veri Tabanını Kopyala"
 
-#: core/libs/album/manager/albummanager_database.cpp:568
+#: core/libs/album/manager/albummanager_database.cpp:564
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -27575,7 +27423,7 @@ msgstr ""
 "p><p>Eski veri tabanı dosyasını yükseltmek mi yoksa yeni bir veri tabanıyla "
 "mı başlamak istiyorsunuz?</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:603
+#: core/libs/album/manager/albummanager_database.cpp:599
 #, kde-format
 msgid ""
 "Failed to copy the old database file (\"%1\") to its new location (\"%2\"). "
@@ -27584,7 +27432,7 @@ msgstr ""
 "Eski veri tabanı dosyası (“%1”) yeni konumuna (“%2”) kopyalanamadı. Eski "
 "veritabanları yükseltmeye çalışılıyor."
 
-#: core/libs/album/manager/albummanager_database.cpp:618
+#: core/libs/album/manager/albummanager_database.cpp:614
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database."
@@ -27596,7 +27444,7 @@ msgstr ""
 "p><p>Geçerli veri tabanını bu konuma kopyalayıp kullanmayı sürdürmek mi "
 "yoksa yeni bir veri tabanıyla mı başlamak istersiniz?</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:650
+#: core/libs/album/manager/albummanager_database.cpp:646
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -27609,13 +27457,13 @@ msgstr ""
 "yeni veri tabanı olarak kullanmak mı yoksa onu kaldırıp geçerli veri "
 "tabanını bu konuma kopyalamak mı istiyorsunuz?</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:660
+#: core/libs/album/manager/albummanager_database.cpp:656
 #, kde-format
 msgctxt "@action:button"
 msgid "Use Existing File"
 msgstr "Var Olan Dosyayı Kullan"
 
-#: core/libs/album/manager/albummanager_database.cpp:715
+#: core/libs/album/manager/albummanager_database.cpp:711
 #, kde-format
 msgid ""
 "Failed to backup the existing database file (\"%1\"). Refusing to replace "
@@ -27624,7 +27472,7 @@ msgstr ""
 "Var olan veri tabanı dosyası (“%1”) yedeklenemedi. Var olan dosyayı "
 "kullanarak yedekleme olmadan dosyayı değiştirme reddediliyor."
 
-#: core/libs/album/manager/albummanager_database.cpp:733
+#: core/libs/album/manager/albummanager_database.cpp:729
 #, kde-format
 msgid ""
 "Failed to copy the old database file (\"%1\") to its new location (\"%2\"). "
@@ -27633,14 +27481,14 @@ msgstr ""
 "Eski veri tabanı dosyası (“%1”) yeni yerine (“%2”) kopyalanamadı. Boş bir "
 "veri tabanıyla başlanıyor."
 
-#: core/libs/album/manager/albummanager_database.cpp:756
+#: core/libs/album/manager/albummanager_database.cpp:752
 #, kde-format
 msgid "<p><b>Please check the database settings in this dialog.</b></p>"
 msgstr ""
 "<p><b>Lütfen bu iletişim kutusundaki veri tabanı ayarlarını denetleyin.</b></"
 "p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:772
+#: core/libs/album/manager/albummanager_database.cpp:768
 #, kde-format
 msgctxt "@action:button"
 msgid "New database"
@@ -27851,7 +27699,7 @@ msgstr ""
 msgid "Context menu"
 msgstr "Bağlam menüsü"
 
-#: core/libs/album/treeview/abstractalbumtreeview.cpp:1108
+#: core/libs/album/treeview/abstractalbumtreeview.cpp:1079
 #: core/libs/database/utils/ifaces/dio.cpp:970
 #, kde-format
 msgid "Empty Trash"
@@ -27882,63 +27730,63 @@ msgid "No Color"
 msgstr "Renk yok"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:321
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:455
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:445
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Red"
 msgstr "Kırmızı"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:327
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:461
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:451
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Orange"
 msgstr "Turuncu"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:333
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:467
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:457
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Yellow"
 msgstr "Sarı"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:339
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:473
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:463
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Green"
 msgstr "Yeşil"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:345
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:479
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:469
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Blue"
 msgstr "Mavi"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:351
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:485
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:475
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Magenta"
 msgstr "Camgöbeği"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:357
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:491
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:481
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Gray"
 msgstr "Gri"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:363
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:497
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:487
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Black"
 msgstr "Siyah"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:369
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:503
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:493
 #, kde-format
 msgctxt "@info: color label name"
 msgid "White"
@@ -27951,28 +27799,28 @@ msgid "Picks: "
 msgstr "Seçimler: "
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:398
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:269
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:259
 #, kde-format
 msgctxt "@info: pick label name"
 msgid "No Pick"
 msgstr "Seçim yok"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:404
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:251
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:241
 #, kde-format
 msgctxt "@info: pick label name"
 msgid "Rejected"
 msgstr "Reddedildi"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:410
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:257
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:247
 #, kde-format
 msgctxt "@info: pick label name"
 msgid "Pending"
 msgstr "Bekletiliyor"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:416
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:263
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:253
 #, kde-format
 msgctxt "@info: pick label name"
 msgid "Accepted"
@@ -29331,7 +29179,7 @@ msgstr "İlerleme Bilgisi"
 #: core/libs/onlineversion/onlineversiondlg.cpp:194
 #: core/libs/progressmanager/progressview.cpp:197
 #: core/libs/progressmanager/statusbarprogresswidget.cpp:98
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:84
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:89
 #, kde-format
 msgctxt "%p is the percent value, % is the percent sign"
 msgid "%p%"
@@ -31910,71 +31758,71 @@ msgstr ""
 "Dokuyu ve görseli birleştirmek için kullanılacak kabartma kazancını burada "
 "ayarlayın."
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:387
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:367
 #, kde-format
 msgid "Rotate Right"
 msgstr "Sağa Döndür"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:392
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:372
 #, kde-format
 msgid "Rotate 180 degrees"
 msgstr "180 Derece Döndür"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:397
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:377
 #, kde-format
 msgid "Rotate Left"
 msgstr "Sola Döndür"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:402
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:382
 #, kde-format
 msgid "Flip Horizontally"
 msgstr "Yatay Olarak Ters Çevir"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:407
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:387
 #, kde-format
 msgid "Flip Vertically"
 msgstr "Dikey Olarak Ters Çevir"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:412
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:392
 #, kde-format
 msgid "Crop"
 msgstr "Kırp"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:422
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:402
 #, kde-format
 msgid "Convert to 8 Bit"
 msgstr "8 Bit’e Dönüştür"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:427
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:407
 #, kde-format
 msgid "Convert to 16 Bit"
 msgstr "16 Bit’e Dönüştür"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:496
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:476
 #, kde-format
 msgctxt "Rotate image"
 msgid "Rotate"
 msgstr "Döndür"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:500
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:480
 #, kde-format
 msgctxt "Flip image"
 msgid "Flip"
 msgstr "Ters Çevir"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:504
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:484
 #, kde-format
 msgctxt "Crop image"
 msgid "Crop"
 msgstr "Kırp"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:508
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:488
 #, kde-format
 msgctxt "Resize image"
 msgid "Resize"
 msgstr "Yeniden Boyutlandır"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:512
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:492
 #, kde-format
 msgctxt "Convert image bit depth"
 msgid "Convert Depth"
@@ -33103,85 +32951,85 @@ msgstr "(kısımsal eşleşme bulundu)"
 msgid "(exact match found)"
 msgstr "(tam eşleşme bulundu)"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:126
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:115
 #, kde-format
 msgctxt "@title"
 msgid "Lens Auto-Correction Tool"
 msgstr "Mercek Kendiliğinden Düzeltme Aracı"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:485
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:435
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Camera: %1-%2"
 msgstr "Kamera: %1–%2"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:487
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:437
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Lens: %1"
 msgstr "Mercek: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:489
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:439
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Subject Distance: <numid>%1</numid>"
 msgstr "Özne uzaklığı: <numid>%1</numid>"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:491
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:441
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Aperture: <numid>%1</numid>"
 msgstr "Diyafram açıklığı: <numid>%1</numid>"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:493
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:443
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Focal Length: <numid>%1</numid>"
 msgstr "Odak uzaklığı: <numid>%1</numid>"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:495
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:445
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Crop Factor: <numid>%1</numid>"
 msgstr "Kırpma çarpanı: <numid>%1</numid>"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:497
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:500
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:503
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:506
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:447
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:450
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:453
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:456
 #, kde-format
 msgctxt "@info: correction status"
 msgid "enabled"
 msgstr "etkin"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:497
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:447
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "CCA Correction: %1"
 msgstr "CCA düzeltmesi: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:498
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:501
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:504
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:507
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:448
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:451
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:454
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:457
 #, kde-format
 msgctxt "@info: correction status"
 msgid "disabled"
 msgstr "devre dışı"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:500
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:450
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "VIG Correction: %1"
 msgstr "VIG düzeltmesi: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:503
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:453
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "DST Correction: %1"
 msgstr "DST düzeltmesi: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:506
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:456
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "GEO Correction: %1"
@@ -33302,73 +33150,73 @@ msgstr ""
 "Burada seçili görsel kanalının hedef önizleme görseli histogram çizimini "
 "görebilirsiniz. Bu, herhangi bir ayar değişikliğinde yeniden hesaplanır."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:272
+#: core/libs/dimg/filters/levels/histogrambox.cpp:263
 #, kde-format
 msgid "<p>Select the histogram channel to display:</p>"
 msgstr "<p>Görüntülenecek histogram kanalını seçin:</p>"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:278
+#: core/libs/dimg/filters/levels/histogrambox.cpp:269
 #, kde-format
 msgctxt "The luminosity channel"
 msgid "Luminosity"
 msgstr "Parlaklık"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:279
+#: core/libs/dimg/filters/levels/histogrambox.cpp:270
 #, kde-format
 msgid "<b>Luminosity</b>: display the image's luminosity values."
 msgstr "<b>Parlaklık</b>: Görselin parlaklık değerlerini görüntüleyin."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:281
+#: core/libs/dimg/filters/levels/histogrambox.cpp:272
 #, kde-format
 msgctxt "The red channel"
 msgid "Red"
 msgstr "Kırmızı"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:282
+#: core/libs/dimg/filters/levels/histogrambox.cpp:273
 #, kde-format
 msgid "<b>Red</b>: display the red image-channel values."
 msgstr "<b>Kırmızı</b>: Kırmızı görsel kanalı değerlerini görüntüleyin."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:284
+#: core/libs/dimg/filters/levels/histogrambox.cpp:275
 #, kde-format
 msgctxt "The green channel"
 msgid "Green"
 msgstr "Yeşil"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:285
+#: core/libs/dimg/filters/levels/histogrambox.cpp:276
 #, kde-format
 msgid "<b>Green</b>: display the green image-channel values."
 msgstr "<b>Yeşil</b>: Yeşil görsel kanalı değerlerini görüntüleyin."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:287
+#: core/libs/dimg/filters/levels/histogrambox.cpp:278
 #, kde-format
 msgctxt "The blue channel"
 msgid "Blue"
 msgstr "Mavi"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:288
+#: core/libs/dimg/filters/levels/histogrambox.cpp:279
 #, kde-format
 msgid "<b>Blue</b>: display the blue image-channel values."
 msgstr "<b>Mavi</b>: Mavi görsel kanalı değerlerini görüntüleyin."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:290
+#: core/libs/dimg/filters/levels/histogrambox.cpp:281
 #, kde-format
 msgctxt "The colors channel"
 msgid "Colors"
 msgstr "Renkler"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:291
+#: core/libs/dimg/filters/levels/histogrambox.cpp:282
 #, kde-format
 msgid "<b>Colors</b>: Display all color channel values at the same time."
 msgstr "<b>Renkler</b>: Tüm renk kanalı değerlerini aynı anda görüntüleyin."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:293
+#: core/libs/dimg/filters/levels/histogrambox.cpp:284
 #, kde-format
 msgctxt "The alpha channel"
 msgid "Alpha"
 msgstr "Alfa"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:294
+#: core/libs/dimg/filters/levels/histogrambox.cpp:285
 #, kde-format
 msgid ""
 "<b>Alpha</b>: display the alpha image-channel values. This channel "
@@ -35670,47 +35518,47 @@ msgstr ""
 "Derecelendirme süzgeci koşullarını ayarlamak için bağlam açılır menüsünü "
 "kullanın."
 
-#: core/libs/filters/ratingfilter.cpp:180
+#: core/libs/filters/ratingfilter.cpp:162
 #, kde-format
 msgid "Rating greater than or equal to %1."
 msgstr "Derecelendirme %1 değerinden büyük veya eşit."
 
-#: core/libs/filters/ratingfilter.cpp:186
+#: core/libs/filters/ratingfilter.cpp:168
 #, kde-format
 msgid "Rating equal to %1."
 msgstr "Derecelendirme %1 değerine eşit."
 
-#: core/libs/filters/ratingfilter.cpp:192
+#: core/libs/filters/ratingfilter.cpp:174
 #, kde-format
 msgid "Rating less than or equal to %1."
 msgstr "Derecelendirme %1 değerinden daha küçük veya eşit."
 
-#: core/libs/filters/ratingfilter.cpp:232
+#: core/libs/filters/ratingfilter.cpp:214
 #, kde-format
 msgid "Items Without Rating"
 msgstr "Derecelendirmesiz Ögeler"
 
-#: core/libs/filters/ratingfilter.cpp:236
+#: core/libs/filters/ratingfilter.cpp:218
 #, kde-format
 msgid "Rating Filter Options"
 msgstr "Derecelendirme Süzgeci Seçenekleri"
 
-#: core/libs/filters/ratingfilter.cpp:241
+#: core/libs/filters/ratingfilter.cpp:223
 #, kde-format
 msgid "Greater Than or Equals Condition"
 msgstr "Büyüklük veya Eşitlik Koşulu"
 
-#: core/libs/filters/ratingfilter.cpp:243
+#: core/libs/filters/ratingfilter.cpp:225
 #, kde-format
 msgid "Equals Condition"
 msgstr "Eşitlik Koşulu"
 
-#: core/libs/filters/ratingfilter.cpp:245
+#: core/libs/filters/ratingfilter.cpp:227
 #, kde-format
 msgid "Less Than or Equals Condition"
 msgstr "Küçüklük veya Eşitlik Koşulu"
 
-#: core/libs/filters/ratingfilter.cpp:248
+#: core/libs/filters/ratingfilter.cpp:230
 #, kde-format
 msgid "Exclude Items Without Rating"
 msgstr "Derecelendirmesiz Ögeleri Dışla"
@@ -42925,68 +42773,129 @@ msgstr "Çalınırken bir hata oluştu: Ortam geçerli değil"
 msgid "An error has occurred while playing: %1"
 msgstr "Çalınırken bir hata oluştu: %1"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:197
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:211
+#: core/libs/video/player/mediaplayerview.cpp:211
 #, kde-format
 msgid "An error has occurred with the media player..."
 msgstr "Ortam oynatıcısında bir hata oluştu."
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:198
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:212
+#: core/libs/video/player/mediaplayerview.cpp:212
 #, kde-format
 msgid "End of media."
 msgstr "Ortam sonu."
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:210
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:305
+#: core/libs/video/player/mediaplayerview.cpp:305
 #, kde-format
 msgctxt "go to previous image"
 msgid "Back"
 msgstr "Geri"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:213
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:308
+#: core/libs/video/player/mediaplayerview.cpp:308
 #, kde-format
 msgctxt "go to next image"
 msgid "Forward"
 msgstr "İleri"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:216
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:314
+#: core/libs/video/player/mediaplayerview.cpp:311
+#, kde-format
+msgctxt "video frame backward"
+msgid "Frame Backward"
+msgstr "Kare Geri"
+
+#: core/libs/video/player/mediaplayerview.cpp:314
 #, kde-format
 msgctxt "pause/play video"
 msgid "Pause/Play"
 msgstr "Duraklat/Oynat"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:219
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:320
+#: core/libs/video/player/mediaplayerview.cpp:317
+#, kde-format
+msgctxt "video frame forward"
+msgid "Frame Forward"
+msgstr "Kare İleri"
+
+#: core/libs/video/player/mediaplayerview.cpp:320
 #, kde-format
 msgctxt "capture video frame"
 msgid "Capture"
 msgstr "Yakala"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:222
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:323
+#: core/libs/video/player/mediaplayerview.cpp:323
 #, kde-format
 msgctxt "rotate video in counterclockwize"
 msgid "Rotate Left"
 msgstr "Sola Döndür"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:225
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:326
+#: core/libs/video/player/mediaplayerview.cpp:326
 #, kde-format
 msgctxt "rotate video in clockwize"
 msgid "Rotate Right"
 msgstr "Sağa Döndür"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:260
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:424
+#: core/libs/video/player/mediaplayerview.cpp:330
+#, kde-format
+msgctxt "@info"
+msgid "Change video playback rate"
+msgstr "Video oynatma hızını değiştir"
+
+#: core/libs/video/player/mediaplayerview.cpp:335
+#, kde-format
+msgid "Rate"
+msgstr "Hız"
+
+#: core/libs/video/player/mediaplayerview.cpp:339
+#, kde-format
+msgctxt "video play rate"
+msgid "0.5x"
+msgstr "0,5×"
+
+#: core/libs/video/player/mediaplayerview.cpp:342
+#, kde-format
+msgctxt "video play rate"
+msgid "1.0x"
+msgstr "1,0×"
+
+#: core/libs/video/player/mediaplayerview.cpp:345
+#, kde-format
+msgctxt "video play rate"
+msgid "1.5x"
+msgstr "1,5×"
+
+#: core/libs/video/player/mediaplayerview.cpp:348
+#, kde-format
+msgctxt "video play rate"
+msgid "2.0x"
+msgstr "2,0×"
+
+#: core/libs/video/player/mediaplayerview.cpp:351
+#, kde-format
+msgctxt "video play rate"
+msgid "2.5x"
+msgstr "2,5×"
+
+#: core/libs/video/player/mediaplayerview.cpp:354
+#, kde-format
+msgctxt "video play rate"
+msgid "3.0x"
+msgstr "3,0×"
+
+#: core/libs/video/player/mediaplayerview.cpp:357
+#, kde-format
+msgctxt "video play rate"
+msgid "4.0x"
+msgstr "4,0×"
+
+#: core/libs/video/player/mediaplayerview.cpp:360
+#, kde-format
+msgctxt "video play rate"
+msgid "5.0x"
+msgstr "5,0×"
+
+#: core/libs/video/player/mediaplayerview.cpp:424
 #, kde-format
 msgid "Toggle playing in a loop"
 msgstr "Bir döngüde oynatmayı aç/kapat"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:910
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:741
+#: core/libs/video/player/mediaplayerview.cpp:741
 #, kde-format
 msgid ""
 "%1\n"
@@ -42996,77 +42905,6 @@ msgstr ""
 "%1\n"
 "\n"
 "Hata: “%2”"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:311
-#, kde-format
-msgctxt "video frame backward"
-msgid "Frame Backward"
-msgstr "Kare Geri"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:317
-#, kde-format
-msgctxt "video frame forward"
-msgid "Frame Forward"
-msgstr "Kare İleri"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:330
-#, kde-format
-msgctxt "@info"
-msgid "Change video playback rate"
-msgstr "Video oynatma hızını değiştir"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:335
-#, kde-format
-msgid "Rate"
-msgstr "Hız"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:339
-#, kde-format
-msgctxt "video play rate"
-msgid "0.5x"
-msgstr "0,5×"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:342
-#, kde-format
-msgctxt "video play rate"
-msgid "1.0x"
-msgstr "1,0×"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:345
-#, kde-format
-msgctxt "video play rate"
-msgid "1.5x"
-msgstr "1,5×"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:348
-#, kde-format
-msgctxt "video play rate"
-msgid "2.0x"
-msgstr "2,0×"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:351
-#, kde-format
-msgctxt "video play rate"
-msgid "2.5x"
-msgstr "2,5×"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:354
-#, kde-format
-msgctxt "video play rate"
-msgid "3.0x"
-msgstr "3,0×"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:357
-#, kde-format
-msgctxt "video play rate"
-msgid "4.0x"
-msgstr "4,0×"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:360
-#, kde-format
-msgctxt "video play rate"
-msgid "5.0x"
-msgstr "5,0×"
 
 #: core/libs/widgets/combo/dcombobox.cpp:60
 #: core/libs/widgets/range/dnuminput.cpp:67
@@ -43354,20 +43192,20 @@ msgstr ""
 "Bu örnek metin geçerli ayarları göstermektedir. Özel karakterleri sınamak "
 "amaçlı düzenleyebilirsiniz."
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:720
-#: core/libs/widgets/fonts/dfontproperties.cpp:771
+#: core/libs/widgets/fonts/dfontproperties.cpp:712
+#: core/libs/widgets/fonts/dfontproperties.cpp:752
 #, kde-format
 msgctxt "@info: font style"
 msgid "Normal"
 msgstr "Normal"
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:779
+#: core/libs/widgets/fonts/dfontproperties.cpp:760
 #, kde-format
 msgctxt "@info: font style"
 msgid "Italic"
 msgstr "Yatık"
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:780
+#: core/libs/widgets/fonts/dfontproperties.cpp:761
 #, kde-format
 msgctxt "@info: font style"
 msgid "Oblique"
@@ -44416,7 +44254,7 @@ msgstr "Durum ç&ubuğunu gizle"
 msgid "Hide statusbar when window switch in full-screen mode."
 msgstr "Pencere tam ekran kipine geçtiğinde durum çubuğunu gizleyin."
 
-#: core/libs/widgets/mainview/thememanager_p.cpp:1323
+#: core/libs/widgets/mainview/thememanager_p.cpp:1319
 #, kde-format
 msgctxt "default theme name"
 msgid "Default"
@@ -45443,7 +45281,7 @@ msgstr "Kaydedilecek XMP Dosyası"
 msgid "XMP text Files (*.xmp)"
 msgstr "XMP Metin Dosyaları (*.xmp)"
 
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:509
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:499
 #, kde-format
 msgctxt "@info: color label name"
 msgid "None"
@@ -64067,41 +63905,43 @@ msgstr "Geçerli Aramayı Düzenle…"
 #: core/utilities/searchwindow/view/searchtabheader.cpp:64
 #, kde-format
 msgid ""
-"Interpret the text above as a natural-language search and build the query"
-msgstr "Yukarıdaki metni doğal dil ile arama olarak yorumla ve sorguyu yap"
+"Interpret the text above as a natural-language search and build the query. "
+"If the language model has not been downloaded yet, the Advanced Search "
+"dialog will open so you can download it."
+msgstr ""
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:70
+#: core/utilities/searchwindow/view/searchtabheader.cpp:72
 #: core/utilities/searchwindow/view/searchwindow.cpp:70
 #, kde-format
 msgid "Cancel the current interpretation"
 msgstr "Geçerli yorumu iptal et"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:95
+#: core/utilities/searchwindow/view/searchtabheader.cpp:97
 #, kde-format
 msgid "Open Advanced Search"
 msgstr "Gelişmiş Aramayı Aç"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:96
+#: core/utilities/searchwindow/view/searchtabheader.cpp:98
 #, kde-format
 msgid "Run Now"
 msgstr "Şimdi Çalıştır"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:140
+#: core/utilities/searchwindow/view/searchtabheader.cpp:142
 #, kde-format
 msgid "Save Current Search"
 msgstr "Geçerli Aramayı Kaydet"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:144
+#: core/utilities/searchwindow/view/searchtabheader.cpp:146
 #, kde-format
 msgid "Enter a name for the current search to save it in the \"Searches\" view"
 msgstr "Geçerli aramayı “Aramalar” görünümüne kaydetmek için bir ad gir"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:149
+#: core/utilities/searchwindow/view/searchtabheader.cpp:151
 #, kde-format
 msgid "Save current search to a new virtual Album"
 msgstr "Geçerli aramayı yeni bir sanal albüme kaydet"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:150
+#: core/utilities/searchwindow/view/searchtabheader.cpp:152
 #, kde-format
 msgid ""
 "If you press this button, the current search will be saved to a new virtual "
@@ -64110,18 +63950,18 @@ msgstr ""
 "Bu düğmeye basarsanız geçerli arama, solda ayarlanmış ad kullanılarak yeni "
 "bir sanal albüme kaydedilecek."
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:165
-#: core/utilities/searchwindow/view/searchtabheader.cpp:192
+#: core/utilities/searchwindow/view/searchtabheader.cpp:167
+#: core/utilities/searchwindow/view/searchtabheader.cpp:194
 #, kde-format
 msgid "Edit Stored Search"
 msgstr "Depolanan Aramayı Düzenle"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:207
+#: core/utilities/searchwindow/view/searchtabheader.cpp:209
 #, kde-format
 msgid "Edit..."
 msgstr "Düzenle…"
 
-#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:89
+#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:105
 #, kde-format
 msgid ""
 "Interpreted as:\n"
@@ -64130,7 +63970,7 @@ msgstr ""
 "Şöyle yorumlandı:\n"
 "%1"
 
-#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:123
+#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:139
 #: core/utilities/searchwindow/view/searchwindow_slots.cpp:180
 #, kde-format
 msgid "Interpretation cancelled."
@@ -65854,28 +65694,28 @@ msgstr "Estetik algılama özelliğini kullan"
 msgid "Use AutoTags Assignment feature"
 msgstr "Kendiliğinden künye atama özelliğini kullan"
 
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:81
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:84
 #, kde-format
 msgid "Use Natural Language Search feature"
 msgstr "Doğal dil ile arama özelliğini kullan"
 
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:290
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:311
 #, kde-format
 msgid "Clean up unused AI/DNN model files..."
 msgstr "Kullanılmayan AI/DNN Modellerini Temizle…"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:46
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:52
 #, kde-format
 msgid "All model files were downloaded successfully."
 msgstr "Tüm model dosyaları başarıyla indirildi."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:55
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:61
 #, kde-format
 msgctxt "@title:window"
 msgid "Download Error"
 msgstr "İndirme Hatası"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:56
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:62
 #, kde-format
 msgid ""
 "An error occurred during the download.\n"
@@ -65895,33 +65735,33 @@ msgstr ""
 "Yeniden deneyebilir veya bir sonraki başlatmada kaldığınız yerden "
 "sürdürebilirsiniz."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:64
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:70
 #, kde-format
 msgctxt "@action:button"
 msgid "Try Again"
 msgstr "Yeniden Dene"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:136
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:142
 #, kde-format
 msgid "Checksum is incorrect."
 msgstr "Sağlama toplamı doğru değil."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:160
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:166
 #, kde-format
 msgid "File write error."
 msgstr "Dosya yazma hatası."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:167
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:173
 #, kde-format
 msgid "File open error."
 msgstr "Dosya açma hatası."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:182
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:188
 #, kde-format
 msgid "File on the server is too large."
 msgstr "Sunucudaki dosya pek büyük."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:258
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:270
 #, kde-format
 msgid ""
 "<p>digiKam relies on large binary model files to power features like face "
@@ -65938,7 +65778,7 @@ msgstr ""
 "vardır.</p><p><b>Not:</b> Kırmızı göz giderme aracı, yüz yönetimi modeli "
 "dosyaları gerektirir.</p>"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:264
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:276
 #, kde-format
 msgid ""
 "<p>Some required files are missing. Click “Download” to start installing the "
@@ -65953,13 +65793,13 @@ msgstr ""
 "seçili özellikler çalışmazlar.</p><p><b>Dosyaları başarılı bir şekilde "
 "indirdikten sonra digiKam’ı yeniden başlatmanız gerekir.</b></p>"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:271
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:283
 #, kde-format
 msgctxt "%1: file counter, %2: disk size with unit"
 msgid "The download requires %1 files with a size of %2."
 msgstr "İndirme, %2 boyutunda %1 dosya gerektiriyor."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:297
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:309
 #, kde-format
 msgid "All files for the selected features were found."
 msgstr "Seçili özellikler için olan bütün dosyalar bulunamadı."
@@ -69322,6 +69162,104 @@ msgstr "İnceleme"
 #, kde-format
 msgid "Play/Pause Video"
 msgstr "Videoyu Oynat/Duraklat"
+
+#~ msgctxt "@option"
+#~ msgid "Visibility"
+#~ msgstr "Görünürlük"
+
+#~ msgctxt "@info"
+#~ msgid "Set the visibility of the album"
+#~ msgstr "Albümün görünürlüğünü ayarla"
+
+#~ msgctxt "@label: properties"
+#~ msgid "Public"
+#~ msgstr "Genel"
+
+#~ msgctxt "@title"
+#~ msgid "Rajce"
+#~ msgstr "Rajce"
+
+#~ msgctxt "@info"
+#~ msgid "A tool to export to Rajce web-service"
+#~ msgstr "Rajce web hizmetine dışa aktarmak için bir araç"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "This tool allows users to export items to Rajce web-service.<br><br>See "
+#~ "Rajce web site for details: %1"
+#~ msgstr ""
+#~ "Bu araç, kullanıcıların ögeleri Rajce web hizmetine dışa aktarmalarına "
+#~ "olanak tanır.<br><br>Ayrıntılar için Rajce web sitesine bakın: %1"
+
+#~ msgctxt "@action"
+#~ msgid "Export to &Rajce..."
+#~ msgstr "&Rajce’ye Dışa Aktar…"
+
+#~ msgid "Not logged in"
+#~ msgstr "Oturum açılmadı"
+
+#~ msgid "Invalid command"
+#~ msgstr "Geçersiz komut"
+
+#~ msgid "Invalid login name or password"
+#~ msgstr "Geçersiz kullanıcı adı veya parola"
+
+#~ msgid "Session expired"
+#~ msgstr "Oturum süresi doldu"
+
+#~ msgid "Unknown album"
+#~ msgstr "Bilinmeyen albüm"
+
+#~ msgid "Failed to open album"
+#~ msgstr "Albüm açılamadı"
+
+#~ msgid "The album name cannot be empty"
+#~ msgstr "Albüm adı boş bırakılamaz"
+
+#~ msgid "Failed to create album"
+#~ msgstr "Albüm oluşturulamadı"
+
+#~ msgid "Album does not exist"
+#~ msgstr "Albüm yok"
+
+#~ msgid "File upload failed"
+#~ msgstr "Dosya karşıya yükleme başarısız"
+
+#~ msgid "Unsupported file extension"
+#~ msgstr "Desteklenmeyen dosya uzantısı"
+
+#~ msgid "Logging in %v%"
+#~ msgstr "Oturum açılıyor %​%v"
+
+#~ msgid "Logging out %v%"
+#~ msgstr "Oturum kapatılıyor %​%v"
+
+#~ msgid "Loading albums %v%"
+#~ msgstr "Albümler yükleniyor %​%v"
+
+#~ msgid "Creating album %v%"
+#~ msgstr "Albüm oluşturuluyor %​%v"
+
+#~ msgid "Opening album %v%"
+#~ msgstr "Albüm açılıyor %​%v"
+
+#~ msgid "Closing album %v%"
+#~ msgstr "Albüm kapatılıyor %​%v"
+
+#~ msgid "Adding photos %v%"
+#~ msgstr "Fotoğraflar ekleniyor %​%v"
+
+#~ msgctxt "@title:window"
+#~ msgid "Export to Rajce.net"
+#~ msgstr "Rajce’ye Dışa Aktar"
+
+#~ msgctxt "@info:tooltip, button"
+#~ msgid "Start upload to Rajce.net"
+#~ msgstr "Rajce.net’e yüklemeyi başlat"
+
+#~ msgid ""
+#~ "Interpret the text above as a natural-language search and build the query"
+#~ msgstr "Yukarıdaki metni doğal dil ile arama olarak yorumla ve sorguyu yap"
 
 #~ msgid "Roll"
 #~ msgstr "Yuvarlama"

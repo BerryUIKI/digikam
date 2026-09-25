@@ -46,7 +46,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 15:58+0000\n"
+"POT-Creation-Date: 2026-09-25 00:42+0000\n"
 "PO-Revision-Date: 2015-02-26 21:39+0100\n"
 "Last-Translator: Samir Ribić <megaribi@epn.ba>\n"
 "Language-Team: Bosnian <bs@li.org>\n"
@@ -12197,7 +12197,7 @@ msgid "cm"
 msgstr ""
 
 #: core/dplugins/editor/transform/resize/resizetool.cpp:927
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:417
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:397
 #, kde-format
 msgid "Resize"
 msgstr "Promijeni veličinu"
@@ -12427,7 +12427,7 @@ msgstr "Skeniraj sliku"
 msgid "Scan Images"
 msgstr "Skeniraj sliku"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:172
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:144
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:100
 #: core/utilities/imageeditor/editor/editorwindow.cpp:1845
 #, fuzzy, kde-format
@@ -12436,27 +12436,27 @@ msgctxt "@title:window"
 msgid "New Image File Name"
 msgstr "Ime datoteke nove slike"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:220
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:192
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:148
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Unsupported Format"
 msgstr "Nepoznat format"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:221
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:193
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:149
 #, kde-format
 msgid "The target image file format \"%1\" is unsupported."
 msgstr "Ciljni format datoteke slike \"%1\" nije podržan."
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:233
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:205
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:161
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Cannot Save File"
 msgstr "Ne mogu da sačuvam \"%1\" datoteku"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:234
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:206
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:162
 #, kde-format
 msgid ""
@@ -12468,7 +12468,7 @@ msgstr ""
 "\"%1\" u\n"
 "\"%2\"."
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:249
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:221
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:177
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2321
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2340
@@ -12478,7 +12478,7 @@ msgctxt "@title:window"
 msgid "Overwrite File?"
 msgstr "Da prebrišem datoteku?"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:250
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:222
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:178
 #, kde-format
 msgid ""
@@ -12486,18 +12486,18 @@ msgid ""
 msgstr ""
 "Datoteka sa imenom „%1“ već postoji. Sigurni ste da želite da ga prebrišete?"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:301
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:258
 #, fuzzy, kde-format
 msgid "Saving file %1 -"
 msgstr "Spasi u datoteku"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:309
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:266
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "File Not Saved"
 msgstr "Sačuvajte XMP datoteku"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:310
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:267
 #, kde-format
 msgid "Cannot save \"%1\" file"
 msgstr "Ne mogu da sačuvam \"%1\" datoteku"
@@ -21992,95 +21992,95 @@ msgstr ""
 msgid "Cannot save resized image (PNG). Aborting."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:111
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:107
 #, fuzzy, kde-format
 msgid "Cannot create a temporary directory"
 msgstr "Kreiranje direktorijuma nije uspjelo,"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:172
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:168
 #, kde-format
 msgid "Resizing %1"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:190
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:186
 #, fuzzy, kde-format
 #| msgid "Image saved successfully"
 msgid "%1 resized successfully"
 msgstr "Slika je uspješno sačuvana"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:204
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:200
 #, fuzzy, kde-format
 #| msgid "Failed to save file: %1"
 msgid "Failed to resize %1: %2"
 msgstr "Neuspjelo spremanje datoteke: %1"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:241
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:237
 #, fuzzy, kde-format
 #| msgid "The sort order of images groups"
 msgid "There are no files to send"
 msgstr "Red sortiranja grupa slika."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:265
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:261
 #, fuzzy, kde-format
 #| msgid "File Properties"
 msgid "Build images properties file"
 msgstr "Svojstve datoteke"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:281
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:277
 #, fuzzy, kde-format
 #| msgid "Location"
 msgid "no caption"
 msgstr "Lokacija"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:286
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:282
 #, fuzzy, kde-format
 #| msgid "Keywords"
 msgid "no keywords"
 msgstr "Ključne riječi"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:285
 #, fuzzy, kde-format
 msgid ""
 "file \"%1\":\n"
 "Original images: %2\n"
 msgstr "%1<nl/>(Original slike)"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:287
 #, fuzzy, kde-format
 #| msgid "Contrast:"
 msgid "Comments: %1\n"
 msgstr "Kontrast:"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:293
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
 #, fuzzy, kde-format
 #| msgid "Tag: %1"
 msgid "Tags: %1\n"
 msgstr "Oznaka: %1"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:295
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
 #, fuzzy, kde-format
 #| msgid "Rating: "
 msgid "Rating: %1\n"
 msgstr "Ocjena: "
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:300
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:296
 #, fuzzy, kde-format
 #| msgid "Properties"
 msgid "properties.txt"
 msgstr "Svojstva"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:315
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:302
 #, kde-format
 msgid "Image properties file cannot be opened"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:327
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:314
 #, fuzzy, kde-format
 #| msgid "Item properties"
 msgid "Image properties file done"
 msgstr "Svojstva stavke"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:347
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:334
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:982
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:995
 #, fuzzy, kde-format
@@ -22088,60 +22088,60 @@ msgctxt "@title:window"
 msgid "Processing Failed"
 msgstr "Spasi u datoteku"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:348
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:335
 #, kde-format
 msgid ""
 "Some images cannot be resized.\n"
 "Do you want them to be added as attachments without resizing?"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:421
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:408
 #, kde-format
 msgid ""
 "The file \"%1\" is too big to be sent, please reduce its size or change your "
 "settings"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:648
 #, kde-format
 msgid "Send items by mail from digiKam"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:663
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:650
 #, fuzzy, kde-format
 #| msgid "Color model of the image"
 msgid "List of attached items"
 msgstr "Model boje na slici"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:710
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:697
 #, fuzzy, kde-format
 #| msgid "Convert image to a color space."
 msgctxt "@title:window"
 msgid "Error While to Send Items by mail"
 msgstr "Pretvaranje slike u prostor boje."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:711
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:698
 #, kde-format
 msgctxt "@info"
 msgid "Cannot send items using native Apple Mail application"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:727
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:714
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:739
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:726
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:743
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:730
 #, kde-format
 msgid "After having sent your images by email..."
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:744
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:731
 #, kde-format
 msgid "Press 'Finish' button to clean up temporary files"
 msgstr ""
@@ -23810,7 +23810,7 @@ msgid "Delay:"
 msgstr ""
 
 #: core/dplugins/generic/view/presentation/widgets/presentationctrlwidget.cpp:250
-#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:436
+#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:426
 #, fuzzy, kde-format
 #| msgid "Delete Tag"
 msgctxt "@title:window"
@@ -23819,7 +23819,7 @@ msgstr "Izbriši oznaku"
 
 #         translations.
 #: core/dplugins/generic/view/presentation/widgets/presentationctrlwidget.cpp:251
-#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:437
+#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:427
 #, fuzzy, kde-format
 #| msgid "Do you really want to remove the selected tag from all images?"
 #| msgid_plural ""
@@ -24296,7 +24296,6 @@ msgstr "Izvozni alati"
 #: core/dplugins/generic/webservices/onedrive/odwindow.cpp:77
 #: core/dplugins/generic/webservices/pinterest/pwindow.cpp:77
 #: core/dplugins/generic/webservices/piwigo/piwigowindow.cpp:266
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:45
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:119
 #: core/dplugins/generic/webservices/twitter/twitterwindow.cpp:77
 #, fuzzy, kde-format
@@ -25277,7 +25276,6 @@ msgstr ""
 
 #: core/dplugins/generic/webservices/flickr/flickrtalker.cpp:801
 #: core/dplugins/generic/webservices/google/gphoto/gptalker.cpp:586
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:228
 #, fuzzy, kde-format
 #| msgid "Unknown filter"
 msgid "Unknown error"
@@ -28024,172 +28022,6 @@ msgid ""
 "Do you want to continue?"
 msgstr "Da li želite primijeniti Vaše izmjene?"
 
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:40
-#, kde-format
-msgctxt "@option"
-msgid "Visibility"
-msgstr ""
-
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:41
-#, fuzzy, kde-format
-#| msgid "Select the input intensity of the histogram here."
-msgctxt "@info"
-msgid "Set the visibility of the album"
-msgstr "Ovdje označite jačinu ulaza histograma ."
-
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:43
-#, fuzzy, kde-format
-#| msgid "Quick Access List"
-msgctxt "@label: properties"
-msgid "Public"
-msgstr "Lista brzog pristupa"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:48
-#, kde-format
-msgctxt "@title"
-msgid "Rajce"
-msgstr ""
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:63
-#, fuzzy, kde-format
-#| msgid "Sort by rating"
-msgctxt "@info"
-msgid "A tool to export to Rajce web-service"
-msgstr "Sortiraj prema ocjenama"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:68
-#, fuzzy, kde-format
-#| msgid "Sort by rating"
-msgctxt "@info"
-msgid ""
-"This tool allows users to export items to Rajce web-service.<br><br>See "
-"Rajce web site for details: %1"
-msgstr "Sortiraj prema ocjenama"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:96
-#, fuzzy, kde-format
-#| msgid "Export Tools"
-msgctxt "@action"
-msgid "Export to &Rajce..."
-msgstr "Izvozni alati"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:162
-#, fuzzy, kde-format
-#| msgid "Not Tagged"
-msgid "Not logged in"
-msgstr "Nije označena"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:229
-#, kde-format
-msgid "Invalid command"
-msgstr ""
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:230
-#, kde-format
-msgid "Invalid login name or password"
-msgstr ""
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:231
-#, kde-format
-msgid "Session expired"
-msgstr ""
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:233
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:234
-#, fuzzy, kde-format
-#| msgid "Unknown"
-msgid "Unknown album"
-msgstr "Nepoznato"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:235
-#, fuzzy, kde-format
-#| msgid "Failed to rename Album"
-msgid "Failed to open album"
-msgstr "Neuspjela promjena imena albuma"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:236
-#, fuzzy, kde-format
-#| msgid "Album name cannot be empty."
-msgid "The album name cannot be empty"
-msgstr "Ime albuma ne može biti prazno."
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:237
-#, fuzzy, kde-format
-#| msgid "Failed to rename Album"
-msgid "Failed to create album"
-msgstr "Neuspjela promjena imena albuma"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:238
-#, fuzzy, kde-format
-#| msgid "File does not exist"
-msgid "Album does not exist"
-msgstr "Datoteka ne postoji"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:241
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:243
-#, fuzzy, kde-format
-#| msgid "Last modified"
-msgid "File upload failed"
-msgstr "Posljednja izmjena"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:244
-#, fuzzy, kde-format
-#| msgid "Ignored file extensions:"
-msgid "Unsupported file extension"
-msgstr "Ignorisani nastavci datoteka:"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:300
-#, kde-format
-msgid "Logging in %v%"
-msgstr ""
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:301
-#, kde-format
-msgid "Logging out %v%"
-msgstr ""
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:302
-#, fuzzy, kde-format
-#| msgid "Loading cameras..."
-msgid "Loading albums %v%"
-msgstr "Učitavanje kamera..."
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:303
-#, fuzzy, kde-format
-#| msgid "Create new album"
-msgid "Creating album %v%"
-msgstr "Kreiraj novi album"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:304
-#, kde-format
-msgid "Opening album %v%"
-msgstr ""
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:305
-#, kde-format
-msgid "Closing album %v%"
-msgstr ""
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:306
-#, kde-format
-msgid "Adding photos %v%"
-msgstr ""
-
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:43
-#, fuzzy, kde-format
-#| msgid "Export Tools"
-msgctxt "@title:window"
-msgid "Export to Rajce.net"
-msgstr "Izvozni alati"
-
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:46
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Select Image to Upload"
-msgctxt "@info:tooltip, button"
-msgid "Start upload to Rajce.net"
-msgstr "Izaberite sliku za postavljanje"
-
 #: core/dplugins/generic/webservices/smugmug/smugnewalbumdlg.cpp:71
 #, fuzzy, kde-format
 #| msgid "New Album"
@@ -29215,32 +29047,32 @@ msgstr "Skeniranje albuma..."
 msgid "Searches"
 msgstr "Pretrage"
 
-#: core/libs/album/manager/albummanager_database.cpp:111
+#: core/libs/album/manager/albummanager_database.cpp:107
 #, fuzzy, kde-format
 #| msgid "Set the font color to use here"
 msgid "The MariaDB database directory was not found."
 msgstr "Postavite boju fonta za korištenje ovdje"
 
-#: core/libs/album/manager/albummanager_database.cpp:128
+#: core/libs/album/manager/albummanager_database.cpp:124
 #, fuzzy, kde-format
 #| msgid "Set the font color to use here"
 msgid "The MariaDB binary tools was not found."
 msgstr "Postavite boju fonta za korištenje ovdje"
 
-#: core/libs/album/manager/albummanager_database.cpp:135
+#: core/libs/album/manager/albummanager_database.cpp:131
 #, fuzzy, kde-format
 #| msgid "Set the font color to use here"
 msgid "The SQLite core database was not found."
 msgstr "Postavite boju fonta za korištenje ovdje"
 
-#: core/libs/album/manager/albummanager_database.cpp:144
+#: core/libs/album/manager/albummanager_database.cpp:140
 #, kde-format
 msgid ""
 "<p>If you want to start with a new configuration and with a first run "
 "wizard, delete the file:<br>%1</p>"
 msgstr ""
 
-#: core/libs/album/manager/albummanager_database.cpp:157
+#: core/libs/album/manager/albummanager_database.cpp:153
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p><b>An error occurred during the internal server start.</b></"
@@ -29252,20 +29084,20 @@ msgstr ""
 "<p><b>Pojavila se greška tokom internog pokretanja servera.</b></p>Detalji:\n"
 " %1"
 
-#: core/libs/album/manager/albummanager_database.cpp:173
+#: core/libs/album/manager/albummanager_database.cpp:169
 #, fuzzy, kde-format
 #| msgid "Failed to add tag to database"
 msgid "Failed to open the database."
 msgstr "Neuspjelo dodavanje oznake u bazu podataka"
 
-#: core/libs/album/manager/albummanager_database.cpp:180
+#: core/libs/album/manager/albummanager_database.cpp:176
 #, kde-format
 msgid ""
 "<p>digiKam will attempt to start now, but it will <b>not</b> be functional.</"
 "p>"
 msgstr ""
 
-#: core/libs/album/manager/albummanager_database.cpp:215
+#: core/libs/album/manager/albummanager_database.cpp:211
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>Failed to open the database. </p><p>You cannot use digiKam without a "
@@ -29283,7 +29115,7 @@ msgstr ""
 "ali  <b>neće</b> raditi pravilno. Molimo Vas,provjerite postavke baze "
 "podataka  u <b> konfiguracijskom meniju </b>.</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:224
+#: core/libs/album/manager/albummanager_database.cpp:220
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>Failed to open the database. Error message from database:</p><p><b>%1</"
@@ -29302,13 +29134,13 @@ msgstr ""
 "pravilno. Molimo Vas,provjerite postavke baze podataka  u <b>konfiguraciji</"
 "b>.</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:243
+#: core/libs/album/manager/albummanager_database.cpp:239
 #, fuzzy, kde-format
 #| msgid "Failed to initialize thumbnail database"
 msgid "Failed to initialize the database."
 msgstr "Neuspješna inicijalizacija baze podataka o umanjenim prikazima"
 
-#: core/libs/album/manager/albummanager_database.cpp:266
+#: core/libs/album/manager/albummanager_database.cpp:262
 #, fuzzy, kde-format
 #| msgid ""
 #| "Your locale has changed since this album was last opened.\n"
@@ -29339,7 +29171,7 @@ msgstr ""
 "\". U suprotnom, pritisnite \"No\" i prepravite postavke Vaše lokacije prije "
 "ponovnog pokretanja digiKama-a."
 
-#: core/libs/album/manager/albummanager_database.cpp:310
+#: core/libs/album/manager/albummanager_database.cpp:306
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>The collection </p><p><b>%1</b><br/>(%2)</p><p> is currently not found "
@@ -29354,7 +29186,7 @@ msgstr ""
 "<br/> Molimo Vas, odaberite najprikladniju opciju za podnošenje ove "
 "situacije:</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:329
+#: core/libs/album/manager/albummanager_database.cpp:325
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>The collection is still available, but the identifier changed.<br/"
@@ -29371,7 +29203,7 @@ msgstr ""
 "ili promjenom postavki datoteka sistema.<br/>Kolekcija je sad postavljena  "
 "na ovu lokaciju :</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:348
+#: core/libs/album/manager/albummanager_database.cpp:344
 #, kde-format
 msgid ""
 "The collection is located on a storage device which is not always attached. "
@@ -29380,7 +29212,7 @@ msgstr ""
 "Kolekcija je spremljena na uređaju za skladištenje podataka koji nije uvijek "
 "priključen na kompjuter . Označite kolekciju kao uklonjivu kolekciju."
 
-#: core/libs/album/manager/albummanager_database.cpp:355
+#: core/libs/album/manager/albummanager_database.cpp:351
 #, kde-format
 msgid ""
 "Take no action now. I would like to solve the problem later using the setup "
@@ -29389,21 +29221,21 @@ msgstr ""
 "Ne poduzimajte ništa sad. Zelio/la bih riješiti problem kasnije koristeći "
 "dijalošku postavku"
 
-#: core/libs/album/manager/albummanager_database.cpp:369
+#: core/libs/album/manager/albummanager_database.cpp:365
 #, fuzzy, kde-format
 #| msgid "Collection not found"
 msgctxt "@title:window"
 msgid "Collection not Found"
 msgstr "Kolekcija nije pronađena"
 
-#: core/libs/album/manager/albummanager_database.cpp:475
+#: core/libs/album/manager/albummanager_database.cpp:471
 #, fuzzy, kde-format
 #| msgid "Database Folder"
 msgctxt "@title:window"
 msgid "Database Folder"
 msgstr "Folder baze podataka"
 
-#: core/libs/album/manager/albummanager_database.cpp:476
+#: core/libs/album/manager/albummanager_database.cpp:472
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the place to store the database. A "
@@ -29419,36 +29251,36 @@ msgstr ""
 "spremljenu u folderu \"%2\" - ili ignorisati staru datoteku i zapoceti sa "
 "novom bazom podataka?</p> "
 
-#: core/libs/album/manager/albummanager_database.cpp:486
-#: core/libs/album/manager/albummanager_database.cpp:553
-#: core/libs/album/manager/albummanager_database.cpp:575
+#: core/libs/album/manager/albummanager_database.cpp:482
+#: core/libs/album/manager/albummanager_database.cpp:549
+#: core/libs/album/manager/albummanager_database.cpp:571
 #, fuzzy, kde-format
 #| msgid "Upgrade Database"
 msgctxt "@action:button"
 msgid "Upgrade Database"
 msgstr "Nadogradi bazu podataka"
 
-#: core/libs/album/manager/albummanager_database.cpp:488
-#: core/libs/album/manager/albummanager_database.cpp:555
-#: core/libs/album/manager/albummanager_database.cpp:577
-#: core/libs/album/manager/albummanager_database.cpp:625
+#: core/libs/album/manager/albummanager_database.cpp:484
+#: core/libs/album/manager/albummanager_database.cpp:551
+#: core/libs/album/manager/albummanager_database.cpp:573
+#: core/libs/album/manager/albummanager_database.cpp:621
 #, fuzzy, kde-format
 #| msgid "Create New Database"
 msgctxt "@action:button"
 msgid "Create New Database"
 msgstr "Kreiraj novu bazu podataka"
 
-#: core/libs/album/manager/albummanager_database.cpp:544
-#: core/libs/album/manager/albummanager_database.cpp:567
-#: core/libs/album/manager/albummanager_database.cpp:617
-#: core/libs/album/manager/albummanager_database.cpp:649
+#: core/libs/album/manager/albummanager_database.cpp:540
+#: core/libs/album/manager/albummanager_database.cpp:563
+#: core/libs/album/manager/albummanager_database.cpp:613
+#: core/libs/album/manager/albummanager_database.cpp:645
 #, fuzzy, kde-format
 #| msgid "New database folder"
 msgctxt "@title:window"
 msgid "New Database Folder"
 msgstr "Novi folder baze podataka"
 
-#: core/libs/album/manager/albummanager_database.cpp:545
+#: core/libs/album/manager/albummanager_database.cpp:541
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -29463,16 +29295,16 @@ msgstr ""
 "započeti sa  novom bazom podataka ili  kopirati trenutnu bazu podataka na "
 "ovu lokaciju i nastaviti  je korisititi ?</p> "
 
-#: core/libs/album/manager/albummanager_database.cpp:557
-#: core/libs/album/manager/albummanager_database.cpp:627
-#: core/libs/album/manager/albummanager_database.cpp:658
+#: core/libs/album/manager/albummanager_database.cpp:553
+#: core/libs/album/manager/albummanager_database.cpp:623
+#: core/libs/album/manager/albummanager_database.cpp:654
 #, fuzzy, kde-format
 #| msgid "Copy Current Database"
 msgctxt "@action:button"
 msgid "Copy Current Database"
 msgstr "Kopiraj trenutnu bazu podataka"
 
-#: core/libs/album/manager/albummanager_database.cpp:568
+#: core/libs/album/manager/albummanager_database.cpp:564
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -29485,7 +29317,7 @@ msgstr ""
 "Želite li unaprijediti prijašnju verziju datoteke ove baze podataka ili  "
 "započeti sa korištenjem nove baze podataka?</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:603
+#: core/libs/album/manager/albummanager_database.cpp:599
 #, kde-format
 msgid ""
 "Failed to copy the old database file (\"%1\") to its new location (\"%2\"). "
@@ -29494,7 +29326,7 @@ msgstr ""
 "Kopiranje datoteke \"%1\" prijašnje baze podataka  na novu lokaciju (\"%2\") "
 "nije uspjelo. Probajte unaprijediti stariju verziju."
 
-#: core/libs/album/manager/albummanager_database.cpp:618
+#: core/libs/album/manager/albummanager_database.cpp:614
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database."
@@ -29506,7 +29338,7 @@ msgstr ""
 "nastaviti sa njenim korištenjem  ili  želite započeti rad sa novom bazom "
 "podataka?</p> "
 
-#: core/libs/album/manager/albummanager_database.cpp:650
+#: core/libs/album/manager/albummanager_database.cpp:646
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -29519,14 +29351,14 @@ msgstr ""
 "li koristit postojeću datoteku kao novu bazu podataka ili je pomjeriti i "
 "kopirati trenutnu bazu podataka na njeno mjesto?</p> "
 
-#: core/libs/album/manager/albummanager_database.cpp:660
+#: core/libs/album/manager/albummanager_database.cpp:656
 #, fuzzy, kde-format
 #| msgid "Use Existing File"
 msgctxt "@action:button"
 msgid "Use Existing File"
 msgstr "Koristi postojeći fajl"
 
-#: core/libs/album/manager/albummanager_database.cpp:715
+#: core/libs/album/manager/albummanager_database.cpp:711
 #, kde-format
 msgid ""
 "Failed to backup the existing database file (\"%1\"). Refusing to replace "
@@ -29535,7 +29367,7 @@ msgstr ""
 "Spremanje postojeće datoteke (\"%1\") baze podataka nije uspjelo. Nije "
 "moguće zamijeniti datoteku bez spremanja,koristeći postojeću datoteku."
 
-#: core/libs/album/manager/albummanager_database.cpp:733
+#: core/libs/album/manager/albummanager_database.cpp:729
 #, kde-format
 msgid ""
 "Failed to copy the old database file (\"%1\") to its new location (\"%2\"). "
@@ -29544,12 +29376,12 @@ msgstr ""
 "Kopiranje stare datoteke baze podataka (\"%1\") na njegovu novu lokaciju "
 "(\"%2\") nije uspjelo. Započinje sa praznom bazom podataka."
 
-#: core/libs/album/manager/albummanager_database.cpp:756
+#: core/libs/album/manager/albummanager_database.cpp:752
 #, kde-format
 msgid "<p><b>Please check the database settings in this dialog.</b></p>"
 msgstr ""
 
-#: core/libs/album/manager/albummanager_database.cpp:772
+#: core/libs/album/manager/albummanager_database.cpp:768
 #, fuzzy, kde-format
 #| msgid "New database folder"
 msgctxt "@action:button"
@@ -29777,7 +29609,7 @@ msgstr ""
 msgid "Context menu"
 msgstr "Meni sadržaja"
 
-#: core/libs/album/treeview/abstractalbumtreeview.cpp:1108
+#: core/libs/album/treeview/abstractalbumtreeview.cpp:1079
 #: core/libs/database/utils/ifaces/dio.cpp:970
 #, kde-format
 msgid "Empty Trash"
@@ -29812,7 +29644,7 @@ msgid "No Color"
 msgstr "Bez boje"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:321
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:455
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:445
 #, fuzzy, kde-format
 #| msgid "Red"
 msgctxt "@info: color label name"
@@ -29820,7 +29652,7 @@ msgid "Red"
 msgstr "Crvena"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:327
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:461
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:451
 #, fuzzy, kde-format
 #| msgid "Orange"
 msgctxt "@info: color label name"
@@ -29828,7 +29660,7 @@ msgid "Orange"
 msgstr "Narandžasta"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:333
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:467
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:457
 #, fuzzy, kde-format
 #| msgid "Yellow"
 msgctxt "@info: color label name"
@@ -29836,7 +29668,7 @@ msgid "Yellow"
 msgstr "Žuta"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:339
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:473
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:463
 #, fuzzy, kde-format
 #| msgid "Green"
 msgctxt "@info: color label name"
@@ -29844,7 +29676,7 @@ msgid "Green"
 msgstr "Zelena"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:345
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:479
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:469
 #, fuzzy, kde-format
 #| msgid "Blue"
 msgctxt "@info: color label name"
@@ -29852,7 +29684,7 @@ msgid "Blue"
 msgstr "Plava"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:351
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:485
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:475
 #, fuzzy, kde-format
 #| msgid "Magenta"
 msgctxt "@info: color label name"
@@ -29860,7 +29692,7 @@ msgid "Magenta"
 msgstr "Purpurna"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:357
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:491
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:481
 #, fuzzy, kde-format
 #| msgid "Gray"
 msgctxt "@info: color label name"
@@ -29868,7 +29700,7 @@ msgid "Gray"
 msgstr "Siva"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:363
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:497
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:487
 #, fuzzy, kde-format
 #| msgid "Black"
 msgctxt "@info: color label name"
@@ -29876,7 +29708,7 @@ msgid "Black"
 msgstr "Crna"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:369
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:503
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:493
 #, fuzzy, kde-format
 #| msgid "White"
 msgctxt "@info: color label name"
@@ -29891,7 +29723,7 @@ msgid "Picks: "
 msgstr "Izbori: "
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:398
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:269
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:259
 #, fuzzy, kde-format
 #| msgid "No Pick"
 msgctxt "@info: pick label name"
@@ -29899,7 +29731,7 @@ msgid "No Pick"
 msgstr "Bez izbora"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:404
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:251
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:241
 #, fuzzy, kde-format
 #| msgid "Rejected"
 msgctxt "@info: pick label name"
@@ -29907,7 +29739,7 @@ msgid "Rejected"
 msgstr "Odbijen"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:410
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:257
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:247
 #, fuzzy, kde-format
 #| msgid "Pending"
 msgctxt "@info: pick label name"
@@ -29915,7 +29747,7 @@ msgid "Pending"
 msgstr "Na čekanju"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:416
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:263
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:253
 #, fuzzy, kde-format
 #| msgid "Accepted"
 msgctxt "@info: pick label name"
@@ -31420,7 +31252,7 @@ msgstr "Informacija o napretku"
 #: core/libs/onlineversion/onlineversiondlg.cpp:194
 #: core/libs/progressmanager/progressview.cpp:197
 #: core/libs/progressmanager/statusbarprogresswidget.cpp:98
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:84
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:89
 #, kde-format
 msgctxt "%p is the percent value, % is the percent sign"
 msgid "%p%"
@@ -34115,72 +33947,72 @@ msgctxt "@info"
 msgid "Set here the relief gain used to merge texture and image."
 msgstr "Ovdje postavite  stečeni reljef korišten za spajanje teksture i slike."
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:387
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:367
 #, kde-format
 msgid "Rotate Right"
 msgstr "Rotiraj desno"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:392
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:372
 #, fuzzy, kde-format
 #| msgid "Rotated by 180 Degrees"
 msgid "Rotate 180 degrees"
 msgstr "Rotirano za 180 stepeni"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:397
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:377
 #, kde-format
 msgid "Rotate Left"
 msgstr "Rotiraj lijevo"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:402
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:382
 #, kde-format
 msgid "Flip Horizontally"
 msgstr "Prevrni vodoravno"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:407
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:387
 #, kde-format
 msgid "Flip Vertically"
 msgstr "Prevrni uspravno"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:412
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:392
 #, kde-format
 msgid "Crop"
 msgstr "Iseci"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:422
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:402
 #, kde-format
 msgid "Convert to 8 Bit"
 msgstr "Pretvoriti u 8 Bita"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:427
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:407
 #, kde-format
 msgid "Convert to 16 Bit"
 msgstr "Pretvoriti u 16 Bita"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:496
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:476
 #, kde-format
 msgctxt "Rotate image"
 msgid "Rotate"
 msgstr "Rotiraj"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:500
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:480
 #, kde-format
 msgctxt "Flip image"
 msgid "Flip"
 msgstr "Okreni"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:504
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:484
 #, kde-format
 msgctxt "Crop image"
 msgid "Crop"
 msgstr "Odsjeci"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:508
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:488
 #, kde-format
 msgctxt "Resize image"
 msgid "Resize"
 msgstr "Promijeni veličinu"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:512
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:492
 #, kde-format
 msgctxt "Convert image bit depth"
 msgid "Convert Depth"
@@ -35339,97 +35171,97 @@ msgstr "(djelomično pronađeno)"
 msgid "(exact match found)"
 msgstr "(tačno pronađeno)"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:126
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:115
 #, fuzzy, kde-format
 #| msgid "Lens Auto-Correction Tool"
 msgctxt "@title"
 msgid "Lens Auto-Correction Tool"
 msgstr "Alat Auto-korekcije Objektiva"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:485
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:435
 #, fuzzy, kde-format
 #| msgid "Camera: %1-%2"
 msgctxt "@info; XMP settings"
 msgid "Camera: %1-%2"
 msgstr "Kamera: %1-%2"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:487
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:437
 #, fuzzy, kde-format
 #| msgid "Lens: %1"
 msgctxt "@info; XMP settings"
 msgid "Lens: %1"
 msgstr "Leće: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:489
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:439
 #, fuzzy, kde-format
 #| msgid "Subject Distance: %1"
 msgctxt "@info; XMP settings"
 msgid "Subject Distance: <numid>%1</numid>"
 msgstr "Rastojanje Predmeta: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:491
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:441
 #, fuzzy, kde-format
 #| msgid "Aperture: %1"
 msgctxt "@info; XMP settings"
 msgid "Aperture: <numid>%1</numid>"
 msgstr "Blenda: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:493
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:443
 #, fuzzy, kde-format
 #| msgid "Focal Length: %1"
 msgctxt "@info; XMP settings"
 msgid "Focal Length: <numid>%1</numid>"
 msgstr "Dužina fokusa: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:495
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:445
 #, fuzzy, kde-format
 #| msgid "Crop Factor: %1"
 msgctxt "@info; XMP settings"
 msgid "Crop Factor: <numid>%1</numid>"
 msgstr "Faktor iskruživanja:%1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:497
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:500
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:503
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:506
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:447
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:450
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:453
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:456
 #, fuzzy, kde-format
 #| msgid "enabled"
 msgctxt "@info: correction status"
 msgid "enabled"
 msgstr "omogućeno"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:497
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:447
 #, fuzzy, kde-format
 #| msgid "CCA Correction: %1"
 msgctxt "@info; XMP settings"
 msgid "CCA Correction: %1"
 msgstr "CCA Korekcija: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:498
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:501
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:504
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:507
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:448
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:451
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:454
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:457
 #, fuzzy, kde-format
 #| msgid "disabled"
 msgctxt "@info: correction status"
 msgid "disabled"
 msgstr "onemogućeno"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:500
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:450
 #, fuzzy, kde-format
 #| msgid "VIG Correction: %1"
 msgctxt "@info; XMP settings"
 msgid "VIG Correction: %1"
 msgstr "VIG Korekcija: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:503
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:453
 #, fuzzy, kde-format
 #| msgid "DST Correction: %1"
 msgctxt "@info; XMP settings"
 msgid "DST Correction: %1"
 msgstr "DST Korekcija: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:506
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:456
 #, fuzzy, kde-format
 #| msgid "GEO Correction: %1"
 msgctxt "@info; XMP settings"
@@ -35552,73 +35384,73 @@ msgstr ""
 "Ovdje možete pogledati crtež histograma željene slike za odabrani kanal "
 "slike. Nakon bilo koje promjene postavki, dolazi do ponovnog proračuna."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:272
+#: core/libs/dimg/filters/levels/histogrambox.cpp:263
 #, kde-format
 msgid "<p>Select the histogram channel to display:</p>"
 msgstr "<p>Odaberite histogram kanal za prikaz:</p>"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:278
+#: core/libs/dimg/filters/levels/histogrambox.cpp:269
 #, kde-format
 msgctxt "The luminosity channel"
 msgid "Luminosity"
 msgstr "Osvjetljenje"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:279
+#: core/libs/dimg/filters/levels/histogrambox.cpp:270
 #, kde-format
 msgid "<b>Luminosity</b>: display the image's luminosity values."
 msgstr "<b>Osvjetljenje</b>: prikazati vrijednosti osvjetljenja slike."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:281
+#: core/libs/dimg/filters/levels/histogrambox.cpp:272
 #, kde-format
 msgctxt "The red channel"
 msgid "Red"
 msgstr "Crveno"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:282
+#: core/libs/dimg/filters/levels/histogrambox.cpp:273
 #, kde-format
 msgid "<b>Red</b>: display the red image-channel values."
 msgstr "<b>Crvena</b> prikazati vrijednosti kanala crvene slike."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:284
+#: core/libs/dimg/filters/levels/histogrambox.cpp:275
 #, kde-format
 msgctxt "The green channel"
 msgid "Green"
 msgstr "Zelena"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:285
+#: core/libs/dimg/filters/levels/histogrambox.cpp:276
 #, kde-format
 msgid "<b>Green</b>: display the green image-channel values."
 msgstr "<b>Zelena</b>: prikazati zelenu vrijednost kanala slike."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:287
+#: core/libs/dimg/filters/levels/histogrambox.cpp:278
 #, kde-format
 msgctxt "The blue channel"
 msgid "Blue"
 msgstr "Plava"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:288
+#: core/libs/dimg/filters/levels/histogrambox.cpp:279
 #, kde-format
 msgid "<b>Blue</b>: display the blue image-channel values."
 msgstr "<b>Plava</b>: prikazati plavu vrijednost kanala slike."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:290
+#: core/libs/dimg/filters/levels/histogrambox.cpp:281
 #, kde-format
 msgctxt "The colors channel"
 msgid "Colors"
 msgstr "Boje"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:291
+#: core/libs/dimg/filters/levels/histogrambox.cpp:282
 #, kde-format
 msgid "<b>Colors</b>: Display all color channel values at the same time."
 msgstr "<b>Boje</b>: Prikazati sve vrijednosti kanala boja u isto vrijeme."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:293
+#: core/libs/dimg/filters/levels/histogrambox.cpp:284
 #, kde-format
 msgctxt "The alpha channel"
 msgid "Alpha"
 msgstr "Alfa"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:294
+#: core/libs/dimg/filters/levels/histogrambox.cpp:285
 #, kde-format
 msgid ""
 "<b>Alpha</b>: display the alpha image-channel values. This channel "
@@ -38145,48 +37977,48 @@ msgstr ""
 "Izaberi kriterij korišten za filtriranje sadržaja albuma. Koristi pop-up "
 "meni za postavljanje kriterija filtriranja."
 
-#: core/libs/filters/ratingfilter.cpp:180
+#: core/libs/filters/ratingfilter.cpp:162
 #, kde-format
 msgid "Rating greater than or equal to %1."
 msgstr "Ocjena veća ili jednaka od %1."
 
-#: core/libs/filters/ratingfilter.cpp:186
+#: core/libs/filters/ratingfilter.cpp:168
 #, kde-format
 msgid "Rating equal to %1."
 msgstr "Ocjena jednaka %1."
 
-#: core/libs/filters/ratingfilter.cpp:192
+#: core/libs/filters/ratingfilter.cpp:174
 #, kde-format
 msgid "Rating less than or equal to %1."
 msgstr "Ocjena manja ili jednaka %1."
 
-#: core/libs/filters/ratingfilter.cpp:232
+#: core/libs/filters/ratingfilter.cpp:214
 #, fuzzy, kde-format
 #| msgid "Exclude Items Without Rating"
 msgid "Items Without Rating"
 msgstr "Isključiti stavke bez procjene"
 
-#: core/libs/filters/ratingfilter.cpp:236
+#: core/libs/filters/ratingfilter.cpp:218
 #, kde-format
 msgid "Rating Filter Options"
 msgstr "Opcije za ocjenivanje filtera"
 
-#: core/libs/filters/ratingfilter.cpp:241
+#: core/libs/filters/ratingfilter.cpp:223
 #, kde-format
 msgid "Greater Than or Equals Condition"
 msgstr "\"Veće od\" ili \"Jednako\" stanje"
 
-#: core/libs/filters/ratingfilter.cpp:243
+#: core/libs/filters/ratingfilter.cpp:225
 #, kde-format
 msgid "Equals Condition"
 msgstr "Stanje \"Jednako\""
 
-#: core/libs/filters/ratingfilter.cpp:245
+#: core/libs/filters/ratingfilter.cpp:227
 #, kde-format
 msgid "Less Than or Equals Condition"
 msgstr "\"Manje od\" ili \"Jednako\"  stanje"
 
-#: core/libs/filters/ratingfilter.cpp:248
+#: core/libs/filters/ratingfilter.cpp:230
 #, kde-format
 msgid "Exclude Items Without Rating"
 msgstr "Isključiti stavke bez procjene"
@@ -45843,42 +45675,49 @@ msgstr ""
 "Pojavila se greška oko prikaza stavke\n"
 "%1"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:197
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:211
+#: core/libs/video/player/mediaplayerview.cpp:211
 #, fuzzy, kde-format
 #| msgid "An error has occurred with the media player...."
 msgid "An error has occurred with the media player..."
 msgstr "Desila se greška sa media player-om...."
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:198
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:212
+#: core/libs/video/player/mediaplayerview.cpp:212
 #, kde-format
 msgid "End of media."
 msgstr ""
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:210
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:305
+#: core/libs/video/player/mediaplayerview.cpp:305
 #, kde-format
 msgctxt "go to previous image"
 msgid "Back"
 msgstr "Nazad"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:213
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:308
+#: core/libs/video/player/mediaplayerview.cpp:308
 #, kde-format
 msgctxt "go to next image"
 msgid "Forward"
 msgstr "Naprijed"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:216
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:314
+#: core/libs/video/player/mediaplayerview.cpp:311
+#, kde-format
+msgctxt "video frame backward"
+msgid "Frame Backward"
+msgstr ""
+
+#: core/libs/video/player/mediaplayerview.cpp:314
 #, kde-format
 msgctxt "pause/play video"
 msgid "Pause/Play"
 msgstr ""
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:219
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:320
+#: core/libs/video/player/mediaplayerview.cpp:317
+#, fuzzy, kde-format
+#| msgid "Forward"
+msgctxt "video frame forward"
+msgid "Frame Forward"
+msgstr "Naprijed"
+
+#: core/libs/video/player/mediaplayerview.cpp:320
 #, fuzzy, kde-format
 #| msgctxt "@action:button"
 #| msgid "Capture"
@@ -45886,30 +45725,86 @@ msgctxt "capture video frame"
 msgid "Capture"
 msgstr "Dohvati"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:222
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:323
+#: core/libs/video/player/mediaplayerview.cpp:323
 #, fuzzy, kde-format
 #| msgid "Rotate Left"
 msgctxt "rotate video in counterclockwize"
 msgid "Rotate Left"
 msgstr "Rotiraj lijevo"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:225
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:326
+#: core/libs/video/player/mediaplayerview.cpp:326
 #, fuzzy, kde-format
 #| msgid "Rotate Right"
 msgctxt "rotate video in clockwize"
 msgid "Rotate Right"
 msgstr "Rotiraj desno"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:260
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:424
+#: core/libs/video/player/mediaplayerview.cpp:330
+#, kde-format
+msgctxt "@info"
+msgid "Change video playback rate"
+msgstr ""
+
+#: core/libs/video/player/mediaplayerview.cpp:335
+#, fuzzy, kde-format
+#| msgid "Date:"
+msgid "Rate"
+msgstr "Datum:"
+
+#: core/libs/video/player/mediaplayerview.cpp:339
+#, kde-format
+msgctxt "video play rate"
+msgid "0.5x"
+msgstr ""
+
+#: core/libs/video/player/mediaplayerview.cpp:342
+#, kde-format
+msgctxt "video play rate"
+msgid "1.0x"
+msgstr ""
+
+#: core/libs/video/player/mediaplayerview.cpp:345
+#, kde-format
+msgctxt "video play rate"
+msgid "1.5x"
+msgstr ""
+
+#: core/libs/video/player/mediaplayerview.cpp:348
+#, kde-format
+msgctxt "video play rate"
+msgid "2.0x"
+msgstr ""
+
+#: core/libs/video/player/mediaplayerview.cpp:351
+#, kde-format
+msgctxt "video play rate"
+msgid "2.5x"
+msgstr ""
+
+#: core/libs/video/player/mediaplayerview.cpp:354
+#, kde-format
+msgctxt "video play rate"
+msgid "3.0x"
+msgstr ""
+
+#: core/libs/video/player/mediaplayerview.cpp:357
+#, kde-format
+msgctxt "video play rate"
+msgid "4.0x"
+msgstr ""
+
+#: core/libs/video/player/mediaplayerview.cpp:360
+#, kde-format
+msgctxt "video play rate"
+msgid "5.0x"
+msgstr ""
+
+#: core/libs/video/player/mediaplayerview.cpp:424
 #, kde-format
 msgid "Toggle playing in a loop"
 msgstr ""
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:910
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:741
+#: core/libs/video/player/mediaplayerview.cpp:741
 #, fuzzy, kde-format
 #| msgid "Error"
 msgid ""
@@ -45917,79 +45812,6 @@ msgid ""
 "\n"
 "Error: \"%2\""
 msgstr "Greška"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:311
-#, kde-format
-msgctxt "video frame backward"
-msgid "Frame Backward"
-msgstr ""
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:317
-#, fuzzy, kde-format
-#| msgid "Forward"
-msgctxt "video frame forward"
-msgid "Frame Forward"
-msgstr "Naprijed"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:330
-#, kde-format
-msgctxt "@info"
-msgid "Change video playback rate"
-msgstr ""
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:335
-#, fuzzy, kde-format
-#| msgid "Date:"
-msgid "Rate"
-msgstr "Datum:"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:339
-#, kde-format
-msgctxt "video play rate"
-msgid "0.5x"
-msgstr ""
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:342
-#, kde-format
-msgctxt "video play rate"
-msgid "1.0x"
-msgstr ""
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:345
-#, kde-format
-msgctxt "video play rate"
-msgid "1.5x"
-msgstr ""
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:348
-#, kde-format
-msgctxt "video play rate"
-msgid "2.0x"
-msgstr ""
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:351
-#, kde-format
-msgctxt "video play rate"
-msgid "2.5x"
-msgstr ""
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:354
-#, kde-format
-msgctxt "video play rate"
-msgid "3.0x"
-msgstr ""
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:357
-#, kde-format
-msgctxt "video play rate"
-msgid "4.0x"
-msgstr ""
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:360
-#, kde-format
-msgctxt "video play rate"
-msgid "5.0x"
-msgstr ""
 
 #: core/libs/widgets/combo/dcombobox.cpp:60
 #: core/libs/widgets/range/dnuminput.cpp:67
@@ -46292,8 +46114,8 @@ msgid ""
 "special characters."
 msgstr ""
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:720
-#: core/libs/widgets/fonts/dfontproperties.cpp:771
+#: core/libs/widgets/fonts/dfontproperties.cpp:712
+#: core/libs/widgets/fonts/dfontproperties.cpp:752
 #, fuzzy, kde-format
 #| msgctxt "normal exif orientation"
 #| msgid "Normal"
@@ -46301,14 +46123,14 @@ msgctxt "@info: font style"
 msgid "Normal"
 msgstr "Normalna"
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:779
+#: core/libs/widgets/fonts/dfontproperties.cpp:760
 #, fuzzy, kde-format
 #| msgid "Italian"
 msgctxt "@info: font style"
 msgid "Italic"
 msgstr "Italijanski"
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:780
+#: core/libs/widgets/fonts/dfontproperties.cpp:761
 #, fuzzy, kde-format
 #| msgctxt "unique value for duplicate strings"
 #| msgid "Unique"
@@ -47427,7 +47249,7 @@ msgstr ""
 "Sakrij sve trake sa alatima pri uključivanju režima prikaza preko cijelog "
 "ekrana."
 
-#: core/libs/widgets/mainview/thememanager_p.cpp:1323
+#: core/libs/widgets/mainview/thememanager_p.cpp:1319
 #, kde-format
 msgctxt "default theme name"
 msgid "Default"
@@ -48543,7 +48365,7 @@ msgstr "Sačuvajte XMP datoteku"
 msgid "XMP text Files (*.xmp)"
 msgstr "XMP tekstualne datoteke (*.xmp)"
 
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:509
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:499
 #, fuzzy, kde-format
 #| msgid "None"
 msgctxt "@info: color label name"
@@ -69372,43 +69194,45 @@ msgstr "Trenutna pretraga"
 #: core/utilities/searchwindow/view/searchtabheader.cpp:64
 #, kde-format
 msgid ""
-"Interpret the text above as a natural-language search and build the query"
+"Interpret the text above as a natural-language search and build the query. "
+"If the language model has not been downloaded yet, the Advanced Search "
+"dialog will open so you can download it."
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:70
+#: core/utilities/searchwindow/view/searchtabheader.cpp:72
 #: core/utilities/searchwindow/view/searchwindow.cpp:70
 #, fuzzy, kde-format
 #| msgid "Cancel this operation."
 msgid "Cancel the current interpretation"
 msgstr "Prekini ovu operaciju."
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:95
+#: core/utilities/searchwindow/view/searchtabheader.cpp:97
 #, fuzzy, kde-format
 #| msgid "Advanced Search"
 msgid "Open Advanced Search"
 msgstr "Napredno traženje"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:96
+#: core/utilities/searchwindow/view/searchtabheader.cpp:98
 #, kde-format
 msgid "Run Now"
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:140
+#: core/utilities/searchwindow/view/searchtabheader.cpp:142
 #, kde-format
 msgid "Save Current Search"
 msgstr "Sačuvaj trenutnu pretragu"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:144
+#: core/utilities/searchwindow/view/searchtabheader.cpp:146
 #, kde-format
 msgid "Enter a name for the current search to save it in the \"Searches\" view"
 msgstr "Unesite ime trenutne pretrage da je sačuvate u \"Pretrage\"  pregledu"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:149
+#: core/utilities/searchwindow/view/searchtabheader.cpp:151
 #, kde-format
 msgid "Save current search to a new virtual Album"
 msgstr "Sačuvajte trenutnu pretragu u novom virtuelnom albumu"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:150
+#: core/utilities/searchwindow/view/searchtabheader.cpp:152
 #, kde-format
 msgid ""
 "If you press this button, the current search will be saved to a new virtual "
@@ -69417,18 +69241,18 @@ msgstr ""
 "Ako pritisnete ovo dugme, trenutna pretraga će biti sačuvana u novom "
 "virtualnom albumu pretraga koristeći ime postavljeno na lijevoj strani."
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:165
-#: core/utilities/searchwindow/view/searchtabheader.cpp:192
+#: core/utilities/searchwindow/view/searchtabheader.cpp:167
+#: core/utilities/searchwindow/view/searchtabheader.cpp:194
 #, kde-format
 msgid "Edit Stored Search"
 msgstr "Uredi pohranjenu pretragu"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:207
+#: core/utilities/searchwindow/view/searchtabheader.cpp:209
 #, kde-format
 msgid "Edit..."
 msgstr "Uredi..."
 
-#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:89
+#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:105
 #, fuzzy, kde-format
 #| msgid "Import"
 msgid ""
@@ -69436,7 +69260,7 @@ msgid ""
 "%1"
 msgstr "Uvezi"
 
-#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:123
+#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:139
 #: core/utilities/searchwindow/view/searchwindow_slots.cpp:180
 #, fuzzy, kde-format
 #| msgid "Process Cancelled..."
@@ -71310,23 +71134,23 @@ msgstr ""
 msgid "Use AutoTags Assignment feature"
 msgstr "Automatsko prilagođavanje"
 
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:81
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:84
 #, fuzzy, kde-format
 #| msgid "Face Detection"
 msgid "Use Natural Language Search feature"
 msgstr "Detekcija lica"
 
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:290
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:311
 #, kde-format
 msgid "Clean up unused AI/DNN model files..."
 msgstr ""
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:46
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:52
 #, kde-format
 msgid "All model files were downloaded successfully."
 msgstr ""
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:55
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:61
 #, fuzzy, kde-format
 #| msgctxt "@action"
 #| msgid "Download New"
@@ -71334,7 +71158,7 @@ msgctxt "@title:window"
 msgid "Download Error"
 msgstr "Preuzmi novo"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:56
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:62
 #, kde-format
 msgid ""
 "An error occurred during the download.\n"
@@ -71346,36 +71170,36 @@ msgid ""
 "You can try again or continue the download at the next start."
 msgstr ""
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:64
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:70
 #, fuzzy, kde-format
 #| msgid "Add film grain"
 msgctxt "@action:button"
 msgid "Try Again"
 msgstr "Dodaj zrnatost filma"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:136
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:142
 #, kde-format
 msgid "Checksum is incorrect."
 msgstr ""
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:160
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:166
 #, kde-format
 msgid "File write error."
 msgstr ""
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:167
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:173
 #, fuzzy, kde-format
 #| msgid "Export Tools"
 msgid "File open error."
 msgstr "Izvozni alati"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:182
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:188
 #, fuzzy, kde-format
 #| msgid "Failed to save tags to file."
 msgid "File on the server is too large."
 msgstr "Neuspjelo snimanje oznaka na dokumentu."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:258
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:270
 #, kde-format
 msgid ""
 "<p>digiKam relies on large binary model files to power features like face "
@@ -71386,7 +71210,7 @@ msgid ""
 "model files.</p>"
 msgstr ""
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:264
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:276
 #, kde-format
 msgid ""
 "<p>Some required files are missing. Click “Download” to start installing the "
@@ -71396,13 +71220,13 @@ msgid ""
 "downloading the files.</b></p>"
 msgstr ""
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:271
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:283
 #, kde-format
 msgctxt "%1: file counter, %2: disk size with unit"
 msgid "The download requires %1 files with a size of %2."
 msgstr ""
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:297
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:309
 #, kde-format
 msgid "All files for the selected features were found."
 msgstr ""
@@ -74955,6 +74779,101 @@ msgstr ""
 #| msgid "Flash mode"
 msgid "Play/Pause Video"
 msgstr "Mod blica"
+
+#, fuzzy
+#~| msgid "Select the input intensity of the histogram here."
+#~ msgctxt "@info"
+#~ msgid "Set the visibility of the album"
+#~ msgstr "Ovdje označite jačinu ulaza histograma ."
+
+#, fuzzy
+#~| msgid "Quick Access List"
+#~ msgctxt "@label: properties"
+#~ msgid "Public"
+#~ msgstr "Lista brzog pristupa"
+
+#, fuzzy
+#~| msgid "Sort by rating"
+#~ msgctxt "@info"
+#~ msgid "A tool to export to Rajce web-service"
+#~ msgstr "Sortiraj prema ocjenama"
+
+#, fuzzy
+#~| msgid "Sort by rating"
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "This tool allows users to export items to Rajce web-service.<br><br>See "
+#~ "Rajce web site for details: %1"
+#~ msgstr "Sortiraj prema ocjenama"
+
+#, fuzzy
+#~| msgid "Export Tools"
+#~ msgctxt "@action"
+#~ msgid "Export to &Rajce..."
+#~ msgstr "Izvozni alati"
+
+#, fuzzy
+#~| msgid "Not Tagged"
+#~ msgid "Not logged in"
+#~ msgstr "Nije označena"
+
+#, fuzzy
+#~| msgid "Unknown"
+#~ msgid "Unknown album"
+#~ msgstr "Nepoznato"
+
+#, fuzzy
+#~| msgid "Failed to rename Album"
+#~ msgid "Failed to open album"
+#~ msgstr "Neuspjela promjena imena albuma"
+
+#, fuzzy
+#~| msgid "Album name cannot be empty."
+#~ msgid "The album name cannot be empty"
+#~ msgstr "Ime albuma ne može biti prazno."
+
+#, fuzzy
+#~| msgid "Failed to rename Album"
+#~ msgid "Failed to create album"
+#~ msgstr "Neuspjela promjena imena albuma"
+
+#, fuzzy
+#~| msgid "File does not exist"
+#~ msgid "Album does not exist"
+#~ msgstr "Datoteka ne postoji"
+
+#, fuzzy
+#~| msgid "Last modified"
+#~ msgid "File upload failed"
+#~ msgstr "Posljednja izmjena"
+
+#, fuzzy
+#~| msgid "Ignored file extensions:"
+#~ msgid "Unsupported file extension"
+#~ msgstr "Ignorisani nastavci datoteka:"
+
+#, fuzzy
+#~| msgid "Loading cameras..."
+#~ msgid "Loading albums %v%"
+#~ msgstr "Učitavanje kamera..."
+
+#, fuzzy
+#~| msgid "Create new album"
+#~ msgid "Creating album %v%"
+#~ msgstr "Kreiraj novi album"
+
+#, fuzzy
+#~| msgid "Export Tools"
+#~ msgctxt "@title:window"
+#~ msgid "Export to Rajce.net"
+#~ msgstr "Izvozni alati"
+
+#, fuzzy
+#~| msgctxt "@title:window"
+#~| msgid "Select Image to Upload"
+#~ msgctxt "@info:tooltip, button"
+#~ msgid "Start upload to Rajce.net"
+#~ msgstr "Izaberite sliku za postavljanje"
 
 #~ msgid "Roll"
 #~ msgstr "Kotrljaj"

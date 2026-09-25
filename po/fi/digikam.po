@@ -45,7 +45,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 15:58+0000\n"
+"POT-Creation-Date: 2026-09-25 00:42+0000\n"
 "PO-Revision-Date: 2026-03-13 17:00+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -11901,7 +11901,7 @@ msgid "cm"
 msgstr "cm"
 
 #: core/dplugins/editor/transform/resize/resizetool.cpp:927
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:417
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:397
 #, kde-format
 msgid "Resize"
 msgstr "Muuta kokoa"
@@ -12125,7 +12125,7 @@ msgstr "Lue kuva"
 msgid "Scan Images"
 msgstr "Lue kuvia"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:172
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:144
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:100
 #: core/utilities/imageeditor/editor/editorwindow.cpp:1845
 #, kde-format
@@ -12133,27 +12133,27 @@ msgctxt "@title:window"
 msgid "New Image File Name"
 msgstr "Kuvatiedoston uusi nimi"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:220
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:192
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:148
 #, kde-format
 msgctxt "@title:window"
 msgid "Unsupported Format"
 msgstr "Ei-tuettu muoto"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:221
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:193
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:149
 #, kde-format
 msgid "The target image file format \"%1\" is unsupported."
 msgstr "Kuvan kohdetiedostomuotoa ”%1” ei tueta."
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:233
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:205
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Cannot Save File"
 msgstr "Tiedostoa ei voi tallentaa"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:234
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:206
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:162
 #, kde-format
 msgid ""
@@ -12165,7 +12165,7 @@ msgstr ""
 "”%1” kohteeseen\n"
 "”%2”."
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:249
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:221
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:177
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2321
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2340
@@ -12174,25 +12174,25 @@ msgctxt "@title:window"
 msgid "Overwrite File?"
 msgstr "Korvataanko tiedosto?"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:250
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:222
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:178
 #, kde-format
 msgid ""
 "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
 msgstr "Tiedosto ”%1” on jo olemassa. Haluatko varmasti korvata sen?"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:301
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:258
 #, kde-format
 msgid "Saving file %1 -"
 msgstr "Tallennetaan tiedostoa %1 –"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:309
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:266
 #, kde-format
 msgctxt "@title:window"
 msgid "File Not Saved"
 msgstr "Tiedostoa ei tallennettu"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:310
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:267
 #, kde-format
 msgid "Cannot save \"%1\" file"
 msgstr "Tiedoston \"%1\" tallennus epäonnistui"
@@ -21217,47 +21217,47 @@ msgstr "Muutetun koon kuvaa (JPEG) ei voida tallentaa. Keskeytetään."
 msgid "Cannot save resized image (PNG). Aborting."
 msgstr "Muutetun koon kuvaa (PNG) ei voida tallentaa. Keskeytetään."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:111
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:107
 #, kde-format
 msgid "Cannot create a temporary directory"
 msgstr "Väliaikaiskansion luominen epäonnistui"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:172
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:168
 #, kde-format
 msgid "Resizing %1"
 msgstr "Muutetaan kokoa: %1"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:190
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:186
 #, kde-format
 msgid "%1 resized successfully"
 msgstr "%1 skaalattu"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:204
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:200
 #, kde-format
 msgid "Failed to resize %1: %2"
 msgstr "Kuvan ”%1” skaalaus epäonnistui: %2"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:241
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:237
 #, kde-format
 msgid "There are no files to send"
 msgstr "Ei lähetettäviä tiedostoja"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:265
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:261
 #, kde-format
 msgid "Build images properties file"
 msgstr "Luo kuvaustiedosto kuvien ominaisuuksista"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:281
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:277
 #, kde-format
 msgid "no caption"
 msgstr "ei kuvatekstiä"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:286
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:282
 #, kde-format
 msgid "no keywords"
 msgstr "ei asiasanoja"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:285
 #, kde-format
 msgid ""
 "file \"%1\":\n"
@@ -21266,37 +21266,37 @@ msgstr ""
 "tiedosto ”%1”:\n"
 "Alkuperäiset kuvat: %2\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:287
 #, kde-format
 msgid "Comments: %1\n"
 msgstr "Kommentit: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:293
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
 #, kde-format
 msgid "Tags: %1\n"
 msgstr "Tunnisteet: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:295
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
 #, kde-format
 msgid "Rating: %1\n"
 msgstr "Arvio: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:300
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:296
 #, kde-format
 msgid "properties.txt"
 msgstr "properties.txt"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:315
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:302
 #, kde-format
 msgid "Image properties file cannot be opened"
 msgstr "Kuvan ominaisuustiedostoa ei voi avata"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:327
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:314
 #, kde-format
 msgid "Image properties file done"
 msgstr "Kuvien kuvaustiedosto on luotu"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:347
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:334
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:982
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:995
 #, kde-format
@@ -21304,7 +21304,7 @@ msgctxt "@title:window"
 msgid "Processing Failed"
 msgstr "Käsittely epäonnistui"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:348
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:335
 #, kde-format
 msgid ""
 "Some images cannot be resized.\n"
@@ -21313,7 +21313,7 @@ msgstr ""
 "Joidenkin kuvien kokoa ei voi muuttaa.\n"
 "Haluatko lisätä ne liitteiksi muuttamatta kuvakokoa?"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:421
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:408
 #, kde-format
 msgid ""
 "The file \"%1\" is too big to be sent, please reduce its size or change your "
@@ -21323,18 +21323,18 @@ msgstr ""
 "asetuksiaTiedosto ”%1” on liian suuri lähetettäväksi: pienennä sitä tai "
 "muuta asetuksia"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:648
 #, kde-format
 msgid "Send items by mail from digiKam"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:663
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:650
 #, fuzzy, kde-format
 #| msgid "Title of the image"
 msgid "List of attached items"
 msgstr "Kuvan otsikko"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:710
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:697
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Error While to Set Image as Wallpaper"
@@ -21342,28 +21342,28 @@ msgctxt "@title:window"
 msgid "Error While to Send Items by mail"
 msgstr "Virhe asettaessa kuvaa taustakuvaksi"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:711
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:698
 #, kde-format
 msgctxt "@info"
 msgid "Cannot send items using native Apple Mail application"
 msgstr ""
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:727
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:714
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr "Ohjelman ”%1” käynnistys epäonnistui. Tarkista järjestelmä."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:739
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:726
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "Käynnistetään ohjelmaa ”%1”…"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:743
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:730
 #, kde-format
 msgid "After having sent your images by email..."
 msgstr "Kun kuvat on lähetetty…"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:744
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:731
 #, kde-format
 msgid "Press 'Finish' button to clean up temporary files"
 msgstr "Poista väliaikaistiedostot painamalla ”Valmis”"
@@ -22950,14 +22950,14 @@ msgid "Delay:"
 msgstr "Viive:"
 
 #: core/dplugins/generic/view/presentation/widgets/presentationctrlwidget.cpp:250
-#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:436
+#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:426
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Image"
 msgstr "Poista kuva"
 
 #: core/dplugins/generic/view/presentation/widgets/presentationctrlwidget.cpp:251
-#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:437
+#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:427
 #, kde-format
 msgid "Do you want to move this image to the trash?"
 msgstr "Haluatko siirtää tämän kuvan roskakoriin?"
@@ -23374,7 +23374,6 @@ msgstr "Vie Boxiin"
 #: core/dplugins/generic/webservices/onedrive/odwindow.cpp:77
 #: core/dplugins/generic/webservices/pinterest/pwindow.cpp:77
 #: core/dplugins/generic/webservices/piwigo/piwigowindow.cpp:266
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:45
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:119
 #: core/dplugins/generic/webservices/twitter/twitterwindow.cpp:77
 #, kde-format
@@ -24348,7 +24347,6 @@ msgstr "POST-menetelmä vaaditaan nyt kaikkeen asettamiseen"
 
 #: core/dplugins/generic/webservices/flickr/flickrtalker.cpp:801
 #: core/dplugins/generic/webservices/google/gphoto/gptalker.cpp:586
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:228
 #, kde-format
 msgid "Unknown error"
 msgstr "Tuntematon virhe"
@@ -26970,161 +26968,6 @@ msgstr ""
 "\n"
 "Haluatko jatkaa?"
 
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:40
-#, kde-format
-msgctxt "@option"
-msgid "Visibility"
-msgstr "Näkyvyys"
-
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:41
-#, kde-format
-msgctxt "@info"
-msgid "Set the visibility of the album"
-msgstr "Aseta albumin näkyvyys"
-
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:43
-#, kde-format
-msgctxt "@label: properties"
-msgid "Public"
-msgstr "Julkinen"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:48
-#, kde-format
-msgctxt "@title"
-msgid "Rajce"
-msgstr "Rajce"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:63
-#, kde-format
-msgctxt "@info"
-msgid "A tool to export to Rajce web-service"
-msgstr "Työkalu Rajce-verkkopalveluvientiin"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:68
-#, fuzzy, kde-format
-#| msgctxt "@info"
-#| msgid ""
-#| "This tool allows users to export items to Rajce web-service.\n"
-#| "\n"
-#| "See Rajce web site for details: %1"
-msgctxt "@info"
-msgid ""
-"This tool allows users to export items to Rajce web-service.<br><br>See "
-"Rajce web site for details: %1"
-msgstr ""
-"Tällä työkalulla voi kohteita viedä Rajce-verkkopalveluun.\n"
-"Rajce-sivustolta löytyy lisätietoa: %1"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:96
-#, kde-format
-msgctxt "@action"
-msgid "Export to &Rajce..."
-msgstr "Vie Ra&jceen…"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:162
-#, kde-format
-msgid "Not logged in"
-msgstr "Ei kirjautunut"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:229
-#, kde-format
-msgid "Invalid command"
-msgstr "Virheellinen komento"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:230
-#, kde-format
-msgid "Invalid login name or password"
-msgstr "Virheellinen käyttäjätunnus tai salasana"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:231
-#, kde-format
-msgid "Session expired"
-msgstr "Istunto on vanhentunut"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:233
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:234
-#, kde-format
-msgid "Unknown album"
-msgstr "Tuntematon albumi"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:235
-#, kde-format
-msgid "Failed to open album"
-msgstr "Albumin avaaminen epäonnistui"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:236
-#, kde-format
-msgid "The album name cannot be empty"
-msgstr "Albumin nimi ei voi olla tyhjä"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:237
-#, kde-format
-msgid "Failed to create album"
-msgstr "Albumin luominen epäonnistui"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:238
-#, kde-format
-msgid "Album does not exist"
-msgstr "Albumia ei ole olemassa"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:241
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:243
-#, kde-format
-msgid "File upload failed"
-msgstr "Tiedoston tallennus epäonnistui"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:244
-#, kde-format
-msgid "Unsupported file extension"
-msgstr "Tiedostomuoto ei ole tuettu"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:300
-#, kde-format
-msgid "Logging in %v%"
-msgstr "Kirjaudutaan sisään palveluun %v%"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:301
-#, kde-format
-msgid "Logging out %v%"
-msgstr "Kirjaudutaan ulos palvelusta %v%"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:302
-#, kde-format
-msgid "Loading albums %v%"
-msgstr "Luetaan albumeja %v %"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:303
-#, kde-format
-msgid "Creating album %v%"
-msgstr "Luodaan albumia %v%"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:304
-#, kde-format
-msgid "Opening album %v%"
-msgstr "Avataan albumia %v%"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:305
-#, kde-format
-msgid "Closing album %v%"
-msgstr "Suljetaan albumia %v%"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:306
-#, kde-format
-msgid "Adding photos %v%"
-msgstr "Lisätään kuvia albumiin %v%"
-
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:43
-#, kde-format
-msgctxt "@title:window"
-msgid "Export to Rajce.net"
-msgstr "Vienti Rajce.netiin"
-
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:46
-#, kde-format
-msgctxt "@info:tooltip, button"
-msgid "Start upload to Rajce.net"
-msgstr "Aloita lähetys Rajce.netiin"
-
 #: core/dplugins/generic/webservices/smugmug/smugnewalbumdlg.cpp:71
 #, kde-format
 msgid "SmugMug New Album"
@@ -28134,7 +27977,7 @@ msgstr "Tutkitaan albumeja…"
 msgid "Searches"
 msgstr "Haut"
 
-#: core/libs/album/manager/albummanager_database.cpp:111
+#: core/libs/album/manager/albummanager_database.cpp:107
 #, fuzzy, kde-format
 #| msgid ""
 #| "The MySQL database directory was not found, please set the correct "
@@ -28144,19 +27987,19 @@ msgstr ""
 "MySQL-tietokantakansiota ei löytynyt: aseta seuraavassa ikkunassa oikea "
 "sijainti."
 
-#: core/libs/album/manager/albummanager_database.cpp:128
+#: core/libs/album/manager/albummanager_database.cpp:124
 #, fuzzy, kde-format
 #| msgid "The MySQL binary tools was not found."
 msgid "The MariaDB binary tools was not found."
 msgstr "MySQL:n ohjelmatiedostoa ei löytynyt."
 
-#: core/libs/album/manager/albummanager_database.cpp:135
+#: core/libs/album/manager/albummanager_database.cpp:131
 #, fuzzy, kde-format
 #| msgid "The core database name is empty"
 msgid "The SQLite core database was not found."
 msgstr "Perustietokannan nimi on tyhjä"
 
-#: core/libs/album/manager/albummanager_database.cpp:144
+#: core/libs/album/manager/albummanager_database.cpp:140
 #, kde-format
 msgid ""
 "<p>If you want to start with a new configuration and with a first run "
@@ -28165,7 +28008,7 @@ msgstr ""
 "<p>Jos haluat tehdä uuden asetuksen opastetulla ensikäynnistyksellä, poista "
 "tiedosto:<br>%1</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:157
+#: core/libs/album/manager/albummanager_database.cpp:153
 #, fuzzy, kde-format
 #| msgid ""
 #| "An error occurred during the internal server start.\n"
@@ -28180,13 +28023,13 @@ msgstr ""
 "Yksityiskohdat:\n"
 "%1"
 
-#: core/libs/album/manager/albummanager_database.cpp:173
+#: core/libs/album/manager/albummanager_database.cpp:169
 #, fuzzy, kde-format
 #| msgid "Failed to add tag to database"
 msgid "Failed to open the database."
 msgstr "Tunnistetta ei voitu lisätä tietokantaan"
 
-#: core/libs/album/manager/albummanager_database.cpp:180
+#: core/libs/album/manager/albummanager_database.cpp:176
 #, kde-format
 msgid ""
 "<p>digiKam will attempt to start now, but it will <b>not</b> be functional.</"
@@ -28195,7 +28038,7 @@ msgstr ""
 "<p>digiKam yrittää nyt käynnistyä, mutta se <b>ei ole</b> toimintakunnossa.</"
 "p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:215
+#: core/libs/album/manager/albummanager_database.cpp:211
 #, kde-format
 msgid ""
 "<p>Failed to open the database.</p><p>You cannot use digiKam without a "
@@ -28208,7 +28051,7 @@ msgstr ""
 "täysin toimintakuntoinen. Tarkista <b>asetusvalikosta</b> tietokannan "
 "asetukset.</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:224
+#: core/libs/album/manager/albummanager_database.cpp:220
 #, kde-format
 msgid ""
 "<p>Failed to open the database. Error message from database:</p><p><b>%1</"
@@ -28221,13 +28064,13 @@ msgstr ""
 "yrittää nyt käynnistyä, mutta se <b>ei ole</b> täysin toimintakunnossa. "
 "Tarkista <b>asetusvalikosta</b> tietokannan asetukset.</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:243
+#: core/libs/album/manager/albummanager_database.cpp:239
 #, fuzzy, kde-format
 #| msgid "Failed to initialize thumbnails database"
 msgid "Failed to initialize the database."
 msgstr "Pienoiskuvatietokannan alustaminen epäonnistui"
 
-#: core/libs/album/manager/albummanager_database.cpp:266
+#: core/libs/album/manager/albummanager_database.cpp:262
 #, kde-format
 msgid ""
 "Your database character set has changed since this album was last opened.\n"
@@ -28248,7 +28091,7 @@ msgstr ""
 "jatkaa, valitse ”Kyllä”. Muussa tapauksessa napsauta ”Ei”, tarkista "
 "merkistöasetus ja käynnistä digiKam uudelleen."
 
-#: core/libs/album/manager/albummanager_database.cpp:310
+#: core/libs/album/manager/albummanager_database.cpp:306
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>The collection </p><p><b>%1</b><br/>(%2)</p><p> is currently not found "
@@ -28262,7 +28105,7 @@ msgstr ""
 "<p>Kokoelmaa</p><p><b>%1</b><br/>(%2)</p><p>ei tällä hetkellä löydy "
 "järjestelmästä.<br/>Valitse sopivin tapa jatkaa tilanteessa:</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:329
+#: core/libs/album/manager/albummanager_database.cpp:325
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>The collection is still available, but the identifier changed.<br/"
@@ -28278,7 +28121,7 @@ msgstr ""
 "aiheuttaa varmuuskopion palauttaminen tai levyosioiden tai "
 "tiedostojärjestelmien muutokset.<br/>Kokoelman sijainti on nyt:</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:348
+#: core/libs/album/manager/albummanager_database.cpp:344
 #, kde-format
 msgid ""
 "The collection is located on a storage device which is not always attached. "
@@ -28287,7 +28130,7 @@ msgstr ""
 "Kokoelma on tallennuslaitteella, jota ei aina ole liitetty. Merkitse "
 "kokoelman tyyppi siirrettäväksi."
 
-#: core/libs/album/manager/albummanager_database.cpp:355
+#: core/libs/album/manager/albummanager_database.cpp:351
 #, kde-format
 msgid ""
 "Take no action now. I would like to solve the problem later using the setup "
@@ -28295,19 +28138,19 @@ msgid ""
 msgstr ""
 "Älä tee mitään nyt. Ratkaisen ongelman tuonnempana itse asetusikkunassa"
 
-#: core/libs/album/manager/albummanager_database.cpp:369
+#: core/libs/album/manager/albummanager_database.cpp:365
 #, kde-format
 msgctxt "@title:window"
 msgid "Collection not Found"
 msgstr "Kokoelmaa ei löytynyt"
 
-#: core/libs/album/manager/albummanager_database.cpp:475
+#: core/libs/album/manager/albummanager_database.cpp:471
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Folder"
 msgstr "Tietokantakansio"
 
-#: core/libs/album/manager/albummanager_database.cpp:476
+#: core/libs/album/manager/albummanager_database.cpp:472
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the place to store the database. A "
@@ -28321,33 +28164,33 @@ msgstr ""
 "vanhan tietokantatiedoston ja vahvistaa että se tilastoi kansion ”%2” kuvat? "
 "Voit myös alustaa uuden tietokannan.</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:486
-#: core/libs/album/manager/albummanager_database.cpp:553
-#: core/libs/album/manager/albummanager_database.cpp:575
+#: core/libs/album/manager/albummanager_database.cpp:482
+#: core/libs/album/manager/albummanager_database.cpp:549
+#: core/libs/album/manager/albummanager_database.cpp:571
 #, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Database"
 msgstr "Päivitä tietokanta"
 
-#: core/libs/album/manager/albummanager_database.cpp:488
-#: core/libs/album/manager/albummanager_database.cpp:555
-#: core/libs/album/manager/albummanager_database.cpp:577
-#: core/libs/album/manager/albummanager_database.cpp:625
+#: core/libs/album/manager/albummanager_database.cpp:484
+#: core/libs/album/manager/albummanager_database.cpp:551
+#: core/libs/album/manager/albummanager_database.cpp:573
+#: core/libs/album/manager/albummanager_database.cpp:621
 #, kde-format
 msgctxt "@action:button"
 msgid "Create New Database"
 msgstr "Luo uusi tietokanta"
 
-#: core/libs/album/manager/albummanager_database.cpp:544
-#: core/libs/album/manager/albummanager_database.cpp:567
-#: core/libs/album/manager/albummanager_database.cpp:617
-#: core/libs/album/manager/albummanager_database.cpp:649
+#: core/libs/album/manager/albummanager_database.cpp:540
+#: core/libs/album/manager/albummanager_database.cpp:563
+#: core/libs/album/manager/albummanager_database.cpp:613
+#: core/libs/album/manager/albummanager_database.cpp:645
 #, kde-format
 msgctxt "@title:window"
 msgid "New Database Folder"
 msgstr "Uuden tietokannan kansio"
 
-#: core/libs/album/manager/albummanager_database.cpp:545
+#: core/libs/album/manager/albummanager_database.cpp:541
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -28361,15 +28204,15 @@ msgstr ""
 "päivittää vanhan, luoda uuden vai kopioida nykyisen tietokannan tähän "
 "sijaintiin?</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:557
-#: core/libs/album/manager/albummanager_database.cpp:627
-#: core/libs/album/manager/albummanager_database.cpp:658
+#: core/libs/album/manager/albummanager_database.cpp:553
+#: core/libs/album/manager/albummanager_database.cpp:623
+#: core/libs/album/manager/albummanager_database.cpp:654
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Current Database"
 msgstr "Kopioi nykyinen tietokanta"
 
-#: core/libs/album/manager/albummanager_database.cpp:568
+#: core/libs/album/manager/albummanager_database.cpp:564
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -28381,7 +28224,7 @@ msgstr ""
 "Tässä kansiossa on vanha versio digiKamin tietokannasta.</p><p>Haluatko "
 "päivittää vanhan vai luoda uuden tietokannan?</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:603
+#: core/libs/album/manager/albummanager_database.cpp:599
 #, kde-format
 msgid ""
 "Failed to copy the old database file (\"%1\") to its new location (\"%2\"). "
@@ -28390,7 +28233,7 @@ msgstr ""
 "Tietokantatiedoston ”%1” kopiointi uudelle nimelle ”%2” epäonnistui. "
 "Yritetään päivittää vanha tietokanta."
 
-#: core/libs/album/manager/albummanager_database.cpp:618
+#: core/libs/album/manager/albummanager_database.cpp:614
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database."
@@ -28401,7 +28244,7 @@ msgstr ""
 "p><p>Haluatko luoda uuden vai kopioida nykyisen tietokannan tähän sijaintiin?"
 "</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:650
+#: core/libs/album/manager/albummanager_database.cpp:646
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -28414,13 +28257,13 @@ msgstr ""
 "olevaa, vai poistaa sen ja kopioida nykyisen tietokannan tähän sijaintiin?</"
 "p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:660
+#: core/libs/album/manager/albummanager_database.cpp:656
 #, kde-format
 msgctxt "@action:button"
 msgid "Use Existing File"
 msgstr "Käytä olemassa olevaa tiedostoa"
 
-#: core/libs/album/manager/albummanager_database.cpp:715
+#: core/libs/album/manager/albummanager_database.cpp:711
 #, kde-format
 msgid ""
 "Failed to backup the existing database file (\"%1\"). Refusing to replace "
@@ -28429,7 +28272,7 @@ msgstr ""
 "Tietokantatiedoston ”%1” varmuuskopiointi epäonnistui. Tiedoston korvausta "
 "ei yritetä, vaan jatketaan vanhan tiedoston käyttämistä."
 
-#: core/libs/album/manager/albummanager_database.cpp:733
+#: core/libs/album/manager/albummanager_database.cpp:729
 #, kde-format
 msgid ""
 "Failed to copy the old database file (\"%1\") to its new location (\"%2\"). "
@@ -28438,12 +28281,12 @@ msgstr ""
 "Tietokantatiedoston ”%1” kopiointi uudelle nimelle ”%2” epäonnistui. "
 "Käynnistetään tyhjällä tietokannalla."
 
-#: core/libs/album/manager/albummanager_database.cpp:756
+#: core/libs/album/manager/albummanager_database.cpp:752
 #, kde-format
 msgid "<p><b>Please check the database settings in this dialog.</b></p>"
 msgstr "<p><b>Tarkista tietokanta-asetukset tästä ikkunasta.</b></p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:772
+#: core/libs/album/manager/albummanager_database.cpp:768
 #, kde-format
 msgctxt "@action:button"
 msgid "New database"
@@ -28655,7 +28498,7 @@ msgstr ""
 msgid "Context menu"
 msgstr "Kontekstivalikko"
 
-#: core/libs/album/treeview/abstractalbumtreeview.cpp:1108
+#: core/libs/album/treeview/abstractalbumtreeview.cpp:1079
 #: core/libs/database/utils/ifaces/dio.cpp:970
 #, kde-format
 msgid "Empty Trash"
@@ -28686,63 +28529,63 @@ msgid "No Color"
 msgstr "Ei väriä"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:321
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:455
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:445
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Red"
 msgstr "Punainen"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:327
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:461
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:451
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Orange"
 msgstr "Oranssi"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:333
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:467
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:457
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Yellow"
 msgstr "Keltainen"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:339
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:473
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:463
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Green"
 msgstr "Vihreä"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:345
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:479
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:469
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Blue"
 msgstr "Sininen"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:351
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:485
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:475
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Magenta"
 msgstr "Magenta"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:357
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:491
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:481
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Gray"
 msgstr "Harmaa"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:363
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:497
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:487
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Black"
 msgstr "Musta"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:369
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:503
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:493
 #, kde-format
 msgctxt "@info: color label name"
 msgid "White"
@@ -28756,7 +28599,7 @@ msgid "Picks: "
 msgstr "Poiminnat: "
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:398
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:269
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:259
 #, fuzzy, kde-format
 #| msgid "No Pick"
 msgctxt "@info: pick label name"
@@ -28764,21 +28607,21 @@ msgid "No Pick"
 msgstr "Ei poimintaa"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:404
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:251
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:241
 #, kde-format
 msgctxt "@info: pick label name"
 msgid "Rejected"
 msgstr "Hylätty"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:410
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:257
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:247
 #, kde-format
 msgctxt "@info: pick label name"
 msgid "Pending"
 msgstr "Odottaa"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:416
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:263
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:253
 #, kde-format
 msgctxt "@info: pick label name"
 msgid "Accepted"
@@ -30168,7 +30011,7 @@ msgstr "Edistymistieto"
 #: core/libs/onlineversion/onlineversiondlg.cpp:194
 #: core/libs/progressmanager/progressview.cpp:197
 #: core/libs/progressmanager/statusbarprogresswidget.cpp:98
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:84
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:89
 #, kde-format
 msgctxt "%p is the percent value, % is the percent sign"
 msgid "%p%"
@@ -32837,71 +32680,71 @@ msgctxt "@info"
 msgid "Set here the relief gain used to merge texture and image."
 msgstr "Aseta tässä kuvan luontipäivän ja -ajan sekunnin osat."
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:387
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:367
 #, kde-format
 msgid "Rotate Right"
 msgstr "Käännä oikealle"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:392
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:372
 #, kde-format
 msgid "Rotate 180 degrees"
 msgstr "Kierrä 180°"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:397
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:377
 #, kde-format
 msgid "Rotate Left"
 msgstr "Käännä vasemmalle"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:402
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:382
 #, kde-format
 msgid "Flip Horizontally"
 msgstr "Peilaa vaakasuunnassa"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:407
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:387
 #, kde-format
 msgid "Flip Vertically"
 msgstr "Peilaa pystysuunnassa"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:412
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:392
 #, kde-format
 msgid "Crop"
 msgstr "Rajaa"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:422
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:402
 #, kde-format
 msgid "Convert to 8 Bit"
 msgstr "Muunna 8-bittiseksi"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:427
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:407
 #, kde-format
 msgid "Convert to 16 Bit"
 msgstr "Muunna 16-bittiseksi"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:496
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:476
 #, kde-format
 msgctxt "Rotate image"
 msgid "Rotate"
 msgstr "Käännä"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:500
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:480
 #, kde-format
 msgctxt "Flip image"
 msgid "Flip"
 msgstr "Peilaa"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:504
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:484
 #, kde-format
 msgctxt "Crop image"
 msgid "Crop"
 msgstr "Rajaa"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:508
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:488
 #, kde-format
 msgctxt "Resize image"
 msgid "Resize"
 msgstr "Muuta kokoa"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:512
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:492
 #, kde-format
 msgctxt "Convert image bit depth"
 msgid "Convert Depth"
@@ -33976,86 +33819,86 @@ msgstr "(löytyi osittainen osuma)"
 msgid "(exact match found)"
 msgstr "(löytyi tarkka osuma)"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:126
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:115
 #, fuzzy, kde-format
 #| msgid "Lens Auto-Correction Tool"
 msgctxt "@title"
 msgid "Lens Auto-Correction Tool"
 msgstr "Automaattinen linssivääristymän korjaustyökalu"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:485
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:435
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Camera: %1-%2"
 msgstr "Kamera: %1–%2"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:487
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:437
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Lens: %1"
 msgstr "Linssi: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:489
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:439
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Subject Distance: <numid>%1</numid>"
 msgstr "Kohteen etäisyys: <numid>%1</numid>"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:491
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:441
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Aperture: <numid>%1</numid>"
 msgstr "Aukko: <numid>%1</numid>"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:493
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:443
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Focal Length: <numid>%1</numid>"
 msgstr "Polttoväli: <numid>%1</numid>"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:495
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:445
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Crop Factor: <numid>%1</numid>"
 msgstr "Rajaustekijä: <numid>%1</numid>"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:497
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:500
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:503
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:506
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:447
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:450
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:453
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:456
 #, kde-format
 msgctxt "@info: correction status"
 msgid "enabled"
 msgstr "käytössä"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:497
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:447
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "CCA Correction: %1"
 msgstr "CCA-korjaus: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:498
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:501
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:504
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:507
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:448
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:451
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:454
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:457
 #, kde-format
 msgctxt "@info: correction status"
 msgid "disabled"
 msgstr "ei käytössä"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:500
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:450
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "VIG Correction: %1"
 msgstr "VIG-korjaus: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:503
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:453
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "DST Correction: %1"
 msgstr "DST-korjaus: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:506
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:456
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "GEO Correction: %1"
@@ -34170,73 +34013,73 @@ msgstr ""
 "Näkyvissä on valitun värikanavan histogrammin muutoksen esikatselu. Kaikki "
 "tekemäsi muutokset huomioidaan esikatselun muodostuksessa välittömästi."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:272
+#: core/libs/dimg/filters/levels/histogrambox.cpp:263
 #, kde-format
 msgid "<p>Select the histogram channel to display:</p>"
 msgstr "<p>Valitse histogrammissa näytettävä kanava:</p>"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:278
+#: core/libs/dimg/filters/levels/histogrambox.cpp:269
 #, kde-format
 msgctxt "The luminosity channel"
 msgid "Luminosity"
 msgstr "Värikirkkaus"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:279
+#: core/libs/dimg/filters/levels/histogrambox.cpp:270
 #, kde-format
 msgid "<b>Luminosity</b>: display the image's luminosity values."
 msgstr "<b>Värikirkkaus</b>: näytä kuvan värikirkkauden arvot."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:281
+#: core/libs/dimg/filters/levels/histogrambox.cpp:272
 #, kde-format
 msgctxt "The red channel"
 msgid "Red"
 msgstr "Punainen"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:282
+#: core/libs/dimg/filters/levels/histogrambox.cpp:273
 #, kde-format
 msgid "<b>Red</b>: display the red image-channel values."
 msgstr "<b>Punainen</b>: näytä punaisen kuvakanavan arvot."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:284
+#: core/libs/dimg/filters/levels/histogrambox.cpp:275
 #, kde-format
 msgctxt "The green channel"
 msgid "Green"
 msgstr "Vihreä"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:285
+#: core/libs/dimg/filters/levels/histogrambox.cpp:276
 #, kde-format
 msgid "<b>Green</b>: display the green image-channel values."
 msgstr "<b>Vihreä</b>: näytä vihreän kuvakanavan arvot."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:287
+#: core/libs/dimg/filters/levels/histogrambox.cpp:278
 #, kde-format
 msgctxt "The blue channel"
 msgid "Blue"
 msgstr "Sininen"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:288
+#: core/libs/dimg/filters/levels/histogrambox.cpp:279
 #, kde-format
 msgid "<b>Blue</b>: display the blue image-channel values."
 msgstr "<b>Sininen</b>: näytä sinisen kuvakanavan arvot."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:290
+#: core/libs/dimg/filters/levels/histogrambox.cpp:281
 #, kde-format
 msgctxt "The colors channel"
 msgid "Colors"
 msgstr "Värit"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:291
+#: core/libs/dimg/filters/levels/histogrambox.cpp:282
 #, kde-format
 msgid "<b>Colors</b>: Display all color channel values at the same time."
 msgstr "<b>Värit</b>: näytä kaikki värikanava-arvot samanaikaisesti."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:293
+#: core/libs/dimg/filters/levels/histogrambox.cpp:284
 #, kde-format
 msgctxt "The alpha channel"
 msgid "Alpha"
 msgstr "Alfa-kanava"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:294
+#: core/libs/dimg/filters/levels/histogrambox.cpp:285
 #, kde-format
 msgid ""
 "<b>Alpha</b>: display the alpha image-channel values. This channel "
@@ -36518,48 +36361,48 @@ msgstr ""
 "Valitse albumien sisällön suodattamiseen käytetty arvostelu. Suodatusehdot "
 "asetetaan kontekstin ponnahdusvalikosta."
 
-#: core/libs/filters/ratingfilter.cpp:180
+#: core/libs/filters/ratingfilter.cpp:162
 #, kde-format
 msgid "Rating greater than or equal to %1."
 msgstr "Näytetään kuvat, joiden arvio on vähintään %1 tähteä."
 
-#: core/libs/filters/ratingfilter.cpp:186
+#: core/libs/filters/ratingfilter.cpp:168
 #, kde-format
 msgid "Rating equal to %1."
 msgstr "Näytetään kuvat, joiden arvio on %1 tähteä."
 
-#: core/libs/filters/ratingfilter.cpp:192
+#: core/libs/filters/ratingfilter.cpp:174
 #, kde-format
 msgid "Rating less than or equal to %1."
 msgstr "Näytetään kuvat, joiden arvio on enintään %1 tähteä."
 
-#: core/libs/filters/ratingfilter.cpp:232
+#: core/libs/filters/ratingfilter.cpp:214
 #, fuzzy, kde-format
 #| msgid "Exclude Items Without Rating"
 msgid "Items Without Rating"
 msgstr "Jätä pois arvostelemattomat kohteet"
 
-#: core/libs/filters/ratingfilter.cpp:236
+#: core/libs/filters/ratingfilter.cpp:218
 #, kde-format
 msgid "Rating Filter Options"
 msgstr "Arvostelusuodattimen asetukset"
 
-#: core/libs/filters/ratingfilter.cpp:241
+#: core/libs/filters/ratingfilter.cpp:223
 #, kde-format
 msgid "Greater Than or Equals Condition"
 msgstr "Suurempi tai yhtä kuin"
 
-#: core/libs/filters/ratingfilter.cpp:243
+#: core/libs/filters/ratingfilter.cpp:225
 #, kde-format
 msgid "Equals Condition"
 msgstr "Yhtä kuin"
 
-#: core/libs/filters/ratingfilter.cpp:245
+#: core/libs/filters/ratingfilter.cpp:227
 #, kde-format
 msgid "Less Than or Equals Condition"
 msgstr "Pienempi tai yhtä kuin"
 
-#: core/libs/filters/ratingfilter.cpp:248
+#: core/libs/filters/ratingfilter.cpp:230
 #, kde-format
 msgid "Exclude Items Without Rating"
 msgstr "Jätä pois arvostelemattomat kohteet"
@@ -43943,85 +43786,41 @@ msgstr ""
 "Virhe yritettäessä näyttää kohdetta\n"
 "%1"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:197
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:211
+#: core/libs/video/player/mediaplayerview.cpp:211
 #, kde-format
 msgid "An error has occurred with the media player..."
 msgstr "Mediasoittimessa tapahtui virhe…"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:198
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:212
+#: core/libs/video/player/mediaplayerview.cpp:212
 #, kde-format
 msgid "End of media."
 msgstr ""
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:210
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:305
+#: core/libs/video/player/mediaplayerview.cpp:305
 #, kde-format
 msgctxt "go to previous image"
 msgid "Back"
 msgstr "Edellinen"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:213
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:308
+#: core/libs/video/player/mediaplayerview.cpp:308
 #, kde-format
 msgctxt "go to next image"
 msgid "Forward"
 msgstr "Seuraava"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:216
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:314
-#, kde-format
-msgctxt "pause/play video"
-msgid "Pause/Play"
-msgstr "Tauko/Toista"
-
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:219
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:320
-#, kde-format
-msgctxt "capture video frame"
-msgid "Capture"
-msgstr "Kaappaa"
-
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:222
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:323
-#, fuzzy, kde-format
-#| msgid "Rotate Left"
-msgctxt "rotate video in counterclockwize"
-msgid "Rotate Left"
-msgstr "Käännä vasemmalle"
-
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:225
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:326
-#, fuzzy, kde-format
-#| msgid "Rotate Right"
-msgctxt "rotate video in clockwize"
-msgid "Rotate Right"
-msgstr "Käännä oikealle"
-
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:260
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:424
-#, kde-format
-msgid "Toggle playing in a loop"
-msgstr "Toista/älä toista silmukassa"
-
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:910
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:741
-#, fuzzy, kde-format
-#| msgid "Error: %1"
-msgid ""
-"%1\n"
-"\n"
-"Error: \"%2\""
-msgstr "Virhe: %1"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:311
+#: core/libs/video/player/mediaplayerview.cpp:311
 #, kde-format
 msgctxt "video frame backward"
 msgid "Frame Backward"
 msgstr "Kuva taaksepäin"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:317
+#: core/libs/video/player/mediaplayerview.cpp:314
+#, kde-format
+msgctxt "pause/play video"
+msgid "Pause/Play"
+msgstr "Tauko/Toista"
+
+#: core/libs/video/player/mediaplayerview.cpp:317
 #, fuzzy, kde-format
 #| msgctxt "@action: setup"
 #| msgid "Forward"
@@ -44029,66 +43828,100 @@ msgctxt "video frame forward"
 msgid "Frame Forward"
 msgstr "Eteenpäin"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:330
+#: core/libs/video/player/mediaplayerview.cpp:320
+#, kde-format
+msgctxt "capture video frame"
+msgid "Capture"
+msgstr "Kaappaa"
+
+#: core/libs/video/player/mediaplayerview.cpp:323
+#, fuzzy, kde-format
+#| msgid "Rotate Left"
+msgctxt "rotate video in counterclockwize"
+msgid "Rotate Left"
+msgstr "Käännä vasemmalle"
+
+#: core/libs/video/player/mediaplayerview.cpp:326
+#, fuzzy, kde-format
+#| msgid "Rotate Right"
+msgctxt "rotate video in clockwize"
+msgid "Rotate Right"
+msgstr "Käännä oikealle"
+
+#: core/libs/video/player/mediaplayerview.cpp:330
 #, kde-format
 msgctxt "@info"
 msgid "Change video playback rate"
 msgstr "Muuta videotoistonopeutta"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:335
+#: core/libs/video/player/mediaplayerview.cpp:335
 #, fuzzy, kde-format
 #| msgctxt "@info: download status"
 #| msgid "Rate:"
 msgid "Rate"
 msgstr "Nopeus:"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:339
+#: core/libs/video/player/mediaplayerview.cpp:339
 #, kde-format
 msgctxt "video play rate"
 msgid "0.5x"
 msgstr "0,5 ×"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:342
+#: core/libs/video/player/mediaplayerview.cpp:342
 #, kde-format
 msgctxt "video play rate"
 msgid "1.0x"
 msgstr "1,0 ×"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:345
+#: core/libs/video/player/mediaplayerview.cpp:345
 #, kde-format
 msgctxt "video play rate"
 msgid "1.5x"
 msgstr "1,5 ×"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:348
+#: core/libs/video/player/mediaplayerview.cpp:348
 #, kde-format
 msgctxt "video play rate"
 msgid "2.0x"
 msgstr "2,0 ×"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:351
+#: core/libs/video/player/mediaplayerview.cpp:351
 #, kde-format
 msgctxt "video play rate"
 msgid "2.5x"
 msgstr "2,5 ×"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:354
+#: core/libs/video/player/mediaplayerview.cpp:354
 #, kde-format
 msgctxt "video play rate"
 msgid "3.0x"
 msgstr "3,0 ×"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:357
+#: core/libs/video/player/mediaplayerview.cpp:357
 #, kde-format
 msgctxt "video play rate"
 msgid "4.0x"
 msgstr "4,0 ×"
 
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:360
+#: core/libs/video/player/mediaplayerview.cpp:360
 #, kde-format
 msgctxt "video play rate"
 msgid "5.0x"
 msgstr "5,0 ×"
+
+#: core/libs/video/player/mediaplayerview.cpp:424
+#, kde-format
+msgid "Toggle playing in a loop"
+msgstr "Toista/älä toista silmukassa"
+
+#: core/libs/video/player/mediaplayerview.cpp:741
+#, fuzzy, kde-format
+#| msgid "Error: %1"
+msgid ""
+"%1\n"
+"\n"
+"Error: \"%2\""
+msgstr "Virhe: %1"
 
 #: core/libs/widgets/combo/dcombobox.cpp:60
 #: core/libs/widgets/range/dnuminput.cpp:67
@@ -44375,20 +44208,20 @@ msgstr ""
 "Tämä näyteteksti havainnollistaa nykyisiä asetuksia. Tekstiä voi muokata "
 "erikoismerkkien kokeilemiseksi."
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:720
-#: core/libs/widgets/fonts/dfontproperties.cpp:771
+#: core/libs/widgets/fonts/dfontproperties.cpp:712
+#: core/libs/widgets/fonts/dfontproperties.cpp:752
 #, kde-format
 msgctxt "@info: font style"
 msgid "Normal"
 msgstr "Tavallinen"
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:779
+#: core/libs/widgets/fonts/dfontproperties.cpp:760
 #, kde-format
 msgctxt "@info: font style"
 msgid "Italic"
 msgstr "Kursiivi"
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:780
+#: core/libs/widgets/fonts/dfontproperties.cpp:761
 #, kde-format
 msgctxt "@info: font style"
 msgid "Oblique"
@@ -45401,7 +45234,7 @@ msgstr "Piilota &tilarivi"
 msgid "Hide statusbar when window switch in full-screen mode."
 msgstr "Piilota tilarivi ikkunan vaihdettu koko näytön tilaan."
 
-#: core/libs/widgets/mainview/thememanager_p.cpp:1323
+#: core/libs/widgets/mainview/thememanager_p.cpp:1319
 #, kde-format
 msgctxt "default theme name"
 msgid "Default"
@@ -46441,7 +46274,7 @@ msgstr "Xmp-tiedosto, johon tallennetaan"
 msgid "XMP text Files (*.xmp)"
 msgstr "XMP-tekstitiedosto (*.xmp)"
 
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:509
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:499
 #, kde-format
 msgctxt "@info: color label name"
 msgid "None"
@@ -65139,46 +64972,48 @@ msgstr "Muokkaa nykyistä hakua…"
 #: core/utilities/searchwindow/view/searchtabheader.cpp:64
 #, kde-format
 msgid ""
-"Interpret the text above as a natural-language search and build the query"
+"Interpret the text above as a natural-language search and build the query. "
+"If the language model has not been downloaded yet, the Advanced Search "
+"dialog will open so you can download it."
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:70
+#: core/utilities/searchwindow/view/searchtabheader.cpp:72
 #: core/utilities/searchwindow/view/searchwindow.cpp:70
 #, fuzzy, kde-format
 #| msgid "Cancel current operation"
 msgid "Cancel the current interpretation"
 msgstr "Peru tämä toimenpide"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:95
+#: core/utilities/searchwindow/view/searchtabheader.cpp:97
 #, fuzzy, kde-format
 #| msgctxt "@title:window"
 #| msgid "Advanced Search"
 msgid "Open Advanced Search"
 msgstr "Tarkka haku"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:96
+#: core/utilities/searchwindow/view/searchtabheader.cpp:98
 #, kde-format
 msgid "Run Now"
 msgstr ""
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:140
+#: core/utilities/searchwindow/view/searchtabheader.cpp:142
 #, kde-format
 msgid "Save Current Search"
 msgstr "Tallenna nykyinen haku"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:144
+#: core/utilities/searchwindow/view/searchtabheader.cpp:146
 #, kde-format
 msgid "Enter a name for the current search to save it in the \"Searches\" view"
 msgstr ""
 "Syötä haulle nimi, jotta voit käyttää samaa hakua myöhemmin ”Haut”-näkymän "
 "kautta."
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:149
+#: core/utilities/searchwindow/view/searchtabheader.cpp:151
 #, kde-format
 msgid "Save current search to a new virtual Album"
 msgstr "Tallenna haku"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:150
+#: core/utilities/searchwindow/view/searchtabheader.cpp:152
 #, kde-format
 msgid ""
 "If you press this button, the current search will be saved to a new virtual "
@@ -65187,18 +65022,18 @@ msgstr ""
 "Jos painat tätä painiketta, nykyinen haku tallentuu uudeksi "
 "virtuaalihakualbumiksi vasemmalla puolen asetetulla nimellä."
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:165
-#: core/utilities/searchwindow/view/searchtabheader.cpp:192
+#: core/utilities/searchwindow/view/searchtabheader.cpp:167
+#: core/utilities/searchwindow/view/searchtabheader.cpp:194
 #, kde-format
 msgid "Edit Stored Search"
 msgstr "Muokkaa tallennettua hakua"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:207
+#: core/utilities/searchwindow/view/searchtabheader.cpp:209
 #, kde-format
 msgid "Edit..."
 msgstr "Muokkaa…"
 
-#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:89
+#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:105
 #, fuzzy, kde-format
 #| msgid "Imported %1"
 msgid ""
@@ -65206,7 +65041,7 @@ msgid ""
 "%1"
 msgstr "Tuotiin %1"
 
-#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:123
+#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:139
 #: core/utilities/searchwindow/view/searchwindow_slots.cpp:180
 #, fuzzy, kde-format
 #| msgid "Printing canceled"
@@ -66865,29 +66700,29 @@ msgstr "Käytä esteettistä tunnistusominaisuutta"
 msgid "Use AutoTags Assignment feature"
 msgstr "Käytä luokitusten automaattista yhdistämisominaisuutta"
 
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:81
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:84
 #, fuzzy, kde-format
 #| msgid "Use Face Management feature"
 msgid "Use Natural Language Search feature"
 msgstr "Käytä kasvontunnistusominaisuutta"
 
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:290
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:311
 #, kde-format
 msgid "Clean up unused AI/DNN model files..."
 msgstr "Siivoa käyttämättömät AI/DNN-mallitiedostot…"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:46
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:52
 #, kde-format
 msgid "All model files were downloaded successfully."
 msgstr ""
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:55
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:61
 #, kde-format
 msgctxt "@title:window"
 msgid "Download Error"
 msgstr "Latausvirhe"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:56
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:62
 #, kde-format
 msgid ""
 "An error occurred during the download.\n"
@@ -66906,33 +66741,33 @@ msgstr ""
 "\n"
 "Voit yrittää uudelleen tai jatkaa latausta seuraavalla käynnistyskerralla."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:64
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:70
 #, kde-format
 msgctxt "@action:button"
 msgid "Try Again"
 msgstr "Yritä uudelleen"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:136
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:142
 #, kde-format
 msgid "Checksum is incorrect."
 msgstr "Tarkistussumma on väärin."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:160
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:166
 #, kde-format
 msgid "File write error."
 msgstr "Tiedoston kirjoitusvirhe."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:167
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:173
 #, kde-format
 msgid "File open error."
 msgstr "Tiedoston avausvirhe."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:182
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:188
 #, kde-format
 msgid "File on the server is too large."
 msgstr "Palvelimella oleva tiedosto on liian iso."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:258
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:270
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>digiKam relies on large binary model files to power features like face "
@@ -66955,7 +66790,7 @@ msgstr ""
 "p><p><b>Huom!</b> Punasilmänpoistotyökalu vaatii kasvonhallintamallin "
 "tiedostot.</p>"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:264
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:276
 #, kde-format
 msgid ""
 "<p>Some required files are missing. Click “Download” to start installing the "
@@ -66970,13 +66805,13 @@ msgstr ""
 "toimi ilman näitä tiedostoja.</p><p><b>Onnistuneen lataamisen jälkeen "
 "digiKam pitää käynnistää uudelleen.</b></p>"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:271
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:283
 #, kde-format
 msgctxt "%1: file counter, %2: disk size with unit"
 msgid "The download requires %1 files with a size of %2."
 msgstr "Lataus vaatii %1 tiedostoa kooltaan %2."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:297
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:309
 #, kde-format
 msgid "All files for the selected features were found."
 msgstr "Kaikki valittujen piirteiden tiedostot löytyivät."
@@ -70200,6 +70035,106 @@ msgstr ""
 #| msgid "Flash mode"
 msgid "Play/Pause Video"
 msgstr "Salaman tila"
+
+#~ msgctxt "@option"
+#~ msgid "Visibility"
+#~ msgstr "Näkyvyys"
+
+#~ msgctxt "@info"
+#~ msgid "Set the visibility of the album"
+#~ msgstr "Aseta albumin näkyvyys"
+
+#~ msgctxt "@label: properties"
+#~ msgid "Public"
+#~ msgstr "Julkinen"
+
+#~ msgctxt "@title"
+#~ msgid "Rajce"
+#~ msgstr "Rajce"
+
+#~ msgctxt "@info"
+#~ msgid "A tool to export to Rajce web-service"
+#~ msgstr "Työkalu Rajce-verkkopalveluvientiin"
+
+#, fuzzy
+#~| msgctxt "@info"
+#~| msgid ""
+#~| "This tool allows users to export items to Rajce web-service.\n"
+#~| "\n"
+#~| "See Rajce web site for details: %1"
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "This tool allows users to export items to Rajce web-service.<br><br>See "
+#~ "Rajce web site for details: %1"
+#~ msgstr ""
+#~ "Tällä työkalulla voi kohteita viedä Rajce-verkkopalveluun.\n"
+#~ "Rajce-sivustolta löytyy lisätietoa: %1"
+
+#~ msgctxt "@action"
+#~ msgid "Export to &Rajce..."
+#~ msgstr "Vie Ra&jceen…"
+
+#~ msgid "Not logged in"
+#~ msgstr "Ei kirjautunut"
+
+#~ msgid "Invalid command"
+#~ msgstr "Virheellinen komento"
+
+#~ msgid "Invalid login name or password"
+#~ msgstr "Virheellinen käyttäjätunnus tai salasana"
+
+#~ msgid "Session expired"
+#~ msgstr "Istunto on vanhentunut"
+
+#~ msgid "Unknown album"
+#~ msgstr "Tuntematon albumi"
+
+#~ msgid "Failed to open album"
+#~ msgstr "Albumin avaaminen epäonnistui"
+
+#~ msgid "The album name cannot be empty"
+#~ msgstr "Albumin nimi ei voi olla tyhjä"
+
+#~ msgid "Failed to create album"
+#~ msgstr "Albumin luominen epäonnistui"
+
+#~ msgid "Album does not exist"
+#~ msgstr "Albumia ei ole olemassa"
+
+#~ msgid "File upload failed"
+#~ msgstr "Tiedoston tallennus epäonnistui"
+
+#~ msgid "Unsupported file extension"
+#~ msgstr "Tiedostomuoto ei ole tuettu"
+
+#~ msgid "Logging in %v%"
+#~ msgstr "Kirjaudutaan sisään palveluun %v%"
+
+#~ msgid "Logging out %v%"
+#~ msgstr "Kirjaudutaan ulos palvelusta %v%"
+
+#~ msgid "Loading albums %v%"
+#~ msgstr "Luetaan albumeja %v %"
+
+#~ msgid "Creating album %v%"
+#~ msgstr "Luodaan albumia %v%"
+
+#~ msgid "Opening album %v%"
+#~ msgstr "Avataan albumia %v%"
+
+#~ msgid "Closing album %v%"
+#~ msgstr "Suljetaan albumia %v%"
+
+#~ msgid "Adding photos %v%"
+#~ msgstr "Lisätään kuvia albumiin %v%"
+
+#~ msgctxt "@title:window"
+#~ msgid "Export to Rajce.net"
+#~ msgstr "Vienti Rajce.netiin"
+
+#~ msgctxt "@info:tooltip, button"
+#~ msgid "Start upload to Rajce.net"
+#~ msgstr "Aloita lähetys Rajce.netiin"
 
 #~ msgid "Tilt"
 #~ msgstr "Kallistus"

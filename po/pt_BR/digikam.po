@@ -18,7 +18,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-22 15:58+0000\n"
+"POT-Creation-Date: 2026-09-25 00:42+0000\n"
 "PO-Revision-Date: 2026-09-23 06:54-0300\n"
 "Last-Translator: Marcus Gama <marcus.gama@gmail.com>\n"
 "Language-Team: Portuguese <kde-i18n-pt_BR@kde.org>\n"
@@ -11607,7 +11607,7 @@ msgid "cm"
 msgstr "cm"
 
 #: core/dplugins/editor/transform/resize/resizetool.cpp:927
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:417
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:397
 #, kde-format
 msgid "Resize"
 msgstr "Redimensionar"
@@ -11832,7 +11832,7 @@ msgstr "Digitalizar imagem"
 msgid "Scan Images"
 msgstr "Digitalizar imagens"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:172
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:144
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:100
 #: core/utilities/imageeditor/editor/editorwindow.cpp:1845
 #, kde-format
@@ -11840,27 +11840,27 @@ msgctxt "@title:window"
 msgid "New Image File Name"
 msgstr "Nome do arquivo da nova imagem"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:220
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:192
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:148
 #, kde-format
 msgctxt "@title:window"
 msgid "Unsupported Format"
 msgstr "Formato não suportado"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:221
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:193
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:149
 #, kde-format
 msgid "The target image file format \"%1\" is unsupported."
 msgstr "O formato da imagem de destino \"%1\" não é suportado."
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:233
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:205
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:161
 #, kde-format
 msgctxt "@title:window"
 msgid "Cannot Save File"
 msgstr "Não é possível salvar o arquivo"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:234
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:206
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:162
 #, kde-format
 msgid ""
@@ -11872,7 +11872,7 @@ msgstr ""
 "\"%1\" em\n"
 "\"%2\"."
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:249
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:221
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:177
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2321
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2340
@@ -11881,25 +11881,25 @@ msgctxt "@title:window"
 msgid "Overwrite File?"
 msgstr "Sobrescrever o arquivo?"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:250
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:222
 #: core/utilities/geolocation/geoiface/backends/mapbackend.cpp:178
 #, kde-format
 msgid ""
 "A file named \"%1\" already exists. Are you sure you want to overwrite it?"
 msgstr "Já existe um arquivo chamado \"%1\". Deseja sobrescrevê-lo?"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:301
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:258
 #, kde-format
 msgid "Saving file %1 -"
 msgstr "Salvando o arquivo %1 -"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:309
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:266
 #, kde-format
 msgctxt "@title:window"
 msgid "File Not Saved"
 msgstr "O arquivo não foi salvo"
 
-#: core/dplugins/generic/import/dscanner/scandialog.cpp:310
+#: core/dplugins/generic/import/dscanner/scandialog.cpp:267
 #, kde-format
 msgid "Cannot save \"%1\" file"
 msgstr "Não é possível salvar o arquivo \"%1\""
@@ -20700,47 +20700,47 @@ msgstr "Não foi possível salvar a imagem redimensionada (JPEG). Cancelando."
 msgid "Cannot save resized image (PNG). Aborting."
 msgstr "Não foi possível salvar a imagem redimensionada (PNG). Cancelando."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:111
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:107
 #, kde-format
 msgid "Cannot create a temporary directory"
 msgstr "Não foi possível criar uma pasta temporária"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:172
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:168
 #, kde-format
 msgid "Resizing %1"
 msgstr "Redimensionando o %1"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:190
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:186
 #, kde-format
 msgid "%1 resized successfully"
 msgstr "%1 foi redimensionado com sucesso"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:204
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:200
 #, kde-format
 msgid "Failed to resize %1: %2"
 msgstr "Falha ao redimensionar %1: %2"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:241
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:237
 #, kde-format
 msgid "There are no files to send"
 msgstr "Não há arquivos para enviar"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:265
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:261
 #, kde-format
 msgid "Build images properties file"
 msgstr "Construir o arquivo de propriedades das imagens"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:281
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:277
 #, kde-format
 msgid "no caption"
 msgstr "sem legenda"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:286
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:282
 #, kde-format
 msgid "no keywords"
 msgstr "sem palavras-chave"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:285
 #, kde-format
 msgid ""
 "file \"%1\":\n"
@@ -20749,37 +20749,37 @@ msgstr ""
 "Arquivo \"%1\":\n"
 "Imagens originais: %2\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:287
 #, kde-format
 msgid "Comments: %1\n"
 msgstr "Comentários: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:293
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:289
 #, kde-format
 msgid "Tags: %1\n"
 msgstr "Etiquetas: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:295
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:291
 #, kde-format
 msgid "Rating: %1\n"
 msgstr "Classificação: %1\n"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:300
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:296
 #, kde-format
 msgid "properties.txt"
 msgstr "propriedades.txt"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:315
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:302
 #, kde-format
 msgid "Image properties file cannot be opened"
 msgstr "Não é possível abrir o arquivo de propriedades da imagem"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:327
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:314
 #, kde-format
 msgid "Image properties file done"
 msgstr "O arquivo de propriedades das imagens está concluído"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:347
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:334
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:982
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:995
 #, kde-format
@@ -20787,7 +20787,7 @@ msgctxt "@title:window"
 msgid "Processing Failed"
 msgstr "O processamento falhou"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:348
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:335
 #, kde-format
 msgid ""
 "Some images cannot be resized.\n"
@@ -20796,7 +20796,7 @@ msgstr ""
 "Algumas imagens não podem ser redimensionadas.\n"
 "Deseja adicioná-las como anexos sem redimensionar?"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:421
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:408
 #, kde-format
 msgid ""
 "The file \"%1\" is too big to be sent, please reduce its size or change your "
@@ -20805,45 +20805,45 @@ msgstr ""
 "O arquivo \"%1\" é muito grande para ser enviado. Reduza o tamanho ou altere "
 "as suas configurações"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:661
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:648
 #, kde-format
 msgid "Send items by mail from digiKam"
 msgstr "Enviar itens por e-mail pelo digiKam"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:663
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:650
 #, kde-format
 msgid "List of attached items"
 msgstr "Lista de itens anexados"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:710
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:697
 #, kde-format
 msgctxt "@title:window"
 msgid "Error While to Send Items by mail"
 msgstr "Erro ao enviar itens por e-mail"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:711
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:698
 #, kde-format
 msgctxt "@info"
 msgid "Cannot send items using native Apple Mail application"
 msgstr ""
 "Não é possível enviar itens usando o aplicativo nativo de E-mail da Apple"
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:727
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:714
 #, kde-format
 msgid "Failed to start \"%1\" program. Check your system."
 msgstr "Não foi possível iniciar o programa \"%1\". Verifique o seu sistema."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:739
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:726
 #, kde-format
 msgid "Starting \"%1\" program..."
 msgstr "Iniciando o programa \"%1\"..."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:743
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:730
 #, kde-format
 msgid "After having sent your images by email..."
 msgstr "Após ter enviado as suas imagens por e-mail..."
 
-#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:744
+#: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:731
 #, kde-format
 msgid "Press 'Finish' button to clean up temporary files"
 msgstr "Pressione o botão 'Concluir' para limpar os arquivos temporários"
@@ -22464,14 +22464,14 @@ msgid "Delay:"
 msgstr "Atraso:"
 
 #: core/dplugins/generic/view/presentation/widgets/presentationctrlwidget.cpp:250
-#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:436
+#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:426
 #, kde-format
 msgctxt "@title:window"
 msgid "Delete Image"
 msgstr "Excluir imagem"
 
 #: core/dplugins/generic/view/presentation/widgets/presentationctrlwidget.cpp:251
-#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:437
+#: core/dplugins/generic/view/slideshow/widgets/slidetoolbar.cpp:427
 #, kde-format
 msgid "Do you want to move this image to the trash?"
 msgstr "Deseja mover esta imagem para a lixeira?"
@@ -22906,7 +22906,6 @@ msgstr "Exportar para o Box"
 #: core/dplugins/generic/webservices/onedrive/odwindow.cpp:77
 #: core/dplugins/generic/webservices/pinterest/pwindow.cpp:77
 #: core/dplugins/generic/webservices/piwigo/piwigowindow.cpp:266
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:45
 #: core/dplugins/generic/webservices/smugmug/smugwindow.cpp:119
 #: core/dplugins/generic/webservices/twitter/twitterwindow.cpp:77
 #, kde-format
@@ -23847,7 +23846,6 @@ msgstr "O método POST agora é necessário para todos os modificadores"
 
 #: core/dplugins/generic/webservices/flickr/flickrtalker.cpp:801
 #: core/dplugins/generic/webservices/google/gphoto/gptalker.cpp:586
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:228
 #, kde-format
 msgid "Unknown error"
 msgstr "Erro desconhecido"
@@ -26343,156 +26341,6 @@ msgstr ""
 "\n"
 "Deseja continuar?"
 
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:40
-#, kde-format
-msgctxt "@option"
-msgid "Visibility"
-msgstr "Visibilidade"
-
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:41
-#, kde-format
-msgctxt "@info"
-msgid "Set the visibility of the album"
-msgstr "Define a visibilidade do álbum"
-
-#: core/dplugins/generic/webservices/rajce/rajcenewalbumdlg.cpp:43
-#, kde-format
-msgctxt "@label: properties"
-msgid "Public"
-msgstr "Público"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:48
-#, kde-format
-msgctxt "@title"
-msgid "Rajce"
-msgstr "Rajce"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:63
-#, kde-format
-msgctxt "@info"
-msgid "A tool to export to Rajce web-service"
-msgstr "Uma ferramenta para exportar para o serviço web do Rajce"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:68
-#, kde-format
-msgctxt "@info"
-msgid ""
-"This tool allows users to export items to Rajce web-service.<br><br>See "
-"Rajce web site for details: %1"
-msgstr ""
-"Esta ferramenta permite que os usuários exportem itens para o serviço web do "
-"Rajce.<br><br>Consulte o site Rajce para mais detalhes: %1"
-
-#: core/dplugins/generic/webservices/rajce/rajceplugin.cpp:96
-#, kde-format
-msgctxt "@action"
-msgid "Export to &Rajce..."
-msgstr "Exportar para o &Rajce..."
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:162
-#, kde-format
-msgid "Not logged in"
-msgstr "Não conectado"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:229
-#, kde-format
-msgid "Invalid command"
-msgstr "Comando inválido"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:230
-#, kde-format
-msgid "Invalid login name or password"
-msgstr "Nome do usuário ou senha inválidos"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:231
-#, kde-format
-msgid "Session expired"
-msgstr "Sessão expirada"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:233
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:234
-#, kde-format
-msgid "Unknown album"
-msgstr "Álbum desconhecido"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:235
-#, kde-format
-msgid "Failed to open album"
-msgstr "Falha ao abrir o álbum"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:236
-#, kde-format
-msgid "The album name cannot be empty"
-msgstr "O nome do álbum não pode ficar em branco"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:237
-#, kde-format
-msgid "Failed to create album"
-msgstr "Falha ao criar o álbum"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:238
-#, kde-format
-msgid "Album does not exist"
-msgstr "O álbum não existe"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:241
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:243
-#, kde-format
-msgid "File upload failed"
-msgstr "Falha no envio do arquivo"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:244
-#, kde-format
-msgid "Unsupported file extension"
-msgstr "Extensão de arquivo não suportada"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:300
-#, kde-format
-msgid "Logging in %v%"
-msgstr "Autenticando-se %v%"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:301
-#, kde-format
-msgid "Logging out %v%"
-msgstr "Encerrando a sessão %v%"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:302
-#, kde-format
-msgid "Loading albums %v%"
-msgstr "Carregando álbuns %v%"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:303
-#, kde-format
-msgid "Creating album %v%"
-msgstr "Criando o álbum %v%"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:304
-#, kde-format
-msgid "Opening album %v%"
-msgstr "Abrindo o álbum %v%"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:305
-#, kde-format
-msgid "Closing album %v%"
-msgstr "Fechando o álbum %v%"
-
-#: core/dplugins/generic/webservices/rajce/rajcewidget.cpp:306
-#, kde-format
-msgid "Adding photos %v%"
-msgstr "Adicionando fotos %v%"
-
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:43
-#, kde-format
-msgctxt "@title:window"
-msgid "Export to Rajce.net"
-msgstr "Exportar para o Rajce.net"
-
-#: core/dplugins/generic/webservices/rajce/rajcewindow.cpp:46
-#, kde-format
-msgctxt "@info:tooltip, button"
-msgid "Start upload to Rajce.net"
-msgstr "Inicia envio para o Rajce.net"
-
 #: core/dplugins/generic/webservices/smugmug/smugnewalbumdlg.cpp:71
 #, kde-format
 msgid "SmugMug New Album"
@@ -27480,22 +27328,22 @@ msgstr "Analisando os álbuns"
 msgid "Searches"
 msgstr "Pesquisas"
 
-#: core/libs/album/manager/albummanager_database.cpp:111
+#: core/libs/album/manager/albummanager_database.cpp:107
 #, kde-format
 msgid "The MariaDB database directory was not found."
 msgstr "O diretório do banco de dados MariaDB não foi encontrado."
 
-#: core/libs/album/manager/albummanager_database.cpp:128
+#: core/libs/album/manager/albummanager_database.cpp:124
 #, kde-format
 msgid "The MariaDB binary tools was not found."
 msgstr "As ferramentas binárias do MariaDB não foram encontradas."
 
-#: core/libs/album/manager/albummanager_database.cpp:135
+#: core/libs/album/manager/albummanager_database.cpp:131
 #, kde-format
 msgid "The SQLite core database was not found."
 msgstr "O banco de dados principal do SQLite não foi encontrado."
 
-#: core/libs/album/manager/albummanager_database.cpp:144
+#: core/libs/album/manager/albummanager_database.cpp:140
 #, kde-format
 msgid ""
 "<p>If you want to start with a new configuration and with a first run "
@@ -27504,7 +27352,7 @@ msgstr ""
 "<p>Se você quiser começar com uma nova configuração e com um assistente de "
 "primeira execução, exclua o arquivo:<br>%1</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:157
+#: core/libs/album/manager/albummanager_database.cpp:153
 #, kde-format
 msgid ""
 "An error occurred during the internal server start.<p>Details:<br>%1</p>"
@@ -27512,12 +27360,12 @@ msgstr ""
 "Ocorreu um erro durante a inicialização do servidor interno.<p>Detalhes:<br>"
 "%1</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:173
+#: core/libs/album/manager/albummanager_database.cpp:169
 #, kde-format
 msgid "Failed to open the database."
 msgstr "Falha ao abrir o banco de dados."
 
-#: core/libs/album/manager/albummanager_database.cpp:180
+#: core/libs/album/manager/albummanager_database.cpp:176
 #, kde-format
 msgid ""
 "<p>digiKam will attempt to start now, but it will <b>not</b> be functional.</"
@@ -27525,7 +27373,7 @@ msgid ""
 msgstr ""
 "<p>O digiKam tentará iniciar agora, mas <b>não</b> estará funcional.</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:215
+#: core/libs/album/manager/albummanager_database.cpp:211
 #, kde-format
 msgid ""
 "<p>Failed to open the database.</p><p>You cannot use digiKam without a "
@@ -27538,7 +27386,7 @@ msgstr ""
 "estará funcional. Verifique as configurações de banco de dados no <b>menu de "
 "configuração</b>.</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:224
+#: core/libs/album/manager/albummanager_database.cpp:220
 #, kde-format
 msgid ""
 "<p>Failed to open the database. Error message from database:</p><p><b>%1</"
@@ -27552,12 +27400,12 @@ msgstr ""
 "Verifique as configurações de banco de dados no <b>menu de configuração</b>."
 "</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:243
+#: core/libs/album/manager/albummanager_database.cpp:239
 #, kde-format
 msgid "Failed to initialize the database."
 msgstr "Falha ao inicializar o banco de dados."
 
-#: core/libs/album/manager/albummanager_database.cpp:266
+#: core/libs/album/manager/albummanager_database.cpp:262
 #, kde-format
 msgid ""
 "Your database character set has changed since this album was last opened.\n"
@@ -27581,7 +27429,7 @@ msgstr ""
 "'Sim'. Caso contrário, clique em 'Não' e corrija o seu conjunto de "
 "caracteres de banco de dados antes de reiniciar o digiKam."
 
-#: core/libs/album/manager/albummanager_database.cpp:310
+#: core/libs/album/manager/albummanager_database.cpp:306
 #, kde-format
 msgid ""
 "<p>The collection </p><p><b>%1</b><br>(%2)</p><p> is currently not found on "
@@ -27592,7 +27440,7 @@ msgstr ""
 "sistema.<br> Escolha a opção mais apropriada para lidar com esta situação:</"
 "p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:329
+#: core/libs/album/manager/albummanager_database.cpp:325
 #, kde-format
 msgid ""
 "<p>The collection is still available, but the identifier changed.<br>This "
@@ -27604,7 +27452,7 @@ msgstr ""
 "alteração do layout das partições ou pela configuração do sistema de "
 "arquivos.<br>A coleção está agora localizada neste local:</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:348
+#: core/libs/album/manager/albummanager_database.cpp:344
 #, kde-format
 msgid ""
 "The collection is located on a storage device which is not always attached. "
@@ -27613,7 +27461,7 @@ msgstr ""
 "A coleção está localizada em um dispositivo de armazenamento que não está "
 "sempre conectado. Marque a coleção como removível."
 
-#: core/libs/album/manager/albummanager_database.cpp:355
+#: core/libs/album/manager/albummanager_database.cpp:351
 #, kde-format
 msgid ""
 "Take no action now. I would like to solve the problem later using the setup "
@@ -27622,19 +27470,19 @@ msgstr ""
 "Não realizar nenhuma ação agora. Gostaria de resolver o problema mais tarde "
 "usando o diálogo de configuração"
 
-#: core/libs/album/manager/albummanager_database.cpp:369
+#: core/libs/album/manager/albummanager_database.cpp:365
 #, kde-format
 msgctxt "@title:window"
 msgid "Collection not Found"
 msgstr "Coleção não encontrada"
 
-#: core/libs/album/manager/albummanager_database.cpp:475
+#: core/libs/album/manager/albummanager_database.cpp:471
 #, kde-format
 msgctxt "@title:window"
 msgid "Database Folder"
 msgstr "Pasta do banco de dados"
 
-#: core/libs/album/manager/albummanager_database.cpp:476
+#: core/libs/album/manager/albummanager_database.cpp:472
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the place to store the database. A "
@@ -27650,33 +27498,33 @@ msgstr ""
 "para as imagens localizadas na pasta \"%2\" - ou ignorar o arquivo antigo e "
 "iniciar com um novo banco de dados?</p> "
 
-#: core/libs/album/manager/albummanager_database.cpp:486
-#: core/libs/album/manager/albummanager_database.cpp:553
-#: core/libs/album/manager/albummanager_database.cpp:575
+#: core/libs/album/manager/albummanager_database.cpp:482
+#: core/libs/album/manager/albummanager_database.cpp:549
+#: core/libs/album/manager/albummanager_database.cpp:571
 #, kde-format
 msgctxt "@action:button"
 msgid "Upgrade Database"
 msgstr "Atualizar o banco de dados"
 
-#: core/libs/album/manager/albummanager_database.cpp:488
-#: core/libs/album/manager/albummanager_database.cpp:555
-#: core/libs/album/manager/albummanager_database.cpp:577
-#: core/libs/album/manager/albummanager_database.cpp:625
+#: core/libs/album/manager/albummanager_database.cpp:484
+#: core/libs/album/manager/albummanager_database.cpp:551
+#: core/libs/album/manager/albummanager_database.cpp:573
+#: core/libs/album/manager/albummanager_database.cpp:621
 #, kde-format
 msgctxt "@action:button"
 msgid "Create New Database"
 msgstr "Criar novo banco de dados"
 
-#: core/libs/album/manager/albummanager_database.cpp:544
-#: core/libs/album/manager/albummanager_database.cpp:567
-#: core/libs/album/manager/albummanager_database.cpp:617
-#: core/libs/album/manager/albummanager_database.cpp:649
+#: core/libs/album/manager/albummanager_database.cpp:540
+#: core/libs/album/manager/albummanager_database.cpp:563
+#: core/libs/album/manager/albummanager_database.cpp:613
+#: core/libs/album/manager/albummanager_database.cpp:645
 #, kde-format
 msgctxt "@title:window"
 msgid "New Database Folder"
 msgstr "Nova pasta de banco de dados"
 
-#: core/libs/album/manager/albummanager_database.cpp:545
+#: core/libs/album/manager/albummanager_database.cpp:541
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -27691,15 +27539,15 @@ msgstr ""
 "antigo, iniciar com um novo banco de dados, ou copiar o banco de dados atual "
 "para este local, continuar a usá-lo?</p> "
 
-#: core/libs/album/manager/albummanager_database.cpp:557
-#: core/libs/album/manager/albummanager_database.cpp:627
-#: core/libs/album/manager/albummanager_database.cpp:658
+#: core/libs/album/manager/albummanager_database.cpp:553
+#: core/libs/album/manager/albummanager_database.cpp:623
+#: core/libs/album/manager/albummanager_database.cpp:654
 #, kde-format
 msgctxt "@action:button"
 msgid "Copy Current Database"
 msgstr "Copiar o banco de dados atual"
 
-#: core/libs/album/manager/albummanager_database.cpp:568
+#: core/libs/album/manager/albummanager_database.cpp:564
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -27712,7 +27560,7 @@ msgstr ""
 "antiga do digiKam.</p> <p>Deseja atualizar o arquivo de banco de dados "
 "antigo ou iniciar com um novo banco de dados?</p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:603
+#: core/libs/album/manager/albummanager_database.cpp:599
 #, kde-format
 msgid ""
 "Failed to copy the old database file (\"%1\") to its new location (\"%2\"). "
@@ -27721,7 +27569,7 @@ msgstr ""
 "Falha ao copiar o arquivo do banco de dados antigo (\"%1\") para sua nova "
 "localização (\"%2\"). Tentando atualizar o banco de dados antigo."
 
-#: core/libs/album/manager/albummanager_database.cpp:618
+#: core/libs/album/manager/albummanager_database.cpp:614
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database."
@@ -27732,7 +27580,7 @@ msgstr ""
 "dados.</p><p>Deseja copiar o banco de dados atual para este local e "
 "continuar a usá-lo ou iniciar um banco de dados novo?</p> "
 
-#: core/libs/album/manager/albummanager_database.cpp:650
+#: core/libs/album/manager/albummanager_database.cpp:646
 #, kde-format
 msgid ""
 "<p>You have chosen the folder \"%1\" as the new place to store the database. "
@@ -27745,13 +27593,13 @@ msgstr ""
 "usar este arquivo existente como o novo banco de dados ou deseja removê-lo e "
 "copiar o banco de dados atual para este local?</p> "
 
-#: core/libs/album/manager/albummanager_database.cpp:660
+#: core/libs/album/manager/albummanager_database.cpp:656
 #, kde-format
 msgctxt "@action:button"
 msgid "Use Existing File"
 msgstr "Usar arquivo existente"
 
-#: core/libs/album/manager/albummanager_database.cpp:715
+#: core/libs/album/manager/albummanager_database.cpp:711
 #, kde-format
 msgid ""
 "Failed to backup the existing database file (\"%1\"). Refusing to replace "
@@ -27760,7 +27608,7 @@ msgstr ""
 "Ocorreu uma falha no backup do arquivo de banco de dados existente (\"%1\"). "
 "Recusou a substituição do arquivo sem backup, usando o arquivo existente."
 
-#: core/libs/album/manager/albummanager_database.cpp:733
+#: core/libs/album/manager/albummanager_database.cpp:729
 #, kde-format
 msgid ""
 "Failed to copy the old database file (\"%1\") to its new location (\"%2\"). "
@@ -27769,14 +27617,14 @@ msgstr ""
 "Falha ao copiar o arquivo do banco de dados antigo (\"%1\") para sua nova "
 "localização (\"%2\"). Iniciando com um banco de dados vazio."
 
-#: core/libs/album/manager/albummanager_database.cpp:756
+#: core/libs/album/manager/albummanager_database.cpp:752
 #, kde-format
 msgid "<p><b>Please check the database settings in this dialog.</b></p>"
 msgstr ""
 "<p><b>Verifique as configurações do banco de dados nesta caixa de diálogo.</"
 "b></p>"
 
-#: core/libs/album/manager/albummanager_database.cpp:772
+#: core/libs/album/manager/albummanager_database.cpp:768
 #, kde-format
 msgctxt "@action:button"
 msgid "New database"
@@ -27989,7 +27837,7 @@ msgstr ""
 msgid "Context menu"
 msgstr "Menu de contexto"
 
-#: core/libs/album/treeview/abstractalbumtreeview.cpp:1108
+#: core/libs/album/treeview/abstractalbumtreeview.cpp:1079
 #: core/libs/database/utils/ifaces/dio.cpp:970
 #, kde-format
 msgid "Empty Trash"
@@ -28020,63 +27868,63 @@ msgid "No Color"
 msgstr "Sem cor"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:321
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:455
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:445
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Red"
 msgstr "Vermelho"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:327
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:461
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:451
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Orange"
 msgstr "Laranja"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:333
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:467
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:457
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Yellow"
 msgstr "Amarelo"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:339
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:473
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:463
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Green"
 msgstr "Verde"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:345
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:479
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:469
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Blue"
 msgstr "Azul"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:351
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:485
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:475
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Magenta"
 msgstr "Magenta"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:357
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:491
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:481
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Gray"
 msgstr "Cinza"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:363
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:497
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:487
 #, kde-format
 msgctxt "@info: color label name"
 msgid "Black"
 msgstr "Preto"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:369
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:503
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:493
 #, kde-format
 msgctxt "@info: color label name"
 msgid "White"
@@ -28089,28 +27937,28 @@ msgid "Picks: "
 msgstr "Seleções: "
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:398
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:269
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:259
 #, kde-format
 msgctxt "@info: pick label name"
 msgid "No Pick"
 msgstr "Sem seleção"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:404
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:251
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:241
 #, kde-format
 msgctxt "@info: pick label name"
 msgid "Rejected"
 msgstr "Rejeitada"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:410
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:257
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:247
 #, kde-format
 msgctxt "@info: pick label name"
 msgid "Pending"
 msgstr "Pendente"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:416
-#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:263
+#: core/libs/widgets/metadata/labels/picklabelwidget.cpp:253
 #, kde-format
 msgctxt "@info: pick label name"
 msgid "Accepted"
@@ -29494,7 +29342,7 @@ msgstr "Informações do progresso"
 #: core/libs/onlineversion/onlineversiondlg.cpp:194
 #: core/libs/progressmanager/progressview.cpp:197
 #: core/libs/progressmanager/statusbarprogresswidget.cpp:98
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:84
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:89
 #, kde-format
 msgctxt "%p is the percent value, % is the percent sign"
 msgid "%p%"
@@ -32108,71 +31956,71 @@ msgid "Set here the relief gain used to merge texture and image."
 msgstr ""
 "Defina aqui o ganho de relevo, usado para mesclar a textura e a imagem."
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:387
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:367
 #, kde-format
 msgid "Rotate Right"
 msgstr "Girar à direita"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:392
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:372
 #, kde-format
 msgid "Rotate 180 degrees"
 msgstr "Girar 180 graus"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:397
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:377
 #, kde-format
 msgid "Rotate Left"
 msgstr "Girar à esquerda"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:402
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:382
 #, kde-format
 msgid "Flip Horizontally"
 msgstr "Inverter horizontalmente"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:407
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:387
 #, kde-format
 msgid "Flip Vertically"
 msgstr "Inverter verticalmente"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:412
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:392
 #, kde-format
 msgid "Crop"
 msgstr "Recortar"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:422
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:402
 #, kde-format
 msgid "Convert to 8 Bit"
 msgstr "Converter para 8 bits"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:427
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:407
 #, kde-format
 msgid "Convert to 16 Bit"
 msgstr "Converter para 16 bits"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:496
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:476
 #, kde-format
 msgctxt "Rotate image"
 msgid "Rotate"
 msgstr "Girar"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:500
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:480
 #, kde-format
 msgctxt "Flip image"
 msgid "Flip"
 msgstr "Inverter"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:504
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:484
 #, kde-format
 msgctxt "Crop image"
 msgid "Crop"
 msgstr "Recortar"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:508
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:488
 #, kde-format
 msgctxt "Resize image"
 msgid "Resize"
 msgstr "Redimensionar"
 
-#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:512
+#: core/libs/dimg/filters/dimgbuiltinfilter.cpp:492
 #, kde-format
 msgctxt "Convert image bit depth"
 msgid "Convert Depth"
@@ -33309,85 +33157,85 @@ msgstr "(correspondência parcial encontrada)"
 msgid "(exact match found)"
 msgstr "(correspondência exata encontrada)"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:126
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:115
 #, kde-format
 msgctxt "@title"
 msgid "Lens Auto-Correction Tool"
 msgstr "Ferramenta de correção automática da lente"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:485
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:435
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Camera: %1-%2"
 msgstr "Câmera: %1-%2"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:487
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:437
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Lens: %1"
 msgstr "Lente: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:489
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:439
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Subject Distance: <numid>%1</numid>"
 msgstr "Distância do assunto: <numid>%1</numid>"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:491
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:441
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Aperture: <numid>%1</numid>"
 msgstr "Abertura: <numid>%1</numid>"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:493
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:443
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Focal Length: <numid>%1</numid>"
 msgstr "Distância focal: <numid>%1</numid>"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:495
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:445
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "Crop Factor: <numid>%1</numid>"
 msgstr "Fator de corte: <numid>%1</numid>"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:497
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:500
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:503
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:506
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:447
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:450
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:453
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:456
 #, kde-format
 msgctxt "@info: correction status"
 msgid "enabled"
 msgstr "habilitado"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:497
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:447
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "CCA Correction: %1"
 msgstr "Correção do CCA: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:498
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:501
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:504
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:507
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:448
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:451
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:454
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:457
 #, kde-format
 msgctxt "@info: correction status"
 msgid "disabled"
 msgstr "desabilitado"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:500
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:450
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "VIG Correction: %1"
 msgstr "Correção de VIG: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:503
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:453
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "DST Correction: %1"
 msgstr "Correção de DST: %1"
 
-#: core/libs/dimg/filters/lens/lensfunfilter.cpp:506
+#: core/libs/dimg/filters/lens/lensfunfilter.cpp:456
 #, kde-format
 msgctxt "@info; XMP settings"
 msgid "GEO Correction: %1"
@@ -33511,73 +33359,73 @@ msgstr ""
 "selecionada. Este é calculado novamente em caso de qualquer mudança nas "
 "configurações."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:272
+#: core/libs/dimg/filters/levels/histogrambox.cpp:263
 #, kde-format
 msgid "<p>Select the histogram channel to display:</p>"
 msgstr "<p>Selecione o canal do histograma a ser exibido:</p>"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:278
+#: core/libs/dimg/filters/levels/histogrambox.cpp:269
 #, kde-format
 msgctxt "The luminosity channel"
 msgid "Luminosity"
 msgstr "Luminosidade"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:279
+#: core/libs/dimg/filters/levels/histogrambox.cpp:270
 #, kde-format
 msgid "<b>Luminosity</b>: display the image's luminosity values."
 msgstr "<b>Luminosidade</b>: mostra os valores de luminosidade da imagem."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:281
+#: core/libs/dimg/filters/levels/histogrambox.cpp:272
 #, kde-format
 msgctxt "The red channel"
 msgid "Red"
 msgstr "Vermelho"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:282
+#: core/libs/dimg/filters/levels/histogrambox.cpp:273
 #, kde-format
 msgid "<b>Red</b>: display the red image-channel values."
 msgstr "<b>Vermelho</b>: mostra os valores do canal vermelho da imagem."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:284
+#: core/libs/dimg/filters/levels/histogrambox.cpp:275
 #, kde-format
 msgctxt "The green channel"
 msgid "Green"
 msgstr "Verde"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:285
+#: core/libs/dimg/filters/levels/histogrambox.cpp:276
 #, kde-format
 msgid "<b>Green</b>: display the green image-channel values."
 msgstr "<b>Verde</b>: mostra os valores do canal verde da imagem."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:287
+#: core/libs/dimg/filters/levels/histogrambox.cpp:278
 #, kde-format
 msgctxt "The blue channel"
 msgid "Blue"
 msgstr "Azul"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:288
+#: core/libs/dimg/filters/levels/histogrambox.cpp:279
 #, kde-format
 msgid "<b>Blue</b>: display the blue image-channel values."
 msgstr "<b>Azul</b>: mostra os valores do canal azul da imagem."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:290
+#: core/libs/dimg/filters/levels/histogrambox.cpp:281
 #, kde-format
 msgctxt "The colors channel"
 msgid "Colors"
 msgstr "Cores"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:291
+#: core/libs/dimg/filters/levels/histogrambox.cpp:282
 #, kde-format
 msgid "<b>Colors</b>: Display all color channel values at the same time."
 msgstr "<b>Cores</b>: mostra os valores de todos os canais ao mesmo tempo."
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:293
+#: core/libs/dimg/filters/levels/histogrambox.cpp:284
 #, kde-format
 msgctxt "The alpha channel"
 msgid "Alpha"
 msgstr "Alfa"
 
-#: core/libs/dimg/filters/levels/histogrambox.cpp:294
+#: core/libs/dimg/filters/levels/histogrambox.cpp:285
 #, kde-format
 msgid ""
 "<b>Alpha</b>: display the alpha image-channel values. This channel "
@@ -35905,47 +35753,47 @@ msgstr ""
 "Selecione o valor da avaliação usada para filtrar o conteúdo dos álbuns. Use "
 "o menu de contexto para definir as condições de filtragem da avaliação."
 
-#: core/libs/filters/ratingfilter.cpp:180
+#: core/libs/filters/ratingfilter.cpp:162
 #, kde-format
 msgid "Rating greater than or equal to %1."
 msgstr "Avaliação maior ou igual a %1."
 
-#: core/libs/filters/ratingfilter.cpp:186
+#: core/libs/filters/ratingfilter.cpp:168
 #, kde-format
 msgid "Rating equal to %1."
 msgstr "Avaliação igual a %1."
 
-#: core/libs/filters/ratingfilter.cpp:192
+#: core/libs/filters/ratingfilter.cpp:174
 #, kde-format
 msgid "Rating less than or equal to %1."
 msgstr "Avaliação menor ou igual a %1."
 
-#: core/libs/filters/ratingfilter.cpp:232
+#: core/libs/filters/ratingfilter.cpp:214
 #, kde-format
 msgid "Items Without Rating"
 msgstr "Itens sem classificação"
 
-#: core/libs/filters/ratingfilter.cpp:236
+#: core/libs/filters/ratingfilter.cpp:218
 #, kde-format
 msgid "Rating Filter Options"
 msgstr "Opções do filtro de classificação"
 
-#: core/libs/filters/ratingfilter.cpp:241
+#: core/libs/filters/ratingfilter.cpp:223
 #, kde-format
 msgid "Greater Than or Equals Condition"
 msgstr "Condição maior ou igual a"
 
-#: core/libs/filters/ratingfilter.cpp:243
+#: core/libs/filters/ratingfilter.cpp:225
 #, kde-format
 msgid "Equals Condition"
 msgstr "Condição de igual"
 
-#: core/libs/filters/ratingfilter.cpp:245
+#: core/libs/filters/ratingfilter.cpp:227
 #, kde-format
 msgid "Less Than or Equals Condition"
 msgstr "Condição menor ou igual a"
 
-#: core/libs/filters/ratingfilter.cpp:248
+#: core/libs/filters/ratingfilter.cpp:230
 #, kde-format
 msgid "Exclude Items Without Rating"
 msgstr "Excluir os itens sem classificação"
@@ -43207,68 +43055,129 @@ msgstr "Ocorreu um erro durante a reprodução: a mídia não é válida"
 msgid "An error has occurred while playing: %1"
 msgstr "Ocorreu um erro ao reproduzir: %1"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:197
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:211
+#: core/libs/video/player/mediaplayerview.cpp:211
 #, kde-format
 msgid "An error has occurred with the media player..."
 msgstr "Ocorreu um erro com o reprodutor de mídia..."
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:198
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:212
+#: core/libs/video/player/mediaplayerview.cpp:212
 #, kde-format
 msgid "End of media."
 msgstr "Fim da mídia."
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:210
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:305
+#: core/libs/video/player/mediaplayerview.cpp:305
 #, kde-format
 msgctxt "go to previous image"
 msgid "Back"
 msgstr "Voltar"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:213
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:308
+#: core/libs/video/player/mediaplayerview.cpp:308
 #, kde-format
 msgctxt "go to next image"
 msgid "Forward"
 msgstr "Avançar"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:216
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:314
+#: core/libs/video/player/mediaplayerview.cpp:311
+#, kde-format
+msgctxt "video frame backward"
+msgid "Frame Backward"
+msgstr "Quadro anterior"
+
+#: core/libs/video/player/mediaplayerview.cpp:314
 #, kde-format
 msgctxt "pause/play video"
 msgid "Pause/Play"
 msgstr "Pausar/Reproduzir"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:219
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:320
+#: core/libs/video/player/mediaplayerview.cpp:317
+#, kde-format
+msgctxt "video frame forward"
+msgid "Frame Forward"
+msgstr "Próximo quadro"
+
+#: core/libs/video/player/mediaplayerview.cpp:320
 #, kde-format
 msgctxt "capture video frame"
 msgid "Capture"
 msgstr "Capturar"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:222
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:323
+#: core/libs/video/player/mediaplayerview.cpp:323
 #, kde-format
 msgctxt "rotate video in counterclockwize"
 msgid "Rotate Left"
 msgstr "Girar à esquerda"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:225
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:326
+#: core/libs/video/player/mediaplayerview.cpp:326
 #, kde-format
 msgctxt "rotate video in clockwize"
 msgid "Rotate Right"
 msgstr "Girar à direita"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:260
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:424
+#: core/libs/video/player/mediaplayerview.cpp:330
+#, kde-format
+msgctxt "@info"
+msgid "Change video playback rate"
+msgstr "Alterar taxa de reprodução de vídeo"
+
+#: core/libs/video/player/mediaplayerview.cpp:335
+#, kde-format
+msgid "Rate"
+msgstr "Taxa"
+
+#: core/libs/video/player/mediaplayerview.cpp:339
+#, kde-format
+msgctxt "video play rate"
+msgid "0.5x"
+msgstr "0.5x"
+
+#: core/libs/video/player/mediaplayerview.cpp:342
+#, kde-format
+msgctxt "video play rate"
+msgid "1.0x"
+msgstr "1.0x"
+
+#: core/libs/video/player/mediaplayerview.cpp:345
+#, kde-format
+msgctxt "video play rate"
+msgid "1.5x"
+msgstr "1.5x"
+
+#: core/libs/video/player/mediaplayerview.cpp:348
+#, kde-format
+msgctxt "video play rate"
+msgid "2.0x"
+msgstr "2.0x"
+
+#: core/libs/video/player/mediaplayerview.cpp:351
+#, kde-format
+msgctxt "video play rate"
+msgid "2.5x"
+msgstr "2.5x"
+
+#: core/libs/video/player/mediaplayerview.cpp:354
+#, kde-format
+msgctxt "video play rate"
+msgid "3.0x"
+msgstr "3.0x"
+
+#: core/libs/video/player/mediaplayerview.cpp:357
+#, kde-format
+msgctxt "video play rate"
+msgid "4.0x"
+msgstr "4.0x"
+
+#: core/libs/video/player/mediaplayerview.cpp:360
+#, kde-format
+msgctxt "video play rate"
+msgid "5.0x"
+msgstr "5.0x"
+
+#: core/libs/video/player/mediaplayerview.cpp:424
 #, kde-format
 msgid "Toggle playing in a loop"
 msgstr "Alternar reprodução em loop"
 
-#: core/libs/video/player/QtAVPlayer/mediaplayerview.cpp:910
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:741
+#: core/libs/video/player/mediaplayerview.cpp:741
 #, kde-format
 msgid ""
 "%1\n"
@@ -43278,77 +43187,6 @@ msgstr ""
 "%1\n"
 "\n"
 "Erro: \"%2\""
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:311
-#, kde-format
-msgctxt "video frame backward"
-msgid "Frame Backward"
-msgstr "Quadro anterior"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:317
-#, kde-format
-msgctxt "video frame forward"
-msgid "Frame Forward"
-msgstr "Próximo quadro"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:330
-#, kde-format
-msgctxt "@info"
-msgid "Change video playback rate"
-msgstr "Alterar taxa de reprodução de vídeo"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:335
-#, kde-format
-msgid "Rate"
-msgstr "Taxa"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:339
-#, kde-format
-msgctxt "video play rate"
-msgid "0.5x"
-msgstr "0.5x"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:342
-#, kde-format
-msgctxt "video play rate"
-msgid "1.0x"
-msgstr "1.0x"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:345
-#, kde-format
-msgctxt "video play rate"
-msgid "1.5x"
-msgstr "1.5x"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:348
-#, kde-format
-msgctxt "video play rate"
-msgid "2.0x"
-msgstr "2.0x"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:351
-#, kde-format
-msgctxt "video play rate"
-msgid "2.5x"
-msgstr "2.5x"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:354
-#, kde-format
-msgctxt "video play rate"
-msgid "3.0x"
-msgstr "3.0x"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:357
-#, kde-format
-msgctxt "video play rate"
-msgid "4.0x"
-msgstr "4.0x"
-
-#: core/libs/video/player/qtmm/mediaplayerview.cpp:360
-#, kde-format
-msgctxt "video play rate"
-msgid "5.0x"
-msgstr "5.0x"
 
 #: core/libs/widgets/combo/dcombobox.cpp:60
 #: core/libs/widgets/range/dnuminput.cpp:67
@@ -43634,20 +43472,20 @@ msgstr ""
 "Esta amostra de texto ilustra as configurações atuais. Você pode editá-la "
 "para testar caracteres especiais."
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:720
-#: core/libs/widgets/fonts/dfontproperties.cpp:771
+#: core/libs/widgets/fonts/dfontproperties.cpp:712
+#: core/libs/widgets/fonts/dfontproperties.cpp:752
 #, kde-format
 msgctxt "@info: font style"
 msgid "Normal"
 msgstr "Normal"
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:779
+#: core/libs/widgets/fonts/dfontproperties.cpp:760
 #, kde-format
 msgctxt "@info: font style"
 msgid "Italic"
 msgstr "Itálico"
 
-#: core/libs/widgets/fonts/dfontproperties.cpp:780
+#: core/libs/widgets/fonts/dfontproperties.cpp:761
 #, kde-format
 msgctxt "@info: font style"
 msgid "Oblique"
@@ -44704,7 +44542,7 @@ msgstr "Ocultar barra de &status"
 msgid "Hide statusbar when window switch in full-screen mode."
 msgstr "Oculta a barras de status ao mudar para o modo de tela cheia."
 
-#: core/libs/widgets/mainview/thememanager_p.cpp:1323
+#: core/libs/widgets/mainview/thememanager_p.cpp:1319
 #, kde-format
 msgctxt "default theme name"
 msgid "Default"
@@ -45737,7 +45575,7 @@ msgstr "Arquivo XMP a salvar"
 msgid "XMP text Files (*.xmp)"
 msgstr "Arquivos de texto XMP (*.xmp)"
 
-#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:509
+#: core/libs/widgets/metadata/labels/colorlabelwidget.cpp:499
 #, kde-format
 msgctxt "@info: color label name"
 msgid "None"
@@ -64443,44 +64281,44 @@ msgstr "Editar pesquisa atual..."
 #: core/utilities/searchwindow/view/searchtabheader.cpp:64
 #, kde-format
 msgid ""
-"Interpret the text above as a natural-language search and build the query"
+"Interpret the text above as a natural-language search and build the query. "
+"If the language model has not been downloaded yet, the Advanced Search "
+"dialog will open so you can download it."
 msgstr ""
-"Interpretar o texto acima como uma pesquisa em linguagem natural e montar a "
-"consulta"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:70
+#: core/utilities/searchwindow/view/searchtabheader.cpp:72
 #: core/utilities/searchwindow/view/searchwindow.cpp:70
 #, kde-format
 msgid "Cancel the current interpretation"
 msgstr "Cancelar a interpretação atual"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:95
+#: core/utilities/searchwindow/view/searchtabheader.cpp:97
 #, kde-format
 msgid "Open Advanced Search"
 msgstr "Abrir pesquisa avançada"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:96
+#: core/utilities/searchwindow/view/searchtabheader.cpp:98
 #, kde-format
 msgid "Run Now"
 msgstr "Executar agora"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:140
+#: core/utilities/searchwindow/view/searchtabheader.cpp:142
 #, kde-format
 msgid "Save Current Search"
 msgstr "Salvar pesquisa atual"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:144
+#: core/utilities/searchwindow/view/searchtabheader.cpp:146
 #, kde-format
 msgid "Enter a name for the current search to save it in the \"Searches\" view"
 msgstr ""
 "Digite o nome para salvar a pesquisa atual na visualização \"Pesquisas\""
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:149
+#: core/utilities/searchwindow/view/searchtabheader.cpp:151
 #, kde-format
 msgid "Save current search to a new virtual Album"
 msgstr "Salvar a pesquisa atual para um novo álbum virtual"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:150
+#: core/utilities/searchwindow/view/searchtabheader.cpp:152
 #, kde-format
 msgid ""
 "If you press this button, the current search will be saved to a new virtual "
@@ -64489,18 +64327,18 @@ msgstr ""
 "Se pressionar este botão, a pesquisa atual será salva para um novo álbum "
 "virtual de pesquisa usando o nome definido à esquerda."
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:165
-#: core/utilities/searchwindow/view/searchtabheader.cpp:192
+#: core/utilities/searchwindow/view/searchtabheader.cpp:167
+#: core/utilities/searchwindow/view/searchtabheader.cpp:194
 #, kde-format
 msgid "Edit Stored Search"
 msgstr "Editar pesquisa armazenada"
 
-#: core/utilities/searchwindow/view/searchtabheader.cpp:207
+#: core/utilities/searchwindow/view/searchtabheader.cpp:209
 #, kde-format
 msgid "Edit..."
 msgstr "Editar..."
 
-#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:89
+#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:105
 #, kde-format
 msgid ""
 "Interpreted as:\n"
@@ -64509,7 +64347,7 @@ msgstr ""
 "Interpretado como:\n"
 "%1"
 
-#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:123
+#: core/utilities/searchwindow/view/searchtabheader_nlsearch.cpp:139
 #: core/utilities/searchwindow/view/searchwindow_slots.cpp:180
 #, kde-format
 msgid "Interpretation cancelled."
@@ -66246,28 +66084,28 @@ msgstr "Usar a funcionalidade de avaliação estética"
 msgid "Use AutoTags Assignment feature"
 msgstr "Usar a funcionalidade de atribuição automática de etiquetas"
 
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:81
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:84
 #, kde-format
 msgid "Use Natural Language Search feature"
 msgstr "Usar a funcionalidade de pesquisa em linguagem natural"
 
-#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:290
+#: core/utilities/setup/downloader/filesdownloader_helpers.cpp:311
 #, kde-format
 msgid "Clean up unused AI/DNN model files..."
 msgstr "Limpar os arquivos de modelo AI/DNN não utilizados..."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:46
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:52
 #, kde-format
 msgid "All model files were downloaded successfully."
 msgstr "Todos os arquivos de modelo foram baixados com sucesso."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:55
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:61
 #, kde-format
 msgctxt "@title:window"
 msgid "Download Error"
 msgstr "Erro de download"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:56
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:62
 #, kde-format
 msgid ""
 "An error occurred during the download.\n"
@@ -66287,33 +66125,33 @@ msgstr ""
 "Você pode tentar novamente ou continuar o download na próxima vez que "
 "iniciar."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:64
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:70
 #, kde-format
 msgctxt "@action:button"
 msgid "Try Again"
 msgstr "Tentar novamente"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:136
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:142
 #, kde-format
 msgid "Checksum is incorrect."
 msgstr "A verificação da soma está incorreta."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:160
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:166
 #, kde-format
 msgid "File write error."
 msgstr "Erro de gravação."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:167
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:173
 #, kde-format
 msgid "File open error."
 msgstr "Erro ao abrir arquivo."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:182
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:188
 #, kde-format
 msgid "File on the server is too large."
 msgstr "O arquivo no servidor é muito grande."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:258
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:270
 #, kde-format
 msgid ""
 "<p>digiKam relies on large binary model files to power features like face "
@@ -66332,7 +66170,7 @@ msgstr ""
 "remoção de olhos vermelhos requer arquivos de modelo de gerenciamento de "
 "rostos.</p>"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:264
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:276
 #, kde-format
 msgid ""
 "<p>Some required files are missing. Click “Download” to start installing the "
@@ -66348,13 +66186,13 @@ msgstr ""
 "p><p><b>Você deve reiniciar o digiKam após baixar os arquivos com sucesso.</"
 "b></p>"
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:271
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:283
 #, kde-format
 msgctxt "%1: file counter, %2: disk size with unit"
 msgid "The download requires %1 files with a size of %2."
 msgstr "O download requer %1 arquivos com tamanho %2."
 
-#: core/utilities/setup/downloader/filesdownloader_slots.cpp:297
+#: core/utilities/setup/downloader/filesdownloader_slots.cpp:309
 #, kde-format
 msgid "All files for the selected features were found."
 msgstr ""
@@ -69753,6 +69591,106 @@ msgstr "Pesquisa"
 #, kde-format
 msgid "Play/Pause Video"
 msgstr "Reproduzir/Pausar vídeo"
+
+#~ msgctxt "@option"
+#~ msgid "Visibility"
+#~ msgstr "Visibilidade"
+
+#~ msgctxt "@info"
+#~ msgid "Set the visibility of the album"
+#~ msgstr "Define a visibilidade do álbum"
+
+#~ msgctxt "@label: properties"
+#~ msgid "Public"
+#~ msgstr "Público"
+
+#~ msgctxt "@title"
+#~ msgid "Rajce"
+#~ msgstr "Rajce"
+
+#~ msgctxt "@info"
+#~ msgid "A tool to export to Rajce web-service"
+#~ msgstr "Uma ferramenta para exportar para o serviço web do Rajce"
+
+#~ msgctxt "@info"
+#~ msgid ""
+#~ "This tool allows users to export items to Rajce web-service.<br><br>See "
+#~ "Rajce web site for details: %1"
+#~ msgstr ""
+#~ "Esta ferramenta permite que os usuários exportem itens para o serviço web "
+#~ "do Rajce.<br><br>Consulte o site Rajce para mais detalhes: %1"
+
+#~ msgctxt "@action"
+#~ msgid "Export to &Rajce..."
+#~ msgstr "Exportar para o &Rajce..."
+
+#~ msgid "Not logged in"
+#~ msgstr "Não conectado"
+
+#~ msgid "Invalid command"
+#~ msgstr "Comando inválido"
+
+#~ msgid "Invalid login name or password"
+#~ msgstr "Nome do usuário ou senha inválidos"
+
+#~ msgid "Session expired"
+#~ msgstr "Sessão expirada"
+
+#~ msgid "Unknown album"
+#~ msgstr "Álbum desconhecido"
+
+#~ msgid "Failed to open album"
+#~ msgstr "Falha ao abrir o álbum"
+
+#~ msgid "The album name cannot be empty"
+#~ msgstr "O nome do álbum não pode ficar em branco"
+
+#~ msgid "Failed to create album"
+#~ msgstr "Falha ao criar o álbum"
+
+#~ msgid "Album does not exist"
+#~ msgstr "O álbum não existe"
+
+#~ msgid "File upload failed"
+#~ msgstr "Falha no envio do arquivo"
+
+#~ msgid "Unsupported file extension"
+#~ msgstr "Extensão de arquivo não suportada"
+
+#~ msgid "Logging in %v%"
+#~ msgstr "Autenticando-se %v%"
+
+#~ msgid "Logging out %v%"
+#~ msgstr "Encerrando a sessão %v%"
+
+#~ msgid "Loading albums %v%"
+#~ msgstr "Carregando álbuns %v%"
+
+#~ msgid "Creating album %v%"
+#~ msgstr "Criando o álbum %v%"
+
+#~ msgid "Opening album %v%"
+#~ msgstr "Abrindo o álbum %v%"
+
+#~ msgid "Closing album %v%"
+#~ msgstr "Fechando o álbum %v%"
+
+#~ msgid "Adding photos %v%"
+#~ msgstr "Adicionando fotos %v%"
+
+#~ msgctxt "@title:window"
+#~ msgid "Export to Rajce.net"
+#~ msgstr "Exportar para o Rajce.net"
+
+#~ msgctxt "@info:tooltip, button"
+#~ msgid "Start upload to Rajce.net"
+#~ msgstr "Inicia envio para o Rajce.net"
+
+#~ msgid ""
+#~ "Interpret the text above as a natural-language search and build the query"
+#~ msgstr ""
+#~ "Interpretar o texto acima como uma pesquisa em linguagem natural e montar "
+#~ "a consulta"
 
 #~ msgid "Roll"
 #~ msgstr "Enrolar"
