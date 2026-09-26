@@ -36,7 +36,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:42+0000\n"
+"POT-Creation-Date: 2026-09-26 00:42+0000\n"
 "PO-Revision-Date: 2026-08-12 09:51+0300\n"
 "Last-Translator: Toms Trasūns <toms.trasuns@posteo.net>\n"
 "Language-Team: Latvian <kde-i18n-doc@kde.org>\n"
@@ -3205,7 +3205,7 @@ msgstr "Albums bez birkām"
 #: core/libs/album/manager/albummanager.cpp:181
 #: core/libs/album/widgets/albumselecttabs.cpp:180
 #: core/libs/database/utils/widgets/dbstatdlg.cpp:70
-#: core/libs/properties/itempropertiestab.cpp:525
+#: core/libs/properties/itempropertiestab.cpp:500
 #: core/libs/tags/widgets/tagfolderview.cpp:102
 #: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:689
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:75
@@ -4280,7 +4280,7 @@ msgstr "Ceļš"
 #: core/app/views/tableview/tableview_column_file.cpp:58
 #: core/app/views/tableview/tableview_column_file.cpp:91
 #: core/libs/dimg/filters/hotpixels/blackframelistview.cpp:67
-#: core/libs/properties/itempropertiestab.cpp:489
+#: core/libs/properties/itempropertiestab.cpp:464
 #, kde-format
 msgid "Size"
 msgstr "Izmērs"
@@ -4378,7 +4378,7 @@ msgstr "Augstums"
 
 #: core/app/views/tableview/tableview_column_item.cpp:74
 #: core/app/views/tableview/tableview_column_item.cpp:103
-#: core/libs/properties/itempropertiestab.cpp:494
+#: core/libs/properties/itempropertiestab.cpp:469
 #, kde-format
 msgid "Dimensions"
 msgstr "Izmēri:"
@@ -4587,7 +4587,7 @@ msgstr "Vienība"
 #: core/app/views/tableview/tableview_column_thumbnail.cpp:84
 #: core/dplugins/generic/webservices/imgur/imgurimageslist.cpp:53
 #: core/dplugins/generic/webservices/ipfs/ipfsimageslist.cpp:45
-#: core/libs/dtrash/dtrashitemmodel.cpp:258
+#: core/libs/dtrash/dtrashitemmodel.cpp:249
 #: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:677
 #, kde-format
 msgid "Thumbnail"
@@ -8172,29 +8172,29 @@ msgstr ""
 "Nospiežot šo pogu, visas izvēlētā kanāla līmeņu vērtības tiks atjaunotas uz "
 "noklusējuma vērtībām."
 
-#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:904
+#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:894
 #, kde-format
 msgid "Adjust Levels"
 msgstr "Regulēt līmeņus"
 
-#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:911
+#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:901
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Gimp Levels File to Load"
 msgstr "Izvēlieties ielādējamo „Gimp“ līmeņu datni"
 
-#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:923
+#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:913
 #, kde-format
 msgid "Cannot load from the Gimp levels text file."
 msgstr "Neizdevās ielādēt „Gimp“ līmeņu datni."
 
-#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:938
+#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:928
 #, kde-format
 msgctxt "@title:window"
 msgid "Gimp Levels File to Save"
 msgstr "Saglabājamā „Gimp“ līmeņu datne"
 
-#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:950
+#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:940
 #, kde-format
 msgid "Cannot save to the Gimp levels text file."
 msgstr "Neizdevās saglabāt „Gimp“ līmeņu teksta datni."
@@ -8648,7 +8648,7 @@ msgstr "Krāsu pārvaldība ir izslēgta..."
 
 #: core/dplugins/editor/colors/whitebalance/whitebalancetool.cpp:77
 #: core/dplugins/editor/colors/whitebalance/whitebalancetool.cpp:241
-#: core/libs/properties/itempropertiestab.cpp:513
+#: core/libs/properties/itempropertiestab.cpp:488
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:605
 #, kde-format
 msgid "White Balance"
@@ -8803,17 +8803,17 @@ msgstr "Puscaurspīdīgs"
 msgid "Use semi-transparent text background under image"
 msgstr "Lietot puscaurspīdīgu teksta fonu"
 
-#: core/dplugins/editor/decorate/inserttext/inserttexttool.cpp:301
+#: core/dplugins/editor/decorate/inserttext/inserttexttool.cpp:292
 #, kde-format
 msgid "Enter your text here."
 msgstr "Rakstiet tekstu."
 
-#: core/dplugins/editor/decorate/inserttext/inserttexttool.cpp:420
+#: core/dplugins/editor/decorate/inserttext/inserttexttool.cpp:411
 #, kde-format
 msgid "Insert Text Tool"
 msgstr "Teksta ievietošanas rīks"
 
-#: core/dplugins/editor/decorate/inserttext/inserttexttool.cpp:433
+#: core/dplugins/editor/decorate/inserttext/inserttexttool.cpp:424
 #, kde-format
 msgid "Insert Text"
 msgstr "Ievietot tekstu"
@@ -10657,7 +10657,7 @@ msgstr "Enerģijas funkcija"
 msgid "Advanced Settings"
 msgstr "Papildu iestatījumi"
 
-#: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:745
+#: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:736
 #, kde-format
 msgid "Liquid Rescale"
 msgstr "Plūstošā mērogošana"
@@ -11876,13 +11876,13 @@ msgctxt "@item: map tool"
 msgid "KML Export"
 msgstr "Eksports uz KML"
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:600
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:589
 #, kde-format
 msgctxt "@info"
 msgid "Loading metadata -"
 msgstr "Ielādē metadatus —"
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:793
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:782
 #, kde-format
 msgctxt "@info"
 msgid "You have 1 modified image."
@@ -11891,26 +11891,26 @@ msgstr[0] "Jūs mainījāt %1 attēlu."
 msgstr[1] "Jūs mainījāt %1 attēlus."
 msgstr[2] "Jūs mainījāt %1 attēlu."
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:800
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:789
 #, kde-format
 msgctxt "@title:window"
 msgid "Unsaved Changes"
 msgstr "Nesaglabātas izmaiņas"
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:801
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:790
 #, kde-format
 msgctxt "@info"
 msgid "%1 Would you like to save the changes you made to them?"
 msgstr "%1 Vai vēlaties saglabāt tajās veiktās izmaiņas?"
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:916
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:905
 #, kde-format
 msgctxt "@info"
 msgid "Saving changes -"
 msgstr "Saglabā izmaiņas —"
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:975
-#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:232
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:964
+#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:152
 #: core/dplugins/generic/view/presentation/dialogs/presentation_mainpage.cpp:382
 #: core/dplugins/generic/webservices/box/boxtalker.cpp:372
 #: core/dplugins/generic/webservices/box/boxwindow.cpp:239
@@ -11946,13 +11946,13 @@ msgctxt "@title:window"
 msgid "Error"
 msgstr "Kļūda"
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:976
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:965
 #, kde-format
 msgctxt "@info"
 msgid "Failed to save some information:"
 msgstr "Atsevišķu informāciju saglabāt neizdevās:"
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:1014
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:1003
 #, kde-format
 msgctxt "@title"
 msgid "Edit Geolocation"
@@ -15612,7 +15612,7 @@ msgid "Status"
 msgstr "Statuss"
 
 #: core/dplugins/generic/metadata/metadataedit/xmp/xmpeditwidget.cpp:122
-#: core/libs/dialogs/solidhardwaredlg.cpp:290
+#: core/libs/dialogs/solidhardwaredlg.cpp:284
 #, kde-format
 msgctxt "@item"
 msgid "Properties"
@@ -17311,7 +17311,7 @@ msgctxt "average scene luminance value unknown"
 msgid "unknown"
 msgstr "nezināms"
 
-#: core/dplugins/generic/tools/expoblending/manager/expoblendingthread.cpp:957
+#: core/dplugins/generic/tools/expoblending/manager/expoblendingthread.cpp:938
 #, kde-format
 msgid ""
 "Cannot run %1:\n"
@@ -18408,22 +18408,22 @@ msgstr "Koplietot ar DLNA..."
 msgid "%1 Media Server"
 msgstr "„%1“ multivides serveris"
 
-#: core/dplugins/generic/tools/mediaserver/server/dmediaservermngr.cpp:156
+#: core/dplugins/generic/tools/mediaserver/server/dmediaservermngr.cpp:152
 #, kde-format
 msgid "Media Server have been started"
 msgstr "Multivides serveris ir palaists"
 
-#: core/dplugins/generic/tools/mediaserver/server/dmediaservermngr.cpp:157
+#: core/dplugins/generic/tools/mediaserver/server/dmediaservermngr.cpp:153
 #, kde-format
 msgid "Media Server cannot be started!"
 msgstr "Multivides serveri nevar palaist"
 
-#: core/dplugins/generic/tools/mjpegstream/mjpegservermngr.cpp:173
+#: core/dplugins/generic/tools/mjpegstream/mjpegservermngr.cpp:169
 #, kde-format
 msgid "MJPEG Server have been started"
 msgstr "MJPEG serveris ir palaists"
 
-#: core/dplugins/generic/tools/mjpegstream/mjpegservermngr.cpp:174
+#: core/dplugins/generic/tools/mjpegstream/mjpegservermngr.cpp:170
 #, kde-format
 msgid "MJPEG Server cannot be started!"
 msgstr "MJPEG serveri nevar palaist!"
@@ -19690,29 +19690,29 @@ msgctxt "@title:group"
 msgid "Panorama Post-Processing"
 msgstr "Panorāmas attēla pēcapstrāde"
 
-#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:273
+#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:264
 #, kde-format
 msgid "Preview Processing Cancelled."
 msgstr "Priekšskatījuma veidošana ir atcelta."
 
-#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:332
+#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:323
 #, kde-format
 msgid "<h1><b>Error</b></h1><p>%1</p>"
 msgstr "<h1><b>Kļūda</b></h1><p>%1</p>"
 
-#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:366
+#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:357
 #, kde-format
 msgctxt "a project file is a .pto file, as given to hugin to build a panorama"
 msgid "<p><b>Cannot create project file: </b></p><p>%1</p>"
 msgstr "<p><b>Nevar izveidot projekta datni: </b></p><p>%1</p>"
 
-#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:396
+#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:387
 #, kde-format
 msgctxt "Error message for panorama compilation"
 msgid "<p><b>Panorama compilation: </b></p><p>%1</p>"
 msgstr "<p><b>Panorāmas foto kompilācija: </b></p><p>%1</p>"
 
-#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:444
+#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:435
 #, kde-format
 msgid ""
 "<qt><h1>Panorama Preview</h1><p>Draw a rectangle if you want to crop the "
@@ -19723,13 +19723,13 @@ msgstr ""
 "attēlu kadrēt.</p><p>Spiežot <i>Tālāk</i> pogu, tiks uzsākts savienošanas "
 "process.</p></qt>"
 
-#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:485
+#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:476
 #, kde-format
 msgctxt "Success for panorama compilation"
 msgid "Panorama compilation"
 msgstr "Panorāmas attēla kompilācija"
 
-#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:526
+#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:517
 #, kde-format
 msgctxt "Panorama compilation started"
 msgid "Panorama compilation"
@@ -20098,7 +20098,7 @@ msgstr "Fotogrāfijas izmērs"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
 #: core/dplugins/generic/tools/printcreator/ui/advprintcustomlayout.ui:203
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:967
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:929
 #, kde-format
 msgid "cm"
 msgstr "cm"
@@ -20111,7 +20111,7 @@ msgstr "mm"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
 #: core/dplugins/generic/tools/printcreator/ui/advprintcustomlayout.ui:213
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:962
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:924
 #, kde-format
 msgid "inches"
 msgstr "collas"
@@ -20388,24 +20388,24 @@ msgstr "Attēla izvades datnes nosaukums tiks ģenerētas automātiski."
 msgid "Open in File Browser"
 msgstr "Atvērt datņu pārlūkā"
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:67
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:56
 #, kde-format
 msgctxt "@info layout page"
 msgid "Custom"
 msgstr "Pielāgots"
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:128
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:117
 #, kde-format
 msgctxt "@info"
 msgid "Select your preferred print output."
 msgstr "Atlasiet vēlamo izdrukas izvadi."
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:508
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:479
 #, kde-format
 msgid "Add again"
 msgstr "Pievienot vēlreiz"
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:522
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:493
 #: core/utilities/geolocation/engine/osm/OsmRelationManagerWidget.cpp:174
 #: core/utilities/geolocation/engine/osm/OsmRelationManagerWidget.cpp:184
 #: core/utilities/geolocation/geoiface/bookmark/bookmarksdlg.cpp:372
@@ -20413,19 +20413,19 @@ msgstr "Pievienot vēlreiz"
 msgid "Remove"
 msgstr "Noņemt"
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1125
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1087
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Layout"
 msgstr "Pielāgots izkārtojums"
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1126
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1088
 #, kde-format
 msgid "The selected custom photo size can not be applied to the paper size."
 msgstr ""
 "Atlasītais pielāgotais fotogrāfijas izmērs nav pielietojams papīra izmēram."
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1357
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1302
 #, kde-format
 msgid ""
 "Custom\n"
@@ -21760,25 +21760,19 @@ msgstr "Slaids:"
 msgid "Soundtrack:"
 msgstr "Skaņas celiņš:"
 
-#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:179
-#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:221
-#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:242
+#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:143
+#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:162
 #, kde-format
 msgctxt "artist - title"
 msgid "%1 - %2"
 msgstr "%1 — %2"
 
-#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:200
-#, kde-format
-msgid "No detail available"
-msgstr "Informācija nav pieejama"
-
-#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:233
+#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:153
 #, kde-format
 msgid "%1 may not be playable."
 msgstr "„%1“ var nebūt atskaņojams."
 
-#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:241
+#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:161
 #, kde-format
 msgid "This file may not be playable."
 msgstr "Iespējams, šī datne nav atskaņojama."
@@ -25040,7 +25034,7 @@ msgid "Date"
 msgstr "Datums"
 
 #: core/dplugins/generic/webservices/inaturalist/inatwidget.cpp:67
-#: core/libs/properties/itempropertiestab.cpp:527
+#: core/libs/properties/itempropertiestab.cpp:502
 #: core/libs/template/templatepanel.cpp:275
 #: core/libs/template/templateviewer.cpp:147
 #, kde-format
@@ -28345,10 +28339,10 @@ msgctxt "@info"
 msgid "Shared directory mounted at \"%1\""
 msgstr "Koplietotā mape ir piemontēta ceļā „%1“"
 
-#: core/libs/database/coredb/coredbaccess.cpp:303
-#: core/libs/database/similaritydb/similaritydbaccess.cpp:233
-#: core/libs/database/thumbsdb/thumbsdbaccess.cpp:243
-#: core/libs/facesengine/facedb/facedbaccess.cpp:234
+#: core/libs/database/coredb/coredbaccess.cpp:293
+#: core/libs/database/similaritydb/similaritydbaccess.cpp:223
+#: core/libs/database/thumbsdb/thumbsdbaccess.cpp:233
+#: core/libs/facesengine/facedb/facedbaccess.cpp:224
 #, kde-format
 msgid ""
 "Error opening database backend.\n"
@@ -30353,7 +30347,7 @@ msgctxt "@title"
 msgid "Features"
 msgstr "Iespējas"
 
-#: core/libs/dialogs/libsinfodlg_features.cpp:93
+#: core/libs/dialogs/libsinfodlg_features.cpp:81
 #, kde-format
 msgctxt "@item: information about memory"
 msgid "Unknown"
@@ -30471,103 +30465,103 @@ msgctxt "@action"
 msgid "Refresh"
 msgstr "Pārlādēt"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:268
-#: core/libs/dialogs/solidhardwaredlg.cpp:392
+#: core/libs/dialogs/solidhardwaredlg.cpp:262
+#: core/libs/dialogs/solidhardwaredlg.cpp:386
 #, kde-format
 msgctxt "@item: universal device ID"
 msgid "Udi"
 msgstr "UDI"
 
+#: core/libs/dialogs/solidhardwaredlg.cpp:262
 #: core/libs/dialogs/solidhardwaredlg.cpp:268
+#: core/libs/dialogs/solidhardwaredlg.cpp:271
 #: core/libs/dialogs/solidhardwaredlg.cpp:274
-#: core/libs/dialogs/solidhardwaredlg.cpp:277
-#: core/libs/dialogs/solidhardwaredlg.cpp:280
 #, kde-format
 msgctxt "@item: device property"
 msgid "empty"
 msgstr "tukšs"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:271
-#: core/libs/dialogs/solidhardwaredlg.cpp:395
+#: core/libs/dialogs/solidhardwaredlg.cpp:265
+#: core/libs/dialogs/solidhardwaredlg.cpp:389
 #, kde-format
 msgctxt "@item: parent device ID"
 msgid "Parent Udi"
 msgstr "Vecāka UDI"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:271
-#: core/libs/dialogs/solidhardwaredlg.cpp:283
+#: core/libs/dialogs/solidhardwaredlg.cpp:265
+#: core/libs/dialogs/solidhardwaredlg.cpp:277
 #, kde-format
 msgctxt "@item: device property"
 msgid "none"
 msgstr "nav"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:274
+#: core/libs/dialogs/solidhardwaredlg.cpp:268
 #, kde-format
 msgctxt "@item; device constructor"
 msgid "Vendor"
 msgstr "Ražotājs"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:277
-#: core/libs/dialogs/solidhardwaredlg.cpp:401
+#: core/libs/dialogs/solidhardwaredlg.cpp:271
+#: core/libs/dialogs/solidhardwaredlg.cpp:395
 #, kde-format
 msgctxt "@item: device name"
 msgid "Product"
 msgstr "Produkts"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:280
-#: core/libs/dialogs/solidhardwaredlg.cpp:404
+#: core/libs/dialogs/solidhardwaredlg.cpp:274
+#: core/libs/dialogs/solidhardwaredlg.cpp:398
 #, kde-format
 msgctxt "@item: device description"
 msgid "Description"
 msgstr "Apraksts"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:283
-#: core/libs/dialogs/solidhardwaredlg.cpp:407
+#: core/libs/dialogs/solidhardwaredlg.cpp:277
+#: core/libs/dialogs/solidhardwaredlg.cpp:401
 #, kde-format
 msgctxt "@item: device status"
 msgid "States"
 msgstr "Statusi"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:290
+#: core/libs/dialogs/solidhardwaredlg.cpp:284
 #, kde-format
 msgctxt "@item"
 msgid "Non-portable info"
 msgstr "Nepārvietojama informācija"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:385
+#: core/libs/dialogs/solidhardwaredlg.cpp:379
 #, kde-format
 msgctxt "@item"
 msgid "New Device Added"
 msgstr "Pievienota jauna ierīce"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:395
-#: core/libs/dialogs/solidhardwaredlg.cpp:407
+#: core/libs/dialogs/solidhardwaredlg.cpp:389
+#: core/libs/dialogs/solidhardwaredlg.cpp:401
 #, kde-format
 msgctxt "@info: device property"
 msgid "none"
 msgstr "nav"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:398
+#: core/libs/dialogs/solidhardwaredlg.cpp:392
 #, kde-format
 msgctxt "@item: device constructor"
 msgid "Vendor"
 msgstr "Ražotājs"
 
+#: core/libs/dialogs/solidhardwaredlg.cpp:392
+#: core/libs/dialogs/solidhardwaredlg.cpp:395
 #: core/libs/dialogs/solidhardwaredlg.cpp:398
-#: core/libs/dialogs/solidhardwaredlg.cpp:401
-#: core/libs/dialogs/solidhardwaredlg.cpp:404
 #, kde-format
 msgctxt "@info: device property"
 msgid "empty"
 msgstr "tukšs"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:417
+#: core/libs/dialogs/solidhardwaredlg.cpp:411
 #, kde-format
 msgctxt "@item"
 msgid "Device Removed"
 msgstr "Ierīce ir noņemta"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:420
+#: core/libs/dialogs/solidhardwaredlg.cpp:414
 #, kde-format
 msgctxt "@item"
 msgid "Udi"
@@ -34980,12 +34974,12 @@ msgctxt "@action:button"
 msgid "Help"
 msgstr "Palīdzība"
 
-#: core/libs/dtrash/dtrashitemmodel.cpp:263
+#: core/libs/dtrash/dtrashitemmodel.cpp:254
 #, kde-format
 msgid "Relative Path"
 msgstr "Relatīvais ceļš"
 
-#: core/libs/dtrash/dtrashitemmodel.cpp:268
+#: core/libs/dtrash/dtrashitemmodel.cpp:259
 #, kde-format
 msgid "Deletion Time"
 msgstr "Dzēšanas laiks"
@@ -36120,1116 +36114,1116 @@ msgstr "Attēlu „%1“ nevarēja pārdēvēt"
 msgid "Could not restore file %1 from trash"
 msgstr "Nevarēja no atkritnes atjaunot datni „%1“"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:860
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:766
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Unspecified"
 msgstr "Nenorādīta"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:865
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:771
 #, kde-format
 msgctxt "@info: rotation of an unrotated image"
 msgid "Normal"
 msgstr "Normāla"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:870
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:776
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Flipped Horizontally"
 msgstr "Apmesta horizontāli"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:875
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:781
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Rotated by 180 Degrees"
 msgstr "Pagriezta par 180 grādiem"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:880
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:786
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Flipped Vertically"
 msgstr "Apmesta vertikāli"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:885
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:791
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Flipped Horizontally and Rotated Left"
 msgstr "Apmesta horizontāli un pagriezta pa kreisi"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:890
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:796
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Rotated Left"
 msgstr "Pagriezta pa kreisi"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:895
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:801
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Flipped Vertically and Rotated Left"
 msgstr "Apmesta vertikāli un pagriezta pa kreisi"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:900
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:806
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Rotated Right"
 msgstr "Pagriezta pa labi"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:905
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:811
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Unknown"
 msgstr "Nezināma"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:991
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:897
 #, kde-format
 msgctxt "@info: Temperature in Kelvin"
 msgid "%1 K"
 msgstr "%1 K"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1017
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1033
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:923
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:939
 #, kde-format
 msgctxt "@info: For use in longitude coordinate"
 msgid "West"
 msgstr "Rietumi"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1018
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1034
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:924
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:940
 #, kde-format
 msgctxt "@info: For use in longitude coordinate"
 msgid "East"
 msgstr "Austrumi"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1053
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1069
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:959
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:975
 #, kde-format
 msgctxt "@info: For use in latitude coordinate"
 msgid "North"
 msgstr "Ziemeļi"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1054
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1070
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:960
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:976
 #, kde-format
 msgctxt "@info: For use in latitude coordinate"
 msgid "South"
 msgstr "Dienvidi"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1083
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:989
 #, no-c-format, kde-format
 msgctxt "@info: Height in meters"
 msgid "%1m"
 msgstr "%1 m"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1263
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1169
 #, kde-format
 msgctxt "@info"
 msgid "Flash has been fired"
 msgstr "Lietota zibspuldze"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1264
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1170
 #, kde-format
 msgctxt "@info"
 msgid "Flash with red-eye reduction mode"
 msgstr "Zibspuldze ar sarkanās acs samazināšanas režīmu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:401
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:549
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:391
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:539
 #, kde-format
 msgctxt "@info: country code"
 msgid "Afar"
 msgstr "Afāru"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:402
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:550
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:392
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:540
 #, kde-format
 msgctxt "@info: country code"
 msgid "Abkhazian"
 msgstr "Abhāzu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:403
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:551
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:393
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:541
 #, kde-format
 msgctxt "@info: country code"
 msgid "Afrikaans"
 msgstr "Afrikandu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:404
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:552
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:394
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:542
 #, kde-format
 msgctxt "@info: country code"
 msgid "Amharic"
 msgstr "Amharu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:405
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:553
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:395
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:543
 #, kde-format
 msgctxt "@info: country code"
 msgid "Arabic"
 msgstr "Arābu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:406
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:554
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:396
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:544
 #, kde-format
 msgctxt "@info: country code"
 msgid "Assamese"
 msgstr "Asamiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:407
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:555
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:397
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:545
 #, kde-format
 msgctxt "@info: country code"
 msgid "Aymara"
 msgstr "Aimaru"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:408
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:556
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:398
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:546
 #, kde-format
 msgctxt "@info: country code"
 msgid "Azerbaijani"
 msgstr "Azerbaidžāņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:409
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:557
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:399
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:547
 #, kde-format
 msgctxt "@info: country code"
 msgid "Bashkir"
 msgstr "Baškīru"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:410
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:558
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:400
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:548
 #, kde-format
 msgctxt "@info: country code"
 msgid "Byelorussian"
 msgstr "Baltkrievu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:411
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:559
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:401
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:549
 #, kde-format
 msgctxt "@info: country code"
 msgid "Bulgarian"
 msgstr "Bulgāru"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:412
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:560
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:402
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:550
 #, kde-format
 msgctxt "@info: country code"
 msgid "Bihari"
 msgstr "Bihāru"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:413
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:561
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:403
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:551
 #, kde-format
 msgctxt "@info: country code"
 msgid "Bislama"
 msgstr "Bislama"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:414
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:562
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:404
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:552
 #, kde-format
 msgctxt "@info: country code"
 msgid "Bengali;Bangla"
 msgstr "Bengāļu;Bangladeša"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:415
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:563
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:405
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:553
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tibetan"
 msgstr "Tibetiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:416
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:564
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:406
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:554
 #, kde-format
 msgctxt "@info: country code"
 msgid "Breton"
 msgstr "Bretoņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:417
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:565
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:407
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:555
 #, kde-format
 msgctxt "@info: country code"
 msgid "Catalan"
 msgstr "Katalāņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:418
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:566
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:408
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:556
 #, kde-format
 msgctxt "@info: country code"
 msgid "Corsican"
 msgstr "Korsikāņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:419
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:567
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:409
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:557
 #, kde-format
 msgctxt "@info: country code"
 msgid "Czech"
 msgstr "Čehu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:420
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:568
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:410
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:558
 #, kde-format
 msgctxt "@info: country code"
 msgid "Welsh"
 msgstr "Velsiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:421
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:569
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:411
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:559
 #, kde-format
 msgctxt "@info: country code"
 msgid "Danish"
 msgstr "Dāņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:422
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:570
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:412
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:560
 #, kde-format
 msgctxt "@info: country code"
 msgid "German"
 msgstr "Vācu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:423
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:571
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:413
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:561
 #, kde-format
 msgctxt "@info: country code"
 msgid "Dzongkha"
 msgstr "Dzongke"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:424
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:572
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:414
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:562
 #, kde-format
 msgctxt "@info: country code"
 msgid "Greek"
 msgstr "Grieķu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:425
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:573
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:415
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:563
 #, kde-format
 msgctxt "@info: country code"
 msgid "English"
 msgstr "Angļu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:426
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:574
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:416
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:564
 #, kde-format
 msgctxt "@info: country code"
 msgid "Esperanto"
 msgstr "Esperanto"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:427
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:575
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:417
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:565
 #, kde-format
 msgctxt "@info: country code"
 msgid "Spanish"
 msgstr "Spāņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:428
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:576
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:418
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:566
 #, kde-format
 msgctxt "@info: country code"
 msgid "Estonian"
 msgstr "Igauņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:429
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:577
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:419
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:567
 #, kde-format
 msgctxt "@info: country code"
 msgid "Basque"
 msgstr "Basku"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:430
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:578
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:420
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:568
 #, kde-format
 msgctxt "@info: country code"
 msgid "Persian(farsi)"
 msgstr "Persiešu (fārsi)"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:431
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:579
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:421
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:569
 #, kde-format
 msgctxt "@info: country code"
 msgid "Finnish"
 msgstr "Somu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:432
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:580
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:422
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:570
 #, kde-format
 msgctxt "@info: country code"
 msgid "Fijan"
 msgstr "Fidžiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:433
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:581
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:423
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:571
 #, kde-format
 msgctxt "@info: country code"
 msgid "Faroese"
 msgstr "Fēru"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:434
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:582
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:424
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:572
 #, kde-format
 msgctxt "@info: country code"
 msgid "French"
 msgstr "Franču"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:435
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:583
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:425
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:573
 #, kde-format
 msgctxt "@info: country code"
 msgid "Frisian"
 msgstr "Frīzu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:436
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:584
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:426
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:574
 #, kde-format
 msgctxt "@info: country code"
 msgid "Irish"
 msgstr "Īru"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:437
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:585
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:427
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:575
 #, kde-format
 msgctxt "@info: country code"
 msgid "Scotsgaelic"
 msgstr "Skotu gēlu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:438
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:586
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:428
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:576
 #, kde-format
 msgctxt "@info: country code"
 msgid "Galician"
 msgstr "Galisiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:439
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:587
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:429
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:577
 #, kde-format
 msgctxt "@info: country code"
 msgid "Guarani"
 msgstr "Gvaranu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:440
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:588
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:430
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:578
 #, kde-format
 msgctxt "@info: country code"
 msgid "Gujarati"
 msgstr "Gudžaratu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:441
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:589
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:431
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:579
 #, kde-format
 msgctxt "@info: country code"
 msgid "Hausa"
 msgstr "Hausu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:442
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:590
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:432
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:580
 #, kde-format
 msgctxt "@info: country code"
 msgid "Hebrew"
 msgstr "Ivrits"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:443
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:591
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:433
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:581
 #, kde-format
 msgctxt "@info: country code"
 msgid "Hindi"
 msgstr "Hindi"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:444
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:592
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:434
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:582
 #, kde-format
 msgctxt "@info: country code"
 msgid "Croatian"
 msgstr "Horvātu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:445
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:593
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:435
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:583
 #, kde-format
 msgctxt "@info: country code"
 msgid "Hungarian"
 msgstr "Ungāru"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:446
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:594
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:436
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:584
 #, kde-format
 msgctxt "@info: country code"
 msgid "Armenian"
 msgstr "Armēņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:447
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:595
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:437
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:585
 #, kde-format
 msgctxt "@info: country code"
 msgid "Interlingua"
 msgstr "Interlingva"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:448
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:596
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:438
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:586
 #, kde-format
 msgctxt "@info: country code"
 msgid "Interlingue"
 msgstr "Interlingve"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:449
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:597
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:439
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:587
 #, kde-format
 msgctxt "@info: country code"
 msgid "Inupiak"
 msgstr "Iņupiatu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:450
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:598
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:440
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:588
 #, kde-format
 msgctxt "@info: country code"
 msgid "Indonesian"
 msgstr "Indonēziešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:451
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:599
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:441
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:589
 #, kde-format
 msgctxt "@info: country code"
 msgid "Icelandic"
 msgstr "Islandiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:452
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:600
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:442
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:590
 #, kde-format
 msgctxt "@info: country code"
 msgid "Italian"
 msgstr "Itāļu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:453
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:601
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:443
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:591
 #, kde-format
 msgctxt "@info: country code"
 msgid "Inuktitut"
 msgstr "Inuktitutu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:454
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:602
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:444
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:592
 #, kde-format
 msgctxt "@info: country code"
 msgid "Japanese"
 msgstr "Japāņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:455
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:603
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:445
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:593
 #, kde-format
 msgctxt "@info: country code"
 msgid "Javanese"
 msgstr "Javiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:456
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:604
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:446
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:594
 #, kde-format
 msgctxt "@info: country code"
 msgid "Georgian"
 msgstr "Gruzīnu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:457
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:605
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:447
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:595
 #, kde-format
 msgctxt "@info: country code"
 msgid "Kazakh"
 msgstr "0Kazahu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:458
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:606
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:448
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:596
 #, kde-format
 msgctxt "@info: country code"
 msgid "Greenlandic"
 msgstr "Grenlandiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:459
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:607
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:449
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:597
 #, kde-format
 msgctxt "@info: country code"
 msgid "Cambodian"
 msgstr "Kambodžiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:460
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:608
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:450
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:598
 #, kde-format
 msgctxt "@info: country code"
 msgid "Kannada"
 msgstr "Kannadu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:461
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:609
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:451
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:599
 #, kde-format
 msgctxt "@info: country code"
 msgid "Korean"
 msgstr "Korejiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:462
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:610
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:452
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:600
 #, kde-format
 msgctxt "@info: country code"
 msgid "Kashmiri"
 msgstr "Kašmiru"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:463
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:611
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:453
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:601
 #, kde-format
 msgctxt "@info: country code"
 msgid "Kurdish"
 msgstr "Kurdu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:464
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:612
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:454
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:602
 #, kde-format
 msgctxt "@info: country code"
 msgid "Kirghiz"
 msgstr "Kirgīzu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:465
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:613
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:455
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:603
 #, kde-format
 msgctxt "@info: country code"
 msgid "Latin"
 msgstr "Latīņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:466
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:614
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:456
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:604
 #, kde-format
 msgctxt "@info: country code"
 msgid "Lingala"
 msgstr "Lingala"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:467
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:615
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:457
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:605
 #, kde-format
 msgctxt "@info: country code"
 msgid "Laothian"
 msgstr "Laosiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:468
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:616
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:458
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:606
 #, kde-format
 msgctxt "@info: country code"
 msgid "Lithuanian"
 msgstr "Lietuviešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:469
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:617
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:459
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:607
 #, kde-format
 msgctxt "@info: country code"
 msgid "Latvian;Lettish"
 msgstr "Latviešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:470
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:618
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:460
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:608
 #, kde-format
 msgctxt "@info: country code"
 msgid "Malagasy"
 msgstr "Malgašu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:471
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:619
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:461
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:609
 #, kde-format
 msgctxt "@info: country code"
 msgid "Maori"
 msgstr "Maoru"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:472
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:620
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:462
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:610
 #, kde-format
 msgctxt "@info: country code"
 msgid "Macedonian"
 msgstr "Maķedoniešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:473
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:621
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:463
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:611
 #, kde-format
 msgctxt "@info: country code"
 msgid "Malayalam"
 msgstr "Malajālama"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:474
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:622
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:464
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:612
 #, kde-format
 msgctxt "@info: country code"
 msgid "Mongolian"
 msgstr "Mongoļu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:475
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:623
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:465
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:613
 #, kde-format
 msgctxt "@info: country code"
 msgid "Marathi"
 msgstr "Marathu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:476
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:624
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:466
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:614
 #, kde-format
 msgctxt "@info: country code"
 msgid "Malay"
 msgstr "Malajiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:477
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:625
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:467
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:615
 #, kde-format
 msgctxt "@info: country code"
 msgid "Maltese"
 msgstr "Maltiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:478
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:626
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:468
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:616
 #, kde-format
 msgctxt "@info: country code"
 msgid "Burmese"
 msgstr "Birmiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:479
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:627
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:469
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:617
 #: core/libs/widgets/metadata/utils/countryselector.cpp:196
 #, kde-format
 msgctxt "@info: country code"
 msgid "Nauru"
 msgstr "Nauru"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:480
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:628
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:470
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:618
 #, kde-format
 msgctxt "@info: country code"
 msgid "Nepali"
 msgstr "Nepāliešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:481
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:629
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:471
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:619
 #, kde-format
 msgctxt "@info: country code"
 msgid "Dutch"
 msgstr "Nīderlandiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:482
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:630
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:472
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:620
 #, kde-format
 msgctxt "@info: country code"
 msgid "Norwegian"
 msgstr "Norvēģu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:483
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:631
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:473
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:621
 #, kde-format
 msgctxt "@info: country code"
 msgid "Occitan"
 msgstr "Oksitāņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:484
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:632
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:474
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:622
 #, kde-format
 msgctxt "@info: country code"
 msgid "Oromo"
 msgstr "Oromu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:485
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:633
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:475
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:623
 #, kde-format
 msgctxt "@info: country code"
 msgid "Oriya"
 msgstr "Oriju"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:486
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:634
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:476
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:624
 #, kde-format
 msgctxt "@info: country code"
 msgid "Punjabi"
 msgstr "Pendžābu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:487
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:635
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:477
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:625
 #, kde-format
 msgctxt "@info: country code"
 msgid "Polish"
 msgstr "Poļu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:488
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:636
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:478
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:626
 #, kde-format
 msgctxt "@info: country code"
 msgid "Pashto;Pushto"
 msgstr "Puštu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:489
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:637
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:479
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:627
 #, kde-format
 msgctxt "@info: country code"
 msgid "Portuguese"
 msgstr "Portugāļu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:490
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:638
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:480
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:628
 #, kde-format
 msgctxt "@info: country code"
 msgid "Quechua"
 msgstr "Kečvu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:491
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:639
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:481
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:629
 #, kde-format
 msgctxt "@info: country code"
 msgid "Rhaeto-romance"
 msgstr "Retoromāņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:492
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:640
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:482
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:630
 #, kde-format
 msgctxt "@info: country code"
 msgid "Kurundi"
 msgstr "Kirundi"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:493
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:641
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:483
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:631
 #, kde-format
 msgctxt "@info: country code"
 msgid "Romanian"
 msgstr "Rumāņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:494
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:642
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:484
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:632
 #, kde-format
 msgctxt "@info: country code"
 msgid "Russian"
 msgstr "Krievu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:495
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:643
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:485
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:633
 #, kde-format
 msgctxt "@info: country code"
 msgid "Kinyarwanda"
 msgstr "Kiņaruandu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:496
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:644
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:486
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:634
 #, kde-format
 msgctxt "@info: country code"
 msgid "Sanskrit"
 msgstr "Sanskrits"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:497
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:645
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:487
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:635
 #, kde-format
 msgctxt "@info: country code"
 msgid "Sindhi"
 msgstr "Sindhu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:498
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:646
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:488
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:636
 #, kde-format
 msgctxt "@info: country code"
 msgid "Sangho"
 msgstr "Sango"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:499
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:647
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:489
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:637
 #, kde-format
 msgctxt "@info: country code"
 msgid "Singhalese"
 msgstr "Singāļu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:500
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:648
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:490
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:638
 #, kde-format
 msgctxt "@info: country code"
 msgid "Slovak"
 msgstr "Slovāku"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:501
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:649
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:491
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:639
 #, kde-format
 msgctxt "@info: country code"
 msgid "Slovenian"
 msgstr "Slovēņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:502
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:650
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:492
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:640
 #, kde-format
 msgctxt "@info: country code"
 msgid "Samoan"
 msgstr "Samoāņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:503
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:651
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:493
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:641
 #, kde-format
 msgctxt "@info: country code"
 msgid "Shona"
 msgstr "Šonu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:504
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:652
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:494
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:642
 #, kde-format
 msgctxt "@info: country code"
 msgid "Somali"
 msgstr "Somāļu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:505
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:653
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:495
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:643
 #, kde-format
 msgctxt "@info: country code"
 msgid "Albanian"
 msgstr "Albāņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:506
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:654
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:496
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:644
 #, kde-format
 msgctxt "@info: country code"
 msgid "Serbian"
 msgstr "Serbu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:507
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:655
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:497
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:645
 #, kde-format
 msgctxt "@info: country code"
 msgid "Siswati"
 msgstr "Sisvati"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:508
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:656
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:498
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:646
 #, kde-format
 msgctxt "@info: country code"
 msgid "Sesotho"
 msgstr "Sesoto"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:509
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:657
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:499
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:647
 #, kde-format
 msgctxt "@info: country code"
 msgid "Sundanese"
 msgstr "Sundu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:510
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:658
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:500
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:648
 #, kde-format
 msgctxt "@info: country code"
 msgid "Swedish"
 msgstr "Zviedru"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:511
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:659
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:501
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:649
 #, kde-format
 msgctxt "@info: country code"
 msgid "Swahili"
 msgstr "Svahili"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:512
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:660
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:502
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:650
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tamil"
 msgstr "Tamilu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:513
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:661
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:503
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:651
 #, kde-format
 msgctxt "@info: country code"
 msgid "Telugu"
 msgstr "Telugu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:514
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:662
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:504
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:652
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tajik"
 msgstr "Tadžiku"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:515
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:663
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:505
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:653
 #, kde-format
 msgctxt "@info: country code"
 msgid "Thai"
 msgstr "Taju"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:516
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:664
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:506
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:654
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tigrinya"
 msgstr "Tigrinja"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:517
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:665
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:507
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:655
 #, kde-format
 msgctxt "@info: country code"
 msgid "Turkmen"
 msgstr "Turkmēņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:518
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:666
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:508
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:656
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tagalog"
 msgstr "Tagalu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:519
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:667
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:509
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:657
 #, kde-format
 msgctxt "@info: country code"
 msgid "Setswana"
 msgstr "Cvanu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:520
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:668
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:510
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:658
 #: core/libs/widgets/metadata/utils/countryselector.cpp:263
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tonga"
 msgstr "Tongiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:521
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:669
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:511
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:659
 #, kde-format
 msgctxt "@info: country code"
 msgid "Turkish"
 msgstr "Turku"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:522
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:670
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:512
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:660
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tsonga"
 msgstr "Congu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:523
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:671
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:513
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:661
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tatar"
 msgstr "Tatāru"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:524
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:672
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:514
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:662
 #, kde-format
 msgctxt "@info: country code"
 msgid "Twi"
 msgstr "Tvi"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:525
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:673
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:515
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:663
 #, kde-format
 msgctxt "@info: country code"
 msgid "Uigur"
 msgstr "Uiguru"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:526
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:674
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:516
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:664
 #, kde-format
 msgctxt "@info: country code"
 msgid "Ukrainian"
 msgstr "Ukraiņu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:527
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:675
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:517
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:665
 #, kde-format
 msgctxt "@info: country code"
 msgid "Urdu"
 msgstr "Urdu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:528
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:676
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:518
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:666
 #, kde-format
 msgctxt "@info: country code"
 msgid "Uzbek"
 msgstr "Uzbeku"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:529
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:677
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:519
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:667
 #, kde-format
 msgctxt "@info: country code"
 msgid "Vietnamese"
 msgstr "Vjetnamiešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:530
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:678
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:520
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:668
 #, kde-format
 msgctxt "@info: country code"
 msgid "Volapuk"
 msgstr "Volapiks"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:531
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:679
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:521
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:669
 #, kde-format
 msgctxt "@info: country code"
 msgid "Wolof"
 msgstr "Volofu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:532
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:680
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:522
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:670
 #, kde-format
 msgctxt "@info: country code"
 msgid "Xhosa"
 msgstr "Isiķhosu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:533
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:681
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:523
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:671
 #, kde-format
 msgctxt "@info: country code"
 msgid "Yiddish"
 msgstr "Jidišs"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:534
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:682
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:524
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:672
 #, kde-format
 msgctxt "@info: country code"
 msgid "Yoruba"
 msgstr "Jorubu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:535
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:683
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:525
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:673
 #, kde-format
 msgctxt "@info: country code"
 msgid "Zhuang"
 msgstr "Džuanu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:536
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:684
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:526
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:674
 #, kde-format
 msgctxt "@info: country code"
 msgid "Chinese"
 msgstr "Ķīniešu"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:537
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:685
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:527
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:675
 #, kde-format
 msgctxt "@info: country code"
 msgid "Zulu"
 msgstr "Zulu"
 
-#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:52
+#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:42
 #, kde-format
 msgctxt "@title: xmp namespace for tags container"
 msgid "Tags"
 msgstr "Birkas"
 
-#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:56
+#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:46
 #, kde-format
 msgctxt "@title: xmp namespace for title container"
 msgid "Title"
 msgstr "Nosaukums"
 
-#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:60
+#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:50
 #, kde-format
 msgctxt "@title: xmp namespace for rating container"
 msgid "Rating"
 msgstr "Vērtējums"
 
-#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:64
+#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:54
 #, kde-format
 msgctxt "@title: xmp namespace for comment container"
 msgid "Caption"
 msgstr "Apraksts"
 
-#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:68
+#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:58
 #, kde-format
 msgctxt "@title: xmp namespace for pick-label container"
 msgid "Pick label"
 msgstr "Atlases iezīme"
 
-#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:72
+#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:62
 #, kde-format
 msgctxt "@title: xmp namespace for color-label container"
 msgid "Color label"
 msgstr "Krāsu iezīme"
 
-#: core/libs/metadataengine/engine/metaengine_exif.cpp:1591
+#: core/libs/metadataengine/engine/metaengine_exif.cpp:1406
 #, kde-format
 msgctxt "info"
 msgid "Binary data %1 bytes"
@@ -38864,124 +38858,124 @@ msgctxt "@title: item properties"
 msgid "Rights"
 msgstr "Atļaujas"
 
-#: core/libs/properties/itempropertiestab.cpp:485
+#: core/libs/properties/itempropertiestab.cpp:460
 #: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:57
 #, kde-format
 msgid "File"
 msgstr "Datne"
 
-#: core/libs/properties/itempropertiestab.cpp:486
+#: core/libs/properties/itempropertiestab.cpp:461
 #, fuzzy, kde-format
 #| msgctxt "@label: item properties"
 #| msgid "Folder: "
 msgid "Folder"
 msgstr "Mape: "
 
-#: core/libs/properties/itempropertiestab.cpp:487
+#: core/libs/properties/itempropertiestab.cpp:462
 #, fuzzy, kde-format
 #| msgctxt "@label: item properties"
 #| msgid "Symlink: "
 msgid "Symlink"
 msgstr "Simboliskā saite: "
 
-#: core/libs/properties/itempropertiestab.cpp:488
+#: core/libs/properties/itempropertiestab.cpp:463
 #, fuzzy, kde-format
 #| msgid "Modified"
 msgid "Modified Date"
 msgstr "Mainīts"
 
-#: core/libs/properties/itempropertiestab.cpp:490
+#: core/libs/properties/itempropertiestab.cpp:465
 #, fuzzy, kde-format
 #| msgctxt "Owner of the file"
 #| msgid "Owner"
 msgid "Owner"
 msgstr "Īpašnieks"
 
-#: core/libs/properties/itempropertiestab.cpp:491
+#: core/libs/properties/itempropertiestab.cpp:466
 #, fuzzy, kde-format
 #| msgctxt "@label: item properties"
 #| msgid "Permissions: "
 msgid "Permissions"
 msgstr "Atļaujas: "
 
-#: core/libs/properties/itempropertiestab.cpp:493
+#: core/libs/properties/itempropertiestab.cpp:468
 #, kde-format
 msgid "Mime"
 msgstr ""
 
-#: core/libs/properties/itempropertiestab.cpp:495
+#: core/libs/properties/itempropertiestab.cpp:470
 #, fuzzy, kde-format
 #| msgctxt "@info: tableview"
 #| msgid "Rational"
 msgid "Ratio"
 msgstr "Racionāls"
 
-#: core/libs/properties/itempropertiestab.cpp:496
+#: core/libs/properties/itempropertiestab.cpp:471
 #, fuzzy, kde-format
 #| msgid "Bit depth"
 msgid "Bit Depth"
 msgstr "Krāsu dziļums"
 
-#: core/libs/properties/itempropertiestab.cpp:497
+#: core/libs/properties/itempropertiestab.cpp:472
 #, fuzzy, kde-format
 #| msgid "Color Model"
 msgid "Color Mode"
 msgstr "Krāsu modelis"
 
-#: core/libs/properties/itempropertiestab.cpp:498
+#: core/libs/properties/itempropertiestab.cpp:473
 #, fuzzy, kde-format
 #| msgctxt "@title:tab"
 #| msgid "Sidecars"
 msgid "Has Sidecar"
 msgstr "Papilddatnes"
 
-#: core/libs/properties/itempropertiestab.cpp:499
+#: core/libs/properties/itempropertiestab.cpp:474
 #, kde-format
 msgid "Has GPS"
 msgstr ""
 
-#: core/libs/properties/itempropertiestab.cpp:500
+#: core/libs/properties/itempropertiestab.cpp:475
 #, fuzzy, kde-format
 #| msgctxt "@label: item properties"
 #| msgid "Versioned: "
 msgid "Versioned"
 msgstr "Ar versiju kontroli: "
 
-#: core/libs/properties/itempropertiestab.cpp:501
+#: core/libs/properties/itempropertiestab.cpp:476
 #, fuzzy, kde-format
 #| msgctxt "@label: item properties"
 #| msgid "Grouped: "
 msgid "Grouped"
 msgstr "Grupēts: "
 
-#: core/libs/properties/itempropertiestab.cpp:503
+#: core/libs/properties/itempropertiestab.cpp:478
 #, fuzzy, kde-format
 #| msgctxt "@info: xslt param"
 #| msgid "Make"
 msgid "Make"
 msgstr "Ražotājs"
 
-#: core/libs/properties/itempropertiestab.cpp:504
+#: core/libs/properties/itempropertiestab.cpp:479
 #, fuzzy, kde-format
 #| msgctxt "@info: Camera Model"
 #| msgid "Model"
 msgid "Model"
 msgstr "Modelis"
 
-#: core/libs/properties/itempropertiestab.cpp:505
+#: core/libs/properties/itempropertiestab.cpp:480
 #, fuzzy, kde-format
 #| msgctxt "@item: date properties"
 #| msgid "Date & Time"
 msgid "Date Time"
 msgstr "Datums un laiks"
 
-#: core/libs/properties/itempropertiestab.cpp:506
+#: core/libs/properties/itempropertiestab.cpp:481
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:435
 #, kde-format
 msgid "Lens"
 msgstr "Lēcas"
 
-#: core/libs/properties/itempropertiestab.cpp:507
+#: core/libs/properties/itempropertiestab.cpp:482
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:176
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:466
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:669
@@ -38989,124 +38983,124 @@ msgstr "Lēcas"
 msgid "Aperture"
 msgstr "Apertūra"
 
-#: core/libs/properties/itempropertiestab.cpp:508
+#: core/libs/properties/itempropertiestab.cpp:483
 #, fuzzy, kde-format
 #| msgctxt "@info: xslt param"
 #| msgid "Focal Length"
 msgid "Focal Length"
 msgstr "Fokusa attālums"
 
-#: core/libs/properties/itempropertiestab.cpp:509
+#: core/libs/properties/itempropertiestab.cpp:484
 #, fuzzy, kde-format
 #| msgctxt "@info: xslt param"
 #| msgid "Exposure Time"
 msgid "Exposure Time"
 msgstr "Ekspozīcijas laiks"
 
-#: core/libs/properties/itempropertiestab.cpp:510
+#: core/libs/properties/itempropertiestab.cpp:485
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:182
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:569
 #, kde-format
 msgid "Sensitivity"
 msgstr "Jutība"
 
-#: core/libs/properties/itempropertiestab.cpp:511
+#: core/libs/properties/itempropertiestab.cpp:486
 #, fuzzy, kde-format
 #| msgid "Exposure mode"
 msgid "Exposure Mode"
 msgstr "Ekspozīcijas režīms"
 
-#: core/libs/properties/itempropertiestab.cpp:512
+#: core/libs/properties/itempropertiestab.cpp:487
 #, fuzzy, kde-format
 #| msgctxt "@title: tableview"
 #| msgid "Flash"
 msgid "Flash"
 msgstr "Zibspuldze"
 
-#: core/libs/properties/itempropertiestab.cpp:515
+#: core/libs/properties/itempropertiestab.cpp:490
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:138
 #, kde-format
 msgid "Video Aspect Ratio"
 msgstr "Video malu attiecība"
 
-#: core/libs/properties/itempropertiestab.cpp:516
+#: core/libs/properties/itempropertiestab.cpp:491
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:150
 #, kde-format
 msgid "Video Duration"
 msgstr "Video garums"
 
-#: core/libs/properties/itempropertiestab.cpp:517
+#: core/libs/properties/itempropertiestab.cpp:492
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:153
 #, kde-format
 msgid "Video Frame Rate"
 msgstr "Video katru ātrums"
 
-#: core/libs/properties/itempropertiestab.cpp:518
+#: core/libs/properties/itempropertiestab.cpp:493
 #, fuzzy, kde-format
 msgid "Video Video Codec"
 msgstr "Rādīt faila datumu"
 
-#: core/libs/properties/itempropertiestab.cpp:519
+#: core/libs/properties/itempropertiestab.cpp:494
 #, fuzzy, kde-format
 #| msgid "Audio Bit Rate"
 msgid "Video Audio Bit Rate"
 msgstr "Audio bitu pārraides ātrums"
 
-#: core/libs/properties/itempropertiestab.cpp:520
+#: core/libs/properties/itempropertiestab.cpp:495
 #, fuzzy, kde-format
 #| msgid "Audio Channel Type"
 msgid "Video Audio Channel Type"
 msgstr "Audio kanāla tips"
 
-#: core/libs/properties/itempropertiestab.cpp:521
+#: core/libs/properties/itempropertiestab.cpp:496
 #, fuzzy, kde-format
 #| msgid "Audio Codec"
 msgid "Video Audio Codec"
 msgstr "Audio kodeks"
 
-#: core/libs/properties/itempropertiestab.cpp:523
+#: core/libs/properties/itempropertiestab.cpp:498
 #, fuzzy, kde-format
 #| msgctxt "@title: tableview"
 #| msgid "Caption"
 msgid "Caption"
 msgstr "Apraksts"
 
-#: core/libs/properties/itempropertiestab.cpp:524
+#: core/libs/properties/itempropertiestab.cpp:499
 #, fuzzy, kde-format
 #| msgctxt "@title: tableview"
 #| msgid "Title"
 msgid "Title"
 msgstr "Nosaukums"
 
-#: core/libs/properties/itempropertiestab.cpp:526
+#: core/libs/properties/itempropertiestab.cpp:501
 #, fuzzy, kde-format
 #| msgctxt "Browse images sorted by depicted people"
 #| msgid "People"
 msgid "Peoples"
 msgstr "Cilvēki"
 
-#: core/libs/properties/itempropertiestab.cpp:528
+#: core/libs/properties/itempropertiestab.cpp:503
 #: core/libs/template/templatepanel.cpp:209
 #: core/libs/template/templateviewer.cpp:127
 #, kde-format
 msgid "Rights"
 msgstr "Atļaujas"
 
-#: core/libs/properties/itempropertiestab.cpp:529
+#: core/libs/properties/itempropertiestab.cpp:504
 #, fuzzy, kde-format
 #| msgctxt "@title: pick tree"
 #| msgid "Pick"
 msgid "Pick"
 msgstr "Iezīme"
 
-#: core/libs/properties/itempropertiestab.cpp:530
+#: core/libs/properties/itempropertiestab.cpp:505
 #, fuzzy, kde-format
 #| msgctxt "@item: color tree"
 #| msgid "Color"
 msgid "Color"
 msgstr "Krāsas"
 
-#: core/libs/properties/itempropertiestab.cpp:531
+#: core/libs/properties/itempropertiestab.cpp:506
 #: core/libs/widgets/metadata/labels/ratingwidget_menu.cpp:24
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:161
 #, kde-format
@@ -40598,7 +40592,7 @@ msgctxt "@info"
 msgid "Quick Access List"
 msgstr "Ātrās piekļuves saraksts"
 
-#: core/libs/tags/manager/models/tagmngrlistview.cpp:157
+#: core/libs/tags/manager/models/tagmngrlistview.cpp:147
 #, kde-format
 msgctxt "@action"
 msgid "Delete Selected from List"
@@ -40836,28 +40830,28 @@ msgid "Export Controlled Vocabulary Tag File"
 msgstr "Eksporta kontrolēta vārdnīcas birkas datne"
 
 #: core/libs/tags/manager/tagsmanager_io.cpp:191
-#: core/libs/tags/manager/tagsmanager_io.cpp:309
+#: core/libs/tags/manager/tagsmanager_io.cpp:299
 #, kde-format
 msgid "Text File (*.txt)"
 msgstr "Teksta birka (*.txt)"
 
-#: core/libs/tags/manager/tagsmanager_io.cpp:289
+#: core/libs/tags/manager/tagsmanager_io.cpp:279
 #, kde-format
 msgid "Select a tag into which the tags should be imported."
 msgstr "Atlasiet birku, kurā ir importējamas birkas."
 
-#: core/libs/tags/manager/tagsmanager_io.cpp:299
+#: core/libs/tags/manager/tagsmanager_io.cpp:289
 #, kde-format
 msgid "No tags can be imported to the selected face tag."
 msgstr "Atlasītajā sejas birkā neviena birka nevar tikt importēta."
 
-#: core/libs/tags/manager/tagsmanager_io.cpp:308
+#: core/libs/tags/manager/tagsmanager_io.cpp:298
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Controlled Vocabulary Tag File"
 msgstr "Importēt kontrolētu vārdnīcas birkas datni"
 
-#: core/libs/tags/manager/tagsmanager_io.cpp:407
+#: core/libs/tags/manager/tagsmanager_io.cpp:387
 #, kde-format
 msgid "Do you really want to remove the selected tag from all images?"
 msgid_plural "Do you really want to remove the selected tags from all images?"
@@ -42930,13 +42924,12 @@ msgctxt "@info"
 msgid "Select here the font used to display text on the screen display ."
 msgstr "Atlasiet fontu, kas tiks lietots teksta parādīšanai ekrānā."
 
-#: core/libs/video/player/audplayerwdg.cpp:264
+#: core/libs/video/player/audplayerwdg.cpp:192
 #, kde-format
 msgid "An error has occurred while playing: the media is not valid"
 msgstr "Atskaņošana laikā notikusi kļūda: multivide nav derīga"
 
-#: core/libs/video/player/audplayerwdg.cpp:293
-#: core/libs/video/player/audplayerwdg.cpp:328
+#: core/libs/video/player/audplayerwdg.cpp:219
 #, kde-format
 msgid "An error has occurred while playing: %1"
 msgstr "Atskaņošana laikā notikusi kļūda: %1"
@@ -69406,6 +69399,9 @@ msgstr ""
 #| msgid "Flash mode"
 msgid "Play/Pause Video"
 msgstr "Zibspuldzes režīms"
+
+#~ msgid "No detail available"
+#~ msgstr "Informācija nav pieejama"
 
 #~ msgctxt "@option"
 #~ msgid "Visibility"

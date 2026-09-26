@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-25 00:42+0000\n"
+"POT-Creation-Date: 2026-09-26 00:42+0000\n"
 "PO-Revision-Date: 2024-04-23 11:20\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -3062,7 +3062,7 @@ msgstr "无标签相册"
 #: core/libs/album/manager/albummanager.cpp:181
 #: core/libs/album/widgets/albumselecttabs.cpp:180
 #: core/libs/database/utils/widgets/dbstatdlg.cpp:70
-#: core/libs/properties/itempropertiestab.cpp:525
+#: core/libs/properties/itempropertiestab.cpp:500
 #: core/libs/tags/widgets/tagfolderview.cpp:102
 #: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:689
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:75
@@ -4131,7 +4131,7 @@ msgstr "路径"
 #: core/app/views/tableview/tableview_column_file.cpp:58
 #: core/app/views/tableview/tableview_column_file.cpp:91
 #: core/libs/dimg/filters/hotpixels/blackframelistview.cpp:67
-#: core/libs/properties/itempropertiestab.cpp:489
+#: core/libs/properties/itempropertiestab.cpp:464
 #, kde-format
 msgid "Size"
 msgstr "大小"
@@ -4229,7 +4229,7 @@ msgstr "高度"
 
 #: core/app/views/tableview/tableview_column_item.cpp:74
 #: core/app/views/tableview/tableview_column_item.cpp:103
-#: core/libs/properties/itempropertiestab.cpp:494
+#: core/libs/properties/itempropertiestab.cpp:469
 #, kde-format
 msgid "Dimensions"
 msgstr "尺寸"
@@ -4438,7 +4438,7 @@ msgstr "单位"
 #: core/app/views/tableview/tableview_column_thumbnail.cpp:84
 #: core/dplugins/generic/webservices/imgur/imgurimageslist.cpp:53
 #: core/dplugins/generic/webservices/ipfs/ipfsimageslist.cpp:45
-#: core/libs/dtrash/dtrashitemmodel.cpp:258
+#: core/libs/dtrash/dtrashitemmodel.cpp:249
 #: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:677
 #, kde-format
 msgid "Thumbnail"
@@ -7839,29 +7839,29 @@ msgid ""
 "channel will be reset to the default values."
 msgstr "点击此按钮后，当前所选通道的所有色阶数值将被重置为默认值。"
 
-#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:904
+#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:894
 #, kde-format
 msgid "Adjust Levels"
 msgstr "色阶调整"
 
-#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:911
+#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:901
 #, kde-format
 msgctxt "@title:window"
 msgid "Select Gimp Levels File to Load"
 msgstr "选择要加载的 GIMP 色阶文件"
 
-#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:923
+#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:913
 #, kde-format
 msgid "Cannot load from the Gimp levels text file."
 msgstr "无法加载 GIMP 色阶文本文件。"
 
-#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:938
+#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:928
 #, kde-format
 msgctxt "@title:window"
 msgid "Gimp Levels File to Save"
 msgstr "要保存的 GIMP 色阶文件"
 
-#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:950
+#: core/dplugins/editor/colors/adjustlevels/adjustlevelstool.cpp:940
 #, kde-format
 msgid "Cannot save to the Gimp levels text file."
 msgstr "无法保存 GIMP 色阶文本文件。"
@@ -8300,7 +8300,7 @@ msgstr "色彩管理功能已禁用..."
 
 #: core/dplugins/editor/colors/whitebalance/whitebalancetool.cpp:77
 #: core/dplugins/editor/colors/whitebalance/whitebalancetool.cpp:241
-#: core/libs/properties/itempropertiestab.cpp:513
+#: core/libs/properties/itempropertiestab.cpp:488
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:605
 #, kde-format
 msgid "White Balance"
@@ -8452,17 +8452,17 @@ msgstr "半透明背景色"
 msgid "Use semi-transparent text background under image"
 msgstr "在文本下方显示半透明背景色。"
 
-#: core/dplugins/editor/decorate/inserttext/inserttexttool.cpp:301
+#: core/dplugins/editor/decorate/inserttext/inserttexttool.cpp:292
 #, kde-format
 msgid "Enter your text here."
 msgstr "输入要插入的文本。"
 
-#: core/dplugins/editor/decorate/inserttext/inserttexttool.cpp:420
+#: core/dplugins/editor/decorate/inserttext/inserttexttool.cpp:411
 #, kde-format
 msgid "Insert Text Tool"
 msgstr "文本插入工具"
 
-#: core/dplugins/editor/decorate/inserttext/inserttexttool.cpp:433
+#: core/dplugins/editor/decorate/inserttext/inserttexttool.cpp:424
 #, kde-format
 msgid "Insert Text"
 msgstr "插入文本"
@@ -10236,7 +10236,7 @@ msgstr "能量函数"
 msgid "Advanced Settings"
 msgstr "高级设置"
 
-#: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:745
+#: core/dplugins/editor/transform/contentawareresize/contentawareresizetool.cpp:736
 #, kde-format
 msgid "Liquid Rescale"
 msgstr "内容感知缩放"
@@ -11424,39 +11424,39 @@ msgctxt "@item: map tool"
 msgid "KML Export"
 msgstr "KML 导出"
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:600
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:589
 #, kde-format
 msgctxt "@info"
 msgid "Loading metadata -"
 msgstr "正在加载元数据 -"
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:793
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:782
 #, kde-format
 msgctxt "@info"
 msgid "You have 1 modified image."
 msgid_plural "You have %1 modified images."
 msgstr[0] "您有 %1 张已修改图像。"
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:800
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:789
 #, kde-format
 msgctxt "@title:window"
 msgid "Unsaved Changes"
 msgstr "未保存的更改"
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:801
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:790
 #, kde-format
 msgctxt "@info"
 msgid "%1 Would you like to save the changes you made to them?"
 msgstr "%1 您想要保存您所作的更改吗？"
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:916
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:905
 #, kde-format
 msgctxt "@info"
 msgid "Saving changes -"
 msgstr "正在保存更改 -"
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:975
-#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:232
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:964
+#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:152
 #: core/dplugins/generic/view/presentation/dialogs/presentation_mainpage.cpp:382
 #: core/dplugins/generic/webservices/box/boxtalker.cpp:372
 #: core/dplugins/generic/webservices/box/boxwindow.cpp:239
@@ -11492,13 +11492,13 @@ msgctxt "@title:window"
 msgid "Error"
 msgstr "错误"
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:976
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:965
 #, kde-format
 msgctxt "@info"
 msgid "Failed to save some information:"
 msgstr "无法保存部分信息："
 
-#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:1014
+#: core/dplugins/generic/metadata/geolocationedit/dialog/geolocationedit.cpp:1003
 #, kde-format
 msgctxt "@title"
 msgid "Edit Geolocation"
@@ -15050,7 +15050,7 @@ msgid "Status"
 msgstr "状态"
 
 #: core/dplugins/generic/metadata/metadataedit/xmp/xmpeditwidget.cpp:122
-#: core/libs/dialogs/solidhardwaredlg.cpp:290
+#: core/libs/dialogs/solidhardwaredlg.cpp:284
 #, kde-format
 msgctxt "@item"
 msgid "Properties"
@@ -16713,7 +16713,7 @@ msgctxt "average scene luminance value unknown"
 msgid "unknown"
 msgstr "未知"
 
-#: core/dplugins/generic/tools/expoblending/manager/expoblendingthread.cpp:957
+#: core/dplugins/generic/tools/expoblending/manager/expoblendingthread.cpp:938
 #, kde-format
 msgid ""
 "Cannot run %1:\n"
@@ -17778,22 +17778,22 @@ msgstr "共享到 DLNA..."
 msgid "%1 Media Server"
 msgstr "%1 媒体服务器"
 
-#: core/dplugins/generic/tools/mediaserver/server/dmediaservermngr.cpp:156
+#: core/dplugins/generic/tools/mediaserver/server/dmediaservermngr.cpp:152
 #, kde-format
 msgid "Media Server have been started"
 msgstr "媒体服务器已经启动"
 
-#: core/dplugins/generic/tools/mediaserver/server/dmediaservermngr.cpp:157
+#: core/dplugins/generic/tools/mediaserver/server/dmediaservermngr.cpp:153
 #, kde-format
 msgid "Media Server cannot be started!"
 msgstr "媒体服务器无法启动。"
 
-#: core/dplugins/generic/tools/mjpegstream/mjpegservermngr.cpp:173
+#: core/dplugins/generic/tools/mjpegstream/mjpegservermngr.cpp:169
 #, kde-format
 msgid "MJPEG Server have been started"
 msgstr "MJPEG 服务器已启动"
 
-#: core/dplugins/generic/tools/mjpegstream/mjpegservermngr.cpp:174
+#: core/dplugins/generic/tools/mjpegstream/mjpegservermngr.cpp:170
 #, kde-format
 msgid "MJPEG Server cannot be started!"
 msgstr "MJPEG 服务器无法启动。"
@@ -18993,29 +18993,29 @@ msgctxt "@title:group"
 msgid "Panorama Post-Processing"
 msgstr "全景图后期处理"
 
-#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:273
+#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:264
 #, kde-format
 msgid "Preview Processing Cancelled."
 msgstr "预览处理已取消。"
 
-#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:332
+#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:323
 #, kde-format
 msgid "<h1><b>Error</b></h1><p>%1</p>"
 msgstr "<h1><b>错误</b></h1><p>%1</p>"
 
-#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:366
+#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:357
 #, kde-format
 msgctxt "a project file is a .pto file, as given to hugin to build a panorama"
 msgid "<p><b>Cannot create project file: </b></p><p>%1</p>"
 msgstr "<p><b>无法创建工程文件：</b></p><p>%1</p>"
 
-#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:396
+#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:387
 #, kde-format
 msgctxt "Error message for panorama compilation"
 msgid "<p><b>Panorama compilation: </b></p><p>%1</p>"
 msgstr "<p><b>全景图编译：</b></p><p>%1</p>"
 
-#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:444
+#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:435
 #, kde-format
 msgid ""
 "<qt><h1>Panorama Preview</h1><p>Draw a rectangle if you want to crop the "
@@ -19025,13 +19025,13 @@ msgstr ""
 "<qt><h1>全景图预览</h1><p>如果您想要对该图像进行裁剪，请绘制一个矩形范围。</"
 "p><p>点击 <b>下一步</b> 按钮将进行最终拼接处理。</p></qt>"
 
-#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:485
+#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:476
 #, kde-format
 msgctxt "Success for panorama compilation"
 msgid "Panorama compilation"
 msgstr "全景图编译"
 
-#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:526
+#: core/dplugins/generic/tools/panorama/wizard/panopreviewpage.cpp:517
 #, kde-format
 msgctxt "Panorama compilation started"
 msgid "Panorama compilation"
@@ -19397,7 +19397,7 @@ msgstr "照片尺寸"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
 #: core/dplugins/generic/tools/printcreator/ui/advprintcustomlayout.ui:203
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:967
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:929
 #, kde-format
 msgid "cm"
 msgstr "厘米"
@@ -19410,7 +19410,7 @@ msgstr "毫米"
 
 #. i18n: ectx: property (text), item, widget (QComboBox, m_photoUnits)
 #: core/dplugins/generic/tools/printcreator/ui/advprintcustomlayout.ui:213
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:962
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:924
 #, kde-format
 msgid "inches"
 msgstr "英寸"
@@ -19680,24 +19680,24 @@ msgstr "图像输出文件名将自动生成。"
 msgid "Open in File Browser"
 msgstr "在文件浏览器中打开"
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:67
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:56
 #, kde-format
 msgctxt "@info layout page"
 msgid "Custom"
 msgstr "自定义"
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:128
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:117
 #, kde-format
 msgctxt "@info"
 msgid "Select your preferred print output."
 msgstr "选择打印的输出方式。"
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:508
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:479
 #, kde-format
 msgid "Add again"
 msgstr "再次添加"
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:522
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:493
 #: core/utilities/geolocation/engine/osm/OsmRelationManagerWidget.cpp:174
 #: core/utilities/geolocation/engine/osm/OsmRelationManagerWidget.cpp:184
 #: core/utilities/geolocation/geoiface/bookmark/bookmarksdlg.cpp:372
@@ -19705,18 +19705,18 @@ msgstr "再次添加"
 msgid "Remove"
 msgstr "移除"
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1125
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1087
 #, kde-format
 msgctxt "@title:window"
 msgid "Custom Layout"
 msgstr "自定义布局"
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1126
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1088
 #, kde-format
 msgid "The selected custom photo size can not be applied to the paper size."
 msgstr "所选自定义照片尺寸无法应用于该纸张尺寸。"
 
-#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1357
+#: core/dplugins/generic/tools/printcreator/wizard/advprintphotopage.cpp:1302
 #, kde-format
 msgid ""
 "Custom\n"
@@ -20984,25 +20984,19 @@ msgstr "幻灯片："
 msgid "Soundtrack:"
 msgstr "音轨："
 
-#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:179
-#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:221
-#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:242
+#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:143
+#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:162
 #, kde-format
 msgctxt "artist - title"
 msgid "%1 - %2"
 msgstr "%1 - %2"
 
-#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:200
-#, kde-format
-msgid "No detail available"
-msgstr "没有可用的详情"
-
-#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:233
+#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:153
 #, kde-format
 msgid "%1 may not be playable."
 msgstr "%1 可能无法播放。"
 
-#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:241
+#: core/dplugins/generic/view/presentation/audio/presentationaudiolist.cpp:161
 #, kde-format
 msgid "This file may not be playable."
 msgstr "此文件可能无法播放。"
@@ -24164,7 +24158,7 @@ msgid "Date"
 msgstr "日期"
 
 #: core/dplugins/generic/webservices/inaturalist/inatwidget.cpp:67
-#: core/libs/properties/itempropertiestab.cpp:527
+#: core/libs/properties/itempropertiestab.cpp:502
 #: core/libs/template/templatepanel.cpp:275
 #: core/libs/template/templateviewer.cpp:147
 #, kde-format
@@ -27391,10 +27385,10 @@ msgctxt "@info"
 msgid "Shared directory mounted at \"%1\""
 msgstr "共享目录挂载于“%1”"
 
-#: core/libs/database/coredb/coredbaccess.cpp:303
-#: core/libs/database/similaritydb/similaritydbaccess.cpp:233
-#: core/libs/database/thumbsdb/thumbsdbaccess.cpp:243
-#: core/libs/facesengine/facedb/facedbaccess.cpp:234
+#: core/libs/database/coredb/coredbaccess.cpp:293
+#: core/libs/database/similaritydb/similaritydbaccess.cpp:223
+#: core/libs/database/thumbsdb/thumbsdbaccess.cpp:233
+#: core/libs/facesengine/facedb/facedbaccess.cpp:224
 #, kde-format
 msgid ""
 "Error opening database backend.\n"
@@ -29201,7 +29195,7 @@ msgctxt "@title"
 msgid "Features"
 msgstr "功能"
 
-#: core/libs/dialogs/libsinfodlg_features.cpp:93
+#: core/libs/dialogs/libsinfodlg_features.cpp:81
 #, kde-format
 msgctxt "@item: information about memory"
 msgid "Unknown"
@@ -29315,103 +29309,103 @@ msgctxt "@action"
 msgid "Refresh"
 msgstr "刷新"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:268
-#: core/libs/dialogs/solidhardwaredlg.cpp:392
+#: core/libs/dialogs/solidhardwaredlg.cpp:262
+#: core/libs/dialogs/solidhardwaredlg.cpp:386
 #, kde-format
 msgctxt "@item: universal device ID"
 msgid "Udi"
 msgstr "UDI"
 
+#: core/libs/dialogs/solidhardwaredlg.cpp:262
 #: core/libs/dialogs/solidhardwaredlg.cpp:268
+#: core/libs/dialogs/solidhardwaredlg.cpp:271
 #: core/libs/dialogs/solidhardwaredlg.cpp:274
-#: core/libs/dialogs/solidhardwaredlg.cpp:277
-#: core/libs/dialogs/solidhardwaredlg.cpp:280
 #, kde-format
 msgctxt "@item: device property"
 msgid "empty"
 msgstr "空"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:271
-#: core/libs/dialogs/solidhardwaredlg.cpp:395
+#: core/libs/dialogs/solidhardwaredlg.cpp:265
+#: core/libs/dialogs/solidhardwaredlg.cpp:389
 #, kde-format
 msgctxt "@item: parent device ID"
 msgid "Parent Udi"
 msgstr "父 UDI"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:271
-#: core/libs/dialogs/solidhardwaredlg.cpp:283
+#: core/libs/dialogs/solidhardwaredlg.cpp:265
+#: core/libs/dialogs/solidhardwaredlg.cpp:277
 #, kde-format
 msgctxt "@item: device property"
 msgid "none"
 msgstr "无"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:274
+#: core/libs/dialogs/solidhardwaredlg.cpp:268
 #, kde-format
 msgctxt "@item; device constructor"
 msgid "Vendor"
 msgstr "厂商"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:277
-#: core/libs/dialogs/solidhardwaredlg.cpp:401
+#: core/libs/dialogs/solidhardwaredlg.cpp:271
+#: core/libs/dialogs/solidhardwaredlg.cpp:395
 #, kde-format
 msgctxt "@item: device name"
 msgid "Product"
 msgstr "产品"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:280
-#: core/libs/dialogs/solidhardwaredlg.cpp:404
+#: core/libs/dialogs/solidhardwaredlg.cpp:274
+#: core/libs/dialogs/solidhardwaredlg.cpp:398
 #, kde-format
 msgctxt "@item: device description"
 msgid "Description"
 msgstr "描述"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:283
-#: core/libs/dialogs/solidhardwaredlg.cpp:407
+#: core/libs/dialogs/solidhardwaredlg.cpp:277
+#: core/libs/dialogs/solidhardwaredlg.cpp:401
 #, kde-format
 msgctxt "@item: device status"
 msgid "States"
 msgstr "状态"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:290
+#: core/libs/dialogs/solidhardwaredlg.cpp:284
 #, kde-format
 msgctxt "@item"
 msgid "Non-portable info"
 msgstr "非可移植信息"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:385
+#: core/libs/dialogs/solidhardwaredlg.cpp:379
 #, kde-format
 msgctxt "@item"
 msgid "New Device Added"
 msgstr "新设备已添加"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:395
-#: core/libs/dialogs/solidhardwaredlg.cpp:407
+#: core/libs/dialogs/solidhardwaredlg.cpp:389
+#: core/libs/dialogs/solidhardwaredlg.cpp:401
 #, kde-format
 msgctxt "@info: device property"
 msgid "none"
 msgstr "无"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:398
+#: core/libs/dialogs/solidhardwaredlg.cpp:392
 #, kde-format
 msgctxt "@item: device constructor"
 msgid "Vendor"
 msgstr "厂商"
 
+#: core/libs/dialogs/solidhardwaredlg.cpp:392
+#: core/libs/dialogs/solidhardwaredlg.cpp:395
 #: core/libs/dialogs/solidhardwaredlg.cpp:398
-#: core/libs/dialogs/solidhardwaredlg.cpp:401
-#: core/libs/dialogs/solidhardwaredlg.cpp:404
 #, kde-format
 msgctxt "@info: device property"
 msgid "empty"
 msgstr "空"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:417
+#: core/libs/dialogs/solidhardwaredlg.cpp:411
 #, kde-format
 msgctxt "@item"
 msgid "Device Removed"
 msgstr "设备已移除"
 
-#: core/libs/dialogs/solidhardwaredlg.cpp:420
+#: core/libs/dialogs/solidhardwaredlg.cpp:414
 #, kde-format
 msgctxt "@item"
 msgid "Udi"
@@ -33693,12 +33687,12 @@ msgctxt "@action:button"
 msgid "Help"
 msgstr "帮助"
 
-#: core/libs/dtrash/dtrashitemmodel.cpp:263
+#: core/libs/dtrash/dtrashitemmodel.cpp:254
 #, kde-format
 msgid "Relative Path"
 msgstr "相对路径"
 
-#: core/libs/dtrash/dtrashitemmodel.cpp:268
+#: core/libs/dtrash/dtrashitemmodel.cpp:259
 #, kde-format
 msgid "Deletion Time"
 msgstr "删除时间"
@@ -34792,1116 +34786,1116 @@ msgstr "图像 %1 无法重命名"
 msgid "Could not restore file %1 from trash"
 msgstr "无法从回收站还原文件 %1"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:860
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:766
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Unspecified"
 msgstr "未指定"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:865
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:771
 #, kde-format
 msgctxt "@info: rotation of an unrotated image"
 msgid "Normal"
 msgstr "正常"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:870
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:776
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Flipped Horizontally"
 msgstr "翻转 (水平)"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:875
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:781
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Rotated by 180 Degrees"
 msgstr "旋转 (180 度)"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:880
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:786
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Flipped Vertically"
 msgstr "翻转 (垂直)"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:885
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:791
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Flipped Horizontally and Rotated Left"
 msgstr "翻转 (水平) 并旋转 (向左)"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:890
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:796
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Rotated Left"
 msgstr "旋转 (向左)"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:895
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:801
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Flipped Vertically and Rotated Left"
 msgstr "翻转 (垂直) 并旋转 (向左)"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:900
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:806
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Rotated Right"
 msgstr "旋转 (向右)"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:905
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:811
 #, kde-format
 msgctxt "@info: rotation"
 msgid "Unknown"
 msgstr "未知"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:991
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:897
 #, kde-format
 msgctxt "@info: Temperature in Kelvin"
 msgid "%1 K"
 msgstr "%1 K"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1017
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1033
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:923
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:939
 #, kde-format
 msgctxt "@info: For use in longitude coordinate"
 msgid "West"
 msgstr "西经"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1018
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1034
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:924
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:940
 #, kde-format
 msgctxt "@info: For use in longitude coordinate"
 msgid "East"
 msgstr "东经"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1053
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1069
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:959
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:975
 #, kde-format
 msgctxt "@info: For use in latitude coordinate"
 msgid "North"
 msgstr "北纬"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1054
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1070
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:960
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:976
 #, kde-format
 msgctxt "@info: For use in latitude coordinate"
 msgid "South"
 msgstr "南纬"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1083
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:989
 #, no-c-format, kde-format
 msgctxt "@info: Height in meters"
 msgid "%1m"
 msgstr "%1 米"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1263
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1169
 #, kde-format
 msgctxt "@info"
 msgid "Flash has been fired"
 msgstr "闪光灯已激发"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1264
+#: core/libs/metadataengine/dmetadata/dmetadata_generic.cpp:1170
 #, kde-format
 msgctxt "@info"
 msgid "Flash with red-eye reduction mode"
 msgstr "闪光灯有防红眼模式"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:401
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:549
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:391
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:539
 #, kde-format
 msgctxt "@info: country code"
 msgid "Afar"
 msgstr "阿法尔语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:402
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:550
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:392
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:540
 #, kde-format
 msgctxt "@info: country code"
 msgid "Abkhazian"
 msgstr "阿布哈兹语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:403
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:551
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:393
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:541
 #, kde-format
 msgctxt "@info: country code"
 msgid "Afrikaans"
 msgstr "南非荷兰语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:404
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:552
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:394
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:542
 #, kde-format
 msgctxt "@info: country code"
 msgid "Amharic"
 msgstr "阿姆哈拉语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:405
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:553
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:395
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:543
 #, kde-format
 msgctxt "@info: country code"
 msgid "Arabic"
 msgstr "阿拉伯语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:406
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:554
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:396
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:544
 #, kde-format
 msgctxt "@info: country code"
 msgid "Assamese"
 msgstr "阿萨姆语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:407
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:555
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:397
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:545
 #, kde-format
 msgctxt "@info: country code"
 msgid "Aymara"
 msgstr "艾马拉语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:408
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:556
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:398
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:546
 #, kde-format
 msgctxt "@info: country code"
 msgid "Azerbaijani"
 msgstr "阿塞拜疆语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:409
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:557
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:399
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:547
 #, kde-format
 msgctxt "@info: country code"
 msgid "Bashkir"
 msgstr "巴什基尔语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:410
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:558
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:400
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:548
 #, kde-format
 msgctxt "@info: country code"
 msgid "Byelorussian"
 msgstr "白俄罗斯语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:411
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:559
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:401
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:549
 #, kde-format
 msgctxt "@info: country code"
 msgid "Bulgarian"
 msgstr "保加利亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:412
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:560
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:402
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:550
 #, kde-format
 msgctxt "@info: country code"
 msgid "Bihari"
 msgstr "比哈尔语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:413
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:561
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:403
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:551
 #, kde-format
 msgctxt "@info: country code"
 msgid "Bislama"
 msgstr "比斯拉马语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:414
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:562
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:404
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:552
 #, kde-format
 msgctxt "@info: country code"
 msgid "Bengali;Bangla"
 msgstr "孟加拉语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:415
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:563
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:405
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:553
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tibetan"
 msgstr "藏语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:416
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:564
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:406
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:554
 #, kde-format
 msgctxt "@info: country code"
 msgid "Breton"
 msgstr "布列塔尼语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:417
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:565
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:407
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:555
 #, kde-format
 msgctxt "@info: country code"
 msgid "Catalan"
 msgstr "加泰罗尼亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:418
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:566
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:408
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:556
 #, kde-format
 msgctxt "@info: country code"
 msgid "Corsican"
 msgstr "科西嘉语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:419
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:567
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:409
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:557
 #, kde-format
 msgctxt "@info: country code"
 msgid "Czech"
 msgstr "捷克语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:420
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:568
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:410
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:558
 #, kde-format
 msgctxt "@info: country code"
 msgid "Welsh"
 msgstr "威尔士语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:421
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:569
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:411
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:559
 #, kde-format
 msgctxt "@info: country code"
 msgid "Danish"
 msgstr "丹麦语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:422
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:570
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:412
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:560
 #, kde-format
 msgctxt "@info: country code"
 msgid "German"
 msgstr "德语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:423
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:571
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:413
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:561
 #, kde-format
 msgctxt "@info: country code"
 msgid "Dzongkha"
 msgstr "宗喀语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:424
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:572
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:414
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:562
 #, kde-format
 msgctxt "@info: country code"
 msgid "Greek"
 msgstr "希腊语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:425
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:573
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:415
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:563
 #, kde-format
 msgctxt "@info: country code"
 msgid "English"
 msgstr "英语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:426
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:574
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:416
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:564
 #, kde-format
 msgctxt "@info: country code"
 msgid "Esperanto"
 msgstr "世界语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:427
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:575
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:417
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:565
 #, kde-format
 msgctxt "@info: country code"
 msgid "Spanish"
 msgstr "西班牙语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:428
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:576
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:418
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:566
 #, kde-format
 msgctxt "@info: country code"
 msgid "Estonian"
 msgstr "爱沙尼亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:429
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:577
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:419
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:567
 #, kde-format
 msgctxt "@info: country code"
 msgid "Basque"
 msgstr "巴斯克语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:430
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:578
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:420
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:568
 #, kde-format
 msgctxt "@info: country code"
 msgid "Persian(farsi)"
 msgstr "波斯语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:431
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:579
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:421
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:569
 #, kde-format
 msgctxt "@info: country code"
 msgid "Finnish"
 msgstr "芬兰语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:432
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:580
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:422
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:570
 #, kde-format
 msgctxt "@info: country code"
 msgid "Fijan"
 msgstr "斐济语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:433
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:581
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:423
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:571
 #, kde-format
 msgctxt "@info: country code"
 msgid "Faroese"
 msgstr "法罗语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:434
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:582
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:424
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:572
 #, kde-format
 msgctxt "@info: country code"
 msgid "French"
 msgstr "法语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:435
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:583
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:425
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:573
 #, kde-format
 msgctxt "@info: country code"
 msgid "Frisian"
 msgstr "弗里西亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:436
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:584
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:426
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:574
 #, kde-format
 msgctxt "@info: country code"
 msgid "Irish"
 msgstr "爱尔兰语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:437
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:585
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:427
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:575
 #, kde-format
 msgctxt "@info: country code"
 msgid "Scotsgaelic"
 msgstr "苏格兰盖尔语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:438
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:586
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:428
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:576
 #, kde-format
 msgctxt "@info: country code"
 msgid "Galician"
 msgstr "加利西亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:439
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:587
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:429
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:577
 #, kde-format
 msgctxt "@info: country code"
 msgid "Guarani"
 msgstr "瓜拉尼语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:440
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:588
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:430
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:578
 #, kde-format
 msgctxt "@info: country code"
 msgid "Gujarati"
 msgstr "古吉拉特语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:441
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:589
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:431
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:579
 #, kde-format
 msgctxt "@info: country code"
 msgid "Hausa"
 msgstr "豪萨语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:442
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:590
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:432
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:580
 #, kde-format
 msgctxt "@info: country code"
 msgid "Hebrew"
 msgstr "希伯来语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:443
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:591
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:433
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:581
 #, kde-format
 msgctxt "@info: country code"
 msgid "Hindi"
 msgstr "北印度语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:444
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:592
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:434
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:582
 #, kde-format
 msgctxt "@info: country code"
 msgid "Croatian"
 msgstr "克罗地亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:445
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:593
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:435
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:583
 #, kde-format
 msgctxt "@info: country code"
 msgid "Hungarian"
 msgstr "匈牙利语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:446
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:594
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:436
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:584
 #, kde-format
 msgctxt "@info: country code"
 msgid "Armenian"
 msgstr "亚美尼亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:447
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:595
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:437
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:585
 #, kde-format
 msgctxt "@info: country code"
 msgid "Interlingua"
 msgstr "拉丁国际语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:448
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:596
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:438
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:586
 #, kde-format
 msgctxt "@info: country code"
 msgid "Interlingue"
 msgstr "国际语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:449
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:597
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:439
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:587
 #, kde-format
 msgctxt "@info: country code"
 msgid "Inupiak"
 msgstr "因纽皮雅克语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:450
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:598
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:440
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:588
 #, kde-format
 msgctxt "@info: country code"
 msgid "Indonesian"
 msgstr "印度尼西亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:451
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:599
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:441
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:589
 #, kde-format
 msgctxt "@info: country code"
 msgid "Icelandic"
 msgstr "冰岛语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:452
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:600
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:442
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:590
 #, kde-format
 msgctxt "@info: country code"
 msgid "Italian"
 msgstr "意大利语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:453
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:601
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:443
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:591
 #, kde-format
 msgctxt "@info: country code"
 msgid "Inuktitut"
 msgstr "因纽特语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:454
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:602
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:444
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:592
 #, kde-format
 msgctxt "@info: country code"
 msgid "Japanese"
 msgstr "日语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:455
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:603
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:445
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:593
 #, kde-format
 msgctxt "@info: country code"
 msgid "Javanese"
 msgstr "爪哇语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:456
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:604
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:446
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:594
 #, kde-format
 msgctxt "@info: country code"
 msgid "Georgian"
 msgstr "格鲁吉亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:457
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:605
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:447
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:595
 #, kde-format
 msgctxt "@info: country code"
 msgid "Kazakh"
 msgstr "哈萨克语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:458
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:606
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:448
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:596
 #, kde-format
 msgctxt "@info: country code"
 msgid "Greenlandic"
 msgstr "格陵兰语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:459
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:607
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:449
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:597
 #, kde-format
 msgctxt "@info: country code"
 msgid "Cambodian"
 msgstr "柬埔寨语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:460
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:608
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:450
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:598
 #, kde-format
 msgctxt "@info: country code"
 msgid "Kannada"
 msgstr "坎那达语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:461
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:609
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:451
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:599
 #, kde-format
 msgctxt "@info: country code"
 msgid "Korean"
 msgstr "朝鲜语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:462
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:610
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:452
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:600
 #, kde-format
 msgctxt "@info: country code"
 msgid "Kashmiri"
 msgstr "克什米尔语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:463
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:611
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:453
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:601
 #, kde-format
 msgctxt "@info: country code"
 msgid "Kurdish"
 msgstr "库尔德语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:464
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:612
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:454
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:602
 #, kde-format
 msgctxt "@info: country code"
 msgid "Kirghiz"
 msgstr "吉尔吉斯语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:465
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:613
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:455
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:603
 #, kde-format
 msgctxt "@info: country code"
 msgid "Latin"
 msgstr "拉丁语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:466
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:614
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:456
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:604
 #, kde-format
 msgctxt "@info: country code"
 msgid "Lingala"
 msgstr "林加拉语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:467
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:615
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:457
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:605
 #, kde-format
 msgctxt "@info: country code"
 msgid "Laothian"
 msgstr "老挝语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:468
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:616
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:458
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:606
 #, kde-format
 msgctxt "@info: country code"
 msgid "Lithuanian"
 msgstr "立陶宛语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:469
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:617
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:459
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:607
 #, kde-format
 msgctxt "@info: country code"
 msgid "Latvian;Lettish"
 msgstr "拉脱维亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:470
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:618
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:460
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:608
 #, kde-format
 msgctxt "@info: country code"
 msgid "Malagasy"
 msgstr "马尔加什语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:471
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:619
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:461
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:609
 #, kde-format
 msgctxt "@info: country code"
 msgid "Maori"
 msgstr "毛利语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:472
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:620
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:462
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:610
 #, kde-format
 msgctxt "@info: country code"
 msgid "Macedonian"
 msgstr "马其顿语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:473
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:621
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:463
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:611
 #, kde-format
 msgctxt "@info: country code"
 msgid "Malayalam"
 msgstr "马拉雅拉姆语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:474
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:622
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:464
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:612
 #, kde-format
 msgctxt "@info: country code"
 msgid "Mongolian"
 msgstr "蒙古语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:475
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:623
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:465
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:613
 #, kde-format
 msgctxt "@info: country code"
 msgid "Marathi"
 msgstr "马拉地语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:476
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:624
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:466
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:614
 #, kde-format
 msgctxt "@info: country code"
 msgid "Malay"
 msgstr "马来语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:477
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:625
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:467
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:615
 #, kde-format
 msgctxt "@info: country code"
 msgid "Maltese"
 msgstr "马耳他语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:478
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:626
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:468
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:616
 #, kde-format
 msgctxt "@info: country code"
 msgid "Burmese"
 msgstr "缅甸语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:479
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:627
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:469
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:617
 #: core/libs/widgets/metadata/utils/countryselector.cpp:196
 #, kde-format
 msgctxt "@info: country code"
 msgid "Nauru"
 msgstr "瑙鲁语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:480
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:628
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:470
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:618
 #, kde-format
 msgctxt "@info: country code"
 msgid "Nepali"
 msgstr "尼泊尔语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:481
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:629
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:471
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:619
 #, kde-format
 msgctxt "@info: country code"
 msgid "Dutch"
 msgstr "荷兰语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:482
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:630
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:472
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:620
 #, kde-format
 msgctxt "@info: country code"
 msgid "Norwegian"
 msgstr "挪威语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:483
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:631
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:473
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:621
 #, kde-format
 msgctxt "@info: country code"
 msgid "Occitan"
 msgstr "欧西坦语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:484
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:632
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:474
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:622
 #, kde-format
 msgctxt "@info: country code"
 msgid "Oromo"
 msgstr "奥罗莫语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:485
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:633
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:475
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:623
 #, kde-format
 msgctxt "@info: country code"
 msgid "Oriya"
 msgstr "奥里雅语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:486
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:634
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:476
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:624
 #, kde-format
 msgctxt "@info: country code"
 msgid "Punjabi"
 msgstr "旁遮普语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:487
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:635
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:477
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:625
 #, kde-format
 msgctxt "@info: country code"
 msgid "Polish"
 msgstr "波兰语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:488
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:636
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:478
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:626
 #, kde-format
 msgctxt "@info: country code"
 msgid "Pashto;Pushto"
 msgstr "普什图语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:489
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:637
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:479
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:627
 #, kde-format
 msgctxt "@info: country code"
 msgid "Portuguese"
 msgstr "葡萄牙语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:490
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:638
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:480
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:628
 #, kde-format
 msgctxt "@info: country code"
 msgid "Quechua"
 msgstr "盖丘亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:491
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:639
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:481
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:629
 #, kde-format
 msgctxt "@info: country code"
 msgid "Rhaeto-romance"
 msgstr "里托罗曼语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:492
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:640
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:482
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:630
 #, kde-format
 msgctxt "@info: country code"
 msgid "Kurundi"
 msgstr "库伦迪语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:493
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:641
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:483
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:631
 #, kde-format
 msgctxt "@info: country code"
 msgid "Romanian"
 msgstr "罗马尼亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:494
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:642
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:484
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:632
 #, kde-format
 msgctxt "@info: country code"
 msgid "Russian"
 msgstr "俄语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:495
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:643
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:485
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:633
 #, kde-format
 msgctxt "@info: country code"
 msgid "Kinyarwanda"
 msgstr "卢旺达语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:496
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:644
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:486
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:634
 #, kde-format
 msgctxt "@info: country code"
 msgid "Sanskrit"
 msgstr "梵语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:497
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:645
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:487
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:635
 #, kde-format
 msgctxt "@info: country code"
 msgid "Sindhi"
 msgstr "信德语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:498
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:646
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:488
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:636
 #, kde-format
 msgctxt "@info: country code"
 msgid "Sangho"
 msgstr "桑戈语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:499
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:647
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:489
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:637
 #, kde-format
 msgctxt "@info: country code"
 msgid "Singhalese"
 msgstr "僧伽罗语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:500
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:648
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:490
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:638
 #, kde-format
 msgctxt "@info: country code"
 msgid "Slovak"
 msgstr "斯洛伐克语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:501
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:649
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:491
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:639
 #, kde-format
 msgctxt "@info: country code"
 msgid "Slovenian"
 msgstr "斯洛文尼亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:502
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:650
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:492
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:640
 #, kde-format
 msgctxt "@info: country code"
 msgid "Samoan"
 msgstr "萨摩亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:503
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:651
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:493
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:641
 #, kde-format
 msgctxt "@info: country code"
 msgid "Shona"
 msgstr "绍纳语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:504
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:652
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:494
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:642
 #, kde-format
 msgctxt "@info: country code"
 msgid "Somali"
 msgstr "索马里语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:505
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:653
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:495
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:643
 #, kde-format
 msgctxt "@info: country code"
 msgid "Albanian"
 msgstr "阿尔巴尼亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:506
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:654
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:496
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:644
 #, kde-format
 msgctxt "@info: country code"
 msgid "Serbian"
 msgstr "塞尔维亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:507
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:655
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:497
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:645
 #, kde-format
 msgctxt "@info: country code"
 msgid "Siswati"
 msgstr "斯威士语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:508
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:656
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:498
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:646
 #, kde-format
 msgctxt "@info: country code"
 msgid "Sesotho"
 msgstr "塞索托语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:509
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:657
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:499
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:647
 #, kde-format
 msgctxt "@info: country code"
 msgid "Sundanese"
 msgstr "巽他语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:510
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:658
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:500
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:648
 #, kde-format
 msgctxt "@info: country code"
 msgid "Swedish"
 msgstr "瑞典语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:511
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:659
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:501
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:649
 #, kde-format
 msgctxt "@info: country code"
 msgid "Swahili"
 msgstr "斯瓦希里语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:512
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:660
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:502
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:650
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tamil"
 msgstr "泰米尔语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:513
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:661
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:503
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:651
 #, kde-format
 msgctxt "@info: country code"
 msgid "Telugu"
 msgstr "泰卢固语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:514
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:662
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:504
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:652
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tajik"
 msgstr "塔吉克语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:515
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:663
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:505
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:653
 #, kde-format
 msgctxt "@info: country code"
 msgid "Thai"
 msgstr "泰语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:516
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:664
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:506
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:654
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tigrinya"
 msgstr "提格里尼亚语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:517
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:665
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:507
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:655
 #, kde-format
 msgctxt "@info: country code"
 msgid "Turkmen"
 msgstr "土库曼语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:518
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:666
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:508
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:656
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tagalog"
 msgstr "他加禄语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:519
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:667
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:509
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:657
 #, kde-format
 msgctxt "@info: country code"
 msgid "Setswana"
 msgstr "塞茨瓦纳语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:520
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:668
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:510
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:658
 #: core/libs/widgets/metadata/utils/countryselector.cpp:263
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tonga"
 msgstr "汤加"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:521
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:669
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:511
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:659
 #, kde-format
 msgctxt "@info: country code"
 msgid "Turkish"
 msgstr "土耳其语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:522
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:670
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:512
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:660
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tsonga"
 msgstr "聪加语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:523
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:671
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:513
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:661
 #, kde-format
 msgctxt "@info: country code"
 msgid "Tatar"
 msgstr "鞑靼语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:524
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:672
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:514
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:662
 #, kde-format
 msgctxt "@info: country code"
 msgid "Twi"
 msgstr "契维语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:525
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:673
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:515
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:663
 #, kde-format
 msgctxt "@info: country code"
 msgid "Uigur"
 msgstr "维吾尔语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:526
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:674
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:516
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:664
 #, kde-format
 msgctxt "@info: country code"
 msgid "Ukrainian"
 msgstr "乌克兰语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:527
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:675
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:517
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:665
 #, kde-format
 msgctxt "@info: country code"
 msgid "Urdu"
 msgstr "乌尔都语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:528
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:676
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:518
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:666
 #, kde-format
 msgctxt "@info: country code"
 msgid "Uzbek"
 msgstr "乌兹别克语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:529
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:677
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:519
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:667
 #, kde-format
 msgctxt "@info: country code"
 msgid "Vietnamese"
 msgstr "越南语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:530
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:678
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:520
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:668
 #, kde-format
 msgctxt "@info: country code"
 msgid "Volapuk"
 msgstr "沃拉普克语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:531
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:679
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:521
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:669
 #, kde-format
 msgctxt "@info: country code"
 msgid "Wolof"
 msgstr "沃洛夫语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:532
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:680
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:522
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:670
 #, kde-format
 msgctxt "@info: country code"
 msgid "Xhosa"
 msgstr "科萨语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:533
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:681
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:523
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:671
 #, kde-format
 msgctxt "@info: country code"
 msgid "Yiddish"
 msgstr "意第绪语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:534
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:682
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:524
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:672
 #, kde-format
 msgctxt "@info: country code"
 msgid "Yoruba"
 msgstr "约鲁巴语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:535
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:683
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:525
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:673
 #, kde-format
 msgctxt "@info: country code"
 msgid "Zhuang"
 msgstr "壮语"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:536
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:684
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:526
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:674
 #, kde-format
 msgctxt "@info: country code"
 msgid "Chinese"
 msgstr "中文"
 
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:537
-#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:685
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:527
+#: core/libs/metadataengine/dmetadata/dmetadata_iptc.cpp:675
 #, kde-format
 msgctxt "@info: country code"
 msgid "Zulu"
 msgstr "祖鲁语"
 
-#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:52
+#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:42
 #, kde-format
 msgctxt "@title: xmp namespace for tags container"
 msgid "Tags"
 msgstr "标签"
 
-#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:56
+#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:46
 #, kde-format
 msgctxt "@title: xmp namespace for title container"
 msgid "Title"
 msgstr "标题"
 
-#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:60
+#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:50
 #, kde-format
 msgctxt "@title: xmp namespace for rating container"
 msgid "Rating"
 msgstr "评分"
 
-#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:64
+#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:54
 #, kde-format
 msgctxt "@title: xmp namespace for comment container"
 msgid "Caption"
 msgstr "说明"
 
-#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:68
+#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:58
 #, kde-format
 msgctxt "@title: xmp namespace for pick-label container"
 msgid "Pick label"
 msgstr "挑选标记"
 
-#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:72
+#: core/libs/metadataengine/dmetadata/dmetadatasettingscontainer.cpp:62
 #, kde-format
 msgctxt "@title: xmp namespace for color-label container"
 msgid "Color label"
 msgstr "颜色标记"
 
-#: core/libs/metadataengine/engine/metaengine_exif.cpp:1591
+#: core/libs/metadataengine/engine/metaengine_exif.cpp:1406
 #, kde-format
 msgctxt "info"
 msgid "Binary data %1 bytes"
@@ -37504,99 +37498,99 @@ msgctxt "@title: item properties"
 msgid "Rights"
 msgstr "版权信息"
 
-#: core/libs/properties/itempropertiestab.cpp:485
+#: core/libs/properties/itempropertiestab.cpp:460
 #: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:57
 #, kde-format
 msgid "File"
 msgstr "文件"
 
-#: core/libs/properties/itempropertiestab.cpp:486
+#: core/libs/properties/itempropertiestab.cpp:461
 #, kde-format
 msgid "Folder"
 msgstr "文件夹"
 
-#: core/libs/properties/itempropertiestab.cpp:487
+#: core/libs/properties/itempropertiestab.cpp:462
 #, kde-format
 msgid "Symlink"
 msgstr "符号链接"
 
-#: core/libs/properties/itempropertiestab.cpp:488
+#: core/libs/properties/itempropertiestab.cpp:463
 #, kde-format
 msgid "Modified Date"
 msgstr "修改日期"
 
-#: core/libs/properties/itempropertiestab.cpp:490
+#: core/libs/properties/itempropertiestab.cpp:465
 #, kde-format
 msgid "Owner"
 msgstr "所有者"
 
-#: core/libs/properties/itempropertiestab.cpp:491
+#: core/libs/properties/itempropertiestab.cpp:466
 #, kde-format
 msgid "Permissions"
 msgstr "权限"
 
-#: core/libs/properties/itempropertiestab.cpp:493
+#: core/libs/properties/itempropertiestab.cpp:468
 #, kde-format
 msgid "Mime"
 msgstr "MIME"
 
-#: core/libs/properties/itempropertiestab.cpp:495
+#: core/libs/properties/itempropertiestab.cpp:470
 #, kde-format
 msgid "Ratio"
 msgstr "宽高比"
 
-#: core/libs/properties/itempropertiestab.cpp:496
+#: core/libs/properties/itempropertiestab.cpp:471
 #, kde-format
 msgid "Bit Depth"
 msgstr "位深度"
 
-#: core/libs/properties/itempropertiestab.cpp:497
+#: core/libs/properties/itempropertiestab.cpp:472
 #, kde-format
 msgid "Color Mode"
 msgstr "色彩模式"
 
-#: core/libs/properties/itempropertiestab.cpp:498
+#: core/libs/properties/itempropertiestab.cpp:473
 #, kde-format
 msgid "Has Sidecar"
 msgstr "有附带文件"
 
-#: core/libs/properties/itempropertiestab.cpp:499
+#: core/libs/properties/itempropertiestab.cpp:474
 #, kde-format
 msgid "Has GPS"
 msgstr "有 GPS 信息"
 
-#: core/libs/properties/itempropertiestab.cpp:500
+#: core/libs/properties/itempropertiestab.cpp:475
 #, kde-format
 msgid "Versioned"
 msgstr "已版本管理"
 
-#: core/libs/properties/itempropertiestab.cpp:501
+#: core/libs/properties/itempropertiestab.cpp:476
 #, kde-format
 msgid "Grouped"
 msgstr "已分组"
 
-#: core/libs/properties/itempropertiestab.cpp:503
+#: core/libs/properties/itempropertiestab.cpp:478
 #, kde-format
 msgid "Make"
 msgstr "制造商"
 
-#: core/libs/properties/itempropertiestab.cpp:504
+#: core/libs/properties/itempropertiestab.cpp:479
 #, kde-format
 msgid "Model"
 msgstr "型号"
 
-#: core/libs/properties/itempropertiestab.cpp:505
+#: core/libs/properties/itempropertiestab.cpp:480
 #, kde-format
 msgid "Date Time"
 msgstr "日期和时间"
 
-#: core/libs/properties/itempropertiestab.cpp:506
+#: core/libs/properties/itempropertiestab.cpp:481
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:435
 #, kde-format
 msgid "Lens"
 msgstr "镜头"
 
-#: core/libs/properties/itempropertiestab.cpp:507
+#: core/libs/properties/itempropertiestab.cpp:482
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:176
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:466
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:669
@@ -37604,104 +37598,104 @@ msgstr "镜头"
 msgid "Aperture"
 msgstr "光圈"
 
-#: core/libs/properties/itempropertiestab.cpp:508
+#: core/libs/properties/itempropertiestab.cpp:483
 #, kde-format
 msgid "Focal Length"
 msgstr "焦距"
 
-#: core/libs/properties/itempropertiestab.cpp:509
+#: core/libs/properties/itempropertiestab.cpp:484
 #, kde-format
 msgid "Exposure Time"
 msgstr "曝光时间"
 
-#: core/libs/properties/itempropertiestab.cpp:510
+#: core/libs/properties/itempropertiestab.cpp:485
 #: core/utilities/advancedrename/parser/options/database/keys/metadatakeys.cpp:182
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:569
 #, kde-format
 msgid "Sensitivity"
 msgstr "感光度"
 
-#: core/libs/properties/itempropertiestab.cpp:511
+#: core/libs/properties/itempropertiestab.cpp:486
 #, kde-format
 msgid "Exposure Mode"
 msgstr "曝光模式"
 
-#: core/libs/properties/itempropertiestab.cpp:512
+#: core/libs/properties/itempropertiestab.cpp:487
 #, kde-format
 msgid "Flash"
 msgstr "闪光灯"
 
-#: core/libs/properties/itempropertiestab.cpp:515
+#: core/libs/properties/itempropertiestab.cpp:490
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:138
 #, kde-format
 msgid "Video Aspect Ratio"
 msgstr "视频宽高比"
 
-#: core/libs/properties/itempropertiestab.cpp:516
+#: core/libs/properties/itempropertiestab.cpp:491
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:150
 #, kde-format
 msgid "Video Duration"
 msgstr "视频时长"
 
-#: core/libs/properties/itempropertiestab.cpp:517
+#: core/libs/properties/itempropertiestab.cpp:492
 #: core/utilities/setup/tooltip/setuptooltip_icon.cpp:153
 #, kde-format
 msgid "Video Frame Rate"
 msgstr "视频帧速率"
 
-#: core/libs/properties/itempropertiestab.cpp:518
+#: core/libs/properties/itempropertiestab.cpp:493
 #, kde-format
 msgid "Video Video Codec"
 msgstr "视频视频解码器"
 
-#: core/libs/properties/itempropertiestab.cpp:519
+#: core/libs/properties/itempropertiestab.cpp:494
 #, kde-format
 msgid "Video Audio Bit Rate"
 msgstr "视频音频解码器"
 
-#: core/libs/properties/itempropertiestab.cpp:520
+#: core/libs/properties/itempropertiestab.cpp:495
 #, kde-format
 msgid "Video Audio Channel Type"
 msgstr "视频音频声道类型"
 
-#: core/libs/properties/itempropertiestab.cpp:521
+#: core/libs/properties/itempropertiestab.cpp:496
 #, kde-format
 msgid "Video Audio Codec"
 msgstr "视频音频编码"
 
-#: core/libs/properties/itempropertiestab.cpp:523
+#: core/libs/properties/itempropertiestab.cpp:498
 #, kde-format
 msgid "Caption"
 msgstr "说明文字"
 
-#: core/libs/properties/itempropertiestab.cpp:524
+#: core/libs/properties/itempropertiestab.cpp:499
 #, kde-format
 msgid "Title"
 msgstr "标题"
 
-#: core/libs/properties/itempropertiestab.cpp:526
+#: core/libs/properties/itempropertiestab.cpp:501
 #, kde-format
 msgid "Peoples"
 msgstr "人物"
 
-#: core/libs/properties/itempropertiestab.cpp:528
+#: core/libs/properties/itempropertiestab.cpp:503
 #: core/libs/template/templatepanel.cpp:209
 #: core/libs/template/templateviewer.cpp:127
 #, kde-format
 msgid "Rights"
 msgstr "版权信息"
 
-#: core/libs/properties/itempropertiestab.cpp:529
+#: core/libs/properties/itempropertiestab.cpp:504
 #, kde-format
 msgid "Pick"
 msgstr "挑选"
 
-#: core/libs/properties/itempropertiestab.cpp:530
+#: core/libs/properties/itempropertiestab.cpp:505
 #, kde-format
 msgid "Color"
 msgstr "颜色"
 
-#: core/libs/properties/itempropertiestab.cpp:531
+#: core/libs/properties/itempropertiestab.cpp:506
 #: core/libs/widgets/metadata/labels/ratingwidget_menu.cpp:24
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:161
 #, kde-format
@@ -39102,7 +39096,7 @@ msgctxt "@info"
 msgid "Quick Access List"
 msgstr "快速访问列表"
 
-#: core/libs/tags/manager/models/tagmngrlistview.cpp:157
+#: core/libs/tags/manager/models/tagmngrlistview.cpp:147
 #, kde-format
 msgctxt "@action"
 msgid "Delete Selected from List"
@@ -39321,28 +39315,28 @@ msgid "Export Controlled Vocabulary Tag File"
 msgstr "导出受控词表标签文件"
 
 #: core/libs/tags/manager/tagsmanager_io.cpp:191
-#: core/libs/tags/manager/tagsmanager_io.cpp:309
+#: core/libs/tags/manager/tagsmanager_io.cpp:299
 #, kde-format
 msgid "Text File (*.txt)"
 msgstr "文本文件 (*.txt)"
 
-#: core/libs/tags/manager/tagsmanager_io.cpp:289
+#: core/libs/tags/manager/tagsmanager_io.cpp:279
 #, kde-format
 msgid "Select a tag into which the tags should be imported."
 msgstr "选择一个基础标签以导入标签到其下。"
 
-#: core/libs/tags/manager/tagsmanager_io.cpp:299
+#: core/libs/tags/manager/tagsmanager_io.cpp:289
 #, kde-format
 msgid "No tags can be imported to the selected face tag."
 msgstr "没有标签可被导入到选定的人脸标签。"
 
-#: core/libs/tags/manager/tagsmanager_io.cpp:308
+#: core/libs/tags/manager/tagsmanager_io.cpp:298
 #, kde-format
 msgctxt "@title:window"
 msgid "Import Controlled Vocabulary Tag File"
 msgstr "导入受控词表标签文件"
 
-#: core/libs/tags/manager/tagsmanager_io.cpp:407
+#: core/libs/tags/manager/tagsmanager_io.cpp:387
 #, kde-format
 msgid "Do you really want to remove the selected tag from all images?"
 msgid_plural "Do you really want to remove the selected tags from all images?"
@@ -41328,13 +41322,12 @@ msgctxt "@info"
 msgid "Select here the font used to display text on the screen display ."
 msgstr "选择屏幕显示的文本信息使用的字体。"
 
-#: core/libs/video/player/audplayerwdg.cpp:264
+#: core/libs/video/player/audplayerwdg.cpp:192
 #, kde-format
 msgid "An error has occurred while playing: the media is not valid"
 msgstr "播放时发生错误：媒体无效"
 
-#: core/libs/video/player/audplayerwdg.cpp:293
-#: core/libs/video/player/audplayerwdg.cpp:328
+#: core/libs/video/player/audplayerwdg.cpp:219
 #, kde-format
 msgid "An error has occurred while playing: %1"
 msgstr "播放时发生错误：%1"
@@ -67001,6 +66994,9 @@ msgstr "单窗预览"
 #, kde-format
 msgid "Play/Pause Video"
 msgstr ""
+
+#~ msgid "No detail available"
+#~ msgstr "没有可用的详情"
 
 #~ msgctxt "@option"
 #~ msgid "Visibility"
