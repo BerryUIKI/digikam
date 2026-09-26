@@ -93,7 +93,7 @@ if(KF6FileMetaData_FOUND)
 
 endif()
 
-if(KPim6AkonadiContact_FOUND OR KPim$6AkonadiContactCore_FOUND)
+if(KPim6AkonadiContact_FOUND OR KPim6AkonadiContactCore_FOUND)
 
     set(DIGIKAMCORE_OBJECTS
         ${DIGIKAMCORE_OBJECTS}
