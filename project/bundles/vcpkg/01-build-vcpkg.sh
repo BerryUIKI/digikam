@@ -90,14 +90,14 @@ $VCPKG_DIR/vcpkg update
 
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install libjpeg-turbo[jpeg8]
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install angle
-$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install mesa[offscreen]
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install mesa
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install openssl
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install pthreads
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install gettext
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install icu
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install libpng
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install tiff
-$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install libmariadb
+$VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install libmysql
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install jasper
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install libde265
 $VCPKG_DIR/vcpkg ${VCPKG_COMMON_OPTIONS[@]} install libjxl
