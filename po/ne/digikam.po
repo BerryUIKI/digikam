@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:42+0000\n"
+"POT-Creation-Date: 2026-09-28 00:42+0000\n"
 "PO-Revision-Date: 2007-08-19 14:42+0545\n"
 "Last-Translator: Nabin Gautam <nabin@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -1353,12 +1353,12 @@ msgstr "<i>उपलब्ध छैन</i>"
 msgid "Initializing..."
 msgstr "मुख्य दृश्य थालनी"
 
-#: core/app/main/digikamapp.cpp:158 core/showfoto/main/showfoto.cpp:110
+#: core/app/main/digikamapp.cpp:158 core/showfoto/main/showfoto.cpp:106
 #, fuzzy, kde-format
 msgid "Load Plugins..."
 msgstr "किपि प्लगइन"
 
-#: core/app/main/digikamapp.cpp:182 core/showfoto/main/showfoto.cpp:92
+#: core/app/main/digikamapp.cpp:182 core/showfoto/main/showfoto.cpp:88
 #, fuzzy, kde-format
 msgid "Checking ICC repository..."
 msgstr "ICC भण्डारण चेकिङ"
@@ -1573,7 +1573,7 @@ msgstr "मुख्य दृश्य थालनी"
 #: core/utilities/imageeditor/editor/editorwindow.cpp:1451
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:408
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:431
-#: core/utilities/survey/surveywindow_setup.cpp:272
+#: core/utilities/survey/surveywindow_setup.cpp:254
 #, fuzzy, kde-format
 #| msgid "Loading: "
 msgctxt "@label"
@@ -2729,14 +2729,14 @@ msgstr "रङ"
 msgid "digiKam"
 msgstr "डिजिक्याम"
 
-#: core/app/main/main.cpp:225 core/showfoto/main/main.cpp:225
+#: core/app/main/main.cpp:225 core/showfoto/main/main.cpp:201
 #, fuzzy, kde-format
 #| msgid "Author:"
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "लेखक:"
 
-#: core/app/main/main.cpp:226 core/showfoto/main/main.cpp:226
+#: core/app/main/main.cpp:226 core/showfoto/main/main.cpp:202
 #, fuzzy, kde-format
 #| msgid "Author:"
 msgctxt "EMAIL OF TRANSLATORS"
@@ -3119,7 +3119,7 @@ msgstr "मेरो एल्बम"
 #: core/libs/database/utils/widgets/dbstatdlg.cpp:70
 #: core/libs/properties/itempropertiestab.cpp:500
 #: core/libs/tags/widgets/tagfolderview.cpp:102
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:689
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:619
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:75
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:83
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:96
@@ -3225,8 +3225,8 @@ msgid "no item"
 msgstr "मिति छैन"
 
 #: core/app/views/sidebar/timelinesidebarwidget.cpp:413
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:447
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:481
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:441
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:475
 #, fuzzy, kde-format
 msgid "1 item"
 msgid_plural "%1 items"
@@ -4149,7 +4149,7 @@ msgstr "फाइल गुण"
 #: core/app/views/tableview/tableview_column_file.cpp:81
 #: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:63
 #: core/utilities/geolocation/engine/plugins/render/overviewmap/OverviewMapConfigWidget.ui:183
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:678
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:608
 #, fuzzy, kde-format
 msgid "Filename"
 msgstr "नयाँ छवि फाइलनाम"
@@ -4215,7 +4215,7 @@ msgstr ""
 #: core/app/views/tableview/tableview_column_geo.cpp:86
 #: core/app/views/tableview/tableview_column_geo.cpp:107
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:111
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:682
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:612
 #, fuzzy, kde-format
 msgid "Altitude"
 msgstr "<b>प्वाल</b>:"
@@ -4475,7 +4475,7 @@ msgstr "फाइल साइज देखाउनुहोस्"
 #: core/dplugins/generic/webservices/imgur/imgurimageslist.cpp:53
 #: core/dplugins/generic/webservices/ipfs/ipfsimageslist.cpp:45
 #: core/libs/dtrash/dtrashitemmodel.cpp:249
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:677
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:607
 #, fuzzy, kde-format
 msgid "Thumbnail"
 msgstr "थम्बनेल देखाउनुहोस्"
@@ -11541,31 +11541,31 @@ msgid "Edit Geolocation"
 msgstr "चयन"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:105
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:680
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:610
 #, fuzzy, kde-format
 msgid "Latitude"
 msgstr "<b>प्वाल</b>:"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:109
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:681
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:611
 #, fuzzy, kde-format
 msgid "Longitude"
 msgstr "<b>मोडल</b>:"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:117
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:687
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:617
 #, kde-format
 msgid "Speed"
 msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:123
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:686
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:616
 #, kde-format
 msgid "# satellites"
 msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:129
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:685
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:615
 #, kde-format
 msgid "Fix type"
 msgstr ""
@@ -11581,7 +11581,7 @@ msgid "3-d"
 msgstr ""
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:135
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:684
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:614
 #, kde-format
 msgid "DOP"
 msgstr ""
@@ -15753,7 +15753,7 @@ msgstr ""
 #: core/dplugins/generic/metadata/timeadjust/timeadjustlist.cpp:40
 #: core/dplugins/generic/tools/dngconverter/dngconverterlist.cpp:40
 #: core/dplugins/generic/tools/ocrtextconverter/textconverterlist.cpp:92
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:688
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:618
 #, fuzzy, kde-format
 msgid "Status"
 msgstr "तथ्याङ्क"
@@ -20927,7 +20927,7 @@ msgstr ""
 #. i18n: ectx: property (text), widget (QPushButton, m_stopButton)
 #: core/dplugins/generic/view/presentation/audio/presentationaudiowidget.ui:36
 #: core/dplugins/generic/view/presentation/widgets/presentationctrlwidget.ui:39
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:294
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:288
 #, fuzzy, kde-format
 msgid "Stop"
 msgstr "कुनै होइन"
@@ -24240,7 +24240,7 @@ msgstr "छवि सूचना"
 
 #: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1074
 #: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1114
-#: core/utilities/geolocation/engine/core/MarbleInputHandler.cpp:773
+#: core/utilities/geolocation/engine/core/MarbleInputHandler.cpp:735
 #: core/utilities/geolocation/engine/core/MarbleWidget.cpp:703
 #, fuzzy, kde-format
 msgid "not available"
@@ -26090,10 +26090,10 @@ msgstr "दर:"
 #: core/libs/tags/autoassignment/autotagsengine.cpp:232
 #: core/utilities/maintenance/tools/duplicates/duplicatesfinder.cpp:189
 #: core/utilities/maintenance/tools/facesmanagement/facesengine.cpp:490
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:236
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:225
 #: core/utilities/maintenance/tools/metaremover/metadataremover.cpp:242
 #: core/utilities/maintenance/tools/metasync/metadatasynchronizer.cpp:223
-#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:258
+#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:247
 #, fuzzy, kde-format
 #| msgid "Album \"%1\""
 msgid "Album: %1\n"
@@ -31062,7 +31062,7 @@ msgid "Remove Black Frame"
 msgstr "श्यामश्वेत..."
 
 #: core/libs/dimg/filters/hotpixels/blackframelistview.cpp:260
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:348
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:342
 #, fuzzy, kde-format
 msgid "Clear List"
 msgstr "क्यामेरा सूची"
@@ -38398,8 +38398,8 @@ msgid "Light Table"
 msgstr "प्रकाश"
 
 #: core/libs/settings/applicationsettings_miscs.cpp:453
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:50
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:197
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:44
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:191
 #, kde-format
 msgid "Batch Queue Manager"
 msgstr ""
@@ -42082,7 +42082,7 @@ msgid "Mod.: %1"
 msgstr "नमुना:"
 
 #: core/libs/widgets/itemview/itemviewdelegate.cpp:422
-#: core/showfoto/main/showfoto.cpp:267
+#: core/showfoto/main/showfoto.cpp:263
 #: core/showfoto/thumbbar/showfotoitemviewdelegate.cpp:316
 #: core/utilities/import/items/itemviewimportdelegate.cpp:367
 #, fuzzy, kde-format
@@ -48681,7 +48681,7 @@ msgid "Add Bookmark"
 msgstr "क्यामेरा थप्नुहोस्..."
 
 #: core/showfoto/folderview/showfotofolderviewbookmarks.cpp:91
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:97
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:93
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Add new bookmark to the list"
@@ -48774,24 +48774,24 @@ msgctxt "@title: file system tree"
 msgid "Folders"
 msgstr "फोल्डरद्वारा"
 
-#: core/showfoto/main/main.cpp:216
+#: core/showfoto/main/main.cpp:192
 #, kde-format
 msgctxt "@title"
 msgid "Showfoto"
 msgstr ""
 
-#: core/showfoto/main/main.cpp:234
+#: core/showfoto/main/main.cpp:210
 #, fuzzy, kde-format
 msgctxt "command line option"
 msgid "File(s) or folder(s) to open"
 msgstr "खोल्ने फाइल"
 
-#: core/showfoto/main/showfoto.cpp:101
+#: core/showfoto/main/showfoto.cpp:97
 #, fuzzy, kde-format
 msgid "Loading themes..."
 msgstr "विषयवस्तु लोडिङ"
 
-#: core/showfoto/main/showfoto.cpp:226
+#: core/showfoto/main/showfoto.cpp:222
 #, fuzzy, kde-format
 msgid ""
 "<p>The ICC profile path seems to be invalid.</p><p>If you want to set it "
@@ -48802,13 +48802,13 @@ msgstr ""
 "भने, \"हो\" चयन गर्नुहोस्, अन्यथा \"होइन\" चयन गर्नुहोस् । यस्तो अवस्थामा, तपाईँले सो "
 "विषय समाधान नगरेसम्म \"रङ व्यवस्थापन\" सुविधा अक्षम गरिन्छ</p></qt>"
 
-#: core/showfoto/main/showfoto.cpp:266
+#: core/showfoto/main/showfoto.cpp:262
 #, fuzzy, kde-format
 msgctxt "unknown image dimensions"
 msgid "Unknown"
 msgstr "अज्ञात"
 
-#: core/showfoto/main/showfoto.cpp:291
+#: core/showfoto/main/showfoto.cpp:287
 #: core/utilities/imageeditor/main/imagewindow.cpp:498
 #, fuzzy, kde-format
 msgctxt "<Image file name> (<Image number> of <Images in album>)"
@@ -48819,20 +48819,6 @@ msgstr " (%3 को %2)"
 #, kde-format
 msgid "Delete File"
 msgstr "फाइल मेट्नुहोस्"
-
-#: core/showfoto/main/showfoto_config.cpp:196
-#, kde-format
-msgid ""
-"You have chosen a bright color scheme. We switch to a dark icon theme. The "
-"icon theme is available after a restart of digiKam."
-msgstr ""
-
-#: core/showfoto/main/showfoto_config.cpp:204
-#, kde-format
-msgid ""
-"You have chosen a dark color scheme. We switch to a bright icon theme. The "
-"icon theme is available after a restart of digiKam."
-msgstr ""
 
 #: core/showfoto/main/showfoto_iofiles.cpp:78
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2302
@@ -49986,67 +49972,67 @@ msgid "You can add or remove favorite stacks here."
 msgstr ""
 
 #: core/showfoto/stackview/showfotostackviewfavoritelist.cpp:117
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:87
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:83
 #, kde-format
 msgctxt "@title"
 msgid "Favorites"
 msgstr ""
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:96
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:92
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "Add Favorite"
 msgstr "क्यामेरा थप्नुहोस्..."
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:114
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:110
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "Add Sub-Folder"
 msgstr "क्यामेरा थप्नुहोस्..."
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:115
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:111
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Add new sub-folder to the list"
 msgstr "यो विकल्पले हालको एल्बममा नयाँ वस्तु थप्दछ ।"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:132
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:128
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "Delete Item"
 msgstr "चयन हटाउनुहोस्"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:133
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:129
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Remove selected item from the list"
 msgstr "यो विकल्पले हालको एल्बममा नयाँ वस्तु थप्दछ ।"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:150
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:146
 #, fuzzy, kde-format
 msgctxt "@action"
 msgid "Edit Item"
 msgstr "छवि फाइल"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:151
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:147
 #, fuzzy, kde-format
 msgctxt "@info"
 msgid "Edit current item from the list"
 msgstr "चयन गरेको मेट्नुहोस्"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:168
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:164
 #, fuzzy, kde-format
 msgctxt "@info: search text bar"
 msgid "Search in Favorites..."
 msgstr "नयाँ छविका लागि स्क्यान गर्नुहोस्"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:354
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:350
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Confirm Item Deletion"
 msgstr "सङ्कलन:"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:355
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:351
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -50054,7 +50040,7 @@ msgid ""
 "and all nested items if any?"
 msgstr ""
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:670
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:656
 #, fuzzy, kde-format
 msgctxt "@title"
 msgid "Unnamed"
@@ -50235,7 +50221,7 @@ msgid "&Abort"
 msgstr "परित्याग गर्नुहोस्"
 
 #: core/utilities/advancedrename/advancedrenameprocessdialog.cpp:85
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:929
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:923
 #, fuzzy, kde-format
 msgid "Processing..."
 msgstr "फाइल गुण"
@@ -51179,12 +51165,12 @@ msgstr ""
 msgid "Random text and extensions aware numbering"
 msgstr ""
 
-#: core/utilities/extrasupport/addressbook/akonadiiface.cpp:68
+#: core/utilities/extrasupport/addressbook/akonadiiface.cpp:58
 #, fuzzy, kde-format
 msgid "Create Tag From Address Book"
 msgstr "ठेगानापुस्तकबाट ट्याग सिर्जना गर्नुहोस्"
 
-#: core/utilities/extrasupport/addressbook/akonadiiface.cpp:71
+#: core/utilities/extrasupport/addressbook/akonadiiface.cpp:61
 #, fuzzy, kde-format
 msgid "No address book entries found"
 msgstr "ठेगानापुस्तक प्रविष्टि फेला परेन"
@@ -52065,17 +52051,17 @@ msgctxt "a planet without data"
 msgid "Unknown Planet"
 msgstr "अज्ञात त्रुटि"
 
-#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:304
+#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:294
 #, kde-format
 msgid "&Lock"
 msgstr ""
 
-#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:313
+#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:303
 #, kde-format
 msgid "&Hide"
 msgstr ""
 
-#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:327
+#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:317
 #: core/utilities/geolocation/engine/plugins/render/mapscale/MapScaleFloatItem.cpp:456
 #, fuzzy, kde-format
 msgid "&Configure..."
@@ -55726,56 +55712,56 @@ msgctxt "@title: bookmark header"
 msgid "Comment"
 msgstr "टिप्पणी:"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:814
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:949
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:805
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:940
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Loading Bookmark"
 msgstr "क्यामेरा थप्नुहोस्..."
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:815
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:950
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:806
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:941
 #, kde-format
 msgid ""
 "Error when loading bookmarks on line %1, column %2:\n"
 "%3"
 msgstr ""
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:936
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:927
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Open File"
 msgstr "फोल्डर खोल्नुहोस्"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:938
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:965
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:929
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:956
 #, kde-format
 msgid "XBEL (*.xbel *.xml)"
 msgstr ""
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:957
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:948
 #, fuzzy, kde-format
 msgid "Imported %1"
 msgstr "आयात"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:963
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:954
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Save File"
 msgstr "चलचित्र फाइल"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:964
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:955
 #, fuzzy, kde-format
 msgid "%1 Bookmarks.xbel"
 msgstr "वस्तु चयन गरेको छैन"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:975
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:966
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Export Bookmark"
 msgstr "क्यामेरा थप्नुहोस्..."
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:975
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:966
 #, fuzzy, kde-format
 msgid "Error saving bookmarks"
 msgstr "क्यामेरा थप्नुहोस्..."
@@ -56000,69 +55986,69 @@ msgctxt "@title: track list header"
 msgid "#points"
 msgstr "%1 मुद्रण गर्नुहोस्"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:484
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:414
 #, fuzzy, kde-format
 msgid "Not available"
 msgstr "विकल्प उपलब्ध छैन"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:523
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:453
 #, kde-format
 msgid "DOP: %1"
 msgstr ""
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:528
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:458
 #, fuzzy, kde-format
 msgid "Fix: %1d"
 msgstr "साइज:"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:533
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:463
 #, fuzzy, kde-format
 msgid "#Sat: %1"
 msgstr "ट्याग: %1"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:586
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:516
 #, kde-format
 msgid "%1d"
 msgstr ""
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:610
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:540
 #, fuzzy, kde-format
 msgid "Modified"
 msgstr "परिमार्जन:"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:679
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:609
 #, fuzzy, kde-format
 msgid "Date and time"
 msgstr "टोन फिल्टर होइन"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:683
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:613
 #, fuzzy, kde-format
 msgid "Accuracy"
 msgstr "स्वत: परिक्रमण पृष्ठ"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:932
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:862
 #, fuzzy, kde-format
 msgid "Failed to open file."
 msgstr "\"%1\" छवि लोड गर्न असफल"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1004
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:934
 #, fuzzy, kde-format
 msgid "Failed to add GPS info to image."
 msgstr "\"%1\" छवि लोड गर्न असफल"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1016
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:946
 #, fuzzy, kde-format
 msgid "Failed to remove GPS info from image"
 msgstr "क्यामेराबाट %1 फाइल पुन: प्राप्त गर्न असफल"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1051
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1059
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1082
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:981
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:989
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1012
 #, fuzzy, kde-format
 msgid "Failed to save tags to file."
 msgstr "फाइल मुद्रण गर्न असफल: '%1'"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1094
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1024
 #, fuzzy, kde-format
 msgid "Unable to save changes to file"
 msgstr "फाइल मुद्रण गर्न असफल: '%1'"
@@ -57722,19 +57708,19 @@ msgid "Move to Trash without Confirmation"
 msgstr "यकिन नगरिकन रद्दीटोकरीमा सार्नुहोस्"
 
 #: core/utilities/imageeditor/main/imagewindow_setup.cpp:66
-#: core/utilities/survey/surveywindow_setup.cpp:173
+#: core/utilities/survey/surveywindow_setup.cpp:155
 #, fuzzy, kde-format
 msgid "Edit Titles"
 msgstr "छवि फाइल"
 
 #: core/utilities/imageeditor/main/imagewindow_setup.cpp:71
-#: core/utilities/survey/surveywindow_setup.cpp:178
+#: core/utilities/survey/surveywindow_setup.cpp:160
 #, fuzzy, kde-format
 msgid "Edit Comments"
 msgstr "रङ व्यवस्थापन..."
 
 #: core/utilities/imageeditor/main/imagewindow_setup.cpp:76
-#: core/utilities/survey/surveywindow_setup.cpp:183
+#: core/utilities/survey/surveywindow_setup.cpp:165
 #, fuzzy, kde-format
 msgid "Show Assigned Tags"
 msgstr "मानाङ्कन गरेको ट्याग"
@@ -59576,26 +59562,26 @@ msgstr ""
 
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:143
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:165
-#: core/utilities/survey/surveywindow_setup.cpp:114
+#: core/utilities/survey/surveywindow_setup.cpp:96
 #, fuzzy, kde-format
 msgid "Zoom to 100%"
 msgstr "जुम घटाउनुहोस्"
 
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:148
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:170
-#: core/utilities/survey/surveywindow_setup.cpp:119
+#: core/utilities/survey/surveywindow_setup.cpp:101
 #, kde-format
 msgid "Fit to &Window"
 msgstr ""
 
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:177
-#: core/utilities/survey/surveywindow_setup.cpp:126
+#: core/utilities/survey/surveywindow_setup.cpp:108
 #, fuzzy, kde-format
 msgid "Color-Managed View"
 msgstr "रङ सन्तुलित दृश्य"
 
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:207
-#: core/utilities/survey/surveywindow_setup.cpp:156
+#: core/utilities/survey/surveywindow_setup.cpp:138
 #, fuzzy, kde-format
 msgid "Previous Image"
 msgstr "छवि मुद्रण गर्नुहोस्..."
@@ -60120,43 +60106,43 @@ msgstr "साइज:"
 msgid "Finger-prints"
 msgstr "<b>थम्बनेल डाटाबेसको अद्यावधिक प्रक्रिया पूरा भयो</b>"
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:188
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:177
 #, fuzzy, kde-format
 msgid "Rebuild Fingerprint: %1\n"
 msgstr "सबै थम्बनेल पुन: निर्माण गर्नुहोस्..."
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:189
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:178
 #, fuzzy, kde-format
 #| msgid "Album \"%1\""
 msgid "Album: %1"
 msgstr "एल्बम \"%1\""
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:203
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:192
 #, fuzzy, kde-format
 msgid "Items scanned for fingerprint: %1"
 msgstr "खोजी:"
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:207
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:196
 #, fuzzy, kde-format
 msgid "Item scanned for fingerprint: %1"
 msgstr "खोजी:"
 
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:235
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:224
 #, fuzzy, kde-format
 msgid "Image Quality: %1\n"
 msgstr "छवि सम्पादक"
 
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:237
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:226
 #, fuzzy, kde-format
 msgid "Pick Label: %1"
 msgstr "पिक्सेल:"
 
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:252
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:241
 #, fuzzy, kde-format
 msgid "Items scanned for quality: %1"
 msgstr "खोजी:"
 
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:256
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:245
 #, fuzzy, kde-format
 msgid "Item scanned for quality: %1"
 msgstr "खोजी:"
@@ -60260,220 +60246,220 @@ msgstr "खोजी:"
 msgid "Generate Thumbnails"
 msgstr "थम्बनेल देखाउनुहोस्"
 
-#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:257
+#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:246
 #, fuzzy, kde-format
 msgid "Thumbnail: %1\n"
 msgstr "फाइल गुण"
 
-#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:272
+#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:261
 #, fuzzy, kde-format
 msgid "Items scanned for thumbnails: %1"
 msgstr "खोजी:"
 
-#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:276
+#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:265
 #, fuzzy, kde-format
 msgid "Item scanned for thumbnails: %1"
 msgstr "खोजी:"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:128
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:122
 #, kde-format
 msgid "Queues"
 msgstr ""
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:137
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:131
 #, fuzzy, kde-format
 msgid "Queue Settings"
 msgstr "साधारण सेटिङ"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:146
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:140
 #, kde-format
 msgid "Control Panel"
 msgstr ""
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:155
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:149
 #, fuzzy, kde-format
 msgid "Assigned Tools"
 msgstr "मानाङ्कन गरेको ट्याग"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:164
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:158
 #, fuzzy, kde-format
 msgid "Tool Settings"
 msgstr "स्थानिय सेटिङ"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:281
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:275
 #, kde-format
 msgid "Run"
 msgstr ""
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:288
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:282
 #, kde-format
 msgid "Run all"
 msgstr ""
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:300
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:294
 #, kde-format
 msgid "New Queue"
 msgstr ""
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:304
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:298
 #, fuzzy, kde-format
 msgid "Remove Queue"
 msgstr "ट्याग हटाउनुहोस्"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:310
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:304
 #, kde-format
 msgid "Save Workflow"
 msgstr ""
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:314
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:308
 #, fuzzy, kde-format
 msgid "Remove items"
 msgstr "ट्याग हटाउनुहोस्"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:320
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:314
 #, fuzzy, kde-format
 msgid "Remove processed items"
 msgstr "ट्याग हटाउनुहोस्"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:325
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:319
 #, fuzzy, kde-format
 msgid "Clear Queue"
 msgstr "मानक"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:336
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:330
 #, fuzzy, kde-format
 msgid "Move up"
 msgstr "बढि"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:340
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:334
 #, fuzzy, kde-format
 msgid "Move down"
 msgstr "बढि"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:344
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:338
 #, fuzzy, kde-format
 msgid "Remove tool"
 msgstr "ट्याग हटाउनुहोस्"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:435
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:429
 #, fuzzy, kde-format
 msgid "Current Queue: "
 msgstr "खोजी मेट्नुहोस्"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:441
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:475
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:435
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:469
 #, fuzzy, kde-format
 msgid "No items"
 msgstr "मिति छैन"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:458
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:492
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:452
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:486
 #, fuzzy, kde-format
 msgid "No tasks"
 msgstr "१६ बिट"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:464
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:498
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:458
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:492
 #, fuzzy, kde-format
 msgid "1 task"
 msgid_plural "%1 tasks"
 msgstr[0] "१६ बिट"
 msgstr[1] "१६ बिट"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:469
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:463
 #, fuzzy, kde-format
 msgctxt "#info: total number of items to process"
 msgid "Total: "
 msgstr "%1 (%2)"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:507
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:501
 #, fuzzy, kde-format
 #| msgid "Ready"
 msgctxt "batch queue manager is ready to use"
 msgid "Ready"
 msgstr "तयार"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:545
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:539
 #, fuzzy, kde-format
 msgctxt "@title:window"
 msgid "Processing Under Progress"
 msgstr "ठूलो थम्ब प्रक्रिया"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:546
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:540
 #, kde-format
 msgid "Batch Queue Manager is running. Do you want to cancel current job?"
 msgstr ""
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:645
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:639
 #, fuzzy, kde-format
 msgid "There is no queue to be run."
 msgstr "यो फोल्डरमा तस्विर छैन"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:649
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:643
 #, fuzzy, kde-format
 msgid "There is no item to process in the current queue (%1)."
 msgstr "यो फोल्डरमा तस्विर छैन"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:655
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:649
 #, kde-format
 msgid "Custom renaming rule is invalid for current queue (%1). Please fix it."
 msgstr ""
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:660
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:654
 #, kde-format
 msgid ""
 "Assigned batch tools list is empty for current queue (%1). Please assign "
 "tools."
 msgstr ""
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:692
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:686
 #, fuzzy, kde-format
 msgid "There are no items to process in the queues."
 msgstr "यो फोल्डरमा तस्विर छैन"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:864
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:874
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:858
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:868
 #, fuzzy, kde-format
 #| msgid "Processing small thumbs"
 msgctxt "@title:window"
 msgid "Processed Items Album Settings"
 msgstr "सानो थम्ब प्रक्रिया"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:865
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:859
 #, kde-format
 msgid ""
 "Album to host processed items from queue \"%1\" is not set. Please select "
 "one from Queue Settings panel."
 msgstr ""
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:875
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:869
 #, kde-format
 msgid ""
 "Album to host processed items from queue \"%1\" is not available or not "
 "writable. Please set another one from Queue Settings panel."
 msgstr ""
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:954
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:948
 #, fuzzy, kde-format
 msgid "Failed to process item..."
 msgstr "\"%1\" फाइल टगल लक गर्न असफल"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:967
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:961
 #, fuzzy, kde-format
 msgid "Process Cancelled..."
 msgstr "फाइल गुण"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:987
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:981
 #, kde-format
 msgid "Item \"%1\" from queue \"%2\": %3"
 msgstr ""
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:1016
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:1010
 #, fuzzy, kde-format
 msgid "Batch queue finished"
 msgstr "फोल्डर सूचीकरण समाप्त भयो..."
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:1020
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:1014
 #, fuzzy, kde-format
 msgid "All batch queues finished"
 msgstr "फोल्डर सूचीकरण समाप्त भयो..."
@@ -60969,7 +60955,7 @@ msgctxt "@option: default kind of search options combined"
 msgid "Any"
 msgstr "मेरो ट्याग"
 
-#: core/utilities/searchwindow/fields/searchfields_choice.cpp:110
+#: core/utilities/searchwindow/fields/searchfields_choice.cpp:92
 #, kde-format
 msgctxt "@label: search field choice combo-box description"
 msgid "Any of: %1"
@@ -62078,12 +62064,12 @@ msgstr ""
 msgid "Rename..."
 msgstr "पुन: नामकरण गर्नुहोस्..."
 
-#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:201
+#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:183
 #, fuzzy, kde-format
 msgid "(No Value Selected)"
 msgstr "वस्तु चयन गरेको छैन"
 
-#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:206
+#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:188
 #, fuzzy, kde-format
 msgid "No Rating assigned"
 msgstr "हालै मानाङ्कन गरेको ट्याग छैन"
@@ -62941,7 +62927,7 @@ msgstr ""
 msgid "Enter additional audio file extensions."
 msgstr "विस्तार भएको अडियो फाइल मात्र देखाउनुहोस्:"
 
-#: core/utilities/setup/camera/cameralist.cpp:288
+#: core/utilities/setup/camera/cameralist.cpp:275
 #, kde-format
 msgid ""
 "Failed to auto-detect camera; please make sure it is connected properly and "
@@ -63727,7 +63713,7 @@ msgid "Download Required Model Files"
 msgstr "%1 फाइल डाउनलोड गर्दैछ..."
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:60
-#: core/utilities/setup/misc/systemsettingswidget.cpp:156
+#: core/utilities/setup/misc/systemsettingswidget.cpp:138
 #, kde-format
 msgid "Open local directory used for the data files storage."
 msgstr ""
@@ -65558,14 +65544,14 @@ msgstr "सेटिङ..."
 msgid "Starting OpenCV OpenCL DNN test..."
 msgstr ""
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:217
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:206
 #, kde-format
 msgid ""
 "Test completed successfully! Your system can use GPU acceleration for the AI "
 "models."
 msgstr ""
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:221
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:210
 #, kde-format
 msgid ""
 "Test failed. Your system may not be able to use GPU acceleration for the AI "
@@ -65576,111 +65562,111 @@ msgid ""
 "digiKam run-time."
 msgstr ""
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:229
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:218
 #, fuzzy, kde-format
 msgctxt "@action:button start the AI GPU test"
 msgid "Close"
 msgstr "बन्द गर्नुहोस्"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:230
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:219
 #, kde-format
 msgctxt "@action:button start the AI GPU test"
 msgid "Close the test dialog"
 msgstr ""
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:257
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:246
 #, kde-format
 msgid "Checking for OpenCL GPU acceleration compatibility with AI models..."
 msgstr ""
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:263
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:252
 #, kde-format
 msgid "OpenCL is available on this system."
 msgstr ""
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:274
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:263
 #, fuzzy, kde-format
 msgid "OpenCL acceleration device is available."
 msgstr "विकल्प उपलब्ध छैन"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:276
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:265
 #, fuzzy, kde-format
 #| msgid "Link device"
 msgid "Using device: %1"
 msgstr "लिङ्क यन्त्र"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:280
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:269
 #, kde-format
 msgid "OpenCL acceleration device is not available."
 msgstr ""
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:285
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:274
 #, kde-format
 msgid "OpenCL is not available on this system."
 msgstr ""
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:290
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:279
 #, fuzzy, kde-format
 #| msgid "Loading image..."
 msgid "Loading DNN Model test image..."
 msgstr "छवि लोड हुँदैछ..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:299
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:288
 #, fuzzy, kde-format
 msgid "DNN model test image not found."
 msgstr "सङ्कलन"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:306
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:295
 #, fuzzy, kde-format
 msgid "Failed to load DNN model test image from %1"
 msgstr "फाइल मुद्रण गर्न असफल: '%1'"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:310
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:299
 #, fuzzy, kde-format
 msgid "Preparing the DNN Model image for processing..."
 msgstr "छवि सिर्जना मिति मुद्रण गर्नुहोस्"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:339
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:328
 #, fuzzy, kde-format
 msgid "Initializing face detection model..."
 msgstr "मुख्य दृश्य थालनी"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:346
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:335
 #, fuzzy, kde-format
 msgid "Running face detection..."
 msgstr "चयन"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:362
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:351
 #, fuzzy, kde-format
 msgid "Initializing feature extraction model..."
 msgstr "मुख्य दृश्य थालनी"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:369
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:358
 #, fuzzy, kde-format
 msgid "Preparing face for feature extraction..."
 msgstr "एल्बम सङ्कलन"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:382
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:371
 #, kde-format
 msgid "Extracting face features..."
 msgstr ""
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:388
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:377
 #, fuzzy, kde-format
 msgid "Failed to extract face features."
 msgstr "\"%1\" छवि लोड गर्न असफल"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:393
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:382
 #, fuzzy, kde-format
 msgid "All tests completed successfully!"
 msgstr "%1 फाइल डाउनलोड गर्दैछ..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:399
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:388
 #, fuzzy, kde-format
 msgid "OpenCV error: %1"
 msgstr "निर्यात"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:405
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:394
 #, fuzzy, kde-format
 #| msgid "Profile Error"
 msgid "Error: %1"
@@ -66009,7 +65995,7 @@ msgctxt "@title:tab"
 msgid "Grouping"
 msgstr "समूहबद्ध गर्नुहोस्"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:110
+#: core/utilities/setup/misc/systemsettingswidget.cpp:99
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -66019,103 +66005,93 @@ msgid ""
 "information.</i></font>"
 msgstr ""
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:129
-#, kde-format
-msgid "Use high DPI scaling from the screen factor"
-msgstr ""
-
-#: core/utilities/setup/misc/systemsettingswidget.cpp:130
-#, kde-format
-msgid "Use pixmaps with high DPI resolution"
-msgstr ""
-
-#: core/utilities/setup/misc/systemsettingswidget.cpp:134
+#: core/utilities/setup/misc/systemsettingswidget.cpp:116
 #, kde-format
 msgid "Use software OpenGL for rendering"
 msgstr ""
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:138
+#: core/utilities/setup/misc/systemsettingswidget.cpp:120
 #, kde-format
 msgid "Use OpenCL hardware acceleration"
 msgstr ""
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:139
+#: core/utilities/setup/misc/systemsettingswidget.cpp:121
 #, kde-format
 msgid ""
 "This option is still experimental and requires that certain environment "
 "variables are set manually. See the online documentation for details."
 msgstr ""
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:142
+#: core/utilities/setup/misc/systemsettingswidget.cpp:124
 #, kde-format
 msgid "Use OpenCL acceleration for AI models"
 msgstr ""
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:143
+#: core/utilities/setup/misc/systemsettingswidget.cpp:125
 #, kde-format
 msgid ""
 "This option is still experimental and may lead to crashes if the proper "
 "drivers are not installed. See the online documentation for details."
 msgstr ""
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:147
+#: core/utilities/setup/misc/systemsettingswidget.cpp:129
 #, kde-format
 msgid "Test GPU AI compatibility"
 msgstr ""
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:150
+#: core/utilities/setup/misc/systemsettingswidget.cpp:132
 #, fuzzy, kde-format
 #| msgid "Downloading file %1..."
 msgid "Download required binary data:"
 msgstr "%1 फाइल डाउनलोड गर्दैछ..."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:151
+#: core/utilities/setup/misc/systemsettingswidget.cpp:133
 #, fuzzy, kde-format
 msgid "Open Download Dialog..."
 msgstr "डाउनलोड संवाद खोल्दा"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:154
+#: core/utilities/setup/misc/systemsettingswidget.cpp:136
 #, fuzzy, kde-format
 msgid "Open Local Storage..."
 msgstr "टिप्पणी:"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:162
+#: core/utilities/setup/misc/systemsettingswidget.cpp:142
 #, kde-format
 msgid "Use video hardware acceleration"
 msgstr ""
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:163
+#: core/utilities/setup/misc/systemsettingswidget.cpp:143
 #, kde-format
 msgid "Use video textures conversion"
 msgstr ""
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:165
+#: core/utilities/setup/misc/systemsettingswidget.cpp:145
 #, kde-format
 msgid "Decoding backend to render media:"
 msgstr ""
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:168
+#: core/utilities/setup/misc/systemsettingswidget.cpp:148
 #, fuzzy, kde-format
 #| msgid "Use default profile"
 msgid "FFmpeg (Default)"
 msgstr "पूर्वनिर्धारित प्रोफाइल प्रयोग गर्नुहोस्"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:172
+#: core/utilities/setup/misc/systemsettingswidget.cpp:152
 #, kde-format
 msgid "GStreamer (System)"
 msgstr ""
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:176
+#: core/utilities/setup/misc/systemsettingswidget.cpp:156
 #, kde-format
 msgid "WMF (System)"
 msgstr ""
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:180
+#: core/utilities/setup/misc/systemsettingswidget.cpp:160
 #, kde-format
 msgid "AVFoundation (System)"
 msgstr ""
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:188
+#: core/utilities/setup/misc/systemsettingswidget.cpp:166
 #, kde-format
 msgid "Enable internal debug logging"
 msgstr ""
@@ -66831,12 +66807,12 @@ msgstr ""
 msgid "Import Items"
 msgstr "छवि क्रमबद्ध गर्नुहोस्"
 
-#: core/utilities/survey/surveywindow.cpp:51
+#: core/utilities/survey/surveywindow.cpp:45
 #, kde-format
 msgid "Survey"
 msgstr ""
 
-#: core/utilities/survey/surveywindow_setup.cpp:161
+#: core/utilities/survey/surveywindow_setup.cpp:143
 #, fuzzy, kde-format
 msgid "Play/Pause Video"
 msgstr "फ्ल्यास:"

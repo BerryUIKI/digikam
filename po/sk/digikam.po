@@ -24,7 +24,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:42+0000\n"
+"POT-Creation-Date: 2026-09-28 00:42+0000\n"
 "PO-Revision-Date: 2026-09-14 20:10+0200\n"
 "Last-Translator: Roman Paholík <wizzardsk@gmail.com>\n"
 "Language-Team: Slovak <kde-i18n-doc@kde.org>\n"
@@ -1357,12 +1357,12 @@ msgstr "<i>Binárne dáta</i>"
 msgid "Initializing..."
 msgstr "Inicializuje sa..."
 
-#: core/app/main/digikamapp.cpp:158 core/showfoto/main/showfoto.cpp:110
+#: core/app/main/digikamapp.cpp:158 core/showfoto/main/showfoto.cpp:106
 #, kde-format
 msgid "Load Plugins..."
 msgstr "Načítať pluginy..."
 
-#: core/app/main/digikamapp.cpp:182 core/showfoto/main/showfoto.cpp:92
+#: core/app/main/digikamapp.cpp:182 core/showfoto/main/showfoto.cpp:88
 #, kde-format
 msgid "Checking ICC repository..."
 msgstr "Kontroluje sa repozitár ICC..."
@@ -1597,7 +1597,7 @@ msgstr "Inicializuje sa hlavné okno..."
 #: core/utilities/imageeditor/editor/editorwindow.cpp:1451
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:408
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:431
-#: core/utilities/survey/surveywindow_setup.cpp:272
+#: core/utilities/survey/surveywindow_setup.cpp:254
 #, kde-format
 msgctxt "@label"
 msgid "Loading:"
@@ -2730,13 +2730,13 @@ msgstr "Hlavný panel nástrojov"
 msgid "digiKam"
 msgstr "digiKam"
 
-#: core/app/main/main.cpp:225 core/showfoto/main/main.cpp:225
+#: core/app/main/main.cpp:225 core/showfoto/main/main.cpp:201
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
 msgstr "Michal Gašpar,Jozef Říha"
 
-#: core/app/main/main.cpp:226 core/showfoto/main/main.cpp:226
+#: core/app/main/main.cpp:226 core/showfoto/main/main.cpp:202
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -3129,7 +3129,7 @@ msgstr "Album bez štítkov"
 #: core/libs/database/utils/widgets/dbstatdlg.cpp:70
 #: core/libs/properties/itempropertiestab.cpp:500
 #: core/libs/tags/widgets/tagfolderview.cpp:102
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:689
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:619
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:75
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:83
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:96
@@ -3242,8 +3242,8 @@ msgid "no item"
 msgstr "žiadna položka"
 
 #: core/app/views/sidebar/timelinesidebarwidget.cpp:413
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:447
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:481
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:441
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:475
 #, kde-format
 msgid "1 item"
 msgid_plural "%1 items"
@@ -4253,7 +4253,7 @@ msgstr "Vlastnosti súboru"
 #: core/app/views/tableview/tableview_column_file.cpp:81
 #: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:63
 #: core/utilities/geolocation/engine/plugins/render/overviewmap/OverviewMapConfigWidget.ui:183
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:678
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:608
 #, kde-format
 msgid "Filename"
 msgstr "Názov súboru"
@@ -4319,7 +4319,7 @@ msgstr "Súradnice"
 #: core/app/views/tableview/tableview_column_geo.cpp:86
 #: core/app/views/tableview/tableview_column_geo.cpp:107
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:111
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:682
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:612
 #, kde-format
 msgid "Altitude"
 msgstr "Nadmorská výška"
@@ -4577,7 +4577,7 @@ msgstr "Jednotka"
 #: core/dplugins/generic/webservices/imgur/imgurimageslist.cpp:53
 #: core/dplugins/generic/webservices/ipfs/ipfsimageslist.cpp:45
 #: core/libs/dtrash/dtrashitemmodel.cpp:249
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:677
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:607
 #, kde-format
 msgid "Thumbnail"
 msgstr "Miniatúra"
@@ -11889,31 +11889,31 @@ msgid "Edit Geolocation"
 msgstr "Upraviť geolokáciu"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:105
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:680
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:610
 #, kde-format
 msgid "Latitude"
 msgstr "Zemepisná šírka"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:109
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:681
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:611
 #, kde-format
 msgid "Longitude"
 msgstr "Zemepisná dĺžka"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:117
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:687
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:617
 #, kde-format
 msgid "Speed"
 msgstr "Rýchlosť"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:123
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:686
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:616
 #, kde-format
 msgid "# satellites"
 msgstr "Počet satelitov"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:129
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:685
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:615
 #, kde-format
 msgid "Fix type"
 msgstr "Typ fixu"
@@ -11929,7 +11929,7 @@ msgid "3-d"
 msgstr "3-d"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:135
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:684
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:614
 #, kde-format
 msgid "DOP"
 msgstr "DOP"
@@ -16232,7 +16232,7 @@ msgstr "Aktualizovaný časový údaj"
 #: core/dplugins/generic/metadata/timeadjust/timeadjustlist.cpp:40
 #: core/dplugins/generic/tools/dngconverter/dngconverterlist.cpp:40
 #: core/dplugins/generic/tools/ocrtextconverter/textconverterlist.cpp:92
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:688
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:618
 #, kde-format
 msgid "Status"
 msgstr "Stav"
@@ -21694,7 +21694,7 @@ msgstr "Prehrať"
 #. i18n: ectx: property (text), widget (QPushButton, m_stopButton)
 #: core/dplugins/generic/view/presentation/audio/presentationaudiowidget.ui:36
 #: core/dplugins/generic/view/presentation/widgets/presentationctrlwidget.ui:39
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:294
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:288
 #, kde-format
 msgid "Stop"
 msgstr "Zastaviť"
@@ -25040,7 +25040,7 @@ msgstr "Povoliť opravu chromatickej aberácie"
 
 #: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1074
 #: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1114
-#: core/utilities/geolocation/engine/core/MarbleInputHandler.cpp:773
+#: core/utilities/geolocation/engine/core/MarbleInputHandler.cpp:735
 #: core/utilities/geolocation/engine/core/MarbleWidget.cpp:703
 #, kde-format
 msgid "not available"
@@ -26913,10 +26913,10 @@ msgstr "Automatické otáčanie: %1\n"
 #: core/libs/tags/autoassignment/autotagsengine.cpp:232
 #: core/utilities/maintenance/tools/duplicates/duplicatesfinder.cpp:189
 #: core/utilities/maintenance/tools/facesmanagement/facesengine.cpp:490
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:236
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:225
 #: core/utilities/maintenance/tools/metaremover/metadataremover.cpp:242
 #: core/utilities/maintenance/tools/metasync/metadatasynchronizer.cpp:223
-#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:258
+#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:247
 #, kde-format
 msgid "Album: %1\n"
 msgstr "Album „%1“\n"
@@ -32149,7 +32149,7 @@ msgid "Remove Black Frame"
 msgstr "Odstrániť čierne okraje"
 
 #: core/libs/dimg/filters/hotpixels/blackframelistview.cpp:260
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:348
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:342
 #, kde-format
 msgid "Clear List"
 msgstr "Vyčistiť zoznam"
@@ -39765,8 +39765,8 @@ msgid "Light Table"
 msgstr "Svetelná tabuľa"
 
 #: core/libs/settings/applicationsettings_miscs.cpp:453
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:50
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:197
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:44
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:191
 #, kde-format
 msgid "Batch Queue Manager"
 msgstr "Správca dávkového spracovania"
@@ -43511,7 +43511,7 @@ msgid "Mod.: %1"
 msgstr "Zmena: %1"
 
 #: core/libs/widgets/itemview/itemviewdelegate.cpp:422
-#: core/showfoto/main/showfoto.cpp:267
+#: core/showfoto/main/showfoto.cpp:263
 #: core/showfoto/thumbbar/showfotoitemviewdelegate.cpp:316
 #: core/utilities/import/items/itemviewimportdelegate.cpp:367
 #, kde-format
@@ -49907,7 +49907,7 @@ msgid "Add Bookmark"
 msgstr "Pridať záložku"
 
 #: core/showfoto/folderview/showfotofolderviewbookmarks.cpp:91
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:97
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:93
 #, kde-format
 msgctxt "@info"
 msgid "Add new bookmark to the list"
@@ -50003,24 +50003,24 @@ msgctxt "@title: file system tree"
 msgid "Folders"
 msgstr "Priečinky"
 
-#: core/showfoto/main/main.cpp:216
+#: core/showfoto/main/main.cpp:192
 #, kde-format
 msgctxt "@title"
 msgid "Showfoto"
 msgstr "Showfoto"
 
-#: core/showfoto/main/main.cpp:234
+#: core/showfoto/main/main.cpp:210
 #, kde-format
 msgctxt "command line option"
 msgid "File(s) or folder(s) to open"
 msgstr "Súbor(y) alebo priečinok(ky) na otvorenie"
 
-#: core/showfoto/main/showfoto.cpp:101
+#: core/showfoto/main/showfoto.cpp:97
 #, kde-format
 msgid "Loading themes..."
 msgstr "Načítam motívy..."
 
-#: core/showfoto/main/showfoto.cpp:226
+#: core/showfoto/main/showfoto.cpp:222
 #, kde-format
 msgid ""
 "<p>The ICC profile path seems to be invalid.</p><p>If you want to set it "
@@ -50031,13 +50031,13 @@ msgstr ""
 "nastaviť, vyberte „Áno“, inak vyberte „Nie“. V tom prípade bude, „Správa "
 "farieb“ vypnutá až kým tento problém nevyriešite</p>"
 
-#: core/showfoto/main/showfoto.cpp:266
+#: core/showfoto/main/showfoto.cpp:262
 #, kde-format
 msgctxt "unknown image dimensions"
 msgid "Unknown"
 msgstr "Neznáme"
 
-#: core/showfoto/main/showfoto.cpp:291
+#: core/showfoto/main/showfoto.cpp:287
 #: core/utilities/imageeditor/main/imagewindow.cpp:498
 #, kde-format
 msgctxt "<Image file name> (<Image number> of <Images in album>)"
@@ -50048,24 +50048,6 @@ msgstr "%1 (%2 z %3)"
 #, kde-format
 msgid "Delete File"
 msgstr "Odstráňiť súbor"
-
-#: core/showfoto/main/showfoto_config.cpp:196
-#, kde-format
-msgid ""
-"You have chosen a bright color scheme. We switch to a dark icon theme. The "
-"icon theme is available after a restart of digiKam."
-msgstr ""
-"Vybrali ste si svetlú farebnú schému. Prepneme na tmavú tému pre ikony. Téma "
-"pre ikony je k dispozícii po reštarte programu digiKam."
-
-#: core/showfoto/main/showfoto_config.cpp:204
-#, kde-format
-msgid ""
-"You have chosen a dark color scheme. We switch to a bright icon theme. The "
-"icon theme is available after a restart of digiKam."
-msgstr ""
-"Vybrali ste si tmavú farebnú schému. Prepneme na svetlú tému pre ikony. Téma "
-"pre ikony je k dispozícii po reštarte programu digiKam."
 
 #: core/showfoto/main/showfoto_iofiles.cpp:78
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2302
@@ -51246,67 +51228,67 @@ msgid "You can add or remove favorite stacks here."
 msgstr "Tu môžete pridať alebo odstrániť obľúbené zásobníky."
 
 #: core/showfoto/stackview/showfotostackviewfavoritelist.cpp:117
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:87
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:83
 #, kde-format
 msgctxt "@title"
 msgid "Favorites"
 msgstr "Obľúbené"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:96
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:92
 #, kde-format
 msgctxt "@action"
 msgid "Add Favorite"
 msgstr "Pridať medzi obľúbené"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:114
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:110
 #, kde-format
 msgctxt "@action"
 msgid "Add Sub-Folder"
 msgstr "Pridať podpriečinok"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:115
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:111
 #, kde-format
 msgctxt "@info"
 msgid "Add new sub-folder to the list"
 msgstr "Pridať nový podpriečinok do zoznamu"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:132
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:128
 #, kde-format
 msgctxt "@action"
 msgid "Delete Item"
 msgstr "Vymazať položku"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:133
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:129
 #, kde-format
 msgctxt "@info"
 msgid "Remove selected item from the list"
 msgstr "Odstrániť vybranú položku zo zoznamu"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:150
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:146
 #, kde-format
 msgctxt "@action"
 msgid "Edit Item"
 msgstr "Upraviť položku"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:151
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:147
 #, kde-format
 msgctxt "@info"
 msgid "Edit current item from the list"
 msgstr "Upraviť aktuálnu položku zo zoznamu"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:168
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:164
 #, kde-format
 msgctxt "@info: search text bar"
 msgid "Search in Favorites..."
 msgstr "Hľadať nové obrázky"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:354
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:350
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Item Deletion"
 msgstr "Potvrdiť odstránenie položky"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:355
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:351
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -51316,7 +51298,7 @@ msgstr ""
 "Are you sure you want to remove the item \"%1\"\n"
 "and all nested items if any?"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:670
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:656
 #, kde-format
 msgctxt "@title"
 msgid "Unnamed"
@@ -51498,7 +51480,7 @@ msgid "&Abort"
 msgstr "&Prerušiť"
 
 #: core/utilities/advancedrename/advancedrenameprocessdialog.cpp:85
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:929
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:923
 #, kde-format
 msgid "Processing..."
 msgstr "Prebieha spracovanie..."
@@ -52479,12 +52461,12 @@ msgstr "Číslovanie s ohľadom na počítadlo súborov a prípony"
 msgid "Random text and extensions aware numbering"
 msgstr "Číslovanie s ohľadom na náhodný text a prípony"
 
-#: core/utilities/extrasupport/addressbook/akonadiiface.cpp:68
+#: core/utilities/extrasupport/addressbook/akonadiiface.cpp:58
 #, kde-format
 msgid "Create Tag From Address Book"
 msgstr "Vytvoriť štítok z adresára"
 
-#: core/utilities/extrasupport/addressbook/akonadiiface.cpp:71
+#: core/utilities/extrasupport/addressbook/akonadiiface.cpp:61
 #, kde-format
 msgid "No address book entries found"
 msgstr "Neboli nájdené žiadne záznamy adresára"
@@ -53462,17 +53444,17 @@ msgctxt "a planet without data"
 msgid "Unknown Planet"
 msgstr "Neznámy filter"
 
-#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:304
+#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:294
 #, kde-format
 msgid "&Lock"
 msgstr "&Zamknúť"
 
-#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:313
+#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:303
 #, kde-format
 msgid "&Hide"
 msgstr "&Skryť"
 
-#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:327
+#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:317
 #: core/utilities/geolocation/engine/plugins/render/mapscale/MapScaleFloatItem.cpp:456
 #, kde-format
 msgid "&Configure..."
@@ -57173,15 +57155,15 @@ msgctxt "@title: bookmark header"
 msgid "Comment"
 msgstr "Komentár"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:814
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:949
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:805
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:940
 #, kde-format
 msgctxt "@title:window"
 msgid "Loading Bookmark"
 msgstr "Načítavanie záložky"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:815
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:950
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:806
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:941
 #, kde-format
 msgid ""
 "Error when loading bookmarks on line %1, column %2:\n"
@@ -57190,41 +57172,41 @@ msgstr ""
 "Chyba pri čítaní záložiek na riadku %1, stĺpec %2:\n"
 "%3"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:936
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:927
 #, kde-format
 msgctxt "@title:window"
 msgid "Open File"
 msgstr "Otvoriť súbor"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:938
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:965
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:929
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:956
 #, kde-format
 msgid "XBEL (*.xbel *.xml)"
 msgstr "XBEL (*.xbel *.xml)"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:957
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:948
 #, kde-format
 msgid "Imported %1"
 msgstr "%1 importované"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:963
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:954
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"
 msgstr "Uložiť súbor"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:964
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:955
 #, kde-format
 msgid "%1 Bookmarks.xbel"
 msgstr "%1 Bookmarks.xbel"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:975
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:966
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Bookmark"
 msgstr "Exportovať záložku"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:975
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:966
 #, kde-format
 msgid "Error saving bookmarks"
 msgstr "chyba pri ukladaní záložiek"
@@ -57480,69 +57462,69 @@ msgctxt "@title: track list header"
 msgid "#points"
 msgstr "Počet bodov"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:484
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:414
 #, kde-format
 msgid "Not available"
 msgstr "Nedostupné"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:523
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:453
 #, kde-format
 msgid "DOP: %1"
 msgstr "DOP: %1"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:528
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:458
 #, kde-format
 msgid "Fix: %1d"
 msgstr "Oprava: %1d"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:533
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:463
 #, kde-format
 msgid "#Sat: %1"
 msgstr "#Sat: %1"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:586
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:516
 #, kde-format
 msgid "%1d"
 msgstr "%1d"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:610
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:540
 #, kde-format
 msgid "Modified"
 msgstr "Zmenené"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:679
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:609
 #, kde-format
 msgid "Date and time"
 msgstr "Dátum a čas"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:683
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:613
 #, kde-format
 msgid "Accuracy"
 msgstr "Presnosť"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:932
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:862
 #, kde-format
 msgid "Failed to open file."
 msgstr "Nepodarilo sa otvoriť súbor."
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1004
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:934
 #, kde-format
 msgid "Failed to add GPS info to image."
 msgstr "Ukladanie GPS informácií do obrázka skončilo s chybou."
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1016
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:946
 #, kde-format
 msgid "Failed to remove GPS info from image"
 msgstr "Odstraňovanie GPS informácií z obrázka skončilo s chybou."
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1051
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1059
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1082
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:981
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:989
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1012
 #, kde-format
 msgid "Failed to save tags to file."
 msgstr "Nepodarilo sa uložiť značky do súboru."
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1094
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1024
 #, kde-format
 msgid "Unable to save changes to file"
 msgstr "Nie je možné uložiť zmeny do súboru"
@@ -59186,19 +59168,19 @@ msgid "Move to Trash without Confirmation"
 msgstr "Presunúť do koša bez potvrdzovania"
 
 #: core/utilities/imageeditor/main/imagewindow_setup.cpp:66
-#: core/utilities/survey/surveywindow_setup.cpp:173
+#: core/utilities/survey/surveywindow_setup.cpp:155
 #, kde-format
 msgid "Edit Titles"
 msgstr "Upraviť názvy"
 
 #: core/utilities/imageeditor/main/imagewindow_setup.cpp:71
-#: core/utilities/survey/surveywindow_setup.cpp:178
+#: core/utilities/survey/surveywindow_setup.cpp:160
 #, kde-format
 msgid "Edit Comments"
 msgstr "Upraviť komentáre"
 
 #: core/utilities/imageeditor/main/imagewindow_setup.cpp:76
-#: core/utilities/survey/surveywindow_setup.cpp:183
+#: core/utilities/survey/surveywindow_setup.cpp:165
 #, kde-format
 msgid "Show Assigned Tags"
 msgstr "Zobraziť priradené štítky"
@@ -61035,26 +61017,26 @@ msgstr "Pri zatvorení Svetelnej tabule z nej odstrániť všetky obrázky"
 
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:143
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:165
-#: core/utilities/survey/surveywindow_setup.cpp:114
+#: core/utilities/survey/surveywindow_setup.cpp:96
 #, kde-format
 msgid "Zoom to 100%"
 msgstr "Pôvodná veľkosť"
 
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:148
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:170
-#: core/utilities/survey/surveywindow_setup.cpp:119
+#: core/utilities/survey/surveywindow_setup.cpp:101
 #, kde-format
 msgid "Fit to &Window"
 msgstr "Prispôsobiť veľkosti &okna"
 
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:177
-#: core/utilities/survey/surveywindow_setup.cpp:126
+#: core/utilities/survey/surveywindow_setup.cpp:108
 #, kde-format
 msgid "Color-Managed View"
 msgstr "Pohľad so správou farieb"
 
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:207
-#: core/utilities/survey/surveywindow_setup.cpp:156
+#: core/utilities/survey/surveywindow_setup.cpp:138
 #, kde-format
 msgid "Previous Image"
 msgstr "Predchádzajúci obrázok"
@@ -61600,42 +61582,42 @@ msgstr "Rozpoznané: %1"
 msgid "Finger-prints"
 msgstr "Odtlačky"
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:188
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:177
 #, kde-format
 msgid "Rebuild Fingerprint: %1\n"
 msgstr "Obnovenie odtlačku: %1\n"
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:189
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:178
 #, kde-format
 msgid "Album: %1"
 msgstr "Album: %1"
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:203
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:192
 #, kde-format
 msgid "Items scanned for fingerprint: %1"
 msgstr "Naskenované položky na odtlačok: %1"
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:207
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:196
 #, kde-format
 msgid "Item scanned for fingerprint: %1"
 msgstr "Naskenovaná položka na odtlačok: %1"
 
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:235
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:224
 #, kde-format
 msgid "Image Quality: %1\n"
 msgstr "Kvalita obrázka: %1\n"
 
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:237
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:226
 #, kde-format
 msgid "Pick Label: %1"
 msgstr "Menovka výberu: %1"
 
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:252
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:241
 #, kde-format
 msgid "Items scanned for quality: %1"
 msgstr "Naskenované položky na kvalitu: %1"
 
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:256
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:245
 #, kde-format
 msgid "Item scanned for quality: %1"
 msgstr "Naskenovaná položka na kvalitu: %1"
@@ -61733,120 +61715,120 @@ msgstr "Naskenovaná položka na aktualizáciu databázy metadátami: %1"
 msgid "Generate Thumbnails"
 msgstr "Generovať miniatúry"
 
-#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:257
+#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:246
 #, kde-format
 msgid "Thumbnail: %1\n"
 msgstr "Miniatúra: %1\n"
 
-#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:272
+#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:261
 #, kde-format
 msgid "Items scanned for thumbnails: %1"
 msgstr "Naskenované položky na miniatúry: %1"
 
-#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:276
+#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:265
 #, kde-format
 msgid "Item scanned for thumbnails: %1"
 msgstr "Naskenovaná položka na miniatúry: %1"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:128
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:122
 #, kde-format
 msgid "Queues"
 msgstr "Rady"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:137
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:131
 #, kde-format
 msgid "Queue Settings"
 msgstr "Nastavenia radu"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:146
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:140
 #, kde-format
 msgid "Control Panel"
 msgstr "Ovládací panel"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:155
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:149
 #, kde-format
 msgid "Assigned Tools"
 msgstr "Priradené nástroje"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:164
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:158
 #, kde-format
 msgid "Tool Settings"
 msgstr "Nastavenia nástrojov"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:281
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:275
 #, kde-format
 msgid "Run"
 msgstr "Spustiť"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:288
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:282
 #, kde-format
 msgid "Run all"
 msgstr "Spustiť všetko"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:300
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:294
 #, kde-format
 msgid "New Queue"
 msgstr "Nový rad"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:304
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:298
 #, kde-format
 msgid "Remove Queue"
 msgstr "Odstrániť rad"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:310
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:304
 #, kde-format
 msgid "Save Workflow"
 msgstr "Uložiť proces"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:314
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:308
 #, kde-format
 msgid "Remove items"
 msgstr "Odstrániť položky"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:320
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:314
 #, kde-format
 msgid "Remove processed items"
 msgstr "Odstrániť spracované položky"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:325
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:319
 #, kde-format
 msgid "Clear Queue"
 msgstr "Vyčistiť rad"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:336
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:330
 #, kde-format
 msgid "Move up"
 msgstr "Posunúť nahor"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:340
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:334
 #, kde-format
 msgid "Move down"
 msgstr "Posunúť nadol"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:344
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:338
 #, kde-format
 msgid "Remove tool"
 msgstr "Odstrániť nástroj"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:435
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:429
 #, kde-format
 msgid "Current Queue: "
 msgstr "Aktuálny rad: "
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:441
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:475
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:435
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:469
 #, kde-format
 msgid "No items"
 msgstr "Žiadne položky"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:458
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:492
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:452
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:486
 #, kde-format
 msgid "No tasks"
 msgstr "Žiadne úlohy"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:464
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:498
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:458
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:492
 #, kde-format
 msgid "1 task"
 msgid_plural "%1 tasks"
@@ -61854,48 +61836,48 @@ msgstr[0] "1 úloha"
 msgstr[1] "%1 úlohy"
 msgstr[2] "%1 úloh"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:469
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:463
 #, kde-format
 msgctxt "#info: total number of items to process"
 msgid "Total: "
 msgstr "Celkom: "
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:507
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:501
 #, kde-format
 msgctxt "batch queue manager is ready to use"
 msgid "Ready"
 msgstr "Pripravený"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:545
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:539
 #, kde-format
 msgctxt "@title:window"
 msgid "Processing Under Progress"
 msgstr "Prebieha spracovanie"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:546
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:540
 #, kde-format
 msgid "Batch Queue Manager is running. Do you want to cancel current job?"
 msgstr ""
 "Správca dávkového spracovania je spustený. Želáte si zrušiť aktuálnu úlohu?"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:645
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:639
 #, kde-format
 msgid "There is no queue to be run."
 msgstr "Nie je žiadny rad na spustenie."
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:649
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:643
 #, kde-format
 msgid "There is no item to process in the current queue (%1)."
 msgstr "V aktuálnom fronte (%1) nie je žiadna položka na spracovanie."
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:655
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:649
 #, kde-format
 msgid "Custom renaming rule is invalid for current queue (%1). Please fix it."
 msgstr ""
 "Vlastné pravidlo premenovania je neplatné pre aktuálny front (%1). Opravte "
 "ho."
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:660
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:654
 #, kde-format
 msgid ""
 "Assigned batch tools list is empty for current queue (%1). Please assign "
@@ -61904,19 +61886,19 @@ msgstr ""
 "Zoznam priradených dávkových nástrojov je pre aktuálny front (%1) prázdny. "
 "Priraďte nástroje."
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:692
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:686
 #, kde-format
 msgid "There are no items to process in the queues."
 msgstr "V tomto fronte sa nenachádzajú žiadne položky na spracovanie."
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:864
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:874
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:858
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:868
 #, kde-format
 msgctxt "@title:window"
 msgid "Processed Items Album Settings"
 msgstr "Nastavenie albumu spracovaných položiek"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:865
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:859
 #, kde-format
 msgid ""
 "Album to host processed items from queue \"%1\" is not set. Please select "
@@ -61925,7 +61907,7 @@ msgstr ""
 "Album, ktorý má obsahovať spracované položky z frontu „%1“ nie je nastavený. "
 "Prosím, vyberte ho v paneli Nastavenie frontu."
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:875
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:869
 #, kde-format
 msgid ""
 "Album to host processed items from queue \"%1\" is not available or not "
@@ -61935,27 +61917,27 @@ msgstr ""
 "alebo nie je možný zápis doňho. Prosím, vyberte iný v paneli Nastavenie "
 "frontu."
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:954
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:948
 #, kde-format
 msgid "Failed to process item..."
 msgstr "Nepodarilo sa spracovať položku..."
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:967
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:961
 #, kde-format
 msgid "Process Cancelled..."
 msgstr "Proces zrušený..."
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:987
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:981
 #, kde-format
 msgid "Item \"%1\" from queue \"%2\": %3"
 msgstr "Položka „%1\" z frontu „%2\": %3"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:1016
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:1010
 #, kde-format
 msgid "Batch queue finished"
 msgstr "Front dávky je dokončený..."
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:1020
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:1014
 #, kde-format
 msgid "All batch queues finished"
 msgstr "Front dávky je dokončený..."
@@ -62451,7 +62433,7 @@ msgctxt "@option: default kind of search options combined"
 msgid "Any"
 msgstr "Akýkoľvek"
 
-#: core/utilities/searchwindow/fields/searchfields_choice.cpp:110
+#: core/utilities/searchwindow/fields/searchfields_choice.cpp:92
 #, kde-format
 msgctxt "@label: search field choice combo-box description"
 msgid "Any of: %1"
@@ -63558,12 +63540,12 @@ msgstr "Niektoré výrazy sa nepodarilo priradiť a boli preskočené: %1"
 msgid "Rename..."
 msgstr "Premenovať..."
 
-#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:201
+#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:183
 #, kde-format
 msgid "(No Value Selected)"
 msgstr "(žiadna hodnota)"
 
-#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:206
+#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:188
 #, kde-format
 msgid "No Rating assigned"
 msgstr "Nebolo priradené hodnotenie"
@@ -64512,7 +64494,7 @@ msgstr ""
 msgid "Enter additional audio file extensions."
 msgstr "Zadajte ďalšie prípony zvukových súborov."
 
-#: core/utilities/setup/camera/cameralist.cpp:288
+#: core/utilities/setup/camera/cameralist.cpp:275
 #, kde-format
 msgid ""
 "Failed to auto-detect camera; please make sure it is connected properly and "
@@ -65337,7 +65319,7 @@ msgid "Download Required Model Files"
 msgstr "Stiahnuť potrebné súbory"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:60
-#: core/utilities/setup/misc/systemsettingswidget.cpp:156
+#: core/utilities/setup/misc/systemsettingswidget.cpp:138
 #, kde-format
 msgid "Open local directory used for the data files storage."
 msgstr "Otvoriť lokálny priečinok používaný na ukladanie dátových súborov."
@@ -67438,7 +67420,7 @@ msgstr "Nastavenia..."
 msgid "Starting OpenCV OpenCL DNN test..."
 msgstr "Spúšťanie testu OpenCV OpenCL DNN..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:217
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:206
 #, kde-format
 msgid ""
 "Test completed successfully! Your system can use GPU acceleration for the AI "
@@ -67447,7 +67429,7 @@ msgstr ""
 "Test bol úspešne dokončený! Váš systém môže používať akceleráciu GPU pre "
 "modely AI."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:221
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:210
 #, kde-format
 msgid ""
 "Test failed. Your system may not be able to use GPU acceleration for the AI "
@@ -67464,109 +67446,109 @@ msgstr ""
 "online documentation and configure you device to be detectable and usable at "
 "digiKam run-time."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:229
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:218
 #, kde-format
 msgctxt "@action:button start the AI GPU test"
 msgid "Close"
 msgstr "Zavrieť"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:230
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:219
 #, kde-format
 msgctxt "@action:button start the AI GPU test"
 msgid "Close the test dialog"
 msgstr "Zavrieť dialóg testu"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:257
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:246
 #, kde-format
 msgid "Checking for OpenCL GPU acceleration compatibility with AI models..."
 msgstr "Kontrola kompatibility akcelerácie OpenCL GPU s modelmi AI..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:263
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:252
 #, kde-format
 msgid "OpenCL is available on this system."
 msgstr "OpenCL je dostupný na vašom systéme."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:274
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:263
 #, kde-format
 msgid "OpenCL acceleration device is available."
 msgstr "Akceleračné zariadenie OpenCL je dostupné."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:276
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:265
 #, kde-format
 msgid "Using device: %1"
 msgstr "Používané zariadenie: %1"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:280
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:269
 #, kde-format
 msgid "OpenCL acceleration device is not available."
 msgstr "Akceleracyjné zariadenie OpenCL nie je dostupné."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:285
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:274
 #, kde-format
 msgid "OpenCL is not available on this system."
 msgstr "OpenCL nie je dostupný na vašom systéme."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:290
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:279
 #, kde-format
 msgid "Loading DNN Model test image..."
 msgstr "Nahráva sa testovací obrázok modelu DNN..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:299
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:288
 #, kde-format
 msgid "DNN model test image not found."
 msgstr "Testovací obrázok modelu DNN sa nenašiel."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:306
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:295
 #, kde-format
 msgid "Failed to load DNN model test image from %1"
 msgstr "Nepodarilo sa načítať testovací obrázok modelu DNN z %1"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:310
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:299
 #, kde-format
 msgid "Preparing the DNN Model image for processing..."
 msgstr "Posunúť obrázok na oblasť"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:339
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:328
 #, kde-format
 msgid "Initializing face detection model..."
 msgstr "Inicializuje sa model detekcie tváre..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:346
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:335
 #, kde-format
 msgid "Running face detection..."
 msgstr "Prebieha detekcia tvárí..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:362
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:351
 #, kde-format
 msgid "Initializing feature extraction model..."
 msgstr "Inicializuje sa model extrakcie príznakov..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:369
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:358
 #, kde-format
 msgid "Preparing face for feature extraction..."
 msgstr "Pripravuje sa tvár na extrakciu príznakov..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:382
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:371
 #, kde-format
 msgid "Extracting face features..."
 msgstr "Extrahovanie čŕt tváre..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:388
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:377
 #, kde-format
 msgid "Failed to extract face features."
 msgstr "Nepodarilo sa extrahovať vlastnosti tváre."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:393
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:382
 #, kde-format
 msgid "All tests completed successfully!"
 msgstr "Všetky testy úspešne dokončené!"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:399
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:388
 #, kde-format
 msgid "OpenCV error: %1"
 msgstr "Chyba OpenCV: %1"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:405
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:394
 #, kde-format
 msgid "Error: %1"
 msgstr "Chyba: %1"
@@ -67948,7 +67930,7 @@ msgctxt "@title:tab"
 msgid "Grouping"
 msgstr "Zoskupovanie"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:110
+#: core/utilities/setup/misc/systemsettingswidget.cpp:99
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -67962,27 +67944,17 @@ msgstr ""
 "have side-effects. Read the <a href=\"%1\">online documentation</a> for more "
 "information.</i></font>"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:129
-#, kde-format
-msgid "Use high DPI scaling from the screen factor"
-msgstr "Použiť škálovanie vysokého DPI z faktora obrazovky"
-
-#: core/utilities/setup/misc/systemsettingswidget.cpp:130
-#, kde-format
-msgid "Use pixmaps with high DPI resolution"
-msgstr "Použiť pixmapy s vysokým DPI rozlíšením"
-
-#: core/utilities/setup/misc/systemsettingswidget.cpp:134
+#: core/utilities/setup/misc/systemsettingswidget.cpp:116
 #, kde-format
 msgid "Use software OpenGL for rendering"
 msgstr "Použiť softvérové OpenGL na vykresľovanie"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:138
+#: core/utilities/setup/misc/systemsettingswidget.cpp:120
 #, kde-format
 msgid "Use OpenCL hardware acceleration"
 msgstr "Použiť hardvérovú akceleráciu OpenCL"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:139
+#: core/utilities/setup/misc/systemsettingswidget.cpp:121
 #, fuzzy, kde-format
 #| msgid ""
 #| "This option is still experimental and requires that certain environment "
@@ -67994,12 +67966,12 @@ msgstr ""
 "Táto voľba je stále experimentálna a vyžaduje manuálne nastavenie určitých "
 "premenných prostredia."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:142
+#: core/utilities/setup/misc/systemsettingswidget.cpp:124
 #, kde-format
 msgid "Use OpenCL acceleration for AI models"
 msgstr "Použiť akceleráciu OpenCL pre modely umelej inteligencie"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:143
+#: core/utilities/setup/misc/systemsettingswidget.cpp:125
 #, fuzzy, kde-format
 #| msgid ""
 #| "This option is still experimental and may lead to crashes if the proper "
@@ -68011,62 +67983,62 @@ msgstr ""
 "Táto voľba je stále experimentálna a môže viesť k pádom, ak nie sú "
 "nainštalované správne ovládače."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:147
+#: core/utilities/setup/misc/systemsettingswidget.cpp:129
 #, kde-format
 msgid "Test GPU AI compatibility"
 msgstr "Testovať kompatibilitu GPU AI"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:150
+#: core/utilities/setup/misc/systemsettingswidget.cpp:132
 #, kde-format
 msgid "Download required binary data:"
 msgstr "Stiahnuť potrebné binárne dáta:"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:151
+#: core/utilities/setup/misc/systemsettingswidget.cpp:133
 #, kde-format
 msgid "Open Download Dialog..."
 msgstr "Otvára sa dialógové okno sťahovania..."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:154
+#: core/utilities/setup/misc/systemsettingswidget.cpp:136
 #, kde-format
 msgid "Open Local Storage..."
 msgstr "Otvoriť miestne úložisko..."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:162
+#: core/utilities/setup/misc/systemsettingswidget.cpp:142
 #, kde-format
 msgid "Use video hardware acceleration"
 msgstr "Použiť hardvérovú akceleráciu videa"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:163
+#: core/utilities/setup/misc/systemsettingswidget.cpp:143
 #, kde-format
 msgid "Use video textures conversion"
 msgstr "Použiť konverziu video textúr"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:165
+#: core/utilities/setup/misc/systemsettingswidget.cpp:145
 #, kde-format
 msgid "Decoding backend to render media:"
 msgstr "Dekódovací backend na vykreslenie médií:"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:168
+#: core/utilities/setup/misc/systemsettingswidget.cpp:148
 #, kde-format
 msgid "FFmpeg (Default)"
 msgstr "FFmpeg (predvolený)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:172
+#: core/utilities/setup/misc/systemsettingswidget.cpp:152
 #, kde-format
 msgid "GStreamer (System)"
 msgstr "Rovnaká ako popredie"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:176
+#: core/utilities/setup/misc/systemsettingswidget.cpp:156
 #, kde-format
 msgid "WMF (System)"
 msgstr "WMF (systém)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:180
+#: core/utilities/setup/misc/systemsettingswidget.cpp:160
 #, kde-format
 msgid "AVFoundation (System)"
 msgstr "AVFoundation (systém)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:188
+#: core/utilities/setup/misc/systemsettingswidget.cpp:166
 #, kde-format
 msgid "Enable internal debug logging"
 msgstr "Povoliť interné ladenie protokolovania"
@@ -68828,15 +68800,35 @@ msgstr ""
 msgid "Import Items"
 msgstr "Importovať položky"
 
-#: core/utilities/survey/surveywindow.cpp:51
+#: core/utilities/survey/surveywindow.cpp:45
 #, kde-format
 msgid "Survey"
 msgstr "Survey"
 
-#: core/utilities/survey/surveywindow_setup.cpp:161
+#: core/utilities/survey/surveywindow_setup.cpp:143
 #, fuzzy, kde-format
 msgid "Play/Pause Video"
 msgstr "Režim blesku"
+
+#~ msgid ""
+#~ "You have chosen a bright color scheme. We switch to a dark icon theme. "
+#~ "The icon theme is available after a restart of digiKam."
+#~ msgstr ""
+#~ "Vybrali ste si svetlú farebnú schému. Prepneme na tmavú tému pre ikony. "
+#~ "Téma pre ikony je k dispozícii po reštarte programu digiKam."
+
+#~ msgid ""
+#~ "You have chosen a dark color scheme. We switch to a bright icon theme. "
+#~ "The icon theme is available after a restart of digiKam."
+#~ msgstr ""
+#~ "Vybrali ste si tmavú farebnú schému. Prepneme na svetlú tému pre ikony. "
+#~ "Téma pre ikony je k dispozícii po reštarte programu digiKam."
+
+#~ msgid "Use high DPI scaling from the screen factor"
+#~ msgstr "Použiť škálovanie vysokého DPI z faktora obrazovky"
+
+#~ msgid "Use pixmaps with high DPI resolution"
+#~ msgstr "Použiť pixmapy s vysokým DPI rozlíšením"
 
 #~ msgid "Migration from digiKam 4"
 #~ msgstr "Migrácia z digiKamu 4"

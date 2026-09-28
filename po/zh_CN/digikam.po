@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-27 00:42+0000\n"
+"POT-Creation-Date: 2026-09-28 00:42+0000\n"
 "PO-Revision-Date: 2024-04-23 11:20\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -1310,12 +1310,12 @@ msgstr "<b>二进制数据</b>"
 msgid "Initializing..."
 msgstr "正在初始化..."
 
-#: core/app/main/digikamapp.cpp:158 core/showfoto/main/showfoto.cpp:110
+#: core/app/main/digikamapp.cpp:158 core/showfoto/main/showfoto.cpp:106
 #, kde-format
 msgid "Load Plugins..."
 msgstr "正在加载插件..."
 
-#: core/app/main/digikamapp.cpp:182 core/showfoto/main/showfoto.cpp:92
+#: core/app/main/digikamapp.cpp:182 core/showfoto/main/showfoto.cpp:88
 #, kde-format
 msgid "Checking ICC repository..."
 msgstr "正在检查 ICC 特性文件..."
@@ -1519,7 +1519,7 @@ msgstr "正在初始化主视图..."
 #: core/utilities/imageeditor/editor/editorwindow.cpp:1451
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:408
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:431
-#: core/utilities/survey/surveywindow_setup.cpp:272
+#: core/utilities/survey/surveywindow_setup.cpp:254
 #, kde-format
 msgctxt "@label"
 msgid "Loading:"
@@ -2649,7 +2649,7 @@ msgstr "主工具栏"
 msgid "digiKam"
 msgstr "digiKam"
 
-#: core/app/main/main.cpp:225 core/showfoto/main/main.cpp:225
+#: core/app/main/main.cpp:225 core/showfoto/main/main.cpp:201
 #, kde-format
 msgctxt "NAME OF TRANSLATORS"
 msgid "Your names"
@@ -2658,7 +2658,7 @@ msgstr ""
 "millionart, Ni Hui, sanfanling, Tyson Tan (谭代山/钛山), Weng Xuetian, "
 "YFdyh000, 李子"
 
-#: core/app/main/main.cpp:226 core/showfoto/main/main.cpp:226
+#: core/app/main/main.cpp:226 core/showfoto/main/main.cpp:202
 #, kde-format
 msgctxt "EMAIL OF TRANSLATORS"
 msgid "Your emails"
@@ -3044,7 +3044,7 @@ msgstr "无标签相册"
 #: core/libs/database/utils/widgets/dbstatdlg.cpp:70
 #: core/libs/properties/itempropertiestab.cpp:500
 #: core/libs/tags/widgets/tagfolderview.cpp:102
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:689
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:619
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:75
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:83
 #: core/utilities/searchwindow/fields/searchfields_createfield.cpp:96
@@ -3151,8 +3151,8 @@ msgid "no item"
 msgstr "无项目"
 
 #: core/app/views/sidebar/timelinesidebarwidget.cpp:413
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:447
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:481
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:441
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:475
 #, kde-format
 msgid "1 item"
 msgid_plural "%1 items"
@@ -4095,7 +4095,7 @@ msgstr "文件属性"
 #: core/app/views/tableview/tableview_column_file.cpp:81
 #: core/utilities/advancedrename/parser/options/filepropertiesoption.cpp:63
 #: core/utilities/geolocation/engine/plugins/render/overviewmap/OverviewMapConfigWidget.ui:183
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:678
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:608
 #, kde-format
 msgid "Filename"
 msgstr "文件名"
@@ -4161,7 +4161,7 @@ msgstr "坐标"
 #: core/app/views/tableview/tableview_column_geo.cpp:86
 #: core/app/views/tableview/tableview_column_geo.cpp:107
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:111
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:682
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:612
 #, kde-format
 msgid "Altitude"
 msgstr "海拔"
@@ -4419,7 +4419,7 @@ msgstr "单位"
 #: core/dplugins/generic/webservices/imgur/imgurimageslist.cpp:53
 #: core/dplugins/generic/webservices/ipfs/ipfsimageslist.cpp:45
 #: core/libs/dtrash/dtrashitemmodel.cpp:249
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:677
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:607
 #, kde-format
 msgid "Thumbnail"
 msgstr "缩略图"
@@ -11484,31 +11484,31 @@ msgid "Edit Geolocation"
 msgstr "编辑地理位置"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:105
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:680
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:610
 #, kde-format
 msgid "Latitude"
 msgstr "纬度"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:109
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:681
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:611
 #, kde-format
 msgid "Longitude"
 msgstr "经度"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:117
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:687
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:617
 #, kde-format
 msgid "Speed"
 msgstr "速度"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:123
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:686
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:616
 #, kde-format
 msgid "# satellites"
 msgstr "卫星数量"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:129
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:685
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:615
 #, kde-format
 msgid "Fix type"
 msgstr "定位模式"
@@ -11524,7 +11524,7 @@ msgid "3-d"
 msgstr "三维"
 
 #: core/dplugins/generic/metadata/geolocationedit/dialog/gpsitemdetails.cpp:135
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:684
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:614
 #, kde-format
 msgid "DOP"
 msgstr "精度因子"
@@ -15716,7 +15716,7 @@ msgstr "已更新时间戳"
 #: core/dplugins/generic/metadata/timeadjust/timeadjustlist.cpp:40
 #: core/dplugins/generic/tools/dngconverter/dngconverterlist.cpp:40
 #: core/dplugins/generic/tools/ocrtextconverter/textconverterlist.cpp:92
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:688
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:618
 #, kde-format
 msgid "Status"
 msgstr "状态"
@@ -20989,7 +20989,7 @@ msgstr "播放"
 #. i18n: ectx: property (text), widget (QPushButton, m_stopButton)
 #: core/dplugins/generic/view/presentation/audio/presentationaudiowidget.ui:36
 #: core/dplugins/generic/view/presentation/widgets/presentationctrlwidget.ui:39
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:294
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:288
 #, kde-format
 msgid "Stop"
 msgstr "停止"
@@ -24272,7 +24272,7 @@ msgstr "观察之后"
 
 #: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1074
 #: core/dplugins/generic/webservices/inaturalist/inatwindow.cpp:1114
-#: core/utilities/geolocation/engine/core/MarbleInputHandler.cpp:773
+#: core/utilities/geolocation/engine/core/MarbleInputHandler.cpp:735
 #: core/utilities/geolocation/engine/core/MarbleWidget.cpp:703
 #, kde-format
 msgid "not available"
@@ -26117,10 +26117,10 @@ msgstr "自动旋转：%1\n"
 #: core/libs/tags/autoassignment/autotagsengine.cpp:232
 #: core/utilities/maintenance/tools/duplicates/duplicatesfinder.cpp:189
 #: core/utilities/maintenance/tools/facesmanagement/facesengine.cpp:490
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:236
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:225
 #: core/utilities/maintenance/tools/metaremover/metadataremover.cpp:242
 #: core/utilities/maintenance/tools/metasync/metadatasynchronizer.cpp:223
-#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:258
+#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:247
 #, kde-format
 msgid "Album: %1\n"
 msgstr "相册：%1\n"
@@ -31171,7 +31171,7 @@ msgid "Remove Black Frame"
 msgstr "移除黑帧"
 
 #: core/libs/dimg/filters/hotpixels/blackframelistview.cpp:260
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:348
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:342
 #, kde-format
 msgid "Clear List"
 msgstr "清空列表"
@@ -38599,8 +38599,8 @@ msgid "Light Table"
 msgstr "多图对比"
 
 #: core/libs/settings/applicationsettings_miscs.cpp:453
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:50
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:197
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:44
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:191
 #, kde-format
 msgid "Batch Queue Manager"
 msgstr "批处理管理"
@@ -42202,7 +42202,7 @@ msgid "Mod.: %1"
 msgstr "修改于：%1"
 
 #: core/libs/widgets/itemview/itemviewdelegate.cpp:422
-#: core/showfoto/main/showfoto.cpp:267
+#: core/showfoto/main/showfoto.cpp:263
 #: core/showfoto/thumbbar/showfotoitemviewdelegate.cpp:316
 #: core/utilities/import/items/itemviewimportdelegate.cpp:367
 #, kde-format
@@ -48585,7 +48585,7 @@ msgid "Add Bookmark"
 msgstr "添加书签"
 
 #: core/showfoto/folderview/showfotofolderviewbookmarks.cpp:91
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:97
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:93
 #, kde-format
 msgctxt "@info"
 msgid "Add new bookmark to the list"
@@ -48681,24 +48681,24 @@ msgctxt "@title: file system tree"
 msgid "Folders"
 msgstr "文件夹"
 
-#: core/showfoto/main/main.cpp:216
+#: core/showfoto/main/main.cpp:192
 #, kde-format
 msgctxt "@title"
 msgid "Showfoto"
 msgstr "Showfoto"
 
-#: core/showfoto/main/main.cpp:234
+#: core/showfoto/main/main.cpp:210
 #, kde-format
 msgctxt "command line option"
 msgid "File(s) or folder(s) to open"
 msgstr "要打开的文件或文件夹"
 
-#: core/showfoto/main/showfoto.cpp:101
+#: core/showfoto/main/showfoto.cpp:97
 #, kde-format
 msgid "Loading themes..."
 msgstr "正在加载主题..."
 
-#: core/showfoto/main/showfoto.cpp:226
+#: core/showfoto/main/showfoto.cpp:222
 #, kde-format
 msgid ""
 "<p>The ICC profile path seems to be invalid.</p><p>If you want to set it "
@@ -48708,13 +48708,13 @@ msgstr ""
 "<p>ICC 色彩特性文件路径无效。</p><p>要重新设置路径，请选择“是”。如果选"
 "择“否”，色彩管理功能将被禁用，直至问题被解决为止。</p>"
 
-#: core/showfoto/main/showfoto.cpp:266
+#: core/showfoto/main/showfoto.cpp:262
 #, kde-format
 msgctxt "unknown image dimensions"
 msgid "Unknown"
 msgstr "未知"
 
-#: core/showfoto/main/showfoto.cpp:291
+#: core/showfoto/main/showfoto.cpp:287
 #: core/utilities/imageeditor/main/imagewindow.cpp:498
 #, kde-format
 msgctxt "<Image file name> (<Image number> of <Images in album>)"
@@ -48725,24 +48725,6 @@ msgstr "%1 (第 %2 张，共 %3 张)"
 #, kde-format
 msgid "Delete File"
 msgstr "删除文件"
-
-#: core/showfoto/main/showfoto_config.cpp:196
-#, kde-format
-msgid ""
-"You have chosen a bright color scheme. We switch to a dark icon theme. The "
-"icon theme is available after a restart of digiKam."
-msgstr ""
-"您选择了一套浅色主题，图标将自动切换为深色主题，并在下次重新启动 digiKam 时生"
-"效。"
-
-#: core/showfoto/main/showfoto_config.cpp:204
-#, kde-format
-msgid ""
-"You have chosen a dark color scheme. We switch to a bright icon theme. The "
-"icon theme is available after a restart of digiKam."
-msgstr ""
-"您选择了一套深色主题，图标将自动切换为浅色主题，并在下次重新启动 digiKam 时生"
-"效。"
 
 #: core/showfoto/main/showfoto_iofiles.cpp:78
 #: core/utilities/imageeditor/editor/editorwindow.cpp:2302
@@ -49871,67 +49853,67 @@ msgid "You can add or remove favorite stacks here."
 msgstr "您可以在此添加或移除收藏图集。"
 
 #: core/showfoto/stackview/showfotostackviewfavoritelist.cpp:117
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:87
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:83
 #, kde-format
 msgctxt "@title"
 msgid "Favorites"
 msgstr "收藏图集"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:96
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:92
 #, kde-format
 msgctxt "@action"
 msgid "Add Favorite"
 msgstr "添加收藏图集"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:114
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:110
 #, kde-format
 msgctxt "@action"
 msgid "Add Sub-Folder"
 msgstr "添加子文件夹"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:115
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:111
 #, kde-format
 msgctxt "@info"
 msgid "Add new sub-folder to the list"
 msgstr "添加子文件夹到列表"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:132
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:128
 #, kde-format
 msgctxt "@action"
 msgid "Delete Item"
 msgstr "移除项目"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:133
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:129
 #, kde-format
 msgctxt "@info"
 msgid "Remove selected item from the list"
 msgstr "移除列表中的所选项目"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:150
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:146
 #, kde-format
 msgctxt "@action"
 msgid "Edit Item"
 msgstr "编辑项目"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:151
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:147
 #, kde-format
 msgctxt "@info"
 msgid "Edit current item from the list"
 msgstr "编辑列表中的当前项目"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:168
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:164
 #, kde-format
 msgctxt "@info: search text bar"
 msgid "Search in Favorites..."
 msgstr "搜索收藏图集..."
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:354
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:350
 #, kde-format
 msgctxt "@title:window"
 msgid "Confirm Item Deletion"
 msgstr "移除项目前确认"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:355
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:351
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -49941,7 +49923,7 @@ msgstr ""
 "您确定要移除项目“%1”\n"
 "和它包含的所有项目吗？"
 
-#: core/showfoto/stackview/showfotostackviewfavorites.cpp:670
+#: core/showfoto/stackview/showfotostackviewfavorites.cpp:656
 #, kde-format
 msgctxt "@title"
 msgid "Unnamed"
@@ -50120,7 +50102,7 @@ msgid "&Abort"
 msgstr "中止(&A)"
 
 #: core/utilities/advancedrename/advancedrenameprocessdialog.cpp:85
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:929
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:923
 #, kde-format
 msgid "Processing..."
 msgstr "正在处理..."
@@ -51074,12 +51056,12 @@ msgstr "文件计数器和扩展名感知编号"
 msgid "Random text and extensions aware numbering"
 msgstr "随机文本和扩展名感知编号"
 
-#: core/utilities/extrasupport/addressbook/akonadiiface.cpp:68
+#: core/utilities/extrasupport/addressbook/akonadiiface.cpp:58
 #, kde-format
 msgid "Create Tag From Address Book"
 msgstr "从地址簿创建标签"
 
-#: core/utilities/extrasupport/addressbook/akonadiiface.cpp:71
+#: core/utilities/extrasupport/addressbook/akonadiiface.cpp:61
 #, kde-format
 msgid "No address book entries found"
 msgstr "未找到地址簿条目"
@@ -52011,17 +51993,17 @@ msgctxt "a planet without data"
 msgid "Unknown Planet"
 msgstr "未知行星"
 
-#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:304
+#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:294
 #, kde-format
 msgid "&Lock"
 msgstr "锁定(&L)"
 
-#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:313
+#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:303
 #, kde-format
 msgid "&Hide"
 msgstr "隐藏(&H)"
 
-#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:327
+#: core/utilities/geolocation/engine/core/AbstractFloatItem.cpp:317
 #: core/utilities/geolocation/engine/plugins/render/mapscale/MapScaleFloatItem.cpp:456
 #, kde-format
 msgid "&Configure..."
@@ -55690,15 +55672,15 @@ msgctxt "@title: bookmark header"
 msgid "Comment"
 msgstr "注释"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:814
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:949
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:805
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:940
 #, kde-format
 msgctxt "@title:window"
 msgid "Loading Bookmark"
 msgstr "正在加载书签"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:815
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:950
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:806
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:941
 #, kde-format
 msgid ""
 "Error when loading bookmarks on line %1, column %2:\n"
@@ -55707,41 +55689,41 @@ msgstr ""
 "加载书签出错，它位于第 %1 行，第 %2 列：\n"
 "%3"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:936
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:927
 #, kde-format
 msgctxt "@title:window"
 msgid "Open File"
 msgstr "打开文件"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:938
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:965
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:929
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:956
 #, kde-format
 msgid "XBEL (*.xbel *.xml)"
 msgstr "XBEL 文件 (*.xbel *.xml)"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:957
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:948
 #, kde-format
 msgid "Imported %1"
 msgstr "已导入 %1 个"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:963
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:954
 #, kde-format
 msgctxt "@title:window"
 msgid "Save File"
 msgstr "保存文件"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:964
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:955
 #, kde-format
 msgid "%1 Bookmarks.xbel"
 msgstr "%1 书签.xbel"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:975
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:966
 #, kde-format
 msgctxt "@title:window"
 msgid "Export Bookmark"
 msgstr "导出书签"
 
-#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:975
+#: core/utilities/geolocation/geoiface/bookmark/bookmarksmngr.cpp:966
 #, kde-format
 msgid "Error saving bookmarks"
 msgstr "保存书签时出错"
@@ -55972,69 +55954,69 @@ msgctxt "@title: track list header"
 msgid "#points"
 msgstr "轨迹点数量"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:484
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:414
 #, kde-format
 msgid "Not available"
 msgstr "不可用"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:523
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:453
 #, kde-format
 msgid "DOP: %1"
 msgstr "精度因子：%1"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:528
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:458
 #, kde-format
 msgid "Fix: %1d"
 msgstr "定位模式：%1 维"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:533
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:463
 #, kde-format
 msgid "#Sat: %1"
 msgstr "卫星数量：%1"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:586
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:516
 #, kde-format
 msgid "%1d"
 msgstr "%1 维"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:610
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:540
 #, kde-format
 msgid "Modified"
 msgstr "修改时间"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:679
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:609
 #, kde-format
 msgid "Date and time"
 msgstr "日期和时间"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:683
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:613
 #, kde-format
 msgid "Accuracy"
 msgstr "精度"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:932
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:862
 #, kde-format
 msgid "Failed to open file."
 msgstr "无法打开文件。"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1004
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:934
 #, kde-format
 msgid "Failed to add GPS info to image."
 msgstr "无法添加 GPS 信息到图像。"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1016
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:946
 #, kde-format
 msgid "Failed to remove GPS info from image"
 msgstr "无法移除图像 GPS 信息。"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1051
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1059
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1082
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:981
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:989
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1012
 #, kde-format
 msgid "Failed to save tags to file."
 msgstr "无法保存标签到文件。"
 
-#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1094
+#: core/utilities/geolocation/geoiface/items/gpsitemcontainer.cpp:1024
 #, kde-format
 msgid "Unable to save changes to file"
 msgstr "无法保存更改到文件。"
@@ -57641,19 +57623,19 @@ msgid "Move to Trash without Confirmation"
 msgstr "移动到回收站而无需确认"
 
 #: core/utilities/imageeditor/main/imagewindow_setup.cpp:66
-#: core/utilities/survey/surveywindow_setup.cpp:173
+#: core/utilities/survey/surveywindow_setup.cpp:155
 #, kde-format
 msgid "Edit Titles"
 msgstr "编辑标题"
 
 #: core/utilities/imageeditor/main/imagewindow_setup.cpp:71
-#: core/utilities/survey/surveywindow_setup.cpp:178
+#: core/utilities/survey/surveywindow_setup.cpp:160
 #, kde-format
 msgid "Edit Comments"
 msgstr "编辑注释"
 
 #: core/utilities/imageeditor/main/imagewindow_setup.cpp:76
-#: core/utilities/survey/surveywindow_setup.cpp:183
+#: core/utilities/survey/surveywindow_setup.cpp:165
 #, kde-format
 msgid "Show Assigned Tags"
 msgstr "显示已分配的标签"
@@ -59428,26 +59410,26 @@ msgstr "关闭多图对比工具时移除其中的所有图像"
 
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:143
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:165
-#: core/utilities/survey/surveywindow_setup.cpp:114
+#: core/utilities/survey/surveywindow_setup.cpp:96
 #, kde-format
 msgid "Zoom to 100%"
 msgstr "缩放至 100%"
 
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:148
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:170
-#: core/utilities/survey/surveywindow_setup.cpp:119
+#: core/utilities/survey/surveywindow_setup.cpp:101
 #, kde-format
 msgid "Fit to &Window"
 msgstr "适合窗口(&W)"
 
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:177
-#: core/utilities/survey/surveywindow_setup.cpp:126
+#: core/utilities/survey/surveywindow_setup.cpp:108
 #, kde-format
 msgid "Color-Managed View"
 msgstr "色彩管理显示"
 
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:207
-#: core/utilities/survey/surveywindow_setup.cpp:156
+#: core/utilities/survey/surveywindow_setup.cpp:138
 #, kde-format
 msgid "Previous Image"
 msgstr "上一张图像"
@@ -59981,42 +59963,42 @@ msgstr "已识别：%1"
 msgid "Finger-prints"
 msgstr "图像指纹"
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:188
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:177
 #, kde-format
 msgid "Rebuild Fingerprint: %1\n"
 msgstr "重建文件指纹：%1\n"
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:189
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:178
 #, kde-format
 msgid "Album: %1"
 msgstr "相册：%1"
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:203
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:192
 #, kde-format
 msgid "Items scanned for fingerprint: %1"
 msgstr "已扫描指纹的项目：%1"
 
-#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:207
+#: core/utilities/maintenance/tools/fingerprints/fingerprintsgenerator.cpp:196
 #, kde-format
 msgid "Item scanned for fingerprint: %1"
 msgstr "已扫描指纹的项目：%1"
 
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:235
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:224
 #, kde-format
 msgid "Image Quality: %1\n"
 msgstr "图像品质：%1\n"
 
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:237
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:226
 #, kde-format
 msgid "Pick Label: %1"
 msgstr "挑选标记：%1"
 
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:252
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:241
 #, kde-format
 msgid "Items scanned for quality: %1"
 msgstr "已扫描品质的项目：%1"
 
-#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:256
+#: core/utilities/maintenance/tools/imgqsort/imagequalitysorter.cpp:245
 #, kde-format
 msgid "Item scanned for quality: %1"
 msgstr "已扫描品质的项目：%1"
@@ -60114,190 +60096,190 @@ msgstr "已扫描以更新数据库元数据的项目：%1"
 msgid "Generate Thumbnails"
 msgstr "生成缩略图"
 
-#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:257
+#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:246
 #, kde-format
 msgid "Thumbnail: %1\n"
 msgstr "缩略图：%1\n"
 
-#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:272
+#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:261
 #, kde-format
 msgid "Items scanned for thumbnails: %1"
 msgstr "已扫描缩略图的项目：%1"
 
-#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:276
+#: core/utilities/maintenance/tools/thumbs/thumbsgenerator.cpp:265
 #, kde-format
 msgid "Item scanned for thumbnails: %1"
 msgstr "已扫描缩略图的项目：%1"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:128
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:122
 #, kde-format
 msgid "Queues"
 msgstr "队列"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:137
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:131
 #, kde-format
 msgid "Queue Settings"
 msgstr "队列设置"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:146
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:140
 #, kde-format
 msgid "Control Panel"
 msgstr "控制面板"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:155
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:149
 #, kde-format
 msgid "Assigned Tools"
 msgstr "已分配的工具"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:164
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:158
 #, kde-format
 msgid "Tool Settings"
 msgstr "工具设置"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:281
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:275
 #, kde-format
 msgid "Run"
 msgstr "执行"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:288
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:282
 #, kde-format
 msgid "Run all"
 msgstr "执行所有"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:300
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:294
 #, kde-format
 msgid "New Queue"
 msgstr "新建队列"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:304
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:298
 #, kde-format
 msgid "Remove Queue"
 msgstr "移除队列"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:310
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:304
 #, kde-format
 msgid "Save Workflow"
 msgstr "保存工作流程"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:314
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:308
 #, kde-format
 msgid "Remove items"
 msgstr "移除项目"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:320
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:314
 #, kde-format
 msgid "Remove processed items"
 msgstr "移除已处理项目"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:325
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:319
 #, kde-format
 msgid "Clear Queue"
 msgstr "清空队列"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:336
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:330
 #, kde-format
 msgid "Move up"
 msgstr "上移"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:340
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:334
 #, kde-format
 msgid "Move down"
 msgstr "下移"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:344
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:338
 #, kde-format
 msgid "Remove tool"
 msgstr "移除工具"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:435
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:429
 #, kde-format
 msgid "Current Queue: "
 msgstr "当前队列："
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:441
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:475
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:435
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:469
 #, kde-format
 msgid "No items"
 msgstr "无项目"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:458
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:492
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:452
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:486
 #, kde-format
 msgid "No tasks"
 msgstr "无任务"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:464
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:498
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:458
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:492
 #, kde-format
 msgid "1 task"
 msgid_plural "%1 tasks"
 msgstr[0] "%1 项任务"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:469
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:463
 #, kde-format
 msgctxt "#info: total number of items to process"
 msgid "Total: "
 msgstr "总计："
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:507
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:501
 #, kde-format
 msgctxt "batch queue manager is ready to use"
 msgid "Ready"
 msgstr "待机"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:545
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:539
 #, kde-format
 msgctxt "@title:window"
 msgid "Processing Under Progress"
 msgstr "正在处理任务"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:546
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:540
 #, kde-format
 msgid "Batch Queue Manager is running. Do you want to cancel current job?"
 msgstr "批处理队列管理器正在执行任务。您想要取消当前任务吗？"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:645
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:639
 #, kde-format
 msgid "There is no queue to be run."
 msgstr "没有可执行的批处理队列。"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:649
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:643
 #, kde-format
 msgid "There is no item to process in the current queue (%1)."
 msgstr "当前队列中没有要处理的项目 (%1)。"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:655
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:649
 #, kde-format
 msgid "Custom renaming rule is invalid for current queue (%1). Please fix it."
 msgstr "当前队列的自定义重命名规则无效 (%1)。请修改规则。"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:660
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:654
 #, kde-format
 msgid ""
 "Assigned batch tools list is empty for current queue (%1). Please assign "
 "tools."
 msgstr "当前队列的已分配工具为空 (%1)。请分配工具。"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:692
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:686
 #, kde-format
 msgid "There are no items to process in the queues."
 msgstr "队列中没有要处理的项目。"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:864
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:874
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:858
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:868
 #, kde-format
 msgctxt "@title:window"
 msgid "Processed Items Album Settings"
 msgstr "已处理项目相册设置"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:865
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:859
 #, kde-format
 msgid ""
 "Album to host processed items from queue \"%1\" is not set. Please select "
 "one from Queue Settings panel."
 msgstr "队列“%1”的已处理图像相册尚未设定。请从队列设置面板中选择一个相册。"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:875
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:869
 #, kde-format
 msgid ""
 "Album to host processed items from queue \"%1\" is not available or not "
@@ -60305,27 +60287,27 @@ msgid ""
 msgstr ""
 "队列“%1”的已处理图像相册不可用或无法写入。请从队列设置面板中选择另一个相册。"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:954
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:948
 #, kde-format
 msgid "Failed to process item..."
 msgstr "无法处理项目..."
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:967
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:961
 #, kde-format
 msgid "Process Cancelled..."
 msgstr "处理已取消..."
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:987
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:981
 #, kde-format
 msgid "Item \"%1\" from queue \"%2\": %3"
 msgstr "项目“%1”来自队列“%2”：%3"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:1016
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:1010
 #, kde-format
 msgid "Batch queue finished"
 msgstr "批处理队列执行完毕"
 
-#: core/utilities/queuemanager/main/queuemgrwindow.cpp:1020
+#: core/utilities/queuemanager/main/queuemgrwindow.cpp:1014
 #, kde-format
 msgid "All batch queues finished"
 msgstr "所有批处理队列已完成"
@@ -60804,7 +60786,7 @@ msgctxt "@option: default kind of search options combined"
 msgid "Any"
 msgstr "任意"
 
-#: core/utilities/searchwindow/fields/searchfields_choice.cpp:110
+#: core/utilities/searchwindow/fields/searchfields_choice.cpp:92
 #, kde-format
 msgctxt "@label: search field choice combo-box description"
 msgid "Any of: %1"
@@ -61903,12 +61885,12 @@ msgstr "部分术语无法映射而被跳过：%1"
 msgid "Rename..."
 msgstr "重命名..."
 
-#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:201
+#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:183
 #, kde-format
 msgid "(No Value Selected)"
 msgstr "(未选中数值)"
 
-#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:206
+#: core/utilities/searchwindow/utils/ratingsearchutilities.cpp:188
 #, kde-format
 msgid "No Rating assigned"
 msgstr "未分配评分"
@@ -62802,7 +62784,7 @@ msgstr ""
 msgid "Enter additional audio file extensions."
 msgstr "在此输入额外的音频格式扩展名。"
 
-#: core/utilities/setup/camera/cameralist.cpp:288
+#: core/utilities/setup/camera/cameralist.cpp:275
 #, kde-format
 msgid ""
 "Failed to auto-detect camera; please make sure it is connected properly and "
@@ -63577,7 +63559,7 @@ msgid "Download Required Model Files"
 msgstr "下载所需的模型文件"
 
 #: core/utilities/setup/downloader/filesdownloader_helpers.cpp:60
-#: core/utilities/setup/misc/systemsettingswidget.cpp:156
+#: core/utilities/setup/misc/systemsettingswidget.cpp:138
 #, kde-format
 msgid "Open local directory used for the data files storage."
 msgstr "打开用于存储数据文件的本地目录。"
@@ -65574,14 +65556,14 @@ msgstr "正在测试..."
 msgid "Starting OpenCV OpenCL DNN test..."
 msgstr "正在启动 OpenCV OpenCL DNN 测试..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:217
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:206
 #, kde-format
 msgid ""
 "Test completed successfully! Your system can use GPU acceleration for the AI "
 "models."
 msgstr "测试成功。您的系统能够使用 GPU 加速 AI 模型。"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:221
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:210
 #, kde-format
 msgid ""
 "Test failed. Your system may not be able to use GPU acceleration for the AI "
@@ -65596,109 +65578,109 @@ msgstr ""
 "提示：如果您使用的是 NVidia 的 GPU，请点击“帮助”按钮，按照在线文档的指引将设"
 "备配置为可被 digiKam 运行时检测和使用。"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:229
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:218
 #, kde-format
 msgctxt "@action:button start the AI GPU test"
 msgid "Close"
 msgstr "关闭"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:230
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:219
 #, kde-format
 msgctxt "@action:button start the AI GPU test"
 msgid "Close the test dialog"
 msgstr "关闭测试对话框"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:257
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:246
 #, kde-format
 msgid "Checking for OpenCL GPU acceleration compatibility with AI models..."
 msgstr "正在检查 OpenCL GPU 加速功能的 AI 模型兼容性..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:263
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:252
 #, kde-format
 msgid "OpenCL is available on this system."
 msgstr "OpenCL 在本机系统中可用。"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:274
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:263
 #, kde-format
 msgid "OpenCL acceleration device is available."
 msgstr "OpenCL 加速设备可用。"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:276
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:265
 #, kde-format
 msgid "Using device: %1"
 msgstr "使用设备：%1"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:280
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:269
 #, kde-format
 msgid "OpenCL acceleration device is not available."
 msgstr "OpenCL 加速设备不可用。"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:285
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:274
 #, kde-format
 msgid "OpenCL is not available on this system."
 msgstr "OpenCL 在本机系统中不可用。"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:290
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:279
 #, kde-format
 msgid "Loading DNN Model test image..."
 msgstr "正在加载 DNN 模型测试图像..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:299
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:288
 #, kde-format
 msgid "DNN model test image not found."
 msgstr "找不到 DNN 模型测试图像。"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:306
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:295
 #, kde-format
 msgid "Failed to load DNN model test image from %1"
 msgstr "无法从 %1 加载 DNN 模型测试图像"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:310
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:299
 #, kde-format
 msgid "Preparing the DNN Model image for processing..."
 msgstr "正在准备 DNN 模型图像以进行处理..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:339
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:328
 #, kde-format
 msgid "Initializing face detection model..."
 msgstr "正在初始化人脸检测模型..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:346
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:335
 #, kde-format
 msgid "Running face detection..."
 msgstr "正在运行人脸检测..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:362
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:351
 #, kde-format
 msgid "Initializing feature extraction model..."
 msgstr "正在初始化特征提取模型..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:369
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:358
 #, kde-format
 msgid "Preparing face for feature extraction..."
 msgstr "正在准备人脸数据以特征提取..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:382
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:371
 #, kde-format
 msgid "Extracting face features..."
 msgstr "正在提取人脸特征..."
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:388
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:377
 #, kde-format
 msgid "Failed to extract face features."
 msgstr "提取人脸特征失败。"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:393
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:382
 #, kde-format
 msgid "All tests completed successfully!"
 msgstr "所有测试均已成功完成。"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:399
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:388
 #, kde-format
 msgid "OpenCV error: %1"
 msgstr "OpenCV 错误：%1"
 
-#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:405
+#: core/utilities/setup/misc/ocvocldnntestdlg.cpp:394
 #, kde-format
 msgid "Error: %1"
 msgstr "错误：%1"
@@ -66058,7 +66040,7 @@ msgctxt "@title:tab"
 msgid "Grouping"
 msgstr "分组"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:110
+#: core/utilities/setup/misc/systemsettingswidget.cpp:99
 #, kde-format
 msgctxt "@info"
 msgid ""
@@ -66071,27 +66053,17 @@ msgstr ""
 "效。某些设置依赖硬件，且可能有副作用。请阅读<a href=\"%1\">在线文档</a>了解详"
 "情。</i></font>"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:129
-#, kde-format
-msgid "Use high DPI scaling from the screen factor"
-msgstr "按照系统屏幕缩放比率进行高分辨率缩放"
-
-#: core/utilities/setup/misc/systemsettingswidget.cpp:130
-#, kde-format
-msgid "Use pixmaps with high DPI resolution"
-msgstr "在高分辨率下使用像素映射"
-
-#: core/utilities/setup/misc/systemsettingswidget.cpp:134
+#: core/utilities/setup/misc/systemsettingswidget.cpp:116
 #, kde-format
 msgid "Use software OpenGL for rendering"
 msgstr "使用软件 OpenGL 渲染"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:138
+#: core/utilities/setup/misc/systemsettingswidget.cpp:120
 #, kde-format
 msgid "Use OpenCL hardware acceleration"
 msgstr "使用 OpenCL 硬件加速"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:139
+#: core/utilities/setup/misc/systemsettingswidget.cpp:121
 #, fuzzy, kde-format
 #| msgid ""
 #| "This option is still experimental and requires that certain environment "
@@ -66101,12 +66073,12 @@ msgid ""
 "variables are set manually. See the online documentation for details."
 msgstr "此选项仍是实验性质，需手动设置某些环境变量才能生效。"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:142
+#: core/utilities/setup/misc/systemsettingswidget.cpp:124
 #, kde-format
 msgid "Use OpenCL acceleration for AI models"
 msgstr "使用 OpenCL 加速 AI 模型"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:143
+#: core/utilities/setup/misc/systemsettingswidget.cpp:125
 #, fuzzy, kde-format
 #| msgid ""
 #| "This option is still experimental and may lead to crashes if the proper "
@@ -66116,62 +66088,62 @@ msgid ""
 "drivers are not installed. See the online documentation for details."
 msgstr "此选项仍处于试验阶段，如果没有安装适当的驱动程序，可能会导致程序崩溃。"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:147
+#: core/utilities/setup/misc/systemsettingswidget.cpp:129
 #, kde-format
 msgid "Test GPU AI compatibility"
 msgstr "测试 GPU AI 兼容性"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:150
+#: core/utilities/setup/misc/systemsettingswidget.cpp:132
 #, kde-format
 msgid "Download required binary data:"
 msgstr "下载所需的软件包："
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:151
+#: core/utilities/setup/misc/systemsettingswidget.cpp:133
 #, kde-format
 msgid "Open Download Dialog..."
 msgstr "打开下载对话框..."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:154
+#: core/utilities/setup/misc/systemsettingswidget.cpp:136
 #, kde-format
 msgid "Open Local Storage..."
 msgstr "打开本地存储..."
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:162
+#: core/utilities/setup/misc/systemsettingswidget.cpp:142
 #, kde-format
 msgid "Use video hardware acceleration"
 msgstr "使用显卡硬件加速"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:163
+#: core/utilities/setup/misc/systemsettingswidget.cpp:143
 #, kde-format
 msgid "Use video textures conversion"
 msgstr "使用显卡纹理转换"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:165
+#: core/utilities/setup/misc/systemsettingswidget.cpp:145
 #, kde-format
 msgid "Decoding backend to render media:"
 msgstr "渲染媒体使用的解码器后端程序："
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:168
+#: core/utilities/setup/misc/systemsettingswidget.cpp:148
 #, kde-format
 msgid "FFmpeg (Default)"
 msgstr "FFmpeg (默认)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:172
+#: core/utilities/setup/misc/systemsettingswidget.cpp:152
 #, kde-format
 msgid "GStreamer (System)"
 msgstr "GStreamer (系统)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:176
+#: core/utilities/setup/misc/systemsettingswidget.cpp:156
 #, kde-format
 msgid "WMF (System)"
 msgstr "WMF (系统)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:180
+#: core/utilities/setup/misc/systemsettingswidget.cpp:160
 #, kde-format
 msgid "AVFoundation (System)"
 msgstr "AVFoundation (系统)"
 
-#: core/utilities/setup/misc/systemsettingswidget.cpp:188
+#: core/utilities/setup/misc/systemsettingswidget.cpp:166
 #, kde-format
 msgid "Enable internal debug logging"
 msgstr "启用内部调试日志"
@@ -66891,15 +66863,35 @@ msgstr ""
 msgid "Import Items"
 msgstr "导入视图项目"
 
-#: core/utilities/survey/surveywindow.cpp:51
+#: core/utilities/survey/surveywindow.cpp:45
 #, kde-format
 msgid "Survey"
 msgstr "单窗预览"
 
-#: core/utilities/survey/surveywindow_setup.cpp:161
+#: core/utilities/survey/surveywindow_setup.cpp:143
 #, kde-format
 msgid "Play/Pause Video"
 msgstr ""
+
+#~ msgid ""
+#~ "You have chosen a bright color scheme. We switch to a dark icon theme. "
+#~ "The icon theme is available after a restart of digiKam."
+#~ msgstr ""
+#~ "您选择了一套浅色主题，图标将自动切换为深色主题，并在下次重新启动 digiKam "
+#~ "时生效。"
+
+#~ msgid ""
+#~ "You have chosen a dark color scheme. We switch to a bright icon theme. "
+#~ "The icon theme is available after a restart of digiKam."
+#~ msgstr ""
+#~ "您选择了一套深色主题，图标将自动切换为浅色主题，并在下次重新启动 digiKam "
+#~ "时生效。"
+
+#~ msgid "Use high DPI scaling from the screen factor"
+#~ msgstr "按照系统屏幕缩放比率进行高分辨率缩放"
+
+#~ msgid "Use pixmaps with high DPI resolution"
+#~ msgstr "在高分辨率下使用像素映射"
 
 #~ msgid "Migration from digiKam 4"
 #~ msgstr "digiKam 4 升级迁移"
