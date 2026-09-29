@@ -134,7 +134,6 @@ cmake -G "Unix Makefiles" .. \
       -DCMAKE_BUILD_TYPE=RelWithDebInfo \
       -DCMAKE_INSTALL_PREFIX=/usr \
       -DBUILD_TESTING=OFF \
-      -DBUILD_WITH_QT6=$BUILD_WITH_QT6 \
       -DBUILD_WITH_CCACHE=ON \
       -DENABLE_GUI_TRANSLATIONS=ON \
       -DENABLE_DIGIKAM_CORE=ON \
@@ -146,12 +145,10 @@ cmake -G "Unix Makefiles" .. \
       -DENABLE_MEDIAPLAYER=ON \
       -DENABLE_DBUS=OFF \
       -DENABLE_APPSTYLES=ON \
-      -DENABLE_QWEBENGINE=ON \
       -DENABLE_FACESENGINE_DNN=ON \
       -DENABLE_NLSEARCH_LLAMACPP=ON \
       -DENABLE_NLSEARCH_SYSTEM_LLAMACPP=ON \
       -DENABLE_KIO=OFF \
-      -DENABLE_LEGACY=OFF \
       -Wno-dev
 
 if [ $? -ne 0 ]; then
