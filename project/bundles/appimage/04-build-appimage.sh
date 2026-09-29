@@ -267,8 +267,8 @@ cp $(ldconfig -p | grep /${LIBSUFFIX}/libGLU.so.1      | cut -d ">" -f 2 | xargs
 # Fedora 23 seemed to be missing SOMETHING from the Centos 6.7. The only message was:
 # This application failed to start because it could not find or load the Qt platform plugin "xcb".
 # Setting export QT_DEBUG_PLUGINS=1 revealed the cause.
-# QLibraryPrivate::loadPlugin failed on "/usr/lib64/qt5/plugins/platforms/libqxcb.so" :
-# "Cannot load library /usr/lib64/qt5/plugins/platforms/libqxcb.so: (/lib64/libEGL.so.1: undefined symbol: drmGetNodeTypeFromFd)"
+# QLibraryPrivate::loadPlugin failed on "/usr/lib64/qt6/plugins/platforms/libqxcb.so" :
+# "Cannot load library /usr/lib64/qt6/plugins/platforms/libqxcb.so: (/lib64/libEGL.so.1: undefined symbol: drmGetNodeTypeFromFd)"
 # Which means that we have to copy libEGL.so.1 in too
 
 # Otherwise Fedora 23 cannot load the Qt platform plugin "xcb"

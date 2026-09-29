@@ -14,15 +14,7 @@ HostUploadLogFiles()
 
 if [[ $DK_UPLOAD = 1 ]] ; then
 
-    if [[ $DK_QTVERSION == 5 ]] ; then
-
-        QT_SUF="-Qt5"
-
-    else
-
-        QT_SUF="-Qt6"
-
-    fi
+    QT_SUF="-Qt6"
 
     echo -e "---------- Cleanup older host logs from files.kde.org repository \n"
 

@@ -94,22 +94,22 @@ lib/mariadb$MARIADB_SUFFIX/bin/mysqladmin \
 lib/mariadb$MARIADB_SUFFIX/bin/mysqltest \
 lib/mariadb$MARIADB_SUFFIX/mysql/*.dylib \
 lib/mariadb$MARIADB_SUFFIX/plugin/*.so \
-bin/kbuildsycoca$DK_QTVERSION \
-bin/solid-hardware$DK_QTVERSION \
+bin/kbuildsycoca6 \
+bin/solid-hardware6 \
 bin/ffmpeg \
-libexec/qt$DK_QTVERSION/plugins/imageformats/*.dylib \
-libexec/qt$DK_QTVERSION/plugins/sqldrivers/*.dylib \
-libexec/qt$DK_QTVERSION/plugins/platforms/*.dylib \
-libexec/qt$DK_QTVERSION/plugins/iconengines/*.dylib \
-libexec/qt$DK_QTVERSION/plugins/generic/*.dylib \
-libexec/qt$DK_QTVERSION/plugins/styles/*.dylib \
+libexec/qt6/plugins/imageformats/*.dylib \
+libexec/qt6/plugins/sqldrivers/*.dylib \
+libexec/qt6/plugins/platforms/*.dylib \
+libexec/qt6/plugins/iconengines/*.dylib \
+libexec/qt6/plugins/generic/*.dylib \
+libexec/qt6/plugins/styles/*.dylib \
 "
 
 # Qt6 specific plugins
 
 OTHER_APPS=$OTHER_APPS"\
-libexec/qt$DK_QTVERSION/plugins/multimedia/*.dylib \
-libexec/qt$DK_QTVERSION/plugins/tls/*.dylib \
+libexec/qt6/plugins/multimedia/*.dylib \
+libexec/qt6/plugins/tls/*.dylib \
 "
 
 #lib/sane/*.so \
@@ -120,10 +120,10 @@ binaries="$OTHER_APPS"
 #
 # NOTE: dSYM directories are copied as well and cleaned later if debug symbols must be removed in final bundle.
 #
-#       QtWebEngine runtime process and binary archives (.pak) are located in libexec/qt$DK_QTVERSION/lib/QtWebEngineCore.framework/
+#       QtWebEngine runtime process and binary archives (.pak) are located in libexec/qt6/lib/QtWebEngineCore.framework/
 #
 OTHER_DIRS="\
-libexec/qt$DK_QTVERSION/translations \
+libexec/qt6/translations \
 lib/libdigikam*.dSYM \
 lib/plugins \
 lib/libgphoto2 \
@@ -135,7 +135,7 @@ share/ImageMagick* \
 etc/xdg \
 etc/ImageMagick* \
 etc/mariadb$MARIADB_SUFFIX \
-libexec/qt$DK_QTVERSION/lib/QtWebEngineCore.framework \
+libexec/qt6/lib/QtWebEngineCore.framework \
 "
 
 # Additional Data Directories - to be copied recursively
@@ -315,7 +315,7 @@ done
 
 # Move Qt translation data files at the right place in the bundle. See Bug #438701.
 
-mv -v $TEMPROOT/libexec/qt$DK_QTVERSION/translations $TEMPROOT/digikam.app/Contents/Resources/
+mv -v $TEMPROOT/libexec/qt6/translations $TEMPROOT/digikam.app/Contents/Resources/
 
 # To support localized system menu entries from MacOS. See bug #432650.
 
@@ -337,11 +337,11 @@ cd "$ORIG_WD"
 #################################################################################################
 # Move digiKam and KF run-time plugins to the right place
 
-cp -a $TEMPROOT/lib/plugins $TEMPROOT/libexec/qt$DK_QTVERSION/
+cp -a $TEMPROOT/lib/plugins $TEMPROOT/libexec/qt6/
 rm -rf $TEMPROOT/lib/plugins
 
 # See bug #476290
-rm -fr $TEMPROOT/libexec/qt$DK_QTVERSION/plugins/imageformats/libqjp2.dylib
+rm -fr $TEMPROOT/libexec/qt6/plugins/imageformats/libqjp2.dylib
 
 #################################################################################################
 # Merge Manifest files
@@ -573,33 +573,33 @@ ln -sv "../../digikam.app/Contents/Resources" "$TEMPROOT/showfoto.app/Contents/R
 
 # For digiKam
 
-ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/designer"                      "$TEMPROOT/digikam.app/Contents/MacOS/designer"
-ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/generic"                       "$TEMPROOT/digikam.app/Contents/MacOS/generic"
-ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/imageformats"                  "$TEMPROOT/digikam.app/Contents/MacOS/imageformats"
-ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/platforms"                     "$TEMPROOT/digikam.app/Contents/MacOS/platforms"
-ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/styles"                        "$TEMPROOT/digikam.app/Contents/MacOS/styles"
-ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/iconengines"                   "$TEMPROOT/digikam.app/Contents/MacOS/iconengines"
-ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/sqldrivers"                    "$TEMPROOT/digikam.app/Contents/MacOS/sqldrivers"
-ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/kf$DK_QTVERSION"               "$TEMPROOT/digikam.app/Contents/MacOS/kf$DK_QTVERSION"
+ln -sv "../../../digikam.app/Contents/libexec/qt6/plugins/designer"                     "$TEMPROOT/digikam.app/Contents/MacOS/designer"
+ln -sv "../../../digikam.app/Contents/libexec/qt6/plugins/generic"                      "$TEMPROOT/digikam.app/Contents/MacOS/generic"
+ln -sv "../../../digikam.app/Contents/libexec/qt6/plugins/imageformats"                 "$TEMPROOT/digikam.app/Contents/MacOS/imageformats"
+ln -sv "../../../digikam.app/Contents/libexec/qt6/plugins/platforms"                    "$TEMPROOT/digikam.app/Contents/MacOS/platforms"
+ln -sv "../../../digikam.app/Contents/libexec/qt6/plugins/styles"                       "$TEMPROOT/digikam.app/Contents/MacOS/styles"
+ln -sv "../../../digikam.app/Contents/libexec/qt6/plugins/iconengines"                  "$TEMPROOT/digikam.app/Contents/MacOS/iconengines"
+ln -sv "../../../digikam.app/Contents/libexec/qt6/plugins/sqldrivers"                   "$TEMPROOT/digikam.app/Contents/MacOS/sqldrivers"
+ln -sv "../../../digikam.app/Contents/libexec/qt6/plugins/kf6"                          "$TEMPROOT/digikam.app/Contents/MacOS/kf6"
 
-ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/multimedia"                "$TEMPROOT/digikam.app/Contents/MacOS/multimedia"
-ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/tls"                       "$TEMPROOT/digikam.app/Contents/MacOS/tls"
-ln -sv "../../../digikam.app/Contents/libexec/qt$DK_QTVERSION/plugins/kiconthemes$DK_QTVERSION"  "$TEMPROOT/digikam.app/Contents/MacOS/kiconthemes$DK_QTVERSION"
+ln -sv "../../../digikam.app/Contents/libexec/qt6/plugins/multimedia"                   "$TEMPROOT/digikam.app/Contents/MacOS/multimedia"
+ln -sv "../../../digikam.app/Contents/libexec/qt6/plugins/tls"                          "$TEMPROOT/digikam.app/Contents/MacOS/tls"
+ln -sv "../../../digikam.app/Contents/libexec/qt6/plugins/kiconthemes6"                 "$TEMPROOT/digikam.app/Contents/MacOS/kiconthemes6"
 
 # For Showfoto
 
-ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/designer"                     "$TEMPROOT/showfoto.app/Contents/MacOS/designer"
-ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/generic"                      "$TEMPROOT/showfoto.app/Contents/MacOS/generic"
-ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/imageformats"                 "$TEMPROOT/showfoto.app/Contents/MacOS/imageformats"
-ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/platforms"                    "$TEMPROOT/showfoto.app/Contents/MacOS/platforms"
-ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/styles"                       "$TEMPROOT/showfoto.app/Contents/MacOS/styles"
-ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/iconengines"                  "$TEMPROOT/showfoto.app/Contents/MacOS/iconengines"
-ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/sqldrivers"                   "$TEMPROOT/showfoto.app/Contents/MacOS/sqldrivers"
-ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/kf$DK_QTVERSION"              "$TEMPROOT/showfoto.app/Contents/MacOS/kf$DK_QTVERSION"
+ln -sv "../../../showfoto.app/Contents/libexec/qt6/plugins/designer"                    "$TEMPROOT/showfoto.app/Contents/MacOS/designer"
+ln -sv "../../../showfoto.app/Contents/libexec/qt6/plugins/generic"                     "$TEMPROOT/showfoto.app/Contents/MacOS/generic"
+ln -sv "../../../showfoto.app/Contents/libexec/qt6/plugins/imageformats"                "$TEMPROOT/showfoto.app/Contents/MacOS/imageformats"
+ln -sv "../../../showfoto.app/Contents/libexec/qt6/plugins/platforms"                   "$TEMPROOT/showfoto.app/Contents/MacOS/platforms"
+ln -sv "../../../showfoto.app/Contents/libexec/qt6/plugins/styles"                      "$TEMPROOT/showfoto.app/Contents/MacOS/styles"
+ln -sv "../../../showfoto.app/Contents/libexec/qt6/plugins/iconengines"                 "$TEMPROOT/showfoto.app/Contents/MacOS/iconengines"
+ln -sv "../../../showfoto.app/Contents/libexec/qt6/plugins/sqldrivers"                  "$TEMPROOT/showfoto.app/Contents/MacOS/sqldrivers"
+ln -sv "../../../showfoto.app/Contents/libexec/qt6/plugins/kf6"                         "$TEMPROOT/showfoto.app/Contents/MacOS/kf6"
 
-ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/multimedia"               "$TEMPROOT/showfoto.app/Contents/MacOS/multimedia"
-ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/tls"                      "$TEMPROOT/showfoto.app/Contents/MacOS/tls"
-ln -sv "../../../showfoto.app/Contents/libexec/qt$DK_QTVERSION/plugins/kiconthemes$DK_QTVERSION" "$TEMPROOT/showfoto.app/Contents/MacOS/kiconthemes$DK_QTVERSION"
+ln -sv "../../../showfoto.app/Contents/libexec/qt6/plugins/multimedia"                  "$TEMPROOT/showfoto.app/Contents/MacOS/multimedia"
+ln -sv "../../../showfoto.app/Contents/libexec/qt6/plugins/tls"                         "$TEMPROOT/showfoto.app/Contents/MacOS/tls"
+ln -sv "../../../showfoto.app/Contents/libexec/qt6/plugins/kiconthemes6"                "$TEMPROOT/showfoto.app/Contents/MacOS/kiconthemes6"
 
 echo -e "\n---------- Cleanup files in bundle"
 

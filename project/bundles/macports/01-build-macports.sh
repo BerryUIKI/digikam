@@ -46,7 +46,7 @@ OsxCodeName
 ORIG_PATH="$PATH"
 ORIG_WD="`pwd`"
 
-export PATH=$INSTALL_PREFIX/bin:/$INSTALL_PREFIX/sbin:/$INSTALL_PREFIX/libexec/qt$DK_QTVERSION/bin:$ORIG_PATH:/$INSTALL_PREFIX/libexec/gnubin
+export PATH=$INSTALL_PREFIX/bin:/$INSTALL_PREFIX/sbin:/$INSTALL_PREFIX/libexec/qt6/bin:$ORIG_PATH:/$INSTALL_PREFIX/libexec/gnubin
 echo "PATH=$PATH"
 export DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH/$INSTALL_PREFIX
 echo "DYLD_LIBRARY_PATH=$DYLD_LIBRARY_PATH"
@@ -330,18 +330,18 @@ if [ ! -f $INSTALL_PREFIX/bin/ffmpeg ] ; then
 
 fi
 
-port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtbase -examples -tests
-port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtdeclarative -examples -tests
-port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtscxml -examples -tests
-port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtsvg -examples -tests
-port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qttools -examples -tests
-port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qttranslations
-port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtimageformats -examples -tests
-port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtmultimedia -examples -tests
-port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtnetworkauth -examples -tests
-port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-sqlite-plugin
-port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-mysql-plugin $MP_MARIADB_VARIANT
-port install --allow-failing qt$DK_QTVERSION$MP_QTSUBVERSION-qtwebengine -examples -tests
+port install --allow-failing qt6$MP_QTSUBVERSION-qtbase -examples -tests
+port install --allow-failing qt6$MP_QTSUBVERSION-qtdeclarative -examples -tests
+port install --allow-failing qt6$MP_QTSUBVERSION-qtscxml -examples -tests
+port install --allow-failing qt6$MP_QTSUBVERSION-qtsvg -examples -tests
+port install --allow-failing qt6$MP_QTSUBVERSION-qttools -examples -tests
+port install --allow-failing qt6$MP_QTSUBVERSION-qttranslations
+port install --allow-failing qt6$MP_QTSUBVERSION-qtimageformats -examples -tests
+port install --allow-failing qt6$MP_QTSUBVERSION-qtmultimedia -examples -tests
+port install --allow-failing qt6$MP_QTSUBVERSION-qtnetworkauth -examples -tests
+port install --allow-failing qt6$MP_QTSUBVERSION-sqlite-plugin
+port install --allow-failing qt6$MP_QTSUBVERSION-mysql-plugin $MP_MARIADB_VARIANT
+port install --allow-failing qt6$MP_QTSUBVERSION-qtwebengine -examples -tests
 
 port install boost
 

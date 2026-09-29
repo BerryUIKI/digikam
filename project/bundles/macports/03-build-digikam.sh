@@ -45,7 +45,7 @@ OsxCodeName
 ORIG_PATH="$PATH"
 ORIG_WD="`pwd`"
 
-export PATH=$INSTALL_PREFIX/bin:/$INSTALL_PREFIX/sbin:/$INSTALL_PREFIX/libexec/qt$DK_QTVERSION/bin:$ORIG_PATH
+export PATH=$INSTALL_PREFIX/bin:/$INSTALL_PREFIX/sbin:/$INSTALL_PREFIX/libexec/qt6/bin:$ORIG_PATH
 
 #################################################################################################
 # Install out-dated dependencies
@@ -222,9 +222,9 @@ cmake --build . --config RelWithDebInfo --target ext_gmic_qt    -- -j$CPU_CORES
 cmake --build . --config RelWithDebInfo --target ext_mosaicwall -- -j$CPU_CORES
 cmake --build . --config RelWithDebInfo --target ext_flowview   -- -j$CPU_CORES
 
-mv -f $INSTALL_PREFIX/libexec/qt$DK_QTVERSION/plugins/digikam/editor/*.so*  $INSTALL_PREFIX/lib/plugins/digikam/editor/
-mv -f $INSTALL_PREFIX/libexec/qt$DK_QTVERSION/plugins/digikam/bqm/*.so*     $INSTALL_PREFIX/lib/plugins/digikam/bqm/
-mv -f $INSTALL_PREFIX/libexec/qt$DK_QTVERSION/plugins/digikam/generic/*.so* $INSTALL_PREFIX/lib/plugins/digikam/generic/
+mv -f $INSTALL_PREFIX/libexec/qt6/plugins/digikam/editor/*.so*  $INSTALL_PREFIX/lib/plugins/digikam/editor/
+mv -f $INSTALL_PREFIX/libexec/qt6/plugins/digikam/bqm/*.so*     $INSTALL_PREFIX/lib/plugins/digikam/bqm/
+mv -f $INSTALL_PREFIX/libexec/qt6/plugins/digikam/generic/*.so* $INSTALL_PREFIX/lib/plugins/digikam/generic/
 
 #################################################################################################
 

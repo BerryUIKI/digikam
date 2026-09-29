@@ -157,18 +157,18 @@ share/qt/plugins/digikam/generic/*.so \
 share/qt/plugins/digikam/editor/*.so \
 share/qt/plugins/digikam/dimg/*.so \
 share/qt/plugins/digikam/rawimport/*.so \
-bin/kbuildsycoca$DK_QTVERSION \
-bin/solid-hardware$DK_QTVERSION \
+bin/kbuildsycoca6 \
+bin/solid-hardware6 \
 bin/ffmpeg \
 bin/hunspell \
-opt/qt$DK_QTVERSION/share/qt/plugins/imageformats/*.dylib \
-opt/qt$DK_QTVERSION/share/qt/plugins/sqldrivers/*.dylib \
-opt/qt$DK_QTVERSION/share/qt/plugins/platforms/*.dylib \
-opt/qt$DK_QTVERSION/share/qt/plugins/iconengines/*.dylib \
-opt/qt$DK_QTVERSION/share/qt/plugins/generic/*.dylib \
-opt/qt$DK_QTVERSION/share/qt/plugins/styles/*.dylib \
-opt/qt$DK_QTVERSION/share/qt/plugins/multimedia/*.dylib \
-opt/qt$DK_QTVERSION/share/qt/plugins/tls/*.dylib \
+opt/qt6/share/qt/plugins/imageformats/*.dylib \
+opt/qt6/share/qt/plugins/sqldrivers/*.dylib \
+opt/qt6/share/qt/plugins/platforms/*.dylib \
+opt/qt6/share/qt/plugins/iconengines/*.dylib \
+opt/qt6/share/qt/plugins/generic/*.dylib \
+opt/qt6/share/qt/plugins/styles/*.dylib \
+opt/qt6/share/qt/plugins/multimedia/*.dylib \
+opt/qt6/share/qt/plugins/tls/*.dylib \
 lib/libhunspell*.dylib \
 opt/openssl@3/lib/*.dylib \
 "
@@ -197,7 +197,7 @@ binaries="$OTHER_APPS"
 #
 # NOTE: dSYM directories are copied as well and cleaned later if debug symbols must be removed in final bundle.
 #
-#       QtWebEngine runtime process and binary archives (.pak) are located in libexec/qt$DK_QTVERSION/lib/QtWebEngineCore.framework/
+#       QtWebEngine runtime process and binary archives (.pak) are located in libexec/qt6/lib/QtWebEngineCore.framework/
 #
 OTHER_DIRS="\
 share/qt/translations \
@@ -391,7 +391,7 @@ for path in $OTHER_DIRS ; do
 done
 
 # See bug #476290
-#rm -fr $TEMPROOT/libexec/qt$DK_QTVERSION/plugins/imageformats/libqjp2.dylib
+#rm -fr $TEMPROOT/libexec/qt6/plugins/imageformats/libqjp2.dylib
 
 echo "---------- Copying data files..."
 

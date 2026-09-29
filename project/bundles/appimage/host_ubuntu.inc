@@ -215,32 +215,15 @@ for pkg in ${optional_packages[@]}; do
     echo "-------------------------------------------------------------------"
 done
 
-if [[ $DK_QTVERSION == 5 ]] ; then
+optional_packages_qt6=(
+                       "libgcrypt20-dev"
+                       "libyuv-dev"
+                      )
 
-    optional_packages_qt5=(
-                           "python2"
-                           "python-is-python2"
-                           "libgcrypt11-dev"
-                          )
-
-    for pkg in ${optional_packages_qt5[@]}; do
-        sudo apt-get install -y ${pkg}
-        echo "-------------------------------------------------------------------"
-    done
-
-else
-
-    optional_packages_qt6=(
-                           "libgcrypt20-dev"
-                           "libyuv-dev"
-                          )
-
-    for pkg in ${optional_packages_qt6[@]}; do
-        sudo apt-get install -y ${pkg}
-        echo "-------------------------------------------------------------------"
-    done
-
-fi
+for pkg in ${optional_packages_qt6[@]}; do
+    sudo apt-get install -y ${pkg}
+    echo "-------------------------------------------------------------------"
+done
 
 # Install more recent version of NodeJS for QtWebEngine.
 # https://learnubuntu.com/update-node-js/

@@ -40,12 +40,8 @@ ORIG_WD="`pwd`"
 
 # We need Clang compiler to build KF6 Framework as G++ can fails.
 
-if [[ $DK_QTVERSION == 6 ]] ; then
-
-    export CC=/usr/bin/clang
-    export CXX=/usr/bin/clang++
-
-fi
+export CC=/usr/bin/clang
+export CXX=/usr/bin/clang++
 
 #################################################################################################
 
