@@ -117,26 +117,11 @@ $VCPKG_INSTALL_PREFIX/tools/gettext/bin:\
 $VCPKG_INSTALL_PREFIX/tools/gperf:\
 $VCPKG_INSTALL_PREFIX/tools/curl:\
 $VCPKG_INSTALL_PREFIX/tools/pkgconf:\
+$VCPKG_INSTALL_PREFIX/tools/Qt6/bin\
 $VCPKG_INSTALL_PREFIX/bin:\
-$DOWNLOAD_DIR/tools/python/python-3.14.2-x64-1:\
+$DOWNLOAD_DIR/tools/python/python-3.14.7-x64:\
 $DOWNLOAD_DIR/tools/ninja-1.13.2-windows:\
 "
-
-if [[ $DK_QTVERSION = 6 ]] ; then
-
-    export PATH="\
-    $PATH:\
-    $VCPKG_INSTALL_PREFIX/tools/Qt6/bin\
-    "
-
-else
-
-    export PATH="\
-    $PATH:\
-    $VCPKG_INSTALL_PREFIX/tools/qt5/bin\
-    "
-
-fi
 
 echo "PATH=$PATH"
 
