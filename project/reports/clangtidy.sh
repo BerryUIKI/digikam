@@ -22,7 +22,7 @@ checksCPUCores
 
 # Check run-time dependencies
 
-if ! which run-cland-tidy.py ; then
+if ! which run-clang-tidy ; then
 
     echo "CLANG-TIDY tool from LLVM is not installed!"
     echo "See https://clang.llvm.org/extra/clang-tidy/ for details."
@@ -30,7 +30,7 @@ if ! which run-cland-tidy.py ; then
 
 else
 
-    CLANG_TIDY_BIN=run-clang-tidy.py
+    CLANG_TIDY_BIN=run-clang-tidy
 
 fi
 
@@ -49,10 +49,7 @@ rm -fr $REPORT_DIR
 
 mkdir -p $REPORT_DIR
 
-rm -fr ../../build.tidy
-mkdir -p ../../build.tidy
-
-$CLANG_TIDY_BIN -quiet -j$CPU_CORES -p  ../../build.tidy/ | tee $REPORT_DIR/clang-tidy.log
+$CLANG_TIDY_BIN -quiet -j$CPU_CORES -p  ../../build.qt6/ | tee $REPORT_DIR/clang-tidy.log
 
 python3 ./clangtidy_visualizer.py $REPORT_DIR/clang-tidy.log
 
@@ -66,7 +63,5 @@ if [[ $1 != "--nowebupdate" ]] ; then
 fi
 
 cd $ORIG_DIR
-
-rm -fr ../../build.tidy
 
 TerminateScript
