@@ -204,6 +204,9 @@ elif [[ $MAJOR_OSX_VERSION == "15" ]]
 elif [[ $MAJOR_OSX_VERSION == "26" ]]
     then OSX_CODE_NAME="Tahoe"
 
+elif [[ $MAJOR_OSX_VERSION == "27" ]]
+    then OSX_CODE_NAME="Golden Gate"
+
 fi
 
 echo -e "---------- Detected OSX version $MAJOR_OSX_VERSION.$MINOR_OSX_VERSION and code name $OSX_CODE_NAME"
