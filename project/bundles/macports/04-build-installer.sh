@@ -294,7 +294,7 @@ cp -a "$INSTALL_PREFIX/share/icons/hicolor" "$TEMPROOT/digikam.app/Contents/Reso
 
 # Copy the Qt configuration ini file
 
-cp $ORIG_WD/data/qt.conf.qt6 "$TEMPROOT/digikam.app/Contents/Resources/qt.conf"
+cp $ORIG_WD/data/qt.conf "$TEMPROOT/digikam.app/Contents/Resources/qt.conf"
 
 echo "---------- Copying i18n..."
 
