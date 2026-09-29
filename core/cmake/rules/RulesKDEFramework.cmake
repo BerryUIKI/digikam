@@ -36,27 +36,27 @@ endif()
 
 if(ENABLE_AKONADICONTACTSUPPORT)
 
-    find_package(KPim6 ${AKONADI_MIN_VERSION} QUIET
-                                              OPTIONAL_COMPONENTS
-                                              Akonadi
-                                              AkonadiContactCore  # For KDE Mail Contacts support.
+    find_package(KPim6 ${KF6_MIN_VERSION} QUIET
+                                          OPTIONAL_COMPONENTS
+                                          Akonadi
+                                          AkonadiContactCore  # For KDE Mail Contacts support.
     )
 
-    find_package(KF6 ${AKONADI_MIN_VERSION} QUIET
-                                            OPTIONAL_COMPONENTS
-                                            Contacts            # API for contacts/address book data.
+    find_package(KF6 ${KF6_MIN_VERSION} QUIET
+                                        OPTIONAL_COMPONENTS
+                                        Contacts            # API for contacts/address book data.
     )
 
-    find_package(KPim6Akonadi ${AKONADI_MIN_VERSION} QUIET)
-    find_package(KPim6AkonadiContactCore ${AKONADI_MIN_VERSION} QUIET)
+    find_package(KPim6Akonadi ${KF6_MIN_VERSION} QUIET)
+    find_package(KPim6AkonadiContactCore ${KF6_MIN_VERSION} QUIET)
 
 endif()
 
 find_package(KSaneWidgets6)
 
-find_package(KF6 ${CALENDAR_MIN_VERSION} QUIET
-                                         OPTIONAL_COMPONENTS
-                                         CalendarCore           # For Calendar tool.
+find_package(KF6 ${KF6_MIN_VERSION} QUIET
+                                    OPTIONAL_COMPONENTS
+                                    CalendarCore           # For Calendar tool.
 )
 
 set(HAVE_KCALENDAR_QDATETIME TRUE)

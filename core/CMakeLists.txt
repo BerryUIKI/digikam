@@ -22,8 +22,6 @@ set(OPENCV_MIN_VERSION                      "4.8.0")        # Version of the DNN
 set(OPENCV_MAX_VERSION                      "4.99.0")       # Not yet ported to 5.0 and later (See bug #522887).
 set(LENSFUN_MIN_VERSION                     "0.2.8.0")      # For Lens auto-correction plugin.
 set(KSANE_MIN_VERSION                       "21.12.0")      # For digital scanner support.
-set(CALENDAR_MIN_VERSION                    "6.5.0")        # Calendar Core dependency for plugin.
-set(AKONADI_MIN_VERSION                     "6.5.0")        # Akonadi Contact dependency.
 
 cmake_minimum_required(VERSION ${CMAKE_MIN_VERSION})
 
@@ -281,13 +279,13 @@ PRINT_LIBRARY_STATUS("libtiff"       "https://gitlab.com/libtiff/libtiff/"      
 PRINT_OPTIONAL_LIBRARY_STATUS("bison"             "https://www.gnu.org/software/bison/bison.html"                   "(version >= 2.5.0)"                    "digiKam will be compiled without Panorama support."                          BISON_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("ccache"            "https://ccache.dev"                                              "(version >= 3.0.0)"                    "digiKam will be compiled without CCACHE build support."                      HAVE_CCACHE)
 PRINT_OPTIONAL_LIBRARY_STATUS("flex"              "https://github.com/westes/flex"                                  "(version >= 2.5.0)"                    "digiKam will be compiled without Panorama support."                          FLEX_FOUND)
-PRINT_OPTIONAL_LIBRARY_STATUS("libakonadicontact" "https://invent.kde.org/pim/akonadi-contacts"                     "(version >= ${AKONADI_MIN_VERSION})"   "digiKam will be compiled without KDE desktop address book support."          KPim6AkonadiContact_FOUND OR KPim$6AkonadiContactCore_FOUND)
+PRINT_OPTIONAL_LIBRARY_STATUS("libakonadicontact" "https://invent.kde.org/pim/akonadi-contacts"                     "(version >= ${KF6_MIN_VERSION})"       "digiKam will be compiled without KDE desktop address book support."          KPim6AkonadiContact_FOUND OR KPim$6AkonadiContactCore_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("libimagemagick"    "https://github.com/ImageMagick/ImageMagick.git"                  "(version >= 6.7.0)"                    "digiKam will be compiled without ImageMagick codecs."                        HAVE_IMAGE_MAGICK)
 PRINT_OPTIONAL_LIBRARY_STATUS("libeigen3"         "https://github.com/eigenteam/eigen-git-mirror"                   "(version >= 3.0.0)"                    "digiKam will be compiled without Refocus tool support."                      Eigen3_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("libgphoto2"        "https://github.com/gphoto/libgphoto2"                            "(version >= 2.4.0)"                    "digiKam will be compiled without GPhoto2 camera drivers support."            Gphoto2_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("libjasper"         "https://github.com/mdadams/jasper"                               "(version >= 1.7.0)"                    "digiKam will be compiled without JPEG2000 support."                          Jasper_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("libjpegxl"         "https://github.com/libjxl/libjxl"                                "(version >= 0.7)"                      "digiKam will be compiled without DNG support."                               JXL_FOUND)
-PRINT_OPTIONAL_LIBRARY_STATUS("libkcalendarcore"  "https://invent.kde.org/frameworks/kcalendarcore"                 "(version >= ${CALENDAR_MIN_VERSION})"  "digiKam will be compiled without advanced calendar support."                 KF$6CalendarCore_FOUND)
+PRINT_OPTIONAL_LIBRARY_STATUS("libkcalendarcore"  "https://invent.kde.org/frameworks/kcalendarcore"                 "(version >= ${KF6_MIN_VERSION})"       "digiKam will be compiled without advanced calendar support."                 KF$6CalendarCore_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("libkfilemetadata"  "https://invent.kde.org/frameworks/kfilemetadata"                 "(version >= ${KF6_MIN_VERSION})"       "digiKam will be compiled without KDE desktop file metadata support."         KF6FileMetaData_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("libkiconthemes"    "https://invent.kde.org/frameworks/kiconthemes"                   "(version >= ${KF6_MIN_VERSION})"       "digiKam will be compiled without KDE desktop icon themes support."           KF6IconThemes_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("libkio"            "https://invent.kde.org/frameworks/kio"                           "(version >= ${KF6_MIN_VERSION})"       "digiKam will be compiled without KDE desktop integration support."           KF6KIO_FOUND)
