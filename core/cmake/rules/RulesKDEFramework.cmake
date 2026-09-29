@@ -59,11 +59,7 @@ find_package(KF6 ${CALENDAR_MIN_VERSION} QUIET
                                          CalendarCore           # For Calendar tool.
 )
 
-if ("${KF6CalendarCore_VERSION}" VERSION_GREATER 5.6.40)
-
-    set(HAVE_KCALENDAR_QDATETIME TRUE)
-
-endif()
+set(HAVE_KCALENDAR_QDATETIME TRUE)
 
 if(ENABLE_AKONADICONTACTSUPPORT AND
    (NOT (KPim6AkonadiContact_FOUND OR KPim6AkonadiContactCore_FOUND) OR NOT KF6Contacts_FOUND))
