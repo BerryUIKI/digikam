@@ -49,7 +49,7 @@ rm -fr $REPORT_DIR
 
 mkdir -p $REPORT_DIR
 
-$CLANG_TIDY_BIN -quiet -j$CPU_CORES -p  ../../build.qt6/ | tee $REPORT_DIR/clang-tidy.log
+$CLANG_TIDY_BIN -quiet -allow-no-checks -j$CPU_CORES -p  ../../build.qt6/ | tee $REPORT_DIR/clang-tidy.log
 
 python3 ./clangtidy_visualizer.py $REPORT_DIR/clang-tidy.log
 
