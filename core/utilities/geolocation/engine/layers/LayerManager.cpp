@@ -44,7 +44,7 @@ public:
 
 public:
 
-    LayerManager* const         q = nullptr;
+    LayerManager* const         q                   = nullptr;
 
     QList<RenderPlugin*>        m_renderPlugins;
     QList<AbstractDataPlugin*>  m_dataPlugins;
@@ -52,15 +52,13 @@ public:
 
     RenderState                 m_renderState;
 
-    bool                        m_showBackground;
-    bool                        m_showRuntimeTrace;
+    bool                        m_showBackground    = true;
+    bool                        m_showRuntimeTrace  = false;
 };
 
 LayerManager::Private::Private(LayerManager* parent)
-    : q(parent),
-      m_renderPlugins(),
-      m_showBackground(true),
-      m_showRuntimeTrace(false)
+    : q              (parent),
+      m_renderPlugins()
 {
 }
 
@@ -75,7 +73,7 @@ void LayerManager::Private::updateVisibility(bool visible, const QString& nameId
 
 LayerManager::LayerManager(QObject* parent)
     : QObject(parent),
-      d(new Private(this))
+      d      (new Private(this))
 {
 }
 
@@ -161,10 +159,11 @@ void LayerManager::renderLayers(GeoPainter* painter, ViewportParams* viewport)
             << QStringLiteral("USER_TOOLS");
 
     QStringList traceList;
+    QList<LayerInterface*> layers;
 
     for (const auto& renderPosition : renderPositions)
     {
-        QList<LayerInterface*> layers;
+        layers.clear();
 
         // collect all RenderPlugins of current renderPosition
 
