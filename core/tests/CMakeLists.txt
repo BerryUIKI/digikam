@@ -159,7 +159,6 @@ add_subdirectory(nlsearch)
 add_subdirectory(ocrtextconverter)
 add_subdirectory(rawengine)
 add_subdirectory(timestampupdate)
-add_subdirectory(webservices)
 add_subdirectory(widgets)
 add_subdirectory(video)
 

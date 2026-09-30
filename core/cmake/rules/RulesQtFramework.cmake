@@ -52,14 +52,4 @@ if(BUILD_TESTING)
                  Test
     )
 
-    # Optional, for 'sialis' O2 library test tool.
-
-    find_package(Qt6
-                 QUIET
-                 OPTIONAL_COMPONENTS
-
-                 Qml
-                 WebView
-    )
-
 endif()
