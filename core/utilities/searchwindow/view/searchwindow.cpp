@@ -257,20 +257,23 @@ QString SearchWindow::search() const
 
 void SearchWindow::searchOk()
 {
-    if (!isVisible())
+    if (!isVisible() )
     {
         return;
     }
 
-    const QString describe = d->describeEdit->text().trimmed();
-
-    if (!describe.isEmpty() && d->nlCommittedXml.isEmpty())
+    if (d->describeEdit)
     {
-        d->nlFromDialog            = true;
-        d->pendingOkAfterInterpret = true;
-        startInterpretation(describe);
+        const QString describe = d->describeEdit->text().trimmed();
 
-        return;
+        if (!describe.isEmpty() && d->nlCommittedXml.isEmpty())
+        {
+            d->nlFromDialog            = true;
+            d->pendingOkAfterInterpret = true;
+            startInterpretation(describe);
+
+            return;
+        }
     }
 
     QString xml = (d->nlCommittedXml.isEmpty() ? search() : d->nlCommittedXml);
