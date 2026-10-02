@@ -13,7 +13,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-09-28 00:42+0000\n"
-"PO-Revision-Date: 2026-09-23 13:04+0200\n"
+"PO-Revision-Date: 2026-09-25 13:13+0200\n"
 "Last-Translator: Josep M. Ferrer <txemaq@gmail.com>\n"
 "Language-Team: Catalan <kde-i18n-ca@kde.org>\n"
 "Language: ca@valencia\n"
@@ -64399,6 +64399,9 @@ msgid ""
 "If the language model has not been downloaded yet, the Advanced Search "
 "dialog will open so you can download it."
 msgstr ""
+"Interpreta el text anterior com una busca en llenguatge natural i construïx "
+"la consulta. Si el model d'idioma encara no s'ha baixat, s'obrirà el diàleg "
+"«Busca avançada» perquè el pugueu baixar."
 
 #: core/utilities/searchwindow/view/searchtabheader.cpp:72
 #: core/utilities/searchwindow/view/searchwindow.cpp:70
@@ -69710,158 +69713,3 @@ msgstr "Estudi"
 #, kde-format
 msgid "Play/Pause Video"
 msgstr "Reproduïu o pausa vídeo"
-
-#~ msgid ""
-#~ "You have chosen a bright color scheme. We switch to a dark icon theme. "
-#~ "The icon theme is available after a restart of digiKam."
-#~ msgstr ""
-#~ "Heu triat un esquema de color brillant. Es canvia a un tema d'icones "
-#~ "fosc. El tema d'icones serà disponible després de reiniciar digiKam."
-
-#~ msgid ""
-#~ "You have chosen a dark color scheme. We switch to a bright icon theme. "
-#~ "The icon theme is available after a restart of digiKam."
-#~ msgstr ""
-#~ "Heu triat un esquema de color fosc. Es canvia a un tema d'icones "
-#~ "brillant. El tema d'icones serà disponible després de reiniciar digiKam."
-
-#~ msgid "Use high DPI scaling from the screen factor"
-#~ msgstr "Utilitza l'escalat del PPP alt a partir del factor de pantalla"
-
-#~ msgid "Use pixmaps with high DPI resolution"
-#~ msgstr "Utilitza mapes de píxels amb resolucions de PPP alt"
-
-#~ msgid "Migration from digiKam 4"
-#~ msgstr "Migració des de digiKam 4"
-
-#~ msgid ""
-#~ "<qt><p><h1><b>Migrate configuration and metadata from digiKam 4</b></h1></"
-#~ "p><p>You can choose here if you want to use the configuration and albums "
-#~ "from digiKam 4 in new digiKam. Please note the following warnings:</"
-#~ "p><p>Migration is done <b>at your own risk</b>. digiKam developers do not "
-#~ "recommend it and do not support it. On the other hand, creating a new "
-#~ "configuration might result in loss of tags and other metadata that was "
-#~ "not embedded inside the pictures and was only available in digiKam 4's "
-#~ "database.</p><p>In either case you are recommended to backup the "
-#~ "configuration files and databases before proceeding.</p></qt>"
-#~ msgstr ""
-#~ "<qt><p><h1><b>Migració de la configuració i les metadades des de digiKam "
-#~ "4</b></h1></p><p>Ací es pot triar si voleu utilitzar la configuració i "
-#~ "els àlbums de digiKam 4 a digiKam nou. Cal tindre en compte els avisos "
-#~ "següents:</p><p>La migració es fa <b>davall la vostra responsabilitat</"
-#~ "b>. Els desenvolupadors de digiKam no ho recomanen i no en donaran "
-#~ "suport. Per altra banda, crear una configuració nova pot comportar la "
-#~ "pèrdua d'etiquetes i d'altres metadades que no s'hagen incrustat dins les "
-#~ "imatges i que només estaven disponibles des de la base de dades de "
-#~ "digiKam 4.</p><p>En qualsevol cas, vos recomanem fer una còpia de "
-#~ "seguretat dels fitxers de configuració i de les bases de dades abans de "
-#~ "continuar.</p></qt>"
-
-#~ msgid "Migrate configuration from digiKam 4"
-#~ msgstr "Migra la configuració des de digiKam 4"
-
-#~ msgid "Create a new configuration"
-#~ msgstr "Crea una configuració nova"
-
-#~ msgid "No detail available"
-#~ msgstr "Cap detall disponible"
-
-#~ msgctxt "@option"
-#~ msgid "Visibility"
-#~ msgstr "Visibilitat"
-
-#~ msgctxt "@info"
-#~ msgid "Set the visibility of the album"
-#~ msgstr "Establix la visibilitat de l'àlbum"
-
-#~ msgctxt "@label: properties"
-#~ msgid "Public"
-#~ msgstr "Públic"
-
-#~ msgctxt "@title"
-#~ msgid "Rajce"
-#~ msgstr "Rajce"
-
-#~ msgctxt "@info"
-#~ msgid "A tool to export to Rajce web-service"
-#~ msgstr "Una eina per a exportar cap al servei web Rajce"
-
-#~ msgctxt "@info"
-#~ msgid ""
-#~ "This tool allows users to export items to Rajce web-service.<br><br>See "
-#~ "Rajce web site for details: %1"
-#~ msgstr ""
-#~ "Esta eina permet als usuaris exportar elements al servei web Rajce."
-#~ "<br><br>Per als detalls, vegeu el lloc web de Rajce: %1"
-
-#~ msgctxt "@action"
-#~ msgid "Export to &Rajce..."
-#~ msgstr "Exporta cap a &Rajce…"
-
-#~ msgid "Not logged in"
-#~ msgstr "No s'ha accedit al compte"
-
-#~ msgid "Invalid command"
-#~ msgstr "Ordre no vàlida"
-
-#~ msgid "Invalid login name or password"
-#~ msgstr "Nom d'accés o contrasenya no vàlids"
-
-#~ msgid "Session expired"
-#~ msgstr "La sessió ha expirat"
-
-#~ msgid "Unknown album"
-#~ msgstr "Àlbum desconegut"
-
-#~ msgid "Failed to open album"
-#~ msgstr "Ha fallat mentre s'obria l'àlbum"
-
-#~ msgid "The album name cannot be empty"
-#~ msgstr "El nom de l'àlbum no pot estar buit"
-
-#~ msgid "Failed to create album"
-#~ msgstr "Ha fallat mentre es creava l'àlbum"
-
-#~ msgid "Album does not exist"
-#~ msgstr "L'àlbum no existix"
-
-#~ msgid "File upload failed"
-#~ msgstr "Ha fallat la pujada"
-
-#~ msgid "Unsupported file extension"
-#~ msgstr "Extensió de fitxer no admesa"
-
-#~ msgid "Logging in %v%"
-#~ msgstr "S'està iniciant la sessió a %v%"
-
-#~ msgid "Logging out %v%"
-#~ msgstr "S'està tancant la sessió a %v%"
-
-#~ msgid "Loading albums %v%"
-#~ msgstr "S'estan carregant els àlbums %v%"
-
-#~ msgid "Creating album %v%"
-#~ msgstr "S'està creant l'àlbum %v%"
-
-#~ msgid "Opening album %v%"
-#~ msgstr "S'està obrint l'àlbum %v%"
-
-#~ msgid "Closing album %v%"
-#~ msgstr "S'està tancant l'àlbum %v%"
-
-#~ msgid "Adding photos %v%"
-#~ msgstr "S'estan afegint les fotografies %v%"
-
-#~ msgctxt "@title:window"
-#~ msgid "Export to Rajce.net"
-#~ msgstr "Exporteu cap a Rajce.net"
-
-#~ msgctxt "@info:tooltip, button"
-#~ msgid "Start upload to Rajce.net"
-#~ msgstr "Comença la pujada a Rajce.net"
-
-#~ msgid ""
-#~ "Interpret the text above as a natural-language search and build the query"
-#~ msgstr ""
-#~ "Interpreta el text anterior com una busca en llenguatge natural i "
-#~ "construïx la consulta"
