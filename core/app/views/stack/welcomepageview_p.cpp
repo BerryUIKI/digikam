@@ -68,6 +68,8 @@ ResizableBackgroundWidget::ResizableBackgroundWidget(QWidget* const parent)
     : QWidget(parent)
 {
     setContentsMargins(0, 0, 0, 0);
+    m_backgroundPixmap = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
+                                                QLatin1String("digikam/data/body-background.webp"));
 }
 
 void ResizableBackgroundWidget::resizeEvent(QResizeEvent* event)

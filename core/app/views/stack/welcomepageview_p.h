@@ -108,8 +108,7 @@ protected:
 
 private:
 
-    QPixmap m_backgroundPixmap = QStandardPaths::locate(QStandardPaths::GenericDataLocation,
-                                                        QLatin1String("digikam/data/body-background.webp"));
+    QPixmap m_backgroundPixmap;
 };
 
 } // namespace Digikam
