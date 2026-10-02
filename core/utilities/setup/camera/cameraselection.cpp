@@ -71,6 +71,7 @@ public:
     QString           UMSCameraNameShown;
     QString           PTPCameraNameShown;
     QString           PTPIPCameraNameShown;
+    QString           networkPortPrefix     = QLatin1String("ptpip:");
 
     QStringList       serialPortList;
 
@@ -440,8 +441,11 @@ void CameraSelection::setCamera(const QString& title, const QString& model,
 
             slotPortChanged();
         }
-        else if (port.contains(QLatin1String("ptpip")))
+        else if (port.startsWith(QLatin1String("ptpip:")) ||
+                 port.startsWith(QLatin1String("ip:")))
         {
+            d->networkPortPrefix = port.startsWith(QLatin1String("ip:")) ? QLatin1String("ip:")
+                                                                        : QLatin1String("ptpip:");
             d->networkButton->setChecked(true);
             d->networkEdit->setText(port);
             slotPortChanged();
@@ -552,8 +556,10 @@ void CameraSelection::slotSelectionChanged(QTreeWidgetItem* item, int)
         d->serialButton->setEnabled(false);
     }
 
-    if (plist.contains(QLatin1String("ptpip")))
+    if (plist.contains(QLatin1String("ptpip")) || plist.contains(QLatin1String("ip")))
     {
+        d->networkPortPrefix = plist.contains(QLatin1String("ptpip")) ? QLatin1String("ptpip:")
+                                                                     : QLatin1String("ip:");
         d->networkButton->setEnabled(true);
         d->networkButton->setChecked(true);
     }
@@ -596,7 +602,7 @@ void CameraSelection::slotPortChanged()
     {
         d->portPathComboBox->setEnabled(true);
         d->portPathComboBox->clear();
-        d->portPathComboBox->insertItem(0, QLatin1String("ptpip:"));
+        d->portPathComboBox->insertItem(0, d->networkPortPrefix);
         d->portPathComboBox->setEnabled(false);
         d->networkEdit->setEnabled(true);
 
