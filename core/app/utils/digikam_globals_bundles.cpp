@@ -235,14 +235,17 @@ void unloadQtTranslationFiles(QApplication& app)
 
     // ECMQmLoader creates all QTranslator's parented to the active QApplication instance.
 
+    QStringList list;
     QList<QTranslator*> translators = app.findChildren<QTranslator*>(QString(), Qt::FindDirectChildrenOnly);
 
     for (const auto& translator : std::as_const(translators))
     {
         app.removeTranslator(translator);
+        list.append(QFileInfo(translator->filePath()).fileName());
     }
 
-    qCDebug(DIGIKAM_GENERAL_LOG) << "Qt standard translations removed:" << translators.size();
+    qCDebug(DIGIKAM_GENERAL_LOG) << "Qt standard translations removed:" << translators.size()
+                                 << ":" << list.join(QLatin1Char(' '));
 }
 
 void loadStdQtTranslationFiles(QApplication& app)
