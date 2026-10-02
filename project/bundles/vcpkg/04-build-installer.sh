@@ -193,7 +193,9 @@ done
 
 echo -e "\n---------- Qt plugins"
 
-cp -r $VCPKG_INSTALL_PREFIX/Qt6/plugins                               $BUNDLEDIR/                           2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/Qt6/plugins                                   $BUNDLEDIR/                           2>/dev/null
+# Since KF 6.30, this plugin is installed in debug. Why?
+cp -r $VCPKG_INSTALL_PREFIX/debug/Qt6/plugins/kiconthemes6                $BUNDLEDIR/                           2>/dev/null
 
 echo -e "\n---------- OpenGl Software for Qt6"
 # Taken from https://download.qt.io/development_releases/prebuilt/llvmpipe/windows/
@@ -399,8 +401,8 @@ for vscompdll in $VS_DLL_COMP ; do
 done
 
 # Group icon-engine plugins at the same place
-mv -f $BUNDLEDIR/plugins/kiconthemes6/iconengines/*.dll $BUNDLEDIR/plugins/iconengines/
-rm -fr $BUNDLEDIR/plugins/kiconthemes6
+mv -f $BUNDLEDIR/kiconthemes6/iconengines/*.dll $BUNDLEDIR/plugins/iconengines/
+rm -fr $BUNDLEDIR/kiconthemes6
 
 #################################################################################################
 # Install ExifTool binary.

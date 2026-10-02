@@ -83,14 +83,14 @@ DK_UPLOADURL="digikam@tinami.kde.org"
 
 # KDE KF6 frameworks version.
 # See official release here: https://download.kde.org/stable/frameworks/
-DK_KDE_VERSION="v6.28.0"
+DK_KDE_VERSION="v6.30.0"
 
 # KDE Plasma version.
 # See official release here: https://download.kde.org/stable/plasma/
-DK_KP_VERSION="v6.7.2"
+DK_KP_VERSION="v6.7.5"
 
 # KDE Application version.
 # See official release here: https://download.kde.org/stable/release-service/
-DK_KA_VERSION="v26.04.3"
+DK_KA_VERSION="v26.08.1"
 
 DK_UPLOADDIR="/srv/archives/files/digikam"
