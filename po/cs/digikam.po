@@ -10,7 +10,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-28 00:42+0000\n"
+"POT-Creation-Date: 2026-10-03 00:42+0000\n"
 "PO-Revision-Date: 2026-07-13 20:31+0200\n"
 "Last-Translator: Libor Filípek <libor.filipek@gmail.com>\n"
 "Language-Team: Czech <kde-i18n-doc@kde.org>\n"
@@ -63066,24 +63066,24 @@ msgstr ""
 "Autodetekce fotoaparátu se nezdařila; prosím ujistěte se, že je připojen "
 "správně a že je zapnutý. Přejete si autodetekci zkusit znovu?"
 
-#: core/utilities/setup/camera/cameraselection.cpp:93
+#: core/utilities/setup/camera/cameraselection.cpp:94
 #, kde-format
 msgctxt "@title:window"
 msgid "Camera Configuration"
 msgstr "Nastavení fotoaparátu"
 
 #. i18n!
-#: core/utilities/setup/camera/cameraselection.cpp:103
+#: core/utilities/setup/camera/cameraselection.cpp:104
 #, kde-format
 msgid "Mounted Camera"
 msgstr "Připojený fotoaparát"
 
-#: core/utilities/setup/camera/cameraselection.cpp:119
+#: core/utilities/setup/camera/cameraselection.cpp:120
 #, kde-format
 msgid "Camera List"
 msgstr "Seznam fotoaparátů"
 
-#: core/utilities/setup/camera/cameraselection.cpp:120
+#: core/utilities/setup/camera/cameraselection.cpp:121
 #, kde-format
 msgid ""
 "<p>Select the camera name that you want to use here. All default settings on "
@@ -63094,12 +63094,12 @@ msgstr ""
 "nastavení na pravém panelu budou použita automaticky.</p><p>Tento seznam byl "
 "vytvořen s použitím knihovny gphoto2 instalované na vašem počítači.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:129
+#: core/utilities/setup/camera/cameraselection.cpp:130
 #, kde-format
 msgid "Camera Title"
 msgstr "Název fotoaparátu"
 
-#: core/utilities/setup/camera/cameraselection.cpp:133
+#: core/utilities/setup/camera/cameraselection.cpp:134
 #, kde-format
 msgid ""
 "<p>Set here the name used in digiKam interface to identify this camera.</p>"
@@ -63107,17 +63107,17 @@ msgstr ""
 "<p>Nastavte zde název použitý v rozhraní digiKamu k rozpoznání tohoto "
 "fotoaparátu.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:142
+#: core/utilities/setup/camera/cameraselection.cpp:143
 #, kde-format
 msgid "Camera Port Type"
 msgstr "Typ portu"
 
-#: core/utilities/setup/camera/cameraselection.cpp:147
+#: core/utilities/setup/camera/cameraselection.cpp:148
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: core/utilities/setup/camera/cameraselection.cpp:148
+#: core/utilities/setup/camera/cameraselection.cpp:149
 #, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer using a "
@@ -63126,13 +63126,13 @@ msgstr ""
 "<p>Vyberte tuto možnost, pokud je váš fotoaparát připojen k počítači USB "
 "kabelem.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:151
+#: core/utilities/setup/camera/cameraselection.cpp:152
 #, kde-format
 msgctxt "@item: serail port based camera"
 msgid "Serial"
 msgstr "Sériový"
 
-#: core/utilities/setup/camera/cameraselection.cpp:152
+#: core/utilities/setup/camera/cameraselection.cpp:153
 #, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer using a "
@@ -63141,12 +63141,12 @@ msgstr ""
 "<p>Vyberte tuto možnost, pokud je váš fotoaparát připojen k počítači "
 "sériovým kabelem.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:155
+#: core/utilities/setup/camera/cameraselection.cpp:156
 #, kde-format
 msgid "Network"
 msgstr "Síť"
 
-#: core/utilities/setup/camera/cameraselection.cpp:156
+#: core/utilities/setup/camera/cameraselection.cpp:157
 #, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer network.</"
@@ -63155,7 +63155,7 @@ msgstr ""
 "<p>Vyberte tuto možnost, pokud je váš fotoaparát připojen k počítačové síti</"
 "p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:161
+#: core/utilities/setup/camera/cameraselection.cpp:162
 #, kde-format
 msgid ""
 "<p>Select the serial port to use on your computer here. This option is only "
@@ -63164,22 +63164,22 @@ msgstr ""
 "<p>Vyberte zde sériový port, který bude použit. Tato volba je vyžadována, "
 "jen pokud používáte digitální fotoaparát.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:165
+#: core/utilities/setup/camera/cameraselection.cpp:166
 #, kde-format
 msgid "<p>Enter here the network address of your camera.</p>"
 msgstr "<p>Zde zadejte síťovou adresu fotoaparátu.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:183
+#: core/utilities/setup/camera/cameraselection.cpp:184
 #, kde-format
 msgid "Camera Mount Path"
 msgstr "Přípojný bod fotoaparátu"
 
-#: core/utilities/setup/camera/cameraselection.cpp:187
+#: core/utilities/setup/camera/cameraselection.cpp:188
 #, kde-format
 msgid "Note: only for USB/IEEE mass storage cameras."
 msgstr "Pozn: pouze pro fotoaparáty USB/IEEE mass storage."
 
-#: core/utilities/setup/camera/cameraselection.cpp:193
+#: core/utilities/setup/camera/cameraselection.cpp:194
 #, kde-format
 msgid ""
 "<p>Set here the mount path to use on your computer. This option is only "
@@ -63188,7 +63188,7 @@ msgstr ""
 "<p>Nastavte zde cestu, do níž je připojen fotoaparát na vašem počítači. Tato "
 "volba je vyžadována, jen pokud používáte fotoaparát s USB.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:211
+#: core/utilities/setup/camera/cameraselection.cpp:212
 #, kde-format
 msgid ""
 "<p>To set a <b>USB Mass Storage</b> camera<br>(which looks like a removable "
@@ -63196,7 +63196,7 @@ msgid ""
 "%1</a> from the camera list.</p>"
 msgstr ""
 
-#: core/utilities/setup/camera/cameraselection.cpp:218
+#: core/utilities/setup/camera/cameraselection.cpp:219
 #, kde-format
 msgid ""
 "<p>To set a <b>Generic PTP USB Device</b><br>(which uses Picture Transfer "
@@ -63204,7 +63204,7 @@ msgid ""
 "p>"
 msgstr ""
 
-#: core/utilities/setup/camera/cameraselection.cpp:224
+#: core/utilities/setup/camera/cameraselection.cpp:225
 #, kde-format
 msgid ""
 "<p>To set a <b>Generic PTP/IP Network Device</b><br>(which uses Picture "
@@ -63212,7 +63212,7 @@ msgid ""
 "camera list.</p>"
 msgstr ""
 
-#: core/utilities/setup/camera/cameraselection.cpp:231
+#: core/utilities/setup/camera/cameraselection.cpp:232
 #, kde-format
 msgid ""
 "<p>A complete list of camera settings to use is<br>available at <a "

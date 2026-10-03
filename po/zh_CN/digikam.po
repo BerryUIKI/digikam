@@ -3,7 +3,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: kdeorg\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-28 00:42+0000\n"
+"POT-Creation-Date: 2026-10-03 00:42+0000\n"
 "PO-Revision-Date: 2024-04-23 11:20\n"
 "Last-Translator: \n"
 "Language-Team: Chinese Simplified\n"
@@ -62791,24 +62791,24 @@ msgid ""
 "is turned on. Would you like to try again?"
 msgstr "无法自动检测到相机。请确保相机已经连接并且开机。您想要重新检测吗？"
 
-#: core/utilities/setup/camera/cameraselection.cpp:93
+#: core/utilities/setup/camera/cameraselection.cpp:94
 #, kde-format
 msgctxt "@title:window"
 msgid "Camera Configuration"
 msgstr "相机配置"
 
 #. i18n!
-#: core/utilities/setup/camera/cameraselection.cpp:103
+#: core/utilities/setup/camera/cameraselection.cpp:104
 #, kde-format
 msgid "Mounted Camera"
 msgstr "已挂载相机"
 
-#: core/utilities/setup/camera/cameraselection.cpp:119
+#: core/utilities/setup/camera/cameraselection.cpp:120
 #, kde-format
 msgid "Camera List"
 msgstr "相机列表"
 
-#: core/utilities/setup/camera/cameraselection.cpp:120
+#: core/utilities/setup/camera/cameraselection.cpp:121
 #, kde-format
 msgid ""
 "<p>Select the camera name that you want to use here. All default settings on "
@@ -62818,82 +62818,82 @@ msgstr ""
 "<p>请在此列表选择您想要使用的相机。选择一款相机后，右侧面板的设置将会根据相机"
 "自动设定。</p><p>此列表通过本机安装的 gphoto2 程序库生成。</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:129
+#: core/utilities/setup/camera/cameraselection.cpp:130
 #, kde-format
 msgid "Camera Title"
 msgstr "相机名称"
 
-#: core/utilities/setup/camera/cameraselection.cpp:133
+#: core/utilities/setup/camera/cameraselection.cpp:134
 #, kde-format
 msgid ""
 "<p>Set here the name used in digiKam interface to identify this camera.</p>"
 msgstr "<p>指定一个用于在 digiKam 界面中识别此相机的名称。</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:142
+#: core/utilities/setup/camera/cameraselection.cpp:143
 #, kde-format
 msgid "Camera Port Type"
 msgstr "相机端口类型"
 
-#: core/utilities/setup/camera/cameraselection.cpp:147
+#: core/utilities/setup/camera/cameraselection.cpp:148
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: core/utilities/setup/camera/cameraselection.cpp:148
+#: core/utilities/setup/camera/cameraselection.cpp:149
 #, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer using a "
 "USB cable.</p>"
 msgstr "<p>如果相机通过 USB 数据线连接到本机，请选择此项。</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:151
+#: core/utilities/setup/camera/cameraselection.cpp:152
 #, kde-format
 msgctxt "@item: serail port based camera"
 msgid "Serial"
 msgstr "串口"
 
-#: core/utilities/setup/camera/cameraselection.cpp:152
+#: core/utilities/setup/camera/cameraselection.cpp:153
 #, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer using a "
 "serial cable.</p>"
 msgstr "<p>如果相机通过串口线缆连接到本机，请选择此项。</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:155
+#: core/utilities/setup/camera/cameraselection.cpp:156
 #, kde-format
 msgid "Network"
 msgstr "网络"
 
-#: core/utilities/setup/camera/cameraselection.cpp:156
+#: core/utilities/setup/camera/cameraselection.cpp:157
 #, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer network.</"
 "p>"
 msgstr "<p>如果相机通过网络连接到本机，请选择此项。</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:161
+#: core/utilities/setup/camera/cameraselection.cpp:162
 #, kde-format
 msgid ""
 "<p>Select the serial port to use on your computer here. This option is only "
 "required if you use a serial camera.</p>"
 msgstr "<p>选择照相机使用的串口端口。仅在通过串口连接相机时有效。</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:165
+#: core/utilities/setup/camera/cameraselection.cpp:166
 #, kde-format
 msgid "<p>Enter here the network address of your camera.</p>"
 msgstr "<p>输入相机的网络地址。</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:183
+#: core/utilities/setup/camera/cameraselection.cpp:184
 #, kde-format
 msgid "Camera Mount Path"
 msgstr "相机挂载路径"
 
-#: core/utilities/setup/camera/cameraselection.cpp:187
+#: core/utilities/setup/camera/cameraselection.cpp:188
 #, kde-format
 msgid "Note: only for USB/IEEE mass storage cameras."
 msgstr "提示：仅适用于通过 USB/火线连接的大容量移动存储设备类相机。"
 
-#: core/utilities/setup/camera/cameraselection.cpp:193
+#: core/utilities/setup/camera/cameraselection.cpp:194
 #, kde-format
 msgid ""
 "<p>Set here the mount path to use on your computer. This option is only "
@@ -62902,7 +62902,7 @@ msgstr ""
 "<p>选择相机在本机的挂载路径。本项仅适用于通过 USB 或火线连接的<b>大容量移动存"
 "储设备</b>类相机。</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:211
+#: core/utilities/setup/camera/cameraselection.cpp:212
 #, kde-format
 msgid ""
 "<p>To set a <b>USB Mass Storage</b> camera<br>(which looks like a removable "
@@ -62912,7 +62912,7 @@ msgstr ""
 "<p>要设置 <b>USB 大容量存储设备</b> 类相机<br>(在文件管理器中显示为可移动驱动"
 "器)，<br>请在相机列表中选用：<br><a href=\"umscamera\">%1</a>。</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:218
+#: core/utilities/setup/camera/cameraselection.cpp:219
 #, kde-format
 msgid ""
 "<p>To set a <b>Generic PTP USB Device</b><br>(which uses Picture Transfer "
@@ -62922,7 +62922,7 @@ msgstr ""
 "<p>要设置<b>通用 PTP USB 设备</b>类相机<br>(使用 PTP 协议)，<br>请在相机列表"
 "中选用：<a href=\"ptpcamera\">%1</a>。</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:224
+#: core/utilities/setup/camera/cameraselection.cpp:225
 #, kde-format
 msgid ""
 "<p>To set a <b>Generic PTP/IP Network Device</b><br>(which uses Picture "
@@ -62932,7 +62932,7 @@ msgstr ""
 "<p>要设置<b>通用 PTP/IP Network 设备</b>类相机<br>(使用 PTP 协议)，<br>请在相"
 "机列表中选用：<a href=\"ptpipcamera\">%1</a>。</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:231
+#: core/utilities/setup/camera/cameraselection.cpp:232
 #, kde-format
 msgid ""
 "<p>A complete list of camera settings to use is<br>available at <a "

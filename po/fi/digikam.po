@@ -45,7 +45,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-28 00:42+0000\n"
+"POT-Creation-Date: 2026-10-03 00:42+0000\n"
 "PO-Revision-Date: 2026-03-13 17:00+0200\n"
 "Last-Translator: Tommi Nieminen <translator@legisign.org>\n"
 "Language-Team: Finnish <kde-i18n-doc@kde.org>\n"
@@ -65739,25 +65739,25 @@ msgstr ""
 "liitetty tietokoneeseen ja että se on kuvansiirtotilassa. Haluatko yrittää "
 "uudelleen?"
 
-#: core/utilities/setup/camera/cameraselection.cpp:93
+#: core/utilities/setup/camera/cameraselection.cpp:94
 #, kde-format
 msgctxt "@title:window"
 msgid "Camera Configuration"
 msgstr "Kameran asetukset"
 
 #. i18n!
-#: core/utilities/setup/camera/cameraselection.cpp:103
+#: core/utilities/setup/camera/cameraselection.cpp:104
 #, kde-format
 msgid "Mounted Camera"
 msgstr "Massamuistikamera"
 
 # ei täsmää alkuperäistä, mutta käy dialogiin
-#: core/utilities/setup/camera/cameraselection.cpp:119
+#: core/utilities/setup/camera/cameraselection.cpp:120
 #, kde-format
 msgid "Camera List"
 msgstr "Tunnetut kameramallit"
 
-#: core/utilities/setup/camera/cameraselection.cpp:120
+#: core/utilities/setup/camera/cameraselection.cpp:121
 #, kde-format
 msgid ""
 "<p>Select the camera name that you want to use here. All default settings on "
@@ -65768,60 +65768,60 @@ msgstr ""
 "paneeliin asetetaan automaattisesti.</p><p>Tämä luettelo on luotu "
 "järjestelmään asennetusta gphoto2-tietokannasta.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:129
+#: core/utilities/setup/camera/cameraselection.cpp:130
 #, kde-format
 msgid "Camera Title"
 msgstr "Kameran tunniste"
 
-#: core/utilities/setup/camera/cameraselection.cpp:133
+#: core/utilities/setup/camera/cameraselection.cpp:134
 #, kde-format
 msgid ""
 "<p>Set here the name used in digiKam interface to identify this camera.</p>"
 msgstr "<p>Aseta tässä nimi, jolla digiKam tunnistaa kameran.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:142
+#: core/utilities/setup/camera/cameraselection.cpp:143
 #, kde-format
 msgid "Camera Port Type"
 msgstr "Liitäntätyyppi"
 
-#: core/utilities/setup/camera/cameraselection.cpp:147
+#: core/utilities/setup/camera/cameraselection.cpp:148
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: core/utilities/setup/camera/cameraselection.cpp:148
+#: core/utilities/setup/camera/cameraselection.cpp:149
 #, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer using a "
 "USB cable.</p>"
 msgstr "<p>Valitse tämä jos kamerasi kytketään tietokoneen USB-väylään.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:151
+#: core/utilities/setup/camera/cameraselection.cpp:152
 #, kde-format
 msgctxt "@item: serail port based camera"
 msgid "Serial"
 msgstr "Sarjaportti"
 
-#: core/utilities/setup/camera/cameraselection.cpp:152
+#: core/utilities/setup/camera/cameraselection.cpp:153
 #, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer using a "
 "serial cable.</p>"
 msgstr "<p>Valitse tämä jos kamerasi kytkeytyy tietokoneen sarjaporttiin.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:155
+#: core/utilities/setup/camera/cameraselection.cpp:156
 #, kde-format
 msgid "Network"
 msgstr "Verkko"
 
-#: core/utilities/setup/camera/cameraselection.cpp:156
+#: core/utilities/setup/camera/cameraselection.cpp:157
 #, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer network.</"
 "p>"
 msgstr "<p>Valitse tämä, jos kamerasi yhdistetään tietokoneverkkoon.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:161
+#: core/utilities/setup/camera/cameraselection.cpp:162
 #, kde-format
 msgid ""
 "<p>Select the serial port to use on your computer here. This option is only "
@@ -65830,22 +65830,22 @@ msgstr ""
 "<p>Jos kamerasi liitetään tietokoneen sarjaporttiin, valitse käytössä oleva "
 "portti.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:165
+#: core/utilities/setup/camera/cameraselection.cpp:166
 #, kde-format
 msgid "<p>Enter here the network address of your camera.</p>"
 msgstr "<p>Syötä tähän kameran verkko-osoite.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:183
+#: core/utilities/setup/camera/cameraselection.cpp:184
 #, kde-format
 msgid "Camera Mount Path"
 msgstr "Kameran liitospiste"
 
-#: core/utilities/setup/camera/cameraselection.cpp:187
+#: core/utilities/setup/camera/cameraselection.cpp:188
 #, kde-format
 msgid "Note: only for USB/IEEE mass storage cameras."
 msgstr "Huomio: vain USB/Firewire-liitäntäisille massamuistikameroille."
 
-#: core/utilities/setup/camera/cameraselection.cpp:193
+#: core/utilities/setup/camera/cameraselection.cpp:194
 #, kde-format
 msgid ""
 "<p>Set here the mount path to use on your computer. This option is only "
@@ -65854,7 +65854,7 @@ msgstr ""
 "<p>Jos kamerasi muistikortti toimii <b>massamuistilaitteen</b> tavoin, anna "
 "tähän kameran liitospiste.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:211
+#: core/utilities/setup/camera/cameraselection.cpp:212
 #, kde-format
 msgid ""
 "<p>To set a <b>USB Mass Storage</b> camera<br>(which looks like a removable "
@@ -65865,7 +65865,7 @@ msgstr ""
 "liitettynä siirrettävältä asemalta),<br>valitse kameraluettelosta<br/><a "
 "href=\"umscamera\">%1</a>.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:218
+#: core/utilities/setup/camera/cameraselection.cpp:219
 #, kde-format
 msgid ""
 "<p>To set a <b>Generic PTP USB Device</b><br>(which uses Picture Transfer "
@@ -65875,7 +65875,7 @@ msgstr ""
 "<p><b>Yleisen PTP-USB-laitteen</b> (joka käyttää<br>PTP-yhteyskäytäntöä) "
 "asettamiseksi valitse<br>kameraluettelosta <a href=\"ptpcamera\">%1</a>.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:224
+#: core/utilities/setup/camera/cameraselection.cpp:225
 #, fuzzy, kde-format
 #| msgid ""
 #| "<p>To set a <b>Generic PTP/IP Network Device</b><br/>(which uses Picture "
@@ -65890,7 +65890,7 @@ msgstr ""
 "kuvansiirtoyhteyskäytäntöä) käytä<br/>kameraluettelon valintaa <a href="
 "\"ptpipcamera\">%1</a>.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:231
+#: core/utilities/setup/camera/cameraselection.cpp:232
 #, kde-format
 msgid ""
 "<p>A complete list of camera settings to use is<br>available at <a "

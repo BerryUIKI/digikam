@@ -5,7 +5,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-28 00:42+0000\n"
+"POT-Creation-Date: 2026-10-03 00:42+0000\n"
 "PO-Revision-Date: 2007-08-19 14:42+0545\n"
 "Last-Translator: Nabin Gautam <nabin@mpp.org.np>\n"
 "Language-Team: Nepali <info@mpp.org.np>\n"
@@ -62936,7 +62936,7 @@ msgstr ""
 "क्यामेरा स्वत: पत्ता लगाउन असफल; कृपया यो राम्रोसँग जडान भएको र खुला छ भन्ने यकिन "
 "गर्नुहोस् । पुन: प्रयास गर्न चाहनुहुन्छ ?"
 
-#: core/utilities/setup/camera/cameraselection.cpp:93
+#: core/utilities/setup/camera/cameraselection.cpp:94
 #, fuzzy, kde-format
 #| msgid "Camera Configuration"
 msgctxt "@title:window"
@@ -62944,17 +62944,17 @@ msgid "Camera Configuration"
 msgstr "क्यामेरा कन्फिगरेसन"
 
 #. i18n!
-#: core/utilities/setup/camera/cameraselection.cpp:103
+#: core/utilities/setup/camera/cameraselection.cpp:104
 #, kde-format
 msgid "Mounted Camera"
 msgstr "माउन्ट गरिएको क्यामेरा"
 
-#: core/utilities/setup/camera/cameraselection.cpp:119
+#: core/utilities/setup/camera/cameraselection.cpp:120
 #, kde-format
 msgid "Camera List"
 msgstr "क्यामेरा सूची"
 
-#: core/utilities/setup/camera/cameraselection.cpp:120
+#: core/utilities/setup/camera/cameraselection.cpp:121
 #, fuzzy, kde-format
 msgid ""
 "<p>Select the camera name that you want to use here. All default settings on "
@@ -62965,12 +62965,12 @@ msgstr ""
 "तपाईँको कम्प्युटरमा स्थापना गरिएको gphoto2 लाइब्रेरी प्रयोग गरेर उत्पन्न गरिएको हुन्छ ।</"
 "p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:129
+#: core/utilities/setup/camera/cameraselection.cpp:130
 #, kde-format
 msgid "Camera Title"
 msgstr "क्यामेरा शीर्षक"
 
-#: core/utilities/setup/camera/cameraselection.cpp:133
+#: core/utilities/setup/camera/cameraselection.cpp:134
 #, kde-format
 msgid ""
 "<p>Set here the name used in digiKam interface to identify this camera.</p>"
@@ -62978,17 +62978,17 @@ msgstr ""
 "<p>यो क्यामेरालाई डिजिक्याम इन्टरफेसमा परिचित गर्न प्रयोग गरिने नाम यहाँ सेट गर्नुहोस् ।</"
 "p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:142
+#: core/utilities/setup/camera/cameraselection.cpp:143
 #, kde-format
 msgid "Camera Port Type"
 msgstr "क्यामेरा पोर्ट प्रकार"
 
-#: core/utilities/setup/camera/cameraselection.cpp:147
+#: core/utilities/setup/camera/cameraselection.cpp:148
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: core/utilities/setup/camera/cameraselection.cpp:148
+#: core/utilities/setup/camera/cameraselection.cpp:149
 #, fuzzy, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer using a "
@@ -62997,14 +62997,14 @@ msgstr ""
 "<p>यदि तपाईँको क्यामेरा तपाईँको कम्प्युटरमा USB तार प्रयोग गरेर जडान गरिएको छ भने यो "
 "विकल्प चयन गर्नुहोस् ।</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:151
+#: core/utilities/setup/camera/cameraselection.cpp:152
 #, fuzzy, kde-format
 #| msgid "Serial"
 msgctxt "@item: serail port based camera"
 msgid "Serial"
 msgstr "सिरियल"
 
-#: core/utilities/setup/camera/cameraselection.cpp:152
+#: core/utilities/setup/camera/cameraselection.cpp:153
 #, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer using a "
@@ -63013,12 +63013,12 @@ msgstr ""
 "<p>यदि तपाईँको कम्प्युटर सिरियल तार प्रयोग गरेर जडान गरेको छ भने यो विकल्प चयन गर्नुहोस् "
 "।</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:155
+#: core/utilities/setup/camera/cameraselection.cpp:156
 #, kde-format
 msgid "Network"
 msgstr ""
 
-#: core/utilities/setup/camera/cameraselection.cpp:156
+#: core/utilities/setup/camera/cameraselection.cpp:157
 #, fuzzy, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer network.</"
@@ -63027,7 +63027,7 @@ msgstr ""
 "<p>यदि तपाईँको क्यामेरा तपाईँको कम्प्युटरमा USB तार प्रयोग गरेर जडान गरिएको छ भने यो "
 "विकल्प चयन गर्नुहोस् ।</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:161
+#: core/utilities/setup/camera/cameraselection.cpp:162
 #, fuzzy, kde-format
 msgid ""
 "<p>Select the serial port to use on your computer here. This option is only "
@@ -63036,22 +63036,22 @@ msgstr ""
 "<p>तपाईँको कम्प्युटरमा प्रयोग गर्ने सिरियल पोर्ट यहाँ चयन गर्नुहोस् । तपाईँले सिरियल "
 "क्यामेरा प्रयोग गर्दा पनि मात्र यो आवश्यक हुन्छ ।</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:165
+#: core/utilities/setup/camera/cameraselection.cpp:166
 #, kde-format
 msgid "<p>Enter here the network address of your camera.</p>"
 msgstr ""
 
-#: core/utilities/setup/camera/cameraselection.cpp:183
+#: core/utilities/setup/camera/cameraselection.cpp:184
 #, kde-format
 msgid "Camera Mount Path"
 msgstr "क्यामेरा माउन्ट मार्ग"
 
-#: core/utilities/setup/camera/cameraselection.cpp:187
+#: core/utilities/setup/camera/cameraselection.cpp:188
 #, fuzzy, kde-format
 msgid "Note: only for USB/IEEE mass storage cameras."
 msgstr "द्रष्टव्य: USB/IEEE बृहत भण्डारण क्यामेराका लागि मात्र"
 
-#: core/utilities/setup/camera/cameraselection.cpp:193
+#: core/utilities/setup/camera/cameraselection.cpp:194
 #, fuzzy, kde-format
 msgid ""
 "<p>Set here the mount path to use on your computer. This option is only "
@@ -63060,7 +63060,7 @@ msgstr ""
 "<p> तपाईँको कम्प्युटर प्रयोग गर्न यहाँ माउन्ट मार्ग सेट गर्नुहोस् । तपाईँले <b>USB बृहत "
 "भण्डारण</b> क्यामेरा प्रयोग गर्दा मात्र यो विकल्प आवश्यक पर्दछ ।</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:211
+#: core/utilities/setup/camera/cameraselection.cpp:212
 #, fuzzy, kde-format
 msgid ""
 "<p>To set a <b>USB Mass Storage</b> camera<br>(which looks like a removable "
@@ -63070,7 +63070,7 @@ msgstr ""
 "<p> <b>USB बृहत भण्डारण</b> क्यामेरा<br>(जुन हटाउनयोग्य यन्त्र जस्तो देखिन्छ) सेट गर्न, "
 "कृपया क्यामेरा सूचीबाट<br> <a href=\"umscamera\">%1</a> प्रयोग गर्नुहोस् ।</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:218
+#: core/utilities/setup/camera/cameraselection.cpp:219
 #, fuzzy, kde-format
 msgid ""
 "<p>To set a <b>Generic PTP USB Device</b><br>(which uses Picture Transfer "
@@ -63080,7 +63080,7 @@ msgstr ""
 "<p> <b>जेनेरिक PTP USB यन्त्र</b><br>(जसले तस्विर रूपान्तरण प्रोटोकल प्रयोग गर्दछ) सेट "
 "गर्न, कृपया क्यामेरा सूचीबाट<br> <a href=\"ptpcamera\">%1</a> प्रयोग गर्नुहोस् ।</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:224
+#: core/utilities/setup/camera/cameraselection.cpp:225
 #, fuzzy, kde-format
 msgid ""
 "<p>To set a <b>Generic PTP/IP Network Device</b><br>(which uses Picture "
@@ -63090,7 +63090,7 @@ msgstr ""
 "<p> <b>जेनेरिक PTP USB यन्त्र</b><br>(जसले तस्विर रूपान्तरण प्रोटोकल प्रयोग गर्दछ) सेट "
 "गर्न, कृपया क्यामेरा सूचीबाट<br> <a href=\"ptpcamera\">%1</a> प्रयोग गर्नुहोस् ।</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:231
+#: core/utilities/setup/camera/cameraselection.cpp:232
 #, fuzzy, kde-format
 msgid ""
 "<p>A complete list of camera settings to use is<br>available at <a "

@@ -8,7 +8,7 @@ msgid ""
 msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
-"POT-Creation-Date: 2026-09-28 00:42+0000\n"
+"POT-Creation-Date: 2026-10-03 00:42+0000\n"
 "PO-Revision-Date: 2025-12-05 10:48+0700\n"
 "Last-Translator: \n"
 "Language-Team: LANGUAGE <kde-i18n-doc@kde.org>\n"
@@ -63051,24 +63051,24 @@ msgstr ""
 "ບໍ່ສາມາດກວດພົບກ້ອງຖ່າຍຮູບອັດຕະໂນມັດ; ກະລຸນາໃຫ້ແນ່ໃຈວ່າມັນເຊື່ອມຕໍ່ຢ່າງຖືກຕ້ອງ ແລະ ເປີດຢູ່. "
 "ທ່ານຕ້ອງການລອງອີກຄັ້ງບໍ?"
 
-#: core/utilities/setup/camera/cameraselection.cpp:93
+#: core/utilities/setup/camera/cameraselection.cpp:94
 #, kde-format
 msgctxt "@title:window"
 msgid "Camera Configuration"
 msgstr "ການກຳນົດຄ່າກ້ອງຖ່າຍຮູບ"
 
 #. i18n!
-#: core/utilities/setup/camera/cameraselection.cpp:103
+#: core/utilities/setup/camera/cameraselection.cpp:104
 #, kde-format
 msgid "Mounted Camera"
 msgstr "ກ້ອງຖ່າຍຮູບທີ່ເຊື່ອມຕໍ່"
 
-#: core/utilities/setup/camera/cameraselection.cpp:119
+#: core/utilities/setup/camera/cameraselection.cpp:120
 #, kde-format
 msgid "Camera List"
 msgstr "ລາຍການກ້ອງຖ່າຍຮູບ"
 
-#: core/utilities/setup/camera/cameraselection.cpp:120
+#: core/utilities/setup/camera/cameraselection.cpp:121
 #, kde-format
 msgid ""
 "<p>Select the camera name that you want to use here. All default settings on "
@@ -63078,60 +63078,60 @@ msgstr ""
 "<p>ເລືອກຊື່ກ້ອງຖ່າຍຮູບທີ່ທ່ານຕ້ອງການໃຊ້ທີ່ນີ້. ການຕັ້ງຄ່າເລີ່ມຕົ້ນທັງໝົດໃນແຜງດ້ານຂວາຈະຖືກຕັ້ງຄ່າອັດຕະໂນມັດ."
 "</p><p>ລາຍການນີ້ຖືກສ້າງຂຶ້ນໂດຍໃຊ້ gphoto2 library ທີ່ຕິດຕັ້ງຢູ່ໃນຄອມພິວເຕີຂອງທ່ານ.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:129
+#: core/utilities/setup/camera/cameraselection.cpp:130
 #, kde-format
 msgid "Camera Title"
 msgstr "ຫົວຂໍ້ກ້ອງຖ່າຍຮູບ"
 
-#: core/utilities/setup/camera/cameraselection.cpp:133
+#: core/utilities/setup/camera/cameraselection.cpp:134
 #, kde-format
 msgid ""
 "<p>Set here the name used in digiKam interface to identify this camera.</p>"
 msgstr "<p>ຕັ້ງຄ່າຊື່ທີ່ໃຊ້ໃນອິນເຕີເຟດ digiKam ເພື່ອລະບຸກ້ອງຖ່າຍຮູບນີ້ທີ່ນີ້.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:142
+#: core/utilities/setup/camera/cameraselection.cpp:143
 #, kde-format
 msgid "Camera Port Type"
 msgstr "ປະເພດພອດກ້ອງຖ່າຍຮູບ"
 
-#: core/utilities/setup/camera/cameraselection.cpp:147
+#: core/utilities/setup/camera/cameraselection.cpp:148
 #, kde-format
 msgid "USB"
 msgstr "USB"
 
-#: core/utilities/setup/camera/cameraselection.cpp:148
+#: core/utilities/setup/camera/cameraselection.cpp:149
 #, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer using a "
 "USB cable.</p>"
 msgstr "<p>ເລືອກຕົວເລືອກນີ້ຖ້າກ້ອງຖ່າຍຮູບຂອງທ່ານເຊື່ອມຕໍ່ກັບຄອມພິວເຕີໂດຍໃຊ້ສາຍ USB.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:151
+#: core/utilities/setup/camera/cameraselection.cpp:152
 #, kde-format
 msgctxt "@item: serail port based camera"
 msgid "Serial"
 msgstr "Serial"
 
-#: core/utilities/setup/camera/cameraselection.cpp:152
+#: core/utilities/setup/camera/cameraselection.cpp:153
 #, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer using a "
 "serial cable.</p>"
 msgstr "<p>ເລືອກຕົວເລືອກນີ້ຖ້າກ້ອງຖ່າຍຮູບຂອງທ່ານເຊື່ອມຕໍ່ກັບຄອມພິວເຕີໂດຍໃຊ້ສາຍ serial.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:155
+#: core/utilities/setup/camera/cameraselection.cpp:156
 #, kde-format
 msgid "Network"
 msgstr "ເຄືອຂ່າຍ"
 
-#: core/utilities/setup/camera/cameraselection.cpp:156
+#: core/utilities/setup/camera/cameraselection.cpp:157
 #, kde-format
 msgid ""
 "<p>Select this option if your camera is connected to your computer network.</"
 "p>"
 msgstr "<p>ເລືອກຕົວເລືອກນີ້ຖ້າກ້ອງຖ່າຍຮູບຂອງທ່ານເຊື່ອມຕໍ່ກັບເຄືອຂ່າຍຄອມພິວເຕີຂອງທ່ານ.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:161
+#: core/utilities/setup/camera/cameraselection.cpp:162
 #, kde-format
 msgid ""
 "<p>Select the serial port to use on your computer here. This option is only "
@@ -63140,22 +63140,22 @@ msgstr ""
 "<p>ເລືອກພອດ serial ທີ່ຈະໃຊ້ໃນຄອມພິວເຕີຂອງທ່ານທີ່ນີ້. ຕົວເລືອກນີ້ຕ້ອງການພຽງແຕ່ຖ້າທ່ານໃຊ້ກ້ອງຖ່າຍຮູບ "
 "serial.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:165
+#: core/utilities/setup/camera/cameraselection.cpp:166
 #, kde-format
 msgid "<p>Enter here the network address of your camera.</p>"
 msgstr "<p>ປ້ອນທີ່ຢູ່ເຄືອຂ່າຍຂອງກ້ອງຖ່າຍຮູບຂອງທ່ານທີ່ນີ້.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:183
+#: core/utilities/setup/camera/cameraselection.cpp:184
 #, kde-format
 msgid "Camera Mount Path"
 msgstr "ເສັ້ນທາງການເຊື່ອມຕໍ່ກ້ອງ"
 
-#: core/utilities/setup/camera/cameraselection.cpp:187
+#: core/utilities/setup/camera/cameraselection.cpp:188
 #, kde-format
 msgid "Note: only for USB/IEEE mass storage cameras."
 msgstr "ໝາຍເຫດ: ສຳລັບກ້ອງຖ່າຍຮູບ USB/IEEE mass storage ເທົ່ານັ້ນ."
 
-#: core/utilities/setup/camera/cameraselection.cpp:193
+#: core/utilities/setup/camera/cameraselection.cpp:194
 #, kde-format
 msgid ""
 "<p>Set here the mount path to use on your computer. This option is only "
@@ -63164,7 +63164,7 @@ msgstr ""
 "<p>ຕັ້ງຄ່າເສັ້ນທາງການເຊື່ອມຕໍ່ທີ່ຈະໃຊ້ໃນຄອມພິວເຕີຂອງທ່ານທີ່ນີ້. "
 "ຕົວເລືອກນີ້ຕ້ອງການພຽງແຕ່ຖ້າທ່ານໃຊ້ກ້ອງຖ່າຍຮູບ <b>USB Mass Storage</b>.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:211
+#: core/utilities/setup/camera/cameraselection.cpp:212
 #, kde-format
 msgid ""
 "<p>To set a <b>USB Mass Storage</b> camera<br>(which looks like a removable "
@@ -63175,7 +63175,7 @@ msgstr ""
 "b><br>(ເຊິ່ງເບິ່ງຄືກັບໄດຣຟ໌ທີ່ຖອດໄດ້ເມື່ອເຊື່ອມຕໍ່<br>ໃນເດັສທັອບຂອງທ່ານ), ກະລຸນາໃຊ້<br><a href="
 "\"umscamera\">%1</a> ຈາກລາຍການກ້ອງຖ່າຍຮູບ.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:218
+#: core/utilities/setup/camera/cameraselection.cpp:219
 #, kde-format
 msgid ""
 "<p>To set a <b>Generic PTP USB Device</b><br>(which uses Picture Transfer "
@@ -63185,7 +63185,7 @@ msgstr ""
 "<p>ເພື່ອຕັ້ງຄ່າ <b>Generic PTP USB Device</b><br>(ເຊິ່ງໃຊ້ Picture Transfer "
 "Protocol), ກະລຸນາ<br>ໃຊ້ <a href=\"ptpcamera\">%1</a> ຈາກລາຍການກ້ອງຖ່າຍຮູບ.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:224
+#: core/utilities/setup/camera/cameraselection.cpp:225
 #, kde-format
 msgid ""
 "<p>To set a <b>Generic PTP/IP Network Device</b><br>(which uses Picture "
@@ -63195,7 +63195,7 @@ msgstr ""
 "<p>ເພື່ອຕັ້ງຄ່າ <b>Generic PTP/IP Network Device</b><br>(ເຊິ່ງໃຊ້ Picture Transfer "
 "Protocol), ກະລຸນາ<br>ໃຊ້ <a href=\"ptpipcamera\">%1</a> ຈາກລາຍການກ້ອງຖ່າຍຮູບ.</p>"
 
-#: core/utilities/setup/camera/cameraselection.cpp:231
+#: core/utilities/setup/camera/cameraselection.cpp:232
 #, kde-format
 msgid ""
 "<p>A complete list of camera settings to use is<br>available at <a "
