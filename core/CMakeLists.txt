@@ -301,13 +301,8 @@ PRINT_OPTIONAL_LIBRARY_STATUS("libxslt"           "https://gitlab.gnome.org/GNOM
 PRINT_OPTIONAL_LIBRARY_STATUS("libheif"           "https://github.com/strukturag/libheif"                           "(version >= 1.6.0)"                    "digiKam will be compiled without HEIF support."                              HEIF_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("libx265"           "https://github.com/videolan/x265.git"                            "(version >= 2.2)"                      "digiKam will be compiled without HEIF encoding support."                     X265_FOUND)
 PRINT_OPTIONAL_LIBRARY_STATUS("OpenGL"            "https://gitlab.freedesktop.org/mesa/mesa/"                       "(version >= 11.0.0)"                   "digiKam will be compiled without OpenGL support."                            HAVE_OPENGL)
+PRINT_OPTIONAL_LIBRARY_STATUS("libllama.cpp"      "https://github.com/ggml-org/llama.cpp"                           "(version >= 0.0.69364)"                "digiKam will be compiled without natural language search support."           HAVE_LLAMACPP)
 PRINT_OPTIONAL_LIBRARY_STATUS("Doxygen"           "https://github.com/doxygen/doxygen"                              "(version >= 1.8.0)"                    "digiKam will be configured without API documentation building support."      Doxygen_FOUND)
-
-if(ENABLE_NLSEARCH_LLAMACPP)
-
-    PRINT_OPTIONAL_LIBRARY_STATUS("libllama.cpp"      "https://github.com/ggml-org/llama.cpp"                           "(version >= 0.0.69364)"                "digiKam will be compiled without natural language search support."           HAVE_LLAMACPP_SYSTEM)
-
-endif()
 
 # ==============================================================================
 
