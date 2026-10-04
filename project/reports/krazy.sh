@@ -72,7 +72,7 @@ rm -fr $ORIG_WD/$REPORT_DIR
 
 # Compute static analyzer output as XML
 
-krazy2all --export xml \
+krazy2xml --export xml \
           --title $TITLE \
           --no-brief \
           --strict all \
