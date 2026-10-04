@@ -20,7 +20,6 @@ option(ENABLE_DBUS                       "Build digiKam with DBUS support (defau
 option(ENABLE_APPSTYLES                  "Build digiKam with support for changing the widget application style (default=OFF)"        OFF)
 option(ENABLE_KIO                        "Build digiKam with KIO support (default=ON)"                                               ON)
 option(ENABLE_NLSEARCH_LLAMACPP          "Build digiKam with llama.cpp backend for natural-language search (default=OFF)"            OFF)
-option(ENABLE_NLSEARCH_SYSTEM_LLAMACPP   "Build digiKam with a system-installed llama.cpp instead of the bundled copy (default=OFF)" OFF)
 
 # Database options:
 

@@ -147,7 +147,6 @@ sed -e "s/DBUILD_TESTING=ON/DBUILD_TESTING=OFF/g"                               
 sed -e "s/DENABLE_DBUS=ON/DENABLE_DBUS=OFF/g"                                         ./bootstrap.homebrew > ./tmp.homebrew ; mv -f ./tmp.homebrew ./bootstrap.homebrew
 sed -e "s/DENABLE_APPSTYLES=OFF/DENABLE_APPSTYLES=ON/g"                               ./bootstrap.homebrew > ./tmp.homebrew ; mv -f ./tmp.homebrew ./bootstrap.homebrew
 sed -e "s/DENABLE_NLSEARCH_LLAMACPP=OFF/DENABLE_NLSEARCH_LLAMACPP=ON/g"               ./bootstrap.homebrew > ./tmp.homebrew ; mv -f ./tmp.homebrew ./bootstrap.homebrew
-sed -e "s/DENABLE_NLSEARCH_SYSTEM_LLAMACPP=OFF/DENABLE_NLSEARCH_SYSTEM_LLAMACPP=ON/g" ./bootstrap.homebrew > ./tmp.homebrew ; mv -f ./tmp.homebrew ./bootstrap.homebrew
 
 chmod +x ./bootstrap.homebrew
 
@@ -182,7 +181,6 @@ cat $DK_BUILDTEMP/digikam-$DK_VERSION/build/core/app/utils/digikam_builddate.h |
 cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/libs/dimg/filters/transform/lqr/liblqr_manifest.txt                  $ORIG_WD/data
 cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/libs/rawengine/libraw/libraw_manifest.txt                            $ORIG_WD/data
 cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/libs/dplugins/webservices/o2/o2_manifest.txt                         $ORIG_WD/data
-cp  $DK_BUILDTEMP/digikam-$DK_VERSION/core/utilities/searchwindow/thirdparty/llamacpp/llama_cpp_manifest.txt    $ORIG_WD/data
 
 echo -e "\n\n"
 echo "---------- Installing digiKam $DK_VERSION"

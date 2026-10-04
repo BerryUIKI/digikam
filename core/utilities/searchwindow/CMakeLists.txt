@@ -7,14 +7,6 @@
 
 APPLY_COMMON_POLICIES()
 
-if(HAVE_LLAMACPP AND NOT HAVE_LLAMACPP_SYSTEM)
-
-    # All vendored llama.cpp build concerns are handled in the wrapper.
-
-    add_subdirectory(thirdparty)
-
-endif()
-
 include(${CMAKE_CURRENT_SOURCE_DIR}/nlsearch/CMakeLists.txt)
 
 set(libsearchwindow_SRCS
@@ -86,18 +78,6 @@ target_compile_definitions(gui_searchwindow_obj
 
 if(HAVE_LLAMACPP)
 
-   if(HAVE_LLAMACPP_SYSTEM)
-
        target_link_libraries(gui_searchwindow_obj PRIVATE llama ggml)
-
-   else()
-
-       target_include_directories(gui_searchwindow_obj
-                                  PRIVATE
-                                  ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/llamacpp/include
-                                  ${CMAKE_CURRENT_SOURCE_DIR}/thirdparty/llamacpp/ggml/include
-       )
-
-   endif()
 
 endif()

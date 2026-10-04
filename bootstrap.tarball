@@ -42,7 +42,6 @@ cmake -G "Unix Makefiles" . \
       -DENABLE_DBUS=OFF \
       -DENABLE_APPSTYLES=OFF \
       -DENABLE_NLSEARCH_LLAMACPP=OFF \
-      -DENABLE_NLSEARCH_SYSTEM_LLAMACPP=OFF \
       -Wno-dev \
       .. || exit 1
 

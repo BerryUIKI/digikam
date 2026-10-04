@@ -158,7 +158,6 @@ sed -e "s/DENABLE_GUI_TRANSLATIONS=OFF/DENABLE_GUI_TRANSLATIONS=ON/g"           
 sed -e "s/DBUILD_TESTING=ON/DBUILD_TESTING=OFF/g"                                     ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
 sed -e "s/DENABLE_DBUS=ON/DENABLE_DBUS=OFF/g"                                         ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
 sed -e "s/DENABLE_NLSEARCH_LLAMACPP=OFF/DENABLE_NLSEARCH_LLAMACPP=ON/g"               ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
-sed -e "s/DENABLE_NLSEARCH_SYSTEM_LLAMACPP=OFF/DENABLE_NLSEARCH_SYSTEM_LLAMACPP=ON/g" ./bootstrap.vcpkg > ./tmp.vcpkg ; mv -f ./tmp.vcpkg ./bootstrap.vcpkg
 
 chmod +x ./bootstrap.vcpkg
 

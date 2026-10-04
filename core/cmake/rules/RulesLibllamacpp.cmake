@@ -91,61 +91,52 @@ if(ENABLE_NLSEARCH_LLAMACPP)
 
     message(STATUS "Check for the NL Search requirements:")
 
-    if(ENABLE_NLSEARCH_SYSTEM_LLAMACPP)
+    message(STATUS "Check for the availability of llama.cpp and ggml libraries from the system...")
 
-        message(STATUS "Check for the availability of llama.cpp and ggml libraries from the system...")
+    find_package(llama CONFIG)
+    find_package(ggml CONFIG)
 
-        find_package(llama CONFIG)
-        find_package(ggml CONFIG)
+    if(llama_FOUND AND ggml_FOUND)
 
-        if(llama_FOUND AND ggml_FOUND)
+        set(HAVE_LLAMACPP TRUE)
+        set(HAVE_LLAMACPP_SYSTEM TRUE)
 
-            set(HAVE_LLAMACPP TRUE)
-            set(HAVE_LLAMACPP_SYSTEM TRUE)
+        message(STATUS "NL search results  : system llama.cpp backend enabled")
+        message(STATUS "llama.cpp version  : ${LLAMA_VERSION}")
+        message(STATUS "llama.cpp libraries: ${llama_LIBRARY}")
+        message(STATUS "ggml version       : ${GGML_VERSION}")
+        message(STATUS "ggml libraries     : ${GGML_LIBRARY}")
 
-            message(STATUS "NL search results  : system llama.cpp backend enabled")
-            message(STATUS "llama.cpp version  : ${LLAMA_VERSION}")
-            message(STATUS "llama.cpp libraries: ${llama_LIBRARY}")
-            message(STATUS "ggml version       : ${GGML_VERSION}")
-            message(STATUS "ggml libraries     : ${GGML_LIBRARY}")
+        # Init the lists to store variables LLAMA_* and GGML_*
 
-            # Init the lists to store variables LLAMA_* and GGML_*
+        set(LLAMA_VARIABLES_LIST)
+        set(GGML_VARIABLES_LIST)
 
-            set(LLAMA_VARIABLES_LIST)
-            set(GGML_VARIABLES_LIST)
+        # Get all cmake variables
 
-            # Get all cmake variables
+        get_cmake_property(_all_vars VARIABLES)
 
-            get_cmake_property(_all_vars VARIABLES)
+        # Parse all variables and filter all items matching LLAMA_ and GGML_
 
-            # Parse all variables and filter all items matching LLAMA_ and GGML_
+        foreach(_var IN LISTS _all_vars)
 
-            foreach(_var IN LISTS _all_vars)
+            if(_var MATCHES "^LLAMA_")
 
-                if(_var MATCHES "^LLAMA_")
+                list(APPEND LLAMA_VARIABLES_LIST "${_var}")
 
-                    list(APPEND LLAMA_VARIABLES_LIST "${_var}")
+            elseif(_var MATCHES "^GGML_")
 
-                elseif(_var MATCHES "^GGML_")
+                list(APPEND GGML_VARIABLES_LIST "${_var}")
 
-                    list(APPEND GGML_VARIABLES_LIST "${_var}")
+            endif()
 
-                endif()
+        endforeach()
 
-            endforeach()
-
-            ConfigureLlamaGgmlHeader()
-
-        else()
-
-            message(WARNING "NL search results: system llama.cpp requested but not found; natural-language search disabled")
-
-        endif()
+        ConfigureLlamaGgmlHeader()
 
     else()
 
-        set(HAVE_LLAMACPP TRUE)
-        message(STATUS "NL search results: bundled llama.cpp backend enabled")
+        message(WARNING "NL search results: system llama.cpp requested but not found; natural-language search disabled")
 
     endif()
 

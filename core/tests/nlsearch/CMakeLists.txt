@@ -23,14 +23,6 @@ set(nlsearchpipeline_utest_SRCS
 
 add_executable(nlsearchpipeline_utest ${nlsearchpipeline_utest_SRCS})
 
-if(HAVE_LLAMACPP AND TARGET llama)
-
-   target_compile_definitions(nlsearchpipeline_utest PRIVATE HAVE_LLAMACPP)
-   target_include_directories(nlsearchpipeline_utest PRIVATE
-       ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llamacpp/include)
-
-endif()
-
 target_link_libraries(nlsearchpipeline_utest
 
                      nlsearch
@@ -48,8 +40,10 @@ target_link_libraries(nlsearchpipeline_utest
                      ${OpenCV_LIBRARIES}
 )
 
-if(HAVE_LLAMACPP AND TARGET llama)
-   target_link_libraries(nlsearchpipeline_utest llama)
+if(HAVE_LLAMACPP)
+
+   target_link_libraries(nlsearchpipeline_utest ${llama_LIBRARY} ${GGML_LIBRARY})
+
 endif()
 
 add_test(NAME nlsearchpipeline_utest COMMAND nlsearchpipeline_utest)

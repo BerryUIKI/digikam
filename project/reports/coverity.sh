@@ -94,7 +94,6 @@ $CMAKE_BINARY -G "Unix Makefiles" . \
       -DENABLE_GEOLOCATION=ON \
       -DENABLE_QWEBENGINE=ON \
       -DENABLE_NLSEARCH_LLAMACPP=ON \
-      -DENABLE_NLSEARCH_SYSTEM_LLAMACPP=ON \
       -Wno-dev \
       ..
 

@@ -102,7 +102,6 @@ $CMAKE_BINARY  \
       -DENABLE_APPSTYLES=ON \
       -DENABLE_GEOLOCATION=ON \
       -DENABLE_NLSEARCH_LLAMACPP=ON \
-      -DENABLE_NLSEARCH_SYSTEM_LLAMACPP=ON \
       -G "Unix Makefiles" \
       -Wno-dev \
       ..

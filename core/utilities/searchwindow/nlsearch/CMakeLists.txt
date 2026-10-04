@@ -50,18 +50,7 @@ target_include_directories(core_nlsearch_obj PRIVATE
 if(HAVE_LLAMACPP)
 
    target_compile_definitions(core_nlsearch_obj PRIVATE HAVE_LLAMACPP)
-
-   if(HAVE_LLAMACPP_SYSTEM)
-
-      target_link_libraries(core_nlsearch_obj PRIVATE llama ggml)
-
-   else()
-
-      target_include_directories(core_nlsearch_obj PRIVATE
-         ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llamacpp/include
-         ${CMAKE_SOURCE_DIR}/core/utilities/searchwindow/thirdparty/llamacpp/ggml/include)
-
-   endif()
+   target_link_libraries(core_nlsearch_obj PRIVATE llama ggml)
 
 endif()
 

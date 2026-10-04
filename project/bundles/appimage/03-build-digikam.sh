@@ -147,7 +147,6 @@ cmake -G "Unix Makefiles" .. \
       -DENABLE_APPSTYLES=ON \
       -DENABLE_FACESENGINE_DNN=ON \
       -DENABLE_NLSEARCH_LLAMACPP=ON \
-      -DENABLE_NLSEARCH_SYSTEM_LLAMACPP=ON \
       -DENABLE_KIO=OFF \
       -Wno-dev
 
