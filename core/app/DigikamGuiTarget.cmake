@@ -202,7 +202,7 @@ set(DIGIKAMGUI_OBJECTS
             $<TARGET_OBJECTS:gui_survey_obj>
             $<TARGET_OBJECTS:gui_maintenance_obj>
             $<TARGET_OBJECTS:gui_searchwindow_obj>
-            $<TARGET_OBJECTS:core_nlsearch_obj>
+            $<TARGET_OBJECTS:gui_nlsearch_obj>
             $<TARGET_OBJECTS:gui_firstrun_obj>
             $<TARGET_OBJECTS:gui_fuzzysearch_obj>
             $<TARGET_OBJECTS:gui_imageeditorgui_obj>
@@ -355,7 +355,11 @@ endif()
 
 if(HAVE_LLAMACPP)
 
-   target_link_libraries(digikamgui PRIVATE ${llama_LIBRARY} ${GGML_LIBRARY})
+   target_link_libraries(digikamgui
+                         PRIVATE
+                         ${llama_LIBRARY}
+                         ${GGML_LIBRARY}
+   )
 
 endif()
 

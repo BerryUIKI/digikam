@@ -78,6 +78,9 @@ target_compile_definitions(gui_searchwindow_obj
 
 if(HAVE_LLAMACPP)
 
-       target_link_libraries(gui_searchwindow_obj PRIVATE llama ggml)
+       target_link_libraries(gui_searchwindow_obj
+                             PRIVATE
+                             ${llama_LIBRARY}
+                             ${GGML_LIBRARY})
 
 endif()

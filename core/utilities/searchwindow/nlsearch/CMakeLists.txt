@@ -32,14 +32,14 @@ endif()
 
 # Object library: NL-search core compiled once, shared by digikamgui and the unit test.
 
-add_library(core_nlsearch_obj OBJECT ${libnlsearch_SRCS})
+add_library(gui_nlsearch_obj OBJECT ${libnlsearch_SRCS})
 
-target_compile_definitions(core_nlsearch_obj
+target_compile_definitions(gui_nlsearch_obj
                            PRIVATE
                            digikamgui_EXPORTS
 )
 
-target_include_directories(core_nlsearch_obj PRIVATE
+target_include_directories(gui_nlsearch_obj PRIVATE
     $<TARGET_PROPERTY:Qt6::Core,INTERFACE_INCLUDE_DIRECTORIES>
     $<TARGET_PROPERTY:Qt6::Gui,INTERFACE_INCLUDE_DIRECTORIES>
     $<TARGET_PROPERTY:Qt6::Widgets,INTERFACE_INCLUDE_DIRECTORIES>
@@ -49,11 +49,11 @@ target_include_directories(core_nlsearch_obj PRIVATE
 
 if(HAVE_LLAMACPP)
 
-   target_compile_definitions(core_nlsearch_obj PRIVATE HAVE_LLAMACPP)
-   target_link_libraries(core_nlsearch_obj PRIVATE llama ggml)
+   target_compile_definitions(gui_nlsearch_obj PRIVATE HAVE_LLAMACPP)
+   target_link_libraries(gui_nlsearch_obj PRIVATE llama ggml)
 
 endif()
 
 # Static library wrapping the object files, for linking the unit test without recompiling.
 
-add_library(nlsearch STATIC $<TARGET_OBJECTS:core_nlsearch_obj>)
+add_library(nlsearch STATIC $<TARGET_OBJECTS:gui_nlsearch_obj>)
