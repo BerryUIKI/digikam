@@ -196,6 +196,7 @@ echo -e "\n---------- Qt plugins"
 cp -r $VCPKG_INSTALL_PREFIX/Qt6/plugins                                   $BUNDLEDIR/                           2>/dev/null
 # Since KF 6.30, this plugin is installed in debug. Why?
 cp -r $VCPKG_INSTALL_PREFIX/debug/Qt6/plugins/kiconthemes6                $BUNDLEDIR/                           2>/dev/null
+cp -r $VCPKG_INSTALL_PREFIX/debug/Qt6/plugins/styles                      $BUNDLEDIR/plugins                    2>/dev/null
 
 echo -e "\n---------- OpenGl Software for Qt6"
 # Taken from https://download.qt.io/development_releases/prebuilt/llvmpipe/windows/
