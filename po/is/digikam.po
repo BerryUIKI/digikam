@@ -31,7 +31,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-03 00:42+0000\n"
-"PO-Revision-Date: 2026-09-02 11:38+0000\n"
+"PO-Revision-Date: 2026-10-08 19:06+0000\n"
 "Last-Translator: Sveinn í Felli <sv1@fellsnet.is>\n"
 "Language-Team: Icelandic\n"
 "Language: is\n"
@@ -2333,11 +2333,10 @@ msgid "Last Image"
 msgstr "Síðasta mynd"
 
 #: core/app/main/digikamapp_setup.cpp:976
-#, fuzzy, kde-format
-#| msgid "Flash mode"
+#, kde-format
 msgctxt "@action: setup"
 msgid "Play/Pause Video"
-msgstr "Leifturljóshamur"
+msgstr "Spila/Setja í bið myndskeið"
 
 #: core/app/main/digikamapp_setup.cpp:984
 #, kde-format
@@ -20557,27 +20556,24 @@ msgstr ""
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:648
 #, kde-format
 msgid "Send items by mail from digiKam"
-msgstr ""
+msgstr "Senda atriði í tölvupósti frá digiKam"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:650
-#, fuzzy, kde-format
-#| msgid "Title of the image"
+#, kde-format
 msgid "List of attached items"
-msgstr "Titill myndarinnar"
+msgstr "Listi yfir viðhengd atriði"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:697
-#, fuzzy, kde-format
-#| msgctxt "@title:window"
-#| msgid "Error While to Set Image as Wallpaper"
+#, kde-format
 msgctxt "@title:window"
 msgid "Error While to Send Items by mail"
-msgstr "Villa við að setja mynd sem bakgrunn skjáborðsins"
+msgstr "Villa við að senda atriði með tölvupósti"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:698
 #, kde-format
 msgctxt "@info"
 msgid "Cannot send items using native Apple Mail application"
-msgstr ""
+msgstr "Get ekki sent atriði með innbyggða Apple Mail forritinu"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailprocess.cpp:714
 #, kde-format
@@ -20636,11 +20632,10 @@ msgid "Outlook"
 msgstr "Outlook"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:103
-#, fuzzy, kde-format
-#| msgid "AppleSingle"
+#, kde-format
 msgctxt "Mail client: APPLEMAIL"
 msgid "Apple Mail"
-msgstr "AppleSingle"
+msgstr "Apple Mail"
 
 #: core/dplugins/generic/tools/sendbymail/manager/mailsettings.cpp:104
 #, kde-format
@@ -20700,10 +20695,9 @@ msgid "Send by Mail..."
 msgstr "Senda í tölvupósti..."
 
 #: core/dplugins/generic/tools/sendbymail/tools/applemailbinary.cpp:31
-#, fuzzy, kde-format
-#| msgid "Gnome Mail Client."
+#, kde-format
 msgid "Apple Mail Client."
-msgstr "Gnome póstforrit."
+msgstr "Apple Mail póstforrit."
 
 #: core/dplugins/generic/tools/sendbymail/tools/balsabinary.cpp:31
 #: core/dplugins/generic/tools/sendbymail/tools/evolutionbinary.cpp:31
@@ -52204,7 +52198,7 @@ msgstr ""
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:126
 #, kde-format
 msgid "GPS accuracy in meters (estimated horizontal position error)"
-msgstr ""
+msgstr "Nákvæmni GPS í metrum (áætluð skekkja í láréttri staðsetningu)"
 
 #: core/utilities/advancedrename/parser/options/database/keys/positionkeys.cpp:127
 #, kde-format
@@ -67971,16 +67965,14 @@ msgid "Use OpenCL hardware acceleration"
 msgstr "Nota OpenCL-vélbúnaðarhröðun"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:121
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and requires that certain environment "
-#| "variables are set manually."
+#, kde-format
 msgid ""
 "This option is still experimental and requires that certain environment "
 "variables are set manually. See the online documentation for details."
 msgstr ""
 "Þessi valkostur er enn á tilraunastigi og krefst líka að ýmsar "
-"umhverfisbreytur séu handstilltar."
+"umhverfisbreytur séu handstilltar. Lestu leiðbeiningarnar á netinu til að sá "
+"nánari upplýsingar."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:124
 #, kde-format
@@ -67988,16 +67980,14 @@ msgid "Use OpenCL acceleration for AI models"
 msgstr "Nota OpenCL-vélbúnaðarhröðun fyrir gervigreindarlíkön"
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:125
-#, fuzzy, kde-format
-#| msgid ""
-#| "This option is still experimental and may lead to crashes if the proper "
-#| "drivers are not installed."
+#, kde-format
 msgid ""
 "This option is still experimental and may lead to crashes if the proper "
 "drivers are not installed. See the online documentation for details."
 msgstr ""
 "Þessi valkostur er enn á tilraunastigi og getur valdið hruni séu réttir "
-"reklar ekki uppsettir."
+"reklar ekki uppsettir. Lestu leiðbeiningarnar á netinu til að sá nánari "
+"upplýsingar."
 
 #: core/utilities/setup/misc/systemsettingswidget.cpp:129
 #, kde-format
@@ -68822,10 +68812,9 @@ msgid "Survey"
 msgstr "Könnun"
 
 #: core/utilities/survey/surveywindow_setup.cpp:143
-#, fuzzy, kde-format
-#| msgid "Flash mode"
+#, kde-format
 msgid "Play/Pause Video"
-msgstr "Leifturljóshamur"
+msgstr "Spila/Setja í bið myndskeið"
 
 #~ msgid ""
 #~ "You have chosen a bright color scheme. We switch to a dark icon theme. "
