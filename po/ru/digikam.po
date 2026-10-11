@@ -19048,19 +19048,19 @@ msgstr ""
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Legacy engine only."
-msgstr "Только для устаревшего движка."
+msgstr "Только для устаревшего механизма."
 
 #: core/dplugins/generic/tools/ocrtextconverter/ocroptions.cpp:93
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Neural nets LSTM engine only."
-msgstr "Только движок нейронных сетей LSTM."
+msgstr "Только механизм нейронных сетей LSTM."
 
 #: core/dplugins/generic/tools/ocrtextconverter/ocroptions.cpp:96
 #, kde-format
 msgctxt "@info:tooltip"
 msgid "Legacy + LSTM engines."
-msgstr "Устаревшие движки + LSTM."
+msgstr "Устаревшие механизмы + LSTM."
 
 #: core/dplugins/generic/tools/ocrtextconverter/ocroptions.cpp:99
 #, kde-format
@@ -19097,7 +19097,7 @@ msgid ""
 "Recognition. Tesseract program and the desired languages modules must be "
 "installed on your system."
 msgstr ""
-"Этот инструмент использует движок с открытым исходным кодом %1 для "
+"Этот инструмент использует механизм с открытым исходным кодом %1 для "
 "выполнения распознавания текста. В системе должна быть установлена программа "
 "Tesseract и необходимые модули языков."
 
@@ -19316,13 +19316,13 @@ msgstr "Укажите режим сегментации страницы."
 #, kde-format
 msgctxt "@label"
 msgid "Engine mode:"
-msgstr "Режим движка:"
+msgstr "Режим механизма:"
 
 #: core/dplugins/generic/tools/ocrtextconverter/textconvertersettings.cpp:122
 #, kde-format
 msgctxt "@info"
 msgid "Specify OCR engine mode."
-msgstr "Определить режим движка распознавания текста."
+msgstr "Определить режим механизма распознавания текста."
 
 #: core/dplugins/generic/tools/ocrtextconverter/textconvertersettings.cpp:126
 #, kde-format
@@ -27108,7 +27108,7 @@ msgstr "Импорт цифровых негативов с помощью Libra
 #, kde-format
 msgid "A tool to import Raw images using Libraw engine"
 msgstr ""
-"Инструмент для импорта цифровых негативов (RAW) с помощью движка Libraw"
+"Инструмент для импорта цифровых негативов (RAW) с помощью механизма Libraw"
 
 #: core/dplugins/rawimport/native/rawimportnativeplugin.cpp:64
 #, kde-format
@@ -27122,7 +27122,7 @@ msgstr ""
 "<p>Этот инструмент редактирования служит для импорта цифровых негативов "
 "(RAW) с использованием библиотеки Libraw в качестве декодера.</p><p>Это "
 "<b>встроенный</b> инструмент для импорта цифровых негативов, входящий в "
-"базовое приложение. Для его работы не требуется внешний движок.</"
+"базовое приложение. Для его работы не требуется внешний механизм.</"
 "p><p>Подробные сведения доступны на веб-сайте Libraw: <a href='https://www."
 "libraw.org/'>https://www.libraw.org/</a></p>"
 
@@ -30112,7 +30112,7 @@ msgstr "Всего объектов"
 #: core/libs/database/utils/widgets/dbstatdlg.cpp:77
 #, kde-format
 msgid "Database backend"
-msgstr "Движок базы данных"
+msgstr "Механизм базы данных"
 
 #: core/libs/database/utils/widgets/dbstatdlg.cpp:81
 #, kde-format
@@ -36018,7 +36018,7 @@ msgstr ""
 #, kde-format
 msgctxt "@label with a short translated text"
 msgid "Quality Engine:"
-msgstr "Движок оценки качества:"
+msgstr "Механизм оценки качества:"
 
 #: core/libs/imgqsort/imagequalitywidget.cpp:143
 #, kde-format
@@ -44249,7 +44249,7 @@ msgid ""
 msgstr ""
 "Модуль MJPEGStream,\n"
 "модуль преобразователя распознанного текста,\n"
-"движок автоматического присваивания меток"
+"механизм автоматического присваивания меток"
 
 #: core/libs/widgets/mainview/daboutdata.cpp:187
 #, kde-format
@@ -49164,7 +49164,7 @@ msgid ""
 "Error: Engine systems have detected suspicious traffic from your computer "
 "network. Please try your request again later."
 msgstr ""
-"Ошибка: системы движка обнаружили подозрительный трафик из вашей "
+"Ошибка: системы службы обнаружили подозрительный трафик из вашей "
 "компьютерной сети. Повторите попытку позже."
 
 #: core/libs/widgets/text/donlinetranslator_tables.cpp:103
@@ -49927,19 +49927,19 @@ msgstr "Зулусский"
 #, kde-format
 msgctxt "@info"
 msgid "Selected engine %1 does not support voice settings"
-msgstr "Выбранный движок %1 не поддерживает настройку голоса"
+msgstr "Выбранный модуль %1 не поддерживает настройку голоса"
 
 #: core/libs/widgets/text/donlinetranslator_tts.cpp:55
 #, kde-format
 msgctxt "@info"
 msgid "Selected engine %1 does not support emotion settings"
-msgstr "Выбранный движок %1 не поддерживает настройку эмоций"
+msgstr "Выбранный модуль %1 не поддерживает настройку эмоций"
 
 #: core/libs/widgets/text/donlinetranslator_tts.cpp:162
 #, kde-format
 msgctxt "@info"
 msgid "%1 engine does not support TTS"
-msgstr "Движок %1 не поддерживает TTS"
+msgstr "Модуль %1 не поддерживает TTS"
 
 #: core/libs/widgets/text/donlinetranslator_tts.cpp:260
 #, kde-format
@@ -50009,7 +50009,7 @@ msgstr "Онлайн-переводчик:"
 #, kde-format
 msgctxt "@option"
 msgid "Select here the online engine to translate text"
-msgstr "Выберите онлайн-движок для перевода текста"
+msgstr "Выберите онлайн-службу для перевода текста"
 
 #: core/libs/widgets/text/localizeconfig.cpp:230
 #, kde-kuit-format
@@ -50023,12 +50023,12 @@ msgid ""
 "translator engine depending of desired target language, as not all world-"
 "wide languages are supported by online Web-services.</para>"
 msgstr ""
-"<para>Движок переводчика — это онлайн-служба, используемая для перевода "
+"<para>Модуль переводчика — это онлайн-служба, используемая для перевода "
 "текста с одного языка на другой. Эта функция доступна в метаданных, где "
 "поддерживаются альтернативные языки для заголовка, комментария и так далее. "
 "Процесс перевода полностью автоматизирован, но он требует наличия интернет-"
 "соединения для работы.</para><para>Пользователь может выбирать более "
-"подходящий движок в зависимости от желаемого целевого языка, потому что "
+"подходящий модуль в зависимости от желаемого целевого языка, потому что "
 "некоторые языки не поддерживаются некоторыми онлайн-службами.</para>"
 
 #: core/libs/widgets/text/localizeconfig.cpp:320
