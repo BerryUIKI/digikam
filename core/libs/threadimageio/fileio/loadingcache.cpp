@@ -54,8 +54,8 @@ public:
     QCache<QString, QImage>         thumbnailImageCache;
     QCache<QString, QPixmap>        thumbnailPixmapCache;
     QCache<QString, QPixmap>        bufferedTPixmapCache;
-    QMultiHash<QString, QString>    imageFilePathHash;
-    QMultiHash<QString, QString>    thumbnailFilePathHash;
+    QHash<QString, QString>         imageFilePathHash;
+    QHash<QString, QString>         thumbnailFilePathHash;
     QHash<LoadingProcess*, QString> loadingDict;
 
     /// Note: Don't make the mutex recursive, we need to use a wait condition on it
@@ -86,7 +86,7 @@ void LoadingCache::Private::mapImageFilePath(const QString& filePath, const QStr
         cleanUpImageFilePathHash();
     }
 
-    imageFilePathHash.insert(filePath, cacheKey);
+    imageFilePathHash.insert(cacheKey, filePath);
 }
 
 void LoadingCache::Private::mapThumbnailFilePath(const QString& filePath, const QString& cacheKey)
@@ -96,7 +96,7 @@ void LoadingCache::Private::mapThumbnailFilePath(const QString& filePath, const 
         cleanUpThumbnailFilePathHash();
     }
 
-    thumbnailFilePathHash.insert(filePath, cacheKey);
+    thumbnailFilePathHash.insert(cacheKey, filePath);
 }
 
 void LoadingCache::Private::cleanUpImageFilePathHash()
@@ -104,13 +104,13 @@ void LoadingCache::Private::cleanUpImageFilePathHash()
     // Remove all entries from hash whose value is no longer a key in the cache
 
     QList<QString> keys = imageCache.keys();
-    QMultiHash<QString, QString>::iterator it;
+    QHash<QString, QString>::iterator it;
 
     for (it = imageFilePathHash.begin() ; it != imageFilePathHash.end() ; )     // clazy:exclude=compare-member-check
     {
-        if (!keys.contains(it.value()))
+        if (!keys.contains(it.key()))
         {
-            fileWatch()->removeImage(it.key());
+            fileWatch()->removeImage(it.value());
             it = imageFilePathHash.erase(it);
         }
         else
@@ -127,11 +127,11 @@ void LoadingCache::Private::cleanUpThumbnailFilePathHash()
     keys += thumbnailImageCache.keys();
     keys += thumbnailPixmapCache.keys();
 
-    QMultiHash<QString, QString>::iterator it;
+    QHash<QString, QString>::iterator it;
 
     for (it = thumbnailFilePathHash.begin() ; it != thumbnailFilePathHash.end() ; )     // clazy:exclude=compare-member-check
     {
-        if (!keys.contains(it.value()))
+        if (!keys.contains(it.key()))
         {
             it = thumbnailFilePathHash.erase(it);
         }
@@ -188,7 +188,7 @@ LoadingCache::~LoadingCache()
 
 DImg* LoadingCache::retrieveImage(const QString& cacheKey) const
 {
-    QString filePath(d->imageFilePathHash.key(cacheKey));
+    QString filePath(d->imageFilePathHash.value(cacheKey));
     d->fileWatch()->checkFileWatch(filePath);
 
     return d->imageCache[cacheKey];
@@ -345,14 +345,14 @@ void LoadingCache::setFileWatch(LoadingCacheFileWatch* const watch)
 
 void LoadingCache::notifyFileChanged(const QString& filePath, bool notify)
 {
-    QList<QString> keys = d->imageFilePathHash.values(filePath);
+    QList<QString> keys = d->imageFilePathHash.keys(filePath);
 
     for (const QString& cacheKey : std::as_const(keys))
     {
         d->imageCache.remove(cacheKey);
     }
 
-    keys = d->thumbnailFilePathHash.values(filePath);
+    keys = d->thumbnailFilePathHash.keys(filePath);
 
     for (const QString& cacheKey : std::as_const(keys))
     {
