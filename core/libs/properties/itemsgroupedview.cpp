@@ -314,17 +314,25 @@ void ItemsGroupedView::leaveEvent(QEvent* e)
     QTreeWidget::leaveEvent(e);
 }
 
+void ItemsGroupedView::setThumbnail(ItemsGroupedViewItem* const item) const
+{
+    QPixmap pix;
+
+    if (d->thumbLoadThread->find(ThumbnailIdentifier(item->info().fileUrl().toLocalFile()), pix))
+    {
+        item->setThumb(pix);
+    }
+}
+
 void ItemsGroupedView::setGroups(const ItemInfoList& items)
 {
     clear();
-
-    QList<ThumbnailIdentifier> thumbs;
 
     for (const ItemInfo& pinf : std::as_const(items))
     {
         ItemsGroupedViewItem* const p = new ItemsGroupedViewItem(this, pinf);
         addTopLevelItem(p);
-        thumbs.append(ThumbnailIdentifier(pinf.fileUrl().toLocalFile()));
+        setThumbnail(p);
 
         if (d->itemModel)
         {
@@ -338,18 +346,12 @@ void ItemsGroupedView::setGroups(const ItemInfoList& items)
             }
         }
 
-        const auto list               = pinf.groupedImages();
+        const auto list = pinf.groupedImages();
 
         for (const ItemInfo& cinf : std::as_const(list))
         {
-            new ItemsGroupedViewItem(p, cinf);
-            thumbs.append(ThumbnailIdentifier(cinf.fileUrl().toLocalFile()));
+            setThumbnail(new ItemsGroupedViewItem(p, cinf));
         }
-    }
-
-    for (const ThumbnailIdentifier& th : std::as_const(thumbs))
-    {
-        d->thumbLoadThread->find(th);
     }
 }
 

@@ -29,6 +29,7 @@ namespace Digikam
 {
 
 class ItemFilterModel;
+class ItemsGroupedViewItem;
 
 class ItemsGroupedView : public QTreeWidget
 {
@@ -58,6 +59,7 @@ private:
 
     void hideToolBar();
     bool acceptToolBar(const QPoint& pos)                          const;
+    void setThumbnail(ItemsGroupedViewItem* const item)            const;
 
     void mouseMoveEvent(QMouseEvent*)                                    override;
     void wheelEvent(QWheelEvent*)                                        override;
