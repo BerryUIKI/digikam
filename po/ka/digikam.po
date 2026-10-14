@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: digikam\n"
 "Report-Msgid-Bugs-To: https://bugs.kde.org\n"
 "POT-Creation-Date: 2026-10-03 00:42+0000\n"
-"PO-Revision-Date: 2026-09-26 16:55+0200\n"
+"PO-Revision-Date: 2026-10-13 14:44+0200\n"
 "Last-Translator: Temuri Doghonadze <temuri.doghonadze@gmail.com>\n"
 "Language-Team: Georgian <kde-i18n-doc@kde.org>\n"
 "Language: ka\n"
@@ -552,8 +552,8 @@ msgstr "ჭდის მინიატურად დაყენება"
 msgctxt "@action:inmenu Pluralized"
 msgid "Move to Trash"
 msgid_plural "Move %1 Files to Trash"
-msgstr[0] "ნაგავში გადატანა"
-msgstr[1] "%1 ფაილის ნაგავში გადატანა"
+msgstr[0] "ნაგვის ყუთში გადატანა"
+msgstr[1] "%1 ფაილის ნაგვის ყუთში გადატანა"
 
 #: core/app/items/utils/contextmenuhelper_actions.cpp:196
 #, kde-format
@@ -1906,7 +1906,7 @@ msgstr "ამჟამად არჩეული ელემენტის 
 #, kde-format
 msgctxt "@action: Non-pluralized"
 msgid "Move to Trash"
-msgstr "ნაგავში გადატანა"
+msgstr "ნაგვის ყუთში გადატანა"
 
 #: core/app/main/digikamapp_setup.cpp:521
 #, kde-format
@@ -1924,7 +1924,7 @@ msgstr "სამუდამოდ წაშლა დადასტურე�
 #, kde-format
 msgctxt "@action: setup"
 msgid "Move to trash without confirmation"
-msgstr "ნაგავში გადატანა დადასტურების გარეშე"
+msgstr "ნაგვის ყუთში გადატანა დადასტურების გარეშე"
 
 #: core/app/main/digikamapp_setup.cpp:547
 #, kde-format
@@ -26390,7 +26390,7 @@ msgstr "გამოტოვებულია"
 #: core/libs/database/utils/ifaces/dio.cpp:960
 #, kde-format
 msgid "Trash"
-msgstr "ნაგავი"
+msgstr "ნაგვის ყუთი"
 
 #: core/libs/album/engine/album.cpp:757
 #, kde-format
@@ -26945,7 +26945,7 @@ msgstr "კონტექსტური მენიუ"
 #: core/libs/database/utils/ifaces/dio.cpp:970
 #, kde-format
 msgid "Empty Trash"
-msgstr "ნაგვის დაცარიელება"
+msgstr "ნაგვის ყუთის დაცარიელება"
 
 #: core/libs/album/treeview/albumlabelssearchhandler.cpp:279
 #, kde-format
@@ -57703,7 +57703,7 @@ msgstr "სამუდამოდ წაშლა დადასტურე�
 #: core/utilities/imageeditor/main/imagewindow_setup.cpp:53
 #, kde-format
 msgid "Move to Trash without Confirmation"
-msgstr "ნაგავში გადატანა დადასტურების გარეშე"
+msgstr "ნაგვის ყუთში გადატანა დადასტურების გარეშე"
 
 #: core/utilities/imageeditor/main/imagewindow_setup.cpp:66
 #: core/utilities/survey/surveywindow_setup.cpp:155
@@ -59411,7 +59411,7 @@ msgstr "სინათლის ცხრილიდან ყველა ჩ
 #, kde-format
 msgctxt "Non-pluralized"
 msgid "Move to Trash"
-msgstr "ნაგავში გადატანა"
+msgstr "ნაგვის ყუთში გადატანა"
 
 #: core/utilities/lighttable/lighttablewindow_setup.cpp:91
 #: core/utilities/survey/surveywindow_setup.cpp:66
